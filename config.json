@@ -1,0 +1,8 @@
+{
+  "version": "1.0.0",
+  "type": "openapi",
+  "outputDir": "src",
+  "force": true,
+  "connectorName": "SampleSDK",
+  "namespace": "ShipStream\\FedEx"
+}

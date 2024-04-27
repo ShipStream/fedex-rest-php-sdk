@@ -1,0 +1,40 @@
+{
+    "name": "shipstream/fedex-php-sdk",
+    "description": "A PHP SDK for FedEx's API",
+    "authors": [
+        {
+            "name": "Jesse Evers",
+            "email": "jesse@highsidelabs.co"
+        }
+    ],
+    "require": {
+        "highsidelabs/saloon-sdk-generator": "^2.0"
+    },
+    "require-dev": {
+        "psy/psysh": "^0.12.3",
+        "symfony/console": "^7.0",
+        "phpcompatibility/php-compatibility": "^9.3",
+        "laravel/pint": "^1.15",
+        "composer/semver": "^3.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "ShipStream\\FedEx\\": "src/"
+        }
+    },
+    "scripts": {
+        "lint": [
+            "@pint",
+            "@php-compatibility-check"
+        ],
+        "pint": "php vendor/bin/pint",
+        "php-compatibility-check": "./vendor/bin/phpcs -p ./src ./bin --standard=PHPCompatibility --runtime-set testVersion 8.2-",
+        "post-install-cmd": "\"vendor/bin/phpcs\" --config-set installed_paths vendor/phpcompatibility/php-compatibility",
+        "post-update-cmd": "\"vendor/bin/phpcs\" --config-set installed_paths vendor/phpcompatibility/php-compatibility"
+    },
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    }
+}
