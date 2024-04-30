@@ -6,11 +6,9 @@ namespace ShipStream\FedEx\Generator\Schema;
 
 use GuzzleHttp\Client;
 use Illuminate\Support\Str;
-use InvalidArgumentException;
 use ShipStream\FedEx\Generator\Generator;
 use ShipStream\FedEx\Generator\Package;
 use ShipStream\FedEx\Generator\Schema;
-use stdClass;
 
 class SchemaVersion
 {
@@ -48,40 +46,18 @@ class SchemaVersion
 
     public function refactor(): void
     {
-        $schema = json_decode(file_get_contents($this->path(true)));
+        $rawPath = $this->path(true);
+        $inDir = scandir($rawPath);
+        $schemaFiles = array_filter($inDir, fn ($file) => is_file("$rawPath/$file"));
 
-        foreach ($schema->paths as $path => $operations) {
-            $ops = new stdClass;
-            foreach ($operations as $method => $operation) {
-                // Amazon sometimes puts random data in the operations list
-                if (! in_array($method, ['get', 'post', 'put', 'patch', 'delete'])) {
-                    continue;
-                }
-
-                // Standardize tags
-                $operation->tags = [$this->studlyName()];
-
-                foreach ($operation->responses as $code => $response) {
-                    $content = new stdClass;
-                    foreach ($response->content as $contentType => $mediaType) {
-                        // Sometimes Amazon puts response payload examples in the response content list,
-                        // which is not valid OpenAPI spec. This regex will have some false positives, but
-                        // it should be fine for our purposes.
-                        $regex = '/^(application|audio|image|message|multipart|text|video)\/.+$/';
-                        if (! preg_match($regex, $contentType)) {
-                            continue;
-                        }
-                        $content->{$contentType} = $mediaType;
-                    }
-                    $response->content = $content;
-                    $operation->responses->{$code} = $response;
-                }
-                $ops->{$method} = $operation;
-            }
-            $schema->paths->{$path} = $operations;
+        $schemas = [];
+        foreach ($schemaFiles as $schemaFile) {
+            $schemas[] = json_decode(file_get_contents("$rawPath/$schemaFile"));
         }
 
-        $schema = $this->modifySchema($schema);
+        $refactorer = new Refactorer($this, $schemas);
+        $refactorer->combine();
+        $refactored = $refactorer->applyModifications();
 
         $path = $this->path();
         $pathDir = dirname($path);
@@ -90,7 +66,7 @@ class SchemaVersion
         }
         file_put_contents(
             $path,
-            json_encode($schema, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES)
+            json_encode($refactored, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES)
         );
     }
 
@@ -138,36 +114,8 @@ class SchemaVersion
         return Str::studly($this->schema->name).'V'.str_replace('-', '', $this->version);
     }
 
-    protected function id(): string
+    public function id(): string
     {
         return "{$this->schema->code}.{$this->version}";
-    }
-
-    protected function modifySchema(stdClass &$schema): stdClass
-    {
-        $modifications = json_decode(file_get_contents(METADATA_DIR.'/modifications.json'));
-        $schemaMods = data_get($modifications, $this->id(), []);
-
-        foreach ($schemaMods as $mod) {
-            $original = data_get($schema, $mod->path);
-            $modified = match ($mod->action) {
-                'delete' => null,
-                'replace' => $mod->value,
-                'merge' => match (true) {
-                    is_array($original) => array_merge($original, $mod->value),
-                    is_object($original) => (object) array_merge((array) $original, (array) $mod->value),
-                    default => throw new InvalidArgumentException('Cannot merge scalar schema values'),
-                },
-                default => throw new InvalidArgumentException("Invalid schema modification action '{$mod->action}'"),
-            };
-
-            if ($modified === null) {
-                data_forget($schema, $mod->path);
-            } else {
-                data_set($schema, $mod->path, $modified);
-            }
-        }
-
-        return $schema;
     }
 }
