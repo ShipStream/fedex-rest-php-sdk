@@ -9,14 +9,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "oneOf": [
-                                    {
-                                        "$ref": "#/components/schemas/Full_Schema_Multiple_Piece_Shipment"
-                                    },
-                                    {
-                                        "$ref": "#/components/schemas/Minimum_Payload_Track_Multiple_Piece_Shipment"
-                                    }
-                                ]
+                                "$ref": "#/components/schemas/Full_Schema_Multiple_Piece_Shipment"
                             }
                         }
                     }
@@ -233,14 +226,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "oneOf": [
-                                    {
-                                        "$ref": "#/components/schemas/Full_Schema_Notification"
-                                    },
-                                    {
-                                        "$ref": "#/components/schemas/Send_Shipment_Notifications"
-                                    }
-                                ]
+                                "$ref": "#/components/schemas/Full_Schema_Notification"
                             }
                         }
                     },
@@ -458,17 +444,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "oneOf": [
-                                    {
-                                        "$ref": "#/components/schemas/Full_Schema_Tracking_References"
-                                    },
-                                    {
-                                        "$ref": "#/components/schemas/Track_by_References_using_accountNumber"
-                                    },
-                                    {
-                                        "$ref": "#/components/schemas/Track_by_References_using_destination"
-                                    }
-                                ]
+                                "$ref": "#/components/schemas/Full_Schema_Tracking_References"
                             }
                         }
                     },
@@ -686,14 +662,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "oneOf": [
-                                    {
-                                        "$ref": "#/components/schemas/Full_Schema_TCN"
-                                    },
-                                    {
-                                        "$ref": "#/components/schemas/Minimum_Payload_Track_By_Tracking_Control_Number"
-                                    }
-                                ]
+                                "$ref": "#/components/schemas/Full_Schema_TCN"
                             }
                         }
                     },
@@ -911,20 +880,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "oneOf": [
-                                    {
-                                        "$ref": "#/components/schemas/Full_Schema_SPOD"
-                                    },
-                                    {
-                                        "$ref": "#/components/schemas/Minimum_Payload_Track_Document"
-                                    },
-                                    {
-                                        "$ref": "#/components/schemas/Minimum_Sample_Payload_BOL"
-                                    },
-                                    {
-                                        "$ref": "#/components/schemas/Minimum_Sample_Payload_FBD"
-                                    }
-                                ]
+                                "$ref": "#/components/schemas/Full_Schema_SPOD"
                             }
                         }
                     },
@@ -1142,14 +1098,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "oneOf": [
-                                    {
-                                        "$ref": "#/components/schemas/Full_Schema_Tracking_Numbers"
-                                    },
-                                    {
-                                        "$ref": "#/components/schemas/Track_by_Tracking_Number"
-                                    }
-                                ]
+                                "$ref": "#/components/schemas/Full_Schema_Tracking_Numbers"
                             }
                         }
                     },
@@ -1504,16 +1453,6 @@
                     }
                 },
                 "description": "Specify the details about how to retrieve the subsequent pages when there is more than one page in the TrackReply."
-            },
-            "Minimum_Payload_Track_Multiple_Piece_Shipment": {
-                "example": {
-                    "masterTrackingNumberInfo": {
-                        "trackingNumberInfo": {
-                            "trackingNumber": "123456789012"
-                        }
-                    },
-                    "associatedType": "STANDARD_MPS"
-                }
             },
             "TrkcResponseVO_Associated": {
                 "type": "object",
@@ -3501,37 +3440,6 @@
                 },
                 "description": "Information uniquely identifying a shipment such as Tracking number, ShipDate, and Tracking number uniqueId."
             },
-            "Send_Shipment_Notifications": {
-                "example": {
-                    "trackingNumberInfo": {
-                        "trackingNumber": "770269059988"
-                    },
-                    "senderEMailAddress": "testuser@fedex.com",
-                    "senderContactName": "TestUser",
-                    "trackingEventNotificationDetail": {
-                        "trackingNotifications": [
-                            {
-                                "notificationEventTypes": [
-                                    "ON_ESTIMATED_DELIVERY",
-                                    "ON_TENDER",
-                                    "ON_EXCEPTION",
-                                    "ON_DELIVERY"
-                                ],
-                                "notificationDetail": {
-                                    "notificationType": "HTML",
-                                    "emailDetail": {
-                                        "emailAddress": "testuser@fedex.com"
-                                    },
-                                    "localization": {
-                                        "languageCode": "en",
-                                        "localeCode": "US"
-                                    }
-                                }
-                            }
-                        ]
-                    }
-                }
-            },
             "TrkcResponseVO_Notifications": {
                 "type": "object",
                 "properties": {
@@ -3674,29 +3582,6 @@
                 },
                 "description": "Specifies the reference details for the tracked shipment. The following rules apply <br>- Either shipper.AccountNumber or Destination.countryCode(and postal for postal aware countries) are required<br>- If ShipDateRangeBegin and End are not present, shipDateRangeBegin will be set to the current date minus 30 days, and shipDdateRangeEnd will default to current date plus one day."
             },
-            "Track_by_References_using_accountNumber": {
-                "example": {
-                    "referencesInformation": {
-                        "value": "11716439 [4133589]",
-                        "accountNumber": "XXX61073",
-                        "shipDateBegin": "2020-08-15",
-                        "shipDateEnd": "2020-08-15"
-                    }
-                }
-            },
-            "Track_by_References_using_destination": {
-                "example": {
-                    "referencesInformation": {
-                        "value": "11716439 [4133589]",
-                        "type": "PURCHASE_ORDER",
-                        "accountNumber": "",
-                        "shipDateBegin": "2020-08-15",
-                        "shipDateEnd": "2020-08-15",
-                        "destinationPostalCode": "80010",
-                        "destinationCountryCode": "US"
-                    }
-                }
-            },
             "TrkcResponseVO_ReferenceNumber": {
                 "type": "object",
                 "properties": {
@@ -3805,14 +3690,6 @@
                         "type": "string",
                         "description": "ShipDateBegin and ShipDateEnd are recommended to narrow the search, reduce lookup time, and avoid duplicates when searching for a specific tracking number within a specific date range. <br>Format: YYYY-MM-DD <br> Example: 2020-04-01",
                         "example": "2020-04-01"
-                    }
-                }
-            },
-            "Minimum_Payload_Track_By_Tracking_Control_Number": {
-                "example": {
-                    "tcnInfo": {
-                        "value": "N552428361Y506XXX",
-                        "shipDateBegin": "2019-01-04"
                     }
                 }
             },
@@ -3942,52 +3819,6 @@
                     }
                 }
             },
-            "Minimum_Payload_Track_Document": {
-                "example": {
-                    "trackDocumentSpecification": [
-                        {
-                            "trackingNumberInfo": {
-                                "trackingNumber": "794971357442"
-                            }
-                        }
-                    ],
-                    "trackDocumentDetail": {
-                        "documentType": "SIGNATURE_PROOF_OF_DELIVERY"
-                    }
-                }
-            },
-            "Minimum_Sample_Payload_BOL": {
-                "example": {
-                    "trackDocumentSpecification": [
-                        {
-                            "accountNumber": "123456789",
-                            "trackingNumberInfo": {
-                                "trackingNumber": "794924591930"
-                            }
-                        }
-                    ],
-                    "trackDocumentDetail": {
-                        "documentType": "BILL_OF_LADING",
-                        "documentFormat": "PDF"
-                    }
-                }
-            },
-            "Minimum_Sample_Payload_FBD": {
-                "example": {
-                    "trackDocumentSpecification": [
-                        {
-                            "accountNumber": "123456789",
-                            "trackingNumberInfo": {
-                                "trackingNumber": "794924591930"
-                            }
-                        }
-                    ],
-                    "trackDocumentDetail": {
-                        "documentType": "FREIGHT_BILLING_DOCUMENT",
-                        "documentFormat": "PDF"
-                    }
-                }
-            },
             "TrkcResponseVO_SPOD": {
                 "type": "object",
                 "properties": {
@@ -4106,18 +3937,6 @@
                     }
                 },
                 "description": "Information uniquely identifying a shipment such as Tracking number, ShipDate, and Tracking number uniqueId."
-            },
-            "Track_by_Tracking_Number": {
-                "example": {
-                    "trackingInfo": [
-                        {
-                            "trackingNumberInfo": {
-                                "trackingNumber": "794843185271"
-                            }
-                        }
-                    ],
-                    "includeDetailedScans": true
-                }
             },
             "TrkcResponseVO_TrackingNumber": {
                 "type": "object",

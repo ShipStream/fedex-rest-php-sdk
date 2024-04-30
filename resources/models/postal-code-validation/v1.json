@@ -9,14 +9,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "oneOf": [
-                                    {
-                                        "$ref": "#/components/schemas/FullSchema-ValidatePostal"
-                                    },
-                                    {
-                                        "$ref": "#/components/schemas/MinimumSamplePayload"
-                                    }
-                                ]
+                                "$ref": "#/components/schemas/FullSchema-ValidatePostal"
                             }
                         }
                     }
@@ -281,15 +274,6 @@
                     }
                 },
                 "description": "The request elements for validating a postal code."
-            },
-            "MinimumSamplePayload": {
-                "example": {
-                    "carrierCode": "FDXE",
-                    "countryCode": "US",
-                    "stateOrProvinceCode": "TN",
-                    "postalCode": "38017",
-                    "shipDate": "2016-09-13"
-                }
             },
             "CountryCXSResponseVO": {
                 "type": "object",

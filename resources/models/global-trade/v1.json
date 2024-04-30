@@ -9,14 +9,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "oneOf": [
-                                    {
-                                        "$ref": "#/components/schemas/FullSchema"
-                                    },
-                                    {
-                                        "$ref": "#/components/schemas/MinimumSamplePayload"
-                                    }
-                                ]
+                                "$ref": "#/components/schemas/FullSchema"
                             }
                         }
                     }
@@ -518,28 +511,6 @@
                         "xml": {
                             "name": "Quantity"
                         }
-                    }
-                }
-            },
-            "MinimumSamplePayload": {
-                "example": {
-                    "originAddress": {
-                        "countryCode": "IN"
-                    },
-                    "destinationAddress": {
-                        "countryCode": "CA"
-                    },
-                    "carrierCode": "FDXE",
-                    "customsClearanceDetail": {
-                        "customsValue": {
-                            "amount": "",
-                            "currency": ""
-                        },
-                        "commodities": [
-                            {
-                                "harmonizedCode": "580122"
-                            }
-                        ]
                     }
                 }
             },

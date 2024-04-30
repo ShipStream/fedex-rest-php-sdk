@@ -10,6 +10,8 @@ use stdClass;
 
 class Refactorer
 {
+    private stdClass $currentSchema;
+
     private stdClass $combined;
 
     private array $blacklistedComponents = [];
@@ -26,43 +28,42 @@ class Refactorer
     public function combine(): void
     {
         $combined = static::baseSchema();
+
         foreach ($this->schemas as $originalSchema) {
             // Only need to get the info and openapi properties from the first schema file
-            if (! isset($combined->info)) {
+            if (! isset($this->currentSchema)) {
                 $combined->openapi = $originalSchema->openapi;
                 $combined->info = $originalSchema->info;
             }
 
-            foreach ($originalSchema->paths as $path => $operations) {
+            $this->currentSchema = $originalSchema;
+
+            foreach ($this->currentSchema->paths as $path => $operations) {
+                foreach ($operations as $method => $operation) {
+                    if (isset($operation->requestBody)) {
+                        foreach ($operation->requestBody->content as $contentType => $mediaType) {
+                            if (isset($mediaType->schema->oneOf)) {
+                                $mediaType->schema = $this->oneOf($mediaType->schema);
+                                $operation->requestBody->content->{$contentType} = $mediaType;
+                            }
+                        }
+                    }
+                }
+                $operations->{$method} = $operation;
                 $combined->paths->{$path} = $operations;
             }
 
-            foreach ($originalSchema->components->schemas as $name => $component) {
+            foreach ($this->currentSchema->components->schemas as $name => $component) {
                 // FedEx uses oneOf properties to show multiple examples for a particular
                 // schema or endpoint, but most of them are not actual OpenAPI component definitions
                 // and instead only contain example payloads.
                 if (isset($component->oneOf)) {
-                    $oneOf = [];
-                    foreach ($component->oneOf as $refObj) {
-                        $exploded = explode('/', $refObj->{'$ref'});
-                        $subComponentName = end($exploded);
-                        $subComponent = $originalSchema->components->schemas->{$subComponentName};
-
-                        if (array_keys(get_object_vars($subComponent)) === ['example']) {
-                            $this->blacklistedComponents[] = $subComponentName;
-
-                            continue;
-                        }
-
-                        $oneOf[] = $refObj;
-                    }
+                    $component = $this->oneOf($component);
                 } elseif (isset($component->allOf)) {
                     $component = $this->allOf($component);
                 }
 
-                $originalComponent = $originalSchema->components->schemas->{$name} ?? new stdClass;
-
-                if (isset($originalComponent->required)) {
+                if (isset($component->required)) {
                     $required = array_merge(
                         $combined->components->schemas->{$name}->required ?? [],
                         $component->required ?? []
@@ -70,7 +71,7 @@ class Refactorer
                     $component->required = array_unique($required);
                 }
 
-                foreach ($originalComponent->properties ?? [] as $property => $details) {
+                foreach ($component->properties ?? [] as $property => $details) {
                     if (! isset($component->properties)) {
                         $component->properties = new stdClass;
                     }
@@ -84,19 +85,16 @@ class Refactorer
                     }
                 }
 
-                // Note: our oneOf handling assumes that there will never be two raw schema files
-                // with overlapping components, with one having a oneOf and the other not. There
-                // currently are not any examples of that happening in the FedEx API schemas.
-                if (isset($component->oneOf) && count($oneOf) === 1) {
-                    $component = (object) ['$ref' => $component->oneOf[0]->{'$ref'}];
-                }
-
                 $combined->components->schemas->{$name} = $component;
             }
+
+            unset($this->currentSchema);
         }
 
         foreach ($this->blacklistedComponents as $component) {
-            unset($combined->components->schemas->{$component});
+            $exploded = explode('/', $component);
+            $name = end($exploded);
+            unset($combined->components->schemas->{$name});
         }
 
         $this->combined = $combined;
@@ -155,6 +153,47 @@ class Refactorer
         }
 
         return $obj;
+    }
+
+    protected function oneOf(stdClass $obj): stdClass
+    {
+        $oneOf = [];
+        foreach ($obj->oneOf as $refObj) {
+            $ref = $refObj->{'$ref'};
+            $subComponent = $this->componentByRef($ref);
+
+            if (array_keys((array) $subComponent) === ['example']) {
+                $this->blacklistedComponents[] = $ref;
+
+                continue;
+            }
+
+            $oneOf[] = $refObj;
+        }
+
+        // Note: our oneOf handling assumes that there will never be two raw schema files
+        // with overlapping components, with one having a oneOf and the other not. There
+        // currently are not any examples of that happening in the FedEx API schemas.
+        if (isset($obj->oneOf) && count($oneOf) === 1) {
+            $obj = (object) ['$ref' => $obj->oneOf[0]->{'$ref'}];
+        } else {
+            $obj->oneOf = $oneOf;
+        }
+
+        return $obj;
+    }
+
+    protected function componentByRef(string $ref): stdClass|false
+    {
+        $schema = $this->combined ?? $this->currentSchema;
+        if (! $schema) {
+            throw new Exception('Cannot get component by ref without a schema');
+        }
+
+        $exploded = explode('/', $ref);
+        $subComponentName = end($exploded);
+
+        return $schema->components->schemas->{$subComponentName} ?? false;
     }
 
     protected static function baseSchema(): stdClass

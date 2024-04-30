@@ -9,17 +9,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "oneOf": [
-                                    {
-                                        "$ref": "#/components/schemas/FullSchema-createOpenShipment"
-                                    },
-                                    {
-                                        "$ref": "#/components/schemas/MinimumSamplePayload-CreateOpenshipment"
-                                    },
-                                    {
-                                        "$ref": "#/components/schemas/MinimumSamplePayload-CreateOpenshipmentAsynchronous"
-                                    }
-                                ]
+                                "$ref": "#/components/schemas/FullSchema-createOpenShipment"
                             }
                         }
                     }
@@ -216,14 +206,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "oneOf": [
-                                    {
-                                        "$ref": "#/components/schemas/FullSchema-modifyOpenShipment"
-                                    },
-                                    {
-                                        "$ref": "#/components/schemas/MinimumSamplePayload-modifyOpenShipment"
-                                    }
-                                ]
+                                "$ref": "#/components/schemas/FullSchema-modifyOpenShipment"
                             }
                         }
                     }
@@ -437,14 +420,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "oneOf": [
-                                    {
-                                        "$ref": "#/components/schemas/FullSchema-confirmOpenShipment"
-                                    },
-                                    {
-                                        "$ref": "#/components/schemas/MinimumSamplePayload-confirmOpenShipment"
-                                    }
-                                ]
+                                "$ref": "#/components/schemas/FullSchema-confirmOpenShipment"
                             }
                         }
                     }
@@ -631,14 +607,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "oneOf": [
-                                    {
-                                        "$ref": "#/components/schemas/FullSchema-modifyPackageInOpenShipment"
-                                    },
-                                    {
-                                        "$ref": "#/components/schemas/MinimumSamplePayload-modifyPackageInOpenShipment"
-                                    }
-                                ]
+                                "$ref": "#/components/schemas/FullSchema-modifyPackageInOpenShipment"
                             }
                         }
                     }
@@ -853,14 +822,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "oneOf": [
-                                    {
-                                        "$ref": "#/components/schemas/FullSchema-addPackagesToOpenShipment"
-                                    },
-                                    {
-                                        "$ref": "#/components/schemas/MinimumSamplePayload-addPackagesInOpenShipment"
-                                    }
-                                ]
+                                "$ref": "#/components/schemas/FullSchema-addPackagesToOpenShipment"
                             }
                         }
                     }
@@ -1047,14 +1009,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "oneOf": [
-                                    {
-                                        "$ref": "#/components/schemas/FullSchema-deletePackagesFromOpenShipment"
-                                    },
-                                    {
-                                        "$ref": "#/components/schemas/MinimumSamplePayload-deletePackagesOpenShipment"
-                                    }
-                                ]
+                                "$ref": "#/components/schemas/FullSchema-deletePackagesFromOpenShipment"
                             }
                         }
                     }
@@ -1271,14 +1226,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "oneOf": [
-                                    {
-                                        "$ref": "#/components/schemas/FullSchema-retrievePackageInOpenShipment"
-                                    },
-                                    {
-                                        "$ref": "#/components/schemas/MinimumSamplePayload-retrievePackageInOpenShipment"
-                                    }
-                                ]
+                                "$ref": "#/components/schemas/FullSchema-retrievePackageInOpenShipment"
                             }
                         }
                     }
@@ -1495,14 +1443,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "oneOf": [
-                                    {
-                                        "$ref": "#/components/schemas/FullSchema-deleteOpenShipment"
-                                    },
-                                    {
-                                        "$ref": "#/components/schemas/MinimumSamplePayload-deleteOpenShipment"
-                                    }
-                                ]
+                                "$ref": "#/components/schemas/FullSchema-deleteOpenShipment"
                             }
                         }
                     }
@@ -1719,14 +1660,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "oneOf": [
-                                    {
-                                        "$ref": "#/components/schemas/FullSchema-RetrieveOpenShipment"
-                                    },
-                                    {
-                                        "$ref": "#/components/schemas/MinimumSamplePayload-RetrieveOpenShipment"
-                                    }
-                                ]
+                                "$ref": "#/components/schemas/FullSchema-RetrieveOpenShipment"
                             }
                         }
                     }
@@ -1923,20 +1857,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "oneOf": [
-                                    {
-                                        "$ref": "#/components/schemas/FullSchema-getOpenShipmentResults"
-                                    },
-                                    {
-                                        "$ref": "#/components/schemas/MinimumSamplePayload-getConfirmOpenShipmentResults"
-                                    },
-                                    {
-                                        "$ref": "#/components/schemas/MinimumSamplePayload-getCreateOpenShipmentResults"
-                                    },
-                                    {
-                                        "$ref": "#/components/schemas/MinimumSamplePayload-getModifyOpenShipmentResults"
-                                    }
-                                ]
+                                "$ref": "#/components/schemas/FullSchema-getOpenShipmentResults"
                             }
                         }
                     }
@@ -4961,136 +4882,6 @@
                     "CREATE_PACKAGE"
                 ]
             },
-            "MinimumSamplePayload-CreateOpenshipment": {
-                "example": {
-                    "index": "Test1234",
-                    "requestedShipment": {
-                        "shipper": {
-                            "contact": {
-                                "personName": "SENDER NAME",
-                                "phoneNumber": "901xxx8595"
-                            },
-                            "address": {
-                                "streetLines": [
-                                    "SENDER ADDRESS 1"
-                                ],
-                                "city": "MEMPHIS",
-                                "stateOrProvinceCode": "TN",
-                                "postalCode": "38116",
-                                "countryCode": "US"
-                            }
-                        },
-                        "recipients": [
-                            {
-                                "contact": {
-                                    "personName": "RECIPIENT NAME",
-                                    "phoneNumber": "901xxx8595"
-                                },
-                                "address": {
-                                    "streetLines": [
-                                        "RECIPIENT ADDRESS 1"
-                                    ],
-                                    "city": "MEMPHIS",
-                                    "stateOrProvinceCode": "TN",
-                                    "postalCode": "38116",
-                                    "countryCode": "US"
-                                }
-                            }
-                        ],
-                        "serviceType": "STANDARD_OVERNIGHT",
-                        "packagingType": "YOUR_PACKAGING",
-                        "pickupType": "DROPOFF_AT_FEDEX_LOCATION",
-                        "shippingChargesPayment": {
-                            "paymentType": "SENDER"
-                        },
-                        "requestedPackageLineItems": [
-                            {
-                                "weight": {
-                                    "units": "LB",
-                                    "value": "20"
-                                }
-                            }
-                        ]
-                    },
-                    "accountNumber": {
-                        "value": "Your account number"
-                    }
-                }
-            },
-            "MinimumSamplePayload-CreateOpenshipmentAsynchronous": {
-                "example": {
-                    "index": "Test1234",
-                    "openShipmentAction": "CREATE_PACKAGE",
-                    "requestedShipment": {
-                        "shipper": {
-                            "contact": {
-                                "personName": "SENDER NAME",
-                                "phoneNumber": "9018328595"
-                            },
-                            "address": {
-                                "streetLines": [
-                                    "SENDER ADDRESS 1"
-                                ],
-                                "city": "MEMPHIS",
-                                "stateOrProvinceCode": "TN",
-                                "postalCode": "38116",
-                                "countryCode": "US"
-                            }
-                        },
-                        "recipients": [
-                            {
-                                "contact": {
-                                    "personName": "RECIPIENT NAME",
-                                    "phoneNumber": "9018328595"
-                                },
-                                "address": {
-                                    "streetLines": [
-                                        "RECIPIENT ADDRESS 1"
-                                    ],
-                                    "city": "MEMPHIS",
-                                    "stateOrProvinceCode": "TN",
-                                    "postalCode": "38116",
-                                    "countryCode": "US"
-                                }
-                            }
-                        ],
-                        "serviceType": "STANDARD_OVERNIGHT",
-                        "packagingType": "YOUR_PACKAGING",
-                        "pickupType": "DROPOFF_AT_FEDEX_LOCATION",
-                        "shippingChargesPayment": {
-                            "paymentType": "SENDER"
-                        },
-                        "labelSpecification": {
-                            "labelStockType": "PAPER_4X6",
-                            "imageType": "PDF"
-                        },
-                        "requestedPackageLineItems": [
-                            {
-                                "subPackagingType": "OTHER",
-                                "groupPackageCount": "41",
-                                "itemDescriptionForClearance": "SELFPACKAGE_BASKET",
-                                "declaredValue": {
-                                    "amount": "67",
-                                    "currency": "INR"
-                                },
-                                "weight": {
-                                    "units": "KG",
-                                    "value": "12"
-                                },
-                                "dimensions": {
-                                    "length": "7",
-                                    "width": "7",
-                                    "units": "CM",
-                                    "height": "7"
-                                }
-                            }
-                        ]
-                    },
-                    "accountNumber": {
-                        "value": "Your account number"
-                    }
-                }
-            },
             "SHPCResponseVO_CreateOpenShipment": {
                 "type": "object",
                 "properties": {
@@ -7287,77 +7078,6 @@
                     }
                 }
             },
-            "MinimumSamplePayload-modifyOpenShipment": {
-                "example": {
-                    "requestedShipment": {
-                        "shipper": {
-                            "contact": {
-                                "personName": "TEST_Sender_Name_Modify",
-                                "phoneNumber": "9012704839",
-                                "companyName": "TEST_APISENDER-WSXI6000"
-                            },
-                            "address": {
-                                "city": "MEMPHIS",
-                                "stateOrProvinceCode": "TN",
-                                "postalCode": "38101",
-                                "countryCode": "US",
-                                "residential": false,
-                                "streetLines": [
-                                    "TEST_Sender_Address_Line1",
-                                    "TEST_Sender_Address_Line2"
-                                ]
-                            }
-                        },
-                        "recipients": [
-                            {
-                                "contact": {
-                                    "personName": "TEST_Recipient_Name",
-                                    "phoneNumber": "9018549266",
-                                    "companyName": "TEST_APIRECIPIENT-WSXI6000"
-                                },
-                                "address": {
-                                    "city": "PITTSBURGH",
-                                    "stateOrProvinceCode": "PA",
-                                    "postalCode": "15220",
-                                    "countryCode": "US",
-                                    "residential": false,
-                                    "streetLines": [
-                                        "45 NOBLESTOWN RD"
-                                    ]
-                                }
-                            }
-                        ],
-                        "pickupType": "DROPOFF_AT_FEDEX_LOCATION",
-                        "serviceType": "FEDEX_2_DAY",
-                        "packagingType": "YOUR_PACKAGING",
-                        "shippingChargesPayment": {
-                            "paymentType": "SENDER"
-                        },
-                        "labelSpecification": {
-                            "imageType": "PDF",
-                            "labelStockType": "PAPER_7X475"
-                        },
-                        "requestedPackageLineItems": [
-                            {
-                                "weight": {
-                                    "units": "LB",
-                                    "value": "10"
-                                }
-                            },
-                            {
-                                "weight": {
-                                    "units": "LB",
-                                    "value": "10"
-                                }
-                            }
-                        ]
-                    },
-                    "index": "Test1234",
-                    "accountNumber": {
-                        "value": "Your account number"
-                    }
-                }
-            },
             "SHPCResponseVO_ModifyOpenShipment": {
                 "type": "object",
                 "properties": {
@@ -8520,19 +8240,6 @@
                 },
                 "description": "The instructions indicating how to print the Commercial Invoice( e.g. image type) Specifies characteristics of a shipping document to be produced."
             },
-            "MinimumSamplePayload-confirmOpenShipment": {
-                "example": {
-                    "accountNumber": {
-                        "value": "Your account number"
-                    },
-                    "index": "Test1234",
-                    "labelResponseOptions": "URL_ONLY",
-                    "labelSpecification": {
-                        "labelStockType": "PAPER_85X11_TOP_HALF_LABEL",
-                        "imageType": "PDF"
-                    }
-                }
-            },
             "SHPCResponseVO_ConfirmOpenShipment": {
                 "type": "object",
                 "properties": {
@@ -8887,35 +8594,6 @@
                     "TRANSFER"
                 ]
             },
-            "MinimumSamplePayload-modifyPackageInOpenShipment": {
-                "example": {
-                    "accountNumber": {
-                        "value": "8014xxxxx"
-                    },
-                    "index": "Test1234",
-                    "trackingId": {
-                        "trackingIdType": "FEDEX",
-                        "formId": "0263",
-                        "trackingNumber": "7950095xxxxx"
-                    },
-                    "requestedPackageLineItem": {
-                        "weight": {
-                            "units": "LB",
-                            "value": "20"
-                        },
-                        "dimensions": {
-                            "length": "12",
-                            "height": "12",
-                            "width": "16",
-                            "units": "IN"
-                        },
-                        "declaredValue": {
-                            "currency": "USD",
-                            "amount": "100"
-                        }
-                    }
-                }
-            },
             "SHPCResponseVO_ModifyPackageInOpenShipment": {
                 "type": "object",
                 "properties": {
@@ -9118,26 +8796,6 @@
                 },
                 "description": "The response elements received when a shipment is created."
             },
-            "MinimumSamplePayload-addPackagesInOpenShipment": {
-                "example": {
-                    "accountNumber": {
-                        "value": "8014xxxxx"
-                    },
-                    "index": "Test1234",
-                    "requestedPackageLineItems": [
-                        {
-                            "weight": {
-                                "units": "LB",
-                                "value": "20"
-                            },
-                            "declaredValue": {
-                                "currency": "USD",
-                                "amount": "100"
-                            }
-                        }
-                    ]
-                }
-            },
             "SHPCResponseVO_AddPackagesToOpenShipment": {
                 "type": "object",
                 "properties": {
@@ -9205,21 +8863,6 @@
                     }
                 }
             },
-            "MinimumSamplePayload-deletePackagesOpenShipment": {
-                "example": {
-                    "index": "Test1234",
-                    "trackingIds": [
-                        {
-                            "trackingIdType": "FEDEX",
-                            "formId": "0263",
-                            "trackingNumber": "7950095xxxxx"
-                        }
-                    ],
-                    "accountNumber": {
-                        "value": "8014xxxxx"
-                    }
-                }
-            },
             "SHPCResponseVO_DeletePackages": {
                 "type": "object",
                 "properties": {
@@ -9280,19 +8923,6 @@
                     }
                 }
             },
-            "MinimumSamplePayload-retrievePackageInOpenShipment": {
-                "example": {
-                    "accountNumber": {
-                        "value": "801472842"
-                    },
-                    "index": "Test1234",
-                    "trackingId": {
-                        "trackingIdType": "FEDEX",
-                        "formId": "0263",
-                        "trackingNumber": "795009503570"
-                    }
-                }
-            },
             "SHPCResponseVO_RetrievePackageInOpenShipment": {
                 "type": "object",
                 "properties": {
@@ -9345,14 +8975,6 @@
                     "accountNumber": {
                         "$ref": "#/components/schemas/AccountNumber"
                     }
-                }
-            },
-            "MinimumSamplePayload-deleteOpenShipment": {
-                "example": {
-                    "accountNumber": {
-                        "value": "8014xxxxx"
-                    },
-                    "index": "Test1234"
                 }
             },
             "SHPCResponseVO_DeleteOpenShipment": {
@@ -9410,14 +9032,6 @@
                     "accountNumber": {
                         "$ref": "#/components/schemas/AccountNumber"
                     }
-                }
-            },
-            "MinimumSamplePayload-RetrieveOpenShipment": {
-                "example": {
-                    "accountNumber": {
-                        "value": "8014xxxxx"
-                    },
-                    "index": "Test1234"
                 }
             },
             "SHPCResponseVO_RetrieveOpenShipment": {
@@ -10128,33 +9742,6 @@
                     "accountNumber": {
                         "$ref": "#/components/schemas/AccountNumber"
                     }
-                }
-            },
-            "MinimumSamplePayload-getConfirmOpenShipmentResults": {
-                "example": {
-                    "accountNumber": {
-                        "value": "8014xxxxx"
-                    },
-                    "jobId": "89sxxxxx233ae24ff31xxxxx",
-                    "resultMethodType": "CONFIRM"
-                }
-            },
-            "MinimumSamplePayload-getCreateOpenShipmentResults": {
-                "example": {
-                    "accountNumber": {
-                        "value": "8014xxxxx"
-                    },
-                    "jobId": "89sxxxxx233ae24ff31xxxxx",
-                    "resultMethodType": "CREATE"
-                }
-            },
-            "MinimumSamplePayload-getModifyOpenShipmentResults": {
-                "example": {
-                    "accountNumber": {
-                        "value": "8014xxxxx"
-                    },
-                    "jobId": "89sxxxxx233ae24ff31xxxxx",
-                    "resultMethodType": "MODIFY"
                 }
             },
             "SHPCResponseVO_GetOpenShipmentResults": {
