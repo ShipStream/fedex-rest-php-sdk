@@ -97,7 +97,7 @@ class Schema
      */
     public function path(bool $upstream = false): string
     {
-        return MODEL_DIR.($upstream ? '/raw' : '')."/{$this->code}";
+        return MODEL_DIR.($upstream ? '/.raw' : '')."/{$this->code}";
     }
 
     /**

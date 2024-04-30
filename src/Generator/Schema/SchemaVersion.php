@@ -103,18 +103,19 @@ class SchemaVersion
             $this->url = [$this->url];
         }
 
+        $path = $this->path(true);
         foreach ($this->url as $url) {
             $client = new Client();
             $res = $client->get($url);
             $json = json_decode($res->getBody()->getContents());
 
-            $path = $this->path(true, $url);
-            $pathDir = dirname($path);
-            if (! is_dir($pathDir)) {
-                mkdir($pathDir, 0755, true);
+            if (! is_dir($path)) {
+                mkdir($path, 0755, true);
             }
+
+            $fname = basename($url);
             file_put_contents(
-                $path,
+                "{$path}/{$fname}",
                 json_encode($json, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES)
             );
         }
@@ -124,18 +125,12 @@ class SchemaVersion
      * Get the path for this schema version.
      *
      * @param  bool  $upstream  If true, return the path where original Amazon schemas are stored.
-     * @param  string  $url  The URL of the upstream schema, if applicable. Required if $upstream = true.
      */
-    public function path(bool $upstream = false, string $url = ''): string
+    public function path(bool $upstream = false): string
     {
-        $schemaPath = $this->schema->path($upstream);
-        if ($upstream) {
-            $basename = basename($url);
+        $ext = $upstream ? '' : '.json';
 
-            return "{$schemaPath}/v{$this->version}/{$basename}";
-        }
-
-        return "{$schemaPath}/v{$this->version}.json";
+        return "{$this->schema->path($upstream)}/v{$this->version}{$ext}";
     }
 
     public function studlyName(): string
