@@ -824,11 +824,9 @@
                         "type": "array",
                         "description": "List of FedEx locations meeting the search criteria.",
                         "items": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/components/schemas/LocationDetail"
-                                }
-                            ]
+                            "schema": {
+                                "$ref": "#/components/schemas/LocationDetail"
+                            }
                         }
                     },
                     "alerts": {

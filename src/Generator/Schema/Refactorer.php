@@ -78,6 +78,8 @@ class Refactorer
 
                     if (isset($details->allOf)) {
                         $details = $this->allOf($details);
+                    } elseif (isset($details->items->allOf)) {
+                        $details->items = $this->allOf($details->items);
                     }
 
                     if (! isset($component->properties->{$property})) {

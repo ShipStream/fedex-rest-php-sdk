@@ -1238,11 +1238,9 @@
                         "description": "The information for advanced regulatory packages.",
                         "items": {
                             "description": "Response model which holds information about advancedRegulatoryPackages such as Key, DisplayText",
-                            "allOf": [
-                                {
-                                    "$ref": "#/components/schemas/KeyDisplayTextVO1"
-                                }
-                            ]
+                            "schema": {
+                                "$ref": "#/components/schemas/KeyDisplayTextVO1"
+                            }
                         }
                     },
                     "serviceOptions": {
@@ -1253,11 +1251,9 @@
                             "displayText": "FedEx Ground"
                         },
                         "items": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/components/schemas/KeyDisplayTextVO_2"
-                                }
-                            ]
+                            "schema": {
+                                "$ref": "#/components/schemas/KeyDisplayTextVO_2"
+                            }
                         }
                     },
                     "alerts": {

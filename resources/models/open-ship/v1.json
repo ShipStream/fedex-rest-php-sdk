@@ -6338,11 +6338,9 @@
                         "type": "array",
                         "description": "All transportation-based taxes applicable to this shipment.",
                         "items": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/components/schemas/Tax"
-                                }
-                            ]
+                            "schema": {
+                                "$ref": "#/components/schemas/Tax"
+                            }
                         }
                     },
                     "totalRebates": {

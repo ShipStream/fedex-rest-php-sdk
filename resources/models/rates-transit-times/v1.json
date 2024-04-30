@@ -1833,11 +1833,9 @@
                         "type": "array",
                         "description": "This is data for a single leg of a shipment's total/summary rates, as calculated per a specific rate type.",
                         "items": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/components/schemas/ShipmentLegRateDetail_1"
-                                }
-                            ]
+                            "schema": {
+                                "$ref": "#/components/schemas/ShipmentLegRateDetail_1"
+                            }
                         }
                     },
                     "freightChargeBasis": {
