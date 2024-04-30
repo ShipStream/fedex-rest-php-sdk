@@ -4,7 +4,7 @@
     "versions": [
       {
         "version": "1",
-        "url": "blob:https://developer.fedex.com/53b234c1-b2de-490f-aa17-96487135453d"
+        "url": "https://developer.fedex.com/wirc/json/api_groups/APIAuthorization/APIAuthorization-Resource.json"
       }
     ]
   },
@@ -13,7 +13,7 @@
     "versions": [
       {
         "version": "1",
-        "url": "blob:https://developer.fedex.com/48641e34-5606-4363-8455-8fdbd6b6ebe7"
+        "url": "https://developer.fedex.com/wirc/json/api_groups/AddressValidation/Addresses-Resource.json"
       }
     ]
   },
@@ -22,7 +22,7 @@
     "versions": [
       {
         "version": "1",
-        "url": "blob:https://developer.fedex.com/e9177bda-5939-49c2-8a5d-b98f695c116a"
+        "url": "https://developer.fedex.com/wirc/json/api_groups/Location/Locations-Resource.json"
       }
     ]
   },
@@ -31,7 +31,7 @@
     "versions": [
       {
         "version": "1",
-        "url": "blob:https://developer.fedex.com/025c3d0f-a94c-46bb-89a7-9b947fbb36c2"
+        "url": "https://developer.fedex.com/wirc/json/api_groups/LTLFreightAPI/LTLFreight-Resource.json"
       }
     ]
   },
@@ -40,7 +40,7 @@
     "versions": [
       {
         "version": "1",
-        "url": "blob:https://developer.fedex.com/e1132fab-b950-45f5-8944-360a9a6f6c7b"
+        "url": "https://developer.fedex.com/wirc/json/api_groups/GlobalTrade/GlobalTrade-Resource.json"
       }
     ]
   },
@@ -49,7 +49,7 @@
     "versions": [
       {
         "version": "1",
-        "url": "blob:https://developer.fedex.com/88817389-2af8-49c1-9d79-1838dae36bee"
+        "url": "https://developer.fedex.com/wirc/json/api_groups/CloseAPI/ShipmentCloseAPI-Resource.json"
       }
     ]
   },
@@ -58,7 +58,7 @@
     "versions": [
       {
         "version": "1",
-        "url": "blob:https://developer.fedex.com/072859b5-8023-4b7a-9b1e-f6c28ed52082"
+        "url": "https://developer.fedex.com/wirc/json/api_groups/OpenShip/OpenShipment-Resource.json"
       }
     ]
   },
@@ -67,7 +67,7 @@
     "versions": [
       {
         "version": "1",
-        "url": "blob:https://developer.fedex.com/1f88c99b-46d1-4ceb-bd86-06005fa5fad7"
+        "url": "https://developer.fedex.com/wirc/json/api_groups/Pickup/Pickup-Resource.json"
       }
     ]
   },
@@ -76,7 +76,7 @@
     "versions": [
       {
         "version": "1",
-        "url": "blob:https://developer.fedex.com/1cc26b84-3c62-4e61-949e-a524fad4cf4a"
+        "url": "https://developer.fedex.com/wirc/json/api_groups/CountryAPI/ValidatePostal-Resource.json"
       }
     ]
   },
@@ -85,7 +85,7 @@
     "versions": [
       {
         "version": "1",
-        "url": "blob:https://developer.fedex.com/9e83e26c-04c1-4d4e-adb3-3009ea83a16a"
+        "url": "https://developer.fedex.com/wirc/json/api_groups/Rate/RateQuotes-Resource.json"
       }
     ]
   },
@@ -94,7 +94,10 @@
     "versions": [
       {
         "version": "1",
-        "url": "blob:https://developer.fedex.com/72491812-5686-4644-95a7-bcaa6e26e999"
+        "url": [
+            "https://developer.fedex.com/wirc/json/api_groups/ServiceAvailability/PackageAndServiceOptions-Resource.json",
+            "https://developer.fedex.com/wirc/json/api_groups/ServiceAvailability/SpecialServiceOptions-Resource.json"
+        ]
       }
     ]
   },
@@ -103,7 +106,10 @@
     "versions": [
       {
         "version": "1",
-        "url": "blob:https://developer.fedex.com/d84a56d1-4795-47f4-8b69-81bb93e89bd8"
+        "url": [
+            "https://developer.fedex.com/wirc/json/api_groups/Ship/Shipment-Resource.json",
+            "https://developer.fedex.com/wirc/json/api_groups/Ship/Tag-Resource.json"
+        ]
       }
     ]
   },
@@ -112,7 +118,14 @@
     "versions": [
       {
         "version": "1",
-        "url": "blob:https://developer.fedex.com/8d8c47c7-69ae-4cf5-b3aa-99a2ba9441e5"
+        "url": [
+            "https://developer.fedex.com/wirc/json/api_groups/Track/AssociatedShipments-Resource.json",
+            "https://developer.fedex.com/wirc/json/api_groups/Track/Notifications-Resource.json",
+            "https://developer.fedex.com/wirc/json/api_groups/Track/ReferenceNumbers-Resource.json",
+            "https://developer.fedex.com/wirc/json/api_groups/Track/TCN-Resource.json",
+            "https://developer.fedex.com/wirc/json/api_groups/Track/TrackingDocuments-Resource.json",
+            "https://developer.fedex.com/wirc/json/api_groups/Track/TrackingNumbers-Resource.json"
+        ]
       }
     ]
   },
@@ -121,7 +134,7 @@
     "versions": [
       {
         "version": "1",
-        "url": "blob:https://developer.fedex.com/a6900055-2c5f-4960-a2b7-764b6884b5d7"
+        "url": "https://developer.fedex.com/wirc/json/api_groups/ETDUpload/EDUDocuments-Resource.json"
       }
     ]
   }

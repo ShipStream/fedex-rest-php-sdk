@@ -125,22 +125,17 @@ class Schema
     {
         static::loadSchemaData();
 
+        $allApis = array_keys(static::$allSchemaData);
+        if ($apiCodes === []) {
+            $apis = $allApis;
+        } else {
+            $apis = array_intersect($allApis, $apiCodes);
+        }
+
         $schemas = [];
-        foreach ($apiCodes as $code) {
-            $apis = null;
-            $allApis = array_keys(static::$allSchemaData[$code]);
-            if ($apiCodes === []) {
-                $apis = $allApis;
-            } else {
-                $apis = array_intersect($allApis, $apiCodes);
-            }
-
-            if (empty($apis)) {
-                echo "No matching API names found for {$code}. Skipping...\n";
-                continue;
-            }
-
-            foreach ($apis['versions'] as $version) {
+        foreach ($apis as $code) {
+            $availableVersions = static::$allSchemaData[$code]['versions'];
+            foreach ($availableVersions as $version) {
                 if ($versions === [] || in_array($version, $versions)) {
                     $schemas[] = new Schema($code, $version);
                 }

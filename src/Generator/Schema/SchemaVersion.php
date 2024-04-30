@@ -16,7 +16,7 @@ class SchemaVersion
 {
     public function __construct(
         public Schema $schema,
-        public string $url,
+        public string|array $url,
         public string $version,
         public bool $latest = false,
         public bool $deprecated = false,
@@ -99,29 +99,43 @@ class SchemaVersion
      */
     public function download(): void
     {
-        $client = new Client();
-        $res = $client->get($this->url);
-        $json = json_decode($res->getBody()->getContents());
-
-        $path = $this->path(true);
-        $pathDir = dirname($path);
-        if (! is_dir($pathDir)) {
-            mkdir($pathDir, 0755, true);
+        if (! is_array($this->url)) {
+            $this->url = [$this->url];
         }
-        file_put_contents(
-            $path,
-            json_encode($json, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES)
-        );
+
+        foreach ($this->url as $url) {
+            $client = new Client();
+            $res = $client->get($url);
+            $json = json_decode($res->getBody()->getContents());
+
+            $path = $this->path(true, $url);
+            $pathDir = dirname($path);
+            if (! is_dir($pathDir)) {
+                mkdir($pathDir, 0755, true);
+            }
+            file_put_contents(
+                $path,
+                json_encode($json, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES)
+            );
+        }
     }
 
     /**
      * Get the path for this schema version.
      *
      * @param  bool  $upstream  If true, return the path where original Amazon schemas are stored.
+     * @param  string  $url  The URL of the upstream schema, if applicable. Required if $upstream = true.
      */
-    public function path(bool $upstream = false): string
+    public function path(bool $upstream = false, string $url = ''): string
     {
-        return "{$this->schema->path($upstream)}/v{$this->version}.json";
+        $schemaPath = $this->schema->path($upstream);
+        if ($upstream) {
+            $basename = basename($url);
+
+            return "{$schemaPath}/v{$this->version}/{$basename}";
+        }
+
+        return "{$schemaPath}/v{$this->version}.json";
     }
 
     public function studlyName(): string

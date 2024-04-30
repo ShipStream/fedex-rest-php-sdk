@@ -23,12 +23,8 @@ trait HasSchemaArgs
     {
         parent::configure();
 
-        $availableSchemaCodes = [];
         $apiData = json_decode(file_get_contents(Schema::API_DATA_FILE), true);
-        foreach ($apiData as $code) {
-            $availableSchemaCodes[] = $code;
-        }
-        $availableSchemaCodes = array_unique($availableSchemaCodes);
+        $availableSchemaCodes = array_unique(array_keys($apiData));
 
         $this->setDefinition([
             new InputOption(
@@ -38,7 +34,7 @@ trait HasSchemaArgs
                 suggestedValues: $availableSchemaCodes,
             ),
             new InputOption(
-                'version',
+                'schema-version',
                 mode: InputOption::VALUE_REQUIRED | InputOption::VALUE_IS_ARRAY,
                 description: 'A list of the versions of the schema(s to generate, based on the schema version codes in resources/apis.json. If this option is not passed, all schemas versions will be generated.',
             ),
@@ -48,16 +44,16 @@ trait HasSchemaArgs
     /**
      * Retrieve metadata about the schemas matching the given input options.
      *
-     * @return array The filtered categories and names.
+     * @return array The filtered API names and versions.
      */
     protected static function filterSchemas(InputInterface $input): array
     {
-        $categories = $input->getOption('category');
         $schemas = $input->getOption('schema');
+        $versions = $input->getOption('schema-version');
 
         return Schema::where(
-            is_string($categories) ? [$categories] : $categories,
             is_string($schemas) ? [$schemas] : $schemas,
+            is_string($versions) ? [$versions] : $versions,
         );
     }
 }

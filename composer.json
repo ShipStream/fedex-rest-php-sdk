@@ -20,7 +20,10 @@
     "autoload": {
         "psr-4": {
             "ShipStream\\FedEx\\": "src/"
-        }
+        },
+        "files": [
+            "src/Generator/constants.php"
+        ]
     },
     "scripts": {
         "lint": [
