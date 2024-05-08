@@ -35,7 +35,7 @@ class SchemaVersion
 
         $inputPath = $this->path();
         $generator = Generator::make([
-            'namespace' => "$baseNamespace\\$schemaNamespace",
+            'namespace' => $baseNamespace.$schemaNamespace,
             'outputDir' => "src/$schemaNamespace",
         ]);
         $result = $generator->run($inputPath);

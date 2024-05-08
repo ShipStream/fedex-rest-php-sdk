@@ -30,7 +30,7 @@ class Package
         return array_key_first(self::composerFile()['autoload']['psr-4']);
     }
 
-    public static function composerFile(): string
+    public static function composerFile(): array
     {
         return json_decode(file_get_contents(__DIR__.'/../../composer.json'), true);
     }

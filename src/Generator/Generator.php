@@ -6,6 +6,7 @@ namespace ShipStream\FedEx\Generator;
 
 use Crescat\SaloonSdkGenerator\CodeGenerator;
 use Crescat\SaloonSdkGenerator\Data\Generator\Config;
+use Crescat\SaloonSdkGenerator\Generators\NullGenerator;
 
 class Generator
 {
@@ -23,6 +24,7 @@ class Generator
 
         return new CodeGenerator(
             $config,
+            connectorGenerator: new NullGenerator($config),
             fileHandler: new FileHandler($config),
         );
     }

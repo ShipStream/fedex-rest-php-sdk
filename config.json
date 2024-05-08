@@ -3,6 +3,10 @@
   "type": "openapi",
   "outputDir": "src",
   "force": true,
-  "connectorName": "SampleSDK",
-  "namespace": "ShipStream\\FedEx"
+  "namespace": "ShipStream\\FedEx",
+  "baseFilesNamespace": "ShipStream\\FedEx",
+  "fallbackResourceName": "Api",
+  "namespaceSuffixes": {
+    "resource": null
+  }
 }
