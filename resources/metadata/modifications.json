@@ -1,1 +1,17 @@
-{}
+{
+    "address-validation": {
+        "1": [
+            {
+                "action": "delete",
+                "path": "components.schemas.CustomerMessage"
+            },
+            {
+                "action": "replace",
+                "path": "components.schemas.ResolvedAddress.properties.customerMessage.items",
+                "value": {
+                    "type": "string"
+                }
+            }
+        ]
+    }
+}

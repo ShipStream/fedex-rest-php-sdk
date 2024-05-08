@@ -102,6 +102,53 @@ class Refactorer
         $this->combined = $combined;
     }
 
+    /**
+     * This method does any cleanup on the combined schemas that doesn't make sense to do
+     * via the modifications.json file, usually because it's a relatively consistent schema
+     * issue across multiple schema files.
+     */
+    public function clean(): stdClass
+    {
+        if (! $this->combined) {
+            throw new Exception('Must run Refactorer::combine() before cleaning.');
+        }
+
+        $schema = clone $this->combined;
+        $defaultType = 'string';
+
+        // Many schemas and properties are missing a type, so we add it in here if it's missing
+        // to help with the generation process
+        foreach ($schema->components->schemas as $componentName => $component) {
+            if (! isset($component->type) && ! isset($component->{'$ref'})) {
+                $type = null;
+                if (isset($component->properties)) {
+                    $type = 'object';
+                } elseif (isset($component->items)) {
+                    $type = 'array';
+                } else {
+                    $type = $defaultType;
+                }
+
+                data_set($schema, "components.schemas.{$componentName}.type", $type);
+            }
+
+            if (isset($component->properties)) {
+                foreach ($component->properties as $propName => $prop) {
+                    // Default to type string if there's no type set
+                    if (! isset($prop->type) && ! isset($prop->{'$ref'})) {
+                        data_set($schema, "components.schemas.{$componentName}.properties.{$propName}.type", $defaultType);
+                    }
+                }
+            } elseif (isset($component->items) && ! isset($component->items->type)) {
+                data_set($schema, "components.schemas.{$componentName}.items.type", $defaultType);
+            }
+        }
+
+        $this->combined = $schema;
+
+        return $this->combined;
+    }
+
     public function applyModifications(): stdClass
     {
         if (! $this->combined) {
@@ -125,9 +172,9 @@ class Refactorer
             };
 
             if ($modified === null) {
-                data_forget($schema, $mod->path);
+                data_forget($this->combined, $mod->path);
             } else {
-                data_set($schema, $mod->path, $modified);
+                data_set($this->combined, $mod->path, $modified);
             }
         }
 
@@ -148,6 +195,13 @@ class Refactorer
         }
 
         if (count($allOf) === 1) {
+            if (isset($allOf[0]->{'$ref'})) {
+                $referenced = $this->componentByRef($allOf[0]->{'$ref'});
+                $obj->type = $referenced->type;
+            } elseif (isset($allOf[0]->type)) {
+                $obj->type = $allOf[0]->type;
+            }
+
             $obj->schema = $allOf[0];
             data_forget($obj, 'allOf');
         } else {

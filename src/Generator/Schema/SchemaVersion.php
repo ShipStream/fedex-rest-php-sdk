@@ -56,7 +56,11 @@ class SchemaVersion
         }
 
         $refactorer = new Refactorer($this, $schemas);
+        // Combine the schemas into a single schema
         $refactorer->combine();
+        // Clean up the combined schema
+        $refactorer->clean();
+        // Apply manual modifications to the schema (from resources/metadata/modifications.json)
         $refactored = $refactorer->applyModifications();
 
         $path = $this->path();
