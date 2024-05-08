@@ -296,7 +296,7 @@
                         "type": "array",
                         "description": "Returns messages pertaining to the resolved address indicating if any additional information is required.<br><br>Following are informational code and messages with respect to the results:<ul><li><i>INVALID.SUITE.NUMBER</i> &ndash; Invalid or missing Apartment/Suite</li><li><i>SUITE.NUMBER.REQUIRED</i> &ndash; Invalid or missing Apartment/Suite</li><li><i>PARTIAL.STREET.MATCH</i> &ndash; A street address is required for delivery. The entered address is a street number range.</li><li><i>MISSING.OR.AMBIGUOUS.DIRECTIONAL</i> &ndash; Invalid or missing address directional.</li><li><i>INTERPOLATED.STREET.ADDRESS</i> &ndash; Unable to confirm exact street number for the entered street name. The address falls within a valid range for the street name.</li><li><i>RRHC.CONVERSION</i> &ndash; A street address is required for delivery. The address has been converted from a rural route.</li></ul>",
                         "items": {
-                            "$ref": "#/components/schemas/CustomerMessage"
+                            "type": "string"
                         }
                     },
                     "cityToken": {
@@ -311,6 +311,7 @@
                     },
                     "postalCodeToken": {
                         "description": "This is the resolved postal code with a token. The token is an indication to the changes made.",
+                        "type": "object",
                         "schema": {
                             "$ref": "#/components/schemas/ResolutionToken"
                         }
@@ -577,6 +578,7 @@
                 "properties": {
                     "number": {
                         "description": "Phone Number details of the user",
+                        "type": "object",
                         "schema": {
                             "$ref": "#/components/schemas/PhoneNumber"
                         }
@@ -691,9 +693,6 @@
                     }
                 },
                 "description": "CompanyName Model"
-            },
-            "CustomerMessage": {
-                "description": "Returns messages pertaining to the resolved address indicating if any additional information is required."
             },
             "ResolutionToken": {
                 "type": "object",
@@ -845,7 +844,8 @@
                         }
                     },
                     "message": {
-                        "description": "Indicates the description of API error alert message.<br>Example: Access token expired. Please modify your request and try again."
+                        "description": "Indicates the description of API error alert message.<br>Example: Access token expired. Please modify your request and try again.",
+                        "type": "string"
                     }
                 },
                 "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
@@ -882,7 +882,8 @@
                         }
                     },
                     "message": {
-                        "description": "Indicates the description of API error alert message.<br>Example: We could not authorize your credentials. Please check your permissions and try again"
+                        "description": "Indicates the description of API error alert message.<br>Example: We could not authorize your credentials. Please check your permissions and try again",
+                        "type": "string"
                     }
                 },
                 "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
@@ -919,7 +920,8 @@
                         }
                     },
                     "message": {
-                        "description": "Indicates the description of API error alert message.<br>Example: The resource you requested is no longer available. Please modify your request and try again."
+                        "description": "Indicates the description of API error alert message.<br>Example: The resource you requested is no longer available. Please modify your request and try again.",
+                        "type": "string"
                     }
                 },
                 "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
@@ -961,7 +963,8 @@
                         }
                     },
                     "message": {
-                        "description": "Indicates the description of API error alert message.<br>Example: We encountered an unexpected error and are working to resolve the issue. We apologize for any inconvenience. Please check back at a later time."
+                        "description": "Indicates the description of API error alert message.<br>Example: We encountered an unexpected error and are working to resolve the issue. We apologize for any inconvenience. Please check back at a later time.",
+                        "type": "string"
                     }
                 },
                 "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
@@ -998,7 +1001,8 @@
                         }
                     },
                     "message": {
-                        "description": "Indicates the description of API error alert message.<br>Example: The service is currently unavailable and we are working to resolve the issue. We apologize for any inconvenience. Please check back at a later time."
+                        "description": "Indicates the description of API error alert message.<br>Example: The service is currently unavailable and we are working to resolve the issue. We apologize for any inconvenience. Please check back at a later time.",
+                        "type": "string"
                     }
                 },
                 "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
@@ -1081,11 +1085,13 @@
                     },
                     "stateOrProvinceCode": {
                         "description": "Indicate the State or Province codes. The Format and presence of this field may vary depending on the country.<br>Example: TX<br><a onclick='loadDocReference(\"canadaprovincecodes\")'> Click here to see State Or Province Code</a>. Maximum length is 2",
-                        "example": "TX"
+                        "example": "TX",
+                        "type": "string"
                     },
                     "postalCode": {
                         "description": "Indicate the Postal Code which is an identification code of a region (usually small) for easier and accurate mail/package delivery. The format and presence of this field may vary depending on the country.<br> Example: 75063-8659<br><a onclick='loadDocReference(\"postalawarecountries\")'>Click here to see Postal Code</a>",
-                        "example": "75063-8659"
+                        "example": "75063-8659",
+                        "type": "string"
                     },
                     "countryCode": {
                         "type": "string",
@@ -1093,7 +1099,8 @@
                         "example": "US"
                     }
                 },
-                "description": "This is the Address in detail to be resolved."
+                "description": "This is the Address in detail to be resolved.",
+                "type": "object"
             },
             "body": {
                 "$ref": "#/components/schemas/Full_Schema_Validate_Address"
