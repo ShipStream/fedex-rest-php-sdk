@@ -178,18 +178,21 @@
                     },
                     "totalCommodityValue": {
                         "description": "Specify the total commodity value. Either customsClearenceDetail or totalCommodityValue is required.",
+                        "type": "object",
                         "schema": {
                             "$ref": "#/components/schemas/Money"
                         }
                     },
                     "originAddress": {
                         "description": "Provide the shipment origin address details.",
+                        "type": "object",
                         "schema": {
                             "$ref": "#/components/schemas/Address"
                         }
                     },
                     "destinationAddress": {
                         "description": "Provide the shipment destination address details.",
+                        "type": "object",
                         "schema": {
                             "$ref": "#/components/schemas/Address"
                         }
@@ -215,6 +218,7 @@
                     },
                     "customsClearanceDetail": {
                         "description": "Specify the Customs clearance details.Either customsClearenceDetail or totalCommodityValue is required.",
+                        "type": "object",
                         "schema": {
                             "$ref": "#/components/schemas/CustomsClearanceDetailVO"
                         }
@@ -231,6 +235,7 @@
                     },
                     "totalWeight": {
                         "description": "Provide the total weight for the shipment.",
+                        "type": "object",
                         "schema": {
                             "$ref": "#/components/schemas/Weight"
                         }
@@ -350,6 +355,7 @@
                     },
                     "importerOfRecordAccountNumber": {
                         "description": "The descriptive data for the importer of Record for the shipment and account number information.",
+                        "type": "object",
                         "schema": {
                             "$ref": "#/components/schemas/Party"
                         }
@@ -394,6 +400,7 @@
                 "properties": {
                     "freightCharge": {
                         "description": "Indicate the freight charge.",
+                        "type": "object",
                         "schema": {
                             "$ref": "#/components/schemas/Money"
                         }
@@ -422,6 +429,7 @@
                     },
                     "customsValue": {
                         "description": "Required<br>Customs value for this commodity",
+                        "type": "object",
                         "schema": {
                             "$ref": "#/components/schemas/Money"
                         }
@@ -446,6 +454,7 @@
                     },
                     "weight": {
                         "description": "Represents Weight of the packages or shipment.",
+                        "type": "object",
                         "schema": {
                             "$ref": "#/components/schemas/Weight"
                         }
@@ -552,6 +561,7 @@
                     },
                     "countryDetails": {
                         "description": "Represents Country Details",
+                        "type": "object",
                         "schema": {
                             "$ref": "#/components/schemas/RegulatoryCountryDetails"
                         }
@@ -625,6 +635,7 @@
                 "properties": {
                     "shipmentDetails": {
                         "description": "These are Shipment Details.",
+                        "type": "object",
                         "schema": {
                             "$ref": "#/components/schemas/RegulatoryShipmentDetail"
                         }
@@ -934,7 +945,8 @@
                 "type": "object",
                 "properties": {
                     "code": {
-                        "description": "Indicates the error code.<br>Example: ACCOUNT.NUMBER.INVALID,LOGIN.REAUTHENTICATE.ERROR,SHIPMENT.USER.UNAUTHORIZED,NOT.FOUND.ERROR,INTERNAL.SERVER.ERROR"
+                        "description": "Indicates the error code.<br>Example: ACCOUNT.NUMBER.INVALID,LOGIN.REAUTHENTICATE.ERROR,SHIPMENT.USER.UNAUTHORIZED,NOT.FOUND.ERROR,INTERNAL.SERVER.ERROR",
+                        "type": "string"
                     },
                     "parameterList": {
                         "type": "array",
@@ -994,7 +1006,8 @@
                         }
                     },
                     "message": {
-                        "description": "Indicates the description of API error alert message.<br>Example: Access token expired. Please modify your request and try again."
+                        "description": "Indicates the description of API error alert message.<br>Example: Access token expired. Please modify your request and try again.",
+                        "type": "string"
                     }
                 },
                 "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
@@ -1030,7 +1043,8 @@
                         }
                     },
                     "message": {
-                        "description": "Validation failed for the object='shipmentRegulatoryDetailsInputVO'.Error count:1"
+                        "description": "Validation failed for the object='shipmentRegulatoryDetailsInputVO'.Error count:1",
+                        "type": "string"
                     }
                 },
                 "description": "Indicates error when mandatory elements are not passed in the request."
@@ -1066,7 +1080,8 @@
                         }
                     },
                     "message": {
-                        "description": "Indicates the description of API error alert message.<br>Example: The resource you requested is no longer available. Please modify your request and try again."
+                        "description": "Indicates the description of API error alert message.<br>Example: The resource you requested is no longer available. Please modify your request and try again.",
+                        "type": "string"
                     }
                 },
                 "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
@@ -1107,7 +1122,8 @@
                         }
                     },
                     "message": {
-                        "description": "Indicates the description of API error alert message.<br>Example: We encountered an unexpected error and are working to resolve the issue. We apologize for any inconvenience. Please check back at a later time."
+                        "description": "Indicates the description of API error alert message.<br>Example: We encountered an unexpected error and are working to resolve the issue. We apologize for any inconvenience. Please check back at a later time.",
+                        "type": "string"
                     }
                 },
                 "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
