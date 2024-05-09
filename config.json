@@ -4,6 +4,7 @@
   "outputDir": "src",
   "force": true,
   "namespace": "ShipStream\\FedEx",
+  "connectorName": "FedEx",
   "baseFilesNamespace": "ShipStream\\FedEx",
   "fallbackResourceName": "Api",
   "namespaceSuffixes": {

@@ -197,13 +197,43 @@ class Refactorer
         if (count($allOf) === 1) {
             if (isset($allOf[0]->{'$ref'})) {
                 $referenced = $this->componentByRef($allOf[0]->{'$ref'});
-                $obj->type = $referenced->type;
+                if (isset($referenced->type)) {
+                    $obj->type = $referenced->type;
+                }
             } elseif (isset($allOf[0]->type)) {
                 $obj->type = $allOf[0]->type;
             }
 
             $obj->schema = $allOf[0];
             data_forget($obj, 'allOf');
+        } elseif (
+            count($allOf) === 2
+            && (
+                (isset($allOf[0]->{'$ref'}) && isset($allOf[1]->properties))
+                || (isset($allOf[0]->properties) && isset($allOf[1]->{'$ref'}))
+            )
+        ) {
+            $referenceSchemaIdx = isset($allOf[0]->{'$ref'}) ? 0 : 1;
+            $reference = $allOf[$referenceSchemaIdx]->{'$ref'};
+            $referenced = $this->componentByRef($reference);
+            $inlineSchema = $allOf[abs($referenceSchemaIdx - 1)];
+
+            $referencedType = $referenced->type ?? null;
+            if ($referencedType !== 'object') {
+                $obj->allOf = $allOf;
+
+                return $obj;
+            }
+
+            $referencedProps = array_keys((array) $referenced->properties ?? []);
+            $inlineProps = array_keys((array) $inlineSchema->properties ?? []);
+
+            if (array_diff($inlineProps, $referencedProps) !== []) {
+                $obj->allOf = $allOf;
+            } else {
+                $obj->schema = $allOf[$referenceSchemaIdx];
+                data_forget($obj, 'allOf');
+            }
         } else {
             $obj->allOf = $allOf;
         }
