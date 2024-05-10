@@ -1,0 +1,28 @@
+<?php
+
+declare(strict_types=1);
+
+namespace ShipStream\FedEx\Api\TrackV1\Dto;
+
+use ShipStream\FedEx\Dto;
+
+final class SendNotificationOutputVo extends Dto
+{
+    protected static array $attributeMap = ['trackingNumberInfo' => 'TrackingNumberInfo'];
+
+    protected static array $complexArrayTypes = ['alerts' => [Alert::class]];
+
+    /**
+     * @param  ?TrackingNumberInfo  $trackingNumberInfo  Information uniquely identifying a shipment such as Tracking number, ShipDate, and Tracking number uniqueId.
+     * @param  ?mixed[]  $destinationAddress  Address where the package was actually delivered. Contrast with destination Address, which is the location to which the package was intended to be delivered. Addresses may differ due to delivery to a neighbor, hold at FedEx location, etc.
+     * @param  string[][]|null  $recipientDetails  Details of the recipient notification events. Possible events are - ON_DELIVERY, ON_ESTIMATED_DELIVERY, ON_EXCEPTION, ON_TENDER.
+     * @param  Alert[]|null  $alerts  The cxs alert type, alert code, and alert messages.<br>Example: example: TRACKING.DATA.NOTFOUND -  Tracking data unavailable
+     */
+    public function __construct(
+        public readonly ?TrackingNumberInfo $trackingNumberInfo = null,
+        public readonly ?array $destinationAddress = null,
+        public readonly ?array $recipientDetails = null,
+        public readonly ?array $alerts = null,
+    ) {
+    }
+}

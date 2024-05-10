@@ -13,5 +13,19 @@
                 }
             }
         ]
+    },
+    "track": {
+        "1": [
+            {
+                "action": "replace",
+                "path": "paths./track/v1/notifications.post.operationId",
+                "value": "Send Notification"
+            },
+            {
+                "action": "replace",
+                "path": "paths./track/v1/tcn.post.operationId",
+                "value": "Track by TCN"
+            }
+        ]
     }
 }

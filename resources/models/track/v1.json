@@ -214,6 +214,9 @@
                         "lang": "SWIFT",
                         "source": "import Foundation\n\nlet headers = [\n  \"Content-Type\": \"application/json\",\n  \"X-locale\": \"en_US\",\n  \"Authorization\": \"Bearer \"\n]\nlet parameters = [\n  input // 'input' refers to JSON Payload\n] as [String : Any]\n\nlet postData = JSONSerialization.data(withJSONObject: parameters, options: [])\n\nlet request = NSMutableURLRequest(url: NSURL(string: \"https://apis-sandbox.fedex.com/track/v1/associatedshipments\")! as URL,\n                                        cachePolicy: .useProtocolCachePolicy,\n                                    timeoutInterval: 10.0)\nrequest.httpMethod = \"POST\"\nrequest.allHTTPHeaderFields = headers\nrequest.httpBody = postData as Data\n\nlet session = URLSession.shared\nlet dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in\n  if (error != nil) {\n    print(error)\n  } else {\n    let httpResponse = response as? HTTPURLResponse\n    print(httpResponse)\n  }\n})\n\ndataTask.resume()"
                     }
+                ],
+                "tags": [
+                    "TrackV1"
                 ]
             }
         },
@@ -221,7 +224,7 @@
             "post": {
                 "summary": "Send Notification",
                 "description": "This endpoint helps you setup up, customize the tracking event notifications to be received for a shipment.<br><i>Note: FedEx APIs do not support Cross-Origin Resource Sharing (CORS) mechanism.</i>",
-                "operationId": "19f112535f47e237486334074740bb66",
+                "operationId": "Send Notification",
                 "requestBody": {
                     "content": {
                         "application/json": {
@@ -432,6 +435,9 @@
                         "lang": "SWIFT",
                         "source": "import Foundation\n\nlet headers = [\n  \"Content-Type\": \"application/json\",\n  \"X-locale\": \"en_US\",\n  \"Authorization\": \"Bearer \"\n]\nlet parameters = [\n  input // 'input' refers to JSON Payload\n] as [String : Any]\n\nlet postData = JSONSerialization.data(withJSONObject: parameters, options: [])\n\nlet request = NSMutableURLRequest(url: NSURL(string: \"https://apis-sandbox.fedex.com/track/v1/notifications\")! as URL,\n                                        cachePolicy: .useProtocolCachePolicy,\n                                    timeoutInterval: 10.0)\nrequest.httpMethod = \"POST\"\nrequest.allHTTPHeaderFields = headers\nrequest.httpBody = postData as Data\n\nlet session = URLSession.shared\nlet dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in\n  if (error != nil) {\n    print(error)\n  } else {\n    let httpResponse = response as? HTTPURLResponse\n    print(httpResponse)\n  }\n})\n\ndataTask.resume()"
                     }
+                ],
+                "tags": [
+                    "TrackV1"
                 ]
             }
         },
@@ -650,6 +656,9 @@
                         "lang": "SWIFT",
                         "source": "import Foundation\n\nlet headers = [\n  \"Content-Type\": \"application/json\",\n  \"X-locale\": \"en_US\",\n  \"Authorization\": \"Bearer \"\n]\nlet parameters = [\n  input // 'input' refers to JSON Payload\n] as [String : Any]\n\nlet postData = JSONSerialization.data(withJSONObject: parameters, options: [])\n\nlet request = NSMutableURLRequest(url: NSURL(string: \"https://apis-sandbox.fedex.com/track/v1/referencenumbers\")! as URL,\n                                        cachePolicy: .useProtocolCachePolicy,\n                                    timeoutInterval: 10.0)\nrequest.httpMethod = \"POST\"\nrequest.allHTTPHeaderFields = headers\nrequest.httpBody = postData as Data\n\nlet session = URLSession.shared\nlet dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in\n  if (error != nil) {\n    print(error)\n  } else {\n    let httpResponse = response as? HTTPURLResponse\n    print(httpResponse)\n  }\n})\n\ndataTask.resume()"
                     }
+                ],
+                "tags": [
+                    "TrackV1"
                 ]
             }
         },
@@ -657,7 +666,7 @@
             "post": {
                 "summary": "Track by Tracking Control Number",
                 "description": "Use this endpoint to return tracking information based on a Tracking Control Number.<br><i>Note: FedEx APIs do not support Cross-Origin Resource Sharing (CORS) mechanism.</i>",
-                "operationId": "f1f9080e8452d9ac903f562a2d2626d0",
+                "operationId": "Track by TCN",
                 "requestBody": {
                     "content": {
                         "application/json": {
@@ -868,6 +877,9 @@
                         "lang": "SWIFT",
                         "source": "import Foundation\n\nlet headers = [\n  \"Content-Type\": \"application/json\",\n  \"X-locale\": \"en_US\",\n  \"Authorization\": \"Bearer \"\n]\nlet parameters = [\n  input // 'input' refers to JSON Payload\n] as [String : Any]\n\nlet postData = JSONSerialization.data(withJSONObject: parameters, options: [])\n\nlet request = NSMutableURLRequest(url: NSURL(string: \"https://apis-sandbox.fedex.com/track/v1/tcn\")! as URL,\n                                        cachePolicy: .useProtocolCachePolicy,\n                                    timeoutInterval: 10.0)\nrequest.httpMethod = \"POST\"\nrequest.allHTTPHeaderFields = headers\nrequest.httpBody = postData as Data\n\nlet session = URLSession.shared\nlet dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in\n  if (error != nil) {\n    print(error)\n  } else {\n    let httpResponse = response as? HTTPURLResponse\n    print(httpResponse)\n  }\n})\n\ndataTask.resume()"
                     }
+                ],
+                "tags": [
+                    "TrackV1"
                 ]
             }
         },
@@ -1086,6 +1098,9 @@
                         "lang": "SWIFT",
                         "source": "import Foundation\n\nlet headers = [\n  \"Content-Type\": \"application/json\",\n  \"X-locale\": \"en_US\",\n  \"Authorization\": \"Bearer \"\n]\nlet parameters = [\n  input // 'input' refers to JSON Payload\n] as [String : Any]\n\nlet postData = JSONSerialization.data(withJSONObject: parameters, options: [])\n\nlet request = NSMutableURLRequest(url: NSURL(string: \"https://apis-sandbox.fedex.com/track/v1/trackingdocuments\")! as URL,\n                                        cachePolicy: .useProtocolCachePolicy,\n                                    timeoutInterval: 10.0)\nrequest.httpMethod = \"POST\"\nrequest.allHTTPHeaderFields = headers\nrequest.httpBody = postData as Data\n\nlet session = URLSession.shared\nlet dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in\n  if (error != nil) {\n    print(error)\n  } else {\n    let httpResponse = response as? HTTPURLResponse\n    print(httpResponse)\n  }\n})\n\ndataTask.resume()"
                     }
+                ],
+                "tags": [
+                    "TrackV1"
                 ]
             }
         },
@@ -1304,6 +1319,9 @@
                         "lang": "SWIFT",
                         "source": "import Foundation\n\nlet headers = [\n  \"Content-Type\": \"application/json\",\n  \"X-locale\": \"en_US\",\n  \"Authorization\": \"Bearer \"\n]\nlet parameters = [\n  input // 'input' refers to JSON Payload\n] as [String : Any]\n\nlet postData = JSONSerialization.data(withJSONObject: parameters, options: [])\n\nlet request = NSMutableURLRequest(url: NSURL(string: \"https://apis-sandbox.fedex.com/track/v1/trackingnumbers\")! as URL,\n                                        cachePolicy: .useProtocolCachePolicy,\n                                    timeoutInterval: 10.0)\nrequest.httpMethod = \"POST\"\nrequest.allHTTPHeaderFields = headers\nrequest.httpBody = postData as Data\n\nlet session = URLSession.shared\nlet dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in\n  if (error != nil) {\n    print(error)\n  } else {\n    let httpResponse = response as? HTTPURLResponse\n    print(httpResponse)\n  }\n})\n\ndataTask.resume()"
                     }
+                ],
+                "tags": [
+                    "TrackV1"
                 ]
             }
         }
@@ -1360,6 +1378,7 @@
             },
             "MasterTrackingInfo": {
                 "description": "The detailed master tracking details for the shipment to be tracked.",
+                "type": "object",
                 "schema": {
                     "$ref": "#/components/schemas/TrackingInfo"
                 }
@@ -1433,6 +1452,7 @@
             },
             "PagingDetails": {
                 "description": "The details about how to retrieve the subsequent pages when there is more than one page in the TrackReply.",
+                "type": "object",
                 "schema": {
                     "$ref": "#/components/schemas/PagingDetails_2"
                 }
@@ -1547,6 +1567,7 @@
                     },
                     "destinationLocation": {
                         "description": "Location details for the recipient where the package will be or has been delivered.",
+                        "type": "object",
                         "schema": {
                             "$ref": "#/components/schemas/LocationDetail1"
                         }
@@ -1608,6 +1629,7 @@
                     },
                     "holdAtLocation": {
                         "description": "Location details for the FedEx facility holding package for delivery. Populated only when REDIRECT_TO_HOLD_AT_LOCATION is available as custom delivery options.",
+                        "type": "object",
                         "schema": {
                             "$ref": "#/components/schemas/LocationDetail1"
                         }
@@ -1621,6 +1643,7 @@
                     },
                     "estimatedDeliveryTimeWindow": {
                         "description": "The estimated window for time of delivery.  May be periodically updated based on available in-flight shipment information.",
+                        "type": "object",
                         "schema": {
                             "$ref": "#/components/schemas/TimeWindow"
                         }
@@ -1637,12 +1660,14 @@
                     },
                     "recipientInformation": {
                         "description": "Contact and address information of recipient.",
+                        "type": "object",
                         "schema": {
                             "$ref": "#/components/schemas/ContactAndAddress1"
                         }
                     },
                     "standardTransitTimeWindow": {
                         "description": "The standard committed window of time by which the package is expected to be delivered.",
+                        "type": "object",
                         "schema": {
                             "$ref": "#/components/schemas/TimeWindow"
                         }
@@ -1666,12 +1691,14 @@
                     },
                     "shipperInformation": {
                         "description": "Contact and address information of shipper.",
+                        "type": "object",
                         "schema": {
                             "$ref": "#/components/schemas/ContactAndAddress1"
                         }
                     },
                     "lastUpdatedDestinationAddress": {
                         "description": "Last updated delivery address for the package.",
+                        "type": "object",
                         "schema": {
                             "$ref": "#/components/schemas/AddressVO1"
                         }
@@ -1800,6 +1827,7 @@
                     },
                     "reasonDetail": {
                         "description": "Specifies the reason details for the consolidation event for a package.",
+                        "type": "object",
                         "schema": {
                             "$ref": "#/components/schemas/ReasonDetail"
                         }
@@ -1917,6 +1945,7 @@
                     },
                     "address": {
                         "description": "Required.\n\nDescriptive data for a physical location.  may be used as an actual physical address(place to which one could go), or a container of 'address parts' which should be handled as a unit(such as a city-state-zip combination within the US).\n\nConditional when used with Payor object.  Required if entering using RECIPIENT or THIRD_PARTY.  Required if not-authenticated and SENDER is selected",
+                        "type": "object",
                         "schema": {
                             "$ref": "#/components/schemas/AddressVO_1"
                         }
@@ -2011,6 +2040,7 @@
                 "properties": {
                     "scanLocation": {
                         "description": "Address information related to the associated Status.",
+                        "type": "object",
                         "schema": {
                             "$ref": "#/components/schemas/AddressVO1"
                         }
@@ -2428,6 +2458,7 @@
                     },
                     "scanLocation": {
                         "description": "Location Details for the FedEx facility where the scan event occurred.",
+                        "type": "object",
                         "schema": {
                             "$ref": "#/components/schemas/AddressVO1"
                         }
@@ -2574,6 +2605,7 @@
                     },
                     "declaredValue": {
                         "description": "This is the declared value. Declared Value represents FedEx maximum liability in connection with a shipment of that Package, including but not limited to, any loss, damage, delay, misdelivery, any failure to provide information, or misdelivery of information relating to the Shipment.",
+                        "type": "object",
                         "schema": {
                             "$ref": "#/components/schemas/Amount"
                         }
@@ -2736,6 +2768,7 @@
                     },
                     "address": {
                         "description": "Required.\n\nDescriptive data for a physical location.  may be used as an actual physical address(place to which one could go), or a container of 'address parts' which should be handled as a unit(such as a city-state-zip combination within the US).\n\nConditional when used with Payor object.  Required if entering using RECIPIENT or THIRD_PARTY.  Required if not-authenticated and SENDER is selected",
+                        "type": "object",
                         "schema": {
                             "$ref": "#/components/schemas/AddressVO"
                         }
@@ -2890,6 +2923,7 @@
             },
             "OriginLocation": {
                 "description": "Location details for the FedEx facility where the shipment originated.",
+                "type": "object",
                 "schema": {
                     "$ref": "#/components/schemas/LocationDetail_origin"
                 }
@@ -3077,7 +3111,8 @@
                         }
                     },
                     "message": {
-                        "description": "Indicates the description of API error alert message.<br>Example: Access token expired. Please modify your request and try again."
+                        "description": "Indicates the description of API error alert message.<br>Example: Access token expired. Please modify your request and try again.",
+                        "type": "string"
                     }
                 },
                 "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
@@ -3113,7 +3148,8 @@
                         }
                     },
                     "message": {
-                        "description": "Indicates the description of API error alert message.<br>Example: We could not authorize your credentials. Please check your permissions and try again"
+                        "description": "Indicates the description of API error alert message.<br>Example: We could not authorize your credentials. Please check your permissions and try again",
+                        "type": "string"
                     }
                 },
                 "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
@@ -3149,7 +3185,8 @@
                         }
                     },
                     "message": {
-                        "description": "Indicates the description of API error alert message.<br>Example: The resource you requested is no longer available. Please modify your request and try again."
+                        "description": "Indicates the description of API error alert message.<br>Example: The resource you requested is no longer available. Please modify your request and try again.",
+                        "type": "string"
                     }
                 },
                 "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
@@ -3190,7 +3227,8 @@
                         }
                     },
                     "message": {
-                        "description": "Indicates the description of API error alert message.<br>Example: We encountered an unexpected error and are working to resolve the issue. We apologize for any inconvenience. Please check back at a later time."
+                        "description": "Indicates the description of API error alert message.<br>Example: We encountered an unexpected error and are working to resolve the issue. We apologize for any inconvenience. Please check back at a later time.",
+                        "type": "string"
                     }
                 },
                 "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
@@ -3226,7 +3264,8 @@
                         }
                     },
                     "message": {
-                        "description": "Indicates the description of API error alert message.<br>Example: The service is currently unavailable and we are working to resolve the issue. We apologize for any inconvenience. Please check back at a later time."
+                        "description": "Indicates the description of API error alert message.<br>Example: The service is currently unavailable and we are working to resolve the issue. We apologize for any inconvenience. Please check back at a later time.",
+                        "type": "string"
                     }
                 },
                 "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
@@ -3271,6 +3310,7 @@
             },
             "TrackingEventNotificationDetail": {
                 "description": "Object for holding tracking event Notification details.",
+                "type": "object",
                 "schema": {
                     "$ref": "#/components/schemas/TrackingEventNotificationDetail_2"
                 }
@@ -3295,7 +3335,8 @@
                     },
                     "supportHTML": {
                         "title": "@Ignore4TPP",
-                        "description": "If value is 'true' then html tags are included in the response date.  If 'false' they are not provided in the response."
+                        "description": "If value is 'true' then html tags are included in the response date.  If 'false' they are not provided in the response.",
+                        "type": "string"
                     }
                 },
                 "description": "Tracking Event Notification details."
@@ -3466,12 +3507,14 @@
                 "properties": {
                     "TrackingNumberInfo": {
                         "description": "Tracking number information which uniquely identifies a package. Tracking number information includes tracking number, carrier code and a unique qualifier.",
+                        "type": "object",
                         "schema": {
                             "$ref": "#/components/schemas/TrackingNumberInfo_2"
                         }
                     },
                     "destinationAddress": {
                         "description": "Address where the package was actually delivered. Contrast with destination Address, which is the location to which the package was intended to be delivered. Addresses may differ due to delivery to a neighbor, hold at FedEx location, etc.",
+                        "type": "object",
                         "schema": {
                             "$ref": "#/components/schemas/AddressVO"
                         }
@@ -3491,7 +3534,8 @@
                             "$ref": "#/components/schemas/Alert"
                         }
                     }
-                }
+                },
+                "type": "object"
             },
             "notificationEventTypes": {
                 "type": "array",
@@ -3644,6 +3688,7 @@
                 "properties": {
                     "tcnInfo": {
                         "description": "The information associated with the transportation control number.<br>Only 1 TCN is supported per request.",
+                        "type": "object",
                         "schema": {
                             "$ref": "#/components/schemas/TCNInfo"
                         }
@@ -3759,6 +3804,7 @@
                 "properties": {
                     "trackDocumentDetail": {
                         "description": "This object specifies the tracking document details such as types of documents, for example, SIGNATURE_PROOF_OF_DELIVERY and also the format of tracking document. Supported values are PDF and PNG. Default is PDF.",
+                        "type": "object",
                         "schema": {
                             "$ref": "#/components/schemas/TrackDocumentDetail"
                         }
@@ -3798,6 +3844,7 @@
                 "type": "object",
                 "properties": {
                     "trackingNumberInfo": {
+                        "type": "object",
                         "schema": {
                             "$ref": "#/components/schemas/TrackingNumberInfo"
                         }
@@ -4039,6 +4086,7 @@
                     },
                     "address": {
                         "description": "Required.\n\nDescriptive data for a physical location.  may be used as an actual physical address(place to which one could go), or a container of 'address parts' which should be handled as a unit(such as a city-state-zip combination within the US).\n\nConditional when used with Payor object.  Required if entering using RECIPIENT or THIRD_PARTY.  Required if not-authenticated and SENDER is selected",
+                        "type": "object",
                         "schema": {
                             "$ref": "#/components/schemas/AddressVO1"
                         }

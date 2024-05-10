@@ -122,6 +122,10 @@ class Refactorer
         // Many schemas and properties are missing a type, so we add it in here if it's missing
         // to help with the generation process
         foreach ($schema->components->schemas as $componentName => $component) {
+            if (isset($component->allOf) || isset($component->oneOf)) {
+                continue;
+            }
+
             if (! isset($component->type) && ! isset($component->{'$ref'})) {
                 $type = null;
                 if (isset($component->properties)) {
