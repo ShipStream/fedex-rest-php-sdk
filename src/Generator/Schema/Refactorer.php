@@ -163,6 +163,22 @@ class Refactorer
                     // Default to type string if there's no type set
                     if (! isset($prop->type) && ! isset($prop->{'$ref'})) {
                         data_set($schema, "components.schemas.{$componentName}.properties.{$propName}.type", $defaultType);
+                    } elseif (
+                        isset($prop->type)
+                        && $prop->type === 'array'
+                        && ! isset($prop->items->{'$ref'})
+                        && ! isset($prop->items->type)
+                    ) {
+                        $type = $defaultType;
+                        if (isset($prop->schema?->{'$ref'})) {
+                            $referenced = $this->componentByRef($prop->schema->{'$ref'});
+                            if (isset($referenced->type)) {
+                                $type = $referenced->type;
+                            } else {
+                                $type = 'object';
+                            }
+                        }
+                        data_set($schema, "components.schemas.{$componentName}.properties.{$propName}.items.type", $type);
                     }
                 }
             } elseif (isset($component->items) && ! isset($component->items->type)) {
@@ -302,10 +318,20 @@ class Refactorer
             throw new Exception('Cannot get component by ref without a schema');
         }
 
-        $exploded = explode('/', $ref);
-        $subComponentName = end($exploded);
+        $fullRef = $ref;
+        do {
+            $exploded = explode('/', $fullRef);
+            $subComponentName = end($exploded);
 
-        return $schema->components->schemas->{$subComponentName} ?? false;
+            $component = $schema->components->schemas->{$subComponentName} ?? false;
+            if (isset($component->{'$ref'})) {
+                $fullRef = $component->{'$ref'};
+            } else {
+                $fullRef = null;
+            }
+        } while ($fullRef !== null);
+
+        return $component;
     }
 
     protected static function baseSchema(): stdClass
