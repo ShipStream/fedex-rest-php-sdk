@@ -8,6 +8,17 @@ use Nette\PhpGenerator\PhpFile;
 
 class FileHandler extends BasicFileHandler
 {
+    public function requestPath(PhpFile $file): string
+    {
+        $components = [
+            $this->config->outputDir,
+            'Requests',
+            Arr::first($file->getClasses())->getName(),
+        ];
+
+        return $this->buildPath($components);
+    }
+
     public function resourcePath(PhpFile $file): string
     {
         $components = [
