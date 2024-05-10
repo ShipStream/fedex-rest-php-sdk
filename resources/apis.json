@@ -44,8 +44,8 @@
       }
     ]
   },
-  "ground-end-of-day-close": {
-    "name": "Ground End of Day Close",
+  "ground-eod-close": {
+    "name": "Ground EOD Close",
     "versions": [
       {
         "version": "1",
