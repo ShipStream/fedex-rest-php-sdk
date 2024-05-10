@@ -16,6 +16,7 @@ use ShipStream\FedEx\Api\AddressValidationV1\AddressValidationV1;
 use ShipStream\FedEx\Api\AuthorizationV1\AuthorizationV1;
 use ShipStream\FedEx\Api\AuthorizationV1\Dto\FullSchema;
 use ShipStream\FedEx\Api\AuthorizationV1\Requests\ApiAuthorization;
+use ShipStream\FedEx\Api\FreightLTLV1\FreightLTLV1;
 use ShipStream\FedEx\Api\GroundEODCloseV1\GroundEodCloseV1;
 use ShipStream\FedEx\Api\PickupRequestV1\PickupRequestV1;
 use ShipStream\FedEx\Api\PostalCodeValidationV1\PostalCodeValidationV1;
@@ -59,6 +60,11 @@ class FedEx extends Connector
     public function authorizationV1(): AuthorizationV1
     {
         return new AuthorizationV1($this);
+    }
+
+    public function freightLTLV1(): FreightLTLV1
+    {
+        return new FreightLTLV1($this);
     }
 
     public function groundEODCloseV1(): GroundEodCloseV1
