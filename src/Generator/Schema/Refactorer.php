@@ -40,6 +40,9 @@ class Refactorer
 
             foreach ($this->currentSchema->paths as $path => $operations) {
                 foreach ($operations as $method => $operation) {
+                    // Standardize tags
+                    $operation->tags = [$this->schemaVersion->studlyName()];
+
                     if (isset($operation->requestBody)) {
                         foreach ($operation->requestBody->content as $contentType => $mediaType) {
                             if (isset($mediaType->schema->oneOf)) {
