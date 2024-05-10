@@ -9,16 +9,15 @@ use ShipStream\FedEx\Response;
 
 final class ErrorResponseVo401 extends Response
 {
-	protected static array $complexArrayTypes = ['errors' => [CxsError::class]];
+    protected static array $complexArrayTypes = ['errors' => [CxsError::class]];
 
-
-	/**
-	 * @param ?string $transactionId The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492
-	 * @param CxsError[]|null $errors
-	 */
-	public function __construct(
-		public readonly ?string $transactionId = null,
-		public readonly ?array $errors = null,
-	) {
-	}
+    /**
+     * @param  ?string  $transactionId  The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492
+     * @param  CxsError[]|null  $errors
+     */
+    public function __construct(
+        public readonly ?string $transactionId = null,
+        public readonly ?array $errors = null,
+    ) {
+    }
 }
