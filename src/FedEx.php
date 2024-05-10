@@ -18,6 +18,7 @@ use ShipStream\FedEx\Api\AuthorizationV1\Dto\FullSchema;
 use ShipStream\FedEx\Api\AuthorizationV1\Requests\ApiAuthorization;
 use ShipStream\FedEx\Api\FreightLTLV1\FreightLTLV1;
 use ShipStream\FedEx\Api\GroundEODCloseV1\GroundEodCloseV1;
+use ShipStream\FedEx\Api\LocationsSearchV1\LocationsSearchV1;
 use ShipStream\FedEx\Api\PickupRequestV1\PickupRequestV1;
 use ShipStream\FedEx\Api\PostalCodeValidationV1\PostalCodeValidationV1;
 use ShipStream\FedEx\Api\TrackV1\TrackV1;
@@ -70,6 +71,11 @@ class FedEx extends Connector
     public function groundEODCloseV1(): GroundEodCloseV1
     {
         return new GroundEODCloseV1($this);
+    }
+
+    public function locationsSearchV1(): LocationsSearchV1
+    {
+        return new LocationsSearchV1($this);
     }
 
     public function pickupRequestV1(): PickupRequestV1
