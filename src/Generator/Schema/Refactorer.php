@@ -117,8 +117,27 @@ class Refactorer
         }
 
         $schema = clone $this->combined;
-        $defaultType = 'string';
 
+        foreach ($schema->paths as $path => $operations) {
+            foreach ($operations as $method => $operation) {
+                $mediaType = $operation->responses->{'404'}?->content?->{'application/json'} ?? null;
+
+                // Several FedEx endpoints are missing responses schemas for 404 responses, and instead
+                // only have example payloads. This assigns schemas to those 404 responses missing them.
+                if ($mediaType && array_keys((array) $mediaType ?? []) === ['example']) {
+                    $mediaTypeSchema = new stdClass;
+                    $mediaTypeSchema->{'$ref'} = '#/components/schemas/ErrorResponseVO';
+                    $mediaType->schema = $mediaTypeSchema;
+                    $operation->responses->{'404'}->content->{'application/json'} = $mediaType;
+                }
+
+                $operations->{$method} = $operation;
+            }
+
+            $schema->paths->{$path} = $operations;
+        }
+
+        $defaultType = 'string';
         // Many schemas and properties are missing a type, so we add it in here if it's missing
         // to help with the generation process
         foreach ($schema->components->schemas as $componentName => $component) {
