@@ -1,9 +1,9 @@
 {
   "version": "1.0.0",
   "type": "openapi",
-  "outputDir": "src",
+  "outputDir": "src/Api",
   "force": true,
-  "namespace": "ShipStream\\FedEx",
+  "namespace": "ShipStream\\FedEx\\Api",
   "connectorName": "FedEx",
   "baseFilesNamespace": "ShipStream\\FedEx",
   "fallbackResourceName": "Api",

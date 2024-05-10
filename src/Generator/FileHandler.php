@@ -32,7 +32,8 @@ class FileHandler extends BasicFileHandler
     protected function baseOutputPath(PhpFile $file, ?string $subPath = ''): string
     {
         $components = [
-            GENERATED_DIR,
+            $this->config->outputDir,
+            '../..',
             $subPath,
             Arr::first($file->getClasses())->getName(),
         ];

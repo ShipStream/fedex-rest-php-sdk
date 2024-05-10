@@ -27,7 +27,9 @@ class Package
      */
     public static function namespace(): string
     {
-        return array_key_first(self::composerFile()['autoload']['psr-4']);
+        $config = json_decode(file_get_contents(GENERATOR_CONFIG_FILE), true);
+
+        return $config['namespace'];
     }
 
     public static function composerFile(): array
