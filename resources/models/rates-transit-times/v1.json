@@ -214,6 +214,9 @@
                         "lang": "SWIFT",
                         "source": "import Foundation\n\nlet headers = [\n  \"Content-Type\": \"application/json\",\n  \"X-locale\": \"en_US\",\n  \"Authorization\": \"Bearer \"\n]\nlet parameters = [\n  input // 'input' refers to JSON Payload\n] as [String : Any]\n\nlet postData = JSONSerialization.data(withJSONObject: parameters, options: [])\n\nlet request = NSMutableURLRequest(url: NSURL(string: \"https://apis-sandbox.fedex.com/rate/v1/rates/quotes\")! as URL,\n                                        cachePolicy: .useProtocolCachePolicy,\n                                    timeoutInterval: 10.0)\nrequest.httpMethod = \"POST\"\nrequest.allHTTPHeaderFields = headers\nrequest.httpBody = postData as Data\n\nlet session = URLSession.shared\nlet dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in\n  if (error != nil) {\n    print(error)\n  } else {\n    let httpResponse = response as? HTTPURLResponse\n    print(httpResponse)\n  }\n})\n\ndataTask.resume()"
                     }
+                ],
+                "tags": [
+                    "RatesAndTransitTimesV1"
                 ]
             }
         }
@@ -1833,6 +1836,7 @@
                         "type": "array",
                         "description": "This is data for a single leg of a shipment's total/summary rates, as calculated per a specific rate type.",
                         "items": {
+                            "type": "object",
                             "schema": {
                                 "$ref": "#/components/schemas/ShipmentLegRateDetail_1"
                             }
@@ -2037,7 +2041,8 @@
                     "billingWeight": {
                         "schema": {
                             "$ref": "#/components/schemas/Weight"
-                        }
+                        },
+                        "type": "string"
                     },
                     "netFreight": {
                         "type": "number",
@@ -2081,27 +2086,10 @@
                 "description": "Data for a package's rates, as calculated per a specific rate type."
             },
             "Weight": {
-                "allOf": [
-                    {
-                        "$ref": "#/components/schemas/Weight_1"
-                    },
-                    {
-                        "required": [
-                            "units",
-                            "value"
-                        ],
-                        "properties": {
-                            "units": {
-                                "type": "string",
-                                "example": "LB"
-                            },
-                            "value": {
-                                "type": "number",
-                                "example": 22
-                            }
-                        }
-                    }
-                ]
+                "schema": {
+                    "$ref": "#/components/schemas/Weight_1"
+                },
+                "type": "string"
             },
             "Weight_1": {
                 "type": "object",
@@ -2249,6 +2237,7 @@
                     },
                     "totalBillingWeight": {
                         "description": "Sum of billing weight for the shipment.",
+                        "type": "object",
                         "schema": {
                             "$ref": "#/components/schemas/Weight_1"
                         }
@@ -2456,12 +2445,14 @@
                     },
                     "totalBillingWeight": {
                         "description": "This is total of billing weight for the shipment.",
+                        "type": "object",
                         "schema": {
                             "$ref": "#/components/schemas/Weight_1"
                         }
                     },
                     "totalDimWeight": {
                         "description": "This is total of dimensional weight for the shipment.",
+                        "type": "object",
                         "schema": {
                             "$ref": "#/components/schemas/Weight_1"
                         }
@@ -2790,25 +2781,7 @@
                 "description": "These are Broker Detail for the rate quote."
             },
             "BrokerDetailBroker": {
-                "allOf": [
-                    {
-                        "$ref": "#/components/schemas/Party"
-                    },
-                    {
-                        "required": [
-                            "address",
-                            "contact"
-                        ],
-                        "properties": {
-                            "address": {
-                                "description": "These are Broker address details."
-                            },
-                            "contact": {
-                                "description": "These are broker contact details such as Name, Email, PhoneNumber."
-                            }
-                        }
-                    }
-                ]
+                "$ref": "#/components/schemas/Party"
             },
             "Party": {
                 "type": "object",
@@ -2818,6 +2791,9 @@
                     },
                     "accountNumber": {
                         "$ref": "#/components/schemas/AccountNumber"
+                    },
+                    "contact": {
+                        "$ref": "#/components/schemas/Contact"
                     }
                 },
                 "description": "Indicate the party to a transaction including the physical address, contact information and account number information.",
@@ -3023,6 +2999,7 @@
             },
             "Commit": {
                 "description": "Specifies the delivery commitment details date/time.",
+                "type": "object",
                 "schema": {
                     "$ref": "#/components/schemas/CommitDetail_1"
                 }
@@ -3352,7 +3329,8 @@
                         }
                     },
                     "message": {
-                        "description": "Indicates the description of API error alert message.<br>Example: Access token expired. Please modify your request and try again."
+                        "description": "Indicates the description of API error alert message.<br>Example: Access token expired. Please modify your request and try again.",
+                        "type": "string"
                     }
                 },
                 "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
@@ -3388,7 +3366,8 @@
                         }
                     },
                     "message": {
-                        "description": "Indicates the description of API error alert message.<br>Example: We could not authorize your credentials. Please check your permissions and try again"
+                        "description": "Indicates the description of API error alert message.<br>Example: We could not authorize your credentials. Please check your permissions and try again",
+                        "type": "string"
                     }
                 },
                 "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
@@ -3424,7 +3403,8 @@
                         }
                     },
                     "message": {
-                        "description": "Indicates the description of API error alert message.<br>Example: The resource you requested is no longer available. Please modify your request and try again."
+                        "description": "Indicates the description of API error alert message.<br>Example: The resource you requested is no longer available. Please modify your request and try again.",
+                        "type": "string"
                     }
                 },
                 "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
@@ -3465,7 +3445,8 @@
                         }
                     },
                     "message": {
-                        "description": "Indicates the description of API error alert message.<br>Example: We encountered an unexpected error and are working to resolve the issue. We apologize for any inconvenience. Please check back at a later time."
+                        "description": "Indicates the description of API error alert message.<br>Example: We encountered an unexpected error and are working to resolve the issue. We apologize for any inconvenience. Please check back at a later time.",
+                        "type": "string"
                     }
                 },
                 "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
@@ -3501,7 +3482,8 @@
                         }
                     },
                     "message": {
-                        "description": "Indicates the description of API error alert message.<br>Example: The service is currently unavailable and we are working to resolve the issue. We apologize for any inconvenience. Please check back at a later time."
+                        "description": "Indicates the description of API error alert message.<br>Example: The service is currently unavailable and we are working to resolve the issue. We apologize for any inconvenience. Please check back at a later time.",
+                        "type": "string"
                     }
                 },
                 "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
@@ -3583,12 +3565,14 @@
                 "properties": {
                     "shipper": {
                         "description": "The descriptive data for the physical shipper location from which the shipment originates.",
+                        "type": "object",
                         "schema": {
                             "$ref": "#/components/schemas/RateParty"
                         }
                     },
                     "recipient": {
                         "description": "Indicate the descriptive data for the recipient location to which the shipment is to be received.",
+                        "type": "object",
                         "schema": {
                             "$ref": "#/components/schemas/RateParty"
                         }
@@ -3653,6 +3637,7 @@
                     },
                     "variableHandlingChargeDetail": {
                         "description": "contains the detail used to calculate a variable handling charge, a potentially non-fixed handling surcharge. Based on if there is a percent value, or a fixed amount, the charge can either be fixed or percents based.",
+                        "type": "object",
                         "schema": {
                             "$ref": "#/components/schemas/VariableHandlingChargeDetail"
                         }
@@ -3717,27 +3702,10 @@
             },
             "RateAddress": {
                 "description": "Descriptive data for a physical location. May be used as an actual physical address (place to which one could go), or as a container of address parts which should be handled as a unit (such as a city-state-ZIP combination within  the US). Country code is required.  Postal code is required for postal aware countries.",
-                "allOf": [
-                    {
-                        "$ref": "#/components/schemas/Address_2"
-                    },
-                    {
-                        "required": [
-                            "countryCode",
-                            "postalCode"
-                        ],
-                        "properties": {
-                            "countryCode": {
-                                "type": "string",
-                                "example": "US"
-                            },
-                            "postalCode": {
-                                "type": "string",
-                                "example": "65247"
-                            }
-                        }
-                    }
-                ]
+                "schema": {
+                    "$ref": "#/components/schemas/Address_2"
+                },
+                "type": "string"
             },
             "Address_2": {
                 "type": "object",
@@ -3882,7 +3850,8 @@
                             "type": "string"
                         }
                     }
-                }
+                },
+                "type": "string"
             },
             "RequestedPackageLineItem": {
                 "required": [
@@ -3913,13 +3882,15 @@
                         "description": "This is the Declared Value - represents FedEx Maximum liability in connection with a shipment of that Package, including but not limited to, any loss, damage, delay, misdelivery, any failure to provide information, or misdelivery of information relating to the Shipment.",
                         "schema": {
                             "$ref": "#/components/schemas/Money"
-                        }
+                        },
+                        "type": "string"
                     },
                     "weight": {
                         "description": "Indicate the total weight of the requested package line items.",
                         "schema": {
                             "$ref": "#/components/schemas/Weight_2"
-                        }
+                        },
+                        "type": "string"
                     },
                     "dimensions": {
                         "$ref": "#/components/schemas/RequestePackageLineItemDimensions"
@@ -3929,6 +3900,7 @@
                     },
                     "packageSpecialServices": {
                         "description": "These special services are available at the package level for some or all service types.  Indicated if rate data is being requested for the special services.",
+                        "type": "object",
                         "schema": {
                             "$ref": "#/components/schemas/PackageSpecialServicesRequested"
                         }
@@ -3959,33 +3931,10 @@
                 "description": "Specifies the details of the content of the package."
             },
             "Money": {
-                "allOf": [
-                    {
-                        "$ref": "#/components/schemas/Money_1"
-                    },
-                    {
-                        "required": [
-                            "amount",
-                            "currency"
-                        ],
-                        "properties": {
-                            "amount": {
-                                "type": "number",
-                                "description": "Indicates the declared amount value for the shipment.",
-                                "example": 100
-                            },
-                            "currency": {
-                                "type": "string",
-                                "description": "Indicates the currency associated with the amount.",
-                                "example": "USD"
-                            }
-                        },
-                        "example": {
-                            "amount": "100",
-                            "currency": "USD"
-                        }
-                    }
-                ]
+                "schema": {
+                    "$ref": "#/components/schemas/Money_1"
+                },
+                "type": "string"
             },
             "Money_1": {
                 "type": "object",
@@ -4005,27 +3954,10 @@
                 "description": "Indicate the amount details. This is optional, but if indicated, amount and currency must be provided."
             },
             "Weight_2": {
-                "allOf": [
-                    {
-                        "$ref": "#/components/schemas/Weight_1_2"
-                    },
-                    {
-                        "required": [
-                            "units",
-                            "value"
-                        ],
-                        "properties": {
-                            "units": {
-                                "type": "string",
-                                "example": "LB"
-                            },
-                            "value": {
-                                "type": "number",
-                                "example": 22
-                            }
-                        }
-                    }
-                ]
+                "schema": {
+                    "$ref": "#/components/schemas/Weight_1_2"
+                },
+                "type": "string"
             },
             "Weight_1_2": {
                 "type": "object",
@@ -4056,50 +3988,15 @@
                 "description": "Specify the dimensions of this package and the unit type used for the measurements. Valid measurements are whole numbers greater than zero.",
                 "schema": {
                     "$ref": "#/components/schemas/Dimensions"
-                }
+                },
+                "type": "string"
             },
             "Dimensions": {
                 "description": "Indicate the dimensions of the package.<br> Following conditions will apply: <ul><li>Dimensions are optional but when added, then all three dimensions must be indicated.</li><li>Dimensions are required with YOUR_PACKAGING package type.</li></ul>Note: The Maximum/minimum dimension values varies based on the services and the packaging types. Refer <a href=\"https://www.fedex.com/en-us/service-guide.html\" target=\"_blank\">FedEx Service Guide</a> for service details related to DIM Weighting for FedEx Express and oversize conditions for FedEx Express and FedEx Ground.",
-                "allOf": [
-                    {
-                        "$ref": "#/components/schemas/Dimensions_1"
-                    },
-                    {
-                        "required": [
-                            "height",
-                            "length",
-                            "units",
-                            "width"
-                        ],
-                        "properties": {
-                            "length": {
-                                "type": "integer",
-                                "description": "Indicate the length of the package. No implied decimal places. Maximum value: 999 <br> Example: 20",
-                                "format": "int32"
-                            },
-                            "width": {
-                                "type": "integer",
-                                "description": "Indicate the width of the package. No implied decimal places. Maximum value: 999 <br> Example: 10",
-                                "format": "int32"
-                            },
-                            "height": {
-                                "type": "integer",
-                                "description": "Indicate the height of the package. No implied decimal places. Maximum value: 999 <br> Example: 10",
-                                "format": "int32"
-                            },
-                            "units": {
-                                "type": "string",
-                                "description": "Indicate the unit of measure for the provided dimensions.<br>Valid Values are:<ul><li>IN - Inches</li><li>CM - Centimeters</li></ul>"
-                            }
-                        },
-                        "example": {
-                            "length": 10,
-                            "width": 8,
-                            "height": 2,
-                            "units": "IN"
-                        }
-                    }
-                ]
+                "schema": {
+                    "$ref": "#/components/schemas/Dimensions_1"
+                },
+                "type": "string"
             },
             "Dimensions_1": {
                 "type": "object",
@@ -4178,7 +4075,8 @@
                         "description": "Indicate the Fixed value. <br>If you choose FIXED_AMOUNT as the ChargeType, this element allows you to enter the fixed value of the handling charge. The element allows entry of 7 characters before the decimal and 2 characters following the decimal. <br>Example - 5.00.",
                         "schema": {
                             "$ref": "#/components/schemas/Money"
-                        }
+                        },
+                        "type": "string"
                     },
                     "rateElementBasis": {
                         "type": "string",
@@ -4734,6 +4632,7 @@
             },
             "RequestedShipmentSpecialServicesRequested": {
                 "description": "Specify the special services requested at the shipment level.<br>This has to be specified if rate data needed for the special services. ",
+                "type": "object",
                 "schema": {
                     "$ref": "#/components/schemas/ShipmentSpecialServicesRequested"
                 }
@@ -4791,25 +4690,10 @@
                 "description": "Indicate the Delivery On Invoice Acceptance detail. Recipient is required for Delivery On Invoice Special service."
             },
             "DeliveryOnInvoiceAcceptanceDetailRecipient": {
-                "allOf": [
-                    {
-                        "$ref": "#/components/schemas/Party_2"
-                    },
-                    {
-                        "required": [
-                            "address",
-                            "contact"
-                        ],
-                        "properties": {
-                            "address": {
-                                "$ref": "#/components/schemas/DeliveryOnInvoiceAcceptanceDetailRecipient_address"
-                            },
-                            "contact": {
-                                "$ref": "#/components/schemas/DeliveryOnInvoiceAcceptanceDetailRecipient_contact"
-                            }
-                        }
-                    }
-                ]
+                "schema": {
+                    "$ref": "#/components/schemas/Party_2"
+                },
+                "type": "string"
             },
             "InternationalTrafficInArmsRegulationsDetail": {
                 "type": "object",
@@ -5138,6 +5022,7 @@
             },
             "ShipmentSpecialServicesRequestedShipmentCODDetail": {
                 "description": "Use this object to specify Collect On Delivery (COD) shipment details.",
+                "type": "object",
                 "schema": {
                     "$ref": "#/components/schemas/ShipmentCODDetail"
                 }
@@ -5313,6 +5198,7 @@
             },
             "RequestedShipmentCustomsClearanceDetail": {
                 "description": "This is Customs clearance data associated with the shipment. This is used for both international and intra-country shipping and rating. Customs commodity data is required for international and intra-country rating.",
+                "type": "object",
                 "schema": {
                     "$ref": "#/components/schemas/CustomsClearanceDetail"
                 }
@@ -5427,21 +5313,10 @@
                 "properties": {
                     "responsibleParty": {
                         "description": "These are payer details such as address, account and contacts.",
-                        "allOf": [
-                            {
-                                "$ref": "#/components/schemas/Party_2"
-                            },
-                            {
-                                "required": [
-                                    "accountNumber"
-                                ],
-                                "properties": {
-                                    "accountNumber": {
-                                        "type": "object"
-                                    }
-                                }
-                            }
-                        ]
+                        "schema": {
+                            "$ref": "#/components/schemas/Party_2"
+                        },
+                        "type": "string"
                     }
                 },
                 "description": "This is payer Information responsible for paying for the shipment.<br>Note: Optional when paymentType is SENDER.",
@@ -5476,7 +5351,8 @@
                         "description": "Specify the Total weight of this commodity. This element is used to estimate duties and taxes.",
                         "schema": {
                             "$ref": "#/components/schemas/Weight_2"
-                        }
+                        },
+                        "type": "string"
                     },
                     "quantity": {
                         "type": "integer",
@@ -5488,12 +5364,14 @@
                         "description": "Specify the required Customs value for this commodity.",
                         "schema": {
                             "$ref": "#/components/schemas/Money"
-                        }
+                        },
+                        "type": "string"
                     },
                     "unitPrice": {
                         "schema": {
                             "$ref": "#/components/schemas/Money"
-                        }
+                        },
+                        "type": "string"
                     },
                     "numberOfPieces": {
                         "type": "integer",
@@ -5560,6 +5438,7 @@
             },
             "RequestedShipmentSmartPostInfoDetail": {
                 "description": "Indicate the FedEx Smartpost shipment details. Required for Smartpost shipments only.",
+                "type": "object",
                 "schema": {
                     "$ref": "#/components/schemas/SmartPostInfoDetail"
                 }
@@ -5685,7 +5564,8 @@
                         "description": "The two-letter country code. <br>Maximum length is 2.<br>Example: US<br><a onclick='loadDocReference(\"countrycodes\")'>Click here to see Country Codes</a>",
                         "example": "US"
                     }
-                }
+                },
+                "type": "object"
             },
             "DeliveryOnInvoiceAcceptanceDetailRecipient_contact": {
                 "required": [
@@ -5714,7 +5594,8 @@
                         "description": "This is a placeholder for phone number associated with this contact. Maximum length is 15.",
                         "example": "9013577890"
                     }
-                }
+                },
+                "type": "object"
             }
         }
     },

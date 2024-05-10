@@ -14,6 +14,26 @@
             }
         ]
     },
+    "rates-transit-times": {
+        "1": [
+            {
+                "action": "merge",
+                "path": "components.schemas.Party.properties",
+                "value": {
+                    "contact": {
+                        "$ref": "#/components/schemas/Contact"
+                    }
+                }
+            },
+            {
+                "action": "replace",
+                "path": "components.schemas.BrokerDetailBroker",
+                "value": {
+                    "$ref": "#/components/schemas/Party"
+                }
+            }
+        ]
+    },
     "track": {
         "1": [
             {

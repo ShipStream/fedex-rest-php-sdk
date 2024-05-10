@@ -22,6 +22,7 @@ use ShipStream\FedEx\Api\LocationsSearchV1\LocationsSearchV1;
 use ShipStream\FedEx\Api\OpenShipV1\OpenShipV1;
 use ShipStream\FedEx\Api\PickupRequestV1\PickupRequestV1;
 use ShipStream\FedEx\Api\PostalCodeValidationV1\PostalCodeValidationV1;
+use ShipStream\FedEx\Api\RatesAndTransitTimesV1\RatesAndTransitTimesV1;
 use ShipStream\FedEx\Api\TrackV1\TrackV1;
 use ShipStream\FedEx\Api\TradeDocumentsUploadV1\TradeDocumentsUploadV1;
 use ShipStream\FedEx\Enums\Endpoint;
@@ -92,6 +93,11 @@ class FedEx extends Connector
     public function postalCodeValidationV1(): PostalCodeValidationV1
     {
         return new PostalCodeValidationV1($this);
+    }
+
+    public function ratesTransitTimesV1(): RatesAndTransitTimesV1
+    {
+        return new RatesAndTransitTimesV1($this);
     }
 
     public function trackV1(): TrackV1
