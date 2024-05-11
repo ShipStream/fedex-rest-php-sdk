@@ -141,49 +141,7 @@ class Refactorer
         // Many schemas and properties are missing a type, so we add it in here if it's missing
         // to help with the generation process
         foreach ($schema->components->schemas as $componentName => $component) {
-            if (isset($component->allOf) || isset($component->oneOf)) {
-                continue;
-            }
-
-            if (! isset($component->type) && ! isset($component->{'$ref'})) {
-                $type = null;
-                if (isset($component->properties)) {
-                    $type = 'object';
-                } elseif (isset($component->items)) {
-                    $type = 'array';
-                } else {
-                    $type = $defaultType;
-                }
-
-                data_set($schema, "components.schemas.{$componentName}.type", $type);
-            }
-
-            if (isset($component->properties)) {
-                foreach ($component->properties as $propName => $prop) {
-                    // Default to type string if there's no type set
-                    if (! isset($prop->type) && ! isset($prop->{'$ref'})) {
-                        data_set($schema, "components.schemas.{$componentName}.properties.{$propName}.type", $defaultType);
-                    } elseif (
-                        isset($prop->type)
-                        && $prop->type === 'array'
-                        && ! isset($prop->items->{'$ref'})
-                        && ! isset($prop->items->type)
-                    ) {
-                        $type = $defaultType;
-                        if (isset($prop->schema?->{'$ref'})) {
-                            $referenced = $this->componentByRef($prop->schema->{'$ref'});
-                            if (isset($referenced->type)) {
-                                $type = $referenced->type;
-                            } else {
-                                $type = 'object';
-                            }
-                        }
-                        data_set($schema, "components.schemas.{$componentName}.properties.{$propName}.items.type", $type);
-                    }
-                }
-            } elseif (isset($component->items) && ! isset($component->items->type)) {
-                data_set($schema, "components.schemas.{$componentName}.items.type", $defaultType);
-            }
+            $schema->components->schemas->{$componentName} = $this->setSchemaTypes($component);
         }
 
         $this->combined = $schema;
@@ -340,6 +298,74 @@ class Refactorer
         $schema->paths = new stdClass;
         $schema->components = new stdClass;
         $schema->components->schemas = new stdClass;
+
+        return $schema;
+    }
+
+    protected function setSchemaTypes(stdClass $schema): stdClass
+    {
+        $defaultType = 'string';
+
+        $multiTypeKeys = ['allOf', 'oneOf'];
+        foreach ($multiTypeKeys as $key) {
+            if (isset($schema->{$key})) {
+                foreach ($schema->{$key} as $i => $subSchema) {
+                    $schema->{$key}[$i] = $this->setSchemaTypes($subSchema);
+                }
+
+                return $schema;
+            }
+        }
+
+        if (isset($schema->{'$ref'})) {
+            return $schema;
+        }
+
+        if (isset($schema->properties)) {
+            $schema->type = 'object';
+            foreach ($schema->properties as $propName => $prop) {
+                if (! isset($prop->type) && ! isset($prop->{'$ref'})) {
+                    $ref = $prop->schema?->{'$ref'} ?? null;
+                    $type = null;
+                    if ($ref) {
+                        $referenced = $this->componentByRef($ref);
+                        if (isset($referenced->type)) {
+                            $type = $referenced->type;
+                        } else {
+                            $type = 'object';
+                        }
+                    } elseif (isset($prop->properties)) {
+                        $type = 'object';
+                        $schema->properties->{$propName} = $this->setSchemaTypes($prop);
+                    } else {
+                        $type = $defaultType;
+                    }
+                    data_set($schema, "properties.{$propName}.type", $type);
+                } elseif (
+                    isset($prop->type)
+                    && $prop->type === 'array'
+                    && ! isset($prop->items->{'$ref'})
+                    && ! isset($prop->items->type)
+                ) {
+                    $type = $defaultType;
+                    if (isset($prop->schema?->{'$ref'})) {
+                        $referenced = $this->componentByRef($prop->schema->{'$ref'});
+                        if (isset($referenced->type)) {
+                            $type = $referenced->type;
+                        } else {
+                            $type = 'object';
+                        }
+                    }
+                    data_set($schema, "properties.{$propName}.items.type", $type);
+                }
+            }
+        } elseif (isset($schema->items)) {
+            if (! isset($schema->items->type)) {
+                data_set($schema, 'items.type', $defaultType);
+            }
+        } elseif (! isset($schema->type)) {
+            $schema->type = $defaultType;
+        }
 
         return $schema;
     }
