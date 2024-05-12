@@ -137,7 +137,9 @@ class Refactorer
             $schema->paths->{$path} = $operations;
         }
 
-        $defaultType = 'string';
+        $schema = $this->cleanRefs($schema);
+        $schema = $this->deduplicateComponents($schema);
+
         // Many schemas and properties are missing a type, so we add it in here if it's missing
         // to help with the generation process
         foreach ($schema->components->schemas as $componentName => $component) {
@@ -325,7 +327,7 @@ class Refactorer
             $schema->type = 'object';
             foreach ($schema->properties as $propName => $prop) {
                 if (! isset($prop->type) && ! isset($prop->{'$ref'})) {
-                    $ref = $prop->schema?->{'$ref'} ?? null;
+                    $ref = $prop->{'$ref'} ?? false;
                     $type = null;
                     if ($ref) {
                         $referenced = $this->componentByRef($ref);
@@ -348,8 +350,8 @@ class Refactorer
                     && ! isset($prop->items->type)
                 ) {
                     $type = $defaultType;
-                    if (isset($prop->schema?->{'$ref'})) {
-                        $referenced = $this->componentByRef($prop->schema->{'$ref'});
+                    if (isset($prop->{'$ref'})) {
+                        $referenced = $this->componentByRef($prop->{'$ref'});
                         if (isset($referenced->type)) {
                             $type = $referenced->type;
                         } else {
@@ -368,5 +370,65 @@ class Refactorer
         }
 
         return $schema;
+    }
+
+    protected function cleanRefs(stdClass $schema): stdClass
+    {
+        foreach ($schema->components->schemas as $componentName => $component) {
+            if (isset($component->schema->{'$ref'})) {
+                $component->{'$ref'} = $component->schema->{'$ref'};
+                unset($component->schema);
+            } elseif (isset($component->properties)) {
+                foreach ($component->properties as $name => $property) {
+                    if (isset($property->schema->{'$ref'})) {
+                        $property->{'$ref'} = $property->schema->{'$ref'};
+                        unset($property->schema);
+                    }
+                    $component->properties->{$name} = $property;
+                }
+            } elseif (isset($component->items->schema->{'$ref'})) {
+                $component->items->{'$ref'} = $component->items->schema->{'$ref'};
+                unset($component->items->schema->{'$ref'});
+            }
+
+            $schema->components->schemas->{$componentName} = $component;
+        }
+
+        return $schema;
+    }
+
+    protected function deduplicateComponents(stdClass $schema): stdClass
+    {
+        $refBase = '#/components/schemas/';
+        $replaced = [];
+        foreach ($schema->components->schemas as $name => $component) {
+            $ref = $component->{'$ref'} ?? false;
+            if ($ref) {
+                $refComponents = explode('/', $ref);
+                $refName = end($refComponents);
+
+                foreach ($replaced as $old => $repl) {
+                    if ($repl === $name) {
+                        $replaced[$old] = $refName;
+                    }
+                }
+                $replaced[$name] = $replaced[$refName] ?? $refName;
+
+                $replacementName = $replaced[$name];
+                $schema = self::jsonReplace("\"$refBase$name\"", "\"$refBase$replacementName\"", $schema);
+                unset($schema->components->schemas->{$name});
+            }
+        }
+
+        return $schema;
+    }
+
+    protected static function jsonReplace(string $find, string $replace, stdClass $json): stdClass
+    {
+        return json_decode(str_replace(
+            $find,
+            $replace,
+            json_encode($json, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES),
+        ));
     }
 }
