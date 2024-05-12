@@ -10,13 +10,13 @@ final class FreightTransitLocationDetail extends Dto
 {
     /**
      * @param  ?Distance  $distance  Freight total distance between origin and destination city centers.
-     * @param  ?mixed[]  $destinationLocation  Specifies the Freight destination city center information.
-     * @param  ?mixed[]  $originLocation  Freight origin city center information.
+     * @param  ?LocationDetail  $destinationLocation
+     * @param  ?LocationDetail  $originLocation
      */
     public function __construct(
         public readonly ?Distance $distance = null,
-        public readonly ?array $destinationLocation = null,
-        public readonly ?array $originLocation = null,
+        public readonly ?LocationDetail $destinationLocation = null,
+        public readonly ?LocationDetail $originLocation = null,
     ) {
     }
 }

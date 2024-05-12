@@ -9,7 +9,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/body"
+                                "$ref": "#/components/schemas/Full_Schema_Validate_Address"
                             }
                         }
                     },
@@ -238,13 +238,10 @@
                         "example": "AnyCo_order123456789"
                     },
                     "output": {
-                        "$ref": "#/components/schemas/BaseProcessOutputVO"
+                        "$ref": "#/components/schemas/AddressResolutionOutputVOV3"
                     }
                 },
                 "description": "Wrapper class for AddressResolutionOutputVO. It holds transactionId and output."
-            },
-            "BaseProcessOutputVO": {
-                "$ref": "#/components/schemas/AddressResolutionOutputVOV3"
             },
             "AddressResolutionOutputVOV3": {
                 "type": "object",
@@ -315,9 +312,7 @@
                     "postalCodeToken": {
                         "description": "This is the resolved postal code with a token. The token is an indication to the changes made.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/ResolutionToken"
-                        }
+                        "$ref": "#/components/schemas/ResolutionToken"
                     },
                     "parsedPostalCode": {
                         "$ref": "#/components/schemas/ParsedPostalCode"
@@ -582,9 +577,7 @@
                     "number": {
                         "description": "Phone Number details of the user",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/PhoneNumber"
-                        }
+                        "$ref": "#/components/schemas/PhoneNumber"
                     },
                     "permissions": {
                         "type": "string",
@@ -1104,9 +1097,6 @@
                 },
                 "description": "This is the Address in detail to be resolved.",
                 "type": "object"
-            },
-            "body": {
-                "$ref": "#/components/schemas/Full_Schema_Validate_Address"
             }
         }
     },

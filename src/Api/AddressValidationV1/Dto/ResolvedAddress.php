@@ -19,7 +19,7 @@ final class ResolvedAddress extends Dto
      * @param  ?string  $countryCode  This is resolved ISO alpha 2 country code.<br>Example: US<br><a onclick='loadDocReference("countrycodes")'>Click here to see Country Codes</a>
      * @param  ?string[]  $customerMessage  Returns messages pertaining to the resolved address indicating if any additional information is required.<br><br>Following are informational code and messages with respect to the results:<ul><li><i>INVALID.SUITE.NUMBER</i> &ndash; Invalid or missing Apartment/Suite</li><li><i>SUITE.NUMBER.REQUIRED</i> &ndash; Invalid or missing Apartment/Suite</li><li><i>PARTIAL.STREET.MATCH</i> &ndash; A street address is required for delivery. The entered address is a street number range.</li><li><i>MISSING.OR.AMBIGUOUS.DIRECTIONAL</i> &ndash; Invalid or missing address directional.</li><li><i>INTERPOLATED.STREET.ADDRESS</i> &ndash; Unable to confirm exact street number for the entered street name. The address falls within a valid range for the street name.</li><li><i>RRHC.CONVERSION</i> &ndash; A street address is required for delivery. The address has been converted from a rural route.</li></ul>
      * @param  ResolutionToken[]|null  $cityToken  This is the resolved city name with a token. The token is an indication to the changes made.<br> Examples: [TOK-1X3256]
-     * @param  ?mixed[]  $postalCodeToken  This is the resolved postal code with a token. The token is an indication to the changes made.
+     * @param  ?ResolutionToken  $postalCodeToken  Specifies the resolved attribute with a token indicating if it was changed or not.
      * @param  ?ParsedPostalCode  $parsedPostalCode  The postal code specified in a form that is supported by USPS as base, secondary and tertiary.<ul><li>Base</li><li>AddOn</li><li>DeliveryPoint</li></ul>Example: 75063-8659
      * @param  ?string  $classification  This is the classification type of a FedEx address.<br>Valid values:<ul><li>BUSINESS</li><li>RESIDENTIAL</li><li>MIXED (If it is a multi-tenant based address and contains both business and residential units.)</li><li>UNKNOWN (If just a zip code is provided, Address Validation Service returns 'unknown' for the business/residential classification.)</li>
      * @param  ?bool  $postOfficeBox  Indicates if the resolved address is a P.O. Box.
@@ -37,7 +37,7 @@ final class ResolvedAddress extends Dto
         public readonly ?string $countryCode = null,
         public readonly ?array $customerMessage = null,
         public readonly ?array $cityToken = null,
-        public readonly ?array $postalCodeToken = null,
+        public readonly ?ResolutionToken $postalCodeToken = null,
         public readonly ?ParsedPostalCode $parsedPostalCode = null,
         public readonly ?string $classification = null,
         public readonly ?bool $postOfficeBox = null,

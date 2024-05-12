@@ -182,23 +182,17 @@
                     "totalCommodityValue": {
                         "description": "Specify the total commodity value. Either customsClearenceDetail or totalCommodityValue is required.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Money"
-                        }
+                        "$ref": "#/components/schemas/Money"
                     },
                     "originAddress": {
                         "description": "Provide the shipment origin address details.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Address"
-                        }
+                        "$ref": "#/components/schemas/Address"
                     },
                     "destinationAddress": {
                         "description": "Provide the shipment destination address details.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Address"
-                        }
+                        "$ref": "#/components/schemas/Address"
                     },
                     "serviceOptionType": {
                         "type": "array",
@@ -222,9 +216,7 @@
                     "customsClearanceDetail": {
                         "description": "Specify the Customs clearance details.Either customsClearenceDetail or totalCommodityValue is required.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/CustomsClearanceDetailVO"
-                        }
+                        "$ref": "#/components/schemas/CustomsClearanceDetailVO"
                     },
                     "shipDate": {
                         "type": "string",
@@ -239,9 +231,7 @@
                     "totalWeight": {
                         "description": "Provide the total weight for the shipment.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Weight"
-                        }
+                        "$ref": "#/components/schemas/Weight"
                     },
                     "includeURLReferences": {
                         "type": "boolean",
@@ -359,9 +349,7 @@
                     "importerOfRecordAccountNumber": {
                         "description": "The descriptive data for the importer of Record for the shipment and account number information.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Party"
-                        }
+                        "$ref": "#/components/schemas/Party"
                     },
                     "customsValue": {
                         "$ref": "#/components/schemas/Money"
@@ -404,9 +392,7 @@
                     "freightCharge": {
                         "description": "Indicate the freight charge.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Money"
-                        }
+                        "$ref": "#/components/schemas/Money"
                     },
                     "purpose": {
                         "type": "string",
@@ -433,9 +419,7 @@
                     "customsValue": {
                         "description": "Required<br>Customs value for this commodity",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Money"
-                        }
+                        "$ref": "#/components/schemas/Money"
                     },
                     "countryOfManufacture": {
                         "type": "string",
@@ -458,9 +442,7 @@
                     "weight": {
                         "description": "Represents Weight of the packages or shipment.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Weight"
-                        }
+                        "$ref": "#/components/schemas/Weight"
                     },
                     "commodityId": {
                         "type": "integer",
@@ -540,13 +522,10 @@
                         "example": "AnyCo_order123456789"
                     },
                     "output": {
-                        "$ref": "#/components/schemas/BaseProcessOutputVO"
+                        "$ref": "#/components/schemas/ShipmentRegulatoryDetailsOutputVO"
                     }
                 },
                 "description": "This is a wrapper class for outputVO."
-            },
-            "BaseProcessOutputVO": {
-                "$ref": "#/components/schemas/ShipmentRegulatoryDetailsOutputVO"
             },
             "ShipmentRegulatoryDetailsOutputVO": {
                 "required": [
@@ -565,9 +544,7 @@
                     "countryDetails": {
                         "description": "Represents Country Details",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/RegulatoryCountryDetails"
-                        }
+                        "$ref": "#/components/schemas/RegulatoryCountryDetails"
                     },
                     "cxsalerts": {
                         "type": "array",
@@ -639,9 +616,7 @@
                     "shipmentDetails": {
                         "description": "These are Shipment Details.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/RegulatoryShipmentDetail"
-                        }
+                        "$ref": "#/components/schemas/RegulatoryShipmentDetail"
                     },
                     "countryCode": {
                         "type": "string",

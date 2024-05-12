@@ -9,7 +9,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/v1_endofday_body"
+                                "$ref": "#/components/schemas/FullSchema_GEOD_PUT"
                             }
                         }
                     }
@@ -226,7 +226,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/v1_endofday_body_1"
+                                "$ref": "#/components/schemas/FullSchema_Reprint_POST"
                             }
                         }
                     }
@@ -779,7 +779,7 @@
                         ]
                     },
                     "accountNumber": {
-                        "$ref": "#/components/schemas/AccountNumber_2"
+                        "$ref": "#/components/schemas/CloseAccountNumber"
                     },
                     "groundServiceCategory": {
                         "type": "string",
@@ -811,13 +811,6 @@
                     "closeDocumentSpecification": {
                         "$ref": "#/components/schemas/CloseDocumentSpecification"
                     }
-                }
-            },
-            "AccountNumber_2": {
-                "description": "This is the FedEx Account number. <br>Example: XXX456XXX",
-                "type": "object",
-                "schema": {
-                    "$ref": "#/components/schemas/CloseAccountNumber"
                 }
             },
             "CloseAccountNumber": {
@@ -877,7 +870,7 @@
                         ]
                     },
                     "accountNumber": {
-                        "$ref": "#/components/schemas/AccountNumber_2"
+                        "$ref": "#/components/schemas/CloseAccountNumber"
                     },
                     "groundServiceCategory": {
                         "type": "string",
@@ -910,12 +903,6 @@
                         "$ref": "#/components/schemas/CloseDocumentSpecification"
                     }
                 }
-            },
-            "v1_endofday_body": {
-                "$ref": "#/components/schemas/FullSchema_GEOD_PUT"
-            },
-            "v1_endofday_body_1": {
-                "$ref": "#/components/schemas/FullSchema_Reprint_POST"
             },
             "Op950Detail_format_topOfPageOffset": {
                 "type": "object",

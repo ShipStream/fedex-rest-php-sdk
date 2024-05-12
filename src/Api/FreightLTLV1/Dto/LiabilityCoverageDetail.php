@@ -10,11 +10,11 @@ final class LiabilityCoverageDetail extends Dto
 {
     /**
      * @param  ?string  $coverageType  This is the liability coverage type.
-     * @param  ?mixed[]  $coverageAmount  Indicate the coverage amount.
+     * @param  ?Money2  $coverageAmount  Specifies taxes or miscellaneous charge.
      */
     public function __construct(
         public readonly ?string $coverageType = null,
-        public readonly ?array $coverageAmount = null,
+        public readonly ?Money2 $coverageAmount = null,
     ) {
     }
 }

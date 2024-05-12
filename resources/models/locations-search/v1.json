@@ -231,16 +231,12 @@
                     "locationsSummaryRequestControlParameters": {
                         "description": "Use this object to specify all the inputs to get the locations details.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/LocationsSummaryRequestControlParameters"
-                        }
+                        "$ref": "#/components/schemas/LocationsSummaryRequestControlParameters"
                     },
                     "constraints": {
                         "description": "Specify the constraints to be applied to the location attributes.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/SearchLocationConstraints"
-                        }
+                        "$ref": "#/components/schemas/SearchLocationConstraints"
                     },
                     "locationSearchCriterion": {
                         "type": "string",
@@ -255,9 +251,7 @@
                     "location": {
                         "description": "Based on the locationSearchCriterion value specified, the location element specifies the minimum requirement for address search like postalCode, countryCode, GeoCodes or city.Location phone number is required. Only landline number is allowed.<br><br><i>Note: Country code is REQUIRED for the search.</i>",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Location"
-                        }
+                        "$ref": "#/components/schemas/Location"
                     },
                     "phoneNumber": {
                         "type": "string",
@@ -402,9 +396,7 @@
                     "distance": {
                         "description": "Specify the unit of measurement and the radius around the address to search FedEx locations.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Distance"
-                        }
+                        "$ref": "#/components/schemas/Distance"
                     },
                     "maxResults": {
                         "type": "integer",
@@ -688,16 +680,12 @@
                     "weight": {
                         "description": "Specify the package weight.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Weight"
-                        }
+                        "$ref": "#/components/schemas/Weight"
                     },
                     "dimensions": {
                         "description": "Indicate the dimensions of the package.<br> Following conditions will apply: <ul><li>Dimensions are optional but when added, then all three dimensions must be indicated.</li><li>Dimensions are required with YOUR_PACKAGING package type.</li></ul><i>Note: The maximum/minimum dimension values varies based on the services and the packaging types.</i><br>Refer <a href=\"https://www.fedex.com/en-us/service-guide.html\" target=\"_blank\">FedEx Service Guide</a> for service details related to DIM Weighting for FedEx Express and oversize conditions for FedEx Express and FedEx Ground.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Dimensions"
-                        }
+                        "$ref": "#/components/schemas/Dimensions"
                     }
                 },
                 "example": {
@@ -792,16 +780,11 @@
                     },
                     "output": {
                         "description": "This object specifies the location search result details.",
-                        "schema": {
-                            "$ref": "#/components/schemas/BaseProcessOutputVO"
-                        },
-                        "type": "string"
+                        "type": "object",
+                        "$ref": "#/components/schemas/LocationSummaryOutputVO"
                     }
                 },
                 "description": "This is a wrapper class for outputVO"
-            },
-            "BaseProcessOutputVO": {
-                "$ref": "#/components/schemas/LocationSummaryOutputVO"
             },
             "LocationSummaryOutputVO": {
                 "type": "object",
@@ -821,16 +804,12 @@
                     "matchedAddress": {
                         "description": "The address provided in the request.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Address"
-                        }
+                        "$ref": "#/components/schemas/Address"
                     },
                     "matchedAddressGeoCoord": {
                         "description": "Identifies the geographic coordinates corresponding to the address specified. It is specified in ISO 6709 format.<br> Example: +40.75-074.00",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/GeoPositionalCoordinates"
-                        }
+                        "$ref": "#/components/schemas/GeoPositionalCoordinates"
                     },
                     "locationDetailList": {
                         "type": "array",
@@ -891,9 +870,7 @@
                     "location": {
                         "description": "Based on the locationSearchCriterion value specified, the location element specifies the minimum requirement for address search like postalCode, countryCode, GeoCodes or city.<br><br><i>Note: Country code is REQUIRED for the search.</i>",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Location"
-                        }
+                        "$ref": "#/components/schemas/Location"
                     },
                     "phoneNumber": {
                         "type": "string",
@@ -1071,9 +1048,7 @@
                     "distance": {
                         "description": "Specifies value and unit of distance between the FedEx locations and the address specified.<br>Example: 2 KM",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Distance"
-                        }
+                        "$ref": "#/components/schemas/Distance"
                     },
                     "contactAndAddress": {
                         "$ref": "#/components/schemas/ContactAndAddress"
@@ -1168,9 +1143,7 @@
                     "packageMaximumLimits": {
                         "description": "This is the maximum package limits that are supported at the location.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/PackageAttribute"
-                        }
+                        "$ref": "#/components/schemas/PackageAttribute"
                     },
                     "specialInstructions": {
                         "type": "string",

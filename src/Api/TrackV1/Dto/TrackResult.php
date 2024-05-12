@@ -27,7 +27,7 @@ final class TrackResult extends Dto
      * @param  ?string  $meterNumber  The associated meter number for your FedEx account number. Maximum of 9 characters. <br> Example: 8468376
      * @param  ?ReturnDetail  $returnDetail  Specifies return information related to a return shipment.
      * @param  ?ServiceDescriptionDetail  $serviceDetail  This object contains service description details for the package.
-     * @param  ?mixed[]  $destinationLocation  Location details for the recipient where the package will be or has been delivered.
+     * @param  ?LocationDetail1  $destinationLocation  Location details for the fedex facility.
      * @param  ?StatusDetail  $latestStatusDetail  Specifies details about the status of the track information for the shipment being tracked.  AncilliaryDetails may also be available which describe the cause of exception along with any action that needs to taken by customer.
      * @param  ?ServiceCommitMessage  $serviceCommitMessage  Commitment message for this package. Informative messages related to the package. Used to convey information such as FedEx has received information about a package but has not yet taken possession of it. FedEx has handed the package off to a third party for final delivery. The package delivery has been cancelled.
      * @param  InformationNoteDetail[]|null  $informationNotes  Notifications to the end user that provide additional information relevant to the tracked shipment. For example, a notification may indicate that a change in behavior has occurred.
@@ -39,18 +39,18 @@ final class TrackResult extends Dto
      * @param  TrackingDateAndTime[]|null  $dateAndTimes  Date and time information for the tracked shipment. Date and time information for the tracked shipment includes various type of date time including when the package was shipped, when it is expected to deliver, when it is actually delivered etc.
      * @param  ?PackageDetail  $packageDetails  Details of the packages in the shipment being tracked. Includes details like package type, weight, dimensions, declared value, etc.
      * @param  ?string  $goodsClassificationCode  Classification codes for the goods in package. Goods classification codes required for clearance purpose. <br> Example: goodsClassificationCode
-     * @param  ?mixed[]  $holdAtLocation  Location details for the FedEx facility holding package for delivery. Populated only when REDIRECT_TO_HOLD_AT_LOCATION is available as custom delivery options.
+     * @param  ?LocationDetail1  $holdAtLocation  Location details for the fedex facility.
      * @param  CustomDeliveryOption[]|null  $customDeliveryOptions  List of delivery options that can be used to customize the delivery of the package.
-     * @param  ?mixed[]  $estimatedDeliveryTimeWindow  The estimated window for time of delivery.  May be periodically updated based on available in-flight shipment information.
+     * @param  ?TimeWindow  $estimatedDeliveryTimeWindow
      * @param  PieceCountDetail[]|null  $pieceCounts  Piece count information at origin and destination.
-     * @param  ?mixed[]  $originLocation  Location details for the FedEx facility where the shipment originated.
-     * @param  ?mixed[]  $recipientInformation  Contact and address information of recipient.
-     * @param  ?mixed[]  $standardTransitTimeWindow  The standard committed window of time by which the package is expected to be delivered.
+     * @param  ?LocationDetailOrigin  $originLocation  Location details for the fedex facility.
+     * @param  ?ContactAndAddress1  $recipientInformation  Location Contact And Address.
+     * @param  ?TimeWindow  $standardTransitTimeWindow
      * @param  ?TrackShipmentDetail  $shipmentDetails  Shipment level details for the shipment being tracked. Includes overall shipment weight, contents etc.
      * @param  ?ReasonDetail  $reasonDetail  This object contains reason description and type.
      * @param  ?string[]  $availableNotifications  The types of email notifications that are available for the package. <br> Example:ON_DELIVERY
-     * @param  ?mixed[]  $shipperInformation  Contact and address information of shipper.
-     * @param  ?mixed[]  $lastUpdatedDestinationAddress  Last updated delivery address for the package.
+     * @param  ?ContactAndAddress1  $shipperInformation  Location Contact And Address.
+     * @param  ?AddressVo1  $lastUpdatedDestinationAddress  Address where the package was actually delivered. Contrast with destinationAddress, which is the location to which the package was intended to be delivered. Addresses may differ due to delivery to a behavior, hold at FedEx location, etc.
      */
     public function __construct(
         public readonly ?TrackingNumberInfo1 $trackingNumberInfo = null,
@@ -60,7 +60,7 @@ final class TrackResult extends Dto
         public readonly ?string $meterNumber = null,
         public readonly ?ReturnDetail $returnDetail = null,
         public readonly ?ServiceDescriptionDetail $serviceDetail = null,
-        public readonly ?array $destinationLocation = null,
+        public readonly ?LocationDetail1 $destinationLocation = null,
         public readonly ?StatusDetail $latestStatusDetail = null,
         public readonly ?ServiceCommitMessage $serviceCommitMessage = null,
         public readonly ?array $informationNotes = null,
@@ -72,18 +72,18 @@ final class TrackResult extends Dto
         public readonly ?array $dateAndTimes = null,
         public readonly ?PackageDetail $packageDetails = null,
         public readonly ?string $goodsClassificationCode = null,
-        public readonly ?array $holdAtLocation = null,
+        public readonly ?LocationDetail1 $holdAtLocation = null,
         public readonly ?array $customDeliveryOptions = null,
-        public readonly ?array $estimatedDeliveryTimeWindow = null,
+        public readonly ?TimeWindow $estimatedDeliveryTimeWindow = null,
         public readonly ?array $pieceCounts = null,
-        public readonly ?array $originLocation = null,
-        public readonly ?array $recipientInformation = null,
-        public readonly ?array $standardTransitTimeWindow = null,
+        public readonly ?LocationDetailOrigin $originLocation = null,
+        public readonly ?ContactAndAddress1 $recipientInformation = null,
+        public readonly ?TimeWindow $standardTransitTimeWindow = null,
         public readonly ?TrackShipmentDetail $shipmentDetails = null,
         public readonly ?ReasonDetail $reasonDetail = null,
         public readonly ?array $availableNotifications = null,
-        public readonly ?array $shipperInformation = null,
-        public readonly ?array $lastUpdatedDestinationAddress = null,
+        public readonly ?ContactAndAddress1 $shipperInformation = null,
+        public readonly ?AddressVo1 $lastUpdatedDestinationAddress = null,
     ) {
     }
 }

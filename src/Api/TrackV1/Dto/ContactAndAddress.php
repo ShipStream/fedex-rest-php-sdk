@@ -10,15 +10,11 @@ final class ContactAndAddress extends Dto
 {
     /**
      * @param  ContactVo  $contact  Indicate the contact details for this package.
-     * @param  mixed[]  $address  Required.
-     *
-     * Descriptive data for a physical location.  may be used as an actual physical address(place to which one could go), or a container of 'address parts' which should be handled as a unit(such as a city-state-zip combination within the US).
-     *
-     * Conditional when used with Payor object.  Required if entering using RECIPIENT or THIRD_PARTY.  Required if not-authenticated and SENDER is selected
+     * @param  AddressVo  $address  Address where the package was actually delivered. Contrast with destinationAddress, which is the location to which the package was intended to be delivered. Addresses may differ due to delivery to a behavior, hold at FedEx location, etc.
      */
     public function __construct(
         public readonly ContactVo $contact,
-        public readonly array $address,
+        public readonly AddressVo $address,
     ) {
     }
 }

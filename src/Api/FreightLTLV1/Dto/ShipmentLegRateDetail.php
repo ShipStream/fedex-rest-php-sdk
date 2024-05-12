@@ -18,10 +18,10 @@ final class ShipmentLegRateDetail extends Dto
      * @param  ?string  $rateZone  Indicates the rate zone used (based on origin and destination).<br>Example: rateZone
      * @param  ?string  $pricingCode  Specifies the Pricing Code.<br>Example: pricingCode
      * @param  Tax1[]|null  $taxes  Specifies the list of taxes.
-     * @param  ?mixed[]  $totalDimWeight  This is total of dimensional weight for the shipment.
+     * @param  ?Weight2  $totalDimWeight  These are the package weight details.<br>Note: Weight is not required for One rate shipments
      * @param  ?float  $totalRebates  Specifies the total rebate.<br>Example: 2.0
      * @param  ?float  $fuelSurchargePercent  Specifies a fuel surcharge percentage.<br>Example: 6.0
-     * @param  ?mixed[]  $currencyExchangeRate  Specifies currency exchange rate.
+     * @param  ?CurrencyExchangeRate2  $currencyExchangeRate  Specifies the currency exchange performed on financial amounts on this rate.
      * @param  ?int  $dimDivisor  The value used to calculate the weight based on the dimensions.<br>Example: 6
      * @param  ?string  $rateType  Type used for this specific set of rate data.<br>Example: PAYOR_RETAIL_PACKAGE
      * @param  ?string  $legDestinationLocationId  Specifies the location id the destination of shipment leg.<br>Example: HKAA
@@ -36,7 +36,7 @@ final class ShipmentLegRateDetail extends Dto
      * @param  ?float  $totalNetFedExCharge  This is the sum of shipment's total surcharges (not including total taxes).<br>Example: 3.2
      * @param  Surcharge[]|null  $surcharges  Specifies the list of all surcharges that apply to this package.
      * @param  ?float  $totalSurcharges  The total of all surcharges.<br>Example: 5.0
-     * @param  ?mixed[]  $totalBillingWeight  Sum of billing weight for the shipment.
+     * @param  ?Weight2  $totalBillingWeight  These are the package weight details.<br>Note: Weight is not required for One rate shipments
      * @param  RateDiscount[]|null  $freightDiscounts  All rate discounts that apply to this shipment.<br><a onclick='loadDocReference("discounts")'>Click here to see Discounts</a>
      * @param  ?string  $rateScale  Indicates the rate scale used.<br>Example: 6702
      * @param  ?float  $totalNetCharge  The net charge after applying all discounts and surcharges.<br>Example: 253
@@ -47,10 +47,10 @@ final class ShipmentLegRateDetail extends Dto
         public readonly ?string $rateZone = null,
         public readonly ?string $pricingCode = null,
         public readonly ?array $taxes = null,
-        public readonly ?array $totalDimWeight = null,
+        public readonly ?Weight2 $totalDimWeight = null,
         public readonly ?float $totalRebates = null,
         public readonly ?float $fuelSurchargePercent = null,
-        public readonly ?array $currencyExchangeRate = null,
+        public readonly ?CurrencyExchangeRate2 $currencyExchangeRate = null,
         public readonly ?int $dimDivisor = null,
         public readonly ?string $rateType = null,
         public readonly ?string $legDestinationLocationId = null,
@@ -65,7 +65,7 @@ final class ShipmentLegRateDetail extends Dto
         public readonly ?float $totalNetFedExCharge = null,
         public readonly ?array $surcharges = null,
         public readonly ?float $totalSurcharges = null,
-        public readonly ?array $totalBillingWeight = null,
+        public readonly ?Weight2 $totalBillingWeight = null,
         public readonly ?array $freightDiscounts = null,
         public readonly ?string $rateScale = null,
         public readonly ?float $totalNetCharge = null,

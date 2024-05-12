@@ -17,7 +17,7 @@ final class PackageDetail extends Dto
      * @param  ?TrackingWeightAndDimensions  $weightAndDimensions  Field which holds the weight and dimension information.
      * @param  ?string[]  $packageContent  Field which holds information about the package content of the shipment. Populated for secure users only.<br> Example: wire hangers.
      * @param  ?string  $contentPieceCount  Field which holds information about total count of the packages in the shipment.<br> Example: 100
-     * @param  ?mixed[]  $declaredValue  This is the declared value. Declared Value represents FedEx maximum liability in connection with a shipment of that Package, including but not limited to, any loss, damage, delay, misdelivery, any failure to provide information, or misdelivery of information relating to the Shipment.
+     * @param  ?Amount  $declaredValue
      */
     public function __construct(
         public readonly ?string $physicalPackagingType = null,
@@ -28,7 +28,7 @@ final class PackageDetail extends Dto
         public readonly ?TrackingWeightAndDimensions $weightAndDimensions = null,
         public readonly ?array $packageContent = null,
         public readonly ?string $contentPieceCount = null,
-        public readonly ?array $declaredValue = null,
+        public readonly ?Amount $declaredValue = null,
     ) {
     }
 }

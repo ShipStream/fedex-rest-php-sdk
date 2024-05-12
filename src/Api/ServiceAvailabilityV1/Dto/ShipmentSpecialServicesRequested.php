@@ -16,9 +16,10 @@ final class ShipmentSpecialServicesRequested extends Dto
      * @param  ?string[]  $specialServiceTypes  Special services requested for the shipment.<br>Example: <ul><li>RETURN_SHIPMENT</li><li>BROKER_SELECT_OPTION</li><li>CALL_BEFORE_DELIVERY</li><li>COD</li><li>CUSTOM_DELIVERY_WINDOW</li></ul><a onclick='loadDocReference("shipmentlevelspecialservicetypes")'>Click here to see Shipment level Special Service Types</a>
      * @param  ?SaturdayDeliveryDetail  $saturdayDeliveryDetail  These are service elements for Saturday Delivery special service.
      * @param  ?HoldAtLocationDetail  $holdAtLocationDetail  Use this object to specify required information of a shipment to be held at FedEx destination location. <br><br><i>Note: This object HoldAtLocationDetail is <b>REQUIRED</b>, when HOLD_AT_LOCATION is chosen in the specialServiceTypes.</i>
-     * @param  ?string  $codDetail  Conditional <br>
-     *                              For Express-only COD, populate this object for COD detail information at the shipment level.  When data is provided in this object, the related COD enum will be populated automatically by RATC
-     * @param  ?string  $shipmentDryIceDetail  This is the descriptive data required for the FedEx shipment containing dangerous materials. This element is required when SpecialServicetype DRY_ICE is selected in SpecialServicetype collection.
+     * @param  ?CodDetail  $codDetail
+     * @param  ?ShipmentDryIceDetail1  $shipmentDryIceDetail  Number of packages in this shipment which contain dry ice.  The total weight of the dry ice for this shipment
+     *
+     *  Both are required to indicate dry ice
      * @param  ?FreightDirectDetail  $freightDirectDetail  Specifies the freight Direct Detail.It is used for Fedex Freight Direct.
      */
     public function __construct(
@@ -29,8 +30,8 @@ final class ShipmentSpecialServicesRequested extends Dto
         public readonly ?array $specialServiceTypes = null,
         public readonly ?SaturdayDeliveryDetail $saturdayDeliveryDetail = null,
         public readonly ?HoldAtLocationDetail $holdAtLocationDetail = null,
-        public readonly ?string $codDetail = null,
-        public readonly ?string $shipmentDryIceDetail = null,
+        public readonly ?CodDetail $codDetail = null,
+        public readonly ?ShipmentDryIceDetail1 $shipmentDryIceDetail = null,
         public readonly ?FreightDirectDetail $freightDirectDetail = null,
     ) {
     }

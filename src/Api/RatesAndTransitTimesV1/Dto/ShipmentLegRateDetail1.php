@@ -25,7 +25,7 @@ final class ShipmentLegRateDetail1 extends Dto
      * @param  ?float  $totalNetCharge  This shipment's totalNetCharge and totalDutiesTaxesAndFees. Some duties and taxes are only provided if estimated duties and taxes were calculated for this shipment AND duties, taxes and transportation charges are all paid by the same sender's account.
      * @param  ?float  $totalBaseCharge  Specifies the total base charge list
      * @param  ?CurrencyExchangeRate  $currencyExchangeRate  Specifies the currency exchange performed on financial amounts for this rate.
-     * @param  ?mixed[]  $totalBillingWeight  Sum of billing weight for the shipment.
+     * @param  ?Weight1  $totalBillingWeight  These are the weight details.
      * @param  ?string  $currency  Indicate the three-character ISO currency code. <br>Example: USD<br><a onclick='loadDocReference("currencycodes")'>Click here to see Currency Codes</a>
      */
     public function __construct(
@@ -39,7 +39,7 @@ final class ShipmentLegRateDetail1 extends Dto
         public readonly ?float $totalNetCharge = null,
         public readonly ?float $totalBaseCharge = null,
         public readonly ?CurrencyExchangeRate $currencyExchangeRate = null,
-        public readonly ?array $totalBillingWeight = null,
+        public readonly ?Weight1 $totalBillingWeight = null,
         public readonly ?string $currency = null,
     ) {
     }

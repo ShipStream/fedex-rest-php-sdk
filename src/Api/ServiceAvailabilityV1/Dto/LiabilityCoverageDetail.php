@@ -11,11 +11,11 @@ final class LiabilityCoverageDetail extends Dto
     /**
      * @param  ?string  $coverageType  Optional
      *                                 This is the liability coverage type.
-     * @param  ?mixed[]  $coverageAmount  Specifies the Liability Coverage Amount & Currency used for Freight Shipment.
+     * @param  ?Money  $coverageAmount  Optional, but if indicated 'amount' and 'currency' must be provided.
      */
     public function __construct(
         public readonly ?string $coverageType = null,
-        public readonly ?array $coverageAmount = null,
+        public readonly ?Money $coverageAmount = null,
     ) {
     }
 }

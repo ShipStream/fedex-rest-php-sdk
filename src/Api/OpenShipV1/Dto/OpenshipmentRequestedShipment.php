@@ -17,14 +17,14 @@ final class OpenshipmentRequestedShipment extends Dto
      * @param  string  $pickupType  Indicate if shipment is being dropped off at a FedEx location or being picked up by FedEx or if it's a regular scheduled pickup for this shipment.<br><a onclick='loadDocReference("pickuptypes")'>Click here for more information on Pickup Types.</a>
      * @param  string  $serviceType  Indicate the FedEx serviceType used for this shipment. The results will be filtered by the serviceType value indicated.<br>Example: STANDARD_OVERNIGHT<br><a onclick='loadDocReference("servicetypes")'>click here to see Service Types</a>
      * @param  string  $packagingType  Specify the Packaging Type used with the shipment.<br>Note: For Express Freight shipments, the packaging will default to YOUR_PACKAGING irrespective of the user provided package type in the request.<br>Example: YOUR_PACKAGING<br><a onclick='loadDocReference("packagetypes")'>click here to see Package Types</a>
-     * @param  mixed[]  $shipper  Specify the Shipper information. <br><i>Note: Shipper and Origin address should be same.</i>
+     * @param  ShipperParty  $shipper  Indicate the Shipper contact details for this shipment.
      * @param  RecipientsParty[]  $recipients  Specify recipient information and/ the physical destination location for the package.
      * @param  Payment  $shippingChargesPayment  Specifies the payment details specifying the method and means of payment to FedEx for providing shipping services.
      * @param  RequestedPackageLineItem[]  $requestedPackageLineItems  These are one or more package-attribute descriptions, each of which describes an individual package, a group of identical packages, or (for the total-piece-total-weight case) common characteristics of all packages in the shipment.<ul><li>At least one instance containing the weight for at least one package is required for EXPRESS and GROUND shipments.</li><li>Single piece requests will have one RequestedPackageLineItem.</li><li>Multiple piece requests will have multiple RequestedPackageLineItems.</li><li>Maximum occurrences is 30.</li></ul>
      * @param  ?string  $shipDatestamp  This is the shipment date. Default value is current date in case the date is not provided or a past date is provided.<br>Format [YYYY-MM-DD].<br>Example: 2019-10-14
      * @param  ?float  $totalWeight  shipment total weight should be in Kg or in Lbs <br><br>Example: 20.6.
-     * @param  ?mixed[]  $soldTo  Will indicate the party responsible for purchasing the goods shipped from the shipper to the recipient. The sold to party is not necessarily the recipient or the importer of record. The sold to party is relevant when the purchaser, rather than the recipient determines when certain customs regulations apply.
-     * @param  ?mixed[]  $origin  Specify the Shipment Origin address information, if different from shipper’s address.
+     * @param  ?SoldToParty  $soldTo  Will indicate the party responsible for purchasing the goods shipped from the shipper to the recipient. The sold to party is not necessarily the recipient or the importer of record. The sold to party is relevant when the purchaser, rather than the recipient determines when certain customs regulations apply.
+     * @param  ?ContactAndAddress1  $origin  Specify a contact and address instead of the sender address that will be printed on FedEx label. The sender address will be printed if it is not provided.Using this, you can designate a return address that's different from the sender's. The destination address must be in the same country as the sender.
      * @param  ?OpenShipmentSpecialServicesRequested  $shipmentSpecialServices  These special services are available at the shipment level for some or all service types.<br>If the shipper is requesting a special service which requires additional data (such as the COD amount), the shipment special service type must be present in the specialServiceTypes collection, and the supporting detail must be provided in the appropriate sub-object.
      * @param  ?EMailNotificationDetail  $emailNotificationDetail  This is used to provide eMail notification information.
      * @param  ?ExpressFreightDetail  $expressFreightDetail  Indicates the advance booking number, shipper load /count and packing list details. This details must be provided by the user during freight shipment.
@@ -39,14 +39,14 @@ final class OpenshipmentRequestedShipment extends Dto
         public readonly string $pickupType,
         public readonly string $serviceType,
         public readonly string $packagingType,
-        public readonly array $shipper,
+        public readonly ShipperParty $shipper,
         public readonly array $recipients,
         public readonly Payment $shippingChargesPayment,
         public readonly array $requestedPackageLineItems,
         public readonly ?string $shipDatestamp = null,
         public readonly ?float $totalWeight = null,
-        public readonly ?array $soldTo = null,
-        public readonly ?array $origin = null,
+        public readonly ?SoldToParty $soldTo = null,
+        public readonly ?ContactAndAddress1 $origin = null,
         public readonly ?OpenShipmentSpecialServicesRequested $shipmentSpecialServices = null,
         public readonly ?EMailNotificationDetail $emailNotificationDetail = null,
         public readonly ?ExpressFreightDetail $expressFreightDetail = null,

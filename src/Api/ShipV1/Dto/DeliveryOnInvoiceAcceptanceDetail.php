@@ -9,10 +9,10 @@ use ShipStream\FedEx\Dto;
 final class DeliveryOnInvoiceAcceptanceDetail extends Dto
 {
     /**
-     * @param  ?mixed[]  $recipient  The descriptive data for the recipient of the shipment and the physical location for the shipment destination.
+     * @param  ?RecipientsParty  $recipient  The descriptive information of the recipient for the shipment and the physical location for the package destination.
      */
     public function __construct(
-        public readonly ?array $recipient = null,
+        public readonly ?RecipientsParty $recipient = null,
     ) {
     }
 }

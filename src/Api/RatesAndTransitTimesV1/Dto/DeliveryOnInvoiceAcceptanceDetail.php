@@ -9,10 +9,10 @@ use ShipStream\FedEx\Dto;
 final class DeliveryOnInvoiceAcceptanceDetail extends Dto
 {
     /**
-     * @param  ?string  $recipient
+     * @param  ?Party2  $recipient  Indicate the party to a transaction including the physical address, contact information and account number information.
      */
     public function __construct(
-        public readonly ?string $recipient = null,
+        public readonly ?Party2 $recipient = null,
     ) {
     }
 }

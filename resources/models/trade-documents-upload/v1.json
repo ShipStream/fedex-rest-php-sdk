@@ -41,7 +41,7 @@
                     "content": {
                         "multipart/form-data": {
                             "schema": {
-                                "$ref": "#/components/schemas/etds_upload_body"
+                                "$ref": "#/components/schemas/FullSchema-DocumentUploadInputVO"
                             },
                             "examples": {
                                 "Full-Schema": {
@@ -756,9 +756,7 @@
                     },
                     "meta": {
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/MetaObject"
-                        }
+                        "$ref": "#/components/schemas/MetaObject"
                     }
                 },
                 "description": "Provide all the document details and shipment meta data."
@@ -954,9 +952,6 @@
                     }
                 },
                 "description": "Indicate the image reference metadata details."
-            },
-            "etds_upload_body": {
-                "$ref": "#/components/schemas/FullSchema-DocumentUploadInputVO"
             },
             "ImageMetaOutputVO_meta": {
                 "type": "object",

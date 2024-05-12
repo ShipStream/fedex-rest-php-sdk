@@ -24,9 +24,7 @@ final class Freight2020shipmentDetail extends Dto
      * @param  int  $totalHandlingUnits  Total number of individual handling units in the entire shipment (for unit pricing). May not be negative.<br>Example: 12
      * @param  FreightSpecialServicePayment[]|null  $specialServicePayments  Indicates which party will pay surcharges for any special services which support split billing.
      * @param  ?LiabilityCoverageDetail  $liabilityCoverageDetail  This is used specify the line item level liability coverage.
-     * @param  ?string  $fedExFreightAccountNumber  Conditional
-     *
-     *  FedEx Freight account number used with FEDEX_FREIGHT_ECONOMY or FEDEX_FREIGHT_PRIORITY  service; required for account-specific Freight rates.This is mandatory for all LTL Freight shipments except Bill To shipments. Note if the shipper is responsible for the transaportation charges, enter the SAME account number in the FedExFreightAccountNumber that is entered in the ShippingChargesPayment/Payor/ResponsibleParty/AccountNumber. If the shipper is not responsible for the transportation charges, enter a valid FedEx Freight Account Number.
+     * @param  ?PartyAccountNumber  $fedExFreightAccountNumber  Specify the assigned FedEx Account Number. If the transportation charges to be billed to a payor other than the sender or recipient, provide the FedEx Account Number. Specify this field when payment type is selected as SENDER.
      * @param  ?string  $declaredValueUnits  Indicates the Declared value units<br>Example: LBS
      * @param  PrintedReference[]|null  $printedReferences  Specifies the references to be printed on the invoice.
      * @param  ?PhoneNumber  $hazardousMaterialsEmergencyContactNumber  Indicate the phone number. Only numeric values allowed.
@@ -36,7 +34,7 @@ final class Freight2020shipmentDetail extends Dto
      * @param  ?string  $collectTermsType  Indicates the terms of the collect payment for a Freight shipment.
      * @param  ?string  $hazardousMaterialsOfferor  Specifies the Hazardous materials offeror
      * @param  ?Money2  $declaredValuePerUnit  Specifies taxes or miscellaneous charge.
-     * @param  ?mixed[]  $alternateBillingParty  The descriptive data for the alternateBilling party for the shipment and their physical location.'
+     * @param  ?Party2  $alternateBillingParty  Attributes for a Party to a transaction including the physical address, contact information and account number information.
      */
     public function __construct(
         public readonly string $role,
@@ -45,7 +43,7 @@ final class Freight2020shipmentDetail extends Dto
         public readonly int $totalHandlingUnits,
         public readonly ?array $specialServicePayments = null,
         public readonly ?LiabilityCoverageDetail $liabilityCoverageDetail = null,
-        public readonly ?string $fedExFreightAccountNumber = null,
+        public readonly ?PartyAccountNumber $fedExFreightAccountNumber = null,
         public readonly ?string $declaredValueUnits = null,
         public readonly ?array $printedReferences = null,
         public readonly ?PhoneNumber $hazardousMaterialsEmergencyContactNumber = null,
@@ -55,7 +53,7 @@ final class Freight2020shipmentDetail extends Dto
         public readonly ?string $collectTermsType = null,
         public readonly ?string $hazardousMaterialsOfferor = null,
         public readonly ?Money2 $declaredValuePerUnit = null,
-        public readonly ?array $alternateBillingParty = null,
+        public readonly ?Party2 $alternateBillingParty = null,
     ) {
     }
 }

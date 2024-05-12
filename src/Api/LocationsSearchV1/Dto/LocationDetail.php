@@ -14,7 +14,7 @@ final class LocationDetail extends Dto
     ];
 
     /**
-     * @param  ?mixed[]  $distance  Specify the unit of measurement and the radius around the address to search FedEx locations.
+     * @param  ?Distance  $distance  Specifies value and unit of distance between the FedEx locations and the address specified.<br>Example: 2 KM
      * @param  ?ContactAndAddress  $contactAndAddress  The contact and address information for a location.
      * @param  ?string  $locationId  This is the FedEx location id for the given location.<br> Example:DXBA
      * @param  LocationHours[]|null  $storeHours  Includes the days and times specific to the location
@@ -23,13 +23,13 @@ final class LocationDetail extends Dto
      * @param  ?string  $locationType  The FedEx Location Type.
      * @param  ?string[]  $locationAttributeTypes  Attributes for the location.
      * @param  ?bool  $lockerAvailability  Indicates if FedEx locker is available at the location.<br> Valid values: True, False.
-     * @param  ?mixed[]  $packageMaximumLimits  This is the maximum package limits that are supported at the location.
+     * @param  ?PackageAttribute  $packageMaximumLimits
      * @param  ?string  $specialInstructions  Indicates the special instructions needed to access a location.
      * @param  ?string  $rthservice  Indicates if the location supports RedirectToHold Service.
      * @param  ?LocationCapabilities  $locationCapabilities  Location capabilities such as services, day of week, ability to dropoff, pickup shipments, ability to hold shipments for pickup, etc.
      */
     public function __construct(
-        public readonly ?array $distance = null,
+        public readonly ?Distance $distance = null,
         public readonly ?ContactAndAddress $contactAndAddress = null,
         public readonly ?string $locationId = null,
         public readonly ?array $storeHours = null,
@@ -38,7 +38,7 @@ final class LocationDetail extends Dto
         public readonly ?string $locationType = null,
         public readonly ?array $locationAttributeTypes = null,
         public readonly ?bool $lockerAvailability = null,
-        public readonly ?array $packageMaximumLimits = null,
+        public readonly ?PackageAttribute $packageMaximumLimits = null,
         public readonly ?string $specialInstructions = null,
         public readonly ?string $rthservice = null,
         public readonly ?LocationCapabilities $locationCapabilities = null,

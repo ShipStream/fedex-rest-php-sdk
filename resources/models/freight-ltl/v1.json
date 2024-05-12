@@ -1048,7 +1048,7 @@
                         "$ref": "#/components/schemas/LTLRootAccountNumber"
                     },
                     "rateRequestControlParameters": {
-                        "$ref": "#/components/schemas/RateRequestControlParameters"
+                        "$ref": "#/components/schemas/LTLRateRequestControlParameters"
                     },
                     "freightRequestedShipment": {
                         "$ref": "#/components/schemas/LTLRequestedShipment"
@@ -1069,9 +1069,6 @@
                 "example": {
                     "value": "XXX61073"
                 }
-            },
-            "RateRequestControlParameters": {
-                "$ref": "#/components/schemas/LTLRateRequestControlParameters"
             },
             "LTLRateRequestControlParameters": {
                 "type": "object",
@@ -1120,16 +1117,12 @@
                     "shipper": {
                         "description": "The descriptive data for the physical location from which the shipment originates.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/RateParty"
-                        }
+                        "$ref": "#/components/schemas/RateParty"
                     },
                     "recipient": {
                         "description": "Specifies the recipient details.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/RateParty"
-                        }
+                        "$ref": "#/components/schemas/RateParty"
                     },
                     "serviceType": {
                         "type": "string",
@@ -1142,7 +1135,7 @@
                         "example": "USD"
                     },
                     "shippingChargesPayment": {
-                        "$ref": "#/components/schemas/LTLShippingChargesPayment"
+                        "$ref": "#/components/schemas/LTLPayment"
                     },
                     "rateRequestType": {
                         "type": "array",
@@ -1184,10 +1177,10 @@
                         "example": 87
                     },
                     "freightShipmentDetail": {
-                        "$ref": "#/components/schemas/LTLRequestedShipmentFreightShipmentDetail"
+                        "$ref": "#/components/schemas/LTLFreightShipmentDetail"
                     },
                     "freightShipmentSpecialServices": {
-                        "$ref": "#/components/schemas/LTLRequestedShipmentSpecialServicesRequested"
+                        "$ref": "#/components/schemas/LTLShipmentSpecialServicesRequested"
                     }
                 },
                 "description": "This contains shipment data describing the shipment for which a  freight rate quote (or rate-shopping comparison) is desired."
@@ -1199,17 +1192,10 @@
                 "type": "object",
                 "properties": {
                     "address": {
-                        "$ref": "#/components/schemas/RateAddress"
+                        "$ref": "#/components/schemas/Address"
                     }
                 },
                 "description": "Specify the shipper address details."
-            },
-            "RateAddress": {
-                "description": "Descriptive data for a physical location. May be used as an actual physical address (place to which one could go), or as a container of address parts which should be handled as a unit (such as a city-state-ZIP combination within  the US). Country code is required.  Postal code is required for postal aware countries.",
-                "schema": {
-                    "$ref": "#/components/schemas/Address"
-                },
-                "type": "string"
             },
             "Address": {
                 "type": "object",
@@ -1251,13 +1237,6 @@
                     "postalCode": "38127",
                     "countryCode": "US",
                     "residential": false
-                }
-            },
-            "LTLShippingChargesPayment": {
-                "description": "Indicate the payment details specifying the method and means of payment to FedEx for providing shipping services.",
-                "type": "object",
-                "schema": {
-                    "$ref": "#/components/schemas/LTLPayment"
                 }
             },
             "LTLPayment": {
@@ -1312,10 +1291,7 @@
                 "properties": {
                     "responsibleParty": {
                         "description": "These are payer details such as address, account and contacts.",
-                        "schema": {
-                            "$ref": "#/components/schemas/Party"
-                        },
-                        "type": "string"
+                        "$ref": "#/components/schemas/Party"
                     }
                 },
                 "description": "This is payer Information responsible for paying for the shipment.",
@@ -1497,20 +1473,14 @@
                     },
                     "declaredValue": {
                         "description": "This is the Declared Value represents FedEx Maximum liability in connection with a shipment of that Package, including but not limited to, any loss, damage, delay, misdelivery, any failure to provide information, or misdelivery of information relating to the Shipment.",
-                        "schema": {
-                            "$ref": "#/components/schemas/Money"
-                        },
-                        "type": "string"
+                        "$ref": "#/components/schemas/Money_1"
                     },
                     "weight": {
                         "description": "Indicate the total weight of the requested package line items.",
-                        "schema": {
-                            "$ref": "#/components/schemas/Weight"
-                        },
-                        "type": "string"
+                        "$ref": "#/components/schemas/Weight_1"
                     },
                     "dimensions": {
-                        "$ref": "#/components/schemas/RequestePackageLineItemDimensions"
+                        "$ref": "#/components/schemas/Dimensions_1"
                     },
                     "associatedFreightLineItems": {
                         "type": "array",
@@ -1544,12 +1514,6 @@
                 },
                 "description": "Specifies the details of the content of the package."
             },
-            "Money": {
-                "schema": {
-                    "$ref": "#/components/schemas/Money_1"
-                },
-                "type": "string"
-            },
             "Money_1": {
                 "type": "object",
                 "properties": {
@@ -1566,12 +1530,6 @@
                     }
                 },
                 "description": "Indicate the amount details. This is optional, but if indicated, amount and currency must be provided."
-            },
-            "Weight": {
-                "schema": {
-                    "$ref": "#/components/schemas/Weight_1"
-                },
-                "type": "string"
             },
             "Weight_1": {
                 "type": "object",
@@ -1597,20 +1555,6 @@
                     "units": "LB",
                     "value": 10
                 }
-            },
-            "RequestePackageLineItemDimensions": {
-                "description": "Specify the dimensions of this package and the unit type used for the measurements. Valid measurements are whole numbers greater than zero.",
-                "schema": {
-                    "$ref": "#/components/schemas/Dimensions"
-                },
-                "type": "string"
-            },
-            "Dimensions": {
-                "description": "Indicate the dimensions of the package.<br> Following conditions will apply: <ul><li>Dimensions are optional but when added, then all three dimensions along with the unit of measurement must be indicated.</li><li>Dimensions are required with YOUR_PACKAGING package type.</li></ul>Note: The Maximum/minimum dimension values vary based on the services and the packaging types. Refer <a href=\"https://www.fedex.com/en-us/service-guide.html\" target=\"_blank\">FedEx Service Guide</a> for service details related to DIM Weighing for FedEx Express and oversize conditions for FedEx Express and FedEx Ground.",
-                "schema": {
-                    "$ref": "#/components/schemas/Dimensions_1"
-                },
-                "type": "string"
             },
             "Dimensions_1": {
                 "type": "object",
@@ -1664,13 +1608,6 @@
                 },
                 "description": "Associated Freight Line Item Detail"
             },
-            "LTLRequestedShipmentFreightShipmentDetail": {
-                "description": "Required when using freight related services.",
-                "type": "object",
-                "schema": {
-                    "$ref": "#/components/schemas/LTLFreightShipmentDetail"
-                }
-            },
             "LTLFreightShipmentDetail": {
                 "required": [
                     "lineItem",
@@ -1688,14 +1625,14 @@
                         ]
                     },
                     "accountNumber": {
-                        "$ref": "#/components/schemas/FedExFreightAccountNumber"
+                        "$ref": "#/components/schemas/AccountNumber"
                     },
                     "declaredValueUnits": {
                         "type": "string",
                         "description": "This is the declared value per unit. Declared Value represents FedEx Maximum liability in connection with a shipment of that Package, including but not limited to, any loss, damage, delay, misdelivery, any failure to provide information, or misdelivery of information relating to the Shipment."
                     },
                     "shipmentDimensions": {
-                        "$ref": "#/components/schemas/FreightShipmentDetailShipmentDimensions"
+                        "$ref": "#/components/schemas/Dimensions_1"
                     },
                     "lineItem": {
                         "type": "array",
@@ -1710,7 +1647,7 @@
                         "format": "double"
                     },
                     "fedExFreightBillingContactAndAddress": {
-                        "$ref": "#/components/schemas/FedExFreightBillingContactAndAddress"
+                        "$ref": "#/components/schemas/ContactAndAddress"
                     },
                     "aliasID": {
                         "type": "string",
@@ -1722,10 +1659,7 @@
                     },
                     "declaredValuePerUnit": {
                         "description": "\nThis is the declared value per unit. Declared Value represents FedEx Maximum liability in connection with a shipment of that Package, including but not limited to, any loss, damage, delay, misdelivery, any failure to provide information, or misdelivery of information relating to the Shipment.",
-                        "schema": {
-                            "$ref": "#/components/schemas/Money"
-                        },
-                        "type": "string"
+                        "$ref": "#/components/schemas/Money_1"
                     },
                     "totalHandlingUnits": {
                         "type": "integer",
@@ -1737,20 +1671,6 @@
                     }
                 },
                 "description": "Data applicable to shipments using FEDEX_FREIGHT_ECONOMY and FEDEX_FREIGHT_PRIORITY services"
-            },
-            "FedExFreightAccountNumber": {
-                "description": "\nAccount number used with FedEx Freight services. Required for account-specific freight rates.",
-                "type": "object",
-                "schema": {
-                    "$ref": "#/components/schemas/AccountNumber"
-                }
-            },
-            "FreightShipmentDetailShipmentDimensions": {
-                "description": "Indicates the Shipment Dimensions Value.",
-                "schema": {
-                    "$ref": "#/components/schemas/Dimensions"
-                },
-                "type": "string"
             },
             "FreightShipmentLineItem": {
                 "required": [
@@ -1813,7 +1733,7 @@
                         "description": "Customer-provided description of this line item."
                     },
                     "weight": {
-                        "$ref": "#/components/schemas/Weight"
+                        "$ref": "#/components/schemas/Weight_1"
                     },
                     "pieces": {
                         "type": "integer",
@@ -1821,7 +1741,7 @@
                         "format": "int32"
                     },
                     "volume": {
-                        "$ref": "#/components/schemas/Volume"
+                        "$ref": "#/components/schemas/Volume_1"
                     },
                     "freightClass": {
                         "type": "string",
@@ -1868,16 +1788,10 @@
                         ]
                     },
                     "dimensions": {
-                        "$ref": "#/components/schemas/Dimensions"
+                        "$ref": "#/components/schemas/Dimensions_1"
                     }
                 },
                 "description": "Indicates the description of an individual commodity or class of content in a shipment."
-            },
-            "Volume": {
-                "schema": {
-                    "$ref": "#/components/schemas/Volume_1"
-                },
-                "type": "string"
             },
             "Volume_1": {
                 "type": "object",
@@ -1903,13 +1817,6 @@
                     "units": "CUBIC_FT",
                     "value": 9.965781217890562
                 }
-            },
-            "FedExFreightBillingContactAndAddress": {
-                "description": "Indicates the billing address used to validate FedEx Freight account on the bill of lading..",
-                "schema": {
-                    "$ref": "#/components/schemas/ContactAndAddress"
-                },
-                "type": "string"
             },
             "ContactAndAddress": {
                 "type": "object",
@@ -1982,7 +1889,7 @@
                 "type": "object",
                 "properties": {
                     "address": {
-                        "$ref": "#/components/schemas/RateAddress"
+                        "$ref": "#/components/schemas/Address"
                     },
                     "accountNumber": {
                         "$ref": "#/components/schemas/LTLFreightAccountNumber"
@@ -2002,13 +1909,6 @@
                 "description": "This is the Account number details.",
                 "example": {
                     "value": "XXX61073"
-                }
-            },
-            "LTLRequestedShipmentSpecialServicesRequested": {
-                "description": "Specify the special services requested at the shipment level.<br>This has to be specified if rate is data needed for the special services. ",
-                "type": "object",
-                "schema": {
-                    "$ref": "#/components/schemas/LTLShipmentSpecialServicesRequested"
                 }
             },
             "LTLShipmentSpecialServicesRequested": {
@@ -2066,13 +1966,10 @@
                         "example": "AnyCo_order123456789"
                     },
                     "output": {
-                        "$ref": "#/components/schemas/BaseProcessOutputVO_Rate"
+                        "$ref": "#/components/schemas/RateOutputVO"
                     }
                 },
                 "description": "This is a wrapper class for outputVO."
-            },
-            "BaseProcessOutputVO_Rate": {
-                "$ref": "#/components/schemas/RateOutputVO"
             },
             "RateOutputVO": {
                 "type": "object",
@@ -2296,7 +2193,7 @@
                         "$ref": "#/components/schemas/BrokerDetail"
                     },
                     "commit": {
-                        "$ref": "#/components/schemas/Commit"
+                        "$ref": "#/components/schemas/CommitDetail_1"
                     }
                 },
                 "description": "List of rate data by single service. If a service was specified in the request, there will be a single entry in this array; if service was omitted in the request, there will be a separate entry in this array for each service being compared.",
@@ -2730,10 +2627,7 @@
                         "description": "Specifies the type used for this specific set of rate data."
                     },
                     "billingWeight": {
-                        "schema": {
-                            "$ref": "#/components/schemas/Weight"
-                        },
-                        "type": "string"
+                        "$ref": "#/components/schemas/Weight_1"
                     },
                     "netFreight": {
                         "type": "number",
@@ -2899,9 +2793,7 @@
                     "totalBillingWeight": {
                         "description": "Sum of billing weight for the shipment.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Weight_1"
-                        }
+                        "$ref": "#/components/schemas/Weight_1"
                     },
                     "currency": {
                         "type": "string",
@@ -3097,16 +2989,12 @@
                     "totalBillingWeight": {
                         "description": "This is total of billing weight for the shipment.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Weight_1"
-                        }
+                        "$ref": "#/components/schemas/Weight_1"
                     },
                     "totalDimWeight": {
                         "description": "This is total of dimensional weight for the shipment.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Weight_1"
-                        }
+                        "$ref": "#/components/schemas/Weight_1"
                     },
                     "dimDivisor": {
                         "type": "integer",
@@ -3131,10 +3019,10 @@
                         "$ref": "#/components/schemas/Distance"
                     },
                     "destinationLocation": {
-                        "$ref": "#/components/schemas/FreightTransitLocationDetailDestinationLocation"
+                        "$ref": "#/components/schemas/LocationDetail"
                     },
                     "originLocation": {
-                        "$ref": "#/components/schemas/FreightTransitLocationDetailOriginLocation"
+                        "$ref": "#/components/schemas/LocationDetail"
                     }
                 },
                 "description": "The freight transit details such as origin, destination, and distance between origin and destination."
@@ -3161,13 +3049,6 @@
                 "example": {
                     "units": "KM",
                     "value": 1.2315135367772556
-                }
-            },
-            "FreightTransitLocationDetailDestinationLocation": {
-                "description": "Specifies the Freight destination city center information.",
-                "type": "object",
-                "schema": {
-                    "$ref": "#/components/schemas/LocationDetail"
                 }
             },
             "LocationDetail": {
@@ -3453,13 +3334,6 @@
                 },
                 "description": "Specifies the overlay."
             },
-            "FreightTransitLocationDetailOriginLocation": {
-                "description": "Freight origin city center information.",
-                "type": "object",
-                "schema": {
-                    "$ref": "#/components/schemas/LocationDetail"
-                }
-            },
             "OperationalDetail": {
                 "type": "object",
                 "properties": {
@@ -3729,7 +3603,7 @@
                 "type": "object",
                 "properties": {
                     "broker": {
-                        "$ref": "#/components/schemas/BrokerDetailBroker"
+                        "$ref": "#/components/schemas/Party"
                     },
                     "type": {
                         "type": "string",
@@ -3766,12 +3640,6 @@
                     }
                 },
                 "description": "These are Broker Detail for the rate quote."
-            },
-            "BrokerDetailBroker": {
-                "schema": {
-                    "$ref": "#/components/schemas/Party"
-                },
-                "type": "string"
             },
             "Brokeraddress": {
                 "type": "object",
@@ -3834,13 +3702,6 @@
                     }
                 },
                 "description": "This is the broker address used for this shipment."
-            },
-            "Commit": {
-                "description": "Specifies the delivery commitment details date/time.",
-                "type": "object",
-                "schema": {
-                    "$ref": "#/components/schemas/CommitDetail_1"
-                }
             },
             "CommitDetail_1": {
                 "type": "object",
@@ -4171,9 +4032,7 @@
                             ]
                         },
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/ShipperParty"
-                        }
+                        "$ref": "#/components/schemas/ShipperParty"
                     },
                     "recipient": {
                         "description": "The descriptive information for the recipient of the shipment and the physical location for the package destination.",
@@ -4211,23 +4070,17 @@
                             "deliveryInstructions": "delivery instructions"
                         },
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/RecipientParty"
-                        }
+                        "$ref": "#/components/schemas/RecipientParty"
                     },
                     "soldTo": {
                         "description": "Will indicate the party responsible for purchasing the goods shipped from the shipper to the recipient. The sold to party is not necessarily the recipient or the importer of record. The sold to party is relevant when the purchaser, rather than the recipient determines when certain customs regulations apply.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/SoldToParty"
-                        }
+                        "$ref": "#/components/schemas/SoldToParty"
                     },
                     "origin": {
                         "description": "Original address information for the shipment, if different from shipper\u2019s address.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/ContactAndAddress_2"
-                        }
+                        "$ref": "#/components/schemas/ContactAndAddress_2"
                     },
                     "shippingChargesPayment": {
                         "$ref": "#/components/schemas/FreightPayment"
@@ -4905,9 +4758,7 @@
                     "codRecipient": {
                         "description": "Descriptive data of the Cash On Delivery along with their details of the physical location.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Party_1"
-                        }
+                        "$ref": "#/components/schemas/Party_1"
                     },
                     "remitToName": {
                         "type": "string",
@@ -4929,9 +4780,7 @@
                     "codCollectionAmount": {
                         "description": "Indicate the COD collection amount.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Money_2"
-                        }
+                        "$ref": "#/components/schemas/Money_2"
                     },
                     "returnReferenceIndicatorType": {
                         "type": "string",
@@ -4946,9 +4795,7 @@
                     "shipmentCodAmount": {
                         "description": "Indicate the COD amount for this shipment.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Money_2"
-                        }
+                        "$ref": "#/components/schemas/Money_2"
                     }
                 },
                 "description": "This is the shipment level COD detail."
@@ -5358,10 +5205,7 @@
                     },
                     "fedExFreightAccountNumber": {
                         "description": "Conditional\n\n FedEx Freight account number used with FEDEX_FREIGHT_ECONOMY or FEDEX_FREIGHT_PRIORITY  service; required for account-specific Freight rates.This is mandatory for all LTL Freight shipments except Bill To shipments. Note if the shipper is responsible for the transaportation charges, enter the SAME account number in the FedExFreightAccountNumber that is entered in the ShippingChargesPayment/Payor/ResponsibleParty/AccountNumber. If the shipper is not responsible for the transportation charges, enter a valid FedEx Freight Account Number.",
-                        "schema": {
-                            "$ref": "#/components/schemas/AccountNumber_2"
-                        },
-                        "type": "string"
+                        "$ref": "#/components/schemas/PartyAccountNumber"
                     },
                     "declaredValueUnits": {
                         "type": "string",
@@ -5435,9 +5279,7 @@
                     "alternateBillingParty": {
                         "description": "The descriptive data for the alternateBilling party for the shipment and their physical location.'",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Party_2"
-                        }
+                        "$ref": "#/components/schemas/Party_2"
                     }
                 },
                 "description": "Specifies the details specific to a FedEx Freight LTL shipment (i.e., FEDEX_FREIGHT_ECONOMY and FEDEX_FREIGHT_PRIORITY services). If freight shipment detail is applicable, then the following fields are required: totalHandlingUnits, fedExFreightBillingContactAndAddress, lineItem, and role."
@@ -5480,19 +5322,10 @@
                     "coverageAmount": {
                         "description": "Indicate the coverage amount.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Money_2"
-                        }
+                        "$ref": "#/components/schemas/Money_2"
                     }
                 },
                 "description": "This is used specify the line item level liability coverage."
-            },
-            "AccountNumber_2": {
-                "description": "Specify the FedEx Account number. <br>Example: Your account number",
-                "type": "object",
-                "schema": {
-                    "$ref": "#/components/schemas/PartyAccountNumber"
-                }
             },
             "PrintedReference": {
                 "type": "object",
@@ -5603,7 +5436,7 @@
                         "example": 12
                     },
                     "volume": {
-                        "$ref": "#/components/schemas/Volume_2"
+                        "$ref": "#/components/schemas/Volume_1_2"
                     },
                     "freightClass": {
                         "type": "string",
@@ -5655,10 +5488,7 @@
                     },
                     "dimensions": {
                         "description": "Indicate the dimensions of the package.<br> Following conditions will apply: <ul><li>Dimensions are optional but when added, then all three dimensions must be indicated.</li><li>Dimensions are required with YOUR_PACKAGING package type.</li></ul>Note: The maximum/minimum dimension values varies based on the services and the packaging types. Refer <a href=\"https://www.fedex.com/en-us/service-guide.html#\" target=\"_blank\">FedEx Service Guide</a> for service details related to DIM Weighting for FedEx Express and oversize conditions for FedEx Express and FedEx Ground.",
-                        "schema": {
-                            "$ref": "#/components/schemas/Dimensions_2"
-                        },
-                        "type": "string"
+                        "$ref": "#/components/schemas/Dimensions_2"
                     },
                     "classProvidedByCustomer": {
                         "type": "boolean",
@@ -5734,13 +5564,6 @@
                     "height": 9,
                     "units": "CM"
                 }
-            },
-            "Volume_2": {
-                "description": "Specifies volume (cubic measure) for this commodity.",
-                "schema": {
-                    "$ref": "#/components/schemas/Volume_1_2"
-                },
-                "type": "string"
             },
             "Volume_1_2": {
                 "type": "object",
@@ -5985,10 +5808,7 @@
                     },
                     "fixedValue": {
                         "description": "This is to specify a fixed handling charge on the shipment. The element allows entry of 7 characters before the decimal and 2 characters following the decimal. <br>Example: 5.00.",
-                        "schema": {
-                            "$ref": "#/components/schemas/Money_2"
-                        },
-                        "type": "string"
+                        "$ref": "#/components/schemas/Money_2"
                     },
                     "rateElementBasis": {
                         "type": "string",
@@ -6071,9 +5891,7 @@
                     "importerOfRecord": {
                         "description": "The descriptive data for the importer of Record for the shipment and their physical address, contact and account number information.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Party_1"
-                        }
+                        "$ref": "#/components/schemas/Party_1"
                     },
                     "generatedDocumentLocale": {
                         "type": "string",
@@ -6086,9 +5904,7 @@
                     "totalCustomsValue": {
                         "description": "This is the total customs value.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Money_2"
-                        }
+                        "$ref": "#/components/schemas/Money_2"
                     },
                     "partiesToTransactionAreRelated": {
                         "type": "boolean",
@@ -6100,9 +5916,7 @@
                     "insuranceCharge": {
                         "description": "Specify insurance charges if applicable. <br><i>Note: FedEx does not provide insurance of any kind.</i>",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Money_2"
-                        }
+                        "$ref": "#/components/schemas/Money_2"
                     }
                 },
                 "description": "These are customs clearance details. <br>Required for International and intra-country Shipments."
@@ -6112,10 +5926,7 @@
                 "properties": {
                     "broker": {
                         "description": "These are broker details for the shipment with physical address, contact and account number information.",
-                        "schema": {
-                            "$ref": "#/components/schemas/Party_1"
-                        },
-                        "type": "string"
+                        "$ref": "#/components/schemas/Party_1"
                     },
                     "type": {
                         "type": "string",
@@ -6193,9 +6004,7 @@
                     "taxesOrMiscellaneousCharge": {
                         "description": "Indicate the taxes or miscellaneous charges(other than freight charges or insurance charges) that are associated with the shipment.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Money_2"
-                        }
+                        "$ref": "#/components/schemas/Money_2"
                     },
                     "taxesOrMiscellaneousChargeType": {
                         "type": "string",
@@ -6213,23 +6022,17 @@
                     "freightCharge": {
                         "description": "Indicate the freight charge.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Money_2"
-                        }
+                        "$ref": "#/components/schemas/Money_2"
                     },
                     "packingCosts": {
                         "description": "Indicate the packing cost.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Money_2"
-                        }
+                        "$ref": "#/components/schemas/Money_2"
                     },
                     "handlingCosts": {
                         "description": "Indicate the handling cost.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Money_2"
-                        }
+                        "$ref": "#/components/schemas/Money_2"
                     },
                     "declarationStatement": {
                         "type": "string",
@@ -6545,9 +6348,7 @@
                     "unitPrice": {
                         "description": "This is the unit price.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Money_2"
-                        }
+                        "$ref": "#/components/schemas/Money_2"
                     },
                     "additionalMeasures": {
                         "type": "array",
@@ -6576,9 +6377,7 @@
                     "customsValue": {
                         "description": "This is the customs value.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Money_2"
-                        }
+                        "$ref": "#/components/schemas/Money_2"
                     },
                     "countryOfManufacture": {
                         "type": "string",
@@ -7770,9 +7569,7 @@
                     "dimensions": {
                         "description": "Required. <br>The dimensions of the package; length, width & height.  All three dimensions must be indicated. Dimensions are required with all FedEx Freight Services like \"INTERNATIONAL_PRIORITY_FREIGHT\" and \"INTERNATIONAL_ECONOMY_FREIGHT\"",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Dimensions_2"
-                        }
+                        "$ref": "#/components/schemas/Dimensions_2"
                     },
                     "physicalPackaging": {
                         "type": "string",
@@ -7884,13 +7681,10 @@
                         "example": "AnyCo_order123456789"
                     },
                     "output": {
-                        "$ref": "#/components/schemas/BaseProcessOutputVO"
+                        "$ref": "#/components/schemas/LTLFreightShipmentOutputVO"
                     }
                 },
                 "description": "Wrapper class for LTLFreightShipmentOutput. It holds transactionId and output."
-            },
-            "BaseProcessOutputVO": {
-                "$ref": "#/components/schemas/LTLFreightShipmentOutputVO"
             },
             "LTLFreightShipmentOutputVO": {
                 "type": "object",
@@ -8300,9 +8094,7 @@
                     "dryIceWeight": {
                         "description": "Descriptive data required for a FedEx shipment containing dry ice. Includes weight and units. This element is required when SpecialServiceType DRY_ICE is present in the SpecialServiceTypes collection at the package level.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Weight_2"
-                        }
+                        "$ref": "#/components/schemas/Weight_2"
                     },
                     "hazardousPackageDetail": {
                         "$ref": "#/components/schemas/CompletedHazardousPackageDetail"
@@ -8600,9 +8392,7 @@
                     "quantity": {
                         "description": "Indicates hazardous commodity quantity details.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/HazardousCommodityQuantityDetail"
-                        }
+                        "$ref": "#/components/schemas/HazardousCommodityQuantityDetail"
                     },
                     "options": {
                         "$ref": "#/components/schemas/HazardousCommodityContent001"
@@ -9129,9 +8919,7 @@
                     "holdingLocation": {
                         "description": "Indicate the physical address of the FedEx holding location.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/JustContactAndAddress"
-                        }
+                        "$ref": "#/components/schemas/JustContactAndAddress"
                     }
                 },
                 "description": "This is default holding location information when HOLD_AT_LOCATION special service is requested and the client does not specify the hold location address."
@@ -9451,9 +9239,7 @@
                     "totalWeight": {
                         "description": "Specify total dry ice weight for the shipment.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Weight_2"
-                        }
+                        "$ref": "#/components/schemas/Weight_2"
                     },
                     "packageCount": {
                         "type": "integer",
@@ -9620,9 +9406,7 @@
                     "totalBillingWeight": {
                         "description": "The weight used to calculate these rates.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Weight_2"
-                        }
+                        "$ref": "#/components/schemas/Weight_2"
                     },
                     "freightDiscounts": {
                         "type": "array",
@@ -9734,9 +9518,7 @@
                     "totalDimWeight": {
                         "description": "Sum of dimensional weights for all packages.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Weight_2"
-                        }
+                        "$ref": "#/components/schemas/Weight_2"
                     },
                     "totalRebates": {
                         "type": "number",
@@ -9753,9 +9535,7 @@
                     "currencyExchangeRate": {
                         "description": "Specifies currency exchange rate.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/CurrencyExchangeRate_2"
-                        }
+                        "$ref": "#/components/schemas/CurrencyExchangeRate_2"
                     },
                     "dimDivisor": {
                         "type": "integer",
@@ -9840,9 +9620,7 @@
                     "totalBillingWeight": {
                         "description": "The weight used to calculate these rates.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Weight_2"
-                        }
+                        "$ref": "#/components/schemas/Weight_2"
                     },
                     "freightDiscounts": {
                         "type": "array",
@@ -10238,7 +10016,7 @@
                 "type": "object",
                 "properties": {
                     "pickupAddress": {
-                        "$ref": "#/components/schemas/PickupAddress"
+                        "$ref": "#/components/schemas/Address_Availability"
                     },
                     "packageReadyTime": {
                         "type": "string",
@@ -10251,7 +10029,7 @@
                         "example": "18:00:00"
                     },
                     "shipmentAttributes": {
-                        "$ref": "#/components/schemas/ShipmentAttributes"
+                        "$ref": "#/components/schemas/PickupShipmentAttributes"
                     },
                     "freightPickupSpecialServiceDetail": {
                         "$ref": "#/components/schemas/FullSchemaFreightPickupAvailability_freightPickupSpecialServiceDetail"
@@ -10269,13 +10047,6 @@
                     }
                 },
                 "description": "These are pickup availability request elements."
-            },
-            "PickupAddress": {
-                "description": "The address for which pickup availability inquiry is made.",
-                "schema": {
-                    "$ref": "#/components/schemas/Address_Availability"
-                },
-                "type": "string"
             },
             "Address_Availability": {
                 "type": "object",
@@ -10342,20 +10113,6 @@
                     "countryCode": "US",
                     "residential": false,
                     "addressClassification": "MIXED"
-                }
-            },
-            "FreightPickupSpecialServiceDetail": {
-                "type": "object",
-                "description": "The shipment details, such as service type, packaging type, weight.",
-                "schema": {
-                    "$ref": "#/components/schemas/ShipmentSpecialServicesRequested"
-                }
-            },
-            "ShipmentAttributes": {
-                "type": "object",
-                "description": "Indicates the shipment details such as service type, packaging type, weight and dimensions.",
-                "schema": {
-                    "$ref": "#/components/schemas/PickupShipmentAttributes"
                 }
             },
             "PickupShipmentAttributes": {
@@ -10472,13 +10229,10 @@
                         "example": "AnyCo_order123456789"
                     },
                     "output": {
-                        "$ref": "#/components/schemas/BaseProcessOutputVO_PickupAvailaibility"
+                        "$ref": "#/components/schemas/FreightPickupAvailabilityOutputVO"
                     }
                 },
                 "description": "This is a wrapper class for outputVO"
-            },
-            "BaseProcessOutputVO_PickupAvailaibility": {
-                "$ref": "#/components/schemas/FreightPickupAvailabilityOutputVO"
             },
             "FreightPickupAvailabilityOutputVO": {
                 "type": "object",
@@ -10612,16 +10366,11 @@
                     "associatedAccountNumber": {
                         "description": "The associated account number, which is  invoiced for the freight pickup.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/AccountNumber_2"
-                        }
+                        "$ref": "#/components/schemas/PartyAccountNumber"
                     },
                     "originDetail": {
                         "description": "The origin address if different than the one associated with the shipper account. This element value is required when the package is to be picked up from an address other than the shipper account address.",
-                        "schema": {
-                            "$ref": "#/components/schemas/OriginDetail"
-                        },
-                        "type": "string"
+                        "$ref": "#/components/schemas/PickupOriginDetail_LTL"
                     },
                     "totalWeight": {
                         "type": "array",
@@ -10635,7 +10384,7 @@
                         },
                         "description": "The total weight of the packages for the pickup. Unit of measure is LB and KG.",
                         "items": {
-                            "$ref": "#/components/schemas/TotalWeight"
+                            "$ref": "#/components/schemas/Weight_2"
                         }
                     },
                     "packageCount": {
@@ -10671,9 +10420,7 @@
                     "freightPickupDetail": {
                         "description": "This provides the Freight LTL pickup detailed information.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/FreightPickupDetail"
-                        }
+                        "$ref": "#/components/schemas/FreightPickupDetail"
                     },
                     "oversizePackageCount": {
                         "type": "integer",
@@ -10682,20 +10429,10 @@
                         "example": 2
                     },
                     "pickupNotificationDetail": {
-                        "schema": {
-                            "$ref": "#/components/schemas/PickupNotificationdetail"
-                        },
-                        "type": "string"
+                        "$ref": "#/components/schemas/PickupNotificationDetail"
                     }
                 },
                 "description": "The request elements to create a pickup."
-            },
-            "OriginDetail": {
-                "description": "This is the origin address, if different than the one associated with the shipper account. It is required if the package is to be picked up from an address other than the shipper account address.",
-                "type": "object",
-                "schema": {
-                    "$ref": "#/components/schemas/PickupOriginDetail_LTL"
-                }
             },
             "PhoneNumberDetails": {
                 "type": "object",
@@ -10740,7 +10477,7 @@
                         ]
                     },
                     "pickupLocation": {
-                        "$ref": "#/components/schemas/PickupLocationParty_LTL"
+                        "$ref": "#/components/schemas/Party_createPickup_LTL"
                     },
                     "readyDateTimestamp": {
                         "type": "string",
@@ -10803,13 +10540,6 @@
                 },
                 "description": "Pickup Origin Detail"
             },
-            "PickupLocationParty_LTL": {
-                "description": "The descriptive data for the party responsible for the pickup and the physical location from which the shipment is picked up. <br>Note: This information is not required in case the pickupAddressType value is set to ACCOUNT.</br>",
-                "schema": {
-                    "$ref": "#/components/schemas/Party_createPickup_LTL"
-                },
-                "type": "string"
-            },
             "Party_createPickup_LTL": {
                 "type": "object",
                 "properties": {
@@ -10820,7 +10550,7 @@
                         "$ref": "#/components/schemas/Address_LTL"
                     },
                     "accountNumber": {
-                        "$ref": "#/components/schemas/AccountNumber_2"
+                        "$ref": "#/components/schemas/PartyAccountNumber"
                     },
                     "deliveryInstructions": {
                         "type": "string",
@@ -10952,13 +10682,6 @@
                     "addressClassification": "MIXED"
                 }
             },
-            "TotalWeight": {
-                "description": "This is to specify total package weight.",
-                "schema": {
-                    "$ref": "#/components/schemas/Weight_2"
-                },
-                "type": "string"
-            },
             "FreightPickupDetail": {
                 "type": "object",
                 "properties": {
@@ -10988,9 +10711,7 @@
                     "alternateBilling": {
                         "description": "The descriptive data of the alternateBilling party for the freight pickup and their physical location. This is used to identify customer's account for billing('Send Bill To'(SBT)).",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Party"
-                        }
+                        "$ref": "#/components/schemas/Party"
                     },
                     "userMessage": {
                         "type": "string",
@@ -11188,13 +10909,6 @@
                 },
                 "description": "Specifies the shipment special services requested."
             },
-            "PickupNotificationdetail": {
-                "description": "This object allows user to request for pickup confirmation email. User can specify upto 5 email addresses.",
-                "type": "object",
-                "schema": {
-                    "$ref": "#/components/schemas/PickupNotificationDetail"
-                }
-            },
             "PickupNotificationDetail": {
                 "type": "object",
                 "properties": {
@@ -11251,13 +10965,10 @@
                         "example": "AnyCo_order123456789"
                     },
                     "output": {
-                        "$ref": "#/components/schemas/BaseProcessOutputVO_CreatePickup"
+                        "$ref": "#/components/schemas/CreatePickupOutputVO"
                     }
                 },
                 "description": "This is a wrapper class for outputVO"
-            },
-            "BaseProcessOutputVO_CreatePickup": {
-                "$ref": "#/components/schemas/CreatePickupOutputVO"
             },
             "CreatePickupOutputVO": {
                 "type": "object",
@@ -11303,7 +11014,7 @@
                 "type": "object",
                 "properties": {
                     "associatedAccountNumber": {
-                        "$ref": "#/components/schemas/AccountNumber_2"
+                        "$ref": "#/components/schemas/PartyAccountNumber"
                     },
                     "pickupConfirmationCode": {
                         "type": "string",
@@ -11347,13 +11058,10 @@
                         "example": "AnyCo_order123456789"
                     },
                     "output": {
-                        "$ref": "#/components/schemas/BaseProcessOutputVO_CancelPickup"
+                        "$ref": "#/components/schemas/CancelFreightPickupOutputVO"
                     }
                 },
                 "description": "This is a wrapper class for outputVO"
-            },
-            "BaseProcessOutputVO_CancelPickup": {
-                "$ref": "#/components/schemas/CancelFreightPickupOutputVO"
             },
             "CancelFreightPickupOutputVO": {
                 "type": "object",
@@ -11381,7 +11089,7 @@
             "FullSchemaFreightPickupAvailability_freightPickupSpecialServiceDetail": {
                 "properties": {
                     "shipmentSpecialServicesRequested": {
-                        "$ref": "#/components/schemas/FreightPickupSpecialServiceDetail"
+                        "$ref": "#/components/schemas/ShipmentSpecialServicesRequested"
                     }
                 },
                 "type": "object"

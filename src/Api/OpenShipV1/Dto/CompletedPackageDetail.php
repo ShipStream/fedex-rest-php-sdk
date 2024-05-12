@@ -18,7 +18,7 @@ final class CompletedPackageDetail extends Dto
      * @param  ?int  $groupNumber  This is group shipment number. Used with request containing PACKAGE_GROUPS, to identify which group of identical packages was used to produce a reply item.<br>Example: 10
      * @param  ?string  $oversizeClass  Indicates the oversize classification.<br>Example: OVERSIZE_1
      * @param  ?PackageRating  $packageRating  This class groups together all package-level rate data for a single package (across all rate types) as part of the response to a shipping request, which groups shipment-level data together and groups package-level data by package.
-     * @param  ?mixed[]  $dryIceWeight  Descriptive data required for a FedEx shipment containing dry ice. Includes weight and units. This element is required when SpecialServiceType DRY_ICE is present in the SpecialServiceTypes collection at the package level.
+     * @param  ?Weight  $dryIceWeight  These are the package weight details.<br>Note: Weight is not required for One rate shipments
      * @param  ?CompletedHazardousPackageDetail  $hazardousPackageDetail  Complete package-level hazardous commodity information for a single package.
      */
     public function __construct(
@@ -29,7 +29,7 @@ final class CompletedPackageDetail extends Dto
         public readonly ?int $groupNumber = null,
         public readonly ?string $oversizeClass = null,
         public readonly ?PackageRating $packageRating = null,
-        public readonly ?array $dryIceWeight = null,
+        public readonly ?Weight $dryIceWeight = null,
         public readonly ?CompletedHazardousPackageDetail $hazardousPackageDetail = null,
     ) {
     }

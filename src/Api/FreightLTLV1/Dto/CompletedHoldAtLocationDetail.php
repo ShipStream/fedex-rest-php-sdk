@@ -10,11 +10,11 @@ final class CompletedHoldAtLocationDetail extends Dto
 {
     /**
      * @param  ?string  $holdingLocationType  Indicates the type of the FedEx holding location <br>Example: FEDEX_STAFFED
-     * @param  ?mixed[]  $holdingLocation  Indicate the physical address of the FedEx holding location.
+     * @param  ?JustContactAndAddress  $holdingLocation
      */
     public function __construct(
         public readonly ?string $holdingLocationType = null,
-        public readonly ?array $holdingLocation = null,
+        public readonly ?JustContactAndAddress $holdingLocation = null,
     ) {
     }
 }

@@ -9,10 +9,10 @@ use ShipStream\FedEx\Dto;
 final class PackageCodDetail extends Dto
 {
     /**
-     * @param  ?mixed[]  $codCollectionAmount  Indicate the COD collection amount.
+     * @param  ?Money  $codCollectionAmount  Specifies taxes or miscellaneous charge.
      */
     public function __construct(
-        public readonly ?array $codCollectionAmount = null,
+        public readonly ?Money $codCollectionAmount = null,
     ) {
     }
 }

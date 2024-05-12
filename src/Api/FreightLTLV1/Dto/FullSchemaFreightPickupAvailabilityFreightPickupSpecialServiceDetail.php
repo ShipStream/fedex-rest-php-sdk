@@ -9,10 +9,10 @@ use ShipStream\FedEx\Dto;
 final class FullSchemaFreightPickupAvailabilityFreightPickupSpecialServiceDetail extends Dto
 {
     /**
-     * @param  ?mixed[]  $shipmentSpecialServicesRequested  The shipment details, such as service type, packaging type, weight.
+     * @param  ?ShipmentSpecialServicesRequested  $shipmentSpecialServicesRequested  Specifies the shipment special services requested.
      */
     public function __construct(
-        public readonly ?array $shipmentSpecialServicesRequested = null,
+        public readonly ?ShipmentSpecialServicesRequested $shipmentSpecialServicesRequested = null,
     ) {
     }
 }

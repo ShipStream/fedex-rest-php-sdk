@@ -9,7 +9,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/body"
+                                "$ref": "#/components/schemas/Full_Schema_Create_Pickup"
                             }
                         }
                     }
@@ -229,7 +229,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/body_1"
+                                "$ref": "#/components/schemas/Full_Schema_Pickup_Availability"
                             }
                         }
                     }
@@ -449,7 +449,7 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/body_2"
+                                "$ref": "#/components/schemas/Full_Schema_Cancel_Pickup"
                             }
                         }
                     }
@@ -677,13 +677,10 @@
                         "example": "AnyCo_order123456789"
                     },
                     "output": {
-                        "$ref": "#/components/schemas/BaseProcessOutputVO_CreatePickup"
+                        "$ref": "#/components/schemas/CreatePickupOutputVO"
                     }
                 },
                 "description": "This is a wrapper class for outputVO"
-            },
-            "BaseProcessOutputVO_CreatePickup": {
-                "$ref": "#/components/schemas/CreatePickupOutputVO"
             },
             "CreatePickupOutputVO": {
                 "type": "object",
@@ -991,10 +988,7 @@
                     },
                     "originDetail": {
                         "description": "The origin address if different than the one associated with the shipper account. This element value is required when the package is to be picked up from an address other than the shipper account address.",
-                        "schema": {
-                            "$ref": "#/components/schemas/OriginDetail"
-                        },
-                        "type": "string"
+                        "$ref": "#/components/schemas/PickupOriginDetail"
                     },
                     "associatedAccountNumberType": {
                         "type": "string",
@@ -1004,9 +998,7 @@
                     "totalWeight": {
                         "description": "Specify The total weight of the packages for the pickup. Unit of measure is\n LB.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Weight"
-                        }
+                        "$ref": "#/components/schemas/Weight"
                     },
                     "packageCount": {
                         "type": "integer",
@@ -1026,9 +1018,7 @@
                     "accountAddressOfRecord": {
                         "description": "The city name, state or province code and the address classification associated with the customer account which requested the pickup.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Address_1"
-                        }
+                        "$ref": "#/components/schemas/Address_1"
                     },
                     "remarks": {
                         "type": "string",
@@ -1061,9 +1051,7 @@
                     "expressFreightDetail": {
                         "description": "Placeholder for Express Freight pickup details.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/ExpressFreightPickupDetail"
-                        }
+                        "$ref": "#/components/schemas/ExpressFreightPickupDetail"
                     },
                     "oversizePackageCount": {
                         "type": "integer",
@@ -1072,10 +1060,7 @@
                         "example": 2
                     },
                     "pickupNotificationDetail": {
-                        "schema": {
-                            "$ref": "#/components/schemas/PickupNotificationdetail"
-                        },
-                        "type": "string"
+                        "$ref": "#/components/schemas/PickupNotificationDetail"
                     }
                 },
                 "description": "Use this endpoint to create a pickup request."
@@ -1091,13 +1076,6 @@
                 "description": "This is the FedEx account number. <br>Example: Your account number",
                 "example": {
                     "value": "Your account number"
-                }
-            },
-            "OriginDetail": {
-                "description": "This is the origin address, if different than the one associated with the shipper account. It is required if the package is to be picked up from an address other than the shipper account address.",
-                "type": "object",
-                "schema": {
-                    "$ref": "#/components/schemas/PickupOriginDetail"
                 }
             },
             "PickupOriginDetail": {
@@ -1119,7 +1097,7 @@
                         ]
                     },
                     "pickupLocation": {
-                        "$ref": "#/components/schemas/PickupLocationParty"
+                        "$ref": "#/components/schemas/Party_createPickup"
                     },
                     "readyDateTimestamp": {
                         "type": "string",
@@ -1186,13 +1164,6 @@
                     }
                 },
                 "description": "Pickup Origin Detail"
-            },
-            "PickupLocationParty": {
-                "description": "The descriptive data for the party responsible for the pickup and the physical location from which the shipment is picked up.",
-                "schema": {
-                    "$ref": "#/components/schemas/Party_createPickup"
-                },
-                "type": "string"
             },
             "Party_createPickup": {
                 "type": "object",
@@ -1458,9 +1429,7 @@
                     "dimensions": {
                         "description": "Indicate the dimensions of the package.<br> Following conditions will apply: <ul><li>Dimensions are optional but when added, then all three dimensions must be indicated.</li><li>Dimensions are required with YOUR_PACKAGING package type.</li></ul>Note: The maximum/minimum dimension values varies based on the services and the packaging types. Refer <a href=\"https://www.fedex.com/en-us/service-guide.html#\" target=\"_blank\">FedEx Service Guide</a> for service details related to DIM Weighting for FedEx Express and oversize conditions for FedEx Express and FedEx Ground.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Dimensions"
-                        }
+                        "$ref": "#/components/schemas/Dimensions"
                     }
                 },
                 "description": "Provides the Express Freight pickup detailed information."
@@ -1502,13 +1471,6 @@
                     "width": 15,
                     "height": 12,
                     "units": "CM"
-                }
-            },
-            "PickupNotificationdetail": {
-                "description": "This object allows user to request for pickup confirmation email. User can specify upto 5 email addresses.",
-                "type": "object",
-                "schema": {
-                    "$ref": "#/components/schemas/PickupNotificationDetail"
                 }
             },
             "PickupNotificationDetail": {
@@ -1567,13 +1529,10 @@
                         "example": "AnyCo_order123456789"
                     },
                     "output": {
-                        "$ref": "#/components/schemas/BaseProcessOutputVO_PickupAvailability"
+                        "$ref": "#/components/schemas/PickupAvailabilityOutputVO"
                     }
                 },
                 "description": "This is a wrapper class for outputVO"
-            },
-            "BaseProcessOutputVO_PickupAvailability": {
-                "$ref": "#/components/schemas/PickupAvailabilityOutputVO"
             },
             "PickupAvailabilityOutputVO": {
                 "type": "object",
@@ -1766,7 +1725,7 @@
                 "type": "object",
                 "properties": {
                     "pickupAddress": {
-                        "$ref": "#/components/schemas/PickupAddress"
+                        "$ref": "#/components/schemas/Address"
                     },
                     "dispatchDate": {
                         "type": "string",
@@ -1807,7 +1766,7 @@
                         }
                     },
                     "shipmentAttributes": {
-                        "$ref": "#/components/schemas/ShipmentAttributes"
+                        "$ref": "#/components/schemas/PickupShipmentAttributes"
                     },
                     "numberOfBusinessDays": {
                         "type": "integer",
@@ -1861,20 +1820,6 @@
                     }
                 },
                 "description": "These are pickup availability request elements."
-            },
-            "PickupAddress": {
-                "description": "Specify the address for which pickup availability inquiry has been made.",
-                "schema": {
-                    "$ref": "#/components/schemas/Address"
-                },
-                "type": "string"
-            },
-            "ShipmentAttributes": {
-                "type": "object",
-                "description": "Specify the shipment details, such as service type, packaging type, weight and dimensions. <br><br><i>Note: serviceType is required for domestic or international pickup availabilities.</i>",
-                "schema": {
-                    "$ref": "#/components/schemas/PickupShipmentAttributes"
-                }
             },
             "PickupShipmentAttributes": {
                 "type": "object",
@@ -1988,13 +1933,10 @@
                         "example": "AnyCo_order123456789"
                     },
                     "output": {
-                        "$ref": "#/components/schemas/BaseProcessOutputVO_CancelPickup"
+                        "$ref": "#/components/schemas/CancelPickupOutputVO"
                     }
                 },
                 "description": "This is a wrapper class for outputVO"
-            },
-            "BaseProcessOutputVO_CancelPickup": {
-                "$ref": "#/components/schemas/CancelPickupOutputVO"
             },
             "CancelPickupOutputVO": {
                 "type": "object",
@@ -2050,7 +1992,7 @@
                         ]
                     },
                     "accountAddressOfRecord": {
-                        "$ref": "#/components/schemas/AccountAddressOfRecord"
+                        "$ref": "#/components/schemas/Address"
                     },
                     "scheduledDate": {
                         "type": "string",
@@ -2064,22 +2006,6 @@
                     }
                 },
                 "description": "This is a placeholder for cancelled pickup request elements."
-            },
-            "AccountAddressOfRecord": {
-                "description": "Address details for the associated pickup account. Indicates if the address is residential. Specifies the city name, country code, streetline number, postal code, address verification Identifier, and state or province code.",
-                "schema": {
-                    "$ref": "#/components/schemas/Address"
-                },
-                "type": "string"
-            },
-            "body": {
-                "$ref": "#/components/schemas/Full_Schema_Create_Pickup"
-            },
-            "body_1": {
-                "$ref": "#/components/schemas/Full_Schema_Pickup_Availability"
-            },
-            "body_2": {
-                "$ref": "#/components/schemas/Full_Schema_Cancel_Pickup"
             },
             "PickupLocationParty_address": {
                 "required": [

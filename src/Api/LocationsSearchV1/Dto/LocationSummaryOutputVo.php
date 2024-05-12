@@ -18,8 +18,8 @@ final class LocationSummaryOutputVo extends Dto
     /**
      * @param  ?int  $totalResults  Indicates the total number of locations that are displayed in the result.<br>Example: 13
      * @param  ?int  $resultsReturned  Specifies the number of results returned in the reply.<br>Example: 10
-     * @param  ?mixed[]  $matchedAddress  The address provided in the request.
-     * @param  ?mixed[]  $matchedAddressGeoCoord  Identifies the geographic coordinates corresponding to the address specified. It is specified in ISO 6709 format.<br> Example: +40.75-074.00
+     * @param  ?Address  $matchedAddress  Descriptive data for a physical location. May be used as an actual physical address (place to which one could go), or as a container of \"address parts\" which should be handled as a unit (such as a city-state-ZIP combination within the US).
+     * @param  ?GeoPositionalCoordinates  $matchedAddressGeoCoord  The ISO6709GeographicCoordinates for a specific geographic location
      * @param  mixed[][]|null  $locationDetailList  List of FedEx locations meeting the search criteria.
      * @param  Alert[]|null  $alerts  Specifies the alerts.
      * @param  ?LocationDetail  $nearestLocation  Details about a specific FedEx location such as services offered, distance, package attributes supported, hours, pickup and drop off times.
@@ -30,7 +30,7 @@ final class LocationSummaryOutputVo extends Dto
      * @param  ?bool  $latestLocationReturned  Indicates whether value for latest locations were returned or not. <br>Valid values: True, False.
      * @param  ?int  $lockerAvailabilityCode  Code for locker availability
      * @param  ?string  $lockerAvailabilityMessage  Message for locker availability
-     * @param  ?mixed[]  $location  Based on the locationSearchCriterion value specified, the location element specifies the minimum requirement for address search like postalCode, countryCode, GeoCodes or city.Location phone number is required. Only landline number is allowed.<br><br><i>Note: Country code is REQUIRED for the search.</i>
+     * @param  ?Location  $location
      * @param  ?string  $phoneNumber  Specify the phone number If the locationSearchCriterion is set to 'PHONE_NUMBER'.The mobile numbers will not return results when set as a criterion. <br> Example: 9015551234
      * @param  ?string  $multipleMatchesAction  Specify the criterion to be used to return location results when there are multiple matches.<br><br><i>Note: The 'maxResults' value takes precedence over RETURN_ALL value.</i>
      * @param  ?Sort  $sort  Specifies how the location search results will be sorted in the reply.
@@ -53,8 +53,8 @@ final class LocationSummaryOutputVo extends Dto
     public function __construct(
         public readonly ?int $totalResults = null,
         public readonly ?int $resultsReturned = null,
-        public readonly ?array $matchedAddress = null,
-        public readonly ?array $matchedAddressGeoCoord = null,
+        public readonly ?Address $matchedAddress = null,
+        public readonly ?GeoPositionalCoordinates $matchedAddressGeoCoord = null,
         public readonly ?array $locationDetailList = null,
         public readonly ?array $alerts = null,
         public readonly ?LocationDetail $nearestLocation = null,
@@ -65,7 +65,7 @@ final class LocationSummaryOutputVo extends Dto
         public readonly ?bool $latestLocationReturned = null,
         public readonly ?int $lockerAvailabilityCode = null,
         public readonly ?string $lockerAvailabilityMessage = null,
-        public readonly ?array $location = null,
+        public readonly ?Location $location = null,
         public readonly ?string $phoneNumber = null,
         public readonly ?string $multipleMatchesAction = null,
         public readonly ?Sort $sort = null,

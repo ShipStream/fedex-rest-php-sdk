@@ -14,8 +14,8 @@ final class FreightRequestedShipmentFreight2020 extends Dto
      * @param  string  $pickupType  Indicate if shipment is being dropped off at a FedEx location or being picked up by FedEx or if it's a regularly scheduled pickup for this shipment.<br><a onclick='loadDocReference("pickuptypes")'>Click here for more information on Pickup Types.</a>
      * @param  string  $serviceType  Indicate the Service Type for this shipment.
      * @param  string  $packagingType  Indicate the packaging type used for the shipment.</a>
-     * @param  mixed[]  $shipper  The descriptive data for the physical location from which the shipment originates.
-     * @param  mixed[]  $recipient  Specifies the recipient details.
+     * @param  ShipperParty  $shipper  Indicate the Shipper contact details for this shipment.
+     * @param  RecipientParty  $recipient  The descriptive information for the recipient of the shipment and the physical location for the package destination.
      * @param  FreightPayment  $shippingChargesPayment  Indicates the details about who and how the shipment will be paid for.<br>'payor' is optional when 'paymentType' provided is SENDER.
      * @param  Freight2020shipmentDetail  $freightShipmentDetail  Specifies the details specific to a FedEx Freight LTL shipment (i.e., FEDEX_FREIGHT_ECONOMY and FEDEX_FREIGHT_PRIORITY services). If freight shipment detail is applicable, then the following fields are required: totalHandlingUnits, fedExFreightBillingContactAndAddress, lineItem, and role.
      * @param  LabelSpecification  $labelSpecification  These are label specification details includes the image type, printer format, and label stock for label. Can also specify specific details such as doc-tab content, regulatory labels, and masking data on the label.
@@ -23,8 +23,8 @@ final class FreightRequestedShipmentFreight2020 extends Dto
      * @param  ?string  $shipDatestamp  This is the shipment date. Default value is current date in case the date is not provided in the request.<br>Format [YYYY-MM-DD].<br>Example: 2019-10-14
      * @param  ?int  $totalWeight  Indicate the shipment total weight in pounds.<br><br>Example: 10.6
      * @param  ?string  $preferredCurrency  Indicate the currency the caller requests to have used in all returned monetary values. Should be Used in conjunction with the element RateRequestType.<br>Example: USD<br><br><a onclick='loadDocReference("currencycodes")'>click here to see available Currency codes</a><br><br>Note: Incorrect currency codes should not be supplied. The system ignores the incorrect currency code.
-     * @param  ?mixed[]  $soldTo  Will indicate the party responsible for purchasing the goods shipped from the shipper to the recipient. The sold to party is not necessarily the recipient or the importer of record. The sold to party is relevant when the purchaser, rather than the recipient determines when certain customs regulations apply.
-     * @param  ?mixed[]  $origin  Original address information for the shipment, if different from shipper’s address.
+     * @param  ?SoldToParty  $soldTo  Will indicate the party responsible for purchasing the goods shipped from the shipper to the recipient. The sold to party is not necessarily the recipient or the importer of record. The sold to party is relevant when the purchaser, rather than the recipient determines when certain customs regulations apply.
+     * @param  ?ContactAndAddress2  $origin  Specifies the contact and address details of a location.
      * @param  ?FreightShipment2020specialServicesRequested  $freightShipmentSpecialServices  These special services are available at the shipment level for some or all service types.<br>If the shipper is requesting a special service which requires additional data (such as the COD amount), the shipment special service type must be present in the specialServiceTypes collection, and the supporting detail must be provided in the appropriate sub-object below.
      * @param  ?EMailNotificationDetail  $emailNotificationDetail  These are email disposition details. Provides the type and email addresses of e-mail recipients. If returnedDispositionDetail in labelSpecification is set as true then email will be send with label and documents copy.
      * @param  ?VariableHandlingChargeDetail  $variableHandlingChargeDetail  Indicate the details about how to calculate variable handling charges at the shipment level. They can be based on a percentage of the shipping charges or a fixed amount. If indicated, element rateLevelType is required.
@@ -38,8 +38,8 @@ final class FreightRequestedShipmentFreight2020 extends Dto
         public readonly string $pickupType,
         public readonly string $serviceType,
         public readonly string $packagingType,
-        public readonly array $shipper,
-        public readonly array $recipient,
+        public readonly ShipperParty $shipper,
+        public readonly RecipientParty $recipient,
         public readonly FreightPayment $shippingChargesPayment,
         public readonly Freight2020shipmentDetail $freightShipmentDetail,
         public readonly LabelSpecification $labelSpecification,
@@ -47,8 +47,8 @@ final class FreightRequestedShipmentFreight2020 extends Dto
         public readonly ?string $shipDatestamp = null,
         public readonly ?int $totalWeight = null,
         public readonly ?string $preferredCurrency = null,
-        public readonly ?array $soldTo = null,
-        public readonly ?array $origin = null,
+        public readonly ?SoldToParty $soldTo = null,
+        public readonly ?ContactAndAddress2 $origin = null,
         public readonly ?FreightShipment2020specialServicesRequested $freightShipmentSpecialServices = null,
         public readonly ?EMailNotificationDetail $emailNotificationDetail = null,
         public readonly ?VariableHandlingChargeDetail $variableHandlingChargeDetail = null,

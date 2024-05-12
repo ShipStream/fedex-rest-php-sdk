@@ -292,12 +292,9 @@
                         "example": "AnyCo_order123456789"
                     },
                     "output": {
-                        "$ref": "#/components/schemas/BaseProcessOutputVO"
+                        "$ref": "#/components/schemas/ValidatePostalOutputVO"
                     }
                 }
-            },
-            "BaseProcessOutputVO": {
-                "$ref": "#/components/schemas/ValidatePostalOutputVO"
             },
             "ValidatePostalOutputVO": {
                 "type": "object",

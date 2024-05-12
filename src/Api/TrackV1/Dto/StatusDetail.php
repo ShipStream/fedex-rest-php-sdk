@@ -11,7 +11,7 @@ final class StatusDetail extends Dto
     protected static array $complexArrayTypes = ['ancillaryDetails' => [StatusAncillaryDetail::class]];
 
     /**
-     * @param  ?mixed[]  $scanLocation  Address information related to the associated Status.
+     * @param  ?AddressVo1  $scanLocation  Address where the package was actually delivered. Contrast with destinationAddress, which is the location to which the package was intended to be delivered. Addresses may differ due to delivery to a behavior, hold at FedEx location, etc.
      * @param  ?string  $code  A code that identifies this type of status.<br> Example:PU,DE,DP,HL,OC
      * @param  ?string  $derivedCode  Specifies the latest status detail code of the package.<br> Example:PU,DE,DP,HL,OC
      * @param  StatusAncillaryDetail[]|null  $ancillaryDetails  Specifies the cause of exception along with any action that needs to taken by customer.
@@ -20,7 +20,7 @@ final class StatusDetail extends Dto
      * @param  ?DelayDetail  $delayDetail  Specifies the information about delays.
      */
     public function __construct(
-        public readonly ?array $scanLocation = null,
+        public readonly ?AddressVo1 $scanLocation = null,
         public readonly ?string $code = null,
         public readonly ?string $derivedCode = null,
         public readonly ?array $ancillaryDetails = null,

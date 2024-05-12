@@ -24,7 +24,7 @@ final class LtlRateReplyDetail extends Dto
      * @param  ?string  $signatureOptionType  Indicates the signature Option for this service. <br> Example: SERVICE_DEFAULT
      * @param  ?ServiceDescription  $serviceDescription  Indicates the provides the Service Description details.
      * @param  ?BrokerDetail  $brokerDetail  These are Broker Detail for the rate quote.
-     * @param  ?mixed[]  $commit  Specifies the delivery commitment details date/time.
+     * @param  ?CommitDetail1  $commit  The delivery commitment details
      */
     public function __construct(
         public readonly ?string $serviceType = null,
@@ -37,7 +37,7 @@ final class LtlRateReplyDetail extends Dto
         public readonly ?string $signatureOptionType = null,
         public readonly ?ServiceDescription $serviceDescription = null,
         public readonly ?BrokerDetail $brokerDetail = null,
-        public readonly ?array $commit = null,
+        public readonly ?CommitDetail1 $commit = null,
     ) {
     }
 }

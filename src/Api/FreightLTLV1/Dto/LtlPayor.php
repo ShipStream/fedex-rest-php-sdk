@@ -9,10 +9,10 @@ use ShipStream\FedEx\Dto;
 final class LtlPayor extends Dto
 {
     /**
-     * @param  ?string  $responsibleParty  These are payer details such as address, account and contacts.
+     * @param  ?Party  $responsibleParty  Indicate the party to a transaction including the physical address, contact information and account number information.
      */
     public function __construct(
-        public readonly ?string $responsibleParty = null,
+        public readonly ?Party $responsibleParty = null,
     ) {
     }
 }

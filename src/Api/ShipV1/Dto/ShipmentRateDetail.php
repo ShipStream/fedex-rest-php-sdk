@@ -34,7 +34,7 @@ final class ShipmentRateDetail extends Dto
      * @param  ?string  $rateType  The Type used for this specific set of rate data.<br>Example: RATED_ACCOUNT_SHIPMENT
      * @param  Surcharge[]|null  $surcharges  These are all surcharges on this package.<br><a onclick='loadDocReference("surcharges")'>click here to see Surcharges</a>
      * @param  ?float  $totalSurcharges  The total amount of all surcharges applied to this shipment.<br>Example: 9.88
-     * @param  ?mixed[]  $totalBillingWeight  The weight used to calculate these rates.
+     * @param  ?Weight  $totalBillingWeight  These are the package weight details.<br>Note: Weight is not required for One rate shipments
      * @param  RateDiscount[]|null  $freightDiscounts  Indicates the freight discounts.
      * @param  ?string  $rateScale  Indicates the rate scale used.<br>Example: 00000
      * @param  ?float  $totalNetCharge  The net charge after applying all discounts and surcharges.<br>Example: 3.78
@@ -62,7 +62,7 @@ final class ShipmentRateDetail extends Dto
         public readonly ?string $rateType = null,
         public readonly ?array $surcharges = null,
         public readonly ?float $totalSurcharges = null,
-        public readonly ?array $totalBillingWeight = null,
+        public readonly ?Weight $totalBillingWeight = null,
         public readonly ?array $freightDiscounts = null,
         public readonly ?string $rateScale = null,
         public readonly ?float $totalNetCharge = null,

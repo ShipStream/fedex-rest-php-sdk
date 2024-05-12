@@ -16,7 +16,7 @@ final class ShipmentSpecialServicesRequested extends Dto
      * @param  ?InternationalTrafficInArmsRegulationsDetail  $internationalTrafficInArmsRegulationsDetail  These are International Traffic In Arms Regulations shipment service Details.
      * @param  ?PendingShipmentDetail  $pendingShipmentDetail  This object is used to specify the Pending Shipment Type for Email label.
      * @param  ?HoldAtLocationDetail  $holdAtLocationDetail  Use this object to specify required information for a shipment to be held at destination FedEx location. <br><br><i>Note: This object HoldAtLocationDetail is <b>REQUIRED</b>, when HOLD_AT_LOCATION is chosen in the specialServiceTypes.</i>
-     * @param  ?mixed[]  $shipmentCodDetail  Use this object to specify Collect On Delivery (COD) shipment details.
+     * @param  ?ShipmentCodDetail  $shipmentCodDetail  Specifies Shipment COD Detail
      * @param  ?ShipmentDryIceDetail  $shipmentDryIceDetail  Use this object to indicate package count with weight for this shipment containing dry ice. Dry ice is supported in both shipment level and package level services.
      * @param  ?InternationalControlledExportDetail  $internationalControlledExportDetail  Use this object to specify International Controlled Export shipment Details.
      * @param  ?HomeDeliveryPremiumDetail  $homeDeliveryPremiumDetail  These are Special service elements for FedEx Ground Home Delivery shipments. If selected, element homedeliveryPremiumType is mandatory.
@@ -28,7 +28,7 @@ final class ShipmentSpecialServicesRequested extends Dto
         public readonly ?InternationalTrafficInArmsRegulationsDetail $internationalTrafficInArmsRegulationsDetail = null,
         public readonly ?PendingShipmentDetail $pendingShipmentDetail = null,
         public readonly ?HoldAtLocationDetail $holdAtLocationDetail = null,
-        public readonly ?array $shipmentCodDetail = null,
+        public readonly ?ShipmentCodDetail $shipmentCodDetail = null,
         public readonly ?ShipmentDryIceDetail $shipmentDryIceDetail = null,
         public readonly ?InternationalControlledExportDetail $internationalControlledExportDetail = null,
         public readonly ?HomeDeliveryPremiumDetail $homeDeliveryPremiumDetail = null,

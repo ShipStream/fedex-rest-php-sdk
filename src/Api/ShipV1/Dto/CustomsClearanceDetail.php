@@ -20,13 +20,13 @@ final class CustomsClearanceDetail extends Dto
      * @param  ?bool  $isDocumentOnly  Used to specify if a shipment is document shipment or not. Used only for International Express document shipments. Default value is false.
      * @param  ?RecipientCustomsId  $recipientCustomsId  Use this element to provide valid identification details. Used for populating brazil tax id.
      * @param  ?CustomsOptionDetail  $customsOption  These are customs Option Detail, type must be indicated for each occurrence.
-     * @param  ?mixed[]  $importerOfRecord  The descriptive data for the importer of Record for the shipment and their physical address, contact and account number information.
+     * @param  ?Party1  $importerOfRecord
      * @param  ?string  $generatedDocumentLocale  This is the locale for generated document.<br>Example: en_US<br><a onclick='loadDocReference("locales")'>click here to see Locales</a><br>Note: If the locale is left blank or an invalid locale is entered, an error message is returned in response.
      * @param  ?ExportDetail  $exportDetail  These are export Detail used for US or CA exports.
-     * @param  ?mixed[]  $totalCustomsValue  This is the total customs value.
+     * @param  ?Money  $totalCustomsValue  This customs value is applicable for all items(or units) under the specified commodity
      * @param  ?bool  $partiesToTransactionAreRelated  Specify if the transacting parties are related.
      * @param  ?CustomsDeclarationStatementDetail  $declarationStatementDetail  Specifies about the statements to be declared for Customs.
-     * @param  ?mixed[]  $insuranceCharge  Specify insurance charges if applicable. <br><i>Note: FedEx does not provide insurance of any kind.</i>
+     * @param  ?Money  $insuranceCharge  This customs value is applicable for all items(or units) under the specified commodity
      */
     public function __construct(
         public readonly CommercialInvoice $commercialInvoice,
@@ -38,13 +38,13 @@ final class CustomsClearanceDetail extends Dto
         public readonly ?bool $isDocumentOnly = null,
         public readonly ?RecipientCustomsId $recipientCustomsId = null,
         public readonly ?CustomsOptionDetail $customsOption = null,
-        public readonly ?array $importerOfRecord = null,
+        public readonly ?Party1 $importerOfRecord = null,
         public readonly ?string $generatedDocumentLocale = null,
         public readonly ?ExportDetail $exportDetail = null,
-        public readonly ?array $totalCustomsValue = null,
+        public readonly ?Money $totalCustomsValue = null,
         public readonly ?bool $partiesToTransactionAreRelated = null,
         public readonly ?CustomsDeclarationStatementDetail $declarationStatementDetail = null,
-        public readonly ?array $insuranceCharge = null,
+        public readonly ?Money $insuranceCharge = null,
     ) {
     }
 }

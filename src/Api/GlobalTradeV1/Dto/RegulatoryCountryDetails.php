@@ -9,12 +9,11 @@ use ShipStream\FedEx\Dto;
 final class RegulatoryCountryDetails extends Dto
 {
     /**
-     * @param  mixed[]  $shipmentDetails  These are Shipment Details.
      * @param  string  $countryCode  Indicates Country Code.
      * @param  string  $category  Indicates the Regulatory details category.
      */
     public function __construct(
-        public readonly array $shipmentDetails,
+        public readonly RegulatoryShipmentDetail $shipmentDetails,
         public readonly string $countryCode,
         public readonly string $category,
     ) {

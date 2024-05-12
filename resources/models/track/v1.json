@@ -1341,7 +1341,7 @@
                         "example": true
                     },
                     "masterTrackingNumberInfo": {
-                        "$ref": "#/components/schemas/MasterTrackingInfo"
+                        "$ref": "#/components/schemas/TrackingInfo"
                     },
                     "associatedType": {
                         "type": "string",
@@ -1354,7 +1354,7 @@
                         ]
                     },
                     "pagingDetails": {
-                        "$ref": "#/components/schemas/PagingDetails"
+                        "$ref": "#/components/schemas/PagingDetails_2"
                     }
                 },
                 "description": "The request elements for Tracking by associated shipment.",
@@ -1374,13 +1374,6 @@
                         "resultsPerPage": 56,
                         "pagingToken": "38903279038"
                     }
-                }
-            },
-            "MasterTrackingInfo": {
-                "description": "The detailed master tracking details for the shipment to be tracked.",
-                "type": "object",
-                "schema": {
-                    "$ref": "#/components/schemas/TrackingInfo"
                 }
             },
             "TrackingInfo": {
@@ -1450,13 +1443,6 @@
                 },
                 "description": "Information uniquely identifying a shipment such as Tracking number, ShipDate, and Tracking number uniqueId."
             },
-            "PagingDetails": {
-                "description": "The details about how to retrieve the subsequent pages when there is more than one page in the TrackReply.",
-                "type": "object",
-                "schema": {
-                    "$ref": "#/components/schemas/PagingDetails_2"
-                }
-            },
             "PagingDetails_2": {
                 "type": "object",
                 "properties": {
@@ -1488,13 +1474,10 @@
                         "example": "AnyCo_order123456789"
                     },
                     "output": {
-                        "$ref": "#/components/schemas/BaseProcessOutputVO_Associated"
+                        "$ref": "#/components/schemas/TrackingMPSResponse"
                     }
                 },
                 "description": "This is a wrapper class for outputVO"
-            },
-            "BaseProcessOutputVO_Associated": {
-                "$ref": "#/components/schemas/TrackingMPSResponse"
             },
             "TrackingMPSResponse": {
                 "type": "object",
@@ -1568,9 +1551,7 @@
                     "destinationLocation": {
                         "description": "Location details for the recipient where the package will be or has been delivered.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/LocationDetail1"
-                        }
+                        "$ref": "#/components/schemas/LocationDetail1"
                     },
                     "latestStatusDetail": {
                         "$ref": "#/components/schemas/StatusDetail"
@@ -1630,9 +1611,7 @@
                     "holdAtLocation": {
                         "description": "Location details for the FedEx facility holding package for delivery. Populated only when REDIRECT_TO_HOLD_AT_LOCATION is available as custom delivery options.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/LocationDetail1"
-                        }
+                        "$ref": "#/components/schemas/LocationDetail1"
                     },
                     "customDeliveryOptions": {
                         "type": "array",
@@ -1644,9 +1623,7 @@
                     "estimatedDeliveryTimeWindow": {
                         "description": "The estimated window for time of delivery.  May be periodically updated based on available in-flight shipment information.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/TimeWindow"
-                        }
+                        "$ref": "#/components/schemas/TimeWindow"
                     },
                     "pieceCounts": {
                         "type": "array",
@@ -1656,21 +1633,17 @@
                         }
                     },
                     "originLocation": {
-                        "$ref": "#/components/schemas/OriginLocation"
+                        "$ref": "#/components/schemas/LocationDetail_origin"
                     },
                     "recipientInformation": {
                         "description": "Contact and address information of recipient.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/ContactAndAddress1"
-                        }
+                        "$ref": "#/components/schemas/ContactAndAddress1"
                     },
                     "standardTransitTimeWindow": {
                         "description": "The standard committed window of time by which the package is expected to be delivered.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/TimeWindow"
-                        }
+                        "$ref": "#/components/schemas/TimeWindow"
                     },
                     "shipmentDetails": {
                         "$ref": "#/components/schemas/TrackShipmentDetail"
@@ -1692,16 +1665,12 @@
                     "shipperInformation": {
                         "description": "Contact and address information of shipper.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/ContactAndAddress1"
-                        }
+                        "$ref": "#/components/schemas/ContactAndAddress1"
                     },
                     "lastUpdatedDestinationAddress": {
                         "description": "Last updated delivery address for the package.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/AddressVO1"
-                        }
+                        "$ref": "#/components/schemas/AddressVO1"
                     }
                 },
                 "description": "Contains detailed tracking information for the requested packages(s). In case of duplicates, multiple track details will be populated. "
@@ -1828,9 +1797,7 @@
                     "reasonDetail": {
                         "description": "Specifies the reason details for the consolidation event for a package.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/ReasonDetail"
-                        }
+                        "$ref": "#/components/schemas/ReasonDetail"
                     },
                     "packageCount": {
                         "type": "integer",
@@ -1946,9 +1913,7 @@
                     "address": {
                         "description": "Required.\n\nDescriptive data for a physical location.  may be used as an actual physical address(place to which one could go), or a container of 'address parts' which should be handled as a unit(such as a city-state-zip combination within the US).\n\nConditional when used with Payor object.  Required if entering using RECIPIENT or THIRD_PARTY.  Required if not-authenticated and SENDER is selected",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/AddressVO_1"
-                        }
+                        "$ref": "#/components/schemas/AddressVO_1"
                     }
                 },
                 "description": "Location Contact And Address."
@@ -2041,9 +2006,7 @@
                     "scanLocation": {
                         "description": "Address information related to the associated Status.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/AddressVO1"
-                        }
+                        "$ref": "#/components/schemas/AddressVO1"
                     },
                     "code": {
                         "type": "string",
@@ -2459,9 +2422,7 @@
                     "scanLocation": {
                         "description": "Location Details for the FedEx facility where the scan event occurred.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/AddressVO1"
-                        }
+                        "$ref": "#/components/schemas/AddressVO1"
                     },
                     "locationId": {
                         "type": "string",
@@ -2606,9 +2567,7 @@
                     "declaredValue": {
                         "description": "This is the declared value. Declared Value represents FedEx maximum liability in connection with a shipment of that Package, including but not limited to, any loss, damage, delay, misdelivery, any failure to provide information, or misdelivery of information relating to the Shipment.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Amount"
-                        }
+                        "$ref": "#/components/schemas/Amount"
                     }
                 },
                 "description": "Details of the packages in the shipment being tracked. Includes details like package type, weight, dimensions, declared value, etc."
@@ -2769,9 +2728,7 @@
                     "address": {
                         "description": "Required.\n\nDescriptive data for a physical location.  may be used as an actual physical address(place to which one could go), or a container of 'address parts' which should be handled as a unit(such as a city-state-zip combination within the US).\n\nConditional when used with Payor object.  Required if entering using RECIPIENT or THIRD_PARTY.  Required if not-authenticated and SENDER is selected",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/AddressVO"
-                        }
+                        "$ref": "#/components/schemas/AddressVO"
                     }
                 },
                 "description": "Location Contact And Address."
@@ -2920,13 +2877,6 @@
                     }
                 },
                 "description": "Specifies the count of the packages delivered and the count of the packages at the origin which can be used for verification purposes. Populated for secure users only."
-            },
-            "OriginLocation": {
-                "description": "Location details for the FedEx facility where the shipment originated.",
-                "type": "object",
-                "schema": {
-                    "$ref": "#/components/schemas/LocationDetail_origin"
-                }
             },
             "TrackShipmentDetail": {
                 "type": "object",
@@ -3290,7 +3240,7 @@
                         "example": "Lsr1234@gmail.com"
                     },
                     "trackingEventNotificationDetail": {
-                        "$ref": "#/components/schemas/TrackingEventNotificationDetail"
+                        "$ref": "#/components/schemas/TrackingEventNotificationDetail_2"
                     },
                     "trackingNumberInfo": {
                         "$ref": "#/components/schemas/TrackingNumberInfo"
@@ -3307,13 +3257,6 @@
                     }
                 },
                 "description": "The request to receive a tracking notification."
-            },
-            "TrackingEventNotificationDetail": {
-                "description": "Object for holding tracking event Notification details.",
-                "type": "object",
-                "schema": {
-                    "$ref": "#/components/schemas/TrackingEventNotificationDetail_2"
-                }
             },
             "TrackingEventNotificationDetail_2": {
                 "required": [
@@ -3495,29 +3438,22 @@
                         "example": "AnyCo_order123456789"
                     },
                     "output": {
-                        "$ref": "#/components/schemas/BaseProcessOutputVO_Notification"
+                        "$ref": "#/components/schemas/SendNotificationOutputVO"
                     }
                 },
                 "description": "This is a wrapper class for outputVO"
-            },
-            "BaseProcessOutputVO_Notification": {
-                "$ref": "#/components/schemas/SendNotificationOutputVO"
             },
             "SendNotificationOutputVO": {
                 "properties": {
                     "TrackingNumberInfo": {
                         "description": "Tracking number information which uniquely identifies a package. Tracking number information includes tracking number, carrier code and a unique qualifier.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/TrackingNumberInfo_2"
-                        }
+                        "$ref": "#/components/schemas/TrackingNumberInfo_2"
                     },
                     "destinationAddress": {
                         "description": "Address where the package was actually delivered. Contrast with destination Address, which is the location to which the package was intended to be delivered. Addresses may differ due to delivery to a neighbor, hold at FedEx location, etc.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/AddressVO"
-                        }
+                        "$ref": "#/components/schemas/AddressVO"
                     },
                     "recipientDetails": {
                         "type": "array",
@@ -3640,13 +3576,10 @@
                         "example": "AnyCo_order123456789"
                     },
                     "output": {
-                        "$ref": "#/components/schemas/BaseProcessOutputVO_ReferenceNumber"
+                        "$ref": "#/components/schemas/TrackingReferencesResponse"
                     }
                 },
                 "description": "This is a wrapper class for outputVO"
-            },
-            "BaseProcessOutputVO_ReferenceNumber": {
-                "$ref": "#/components/schemas/TrackingReferencesResponse"
             },
             "TrackingReferencesResponse": {
                 "type": "object",
@@ -3689,9 +3622,7 @@
                     "tcnInfo": {
                         "description": "The information associated with the transportation control number.<br>Only 1 TCN is supported per request.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/TCNInfo"
-                        }
+                        "$ref": "#/components/schemas/TCNInfo"
                     },
                     "includeDetailedScans": {
                         "type": "boolean",
@@ -3752,13 +3683,10 @@
                         "example": "AnyCo_order123456789"
                     },
                     "output": {
-                        "$ref": "#/components/schemas/BaseProcessOutputVO_TCN"
+                        "$ref": "#/components/schemas/TrackingNumbersResponse_TCN"
                     }
                 },
                 "description": "This is a wrapper class for outputVO"
-            },
-            "BaseProcessOutputVO_TCN": {
-                "$ref": "#/components/schemas/TrackingNumbersResponse_TCN"
             },
             "TrackingNumbersResponse_TCN": {
                 "type": "object",
@@ -3805,9 +3733,7 @@
                     "trackDocumentDetail": {
                         "description": "This object specifies the tracking document details such as types of documents, for example, SIGNATURE_PROOF_OF_DELIVERY and also the format of tracking document. Supported values are PDF and PNG. Default is PDF.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/TrackDocumentDetail"
-                        }
+                        "$ref": "#/components/schemas/TrackDocumentDetail"
                     },
                     "trackDocumentSpecification": {
                         "type": "array",
@@ -3845,9 +3771,7 @@
                 "properties": {
                     "trackingNumberInfo": {
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/TrackingNumberInfo"
-                        }
+                        "$ref": "#/components/schemas/TrackingNumberInfo"
                     },
                     "shipDateBegin": {
                         "type": "string",
@@ -3880,13 +3804,10 @@
                         "example": "AnyCo_order123456789"
                     },
                     "output": {
-                        "$ref": "#/components/schemas/BaseProcessOutputVO_SPOD"
+                        "$ref": "#/components/schemas/SPODResponseVO"
                     }
                 },
                 "description": "This is a wrapper class for outputVO"
-            },
-            "BaseProcessOutputVO_SPOD": {
-                "$ref": "#/components/schemas/SPODResponseVO"
             },
             "SPODResponseVO": {
                 "type": "object",
@@ -3999,13 +3920,10 @@
                         "example": "AnyCo_order123456789"
                     },
                     "output": {
-                        "$ref": "#/components/schemas/BaseProcessOutputVO_TrackingNumber"
+                        "$ref": "#/components/schemas/TrackingNumbersResponse"
                     }
                 },
                 "description": "This is a wrapper class for outputVO"
-            },
-            "BaseProcessOutputVO_TrackingNumber": {
-                "$ref": "#/components/schemas/TrackingNumbersResponse"
             },
             "TrackingNumbersResponse": {
                 "type": "object",
@@ -4087,9 +4005,7 @@
                     "address": {
                         "description": "Required.\n\nDescriptive data for a physical location.  may be used as an actual physical address(place to which one could go), or a container of 'address parts' which should be handled as a unit(such as a city-state-zip combination within the US).\n\nConditional when used with Payor object.  Required if entering using RECIPIENT or THIRD_PARTY.  Required if not-authenticated and SENDER is selected",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/AddressVO1"
-                        }
+                        "$ref": "#/components/schemas/AddressVO1"
                     }
                 },
                 "description": "Location Contact And Address."

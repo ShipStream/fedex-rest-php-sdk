@@ -20,7 +20,7 @@ final class PackageRateDetail extends Dto
      * @param  ?float  $baseCharge  Identifies the manner in which the chargeRate for this line item was applied.<br> Example: 125
      * @param  ?float  $totalRebates  The total sum of all rebates applied to this package.Example: 12
      * @param  ?string  $rateType  Specifies the type used for this specific set of rate data.
-     * @param  ?string  $billingWeight
+     * @param  ?Weight1  $billingWeight  These are the weight details.
      * @param  ?float  $netFreight  Specifies the sum of freight charges.<br> Example: 10
      * @param  Surcharge[]|null  $surcharges  Specifies the list of all surcharges that apply to this package.
      * @param  ?float  $totalSurcharges  The sum of all surcharges on the package.<br> Example: 569
@@ -35,7 +35,7 @@ final class PackageRateDetail extends Dto
         public readonly ?float $baseCharge = null,
         public readonly ?float $totalRebates = null,
         public readonly ?string $rateType = null,
-        public readonly ?string $billingWeight = null,
+        public readonly ?Weight1 $billingWeight = null,
         public readonly ?float $netFreight = null,
         public readonly ?array $surcharges = null,
         public readonly ?float $totalSurcharges = null,

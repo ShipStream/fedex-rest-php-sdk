@@ -9,7 +9,7 @@ use ShipStream\FedEx\Dto;
 final class FullSchemaCancelFreightPickup extends Dto
 {
     /**
-     * @param  mixed[]  $associatedAccountNumber  Specify the FedEx Account number. <br>Example: Your account number
+     * @param  PartyAccountNumber  $associatedAccountNumber  Specify the assigned FedEx Account Number. If the transportation charges to be billed to a payor other than the sender or recipient, provide the FedEx Account Number. Specify this field when payment type is selected as SENDER.
      * @param  string  $pickupConfirmationCode  The confirmation number provided by FedEx to the customer when the pickup was scheduled or requested.<br> Example: XXXX1007MEM62XXXX.
      * @param  string  $reason  Specify the reason for cancellation of pickup.
      * @param  string  $contactName  Specify the contact name.
@@ -17,7 +17,7 @@ final class FullSchemaCancelFreightPickup extends Dto
      * @param  ?string  $scheduledDate  Specifies the date when pickup dispatch occurs.<br>Format YYYY-MM-DD <br> Example: 2019-10-15
      */
     public function __construct(
-        public readonly array $associatedAccountNumber,
+        public readonly PartyAccountNumber $associatedAccountNumber,
         public readonly string $pickupConfirmationCode,
         public readonly string $reason,
         public readonly string $contactName,

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace ShipStream\FedEx\Api\ShipV1\Responses;
 
+use ShipStream\FedEx\Api\ShipV1\Dto\GetOpenShipmentResultsOutputVo;
 use ShipStream\FedEx\Response;
 
 final class ShpcResponseVoGetOpenShipmentResults extends Response
@@ -11,12 +12,12 @@ final class ShpcResponseVoGetOpenShipmentResults extends Response
     /**
      * @param  ?string  $transactionId  The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624xxxxx-b709-470c-8c39-4b55112xxxxx
      * @param  ?string  $customerTransactionId  This is a unique identifier to your transaction and helps you match the request to the reply. <br> Example: AnyCo_order123456789
-     * @param  ?mixed[]  $output
+     * @param  ?GetOpenShipmentResultsOutputVo  $output
      */
     public function __construct(
         public readonly ?string $transactionId = null,
         public readonly ?string $customerTransactionId = null,
-        public readonly ?array $output = null,
+        public readonly ?GetOpenShipmentResultsOutputVo $output = null,
     ) {
     }
 }

@@ -2112,7 +2112,7 @@
                         "$ref": "#/components/schemas/OpenshipmentRequestedShipment"
                     },
                     "accountNumber": {
-                        "$ref": "#/components/schemas/AccountNumber"
+                        "$ref": "#/components/schemas/PartyAccountNumber"
                     },
                     "openShipmentAction": {
                         "$ref": "#/components/schemas/OpenShipAction"
@@ -2200,9 +2200,7 @@
                             ]
                         },
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/ShipperParty"
-                        }
+                        "$ref": "#/components/schemas/ShipperParty"
                     },
                     "recipients": {
                         "type": "array",
@@ -2214,16 +2212,12 @@
                     "soldTo": {
                         "description": "Will indicate the party responsible for purchasing the goods shipped from the shipper to the recipient. The sold to party is not necessarily the recipient or the importer of record. The sold to party is relevant when the purchaser, rather than the recipient determines when certain customs regulations apply.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/SoldToParty"
-                        }
+                        "$ref": "#/components/schemas/SoldToParty"
                     },
                     "origin": {
                         "description": "Specify the Shipment Origin address information, if different from shipper\u2019s address.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/ContactAndAddress_1"
-                        }
+                        "$ref": "#/components/schemas/ContactAndAddress_1"
                     },
                     "shippingChargesPayment": {
                         "$ref": "#/components/schemas/Payment"
@@ -2356,7 +2350,7 @@
                     },
                     "accountNumber": {
                         "description": "Identification of a specific FedEx customer account.",
-                        "$ref": "#/components/schemas/AccountNumber"
+                        "$ref": "#/components/schemas/PartyAccountNumber"
                     }
                 }
             },
@@ -2953,10 +2947,7 @@
                 "properties": {
                     "recipient": {
                         "description": "The descriptive data for the recipient of the shipment and the physical location for the shipment destination.",
-                        "schema": {
-                            "$ref": "#/components/schemas/RecipientsParty"
-                        },
-                        "type": "string"
+                        "$ref": "#/components/schemas/RecipientsParty"
                     }
                 },
                 "description": "Indicate the Delivery On Invoice Acceptance detail. Recipient is required for Delivery On Invoice Special service."
@@ -3095,9 +3086,7 @@
                     "codRecipient": {
                         "description": "Descriptive data of the Cash On Delivery along with their details of the physical location.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Party_1"
-                        }
+                        "$ref": "#/components/schemas/Party_1"
                     },
                     "remitToName": {
                         "type": "string",
@@ -3121,9 +3110,7 @@
                     "codCollectionAmount": {
                         "description": "Indicate the COD collection amount.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Money"
-                        }
+                        "$ref": "#/components/schemas/Money"
                     },
                     "returnReferenceIndicatorType": {
                         "type": "string",
@@ -3138,9 +3125,7 @@
                     "shipmentCodAmount": {
                         "description": "Indicate the COD amount for this shipment.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Money"
-                        }
+                        "$ref": "#/components/schemas/Money"
                     }
                 },
                 "description": "This is the shipment level COD detail."
@@ -3555,10 +3540,7 @@
                     },
                     "fixedValue": {
                         "description": "This is to specify a fixed handling charge on the shipment. The element allows entry of 7 characters before the decimal and 2 characters following the decimal. <br>Example: 5.00.",
-                        "schema": {
-                            "$ref": "#/components/schemas/Money"
-                        },
-                        "type": "string"
+                        "$ref": "#/components/schemas/Money"
                     },
                     "rateElementBasis": {
                         "type": "string",
@@ -3638,9 +3620,7 @@
                     "importerOfRecord": {
                         "description": "The descriptive data for the importer of Record for the shipment and their physical address, contact and account number information.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Party_1"
-                        }
+                        "$ref": "#/components/schemas/Party_1"
                     },
                     "generatedDocumentLocale": {
                         "type": "string",
@@ -3653,9 +3633,7 @@
                     "totalCustomsValue": {
                         "description": "This is the total customs value.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Money"
-                        }
+                        "$ref": "#/components/schemas/Money"
                     },
                     "partiesToTransactionAreRelated": {
                         "type": "boolean",
@@ -3667,9 +3645,7 @@
                     "insuranceCharge": {
                         "description": "Specify insurance charges if applicable. <br><i>Note: FedEx does not provide insurance of any kind.</i>",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Money"
-                        }
+                        "$ref": "#/components/schemas/Money"
                     }
                 },
                 "description": "These are customs clearance details. <br>Required for International and intra-country Shipments."
@@ -3679,10 +3655,7 @@
                 "properties": {
                     "broker": {
                         "description": "These are broker details for the shipment with physical address, contact and account number information.",
-                        "schema": {
-                            "$ref": "#/components/schemas/Party_1"
-                        },
-                        "type": "string"
+                        "$ref": "#/components/schemas/Party_1"
                     },
                     "type": {
                         "type": "string",
@@ -3760,9 +3733,7 @@
                     "taxesOrMiscellaneousCharge": {
                         "description": "Indicate the taxes or miscellaneous charges(other than freight charges or insurance charges) that are associated with the shipment.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Money"
-                        }
+                        "$ref": "#/components/schemas/Money"
                     },
                     "taxesOrMiscellaneousChargeType": {
                         "type": "string",
@@ -3780,23 +3751,17 @@
                     "freightCharge": {
                         "description": "Indicate the freight charge.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Money"
-                        }
+                        "$ref": "#/components/schemas/Money"
                     },
                     "packingCosts": {
                         "description": "Indicate the packing cost.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Money"
-                        }
+                        "$ref": "#/components/schemas/Money"
                     },
                     "handlingCosts": {
                         "description": "Indicate the handling cost.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Money"
-                        }
+                        "$ref": "#/components/schemas/Money"
                     },
                     "declarationStatement": {
                         "type": "string",
@@ -4107,9 +4072,7 @@
                     "unitPrice": {
                         "description": "This is the unit price.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Money"
-                        }
+                        "$ref": "#/components/schemas/Money"
                     },
                     "additionalMeasures": {
                         "type": "array",
@@ -4138,9 +4101,7 @@
                     "customsValue": {
                         "description": "This is the customs value.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Money"
-                        }
+                        "$ref": "#/components/schemas/Money"
                     },
                     "countryOfManufacture": {
                         "type": "string",
@@ -4487,9 +4448,7 @@
                     "declaredValue": {
                         "description": "This is the Declared Value of any shipment which represents FedEx maximum liability associated with a shipment. This is including, but not limited to any loss, damage, delay, misdelivery, any failure to provide information, or misdelivery of information related to the Shipment.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Money"
-                        }
+                        "$ref": "#/components/schemas/Money"
                     },
                     "weight": {
                         "$ref": "#/components/schemas/Weight"
@@ -4497,9 +4456,7 @@
                     "dimensions": {
                         "description": "Indicate the dimensions of the package.<br> Following conditions will apply: <ul><li>Dimensions are optional but when added, then all three dimensions must be indicated.</li><li>Dimensions are required when using a Express freight service.</li></ul>Note: The maximum/minimum dimension values varies based on the services and the packaging types. Refer <a href='https://www.fedex.com/en-us/service-guide.html' target='_blank'>FedEx Service Guide</a> for service details related to DIM Weighting for FedEx Express and oversize conditions for FedEx Express and FedEx Ground.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Dimensions"
-                        }
+                        "$ref": "#/components/schemas/Dimensions"
                     },
                     "groupPackageCount": {
                         "type": "integer",
@@ -4788,9 +4745,7 @@
                     "codCollectionAmount": {
                         "description": "Indicate the COD collection amount.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Money"
-                        }
+                        "$ref": "#/components/schemas/Money"
                     }
                 },
                 "description": "These are COD package details. For use with FedEx Ground services only; COD must be present in shipments special services."
@@ -4825,13 +4780,6 @@
                     }
                 }
             },
-            "AccountNumber": {
-                "description": "The account number associated with the shipment. <br>Example: Your account number",
-                "type": "object",
-                "schema": {
-                    "$ref": "#/components/schemas/PartyAccountNumber"
-                }
-            },
             "OpenShipAction": {
                 "type": "string",
                 "description": "Indicates the optional actions that can be performed during the modification of packages in  Open Shipment.<p>Here are the values:<ul><li>CREATE_PACKAGE - Use CREATE_PACKAGE option to create Open Shipment.</li><li>STRONG_VALIDATION \u2013 Full shipment edits: any edit that fails will cause the transaction to fail. If the transaction is successful, a tracking number may be returned and the transaction will be saved to the database (committed).</li><li>WEAK_VALIDATION - Full shipment edits: any edit that fails will return errors but the transaction does not fail. The tracking number is returned and the transaction is saved in the database if the core edits are passed. Fix errors with the ModifyRequests transaction using the Index and returned tracking number.</li></ul></p>",
@@ -4856,13 +4804,10 @@
                         "example": "order123xxxx89"
                     },
                     "output": {
-                        "$ref": "#/components/schemas/BaseProcessOutputVO_CreateOpenshipmentOutputVO"
+                        "$ref": "#/components/schemas/CreateOpenshipmentOutputVO"
                     }
                 },
                 "description": "Wrapper class for CreateOpenShipmentOutputVO. It holds transactionId and output."
-            },
-            "BaseProcessOutputVO_CreateOpenshipmentOutputVO": {
-                "$ref": "#/components/schemas/CreateOpenshipmentOutputVO"
             },
             "CreateOpenshipmentOutputVO": {
                 "type": "object",
@@ -5064,9 +5009,7 @@
                     "dryIceWeight": {
                         "description": "Descriptive data required for a FedEx shipment containing dry ice. Includes weight and units. This element is required when SpecialServiceType DRY_ICE is present in the SpecialServiceTypes collection at the package level.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Weight"
-                        }
+                        "$ref": "#/components/schemas/Weight"
                     },
                     "hazardousPackageDetail": {
                         "$ref": "#/components/schemas/CompletedHazardousPackageDetail"
@@ -5397,9 +5340,7 @@
                     "quantity": {
                         "description": "Indicates hazardous commodity quantity details.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/HazardousCommodityQuantityDetail"
-                        }
+                        "$ref": "#/components/schemas/HazardousCommodityQuantityDetail"
                     },
                     "options": {
                         "$ref": "#/components/schemas/HazardousCommodityContent001"
@@ -5918,9 +5859,7 @@
                     "holdingLocation": {
                         "description": "Indicate the physical address of the FedEx holding location.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/JustContactAndAddress"
-                        }
+                        "$ref": "#/components/schemas/JustContactAndAddress"
                     }
                 },
                 "description": "This is default holding location information when HOLD_AT_LOCATION special service is requested and the client does not specify the hold location address."
@@ -6201,9 +6140,7 @@
                     "totalWeight": {
                         "description": "Specify total dry ice weight for the shipment.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Weight"
-                        }
+                        "$ref": "#/components/schemas/Weight"
                     },
                     "packageCount": {
                         "type": "integer",
@@ -6370,9 +6307,7 @@
                     "totalBillingWeight": {
                         "description": "The weight used to calculate these rates.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Weight"
-                        }
+                        "$ref": "#/components/schemas/Weight"
                     },
                     "freightDiscounts": {
                         "type": "array",
@@ -6484,9 +6419,7 @@
                     "totalDimWeight": {
                         "description": "Sum of dimensional weights for all packages.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Weight"
-                        }
+                        "$ref": "#/components/schemas/Weight"
                     },
                     "totalRebates": {
                         "type": "number",
@@ -6503,9 +6436,7 @@
                     "currencyExchangeRate": {
                         "description": "Specifies currency exchange rate.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/CurrencyExchangeRate"
-                        }
+                        "$ref": "#/components/schemas/CurrencyExchangeRate"
                     },
                     "dimDivisor": {
                         "type": "integer",
@@ -6590,9 +6521,7 @@
                     "totalBillingWeight": {
                         "description": "The weight used to calculate these rates.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Weight"
-                        }
+                        "$ref": "#/components/schemas/Weight"
                     },
                     "freightDiscounts": {
                         "type": "array",
@@ -7043,7 +6972,7 @@
                         "$ref": "#/components/schemas/OpenShipAction"
                     },
                     "accountNumber": {
-                        "$ref": "#/components/schemas/AccountNumber"
+                        "$ref": "#/components/schemas/PartyAccountNumber"
                     }
                 }
             },
@@ -7060,13 +6989,10 @@
                         "example": "AnyCo_order123456789"
                     },
                     "output": {
-                        "$ref": "#/components/schemas/BaseProcessOutputVO_ModifyOpenShipment"
+                        "$ref": "#/components/schemas/ModifyOpenShipmentOutputVO"
                     }
                 },
                 "description": "Wrapper class for ModifyOpenshipmentOutputVO. It holds transactionId and output."
-            },
-            "BaseProcessOutputVO_ModifyOpenShipment": {
-                "$ref": "#/components/schemas/ModifyOpenShipmentOutputVO"
             },
             "ModifyOpenShipmentOutputVO": {
                 "type": "object",
@@ -7283,7 +7209,7 @@
                         "$ref": "#/components/schemas/ShippingDocumentSpecification"
                     },
                     "accountNumber": {
-                        "$ref": "#/components/schemas/AccountNumber"
+                        "$ref": "#/components/schemas/PartyAccountNumber"
                     }
                 }
             },
@@ -7327,9 +7253,7 @@
                     "printedLabelOrigin": {
                         "description": "Specify a contact and address instead of the sender address that will be printed on FedEx label. The sender address will be printed if it is not provided. Using this, you can designate a return address that's different from the sender\u2019s. The destination address must be in the same country as the sender.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/ContactAndAddress"
-                        }
+                        "$ref": "#/components/schemas/ContactAndAddress"
                     },
                     "labelStockType": {
                         "type": "string",
@@ -8227,13 +8151,10 @@
                         "example": "AnyCo_order123456789"
                     },
                     "output": {
-                        "$ref": "#/components/schemas/BaseProcessOutputVO_ConfirmOpenShipment"
+                        "$ref": "#/components/schemas/ConfirmOpenShipmentOutputVO"
                     }
                 },
                 "description": "Wrapper class for ShipShipmentOutputVO. It holds transactionId and output."
-            },
-            "BaseProcessOutputVO_ConfirmOpenShipment": {
-                "$ref": "#/components/schemas/ConfirmOpenShipmentOutputVO"
             },
             "ConfirmOpenShipmentOutputVO": {
                 "type": "object",
@@ -8535,9 +8456,7 @@
                     "requestedPackageLineItem": {
                         "description": "Contains the data for the package that is to be modified in the open shipment.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/RequestedPackageLineItem"
-                        }
+                        "$ref": "#/components/schemas/RequestedPackageLineItem"
                     },
                     "index": {
                         "type": "string",
@@ -8548,12 +8467,10 @@
                         "description": "Allowed values are STRONG_VALIDATION",
                         "example": "STRONG_VALIDATION",
                         "type": "string",
-                        "schema": {
-                            "$ref": "#/components/schemas/OpenShipAction"
-                        }
+                        "$ref": "#/components/schemas/OpenShipAction"
                     },
                     "accountNumber": {
-                        "$ref": "#/components/schemas/AccountNumber"
+                        "$ref": "#/components/schemas/PartyAccountNumber"
                     },
                     "trackingId": {
                         "$ref": "#/components/schemas/TrackingId"
@@ -8584,13 +8501,10 @@
                         "example": "AnyCo_order123456789"
                     },
                     "output": {
-                        "$ref": "#/components/schemas/BaseProcessOutputVO_ModifyPackageInOpenShipment"
+                        "$ref": "#/components/schemas/ModifyPackageInOpenShipmentOutputVO"
                     }
                 },
                 "description": "Wrapper class for ShipShipmentOutputVO. It holds transactionId and output."
-            },
-            "BaseProcessOutputVO_ModifyPackageInOpenShipment": {
-                "$ref": "#/components/schemas/ModifyPackageInOpenShipmentOutputVO"
             },
             "ModifyPackageInOpenShipmentOutputVO": {
                 "type": "object",
@@ -8756,12 +8670,10 @@
                         "description": "There are Ship actions as part of processing the shipment.",
                         "example": "STRONG_VALIDATION",
                         "type": "string",
-                        "schema": {
-                            "$ref": "#/components/schemas/OpenShipmentAction"
-                        }
+                        "$ref": "#/components/schemas/OpenShipmentAction"
                     },
                     "accountNumber": {
-                        "$ref": "#/components/schemas/AccountNumber"
+                        "$ref": "#/components/schemas/PartyAccountNumber"
                     },
                     "requestedPackageLineItems": {
                         "type": "array",
@@ -8787,13 +8699,10 @@
                         "example": "AnyCo_order123456789"
                     },
                     "output": {
-                        "$ref": "#/components/schemas/BaseProcessOutputVO_AddPackagesToOpenShipment"
+                        "$ref": "#/components/schemas/AddPackagesToOpenShipmentOutputVO"
                     }
                 },
                 "description": "Wrapper class for ShipShipmentOutputVO. It holds transactionId and output."
-            },
-            "BaseProcessOutputVO_AddPackagesToOpenShipment": {
-                "$ref": "#/components/schemas/AddPackagesToOpenShipmentOutputVO"
             },
             "AddPackagesToOpenShipmentOutputVO": {
                 "type": "object",
@@ -8829,7 +8738,7 @@
                         "example": "Test1234"
                     },
                     "accountNumber": {
-                        "$ref": "#/components/schemas/AccountNumber"
+                        "$ref": "#/components/schemas/PartyAccountNumber"
                     },
                     "trackingIds": {
                         "type": "array",
@@ -8854,13 +8763,10 @@
                         "example": "AnyCo_order123456789"
                     },
                     "output": {
-                        "$ref": "#/components/schemas/BaseProcessOutputVO_DeletePackages"
+                        "$ref": "#/components/schemas/DeletePackagesFromOpenShipmentOutputVO"
                     }
                 },
                 "description": "Wrapper class for Delete Packages From OpenshipmentOutputVO. It holds transactionId and output."
-            },
-            "BaseProcessOutputVO_DeletePackages": {
-                "$ref": "#/components/schemas/DeletePackagesFromOpenShipmentOutputVO"
             },
             "DeletePackagesFromOpenShipmentOutputVO": {
                 "type": "object",
@@ -8893,7 +8799,7 @@
                         "example": "Test1234"
                     },
                     "accountNumber": {
-                        "$ref": "#/components/schemas/AccountNumber"
+                        "$ref": "#/components/schemas/PartyAccountNumber"
                     },
                     "trackingId": {
                         "$ref": "#/components/schemas/TrackingId"
@@ -8914,13 +8820,10 @@
                         "example": "AnyCo_order123456789"
                     },
                     "output": {
-                        "$ref": "#/components/schemas/BaseProcessOutputVO_RetrievePackageInOpenShipment"
+                        "$ref": "#/components/schemas/RetrievePackageInOpenShipmentOutputVO"
                     }
                 },
                 "description": "Wrapper class for RetrievePackageInOpenshipmentOutputVO. It holds transactionId and output."
-            },
-            "BaseProcessOutputVO_RetrievePackageInOpenShipment": {
-                "$ref": "#/components/schemas/RetrievePackageInOpenShipmentOutputVO"
             },
             "RetrievePackageInOpenShipmentOutputVO": {
                 "type": "object",
@@ -8950,7 +8853,7 @@
                         "example": "Test1234"
                     },
                     "accountNumber": {
-                        "$ref": "#/components/schemas/AccountNumber"
+                        "$ref": "#/components/schemas/PartyAccountNumber"
                     }
                 }
             },
@@ -8968,13 +8871,10 @@
                         "example": "AnyCo_order123456789"
                     },
                     "output": {
-                        "$ref": "#/components/schemas/BaseProcessOutputVO_DeleteOpenShipment"
+                        "$ref": "#/components/schemas/DeleteOpenShipmentOutputVO"
                     }
                 },
                 "description": "Wrapper class for DeleteOpenShipmentOutputVO. It holds transactionId and output."
-            },
-            "BaseProcessOutputVO_DeleteOpenShipment": {
-                "$ref": "#/components/schemas/DeleteOpenShipmentOutputVO"
             },
             "DeleteOpenShipmentOutputVO": {
                 "type": "object",
@@ -9007,7 +8907,7 @@
                         "example": "Test1234"
                     },
                     "accountNumber": {
-                        "$ref": "#/components/schemas/AccountNumber"
+                        "$ref": "#/components/schemas/PartyAccountNumber"
                     }
                 }
             },
@@ -9025,13 +8925,10 @@
                         "example": "AnyCo_order123456789"
                     },
                     "output": {
-                        "$ref": "#/components/schemas/BaseProcessOutputVO_RetrieveOpenShipment"
+                        "$ref": "#/components/schemas/RetrieveOpenShipmentOutputVO"
                     }
                 },
                 "description": "Wrapper class for RetrieveOpenshipmentOutputVO. It holds transactionId and output."
-            },
-            "BaseProcessOutputVO_RetrieveOpenShipment": {
-                "$ref": "#/components/schemas/RetrieveOpenShipmentOutputVO"
             },
             "RetrieveOpenShipmentOutputVO": {
                 "type": "object",
@@ -9068,9 +8965,7 @@
                     "totalDeclaredValue": {
                         "description": "It is the sum of all declared values of all packages in a shipment. The amount of totaldeclaredValue must be equal to the sum of all the individual declaredValues in the shipment. The declaredValue and totalDeclaredValue must match in all currencies in one shipment. This value represents FedEx maximum liability associated with a shipment. This is including, but not limited to any loss, damage, delay, misdelivery, any failure to provide information, or misdelivery of information related to the Shipment.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/Money"
-                        }
+                        "$ref": "#/components/schemas/Money"
                     },
                     "shipper": {
                         "description": "Indicate the Shipper contact details for this shipment.",
@@ -9104,9 +8999,7 @@
                             ]
                         },
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/ShipperParty"
-                        }
+                        "$ref": "#/components/schemas/ShipperParty"
                     },
                     "recipients": {
                         "type": "array",
@@ -9149,9 +9042,7 @@
                     "origin": {
                         "description": "Indicate shipment origin address information, if it is different from the shipper address.",
                         "type": "object",
-                        "schema": {
-                            "$ref": "#/components/schemas/ContactAndAddress_1"
-                        }
+                        "$ref": "#/components/schemas/ContactAndAddress_1"
                     },
                     "shippingChargesPayment": {
                         "$ref": "#/components/schemas/Payment"
@@ -9720,7 +9611,7 @@
                         "example": "89sxxxxx233ae24ff31xxxxx"
                     },
                     "accountNumber": {
-                        "$ref": "#/components/schemas/AccountNumber"
+                        "$ref": "#/components/schemas/PartyAccountNumber"
                     }
                 }
             },
@@ -9738,13 +9629,10 @@
                         "example": "AnyCo_order123456789"
                     },
                     "output": {
-                        "$ref": "#/components/schemas/BaseProcessOutputVO_GetOpenShipmentResults"
+                        "$ref": "#/components/schemas/GetOpenShipmentResultsOutputVO"
                     }
                 },
                 "description": "Wrapper class for GetOpenshipmentResultsOutputVo. It holds transactionId and output."
-            },
-            "BaseProcessOutputVO_GetOpenShipmentResults": {
-                "$ref": "#/components/schemas/GetOpenShipmentResultsOutputVO"
             },
             "GetOpenShipmentResultsOutputVO": {
                 "type": "object",

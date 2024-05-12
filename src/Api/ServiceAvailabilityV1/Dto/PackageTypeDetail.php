@@ -11,26 +11,26 @@ final class PackageTypeDetail extends Dto
     protected static array $complexArrayTypes = ['packagingInfoList' => [SubPackageInfo::class]];
 
     /**
-     * @param  ?string  $serviceType  Service Type represents some services like FEDEX_GROUND,INTERNATIONAL_PRIORITY, etc..,<br>Example: INTERNATIONAL_PRIORITY<br><a onclick='loadDocReference("servicetypes")'>Click here to see Service Types</a>
-     * @param  ?string  $oneRateMaxWeightAllowed  Maximum Weight allowed for the Packaging type to send with One Fixed Rate
-     * @param  ?string  $maxWeightAllowed  Maximum Weight allowed for the Packaging type
+     * @param  ?KeyDisplayTextVo1  $serviceType  this object holds applicable key and display text value pairs.
+     * @param  ?Weight1  $oneRateMaxWeightAllowed  Specify the total weight of the shipment. <br>This is only applies to International shipments and should be used on the first package of a multiple piece shipment. This value contains 1 explicit decimal position.
+     * @param  ?Weight1  $maxWeightAllowed  Specify the total weight of the shipment. <br>This is only applies to International shipments and should be used on the first package of a multiple piece shipment. This value contains 1 explicit decimal position.
      * @param  ?string[]  $rateTypes  A set of possible rate types allowed for each Package type
      * @param  SubPackageInfo[]|null  $packagingInfoList  An array of possible packaging types, a packaging description and applicable dimensions for each Package type.
-     * @param  ?string  $packageType
-     * @param  ?string  $maxMetricWeightAllowed  Maximum Metric Weight allowed for the Packaging type
-     * @param  ?string  $oneRateMaxMetricWeightAllowed  Maximum Metric Weight allowed for the Packaging type with One Fixed Rate
-     * @param  ?mixed[]  $maxDeclaredValue  This is the maximum declared value.
+     * @param  ?KeyDisplayTextVo1  $packageType  this object holds applicable key and display text value pairs.
+     * @param  ?Weight1  $maxMetricWeightAllowed  Specify the total weight of the shipment. <br>This is only applies to International shipments and should be used on the first package of a multiple piece shipment. This value contains 1 explicit decimal position.
+     * @param  ?Weight1  $oneRateMaxMetricWeightAllowed  Specify the total weight of the shipment. <br>This is only applies to International shipments and should be used on the first package of a multiple piece shipment. This value contains 1 explicit decimal position.
+     * @param  ?Money  $maxDeclaredValue  Optional, but if indicated 'amount' and 'currency' must be provided.
      */
     public function __construct(
-        public readonly ?string $serviceType = null,
-        public readonly ?string $oneRateMaxWeightAllowed = null,
-        public readonly ?string $maxWeightAllowed = null,
+        public readonly ?KeyDisplayTextVo1 $serviceType = null,
+        public readonly ?Weight1 $oneRateMaxWeightAllowed = null,
+        public readonly ?Weight1 $maxWeightAllowed = null,
         public readonly ?array $rateTypes = null,
         public readonly ?array $packagingInfoList = null,
-        public readonly ?string $packageType = null,
-        public readonly ?string $maxMetricWeightAllowed = null,
-        public readonly ?string $oneRateMaxMetricWeightAllowed = null,
-        public readonly ?array $maxDeclaredValue = null,
+        public readonly ?KeyDisplayTextVo1 $packageType = null,
+        public readonly ?Weight1 $maxMetricWeightAllowed = null,
+        public readonly ?Weight1 $oneRateMaxMetricWeightAllowed = null,
+        public readonly ?Money $maxDeclaredValue = null,
     ) {
     }
 }

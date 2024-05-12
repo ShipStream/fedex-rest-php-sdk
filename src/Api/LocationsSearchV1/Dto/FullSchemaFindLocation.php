@@ -14,9 +14,8 @@ final class FullSchemaFindLocation extends Dto
     ];
 
     /**
-     * @param  mixed[]  $location  Based on the locationSearchCriterion value specified, the location element specifies the minimum requirement for address search like postalCode, countryCode, GeoCodes or city.Location phone number is required. Only landline number is allowed.<br><br><i>Note: Country code is REQUIRED for the search.</i>
-     * @param  ?mixed[]  $locationsSummaryRequestControlParameters  Use this object to specify all the inputs to get the locations details.
-     * @param  ?mixed[]  $constraints  Specify the constraints to be applied to the location attributes.
+     * @param  ?LocationsSummaryRequestControlParameters  $locationsSummaryRequestControlParameters
+     * @param  ?SearchLocationConstraints  $constraints
      * @param  ?string  $locationSearchCriterion  Specify the criteria to be used to search for FedEx locations. Default value is ADDRESS if no value is passed.<p>Valid values: <ul><li>ADDRESS &ndash; Search by address. Location detail data is required.</li><li>GEOGRAPHIC_COORDINATES &ndash; Search by geocodes. Location geocodes are required.</li><li>PHONE_NUMBER &ndash; Search by phone number. Location Phone number is required.</li></ul></p><p><i>Note: Country code is REQUIRED when searching by any of the LocationsSearchCriterion, even PhoneNumber and GeorgraphicCoordinates.</i></p>
      * @param  ?string  $phoneNumber  Specify the phone number(Only LandLine allowed) if the locationSearchCriterion is set to 'PHONE_NUMBER'.Given that is the case, the location search will be made based on the phone number value and the location object(postalCode&countryCode) will be completely ignored. <br> Example: 9015551234
      * @param  ?string  $multipleMatchesAction  Specify the criterion to be used to return location results when there are multiple matches.<br>Valid values: RETURN_ALL,RETURN_ERROR, RETURN_FIRST.<br><br><i>Note: The 'maxResults' value takes precedence over RETURN_ALL value.</i>
@@ -36,9 +35,9 @@ final class FullSchemaFindLocation extends Dto
      * @param  ?bool  $getCall  Get a call. <br>Valid values: True, False.
      */
     public function __construct(
-        public readonly array $location,
-        public readonly ?array $locationsSummaryRequestControlParameters = null,
-        public readonly ?array $constraints = null,
+        public readonly Location $location,
+        public readonly ?LocationsSummaryRequestControlParameters $locationsSummaryRequestControlParameters = null,
+        public readonly ?SearchLocationConstraints $constraints = null,
         public readonly ?string $locationSearchCriterion = null,
         public readonly ?string $phoneNumber = null,
         public readonly ?string $multipleMatchesAction = null,
