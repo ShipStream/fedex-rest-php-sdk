@@ -9,9 +9,9 @@ use ShipStream\FedEx\Dto;
 final class Alert extends Dto
 {
     /**
-     * @param  ?string  $code  Specifies the alert code.
-     * @param  ?string  $alertType  Specifies the alert type.
-     * @param  ?string  $message  Specifies the alert message.
+     * @param  ?string  $code  Specifies the API alert code.<br>Example: SHIP.RECIPIENT.POSTALCITY.MISMATCH
+     * @param  ?string  $alertType  Specifies the API alert type.
+     * @param  ?string  $message  Specifies the API alert message.<br>Example: Recipient Postal-City Mismatch.
      */
     public function __construct(
         public readonly ?string $code = null,

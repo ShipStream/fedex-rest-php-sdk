@@ -22,9 +22,9 @@ final class LtlRateReplyDetail extends Dto
      * @param  FreightTransitLocationDetail[]|null  $freightTransitLocationDetail  Indicates the Freight origin and destination city center information and total distance between origin and destination city centers.
      * @param  ?OperationalDetail  $operationalDetail  Indicate the Operational Details.
      * @param  ?string  $signatureOptionType  Indicates the signature Option for this service. <br> Example: SERVICE_DEFAULT
-     * @param  ?ServiceDescription  $serviceDescription  Indicates the provides the Service Description details.
+     * @param  ?ServiceDescription  $serviceDescription  Descriptions for a service.
      * @param  ?BrokerDetail  $brokerDetail  These are Broker Detail for the rate quote.
-     * @param  ?CommitDetail1  $commit  The delivery commitment details
+     * @param  ?CommitDetail  $commit  The delivery commitment details
      */
     public function __construct(
         public readonly ?string $serviceType = null,
@@ -37,7 +37,7 @@ final class LtlRateReplyDetail extends Dto
         public readonly ?string $signatureOptionType = null,
         public readonly ?ServiceDescription $serviceDescription = null,
         public readonly ?BrokerDetail $brokerDetail = null,
-        public readonly ?CommitDetail1 $commit = null,
+        public readonly ?CommitDetail $commit = null,
     ) {
     }
 }

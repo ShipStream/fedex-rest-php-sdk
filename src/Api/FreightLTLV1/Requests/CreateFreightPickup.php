@@ -11,8 +11,7 @@ use Saloon\Http\Response;
 use Saloon\Traits\Body\HasJsonBody;
 use ShipStream\FedEx\Api\FreightLTLV1\Dto\FullSchemaCreatePickup;
 use ShipStream\FedEx\Api\FreightLTLV1\Responses\ErrorResponseVo;
-use ShipStream\FedEx\Api\FreightLTLV1\Responses\ErrorResponseVo2;
-use ShipStream\FedEx\Api\FreightLTLV1\Responses\ErrorResponseVo5032;
+use ShipStream\FedEx\Api\FreightLTLV1\Responses\ErrorResponseVo503;
 use ShipStream\FedEx\Api\FreightLTLV1\Responses\PudcResponseVo;
 use ShipStream\FedEx\Request;
 
@@ -41,15 +40,13 @@ class CreateFreightPickup extends Request implements HasBody
         return '/pickup/v1/freight/pickups';
     }
 
-    public function createDtoFromResponse(
-        Response $response,
-    ): PudcResponseVo|ErrorResponseVo2|ErrorResponseVo|ErrorResponseVo5032 {
+    public function createDtoFromResponse(Response $response): PudcResponseVo|ErrorResponseVo|ErrorResponseVo503
+    {
         $status = $response->status();
         $responseCls = match ($status) {
             200 => PudcResponseVo::class,
-            400, 401, 403, 500 => ErrorResponseVo2::class,
-            404 => ErrorResponseVo::class,
-            503 => ErrorResponseVo5032::class,
+            400, 401, 403, 404, 500 => ErrorResponseVo::class,
+            503 => ErrorResponseVo503::class,
             default => throw new Exception("Unhandled response status: {$status}")
         };
 

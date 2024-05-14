@@ -20,9 +20,9 @@ final class PackageRateDetail extends Dto
      * @param  ?float  $baseCharge  Identifies the manner in which the chargeRate for this line item was applied.<br> Example: 125
      * @param  ?float  $totalRebates  The total sum of all rebates applied to this package.Example: 12
      * @param  ?string  $rateType  Specifies the type used for this specific set of rate data.
-     * @param  ?Weight1  $billingWeight  These are the weight details.
+     * @param  ?Weight  $billingWeight  These are the package weight details.<br>Note: Weight is not required for One rate shipments
      * @param  ?float  $netFreight  Specifies the sum of freight charges.<br> Example: 10
-     * @param  Surcharge[]|null  $surcharges  Specifies the list of all surcharges that apply to this package.
+     * @param  Surcharge[]|null  $surcharges  Specifies the list of surcharges.<br>Valid value is:<li>PEAK</li><li>PEAK_ADDTIONAL_HANDLING</li><li>PEAK_OVERSIZE</li><li>PEAK_RESIDENTIAL_DELIVERY</li>
      * @param  ?float  $totalSurcharges  The sum of all surcharges on the package.<br> Example: 569
      * @param  ?float  $netFedExCharge  Specifies the sum of packages netFreight and totalSurcharges (not including totalTaxes).<br> Example: 125.32
      * @param  ?float  $netCharge  Specifies the sum of packages netFreight, totalSurcharges and totalTaxes. <br>Example: 563.98
@@ -35,7 +35,7 @@ final class PackageRateDetail extends Dto
         public readonly ?float $baseCharge = null,
         public readonly ?float $totalRebates = null,
         public readonly ?string $rateType = null,
-        public readonly ?Weight1 $billingWeight = null,
+        public readonly ?Weight $billingWeight = null,
         public readonly ?float $netFreight = null,
         public readonly ?array $surcharges = null,
         public readonly ?float $totalSurcharges = null,

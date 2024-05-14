@@ -9,12 +9,12 @@ use ShipStream\FedEx\Dto;
 final class FreightGuaranteeDetail extends Dto
 {
     /**
-     * @param  ?string  $freightGuaranteeType  Indicates the guaranteed delivery on date specified.
-     * @param  ?string  $guaranteeTimestamp  Date and Time of shipment based on shipper’s time zone. <br>The format is YYYY-MM-DD
+     * @param  string  $freightGuaranteeType  Specify how the freight has been guaranteed for delivery.
+     * @param  string  $guaranteeTimestamp  Specify the time of shipment based on shippers time zone.<br>Example: 2009-04-12
      */
     public function __construct(
-        public readonly ?string $freightGuaranteeType = null,
-        public readonly ?string $guaranteeTimestamp = null,
+        public readonly string $freightGuaranteeType,
+        public readonly string $guaranteeTimestamp,
     ) {
     }
 }

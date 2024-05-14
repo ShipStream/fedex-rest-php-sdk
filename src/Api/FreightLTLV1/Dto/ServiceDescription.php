@@ -11,14 +11,14 @@ final class ServiceDescription extends Dto
     protected static array $complexArrayTypes = ['names' => [ProductName::class]];
 
     /**
-     * @param  ?string  $serviceType  This is the service type.<br>Example: INTERNATIONAL_FIRST<br><a onclick='loadDocReference("servicetypes")'>Click here to see Service Types</a>
-     * @param  ?string  $code  Specifies the service code.<br> Example: 92
-     * @param  ProductName[]|null  $names  Specifies the service name.
-     * @param  ?string[]  $operatingOrgCodes  Specifies operating organization codes.<br> Example: 'FXG'
-     * @param  ?string  $astraDescription  Specifies astra description. <br> Example: INTL1ST
-     * @param  ?string  $description  Specifies description of the service. <br> Example: FedEx Ground
-     * @param  ?string  $serviceId  Specifies the service Id. <br> Example: EP1000000135
-     * @param  ?string  $serviceCategory  Specifies service category. <br> Example: parcel
+     * @param  ?string  $serviceType  Indicate the FedEx serviceType used for this shipment. The results will be filtered by the serviceType value indicated.<br>Example: STANDARD_OVERNIGHT<br><a onclick='loadDocReference("servicetypes")'>click here to see Service Types</a>
+     * @param  ?string  $code  Specifies code of the Service.<br>example: 80
+     * @param  ProductName[]|null  $names  Branded, translated, and/or localized names for this service.
+     * @param  ?string[]  $operatingOrgCodes  FOR FEDEX INTERNAL USE ONLY. The operating org code in a service.<br>Example: ["FXE", "FXE"]
+     * @param  ?string  $astraDescription  Specifies astra Description.<br>Example: 2 DAY FRT
+     * @param  ?string  $description  Specifies the description.
+     * @param  ?string  $serviceId  FOR FEDEX INTERNAL USE ONLY, Designates the service ID.<br>Example: EP1000000027
+     * @param  ?string  $serviceCategory  FOR FEDEX INTERNAL USE ONLY. This is tied to the Product EFS interface definition which will currently contain the values of parcel.<br>Example: EXPRESS_PARCEL
      */
     public function __construct(
         public readonly ?string $serviceType = null,

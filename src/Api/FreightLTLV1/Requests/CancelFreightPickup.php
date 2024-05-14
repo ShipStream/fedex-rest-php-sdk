@@ -9,8 +9,7 @@ use Saloon\Enums\Method;
 use Saloon\Http\Response;
 use ShipStream\FedEx\Api\FreightLTLV1\Dto\FullSchemaCancelFreightPickup;
 use ShipStream\FedEx\Api\FreightLTLV1\Responses\ErrorResponseVo;
-use ShipStream\FedEx\Api\FreightLTLV1\Responses\ErrorResponseVo2;
-use ShipStream\FedEx\Api\FreightLTLV1\Responses\ErrorResponseVo5032;
+use ShipStream\FedEx\Api\FreightLTLV1\Responses\ErrorResponseVo503;
 use ShipStream\FedEx\Api\FreightLTLV1\Responses\PudcResponseVoCancelPickup;
 use ShipStream\FedEx\Request;
 
@@ -41,13 +40,12 @@ class CancelFreightPickup extends Request
 
     public function createDtoFromResponse(
         Response $response,
-    ): PudcResponseVoCancelPickup|ErrorResponseVo2|ErrorResponseVo|ErrorResponseVo5032 {
+    ): PudcResponseVoCancelPickup|ErrorResponseVo|ErrorResponseVo503 {
         $status = $response->status();
         $responseCls = match ($status) {
             200 => PudcResponseVoCancelPickup::class,
-            400, 401, 403, 500 => ErrorResponseVo2::class,
-            404 => ErrorResponseVo::class,
-            503 => ErrorResponseVo5032::class,
+            400, 401, 403, 404, 500 => ErrorResponseVo::class,
+            503 => ErrorResponseVo503::class,
             default => throw new Exception("Unhandled response status: {$status}")
         };
 

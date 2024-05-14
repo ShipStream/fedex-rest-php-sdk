@@ -11,7 +11,6 @@ use Saloon\Http\Response;
 use Saloon\Traits\Body\HasJsonBody;
 use ShipStream\FedEx\Api\FreightLTLV1\Dto\FullSchemaFreightPickupAvailability;
 use ShipStream\FedEx\Api\FreightLTLV1\Responses\ErrorResponseVo;
-use ShipStream\FedEx\Api\FreightLTLV1\Responses\ErrorResponseVo2;
 use ShipStream\FedEx\Api\FreightLTLV1\Responses\ErrorResponseVo503;
 use ShipStream\FedEx\Api\FreightLTLV1\Responses\PudcResponseVoPickupAvailaibility;
 use ShipStream\FedEx\Request;
@@ -47,12 +46,11 @@ class CheckFreightPickupAvailability extends Request implements HasBody
 
     public function createDtoFromResponse(
         Response $response,
-    ): PudcResponseVoPickupAvailaibility|ErrorResponseVo2|ErrorResponseVo|ErrorResponseVo503 {
+    ): PudcResponseVoPickupAvailaibility|ErrorResponseVo|ErrorResponseVo503 {
         $status = $response->status();
         $responseCls = match ($status) {
             200 => PudcResponseVoPickupAvailaibility::class,
-            400, 401, 403, 500 => ErrorResponseVo2::class,
-            404 => ErrorResponseVo::class,
+            400, 401, 403, 404, 500 => ErrorResponseVo::class,
             503 => ErrorResponseVo503::class,
             default => throw new Exception("Unhandled response status: {$status}")
         };

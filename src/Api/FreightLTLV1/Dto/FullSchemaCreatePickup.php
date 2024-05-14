@@ -8,12 +8,12 @@ use ShipStream\FedEx\Dto;
 
 final class FullSchemaCreatePickup extends Dto
 {
-    protected static array $complexArrayTypes = ['totalWeight' => [Weight2::class]];
+    protected static array $complexArrayTypes = ['totalWeight' => [Weight::class]];
 
     /**
      * @param  PartyAccountNumber  $associatedAccountNumber  Specify the assigned FedEx Account Number. If the transportation charges to be billed to a payor other than the sender or recipient, provide the FedEx Account Number. Specify this field when payment type is selected as SENDER.
      * @param  PickupOriginDetailLtl  $originDetail  Pickup Origin Detail
-     * @param  Weight2[]|null  $totalWeight  The total weight of the packages for the pickup. Unit of measure is LB and KG.
+     * @param  Weight[]|null  $totalWeight  The total weight of the packages for the pickup. Unit of measure is LB and KG.
      * @param  ?int  $packageCount  The total number of packages for the pickup.<br> Example: 5
      * @param  ?string  $remarks  This is a placeholder for any message to be passed to the FedEx pickup. courier.<br> Example: Please ring bell at loading dock.
      * @param  ?string  $countryRelationships  Describes the country relationship among the shipments being picked up.<br>'DOMESTIC' indicates intra-country shipping; origin and destination country are the same.<br>'INTERNATIONAL' indicates inter-country shipping; origin and destination countries are different.<br>Not applicable for FedEx Ground shipments<br>Example: DOMESTIC

@@ -11,7 +11,6 @@ use Saloon\Http\Response;
 use Saloon\Traits\Body\HasJsonBody;
 use ShipStream\FedEx\Api\FreightLTLV1\Dto\FullSchemaFreightShipment;
 use ShipStream\FedEx\Api\FreightLTLV1\Responses\ErrorResponseVo;
-use ShipStream\FedEx\Api\FreightLTLV1\Responses\ErrorResponseVo2;
 use ShipStream\FedEx\Api\FreightLTLV1\Responses\ShpcResponseVo;
 use ShipStream\FedEx\Request;
 
@@ -42,13 +41,12 @@ class FreightShipment extends Request implements HasBody
         return '/ship/v1/freight/shipments';
     }
 
-    public function createDtoFromResponse(Response $response): ShpcResponseVo|ErrorResponseVo2|ErrorResponseVo
+    public function createDtoFromResponse(Response $response): ShpcResponseVo|ErrorResponseVo
     {
         $status = $response->status();
         $responseCls = match ($status) {
             200 => ShpcResponseVo::class,
-            400, 401, 403, 500, 503 => ErrorResponseVo2::class,
-            404 => ErrorResponseVo::class,
+            400, 401, 403, 404, 500, 503 => ErrorResponseVo::class,
             default => throw new Exception("Unhandled response status: {$status}")
         };
 

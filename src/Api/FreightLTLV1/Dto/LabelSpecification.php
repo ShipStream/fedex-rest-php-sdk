@@ -14,7 +14,7 @@ final class LabelSpecification extends Dto
      * @param  ?string  $labelFormatType  Specify the label Format Type.<br><a onclick='loadDocReference("labelstocktypes")'>click here to see label format types</a>
      * @param  ?string  $labelOrder  This is the order of the Shipping label/documents to be generated.
      * @param  ?CustomerSpecifiedLabelDetail  $customerSpecifiedDetail  This object allows the control of label content for customization.
-     * @param  ?ContactAndAddress2  $printedLabelOrigin  Specifies the contact and address details of a location.
+     * @param  ?ContactAndAddress  $printedLabelOrigin  Specifies the contact and address details of a location.
      * @param  ?string  $labelRotation  This is applicable only to documents produced on thermal printers with roll stock.
      * @param  ?string  $labelPrintingOrientation  This is applicable only to documents produced on thermal printers with roll stock.
      * @param  ?bool  $returnedDispositionDetail  Specify whether or not the return deposition is needed.
@@ -25,7 +25,7 @@ final class LabelSpecification extends Dto
         public readonly ?string $labelFormatType = null,
         public readonly ?string $labelOrder = null,
         public readonly ?CustomerSpecifiedLabelDetail $customerSpecifiedDetail = null,
-        public readonly ?ContactAndAddress2 $printedLabelOrigin = null,
+        public readonly ?ContactAndAddress $printedLabelOrigin = null,
         public readonly ?string $labelRotation = null,
         public readonly ?string $labelPrintingOrientation = null,
         public readonly ?bool $returnedDispositionDetail = null,

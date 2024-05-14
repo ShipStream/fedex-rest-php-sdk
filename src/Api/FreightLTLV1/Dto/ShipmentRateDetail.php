@@ -14,7 +14,7 @@ final class ShipmentRateDetail extends Dto
     ];
 
     /**
-     * @param  ?CurrencyExchangeRate  $currencyExchangeRate  Specifies the currency exchange performed on financial amounts for this rate.
+     * @param  ?CurrencyExchangeRate  $currencyExchangeRate  Specifies the currency exchange performed on financial amounts on this rate.
      * @param  ?string  $currency  Indicates the currency associated with the amount.
      * @param  ?string  $rateZone  Indicates the rate zone used.
      * @param  ?string  $pricingCode  Indicates the type of pricing code.
@@ -23,8 +23,8 @@ final class ShipmentRateDetail extends Dto
      * @param  ?float  $totalSurcharges  This is sum of all surcharges on the package. Example: 586.25
      * @param  RateDiscount[]|null  $freightDiscount  This is total discount used in the rate calculation.<br><a onclick='loadDocReference("discounts")'>Click here to see Discounts</a>
      * @param  ?float  $fuelSurchargePercent  This is fuel surcharge percentage.
-     * @param  ?Weight1  $totalBillingWeight  These are the weight details.
-     * @param  ?Weight1  $totalDimWeight  These are the weight details.
+     * @param  ?Weight  $totalBillingWeight  These are the package weight details.<br>Note: Weight is not required for One rate shipments
+     * @param  ?Weight  $totalDimWeight  These are the package weight details.<br>Note: Weight is not required for One rate shipments
      * @param  ?int  $dimDivisor  Identifies the type of divisor applied.
      * @param  Surcharge[]|null  $surCharges  Indicates the surcharges applied to this shipment.
      */
@@ -38,8 +38,8 @@ final class ShipmentRateDetail extends Dto
         public readonly ?float $totalSurcharges = null,
         public readonly ?array $freightDiscount = null,
         public readonly ?float $fuelSurchargePercent = null,
-        public readonly ?Weight1 $totalBillingWeight = null,
-        public readonly ?Weight1 $totalDimWeight = null,
+        public readonly ?Weight $totalBillingWeight = null,
+        public readonly ?Weight $totalDimWeight = null,
         public readonly ?int $dimDivisor = null,
         public readonly ?array $surCharges = null,
     ) {

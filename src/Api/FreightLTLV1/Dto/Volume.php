@@ -6,7 +6,7 @@ namespace ShipStream\FedEx\Api\FreightLTLV1\Dto;
 
 use ShipStream\FedEx\Dto;
 
-final class Volume12 extends Dto
+final class Volume extends Dto
 {
     /**
      * @param  ?string  $units  Specifies the unit in Cubic Feet or Cubic Meters.

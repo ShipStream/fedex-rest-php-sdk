@@ -18,7 +18,7 @@ final class CompletedShipmentDetail extends Dto
      * @param  ?CompletedEtdDetail  $completedEtdDetail  These are completed ETD details when ELECTRONIC_TRADE_DOCUMENTS Special service type is requested
      * @param  ?string  $packagingDescription  Specifies packaging description.
      * @param  ?TrackingId  $masterTrackingId  Indicates the tracking details for the package.
-     * @param  ?ServiceDescription2  $serviceDescription  Descriptions for a service.
+     * @param  ?ServiceDescription  $serviceDescription  Descriptions for a service.
      * @param  ?bool  $usDomestic  Indicates whether or not this is an intra-U.S. shipment.
      * @param  ?CompletedHazardousShipmentDetail  $hazardousShipmentDetail  Completed shipment level hazardous commodity information.
      * @param  ?ShipmentRating  $shipmentRating  All shipment-level rating data for this shipment, which may include data for multiple rate types.
@@ -34,7 +34,7 @@ final class CompletedShipmentDetail extends Dto
         public readonly ?CompletedEtdDetail $completedEtdDetail = null,
         public readonly ?string $packagingDescription = null,
         public readonly ?TrackingId $masterTrackingId = null,
-        public readonly ?ServiceDescription2 $serviceDescription = null,
+        public readonly ?ServiceDescription $serviceDescription = null,
         public readonly ?bool $usDomestic = null,
         public readonly ?CompletedHazardousShipmentDetail $hazardousShipmentDetail = null,
         public readonly ?ShipmentRating $shipmentRating = null,

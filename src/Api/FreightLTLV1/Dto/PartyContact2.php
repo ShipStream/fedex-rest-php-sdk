@@ -6,7 +6,7 @@ namespace ShipStream\FedEx\Api\FreightLTLV1\Dto;
 
 use ShipStream\FedEx\Dto;
 
-final class PartyContact1 extends Dto
+final class PartyContact2 extends Dto
 {
     /**
      * @param  ?string  $personName  Specify contact name. Maximum length is 70. <br> Example: John Taylor

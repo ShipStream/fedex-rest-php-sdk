@@ -33,8 +33,8 @@ final class Freight2020shipmentDetail extends Dto
      * @param  ?string  $aliasId  Conditional<br>Indicates the LTL Account Alias identifier.<br>Example: 981234
      * @param  ?string  $collectTermsType  Indicates the terms of the collect payment for a Freight shipment.
      * @param  ?string  $hazardousMaterialsOfferor  Specifies the Hazardous materials offeror
-     * @param  ?Money2  $declaredValuePerUnit  Specifies taxes or miscellaneous charge.
-     * @param  ?Party2  $alternateBillingParty  Attributes for a Party to a transaction including the physical address, contact information and account number information.
+     * @param  ?Money  $declaredValuePerUnit  Specifies taxes or miscellaneous charge.
+     * @param  ?Party2  $alternateBillingParty  Use this object to provide the attributes such as physical address, contact information and account number information.
      */
     public function __construct(
         public readonly string $role,
@@ -52,7 +52,7 @@ final class Freight2020shipmentDetail extends Dto
         public readonly ?string $aliasId = null,
         public readonly ?string $collectTermsType = null,
         public readonly ?string $hazardousMaterialsOfferor = null,
-        public readonly ?Money2 $declaredValuePerUnit = null,
+        public readonly ?Money $declaredValuePerUnit = null,
         public readonly ?Party2 $alternateBillingParty = null,
     ) {
     }

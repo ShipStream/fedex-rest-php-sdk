@@ -9,7 +9,7 @@ use ShipStream\FedEx\Dto;
 final class ShipmentRateDetail2 extends Dto
 {
     protected static array $complexArrayTypes = [
-        'taxes' => [Tax1::class],
+        'taxes' => [Tax::class],
         'surcharges' => [Surcharge::class],
         'freightDiscounts' => [RateDiscount::class],
     ];
@@ -23,18 +23,18 @@ final class ShipmentRateDetail2 extends Dto
      * @param  ?float  $totalTaxes  Total of the transportation-based taxes.<br>Example: 3.45
      * @param  ?float  $totalDutiesAndTaxes  Total of all values under this shipment's duties and taxes; only provided if estimated duties and taxes were calculated for this shipment.<br>Example: 6.78
      * @param  ?float  $totalAncillaryFeesAndTaxes  Identifies the total amount of the shipment-level fees and taxes that are not based on transportation charges or commodity-level estimated duties and taxes.<br>Example: 5.67
-     * @param  Tax1[]|null  $taxes  Specifies the list of taxes.
+     * @param  Tax[]|null  $taxes  Specifies the list of taxes.
      * @param  ?float  $totalRebates  The total sum of all rebates applied to this shipment.<br>Example: 1.98
      * @param  ?float  $fuelSurchargePercent  Specifies a fuel surcharge percentage.<br>Example: 4.56
-     * @param  ?CurrencyExchangeRate2  $currencyExchangeRate  Specifies the currency exchange performed on financial amounts on this rate.
+     * @param  ?CurrencyExchangeRate  $currencyExchangeRate  Specifies the currency exchange performed on financial amounts on this rate.
      * @param  ?float  $totalNetFreight  The freight charge minus discounts.<br>Example: 9.56
      * @param  ?float  $totalNetFedExCharge  This is the sum of shipment's total net freight, total surchages (not including totalTaxes).<br>Example: 88.56
      * @param  mixed[][]|null  $shipmentLegRateDetails  This is data for a single leg of a shipment's total/summary rates, as calculated per a specific rate type.
      * @param  ?int  $dimDivisor  The value used to calculate the weight based on the dimensions.<br>Example: 0
      * @param  ?string  $rateType  The Type used for this specific set of rate data.<br>Example: RATED_ACCOUNT_SHIPMENT
-     * @param  Surcharge[]|null  $surcharges  Specifies the list of all surcharges that apply to this package.
+     * @param  Surcharge[]|null  $surcharges  Specifies the list of surcharges.<br>Valid value is:<li>PEAK</li><li>PEAK_ADDTIONAL_HANDLING</li><li>PEAK_OVERSIZE</li><li>PEAK_RESIDENTIAL_DELIVERY</li>
      * @param  ?float  $totalSurcharges  The total amount of all surcharges applied to this shipment.<br>Example: 9.88
-     * @param  ?Weight2  $totalBillingWeight  These are the package weight details.<br>Note: Weight is not required for One rate shipments
+     * @param  ?Weight  $totalBillingWeight  These are the package weight details.<br>Note: Weight is not required for One rate shipments
      * @param  RateDiscount[]|null  $freightDiscounts  All rate discounts that apply to this shipment.<br><a onclick='loadDocReference("discounts")'>Click here to see Discounts</a>
      * @param  ?string  $rateScale  Indicates the rate scale used.<br>Example: 00000
      * @param  ?float  $totalNetCharge  The net charge after applying all discounts and surcharges.<br>Example: 3.78
@@ -54,7 +54,7 @@ final class ShipmentRateDetail2 extends Dto
         public readonly ?array $taxes = null,
         public readonly ?float $totalRebates = null,
         public readonly ?float $fuelSurchargePercent = null,
-        public readonly ?CurrencyExchangeRate2 $currencyExchangeRate = null,
+        public readonly ?CurrencyExchangeRate $currencyExchangeRate = null,
         public readonly ?float $totalNetFreight = null,
         public readonly ?float $totalNetFedExCharge = null,
         public readonly ?array $shipmentLegRateDetails = null,
@@ -62,7 +62,7 @@ final class ShipmentRateDetail2 extends Dto
         public readonly ?string $rateType = null,
         public readonly ?array $surcharges = null,
         public readonly ?float $totalSurcharges = null,
-        public readonly ?Weight2 $totalBillingWeight = null,
+        public readonly ?Weight $totalBillingWeight = null,
         public readonly ?array $freightDiscounts = null,
         public readonly ?string $rateScale = null,
         public readonly ?float $totalNetCharge = null,

@@ -6,7 +6,7 @@ namespace ShipStream\FedEx\Api\FreightLTLV1\Dto;
 
 use ShipStream\FedEx\Dto;
 
-final class Money2 extends Dto
+final class Money extends Dto
 {
     /**
      * @param  ?float  $amount  This is the amount. Maximum limit is 5 digits before decimal.<br>Example: 12.45

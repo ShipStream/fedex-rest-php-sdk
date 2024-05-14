@@ -9,10 +9,10 @@ use ShipStream\FedEx\Dto;
 final class ContentRecord extends Dto
 {
     /**
-     * @param  ?string  $itemNumber  Specifies Item Number.
-     * @param  ?int  $receivedQuantity  Specifies Received Quantity.
-     * @param  ?string  $description  Specifies description for the content record.
-     * @param  ?string  $partNumber  Specifies Part Number.
+     * @param  ?string  $itemNumber  This is a package item number.
+     * @param  ?int  $receivedQuantity  This is the package item quantity.
+     * @param  ?string  $description  This is the description of the package item.
+     * @param  ?string  $partNumber  This is the part number.
      */
     public function __construct(
         public readonly ?string $itemNumber = null,

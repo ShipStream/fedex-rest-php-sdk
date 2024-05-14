@@ -24,13 +24,6 @@
                         "$ref": "#/components/schemas/Contact"
                     }
                 }
-            },
-            {
-                "action": "replace",
-                "path": "components.schemas.BrokerDetailBroker",
-                "value": {
-                    "$ref": "#/components/schemas/Party"
-                }
             }
         ]
     },
