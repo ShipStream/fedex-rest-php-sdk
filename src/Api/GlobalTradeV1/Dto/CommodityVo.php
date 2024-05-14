@@ -14,7 +14,7 @@ final class CommodityVo extends Dto
      * @param  string  $harmonizedCode  This is to specify the Harmonized Tariff System (HTS) code to meet U.S. and foreign governments' customs requirements. These are mainly used to estimate the duties and taxes.<br>Example: 0613<br>To research the classification for your commodity, use the FedEx Global Trade Manager online at <a href='http://www.fedex.com/gtm' target='_blank'>fedex.com/gtm</a>. You will find country-specific information to determine whether your commodity is considered to be a document or non-document for your destination.
      * @param  ?string  $quantity  Total number of units (using quantityUnits as the unit of measure) of this commodity present in the shipment.  <br>Example: '1'
      * @param  ?string  $quantityUom  This is the units quantity per commodity. This is used to estimate duties and taxes in GTC.<br>Example: 125
-     * @param  ?Money  $customsValue  Customs value for this commodity.
+     * @param  ?Money  $customsValue  Specify Insurance charges if applicable.<br><i>Note: FedEx does not provide insurance of any kind</i>.
      * @param  ?string  $countryOfManufacture  Required<br> Max Length is 4<br> Example: IN
      * @param  ?string  $name  This represents the name of commodity.
      * @param  ?string  $description  This represents commodity description

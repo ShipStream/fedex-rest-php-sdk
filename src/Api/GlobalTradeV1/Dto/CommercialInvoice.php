@@ -9,7 +9,7 @@ use ShipStream\FedEx\Dto;
 final class CommercialInvoice extends Dto
 {
     /**
-     * @param  ?Money  $freightCharge  Customs value for this commodity.
+     * @param  ?Money  $freightCharge  Specify Insurance charges if applicable.<br><i>Note: FedEx does not provide insurance of any kind</i>.
      * @param  ?string  $purpose  It describes the purpose.
      */
     public function __construct(

@@ -251,52 +251,6 @@
                 },
                 "description": "The request elements to retrieve Shipment Regulatory Details."
             },
-            "Money": {
-                "type": "object",
-                "description": "Customs value for this commodity.",
-                "properties": {
-                    "amount": {
-                        "type": "number",
-                        "description": "This is the amount.<br>Example: 12.45",
-                        "format": "double",
-                        "example": 12.45,
-                        "xml": {
-                            "name": "Amount"
-                        }
-                    },
-                    "currency": {
-                        "type": "string",
-                        "description": "This is the currency code for the amount.<br>Example: USD<br><a onclick='loadDocReference(\"currencycodes\")'>click here to see Currency codes</a>",
-                        "example": "USD",
-                        "xml": {
-                            "name": "Currency"
-                        }
-                    }
-                }
-            },
-            "Money_1": {
-                "type": "object",
-                "description": "Specify Insurance charges if applicable.<br><i>Note: FedEx does not provide insurance of any kind</i>.",
-                "properties": {
-                    "amount": {
-                        "type": "number",
-                        "description": "This is the amount.<br>Example: 12.45",
-                        "format": "double",
-                        "example": 12.45,
-                        "xml": {
-                            "name": "Amount"
-                        }
-                    },
-                    "currency": {
-                        "type": "string",
-                        "description": "This is the currency code for the amount.<br>Example: USD<br><a onclick='loadDocReference(\"currencycodes\")'>click here to see Currency codes</a>",
-                        "example": "USD",
-                        "xml": {
-                            "name": "Currency"
-                        }
-                    }
-                }
-            },
             "Address": {
                 "required": [
                     "countryCode"
@@ -344,7 +298,7 @@
                     },
                     "insuranceCharges": {
                         "description": "Specify Insurance charges if applicable.<br><i>Note: FedEx does not provide insurance of any kind</i>.",
-                        "$ref": "#/components/schemas/Money_1"
+                        "$ref": "#/components/schemas/Money"
                     },
                     "importerOfRecordAccountNumber": {
                         "description": "The descriptive data for the importer of Record for the shipment and account number information.",
@@ -888,20 +842,6 @@
                     }
                 }
             },
-            "Parameter": {
-                "type": "object",
-                "properties": {
-                    "value": {
-                        "type": "string",
-                        "description": "Identifies the error option to be applied."
-                    },
-                    "key": {
-                        "type": "string",
-                        "description": "Indicates the value associated with the key."
-                    }
-                },
-                "description": "List of parameters which indicates the properties of the alert message."
-            },
             "ErrorResponseVO": {
                 "type": "object",
                 "properties": {
@@ -929,7 +869,7 @@
                     "parameterList": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/components/schemas/Parameter_2"
+                            "$ref": "#/components/schemas/Parameter"
                         }
                     },
                     "message": {
@@ -938,20 +878,6 @@
                     }
                 },
                 "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
-            },
-            "Parameter_2": {
-                "type": "object",
-                "properties": {
-                    "value": {
-                        "type": "string",
-                        "description": "Identifies the error option to be applied."
-                    },
-                    "key": {
-                        "type": "string",
-                        "description": "Indicates the value associated with the key."
-                    }
-                },
-                "description": "List of parameters which indicates the properties of the alert message."
             },
             "ErrorResponseVO401": {
                 "type": "object",
@@ -1105,6 +1031,43 @@
                     }
                 },
                 "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
+            },
+            "Money": {
+                "type": "object",
+                "description": "Specify Insurance charges if applicable.<br><i>Note: FedEx does not provide insurance of any kind</i>.",
+                "properties": {
+                    "amount": {
+                        "type": "number",
+                        "description": "This is the amount.<br>Example: 12.45",
+                        "format": "double",
+                        "example": 12.45,
+                        "xml": {
+                            "name": "Amount"
+                        }
+                    },
+                    "currency": {
+                        "type": "string",
+                        "description": "This is the currency code for the amount.<br>Example: USD<br><a onclick='loadDocReference(\"currencycodes\")'>click here to see Currency codes</a>",
+                        "example": "USD",
+                        "xml": {
+                            "name": "Currency"
+                        }
+                    }
+                }
+            },
+            "Parameter": {
+                "type": "object",
+                "properties": {
+                    "value": {
+                        "type": "string",
+                        "description": "Identifies the error option to be applied."
+                    },
+                    "key": {
+                        "type": "string",
+                        "description": "Indicates the value associated with the key."
+                    }
+                },
+                "description": "List of parameters which indicates the properties of the alert message."
             }
         }
     },

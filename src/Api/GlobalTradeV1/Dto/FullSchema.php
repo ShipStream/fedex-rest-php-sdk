@@ -15,7 +15,7 @@ final class FullSchema extends Dto
      * @param  Address  $destinationAddress  Address Model
      * @param  string  $carrierCode  Specify the four letter code of a FedEx operating company that meets your requirements.<br><br>Valid values are:<ul><li>FDXE - FedEx Express</li><li>FDXG - FedEx Ground</li><br>Example: FDXE
      * @param  ?string  $serviceType  Specify the type of service that is used to ship the package.<br><a onclick='loadDocReference("servicetypes")'>click here to see Service Types</a>
-     * @param  ?Money  $totalCommodityValue  Customs value for this commodity.
+     * @param  ?Money  $totalCommodityValue  Specify Insurance charges if applicable.<br><i>Note: FedEx does not provide insurance of any kind</i>.
      * @param  ?string[]  $serviceOptionType  Specify attributes to filter location types. If more than one value is specified, only those locations that have all the specified attributes will be returned.
      * @param  ?CustomsClearanceDetailVo  $customsClearanceDetail  These are customs clearance details. <br>Required for International and intra-country Shipments.
      * @param  ?string  $shipDate  Specify shipment date. <br><br><i>Note : Default value is current date in case the date is not provided or a past date is provided.</i><br>Format [YYYY-MM-DD].<br>Example: 2021-08-05'
