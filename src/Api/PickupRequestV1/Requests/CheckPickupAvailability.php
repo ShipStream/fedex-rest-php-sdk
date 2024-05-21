@@ -10,7 +10,7 @@ use Saloon\Enums\Method;
 use Saloon\Http\Response;
 use Saloon\Traits\Body\HasJsonBody;
 use ShipStream\FedEx\Api\PickupRequestV1\Dto\FullSchemaPickupAvailability;
-use ShipStream\FedEx\Api\PickupRequestV1\Responses\ErrorResponseVo2;
+use ShipStream\FedEx\Api\PickupRequestV1\Responses\ErrorResponseVo;
 use ShipStream\FedEx\Api\PickupRequestV1\Responses\ErrorResponseVo401;
 use ShipStream\FedEx\Api\PickupRequestV1\Responses\ErrorResponseVo403;
 use ShipStream\FedEx\Api\PickupRequestV1\Responses\ErrorResponseVo404;
@@ -46,11 +46,11 @@ class CheckPickupAvailability extends Request implements HasBody
 
     public function createDtoFromResponse(
         Response $response,
-    ): PudcResponseVoPickupAvailability|ErrorResponseVo2|ErrorResponseVo401|ErrorResponseVo403|ErrorResponseVo404|ErrorResponseVo500|ErrorResponseVo503 {
+    ): PudcResponseVoPickupAvailability|ErrorResponseVo|ErrorResponseVo401|ErrorResponseVo403|ErrorResponseVo404|ErrorResponseVo500|ErrorResponseVo503 {
         $status = $response->status();
         $responseCls = match ($status) {
             200 => PudcResponseVoPickupAvailability::class,
-            400 => ErrorResponseVo2::class,
+            400 => ErrorResponseVo::class,
             401 => ErrorResponseVo401::class,
             403 => ErrorResponseVo403::class,
             404 => ErrorResponseVo404::class,

@@ -15,7 +15,7 @@ final class FullSchemaCreatePickup extends Dto
      * @param  ?string  $associatedAccountNumberType  This enumeration represents a kind of legacy account number from a FedEx operating entity for the account number associated to the pickup.<br> Valid values are: FEDEX_EXPRESS<br>FEDEX_GROUND<br>
      * @param  ?Weight  $totalWeight  These are the package weight details.
      * @param  ?int  $packageCount  Specify the total number of packages for the pickup.<br> Example: 5
-     * @param  ?Address1  $accountAddressOfRecord  Conditionally required. For the Address, street, city and country are required if PickupAddressType is set to SHIPPER or OTHER.
+     * @param  ?Address2  $accountAddressOfRecord  Conditionally required. For the Address, street, city and country are required if PickupAddressType is set to SHIPPER or OTHER.
      * @param  ?string  $remarks  Placeholder for any message to be passed to the FedEx pickup courier.<br>Note:Maximum length is 60 characters.<br> Example: Please ring bell at loading dock.
      * @param  ?string  $countryRelationships  Describes the country relationship among the shipments being picked up. This element is not mandatory for this request, but when added, the mandatory values are DOMESTIC or INTERNATIONAL. Empty or incorrect values will result in to errors.
      * @param  ?string  $pickupType  Indicate the pickup type method by which the shipment to be tendered to FedEx.<br><i>Note: The value of this element does not specify dispatching the courier for package pickup.</i> <br>Example: ON_CALL, PACKAGE_RETURN_PROGRAM, REGULAR_STOP <br><a onclick='loadDocReference("pickuptypes")'>Click here for more information on Pickup Types.</a>
@@ -32,7 +32,7 @@ final class FullSchemaCreatePickup extends Dto
         public readonly ?string $associatedAccountNumberType = null,
         public readonly ?Weight $totalWeight = null,
         public readonly ?int $packageCount = null,
-        public readonly ?Address1 $accountAddressOfRecord = null,
+        public readonly ?Address2 $accountAddressOfRecord = null,
         public readonly ?string $remarks = null,
         public readonly ?string $countryRelationships = null,
         public readonly ?string $pickupType = null,

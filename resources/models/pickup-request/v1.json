@@ -250,7 +250,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
+                                    "$ref": "#/components/schemas/ErrorResponseVO"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -470,7 +470,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
+                                    "$ref": "#/components/schemas/ErrorResponseVO"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -735,47 +735,6 @@
                 },
                 "description": "Specifies the API alerts."
             },
-            "ErrorResponseVO": {
-                "type": "object",
-                "properties": {
-                    "transactionId": {
-                        "type": "string",
-                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: a9053a7d-6865-42ab-b323-4632db263ab4",
-                        "example": "a9053a7d-6865-42ab-b323-4632db263ab4"
-                    },
-                    "customerTransactionId": {
-                        "type": "string",
-                        "description": "This element allows you to assign a unique identifier to your transaction. This element is also returned in the reply and helps you match the request to the reply. <br> Example: AnyCo_order123456789",
-                        "example": "AnyCo_order123456789"
-                    },
-                    "errors": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/CXSError"
-                        }
-                    }
-                }
-            },
-            "CXSError": {
-                "type": "object",
-                "properties": {
-                    "code": {
-                        "type": "string",
-                        "description": "Indicates the error code.<br>Example: PICKUP.REQUESTED.PREVIOUS.DAY"
-                    },
-                    "parameterList": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/Parameter"
-                        }
-                    },
-                    "message": {
-                        "type": "string",
-                        "description": "Indicates the description of API error alert message.<br>Example: Cannot schedule a pickup requested for a previous day."
-                    }
-                },
-                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
-            },
             "Parameter": {
                 "type": "object",
                 "properties": {
@@ -1018,7 +977,7 @@
                     "accountAddressOfRecord": {
                         "description": "The city name, state or province code and the address classification associated with the customer account which requested the pickup.",
                         "type": "object",
-                        "$ref": "#/components/schemas/Address_1"
+                        "$ref": "#/components/schemas/Address_2"
                     },
                     "remarks": {
                         "type": "string",
@@ -1240,73 +1199,6 @@
                     "phoneExtension": 1234
                 }
             },
-            "Address": {
-                "type": "object",
-                "properties": {
-                    "streetLines": {
-                        "type": "array",
-                        "description": "This is a combination of number, street name, etc. <br>Note: At least one line is required and streetlines more than 3 will be ignored. Empty lines should not be included.<br>Example: [\\\"10 FedEx Parkway\\\", \\\"Suite 302\\\"]",
-                        "items": {
-                            "type": "string",
-                            "example": "[[\"123 Ship Street\"]]"
-                        }
-                    },
-                    "urbanizationCode": {
-                        "type": "string",
-                        "description": "Optional<br> In Puerto Rico, identical street names and address number ranges can be found within the same ZIP Code. In these cases, the urbanization name is the only element that correctly identifies the location of a particular address.<br> Example: URB FAIR OAKS",
-                        "example": "URB FAIR OAKS"
-                    },
-                    "city": {
-                        "type": "string",
-                        "description": "This is a placeholder for City Name. <br>Note: This is conditional and not required in all the shipping requests. <br> Example: Beverly Hills",
-                        "example": "Memphis"
-                    },
-                    "stateOrProvinceCode": {
-                        "type": "string",
-                        "description": "This is a placeholder for State or Province code.Maximum length is 2. Maximum length is 2<br> Example: CA <br><a onclick='loadDocReference(\"canadaprovincecodes\")'>Click here to see State/Province Code</a>",
-                        "example": "TN"
-                    },
-                    "postalCode": {
-                        "type": "string",
-                        "description": "This is a placeholder for postal code.<br>Note: The postal code is required for postal-aware countries. <br> Example: 38127<br><a onclick='loadDocReference(\"postalawarecountries\")'>Click here to see Postal aware countries</a>",
-                        "example": "38017"
-                    },
-                    "countryCode": {
-                        "type": "string",
-                        "description": "This is the two-letter country code.<br>Example: US<br><a onclick='loadDocReference(\"countrycodes\")'>Click here to see Country Codes</a>",
-                        "example": "US"
-                    },
-                    "residential": {
-                        "type": "boolean",
-                        "description": "Indicate whether this address is Residential as opposed to Commercial.",
-                        "example": false
-                    },
-                    "addressClassification": {
-                        "type": "string",
-                        "description": "Classifies a given address as either of unknown, residential, mixed or business.",
-                        "example": "MIXED",
-                        "enum": [
-                            "MIXED",
-                            "UNKNOWN",
-                            "BUSINESS",
-                            "RESIDENTIAL"
-                        ]
-                    }
-                },
-                "description": "Descriptive data for a physical location. May be used as an actual physical address (place to which one could go), or as a container of \"address parts\" which should be handled as a unit (such as a city-state-ZIP combination within the US).",
-                "example": {
-                    "streetLines": [
-                        "123 Ship Street"
-                    ],
-                    "urbanizationCode": "URB FAIR OAKS",
-                    "city": "Memphis",
-                    "stateOrProvinceCode": "TN",
-                    "postalCode": "38017",
-                    "countryCode": "US",
-                    "residential": false,
-                    "addressClassification": "MIXED"
-                }
-            },
             "Weight": {
                 "type": "object",
                 "properties": {
@@ -1330,67 +1222,6 @@
                 "example": {
                     "units": "KG",
                     "value": 20
-                }
-            },
-            "Address_1": {
-                "type": "object",
-                "properties": {
-                    "streetLines": {
-                        "type": "array",
-                        "description": "Specify Street line details for the given address <br> Example :[\\\"10 FedEx Parkway\\\", \\\"Suite 302\\\"]",
-                        "items": {
-                            "type": "string",
-                            "example": "[[\"123 Ship Street\"]]"
-                        }
-                    },
-                    "city": {
-                        "type": "string",
-                        "description": "Conditional<br>The name of city, town, etc.<br> Example: Memphis",
-                        "example": "Memphis"
-                    },
-                    "stateOrProvinceCode": {
-                        "type": "string",
-                        "description": "This is state or province code. Maximum length is 2.<br> Example: ON <br><a onclick='loadDocReference(\"canadaprovincecodes\")'>Click here to see State/Province Code</a>",
-                        "example": "TN"
-                    },
-                    "postalCode": {
-                        "type": "string",
-                        "description": "Specify the postal code. This is optional for non postal-aware countries. Maximum length is 10.<br> Example: 38017<br><a onclick='loadDocReference(\"postalawarecountries\")'>Click here to see Postal aware countries</a>",
-                        "example": "38017"
-                    },
-                    "countryCode": {
-                        "type": "string",
-                        "description": "The two-letter code used to identify a country. Maximum length is 2.<br>Example: US<br><a onclick='loadDocReference(\"countrycodes\")'>Click here to see Country Codes</a>",
-                        "example": "US"
-                    },
-                    "residential": {
-                        "type": "boolean",
-                        "description": "Indicates whether this address is residential (as opposed to commercial).",
-                        "example": false
-                    },
-                    "addressClassification": {
-                        "type": "string",
-                        "description": "Classifies a given address as either of unknown, residential, mixed or business.",
-                        "example": "MIXED",
-                        "enum": [
-                            "MIXED",
-                            "UNKNOWN",
-                            "BUSINESS",
-                            "RESIDENTIAL"
-                        ]
-                    }
-                },
-                "description": "Conditionally required. For the Address, street, city and country are required if PickupAddressType is set to SHIPPER or OTHER.",
-                "example": {
-                    "streetLines": [
-                        "123 Ship Street"
-                    ],
-                    "city": "Memphis",
-                    "stateOrProvinceCode": "TN",
-                    "postalCode": "38017",
-                    "countryCode": "US",
-                    "residential": false,
-                    "addressClassification": "MIXED"
                 }
             },
             "ExpressFreightPickupDetail": {
@@ -1433,45 +1264,6 @@
                     }
                 },
                 "description": "Provides the Express Freight pickup detailed information."
-            },
-            "Dimensions": {
-                "type": "object",
-                "properties": {
-                    "length": {
-                        "type": "integer",
-                        "description": "Indicate the length of the package. No implied decimal places. Maximum value is 999.<br>\n Example: 20",
-                        "format": "int32",
-                        "example": 20
-                    },
-                    "width": {
-                        "type": "integer",
-                        "description": "Indicate the width of the package. No implied decimal places. Maximum value is 999.<br>\n Example: 15",
-                        "format": "int32",
-                        "example": 15
-                    },
-                    "units": {
-                        "type": "string",
-                        "description": "Specify the unit of measurement used for the package dimensions.",
-                        "example": "CM",
-                        "enum": [
-                            "CM",
-                            "IN"
-                        ]
-                    },
-                    "height": {
-                        "type": "integer",
-                        "description": "Indicate the height of the package. No implied decimal places. Maximum value: 999 <br> Example: 12",
-                        "format": "int32",
-                        "example": 12
-                    }
-                },
-                "description": "Indicate the dimensions of the package.<br> Following conditions will apply: <ul><li>Dimensions are optional but when added, then all three dimensions must be indicated.</li><li>Dimensions are required with YOUR_PACKAGING package type.</li></ul>Note: The maximum/minimum dimension values varies based on the services and the packaging types. Refer <a href=\"https://www.fedex.com/en-us/service-guide.html#\" target=\"_blank\">FedEx Service Guide</a> for service details related to DIM Weighting for FedEx Express and oversize conditions for FedEx Express and FedEx Ground.",
-                "example": {
-                    "length": 20,
-                    "width": 15,
-                    "height": 12,
-                    "units": "CM"
-                }
             },
             "PickupNotificationDetail": {
                 "type": "object",
@@ -1674,47 +1466,6 @@
                     "minutes": 30
                 }
             },
-            "ErrorResponseVO_2": {
-                "type": "object",
-                "properties": {
-                    "transactionId": {
-                        "type": "string",
-                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 6f821609-aeb6-4ffe-b783-6e60b20f2801",
-                        "example": "6f821609-aeb6-4ffe-b783-6e60b20f2801"
-                    },
-                    "customerTransactionId": {
-                        "type": "string",
-                        "description": "\"This element allows you to assign a unique identifier to your transaction.  This element is also returned in the reply and help you match the request to the reply <br> Example : AnyCo_order123456789\"",
-                        "example": "AnyCo_order123456789"
-                    },
-                    "errors": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/CXSError_2"
-                        }
-                    }
-                }
-            },
-            "CXSError_2": {
-                "type": "object",
-                "properties": {
-                    "code": {
-                        "type": "string",
-                        "description": "Indicates the error code.<br>Example: PICKUP.POSTALCODE.MISSING"
-                    },
-                    "parameterList": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/Parameter"
-                        }
-                    },
-                    "message": {
-                        "type": "string",
-                        "description": "Indicates the description of API error alert message.<br>Example: PostalCode is missing."
-                    }
-                },
-                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
-            },
             "Full_Schema_Pickup_Availability": {
                 "required": [
                     "carriers",
@@ -1838,7 +1589,7 @@
                         "example": "YOUR_PACKAGING"
                     },
                     "dimensions": {
-                        "$ref": "#/components/schemas/Dimensions_2"
+                        "$ref": "#/components/schemas/Dimensions"
                     }
                 },
                 "description": "Indicates the optional attributes for the shipment related to the pickup inquiry.",
@@ -1855,45 +1606,6 @@
                         "units": "CM",
                         "height": 9
                     }
-                }
-            },
-            "Dimensions_2": {
-                "type": "object",
-                "properties": {
-                    "length": {
-                        "type": "integer",
-                        "description": "Indicate the length of the package. No implied decimal places. Maximum value is 999. <br> Example: 20",
-                        "format": "int32",
-                        "example": 7
-                    },
-                    "width": {
-                        "type": "integer",
-                        "description": "Indicate the width of the package. No implied decimal places. Maximum value is 999. <br> Example: 10",
-                        "format": "int32",
-                        "example": 8
-                    },
-                    "height": {
-                        "type": "integer",
-                        "description": "Indicate the height of the package. No implied decimal places. Maximum value is 999. <br> Example: 10",
-                        "format": "int32",
-                        "example": 10
-                    },
-                    "units": {
-                        "type": "string",
-                        "description": "Unit of measure for the provided dimensions.<br><i>Note: Any value other than CM including blank/null will default to IN.</i>",
-                        "example": "CM",
-                        "enum": [
-                            "CM",
-                            "IN"
-                        ]
-                    }
-                },
-                "description": "Indicate the dimensions of the package.<br> Following conditions will apply: <ul><li>Dimensions are optional but when added, then all three dimensions must be indicated.</li><li>Dimensions are required with YOUR_PACKAGING package type.</li></ul>Note: The maximum/minimum dimension values varies based on the services and the packaging types. Refer <a href=\" https://www.fedex.com/en-us/service-guide.html# \" target=\"_blank\">FedEx Service Guide</a> for service details related to DIM Weighting for FedEx Express and oversize conditions for FedEx Express and FedEx Ground.",
-                "example": {
-                    "length": 7,
-                    "width": 8,
-                    "height": 9,
-                    "units": "CM"
                 }
             },
             "RequestedPickupPackageDetail": {
@@ -2060,6 +1772,214 @@
                     }
                 },
                 "type": "object"
+            },
+            "ErrorResponseVO": {
+                "type": "object",
+                "properties": {
+                    "transactionId": {
+                        "type": "string",
+                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 6f821609-aeb6-4ffe-b783-6e60b20f2801",
+                        "example": "6f821609-aeb6-4ffe-b783-6e60b20f2801"
+                    },
+                    "customerTransactionId": {
+                        "type": "string",
+                        "description": "\"This element allows you to assign a unique identifier to your transaction.  This element is also returned in the reply and help you match the request to the reply <br> Example : AnyCo_order123456789\"",
+                        "example": "AnyCo_order123456789"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CXSError"
+                        }
+                    }
+                }
+            },
+            "CXSError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "description": "Indicates the error code.<br>Example: PICKUP.POSTALCODE.MISSING"
+                    },
+                    "parameterList": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Parameter"
+                        }
+                    },
+                    "message": {
+                        "type": "string",
+                        "description": "Indicates the description of API error alert message.<br>Example: PostalCode is missing."
+                    }
+                },
+                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
+            },
+            "Address": {
+                "type": "object",
+                "properties": {
+                    "streetLines": {
+                        "type": "array",
+                        "description": "This is a combination of number, street name, etc. <br>Note: At least one line is required and streetlines more than 3 will be ignored. Empty lines should not be included.<br>Example: [\\\"10 FedEx Parkway\\\", \\\"Suite 302\\\"]",
+                        "items": {
+                            "type": "string",
+                            "example": "[[\"123 Ship Street\"]]"
+                        }
+                    },
+                    "urbanizationCode": {
+                        "type": "string",
+                        "description": "Optional<br> In Puerto Rico, identical street names and address number ranges can be found within the same ZIP Code. In these cases, the urbanization name is the only element that correctly identifies the location of a particular address.<br> Example: URB FAIR OAKS",
+                        "example": "URB FAIR OAKS"
+                    },
+                    "city": {
+                        "type": "string",
+                        "description": "This is a placeholder for City Name. <br>Note: This is conditional and not required in all the shipping requests. <br> Example: Beverly Hills",
+                        "example": "Memphis"
+                    },
+                    "stateOrProvinceCode": {
+                        "type": "string",
+                        "description": "This is a placeholder for State or Province code.Maximum length is 2. Maximum length is 2<br> Example: CA <br><a onclick='loadDocReference(\"canadaprovincecodes\")'>Click here to see State/Province Code</a>",
+                        "example": "TN"
+                    },
+                    "postalCode": {
+                        "type": "string",
+                        "description": "This is a placeholder for postal code.<br>Note: The postal code is required for postal-aware countries. <br> Example: 38127<br><a onclick='loadDocReference(\"postalawarecountries\")'>Click here to see Postal aware countries</a>",
+                        "example": "38017"
+                    },
+                    "countryCode": {
+                        "type": "string",
+                        "description": "This is the two-letter country code.<br>Example: US<br><a onclick='loadDocReference(\"countrycodes\")'>Click here to see Country Codes</a>",
+                        "example": "US"
+                    },
+                    "residential": {
+                        "type": "boolean",
+                        "description": "Indicate whether this address is Residential as opposed to Commercial.",
+                        "example": false
+                    },
+                    "addressClassification": {
+                        "type": "string",
+                        "description": "Classifies a given address as either of unknown, residential, mixed or business.",
+                        "example": "MIXED",
+                        "enum": [
+                            "MIXED",
+                            "UNKNOWN",
+                            "BUSINESS",
+                            "RESIDENTIAL"
+                        ]
+                    }
+                },
+                "description": "Descriptive data for a physical location. May be used as an actual physical address (place to which one could go), or as a container of \"address parts\" which should be handled as a unit (such as a city-state-ZIP combination within the US).",
+                "example": {
+                    "streetLines": [
+                        "123 Ship Street"
+                    ],
+                    "urbanizationCode": "URB FAIR OAKS",
+                    "city": "Memphis",
+                    "stateOrProvinceCode": "TN",
+                    "postalCode": "38017",
+                    "countryCode": "US",
+                    "residential": false,
+                    "addressClassification": "MIXED"
+                }
+            },
+            "Address_2": {
+                "type": "object",
+                "properties": {
+                    "streetLines": {
+                        "type": "array",
+                        "description": "Specify Street line details for the given address <br> Example :[\\\"10 FedEx Parkway\\\", \\\"Suite 302\\\"]",
+                        "items": {
+                            "type": "string",
+                            "example": "[[\"123 Ship Street\"]]"
+                        }
+                    },
+                    "city": {
+                        "type": "string",
+                        "description": "Conditional<br>The name of city, town, etc.<br> Example: Memphis",
+                        "example": "Memphis"
+                    },
+                    "stateOrProvinceCode": {
+                        "type": "string",
+                        "description": "This is state or province code. Maximum length is 2.<br> Example: ON <br><a onclick='loadDocReference(\"canadaprovincecodes\")'>Click here to see State/Province Code</a>",
+                        "example": "TN"
+                    },
+                    "postalCode": {
+                        "type": "string",
+                        "description": "Specify the postal code. This is optional for non postal-aware countries. Maximum length is 10.<br> Example: 38017<br><a onclick='loadDocReference(\"postalawarecountries\")'>Click here to see Postal aware countries</a>",
+                        "example": "38017"
+                    },
+                    "countryCode": {
+                        "type": "string",
+                        "description": "The two-letter code used to identify a country. Maximum length is 2.<br>Example: US<br><a onclick='loadDocReference(\"countrycodes\")'>Click here to see Country Codes</a>",
+                        "example": "US"
+                    },
+                    "residential": {
+                        "type": "boolean",
+                        "description": "Indicates whether this address is residential (as opposed to commercial).",
+                        "example": false
+                    },
+                    "addressClassification": {
+                        "type": "string",
+                        "description": "Classifies a given address as either of unknown, residential, mixed or business.",
+                        "example": "MIXED",
+                        "enum": [
+                            "MIXED",
+                            "UNKNOWN",
+                            "BUSINESS",
+                            "RESIDENTIAL"
+                        ]
+                    }
+                },
+                "description": "Conditionally required. For the Address, street, city and country are required if PickupAddressType is set to SHIPPER or OTHER.",
+                "example": {
+                    "streetLines": [
+                        "123 Ship Street"
+                    ],
+                    "city": "Memphis",
+                    "stateOrProvinceCode": "TN",
+                    "postalCode": "38017",
+                    "countryCode": "US",
+                    "residential": false,
+                    "addressClassification": "MIXED"
+                }
+            },
+            "Dimensions": {
+                "type": "object",
+                "properties": {
+                    "length": {
+                        "type": "integer",
+                        "description": "Indicate the length of the package. No implied decimal places. Maximum value is 999. <br> Example: 20",
+                        "format": "int32",
+                        "example": 7
+                    },
+                    "width": {
+                        "type": "integer",
+                        "description": "Indicate the width of the package. No implied decimal places. Maximum value is 999. <br> Example: 10",
+                        "format": "int32",
+                        "example": 8
+                    },
+                    "height": {
+                        "type": "integer",
+                        "description": "Indicate the height of the package. No implied decimal places. Maximum value is 999. <br> Example: 10",
+                        "format": "int32",
+                        "example": 10
+                    },
+                    "units": {
+                        "type": "string",
+                        "description": "Unit of measure for the provided dimensions.<br><i>Note: Any value other than CM including blank/null will default to IN.</i>",
+                        "example": "CM",
+                        "enum": [
+                            "CM",
+                            "IN"
+                        ]
+                    }
+                },
+                "description": "Indicate the dimensions of the package.<br> Following conditions will apply: <ul><li>Dimensions are optional but when added, then all three dimensions must be indicated.</li><li>Dimensions are required with YOUR_PACKAGING package type.</li></ul>Note: The maximum/minimum dimension values varies based on the services and the packaging types. Refer <a href=\" https://www.fedex.com/en-us/service-guide.html# \" target=\"_blank\">FedEx Service Guide</a> for service details related to DIM Weighting for FedEx Express and oversize conditions for FedEx Express and FedEx Ground.",
+                "example": {
+                    "length": 7,
+                    "width": 8,
+                    "height": 9,
+                    "units": "CM"
+                }
             }
         }
     },

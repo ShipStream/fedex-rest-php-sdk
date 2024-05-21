@@ -8,7 +8,7 @@ use Exception;
 use Saloon\Enums\Method;
 use Saloon\Http\Response;
 use ShipStream\FedEx\Api\PickupRequestV1\Dto\FullSchemaCancelPickup;
-use ShipStream\FedEx\Api\PickupRequestV1\Responses\ErrorResponseVo2;
+use ShipStream\FedEx\Api\PickupRequestV1\Responses\ErrorResponseVo;
 use ShipStream\FedEx\Api\PickupRequestV1\Responses\ErrorResponseVo401;
 use ShipStream\FedEx\Api\PickupRequestV1\Responses\ErrorResponseVo403;
 use ShipStream\FedEx\Api\PickupRequestV1\Responses\ErrorResponseVo404;
@@ -44,11 +44,11 @@ class CancelPickup extends Request
 
     public function createDtoFromResponse(
         Response $response,
-    ): PudcResponseVoCancelPickup|ErrorResponseVo2|ErrorResponseVo401|ErrorResponseVo403|ErrorResponseVo404|ErrorResponseVo500|ErrorResponseVo503 {
+    ): PudcResponseVoCancelPickup|ErrorResponseVo|ErrorResponseVo401|ErrorResponseVo403|ErrorResponseVo404|ErrorResponseVo500|ErrorResponseVo503 {
         $status = $response->status();
         $responseCls = match ($status) {
             200 => PudcResponseVoCancelPickup::class,
-            400 => ErrorResponseVo2::class,
+            400 => ErrorResponseVo::class,
             401 => ErrorResponseVo401::class,
             403 => ErrorResponseVo403::class,
             404 => ErrorResponseVo404::class,
