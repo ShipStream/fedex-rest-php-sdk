@@ -26,7 +26,7 @@ final class RequestedShipment extends Dto
      * @param  ?Money  $totalDeclaredValue  Specifies taxes or miscellaneous charge.
      * @param  ?string  $recipientLocationNumber  A unique identifier for a recipient location.
      * @param  ?float  $totalWeight  Indicate the shipment total weight in pounds.<br>Example: 10.6<br><br>Note: <ul><li>This only applies to International shipments and should be used on the first package of a multiple piece shipment.</li><li>This value contains 1 explicit decimal position.</li><li>For one Label at a time shipments, the unit of totalWeight is considered same as the unit of weight provided in requestedPackageLineItem field.</li></ul>
-     * @param  ?ContactAndAddress1  $origin  Specify a contact and address instead of the sender address that will be printed on FedEx label. The sender address will be printed if it is not provided.Using this, you can designate a return address that's different from the sender's. The destination address must be in the same country as the sender.
+     * @param  ?ContactAndAddress  $origin  Specifies the contact and address details of a location.
      * @param  ?ShipmentSpecialServicesRequested  $shipmentSpecialServices  Specify the special services requested at the shipment level.<br>If the shipper is requesting a special service which requires additional data (such as the COD amount), the shipment special service type must be present in the specialServiceTypes collection, and the supporting detail must be provided in the appropriate sub-object below.<br>RETURN_SHIPMENT is required for creating return shipments.
      * @param  ?ShipShipmentEmailNotificationDetail  $emailNotificationDetail  This is used to provide eMail notification information..
      * @param  ?ExpressFreightDetail  $expressFreightDetail  Indicates the advance booking number, shipper load /count and packing list details. This details must be provided by the user during freight shipment.
@@ -53,7 +53,7 @@ final class RequestedShipment extends Dto
         public readonly ?Money $totalDeclaredValue = null,
         public readonly ?string $recipientLocationNumber = null,
         public readonly ?float $totalWeight = null,
-        public readonly ?ContactAndAddress1 $origin = null,
+        public readonly ?ContactAndAddress $origin = null,
         public readonly ?ShipmentSpecialServicesRequested $shipmentSpecialServices = null,
         public readonly ?ShipShipmentEmailNotificationDetail $emailNotificationDetail = null,
         public readonly ?ExpressFreightDetail $expressFreightDetail = null,

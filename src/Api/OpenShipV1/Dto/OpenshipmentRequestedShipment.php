@@ -24,7 +24,7 @@ final class OpenshipmentRequestedShipment extends Dto
      * @param  ?string  $shipDatestamp  This is the shipment date. Default value is current date in case the date is not provided or a past date is provided.<br>Format [YYYY-MM-DD].<br>Example: 2019-10-14
      * @param  ?float  $totalWeight  shipment total weight should be in Kg or in Lbs <br><br>Example: 20.6.
      * @param  ?SoldToParty  $soldTo  Will indicate the party responsible for purchasing the goods shipped from the shipper to the recipient. The sold to party is not necessarily the recipient or the importer of record. The sold to party is relevant when the purchaser, rather than the recipient determines when certain customs regulations apply.
-     * @param  ?ContactAndAddress1  $origin  Specify a contact and address instead of the sender address that will be printed on FedEx label. The sender address will be printed if it is not provided.Using this, you can designate a return address that's different from the sender's. The destination address must be in the same country as the sender.
+     * @param  ?ContactAndAddress  $origin  Specifies the contact and address details of a location.
      * @param  ?OpenShipmentSpecialServicesRequested  $shipmentSpecialServices  These special services are available at the shipment level for some or all service types.<br>If the shipper is requesting a special service which requires additional data (such as the COD amount), the shipment special service type must be present in the specialServiceTypes collection, and the supporting detail must be provided in the appropriate sub-object.
      * @param  ?EMailNotificationDetail  $emailNotificationDetail  This is used to provide eMail notification information.
      * @param  ?ExpressFreightDetail  $expressFreightDetail  Indicates the advance booking number, shipper load /count and packing list details. This details must be provided by the user during freight shipment.
@@ -46,7 +46,7 @@ final class OpenshipmentRequestedShipment extends Dto
         public readonly ?string $shipDatestamp = null,
         public readonly ?float $totalWeight = null,
         public readonly ?SoldToParty $soldTo = null,
-        public readonly ?ContactAndAddress1 $origin = null,
+        public readonly ?ContactAndAddress $origin = null,
         public readonly ?OpenShipmentSpecialServicesRequested $shipmentSpecialServices = null,
         public readonly ?EMailNotificationDetail $emailNotificationDetail = null,
         public readonly ?ExpressFreightDetail $expressFreightDetail = null,

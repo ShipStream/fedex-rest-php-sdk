@@ -12,7 +12,7 @@ final class CxsError403 extends Dto
 
     /**
      * @param  ?string  $code  Indicates the error code.<br>Example: FORBIDDEN.ERROR
-     * @param  Parameter[]|null  $parameterList  Specifies the message parameter list.
+     * @param  Parameter[]|null  $parameterList  Specifies list of parameters.
      * @param  ?string  $message  Indicates the description of API error alert message.<br>Example: We could not authorize your credentials. Please check your permissions and try again
      */
     public function __construct(

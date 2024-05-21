@@ -12,7 +12,7 @@ final class CxsError404 extends Dto
 
     /**
      * @param  ?string  $code  Indicates the error code.<br>Example: NOT.FOUND.ERROR
-     * @param  Parameter[]|null  $parameterList  Specifies the message parameter list.
+     * @param  Parameter[]|null  $parameterList  Specifies list of parameters.
      * @param  ?string  $message  Indicates the description of API error alert message.<br>Example: The resource you requested is no longer available. Please modify your request and try again.
      */
     public function __construct(

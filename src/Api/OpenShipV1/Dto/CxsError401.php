@@ -12,7 +12,7 @@ final class CxsError401 extends Dto
 
     /**
      * @param  ?string  $code  Indicates the error code.<br>Example: NOT.AUTHORIZED.ERROR
-     * @param  Parameter[]|null  $parameterList  Specifies the message parameter list.
+     * @param  Parameter[]|null  $parameterList  Specifies list of parameters.
      * @param  ?string  $message  Indicates the description of API error alert message.<br>Example: Access token expired. Please modify your request and try again.
      */
     public function __construct(
