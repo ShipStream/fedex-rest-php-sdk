@@ -21,7 +21,7 @@ class ResourceGenerator extends SDKResourceGenerator
      */
     public function generateResourceClass(string $resourceName, array $endpoints): ?PhpFile
     {
-        [$classFile, $namespace, $classType] = $this->makeClass($resourceName, $this->config->namespaceSuffixes['resource']);
+        [$classFile, $namespace, $classType] = $this->makeClass('Api', $this->config->namespaceSuffixes['resource']);
 
         $baseResourceFqn = $this->baseClassFqn();
         $namespace->addUse($baseResourceFqn);
