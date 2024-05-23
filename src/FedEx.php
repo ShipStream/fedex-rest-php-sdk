@@ -2,12 +2,9 @@
 
 declare(strict_types=1);
 
-namespace FedEx;
+namespace ShipStream\FedEx;
 
-use App\Enums\GrantType;
 use InvalidArgumentException;
-use Saloon\Contracts\Authenticator;
-use Saloon\Helpers\OAuth2\OAuthConfig;
 use Saloon\Http\Connector;
 use Saloon\Http\Request;
 use Saloon\Traits\OAuth2\ClientCredentialsGrant;
@@ -27,6 +24,7 @@ use ShipStream\FedEx\Api\ShipV1\ShipV1;
 use ShipStream\FedEx\Api\TrackV1\TrackV1;
 use ShipStream\FedEx\Api\TradeDocumentsUploadV1\TradeDocumentsUploadV1;
 use ShipStream\FedEx\Enums\Endpoint;
+use ShipStream\FedEx\Enums\GrantType;
 
 class FedEx extends Connector
 {
@@ -34,8 +32,8 @@ class FedEx extends Connector
     use ClientCredentialsGrant;
 
     public function __construct(
-        public string $apiKey,
-        public string $secretKey,
+        public string $clientId,
+        public string $clientSecret,
         public Endpoint $endpoint = Endpoint::PROD,
         public ?string $childKey = null,
         public ?string $childSecret = null,
@@ -44,6 +42,12 @@ class FedEx extends Connector
         if (($this->childKey && ! $this->childSecret) || ($this->childSecret && ! $this->childKey)) {
             throw new InvalidArgumentException('Both childKey and childSecret must be provided.');
         }
+
+        $this->oauthConfig()->setClientId($clientId);
+        $this->oauthConfig()->setClientSecret($clientSecret);
+
+        $authenticator = $this->getAccessToken();
+        $this->authenticate($authenticator);
     }
 
     public function resolveBaseUrl(): string
@@ -51,11 +55,7 @@ class FedEx extends Connector
         return $this->endpoint->value;
     }
 
-    public function defaultAuth(): Authenticator
     {
-        return $this->getAccessToken();
-    }
-
     public function addressValidationV1(): AddressValidationV1
     {
         return new AddressValidationV1($this);
@@ -119,8 +119,8 @@ class FedEx extends Connector
     protected function resolveAccessTokenRequest(): Request
     {
         $args = [
-            'clientId' => $this->apiKey,
-            'clientSecret' => $this->secretKey,
+            'clientId' => $this->clientId,
+            'clientSecret' => $this->clientSecret,
             'grantType' => GrantType::CLIENT_CREDENTIALS,
         ];
 
@@ -136,22 +136,4 @@ class FedEx extends Connector
 
         return new ApiAuthorization(new FullSchema(...$args));
     }
-
-    // protected function defaultOauthConfig(): OAuthConfig
-    // {
-    //     return OAuthConfig::make()
-    //         ->setClientId($this->apiKey)
-    //         ->setClientSecret($this->secretKey)
-    //         // This is hardcoded, but is the same as the result of calling
-    //         // AuthorizationV1\Requests\ApiAuthorization::resolveEndpoint()
-    //         ->setTokenEndpoint('/oauth/token')
-    //         ->setRequestModifier(function (Request $request) {
-    //             $request->body()->add('grant_type', 'client_credentials');
-    //             $request->headers()->add('Content-Type', 'application/x-www-form-urlencoded');
-    //             if ($this->childKey) {
-    //                 $existingBody = $request->toArray();
-    //                 $request->body($existingBody.'&grant_type=client_credentials');
-    //             }
-    //         });
-    // }
 }

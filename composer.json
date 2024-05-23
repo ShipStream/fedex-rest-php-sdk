@@ -15,7 +15,8 @@
         "symfony/console": "^7.0",
         "phpcompatibility/php-compatibility": "^9.3",
         "laravel/pint": "^1.15",
-        "composer/semver": "^3.4"
+        "composer/semver": "^3.4",
+        "ramsey/uuid": "^4.7"
     },
     "autoload": {
         "psr-4": {
