@@ -6,7 +6,7 @@ namespace ShipStream\FedEx\Api\ServiceAvailabilityV1\Dto;
 
 use ShipStream\FedEx\Dto;
 
-final class PackageAndOptionsRequestedShipment2 extends Dto
+final class PackageAndOptionsRequestedShipment extends Dto
 {
     protected static array $complexArrayTypes = [
         'recipients' => [TransitTimeRecipient::class],

@@ -6,7 +6,7 @@ namespace ShipStream\FedEx\Api\ServiceAvailabilityV1\Dto;
 
 use ShipStream\FedEx\Dto;
 
-final class KeyDisplayTextVo1 extends Dto
+final class KeyDisplayTextVo extends Dto
 {
     /**
      * @param  ?string  $displayText  Display Text

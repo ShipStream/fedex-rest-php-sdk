@@ -6,7 +6,7 @@ namespace ShipStream\FedEx\Api\ServiceAvailabilityV1\Dto;
 
 use ShipStream\FedEx\Dto;
 
-final class Weight1 extends Dto
+final class Weight extends Dto
 {
     /**
      * @param  ?string  $units  Specify the unit of measurement used to weigh the shipment. The package and commodity weight unit should be the same else the request will result in an error.

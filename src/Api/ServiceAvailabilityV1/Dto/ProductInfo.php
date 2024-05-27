@@ -14,7 +14,7 @@ final class ProductInfo extends Dto
      * @param  ?float  $customsValue  Customs value of the product in the package/shipment.
      * @param  ?string  $weightUnitOfMeasureCode  Weight measurement unit code of the product in the package/shipment.
      * @param  ?string  $description  Description of the product in the package/shipment.
-     * @param  ?Weight1  $weight  Specify the total weight of the shipment. <br>This is only applies to International shipments and should be used on the first package of a multiple piece shipment. This value contains 1 explicit decimal position.
+     * @param  ?Weight  $weight  Specify the total weight of the shipment. <br>This is only applies to International shipments and should be used on the first package of a multiple piece shipment. This value contains 1 explicit decimal position.
      * @param  ?bool  $sedRequired  Indicates if shippers export declaration is required or not.
      * @param  ?string  $productType  Indicates the package/shipment contains documents or non-document commodities.
      * @param  ?string  $unitOfMeasureCode  Specifies if shippers export declaration is required.<br>Valid values: True, False.
@@ -26,7 +26,7 @@ final class ProductInfo extends Dto
         public readonly ?float $customsValue = null,
         public readonly ?string $weightUnitOfMeasureCode = null,
         public readonly ?string $description = null,
-        public readonly ?Weight1 $weight = null,
+        public readonly ?Weight $weight = null,
         public readonly ?bool $sedRequired = null,
         public readonly ?string $productType = null,
         public readonly ?string $unitOfMeasureCode = null,

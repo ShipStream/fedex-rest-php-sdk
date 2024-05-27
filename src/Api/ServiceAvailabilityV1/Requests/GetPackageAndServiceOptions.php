@@ -11,12 +11,8 @@ use Saloon\Http\Response;
 use Saloon\Traits\Body\HasJsonBody;
 use ShipStream\FedEx\Api\ServiceAvailabilityV1\Dto\FullSchemaPackageAndServiceOptions;
 use ShipStream\FedEx\Api\ServiceAvailabilityV1\Responses\CmdcResponseVo;
+use ShipStream\FedEx\Api\ServiceAvailabilityV1\Responses\ErrorResponseVo;
 use ShipStream\FedEx\Api\ServiceAvailabilityV1\Responses\ErrorResponseVo2;
-use ShipStream\FedEx\Api\ServiceAvailabilityV1\Responses\ErrorResponseVo401;
-use ShipStream\FedEx\Api\ServiceAvailabilityV1\Responses\ErrorResponseVo403;
-use ShipStream\FedEx\Api\ServiceAvailabilityV1\Responses\ErrorResponseVo404;
-use ShipStream\FedEx\Api\ServiceAvailabilityV1\Responses\ErrorResponseVo500;
-use ShipStream\FedEx\Api\ServiceAvailabilityV1\Responses\ErrorResponseVo503;
 use ShipStream\FedEx\Request;
 
 /**
@@ -46,18 +42,13 @@ class GetPackageAndServiceOptions extends Request implements HasBody
         return '/availability/v1/packageandserviceoptions';
     }
 
-    public function createDtoFromResponse(
-        Response $response,
-    ): CmdcResponseVo|ErrorResponseVo2|ErrorResponseVo401|ErrorResponseVo403|ErrorResponseVo404|ErrorResponseVo500|ErrorResponseVo503 {
+    public function createDtoFromResponse(Response $response): CmdcResponseVo|ErrorResponseVo2|ErrorResponseVo
+    {
         $status = $response->status();
         $responseCls = match ($status) {
             200 => CmdcResponseVo::class,
-            400 => ErrorResponseVo2::class,
-            401 => ErrorResponseVo401::class,
-            403 => ErrorResponseVo403::class,
-            404 => ErrorResponseVo404::class,
-            500 => ErrorResponseVo500::class,
-            503 => ErrorResponseVo503::class,
+            400, 401, 403, 404, 503 => ErrorResponseVo2::class,
+            500 => ErrorResponseVo::class,
             default => throw new Exception("Unhandled response status: {$status}")
         };
 

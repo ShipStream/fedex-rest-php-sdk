@@ -12,7 +12,7 @@ final class OptionalServices extends Dto
         'signatureOptionsList' => [CodeDisplayTextVo::class],
         'packageSpecialServicesList' => [PackageSpecialServiceOption::class],
         'batteryOptionList' => [BatteryDetail::class],
-        'alertList' => [KeyDisplayTextVo1::class],
+        'alertList' => [KeyDisplayTextVo::class],
         'shipmentSpecialServicesList' => [ShipmentSpecialServiceOption::class],
         'alerts' => [Alert::class],
     ];
@@ -25,7 +25,7 @@ final class OptionalServices extends Dto
      * @param  ?string[]  $returnShipmentList
      * @param  ?string  $carrierCode  Specify the four letter code of a FedEx operating company that meets your requirements<br>Examples of FedEx Operating Companies are:<ul><li>FDXE - FedEx Express</li><li>FDXG - FedEx Ground</li><li>FXSP - FedEx SmartPost</li><li>FXCC - FedEx Custom Critical.</li></ul>
      * @param  BatteryDetail[]|null  $batteryOptionList  Indicates the battery option list.
-     * @param  KeyDisplayTextVo1[]|null  $alertList  Indicates the alert details.
+     * @param  KeyDisplayTextVo[]|null  $alertList  Indicates the alert details.
      * @param  ShipmentSpecialServiceOption[]|null  $shipmentSpecialServicesList  Indicates the list of special services that are available at the shipment level for some or all service types.
      * @param  Alert[]|null  $alerts  These are alert details received with the response.
      */

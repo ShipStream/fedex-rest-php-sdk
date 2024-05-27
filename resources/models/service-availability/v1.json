@@ -242,7 +242,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO401"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -261,7 +261,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO403"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -280,7 +280,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO404"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -299,7 +299,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO500"
+                                    "$ref": "#/components/schemas/ErrorResponseVO"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -319,7 +319,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO503"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -462,7 +462,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO401"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -481,7 +481,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO403"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -500,7 +500,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO404"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -519,7 +519,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO500"
+                                    "$ref": "#/components/schemas/ErrorResponseVO"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -539,7 +539,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO503"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -650,7 +650,6 @@
                     },
                     "output": {
                         "description": "This is the output response details for the services and transit time request.",
-                        "type": "object",
                         "$ref": "#/components/schemas/TransitTimeOutput"
                     }
                 },
@@ -821,7 +820,6 @@
                     },
                     "derivedDestinationDetail": {
                         "description": "FedEx internal destination address/location details.",
-                        "type": "object",
                         "$ref": "#/components/schemas/CleansedAddressandLocationDetail"
                     },
                     "dateDetail": {
@@ -880,47 +878,6 @@
                     }
                 }
             },
-            "ErrorResponseVO": {
-                "type": "object",
-                "properties": {
-                    "transactionId": {
-                        "type": "string",
-                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
-                        "example": "624deea6-b709-470c-8c39-4b5511281492"
-                    },
-                    "customerTransactionId": {
-                        "type": "string",
-                        "description": "This element allows you to assign a unique identifier to your transaction. This element is also returned in the reply and helps you match the request to the reply. <br> Example: AnyCo_order123456789",
-                        "example": "AnyCo_order123456789"
-                    },
-                    "errors": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/CXSError"
-                        }
-                    }
-                }
-            },
-            "CXSError": {
-                "type": "object",
-                "properties": {
-                    "code": {
-                        "type": "string",
-                        "description": "Indicates the error code.<br>Example: PACKAGE.NULLOREMPTY.REQUIRED"
-                    },
-                    "parameterList": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/Parameter"
-                        }
-                    },
-                    "message": {
-                        "type": "string",
-                        "description": "Indicates the description of API error alert message.<br>Example: The packaging is required and cannot be null or empty"
-                    }
-                },
-                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
-            },
             "Parameter": {
                 "type": "object",
                 "properties": {
@@ -934,42 +891,6 @@
                     }
                 },
                 "description": "List of parameters which indicates the properties of the alert message."
-            },
-            "ErrorResponseVO_2": {
-                "type": "object",
-                "properties": {
-                    "transactionId": {
-                        "type": "string",
-                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
-                        "example": "624deea6-b709-470c-8c39-4b5511281492"
-                    },
-                    "errors": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/CXSError_2"
-                        }
-                    }
-                }
-            },
-            "CXSError_2": {
-                "type": "object",
-                "properties": {
-                    "code": {
-                        "type": "string",
-                        "description": "Indicates the error code.<br>Example: PACKAGE.NULLOREMPTY.REQUIRED,LOGIN.REAUTHENTICATE.ERROR,UNAUTHORIZED.USAGE,NOT.FOUND.ERROR,INTERNAL.SERVER.ERROR"
-                    },
-                    "parameterList": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/Parameter"
-                        }
-                    },
-                    "message": {
-                        "type": "string",
-                        "description": "Indicates the description of API error alert message.<br>Example: We are unable to process this request. Please try again later or contact FedEx Customer Service."
-                    }
-                },
-                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
             },
             "Full_Schema_TransitTime": {
                 "type": "object",
@@ -1247,7 +1168,7 @@
                             "description": "Response model which holds information about advancedRegulatoryPackages such as Key, DisplayText",
                             "type": "object",
                             "schema": {
-                                "$ref": "#/components/schemas/KeyDisplayTextVO1"
+                                "$ref": "#/components/schemas/KeyDisplayTextVO"
                             }
                         }
                     },
@@ -1261,7 +1182,7 @@
                         "items": {
                             "type": "object",
                             "schema": {
-                                "$ref": "#/components/schemas/KeyDisplayTextVO1"
+                                "$ref": "#/components/schemas/KeyDisplayTextVO"
                             }
                         }
                     },
@@ -1340,15 +1261,15 @@
                 "properties": {
                     "serviceType": {
                         "description": "Service Type represents some services like FEDEX_GROUND,INTERNATIONAL_PRIORITY, etc..,<br>Example: INTERNATIONAL_PRIORITY<br><a onclick='loadDocReference(\"servicetypes\")'>Click here to see Service Types</a>",
-                        "$ref": "#/components/schemas/KeyDisplayTextVO1"
+                        "$ref": "#/components/schemas/KeyDisplayTextVO"
                     },
                     "oneRateMaxWeightAllowed": {
                         "description": "Maximum Weight allowed for the Packaging type to send with One Fixed Rate",
-                        "$ref": "#/components/schemas/Weight1"
+                        "$ref": "#/components/schemas/Weight"
                     },
                     "maxWeightAllowed": {
                         "description": "Maximum Weight allowed for the Packaging type",
-                        "$ref": "#/components/schemas/Weight1"
+                        "$ref": "#/components/schemas/Weight"
                     },
                     "rateTypes": {
                         "type": "array",
@@ -1366,19 +1287,18 @@
                         }
                     },
                     "packageType": {
-                        "$ref": "#/components/schemas/KeyDisplayTextVO1"
+                        "$ref": "#/components/schemas/KeyDisplayTextVO"
                     },
                     "maxMetricWeightAllowed": {
                         "description": "Maximum Metric Weight allowed for the Packaging type",
-                        "$ref": "#/components/schemas/Weight1"
+                        "$ref": "#/components/schemas/Weight"
                     },
                     "oneRateMaxMetricWeightAllowed": {
                         "description": "Maximum Metric Weight allowed for the Packaging type with One Fixed Rate",
-                        "$ref": "#/components/schemas/Weight1"
+                        "$ref": "#/components/schemas/Weight"
                     },
                     "maxDeclaredValue": {
                         "description": "This is the maximum declared value.",
-                        "type": "object",
                         "$ref": "#/components/schemas/Money"
                     }
                 },
@@ -1392,51 +1312,6 @@
                         "units": "LB",
                         "value": 1.5
                     }
-                }
-            },
-            "KeyDisplayTextVO1": {
-                "type": "object",
-                "properties": {
-                    "displayText": {
-                        "type": "string",
-                        "description": "Display Text",
-                        "example": "FedEx Ground"
-                    },
-                    "key": {
-                        "type": "string",
-                        "description": "Unique Key",
-                        "example": "FEDEX_GROUND"
-                    }
-                },
-                "description": "this object holds applicable key and display text value pairs.",
-                "example": {
-                    "displayText": "FedEx Ground",
-                    "key": "FEDEX_GROUND"
-                }
-            },
-            "Weight1": {
-                "type": "object",
-                "properties": {
-                    "units": {
-                        "type": "string",
-                        "description": "Specify the unit of measurement used to weigh the shipment. The package and commodity weight unit should be the same else the request will result in an error.",
-                        "example": "LB",
-                        "enum": [
-                            "KG",
-                            "LB"
-                        ]
-                    },
-                    "value": {
-                        "type": "number",
-                        "description": "Specify the value of weight of shipment.<br>Example: 68.25",
-                        "format": "double",
-                        "example": 10
-                    }
-                },
-                "description": "Specify the total weight of the shipment. <br>This is only applies to International shipments and should be used on the first package of a multiple piece shipment. This value contains 1 explicit decimal position.",
-                "example": {
-                    "units": "LB",
-                    "value": 10
                 }
             },
             "SubPackageInfo": {
@@ -1476,191 +1351,6 @@
                 },
                 "description": "Optional, but if indicated 'amount' and 'currency' must be provided."
             },
-            "ErrorResponseVO401": {
-                "type": "object",
-                "properties": {
-                    "transactionId": {
-                        "type": "string",
-                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
-                        "example": "624deea6-b709-470c-8c39-4b5511281492"
-                    },
-                    "errors": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/CXSError401"
-                        }
-                    }
-                }
-            },
-            "CXSError401": {
-                "type": "object",
-                "properties": {
-                    "code": {
-                        "type": "string",
-                        "description": "Indicates the error code.<br>Example: NOT.AUTHORIZED.ERROR"
-                    },
-                    "parameterList": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/Parameter"
-                        }
-                    },
-                    "message": {
-                        "description": "Indicates the description of API error alert message.<br>Example: Access token expired. Please modify your request and try again.",
-                        "type": "string"
-                    }
-                },
-                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
-            },
-            "ErrorResponseVO403": {
-                "type": "object",
-                "properties": {
-                    "transactionId": {
-                        "type": "string",
-                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
-                        "example": "624deea6-b709-470c-8c39-4b5511281492"
-                    },
-                    "errors": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/CXSError403"
-                        }
-                    }
-                }
-            },
-            "CXSError403": {
-                "type": "object",
-                "properties": {
-                    "code": {
-                        "type": "string",
-                        "description": "Indicates the error code.<br>Example: FORBIDDEN.ERROR"
-                    },
-                    "parameterList": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/Parameter"
-                        }
-                    },
-                    "message": {
-                        "description": "Indicates the description of API error alert message.<br>Example: We could not authorize your credentials. Please check your permissions and try again",
-                        "type": "string"
-                    }
-                },
-                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
-            },
-            "ErrorResponseVO404": {
-                "type": "object",
-                "properties": {
-                    "transactionId": {
-                        "type": "string",
-                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
-                        "example": "624deea6-b709-470c-8c39-4b5511281492"
-                    },
-                    "errors": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/CXSError404"
-                        }
-                    }
-                }
-            },
-            "CXSError404": {
-                "type": "object",
-                "properties": {
-                    "code": {
-                        "type": "string",
-                        "description": "Indicates the error code.<br>Example: NOT.FOUND.ERROR"
-                    },
-                    "parameterList": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/Parameter"
-                        }
-                    },
-                    "message": {
-                        "description": "Indicates the description of API error alert message.<br>Example: The resource you requested is no longer available. Please modify your request and try again.",
-                        "type": "string"
-                    }
-                },
-                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
-            },
-            "ErrorResponseVO500": {
-                "type": "object",
-                "properties": {
-                    "transactionId": {
-                        "type": "string",
-                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
-                        "example": "624deea6-b709-470c-8c39-4b5511281492"
-                    },
-                    "customerTransactionId": {
-                        "type": "string",
-                        "description": "This element allows you to assign a unique identifier to your transaction. This element is also returned in the reply and helps you match the request to the reply. <br> Example: AnyCo_order123456789",
-                        "example": "AnyCo_order123456789"
-                    },
-                    "errors": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/CXSError500"
-                        }
-                    }
-                }
-            },
-            "CXSError500": {
-                "type": "object",
-                "properties": {
-                    "code": {
-                        "type": "string",
-                        "description": "Indicates the error code.<br>Example: INTERNAL.SERVER.ERROR"
-                    },
-                    "parameterList": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/Parameter"
-                        }
-                    },
-                    "message": {
-                        "description": "Indicates the description of API error alert message.<br>Example: We encountered an unexpected error and are working to resolve the issue. We apologize for any inconvenience. Please check back at a later time.",
-                        "type": "string"
-                    }
-                },
-                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
-            },
-            "ErrorResponseVO503": {
-                "type": "object",
-                "properties": {
-                    "transactionId": {
-                        "type": "string",
-                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
-                        "example": "624deea6-b709-470c-8c39-4b5511281492"
-                    },
-                    "errors": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/CXSError503"
-                        }
-                    }
-                }
-            },
-            "CXSError503": {
-                "type": "object",
-                "properties": {
-                    "code": {
-                        "type": "string",
-                        "description": "Indicates the error code.<br>Example: SERVICE.UNAVAILABLE.ERROR"
-                    },
-                    "parameterList": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/Parameter"
-                        }
-                    },
-                    "message": {
-                        "description": "Indicates the description of API error alert message.<br>Example: The service is currently unavailable and we are working to resolve the issue. We apologize for any inconvenience. Please check back at a later time.",
-                        "type": "string"
-                    }
-                },
-                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
-            },
             "Full_Schema_Package_And_Service_Options": {
                 "required": [
                     "requestedShipment"
@@ -1669,7 +1359,7 @@
                 "properties": {
                     "requestedShipment": {
                         "description": "The descriptive data for the requested shipment.",
-                        "$ref": "#/components/schemas/PackageAndOptionsRequestedShipment_2"
+                        "$ref": "#/components/schemas/PackageAndOptionsRequestedShipment"
                     },
                     "carrierCodes": {
                         "type": "array",
@@ -1686,8 +1376,7 @@
                     },
                     "accountNumber": {
                         "description": "This is a Payor account number associated with the shipment. Account number is required, for SmartPost shipments (i.e. Carrier code: FXSP)",
-                        "type": "object",
-                        "$ref": "#/components/schemas/AccountNumber1"
+                        "$ref": "#/components/schemas/AccountNumber"
                     },
                     "systemOfMeasureType": {
                         "type": "string",
@@ -1700,53 +1389,6 @@
                     }
                 },
                 "description": "These are the input elements for requesting package and service options."
-            },
-            "PackageAndOptionsRequestedShipment_2": {
-                "required": [
-                    "recipients",
-                    "shipper"
-                ],
-                "type": "object",
-                "properties": {
-                    "shipper": {
-                        "$ref": "#/components/schemas/Party_Shipper"
-                    },
-                    "recipients": {
-                        "type": "array",
-                        "description": "Specifies the recipient details, such as postal code, state or province code, and country code of the recipient. Note: At least one recipient is required.",
-                        "items": {
-                            "$ref": "#/components/schemas/Party"
-                        }
-                    },
-                    "shipDateStamp": {
-                        "type": "string",
-                        "description": "Required.<br>Specify the Shipment date. Required for future ship date. Default is current date if not indicated or date is in the past. <br>Format is YYYY-MM-DD.<br>Example: 2019-09-06",
-                        "example": "2020-02-28"
-                    },
-                    "requestedPackageLineItems": {
-                        "type": "array",
-                        "description": "These are one or more package-attribute descriptions, each of which describes an individual package, a group of identical packages, or (for the total-piece-total-weight case) common characteristics of all packages in the shipment.<ul><li>At least one instance containing the weight for at least one package is required for EXPRESS and GROUND shipments.</li><li>Not used for FREIGHT.</li><li>Single piece requests will have one RequestedPackageLineItem.</li><li>Multiple piece requests will have multiple RequestedPackageLineItems.</li><li>Maximum occurrences is 99.</li></ul>",
-                        "items": {
-                            "$ref": "#/components/schemas/RequestedPackageLineItem"
-                        }
-                    },
-                    "freightShipmentDetail": {
-                        "$ref": "#/components/schemas/FreightShipmentDetail"
-                    },
-                    "specialServicesRequested": {
-                        "$ref": "#/components/schemas/ShipmentSpecialServicesRequested"
-                    },
-                    "pickupType": {
-                        "type": "string",
-                        "description": "Conditional Required for Express and Ground, but optional for FREIGHT or SMARTPOST.<br>Indicate the pickup type method by which the shipment yo be tendered to FedEx.<br><i>Note: The value of this element does not specify dispatching the courier for package pickup.</i><br><a onclick='loadDocReference(\"pickuptypes\")'>Click here for more information on Pickup Types.</a><br>Note:For services like FedEx International Connect Plus(FICP) & Regional Economy(RE)/Regional Economy Freight(REF) pickupType is mandatory.",
-                        "example": "DROPOFF_AT_FEDEX_LOCATION",
-                        "enum": [
-                            "CONTACT_FEDEX_TO_SCHEDULE",
-                            "DROPOFF_AT_FEDEX_LOCATION",
-                            "USE_SCHEDULED_PICKUP"
-                        ]
-                    }
-                }
             },
             "Party_Shipper": {
                 "required": [
@@ -1761,11 +1403,10 @@
                         "$ref": "#/components/schemas/Contact"
                     },
                     "accountNumber": {
-                        "$ref": "#/components/schemas/AccountNumber1"
+                        "$ref": "#/components/schemas/AccountNumber"
                     },
                     "referenceInfo": {
                         "title": "@Ignore4TPP",
-                        "type": "object",
                         "$ref": "#/components/schemas/ReferenceInfo"
                     },
                     "deliveryInstructions": {
@@ -1777,7 +1418,6 @@
                     "productInfo": {
                         "title": "@Ignore4TPP",
                         "description": "optional information aboutsender/recipient including Address, Contact, Account, TIN, DeliveryInstructions, Piece, ReferenceInfo, ProductInfo.",
-                        "type": "object",
                         "$ref": "#/components/schemas/ProductInfo"
                     }
                 },
@@ -1850,48 +1490,6 @@
                     }
                 },
                 "description": "This is detailed information on physical location. May be used as an actual physical address (place to which one could go), or as a container of address parts which should be handled as a unit (such as a city-state-ZIP combination within the US). Country code is required. Postal code is required for postal aware countries."
-            },
-            "Contact": {
-                "type": "object",
-                "properties": {
-                    "personName": {
-                        "type": "string",
-                        "description": "Specify contact name.Max Length is 70.",
-                        "example": "John Taylor"
-                    },
-                    "emailAddress": {
-                        "type": "string",
-                        "description": "Specify contact email address. Max length is 80.",
-                        "example": "sample@company.com"
-                    },
-                    "phoneNumber": {
-                        "type": "string",
-                        "description": "Specify contact person's phone number. Max length is 15.",
-                        "example": "1234567890"
-                    },
-                    "phoneExtension": {
-                        "type": "string",
-                        "description": "Specify contact person's phone extension. Max length is 6."
-                    },
-                    "faxNumber": {
-                        "type": "string",
-                        "description": "Specify contact person's fax number. Max length is 15."
-                    }
-                },
-                "description": "Indicate the contact details for this shipment."
-            },
-            "AccountNumber1": {
-                "type": "object",
-                "properties": {
-                    "value": {
-                        "type": "string",
-                        "description": "This is the account number. Max Length is 9. Example: Your account number"
-                    }
-                },
-                "description": "This is FedEx account number details.",
-                "example": {
-                    "value": "123456789"
-                }
             },
             "ReferenceInfo": {
                 "type": "object",
@@ -1984,7 +1582,7 @@
                         "example": "Books"
                     },
                     "weight": {
-                        "$ref": "#/components/schemas/Weight1"
+                        "$ref": "#/components/schemas/Weight"
                     },
                     "sedRequired": {
                         "type": "boolean",
@@ -2038,10 +1636,10 @@
                         "$ref": "#/components/schemas/Address"
                     },
                     "contact": {
-                        "$ref": "#/components/schemas/Contact1"
+                        "$ref": "#/components/schemas/Contact_2"
                     },
                     "accountNumber": {
-                        "$ref": "#/components/schemas/AccountNumber1"
+                        "$ref": "#/components/schemas/AccountNumber"
                     }
                 },
                 "description": "optional information about sender/recipient including Address, Contact, Account number.",
@@ -2068,50 +1666,6 @@
                     "accountNumber": {
                         "value": "123456789"
                     }
-                }
-            },
-            "Contact1": {
-                "type": "object",
-                "properties": {
-                    "personName": {
-                        "type": "string",
-                        "description": "Specify the recipient contact person's name. Max Length is 70.<br>Example: John Taylor",
-                        "example": "John Taylor"
-                    },
-                    "emailAddress": {
-                        "type": "string",
-                        "description": "Contact person's email address. Max length is 80.<br>Example: sample@company.com",
-                        "example": "sample@company.com"
-                    },
-                    "phoneNumber": {
-                        "type": "string",
-                        "description": "Contact person's phone number. Max length is 15.<br>Example: 1234567890",
-                        "example": "1234567890"
-                    },
-                    "phoneExtension": {
-                        "type": "string",
-                        "description": "contact person's phone extension. Max length is 6.<br>Example: 91",
-                        "example": "91"
-                    },
-                    "faxNumber": {
-                        "type": "string",
-                        "description": "Contact person's fax number. Max length is 15.<br>Example: 956123",
-                        "example": "956123"
-                    },
-                    "companyName": {
-                        "type": "string",
-                        "description": "Specify contact person's company name. Max length is 35.<br>Example: FedEx",
-                        "example": "Fedex"
-                    }
-                },
-                "description": "Contact details for the Party such as Name, Email, PhoneNumber",
-                "example": {
-                    "personName": "John Taylor",
-                    "emailAddress": "sample@company.com",
-                    "phoneNumber": "1234567890",
-                    "phoneExtension": 1234,
-                    "faxNumber": "1234567890",
-                    "companyName": "Fedex"
                 }
             },
             "RequestedPackageLineItem": {
@@ -2150,10 +1704,10 @@
                         "$ref": "#/components/schemas/Money"
                     },
                     "weight": {
-                        "$ref": "#/components/schemas/Weight1"
+                        "$ref": "#/components/schemas/Weight"
                     },
                     "dimensions": {
-                        "$ref": "#/components/schemas/Dimensions1"
+                        "$ref": "#/components/schemas/Dimensions"
                     },
                     "packageSpecialServices": {
                         "$ref": "#/components/schemas/PackageSpecialServicesRequested"
@@ -2215,45 +1769,6 @@
                 },
                 "description": "package/shipment content details"
             },
-            "Dimensions1": {
-                "type": "object",
-                "properties": {
-                    "length": {
-                        "type": "integer",
-                        "description": "Indicate the length of the package. No implied decimal places. Maximum value: 999 <br> Example: 20",
-                        "format": "int32",
-                        "example": 100
-                    },
-                    "width": {
-                        "type": "integer",
-                        "description": "Indicate the width of the package. No implied decimal places. Maximum value: 999 <br> Example: 10",
-                        "format": "int32",
-                        "example": 50
-                    },
-                    "height": {
-                        "type": "integer",
-                        "description": "Indicate the height of the package. No implied decimal places. Maximum value: 999 <br> Example: 10",
-                        "format": "int32",
-                        "example": 30
-                    },
-                    "units": {
-                        "type": "string",
-                        "description": "Indicate the Unit of measure for the provided dimensions.<br>Valid Values are:<ul><li>IN - inches</li><li>CM - centimeters</li><br>Note: Any value other than CM including blank/null will default to IN.<br>Example: CM",
-                        "example": "CM",
-                        "enum": [
-                            "CM",
-                            "IN"
-                        ]
-                    }
-                },
-                "description": "Indicate the dimensions of the package.<br> Following conditions will apply: <ul><li>Dimensions are optional but when added, then all three dimensions must be indicated.</li><li>Dimensions are required with YOUR_PACKAGING package type.</li></ul>Note: The maximum/minimum dimension values varies based on the services and the packaging types. Refer <a href=\"https://www.fedex.com/en-us/service-guide.html\" target=\"_blank\">FedEx Service Guide</a> for service details related to DIM Weighting for FedEx Express and oversize conditions for FedEx Express and FedEx Ground.",
-                "example": {
-                    "length": 100,
-                    "width": 50,
-                    "height": 30,
-                    "units": "CM"
-                }
-            },
             "PackageSpecialServicesRequested": {
                 "required": [
                     "codDetail"
@@ -2310,7 +1825,7 @@
                     },
                     "dryIceWeight": {
                         "description": "These are the weight details.",
-                        "$ref": "#/components/schemas/Weight1"
+                        "$ref": "#/components/schemas/Weight"
                     }
                 },
                 "description": "These are special services that are available at the package level for some or all service types."
@@ -2442,7 +1957,7 @@
                 "type": "object",
                 "properties": {
                     "shipmentDimensions": {
-                        "$ref": "#/components/schemas/Dimensions1"
+                        "$ref": "#/components/schemas/Dimensions"
                     },
                     "alternateBilling": {
                         "type": "boolean",
@@ -2487,7 +2002,7 @@
                         "$ref": "#/components/schemas/LiabilityCoverageDetail"
                     },
                     "fedExFreightAccountNumber": {
-                        "$ref": "#/components/schemas/AccountNumber1"
+                        "$ref": "#/components/schemas/AccountNumber"
                     },
                     "totalHandlingUnits": {
                         "type": "integer",
@@ -2511,7 +2026,7 @@
                         "example": 1
                     },
                     "volume": {
-                        "$ref": "#/components/schemas/Volume1"
+                        "$ref": "#/components/schemas/Volume"
                     },
                     "handlingUnits": {
                         "type": "integer",
@@ -2551,7 +2066,7 @@
                     },
                     "weight": {
                         "description": "Total weight of items for this line item",
-                        "$ref": "#/components/schemas/Weight1"
+                        "$ref": "#/components/schemas/Weight"
                     },
                     "packaging": {
                         "type": "string",
@@ -2578,35 +2093,10 @@
                     },
                     "dimensions": {
                         "description": "Individual line item dimensions. Conditionally required. Need volume for intra mexico rates.",
-                        "$ref": "#/components/schemas/Dimensions1"
+                        "$ref": "#/components/schemas/Dimensions"
                     }
                 },
                 "description": "Description of an individual commodity or class of content in a shipment."
-            },
-            "Volume1": {
-                "type": "object",
-                "properties": {
-                    "units": {
-                        "type": "string",
-                        "description": "The unit is in Cubic Feet or Cubic Meters. <br> Example: CUBIC_FT",
-                        "example": "CUBIC_FT",
-                        "enum": [
-                            "CUBIC_FT",
-                            "CUBIC_M"
-                        ]
-                    },
-                    "value": {
-                        "type": "number",
-                        "description": "The amount of volume. <br> Example: 9.965781217890562",
-                        "format": "double",
-                        "example": 9.965781217890562
-                    }
-                },
-                "description": "Optional\n\nIndividual line item volume.\n\nConditional\n\nNeed Volume or Rate for intra mexico rates",
-                "example": {
-                    "units": "CUBIC_FT",
-                    "value": 9.965781217890562
-                }
             },
             "ContactAndAddress": {
                 "type": "object",
@@ -3074,7 +2564,7 @@
                         "$ref": "#/components/schemas/CODDetail"
                     },
                     "shipmentDryIceDetail": {
-                        "$ref": "#/components/schemas/ShipmentDryIceDetail1"
+                        "$ref": "#/components/schemas/ShipmentDryIceDetail"
                     },
                     "freightDirectDetail": {
                         "$ref": "#/components/schemas/FreightDirectDetail"
@@ -3252,21 +2742,6 @@
                 },
                 "description": "Use this object to specify required information of a shipment to be held at FedEx destination location. <br><br><i>Note: This object HoldAtLocationDetail is <b>REQUIRED</b>, when HOLD_AT_LOCATION is chosen in the specialServiceTypes.</i>"
             },
-            "ShipmentDryIceDetail1": {
-                "type": "object",
-                "properties": {
-                    "totalWeight": {
-                        "$ref": "#/components/schemas/Weight1"
-                    },
-                    "packageCount": {
-                        "type": "integer",
-                        "description": "Indicates the total number of packages in the shipment that contain dry ice.<br>Example: 12",
-                        "format": "int32",
-                        "example": 12
-                    }
-                },
-                "description": "Number of packages in this shipment which contain dry ice.  The total weight of the dry ice for this shipment\n\n Both are required to indicate dry ice"
-            },
             "CommitDetail_transitDays": {
                 "type": "object",
                 "properties": {
@@ -3358,7 +2833,6 @@
                 "type": "object",
                 "properties": {
                     "address": {
-                        "type": "object",
                         "$ref": "#/components/schemas/TransitTimeShipper"
                     }
                 },
@@ -3441,32 +2915,6 @@
                     }
                 },
                 "description": "These are Special service elements for FedEx Ground Home Delivery shipments. If selected, element homedeliveryPremiumType is mandatory."
-            },
-            "TransitTimeRequestedShipment_shipmentSpecialServices_holdAtLocationDetail_locationContactAndAddress_contact_parsedPersonName": {
-                "type": "object",
-                "properties": {
-                    "firstName": {
-                        "type": "string",
-                        "description": "Specify the First Name. Maximum Length is 35. <br> Example: John",
-                        "example": "firstName"
-                    },
-                    "lastName": {
-                        "type": "string",
-                        "description": "Specify the Last Name. Maximum Length is 35. <br> Example: Mayor",
-                        "example": "lastName"
-                    },
-                    "middleName": {
-                        "type": "string",
-                        "description": "Specify the Middle Name.<br> Example: Redmond",
-                        "example": "middleName"
-                    },
-                    "suffix": {
-                        "type": "string",
-                        "description": "Specify the Suffix.<br> Example: Jr",
-                        "example": "suffix"
-                    }
-                },
-                "description": "This object is used to separate the person name into first and last name."
             },
             "TransitTimeRequestedShipment_shipmentSpecialServices_holdAtLocationDetail_locationContactAndAddress_contact": {
                 "type": "object",
@@ -3963,25 +3411,6 @@
                 },
                 "description": "Indicate the amount details. This is optional, but if indicated, amount and currency must be provided."
             },
-            "ShipmentDryIceDetail_totalWeight": {
-                "required": [
-                    "units",
-                    "value"
-                ],
-                "properties": {
-                    "units": {
-                        "type": "string",
-                        "description": "Identifies the unit of measure associated with a weight value. <br> Example: LB",
-                        "example": "LB"
-                    },
-                    "value": {
-                        "type": "number",
-                        "description": "Identifies the weight <br> Example: 10.0",
-                        "example": 10
-                    }
-                },
-                "type": "object"
-            },
             "AvailabilitycxsResponseVO": {
                 "type": "object",
                 "properties": {
@@ -4165,7 +3594,7 @@
                             }
                         ],
                         "items": {
-                            "$ref": "#/components/schemas/KeyDisplayTextVO1"
+                            "$ref": "#/components/schemas/KeyDisplayTextVO"
                         }
                     },
                     "shipmentSpecialServicesList": {
@@ -4312,8 +3741,7 @@
                         "example": {
                             "value": "123456789"
                         },
-                        "type": "object",
-                        "$ref": "#/components/schemas/AccountNumber1"
+                        "$ref": "#/components/schemas/AccountNumber"
                     },
                     "carrierCodes": {
                         "type": "array",
@@ -4346,12 +3774,10 @@
                 "properties": {
                     "shipper": {
                         "description": "Required. <br>Indicate the Shipper contact details for this shipment.",
-                        "type": "object",
                         "$ref": "#/components/schemas/Party"
                     },
                     "recipient": {
                         "description": "Specifies the recipient details, such as postal code, state or province code, and country code of the recipient. Note: At least one recipient is required. ",
-                        "type": "object",
                         "$ref": "#/components/schemas/Party"
                     },
                     "serviceType": {
@@ -4528,6 +3954,320 @@
                     }
                 },
                 "description": "This field provides the phone Number details for the service.There can be maximum of five types of phoneNumber which can be provided in request."
+            },
+            "ErrorResponseVO": {
+                "type": "object",
+                "properties": {
+                    "transactionId": {
+                        "type": "string",
+                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
+                        "example": "624deea6-b709-470c-8c39-4b5511281492"
+                    },
+                    "customerTransactionId": {
+                        "type": "string",
+                        "description": "This element allows you to assign a unique identifier to your transaction. This element is also returned in the reply and helps you match the request to the reply. <br> Example: AnyCo_order123456789",
+                        "example": "AnyCo_order123456789"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CXSError"
+                        }
+                    }
+                }
+            },
+            "ErrorResponseVO_2": {
+                "type": "object",
+                "properties": {
+                    "transactionId": {
+                        "type": "string",
+                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
+                        "example": "624deea6-b709-470c-8c39-4b5511281492"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CXSError"
+                        }
+                    }
+                }
+            },
+            "CXSError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "description": "Indicates the error code.<br>Example: SERVICE.UNAVAILABLE.ERROR"
+                    },
+                    "parameterList": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Parameter"
+                        }
+                    },
+                    "message": {
+                        "description": "Indicates the description of API error alert message.<br>Example: The service is currently unavailable and we are working to resolve the issue. We apologize for any inconvenience. Please check back at a later time.",
+                        "type": "string"
+                    }
+                },
+                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
+            },
+            "KeyDisplayTextVO": {
+                "type": "object",
+                "properties": {
+                    "displayText": {
+                        "type": "string",
+                        "description": "Display Text",
+                        "example": "FedEx Ground"
+                    },
+                    "key": {
+                        "type": "string",
+                        "description": "Unique Key",
+                        "example": "FEDEX_GROUND"
+                    }
+                },
+                "description": "this object holds applicable key and display text value pairs.",
+                "example": {
+                    "displayText": "FedEx Ground",
+                    "key": "FEDEX_GROUND"
+                }
+            },
+            "Weight": {
+                "type": "object",
+                "properties": {
+                    "units": {
+                        "type": "string",
+                        "description": "Specify the unit of measurement used to weigh the shipment. The package and commodity weight unit should be the same else the request will result in an error.",
+                        "example": "LB",
+                        "enum": [
+                            "KG",
+                            "LB"
+                        ]
+                    },
+                    "value": {
+                        "type": "number",
+                        "description": "Specify the value of weight of shipment.<br>Example: 68.25",
+                        "format": "double",
+                        "example": 10
+                    }
+                },
+                "description": "Specify the total weight of the shipment. <br>This is only applies to International shipments and should be used on the first package of a multiple piece shipment. This value contains 1 explicit decimal position.",
+                "example": {
+                    "units": "LB",
+                    "value": 10
+                }
+            },
+            "PackageAndOptionsRequestedShipment": {
+                "required": [
+                    "recipients",
+                    "shipper"
+                ],
+                "type": "object",
+                "properties": {
+                    "shipper": {
+                        "$ref": "#/components/schemas/Party_Shipper"
+                    },
+                    "recipients": {
+                        "type": "array",
+                        "description": "Specifies the recipient details, such as postal code, state or province code, and country code of the recipient. Note: At least one recipient is required.",
+                        "items": {
+                            "$ref": "#/components/schemas/Party"
+                        }
+                    },
+                    "shipDateStamp": {
+                        "type": "string",
+                        "description": "Required.<br>Specify the Shipment date. Required for future ship date. Default is current date if not indicated or date is in the past. <br>Format is YYYY-MM-DD.<br>Example: 2019-09-06",
+                        "example": "2020-02-28"
+                    },
+                    "requestedPackageLineItems": {
+                        "type": "array",
+                        "description": "These are one or more package-attribute descriptions, each of which describes an individual package, a group of identical packages, or (for the total-piece-total-weight case) common characteristics of all packages in the shipment.<ul><li>At least one instance containing the weight for at least one package is required for EXPRESS and GROUND shipments.</li><li>Not used for FREIGHT.</li><li>Single piece requests will have one RequestedPackageLineItem.</li><li>Multiple piece requests will have multiple RequestedPackageLineItems.</li><li>Maximum occurrences is 99.</li></ul>",
+                        "items": {
+                            "$ref": "#/components/schemas/RequestedPackageLineItem"
+                        }
+                    },
+                    "freightShipmentDetail": {
+                        "$ref": "#/components/schemas/FreightShipmentDetail"
+                    },
+                    "specialServicesRequested": {
+                        "$ref": "#/components/schemas/ShipmentSpecialServicesRequested"
+                    },
+                    "pickupType": {
+                        "type": "string",
+                        "description": "Conditional Required for Express and Ground, but optional for FREIGHT or SMARTPOST.<br>Indicate the pickup type method by which the shipment yo be tendered to FedEx.<br><i>Note: The value of this element does not specify dispatching the courier for package pickup.</i><br><a onclick='loadDocReference(\"pickuptypes\")'>Click here for more information on Pickup Types.</a><br>Note:For services like FedEx International Connect Plus(FICP) & Regional Economy(RE)/Regional Economy Freight(REF) pickupType is mandatory.",
+                        "example": "DROPOFF_AT_FEDEX_LOCATION",
+                        "enum": [
+                            "CONTACT_FEDEX_TO_SCHEDULE",
+                            "DROPOFF_AT_FEDEX_LOCATION",
+                            "USE_SCHEDULED_PICKUP"
+                        ]
+                    }
+                }
+            },
+            "Contact": {
+                "type": "object",
+                "properties": {
+                    "personName": {
+                        "type": "string",
+                        "description": "Specify contact name.Max Length is 70.",
+                        "example": "John Taylor"
+                    },
+                    "emailAddress": {
+                        "type": "string",
+                        "description": "Specify contact email address. Max length is 80.",
+                        "example": "sample@company.com"
+                    },
+                    "phoneNumber": {
+                        "type": "string",
+                        "description": "Specify contact person's phone number. Max length is 15.",
+                        "example": "1234567890"
+                    },
+                    "phoneExtension": {
+                        "type": "string",
+                        "description": "Specify contact person's phone extension. Max length is 6."
+                    },
+                    "faxNumber": {
+                        "type": "string",
+                        "description": "Specify contact person's fax number. Max length is 15."
+                    }
+                },
+                "description": "Indicate the contact details for this shipment."
+            },
+            "Contact_2": {
+                "type": "object",
+                "properties": {
+                    "personName": {
+                        "type": "string",
+                        "description": "Specify the recipient contact person's name. Max Length is 70.<br>Example: John Taylor",
+                        "example": "John Taylor"
+                    },
+                    "emailAddress": {
+                        "type": "string",
+                        "description": "Contact person's email address. Max length is 80.<br>Example: sample@company.com",
+                        "example": "sample@company.com"
+                    },
+                    "phoneNumber": {
+                        "type": "string",
+                        "description": "Contact person's phone number. Max length is 15.<br>Example: 1234567890",
+                        "example": "1234567890"
+                    },
+                    "phoneExtension": {
+                        "type": "string",
+                        "description": "contact person's phone extension. Max length is 6.<br>Example: 91",
+                        "example": "91"
+                    },
+                    "faxNumber": {
+                        "type": "string",
+                        "description": "Contact person's fax number. Max length is 15.<br>Example: 956123",
+                        "example": "956123"
+                    },
+                    "companyName": {
+                        "type": "string",
+                        "description": "Specify contact person's company name. Max length is 35.<br>Example: FedEx",
+                        "example": "Fedex"
+                    }
+                },
+                "description": "Contact details for the Party such as Name, Email, PhoneNumber",
+                "example": {
+                    "personName": "John Taylor",
+                    "emailAddress": "sample@company.com",
+                    "phoneNumber": "1234567890",
+                    "phoneExtension": 1234,
+                    "faxNumber": "1234567890",
+                    "companyName": "Fedex"
+                }
+            },
+            "AccountNumber": {
+                "type": "object",
+                "properties": {
+                    "value": {
+                        "type": "string",
+                        "description": "This is the account number. Max Length is 9. Example: Your account number"
+                    }
+                },
+                "description": "This is FedEx account number details.",
+                "example": {
+                    "value": "123456789"
+                }
+            },
+            "Dimensions": {
+                "type": "object",
+                "properties": {
+                    "length": {
+                        "type": "integer",
+                        "description": "Indicate the length of the package. No implied decimal places. Maximum value: 999 <br> Example: 20",
+                        "format": "int32",
+                        "example": 100
+                    },
+                    "width": {
+                        "type": "integer",
+                        "description": "Indicate the width of the package. No implied decimal places. Maximum value: 999 <br> Example: 10",
+                        "format": "int32",
+                        "example": 50
+                    },
+                    "height": {
+                        "type": "integer",
+                        "description": "Indicate the height of the package. No implied decimal places. Maximum value: 999 <br> Example: 10",
+                        "format": "int32",
+                        "example": 30
+                    },
+                    "units": {
+                        "type": "string",
+                        "description": "Indicate the Unit of measure for the provided dimensions.<br>Valid Values are:<ul><li>IN - inches</li><li>CM - centimeters</li><br>Note: Any value other than CM including blank/null will default to IN.<br>Example: CM",
+                        "example": "CM",
+                        "enum": [
+                            "CM",
+                            "IN"
+                        ]
+                    }
+                },
+                "description": "Indicate the dimensions of the package.<br> Following conditions will apply: <ul><li>Dimensions are optional but when added, then all three dimensions must be indicated.</li><li>Dimensions are required with YOUR_PACKAGING package type.</li></ul>Note: The maximum/minimum dimension values varies based on the services and the packaging types. Refer <a href=\"https://www.fedex.com/en-us/service-guide.html\" target=\"_blank\">FedEx Service Guide</a> for service details related to DIM Weighting for FedEx Express and oversize conditions for FedEx Express and FedEx Ground.",
+                "example": {
+                    "length": 100,
+                    "width": 50,
+                    "height": 30,
+                    "units": "CM"
+                }
+            },
+            "Volume": {
+                "type": "object",
+                "properties": {
+                    "units": {
+                        "type": "string",
+                        "description": "The unit is in Cubic Feet or Cubic Meters. <br> Example: CUBIC_FT",
+                        "example": "CUBIC_FT",
+                        "enum": [
+                            "CUBIC_FT",
+                            "CUBIC_M"
+                        ]
+                    },
+                    "value": {
+                        "type": "number",
+                        "description": "The amount of volume. <br> Example: 9.965781217890562",
+                        "format": "double",
+                        "example": 9.965781217890562
+                    }
+                },
+                "description": "Optional\n\nIndividual line item volume.\n\nConditional\n\nNeed Volume or Rate for intra mexico rates",
+                "example": {
+                    "units": "CUBIC_FT",
+                    "value": 9.965781217890562
+                }
+            },
+            "ShipmentDryIceDetail": {
+                "type": "object",
+                "properties": {
+                    "totalWeight": {
+                        "$ref": "#/components/schemas/Weight"
+                    },
+                    "packageCount": {
+                        "type": "integer",
+                        "description": "Indicates the total number of packages in the shipment that contain dry ice.<br>Example: 12",
+                        "format": "int32",
+                        "example": 12
+                    }
+                },
+                "description": "Number of packages in this shipment which contain dry ice.  The total weight of the dry ice for this shipment\n\n Both are required to indicate dry ice"
             }
         }
     },

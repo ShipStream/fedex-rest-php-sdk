@@ -6,7 +6,7 @@ namespace ShipStream\FedEx\Api\ServiceAvailabilityV1\Dto;
 
 use ShipStream\FedEx\Dto;
 
-final class Volume1 extends Dto
+final class Volume extends Dto
 {
     /**
      * @param  ?string  $units  The unit is in Cubic Feet or Cubic Meters. <br> Example: CUBIC_FT

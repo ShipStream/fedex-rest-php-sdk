@@ -6,7 +6,7 @@ namespace ShipStream\FedEx\Api\ServiceAvailabilityV1\Dto;
 
 use ShipStream\FedEx\Dto;
 
-final class Contact1 extends Dto
+final class Contact2 extends Dto
 {
     /**
      * @param  ?string  $personName  Specify the recipient contact person's name. Max Length is 70.<br>Example: John Taylor

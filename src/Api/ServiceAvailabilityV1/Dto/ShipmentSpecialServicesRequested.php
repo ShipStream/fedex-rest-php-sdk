@@ -17,7 +17,7 @@ final class ShipmentSpecialServicesRequested extends Dto
      * @param  ?SaturdayDeliveryDetail  $saturdayDeliveryDetail  These are service elements for Saturday Delivery special service.
      * @param  ?HoldAtLocationDetail  $holdAtLocationDetail  Use this object to specify required information of a shipment to be held at FedEx destination location. <br><br><i>Note: This object HoldAtLocationDetail is <b>REQUIRED</b>, when HOLD_AT_LOCATION is chosen in the specialServiceTypes.</i>
      * @param  ?CodDetail  $codDetail
-     * @param  ?ShipmentDryIceDetail1  $shipmentDryIceDetail  Number of packages in this shipment which contain dry ice.  The total weight of the dry ice for this shipment
+     * @param  ?ShipmentDryIceDetail  $shipmentDryIceDetail  Number of packages in this shipment which contain dry ice.  The total weight of the dry ice for this shipment
      *
      *  Both are required to indicate dry ice
      * @param  ?FreightDirectDetail  $freightDirectDetail  Specifies the freight Direct Detail.It is used for Fedex Freight Direct.
@@ -31,7 +31,7 @@ final class ShipmentSpecialServicesRequested extends Dto
         public readonly ?SaturdayDeliveryDetail $saturdayDeliveryDetail = null,
         public readonly ?HoldAtLocationDetail $holdAtLocationDetail = null,
         public readonly ?CodDetail $codDetail = null,
-        public readonly ?ShipmentDryIceDetail1 $shipmentDryIceDetail = null,
+        public readonly ?ShipmentDryIceDetail $shipmentDryIceDetail = null,
         public readonly ?FreightDirectDetail $freightDirectDetail = null,
     ) {
     }
