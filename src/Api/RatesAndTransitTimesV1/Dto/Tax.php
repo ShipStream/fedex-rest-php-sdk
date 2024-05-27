@@ -6,7 +6,7 @@ namespace ShipStream\FedEx\Api\RatesAndTransitTimesV1\Dto;
 
 use ShipStream\FedEx\Dto;
 
-final class Tax1 extends Dto
+final class Tax extends Dto
 {
     /**
      * @param  ?float  $amount  Specifies the list of tax amounts

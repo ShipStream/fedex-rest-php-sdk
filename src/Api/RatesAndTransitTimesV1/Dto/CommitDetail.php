@@ -6,7 +6,7 @@ namespace ShipStream\FedEx\Api\RatesAndTransitTimesV1\Dto;
 
 use ShipStream\FedEx\Dto;
 
-final class CommitDetail1 extends Dto
+final class CommitDetail extends Dto
 {
     /**
      * @param  ?string  $daysInTransit  Code indicating the number of transit days.

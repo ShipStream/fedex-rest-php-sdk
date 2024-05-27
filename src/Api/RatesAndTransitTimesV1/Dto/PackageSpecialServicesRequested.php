@@ -20,7 +20,7 @@ final class PackageSpecialServicesRequested extends Dto
      * @param  ?PackageCodDetail  $packageCodDetail  Indicates package COD Detail.  COD main information is set in shipment level.
      * @param  ?int  $pieceCountVerificationBoxCount  Provide the pieceCount or VerificationBoxCount for batteries or cells that are contained within this specific package.
      * @param  BatteryClassificationDetail[]|null  $batteryDetails  Specify the details about the batteries or cells that are contained within this specific package.
-     * @param  ?Weight12  $dryIceWeight  These are the weight details.
+     * @param  ?Weight  $dryIceWeight  These are the weight details.
      */
     public function __construct(
         public readonly ?array $specialServiceTypes = null,
@@ -30,7 +30,7 @@ final class PackageSpecialServicesRequested extends Dto
         public readonly ?PackageCodDetail $packageCodDetail = null,
         public readonly ?int $pieceCountVerificationBoxCount = null,
         public readonly ?array $batteryDetails = null,
-        public readonly ?Weight12 $dryIceWeight = null,
+        public readonly ?Weight $dryIceWeight = null,
     ) {
     }
 }

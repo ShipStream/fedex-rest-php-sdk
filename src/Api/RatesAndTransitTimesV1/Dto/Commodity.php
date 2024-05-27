@@ -10,10 +10,10 @@ final class Commodity extends Dto
 {
     /**
      * @param  ?string  $description  Indicate the description of the dutiable packages.<br> Maximum Length is 450. <br> Example: DOCUMENTS <br><a onclick='loadDocReference("vaguecommoditydescriptions")'>Click here to see Vague commodity descriptions</a>
-     * @param  ?Weight12  $weight  These are the weight details.
+     * @param  ?Weight  $weight  These are the weight details.
      * @param  ?int  $quantity  Specify the total number of units (using quantityUnits as the unit of measure) of this commodity present in the shipment. This element is used to estimate duties and taxes. <br>Example: 1
-     * @param  ?Money1  $customsValue  Indicate the amount details. This is optional, but if indicated, amount and currency must be provided.
-     * @param  ?Money1  $unitPrice  Indicate the amount details. This is optional, but if indicated, amount and currency must be provided.
+     * @param  ?Money  $customsValue  Indicate the amount details. This is optional, but if indicated, amount and currency must be provided.
+     * @param  ?Money  $unitPrice  Indicate the amount details. This is optional, but if indicated, amount and currency must be provided.
      * @param  ?int  $numberOfPieces  Specifies the number of pieces for this commodity.<br>Example: 10
      * @param  ?string  $countryOfManufacture  This is a manufacturing country. Maximum field Length is 4<br> Example: IN
      * @param  ?string  $quantityUnits  Indicate quantiy unit used. Used to estimate duties and taxes <br> Example: PCS<br><a onclick='loadDocReference("harmonizedsystemcodeunitofmeasure-table1")'>click here to see Commodity Unit Measures</a>
@@ -23,10 +23,10 @@ final class Commodity extends Dto
      */
     public function __construct(
         public readonly ?string $description = null,
-        public readonly ?Weight12 $weight = null,
+        public readonly ?Weight $weight = null,
         public readonly ?int $quantity = null,
-        public readonly ?Money1 $customsValue = null,
-        public readonly ?Money1 $unitPrice = null,
+        public readonly ?Money $customsValue = null,
+        public readonly ?Money $unitPrice = null,
         public readonly ?int $numberOfPieces = null,
         public readonly ?string $countryOfManufacture = null,
         public readonly ?string $quantityUnits = null,

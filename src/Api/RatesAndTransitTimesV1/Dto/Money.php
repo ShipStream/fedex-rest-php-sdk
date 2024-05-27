@@ -6,7 +6,7 @@ namespace ShipStream\FedEx\Api\RatesAndTransitTimesV1\Dto;
 
 use ShipStream\FedEx\Dto;
 
-final class Money1 extends Dto
+final class Money extends Dto
 {
     /**
      * @param  ?float  $amount  Indicate the amount.

@@ -6,7 +6,7 @@ namespace ShipStream\FedEx\Api\RatesAndTransitTimesV1\Dto;
 
 use ShipStream\FedEx\Dto;
 
-final class Weight1 extends Dto
+final class Weight extends Dto
 {
     /**
      * @param  ?string  $units  Specifies the package weight unit. For Dry Ice the unit of measure is KG.

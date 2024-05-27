@@ -23,7 +23,7 @@ final class RateReplyDetail extends Dto
      * @param  ?string  $signatureOptionType  Indicates the signature Option for this service. <br> Example: SERVICE_DEFAULT
      * @param  ?ServiceDescription  $serviceDescription  Indicates the provides the Service Description details.
      * @param  ?BrokerDetail  $brokerDetail  These are Broker Detail for the rate quote.
-     * @param  ?CommitDetail1  $commit  The delivery commitment details
+     * @param  ?CommitDetail  $commit  The delivery commitment details
      * @param  ?ServiceSubOptionDetail  $serviceSubOptionDetail  These are supporting detail for applied options identified in a rate quote.
      */
     public function __construct(
@@ -36,7 +36,7 @@ final class RateReplyDetail extends Dto
         public readonly ?string $signatureOptionType = null,
         public readonly ?ServiceDescription $serviceDescription = null,
         public readonly ?BrokerDetail $brokerDetail = null,
-        public readonly ?CommitDetail1 $commit = null,
+        public readonly ?CommitDetail $commit = null,
         public readonly ?ServiceSubOptionDetail $serviceSubOptionDetail = null,
     ) {
     }

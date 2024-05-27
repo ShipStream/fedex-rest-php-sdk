@@ -1462,7 +1462,7 @@
                         "$ref": "#/components/schemas/BrokerDetail"
                     },
                     "commit": {
-                        "$ref": "#/components/schemas/CommitDetail_1"
+                        "$ref": "#/components/schemas/CommitDetail"
                     },
                     "serviceSubOptionDetail": {
                         "$ref": "#/components/schemas/ServiceSubOptionDetail"
@@ -1835,7 +1835,7 @@
                         "items": {
                             "type": "object",
                             "schema": {
-                                "$ref": "#/components/schemas/ShipmentLegRateDetail_1"
+                                "$ref": "#/components/schemas/ShipmentLegRateDetail"
                             }
                         }
                     },
@@ -2036,7 +2036,7 @@
                         "description": "Specifies the type used for this specific set of rate data."
                     },
                     "billingWeight": {
-                        "$ref": "#/components/schemas/Weight_1"
+                        "$ref": "#/components/schemas/Weight"
                     },
                     "netFreight": {
                         "type": "number",
@@ -2078,249 +2078,6 @@
                     }
                 },
                 "description": "Data for a package's rates, as calculated per a specific rate type."
-            },
-            "Weight_1": {
-                "type": "object",
-                "properties": {
-                    "units": {
-                        "type": "string",
-                        "description": "Specifies the package weight unit. For Dry Ice the unit of measure is KG.",
-                        "enum": [
-                            "KG",
-                            "LB"
-                        ]
-                    },
-                    "value": {
-                        "type": "number",
-                        "description": "Specifies the package weight.<br> Example: 68.25",
-                        "format": "double",
-                        "example": 10
-                    }
-                },
-                "description": "These are the weight details.",
-                "example": {
-                    "units": "LB",
-                    "value": 10
-                }
-            },
-            "Surcharge": {
-                "type": "object",
-                "properties": {
-                    "type": {
-                        "type": "string",
-                        "description": "Specifies the surcharge type.<br>Example: FUEL <br><a onclick='loadDocReference(\"surcharges\")'>Click here to see more on Surcharges.</a>",
-                        "example": "FUEL"
-                    },
-                    "description": {
-                        "type": "string",
-                        "description": "Specifies the description of the surcharge. Indicates delivery and returns information for FedEx Ground Economy services.<br>Example: Fuel Surcharge",
-                        "example": "Fuel Surcharge"
-                    },
-                    "amount": {
-                        "type": "number",
-                        "description": "Specify the declared monetary value/amount of the shipment.<br> Example: 5.42",
-                        "format": "double",
-                        "example": 5.42
-                    },
-                    "level": {
-                        "type": "string",
-                        "description": "Specifies the level of surcharge. <br> Example: level",
-                        "example": "level"
-                    },
-                    "name": {
-                        "type": "string",
-                        "description": "The localized name of the surcharge. <br> Example: name",
-                        "example": "name"
-                    }
-                },
-                "description": "Specifies the surcharges."
-            },
-            "RateDiscount": {
-                "type": "object",
-                "properties": {
-                    "amount": {
-                        "type": "number",
-                        "description": "Indicates the details of the charges are to be added to the COD collect amount. <br> Example: 95",
-                        "format": "double",
-                        "example": 95
-                    },
-                    "name": {
-                        "type": "string",
-                        "description": "Specifies the name of all of the discounts that apply to the package.<br><a onclick='loadDocReference(\"discounts\")'>Click here to see Discounts</a>"
-                    },
-                    "description": {
-                        "type": "string",
-                        "description": "Specifies the discounts on this package."
-                    },
-                    "type": {
-                        "type": "string",
-                        "description": "Specifies the type of discount."
-                    },
-                    "percent": {
-                        "type": "number",
-                        "description": "Specifies the percentage of discount.",
-                        "format": "double"
-                    }
-                }
-            },
-            "ShipmentLegRateDetail_1": {
-                "type": "object",
-                "properties": {
-                    "discounts": {
-                        "type": "array",
-                        "description": "Specifies the list of discounts. <br><a onclick='loadDocReference(\"discounts\")'>Click here to see Discounts</a>",
-                        "items": {
-                            "$ref": "#/components/schemas/RateDiscount_1"
-                        }
-                    },
-                    "pricingCode": {
-                        "type": "string",
-                        "description": "Identifies the type of pricing used for this shipment.",
-                        "example": "ACTUAL"
-                    },
-                    "legDescription": {
-                        "type": "string",
-                        "description": "Human-readable text describing the shipment leg.",
-                        "example": "legDescription"
-                    },
-                    "surcharges": {
-                        "type": "array",
-                        "description": "Specifies the list of surcharges.<br>Valid value is:<li>PEAK</li><li>PEAK_ADDTIONAL_HANDLING</li><li>PEAK_OVERSIZE</li><li>PEAK_RESIDENTIAL_DELIVERY</li>",
-                        "items": {
-                            "$ref": "#/components/schemas/Surcharge_1"
-                        }
-                    },
-                    "specialRatingApplied": {
-                        "type": "array",
-                        "description": "Indicates which special rating cases applied to this shipment.",
-                        "items": {
-                            "type": "string"
-                        }
-                    },
-                    "taxes": {
-                        "type": "array",
-                        "description": "Specifies the list of taxes.",
-                        "items": {
-                            "$ref": "#/components/schemas/Tax_1"
-                        }
-                    },
-                    "rateScale": {
-                        "type": "string",
-                        "description": "Indicates the rate scale used."
-                    },
-                    "totalNetCharge": {
-                        "type": "number",
-                        "description": "This shipment's totalNetCharge and totalDutiesTaxesAndFees. Some duties and taxes are only provided if estimated duties and taxes were calculated for this shipment AND duties, taxes and transportation charges are all paid by the same sender's account.",
-                        "format": "double",
-                        "example": 87.5
-                    },
-                    "totalBaseCharge": {
-                        "type": "number",
-                        "description": "Specifies the total base charge list",
-                        "format": "double",
-                        "example": 87.5
-                    },
-                    "currencyExchangeRate": {
-                        "$ref": "#/components/schemas/CurrencyExchangeRate"
-                    },
-                    "totalBillingWeight": {
-                        "description": "Sum of billing weight for the shipment.",
-                        "type": "object",
-                        "$ref": "#/components/schemas/Weight_1"
-                    },
-                    "currency": {
-                        "type": "string",
-                        "description": "Indicate the three-character ISO currency code. <br>Example: USD<br><a onclick='loadDocReference(\"currencycodes\")'>Click here to see Currency Codes</a>",
-                        "example": "USD"
-                    }
-                }
-            },
-            "RateDiscount_1": {
-                "type": "object",
-                "properties": {
-                    "amount": {
-                        "type": "number",
-                        "description": "Indicates the amount for the rate discount.",
-                        "format": "double",
-                        "example": 87.5
-                    },
-                    "name": {
-                        "type": "string",
-                        "description": "Indicate the name of the discount.<br><a onclick='loadDocReference(\"discounts\")'>Click here to see Discounts</a>",
-                        "example": "name"
-                    },
-                    "description": {
-                        "type": "string",
-                        "description": "Indicates the description for the rate discount.",
-                        "example": "description"
-                    },
-                    "type": {
-                        "type": "string",
-                        "description": "Indicates the type.",
-                        "example": "type"
-                    },
-                    "percent": {
-                        "type": "number",
-                        "description": "Indicates the percentage of the rate discount.",
-                        "format": "double",
-                        "example": 10.5
-                    }
-                }
-            },
-            "Surcharge_1": {
-                "type": "object",
-                "properties": {
-                    "amount": {
-                        "type": "number",
-                        "description": "Identifies the total amount of the shipment-level fees and taxes that are not based on transportation charges or commodity-level estimated duties and taxes.",
-                        "format": "double",
-                        "example": 87.5
-                    },
-                    "level": {
-                        "type": "string",
-                        "description": "Specifies the level of surcharge.",
-                        "example": "level"
-                    },
-                    "name": {
-                        "type": "string",
-                        "description": "Specifies the localized name of the surcharge.",
-                        "example": "name"
-                    },
-                    "description": {
-                        "type": "string",
-                        "description": "Specifies the description of the surcharge.",
-                        "example": "description"
-                    },
-                    "type": {
-                        "type": "string",
-                        "description": "Specifies the type of surcharge.",
-                        "example": "type"
-                    }
-                }
-            },
-            "Tax_1": {
-                "type": "object",
-                "properties": {
-                    "amount": {
-                        "type": "number",
-                        "description": "Specifies the list of tax amounts",
-                        "format": "double",
-                        "example": 87.5
-                    },
-                    "name": {
-                        "type": "string",
-                        "description": "Specifies the localized name of the tax."
-                    },
-                    "description": {
-                        "type": "string",
-                        "description": "Specifies the description of the Surcharge/Tax."
-                    },
-                    "type": {
-                        "type": "string",
-                        "description": "Specifies the type of Surcharge/Tax."
-                    }
-                },
-                "description": "Specifies the Tax surcharge details"
             },
             "CurrencyExchangeRate": {
                 "type": "object",
@@ -2432,12 +2189,12 @@
                     "totalBillingWeight": {
                         "description": "This is total of billing weight for the shipment.",
                         "type": "object",
-                        "$ref": "#/components/schemas/Weight_1"
+                        "$ref": "#/components/schemas/Weight"
                     },
                     "totalDimWeight": {
                         "description": "This is total of dimensional weight for the shipment.",
                         "type": "object",
-                        "$ref": "#/components/schemas/Weight_1"
+                        "$ref": "#/components/schemas/Weight"
                     },
                     "dimDivisor": {
                         "type": "integer",
@@ -2763,145 +2520,28 @@
                 "description": "These are Broker Detail for the rate quote."
             },
             "BrokerDetailBroker": {
-                "$ref": "#/components/schemas/Party"
-            },
-            "Party": {
-                "type": "object",
-                "properties": {
-                    "address": {
-                        "$ref": "#/components/schemas/Address"
+                "allOf": [
+                    {
+                        "$ref": "#/components/schemas/Party"
                     },
-                    "accountNumber": {
-                        "$ref": "#/components/schemas/AccountNumber"
-                    },
-                    "contact": {
-                        "$ref": "#/components/schemas/Contact"
+                    {
+                        "required": [
+                            "address",
+                            "contact"
+                        ],
+                        "properties": {
+                            "address": {
+                                "description": "These are Broker address details.",
+                                "type": "string"
+                            },
+                            "contact": {
+                                "description": "These are broker contact details such as Name, Email, PhoneNumber.",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
                     }
-                },
-                "description": "Indicate the party to a transaction including the physical address, contact information and account number information.",
-                "example": {
-                    "accountNumber": {
-                        "value": 123456789
-                    }
-                }
-            },
-            "Address": {
-                "type": "object",
-                "properties": {
-                    "city": {
-                        "type": "string",
-                        "description": "This is a placeholder for City Name. <br> Example: Beverly Hills",
-                        "example": "Beverly Hills"
-                    },
-                    "stateOrProvinceCode": {
-                        "type": "string",
-                        "description": "This is a placeholder for State or Province code.State code is required for US, CA, PR and not required for other countries. Conditional. Max length is 2. <br> Example: CA <br><a onclick='loadDocReference(\"canadaprovincecodes\")'>Click here to see State Or Province Code</a>",
-                        "example": "TN"
-                    },
-                    "postalCode": {
-                        "type": "string",
-                        "description": "Indicate the Postal code. This is optional for non postal-aware countries. Maximum length is 10.<br> Example: 65247<br><a onclick='loadDocReference(\"postalawarecountries\")'>Click here to see Postal aware countries</a>",
-                        "example": "65247"
-                    },
-                    "countryCode": {
-                        "type": "string",
-                        "description": "This is the two-letter country code. Maximum length is 2.<br>Example: US<br><a onclick='loadDocReference(\"countrycodes\")'>Click here to see Country Codes</a>",
-                        "example": "US"
-                    },
-                    "residential": {
-                        "type": "boolean",
-                        "description": "Indicate whether this address is residential (as opposed to commercial). <br> Valid values are TRUE and FALSE.",
-                        "example": false
-                    }
-                },
-                "description": "This is detailed information on physical location. May be used as an actual physical address (place to which one could go), or as a container of address parts which should be handled as a unit (such as a city-state-ZIP combination within the U.S.).",
-                "example": {
-                    "streetLines": [
-                        "1550 Union Blvd",
-                        "Suite 302"
-                    ],
-                    "city": "Beverly Hills",
-                    "stateOrProvinceCode": "TN",
-                    "postalCode": "38127",
-                    "countryCode": "US",
-                    "residential": false
-                }
-            },
-            "Contact": {
-                "type": "object",
-                "properties": {
-                    "personName": {
-                        "type": "string",
-                        "description": "Specifies contact name.<br>Note: Recommended Length is 70. There's no specific validation for the length.<br> Example: John Taylor",
-                        "example": "John Taylor"
-                    },
-                    "emailAddress": {
-                        "type": "string",
-                        "description": "Specifies contact email address. Maximum length is 80. <br> Example: sample@company.com",
-                        "example": "sample@company.com"
-                    },
-                    "phoneNumber": {
-                        "type": "string",
-                        "description": "Specifies contact phone number. Maximum length is 15. <br> Example: 1234567890",
-                        "example": "1234567890"
-                    },
-                    "phoneExtension": {
-                        "type": "string",
-                        "description": "Specifies contact phone extension. Maximum length is 6. <br> Example: 1234",
-                        "example": "1234"
-                    },
-                    "faxNumber": {
-                        "type": "string",
-                        "description": "Specifies contact fax number. Maximum length is 15. <br> Example: 1234567890",
-                        "example": "1234567890"
-                    },
-                    "companyName": {
-                        "type": "string",
-                        "description": "Specifies contact company name. Maximum length is 35.",
-                        "example": "Fedex"
-                    }
-                },
-                "description": "Indicates the contact details.",
-                "example": {
-                    "personName": "John Taylor",
-                    "emailAddress": "sample@company.com",
-                    "phoneNumber": "1234567890",
-                    "phoneExtension": "1234",
-                    "faxNumber": "1234567890",
-                    "companyName": "Fedex"
-                }
-            },
-            "ParsedPersonName": {
-                "type": "object",
-                "properties": {
-                    "firstName": {
-                        "type": "string",
-                        "description": "Specify the First Name. Maximum Length is 35. <br> Example: John",
-                        "example": "firstName"
-                    },
-                    "lastName": {
-                        "type": "string",
-                        "description": "Specify the Last Name. Maximum Length is 35. <br> Example: Mayor",
-                        "example": "lastName"
-                    },
-                    "middleName": {
-                        "type": "string",
-                        "description": "Specify the Middle Name.<br> Example: Redmond",
-                        "example": "middleName"
-                    },
-                    "suffix": {
-                        "type": "string",
-                        "description": "Specify the Suffix.<br> Example: Jr",
-                        "example": "suffix"
-                    }
-                },
-                "description": "This object is used to separate the person name into first and last name.",
-                "example": {
-                    "firstName": "John",
-                    "lastName": "Mayor",
-                    "middleName": "Redmond",
-                    "suffix": "Jr"
-                }
+                ]
             },
             "AccountNumber": {
                 "type": "object",
@@ -2978,94 +2618,6 @@
                     }
                 },
                 "description": "This is the broker address used for this shipment."
-            },
-            "CommitDetail_1": {
-                "type": "object",
-                "properties": {
-                    "daysInTransit": {
-                        "type": "string",
-                        "description": "Code indicating the number of transit days.",
-                        "enum": [
-                            "EIGHT_DAYS",
-                            "EIGHTEEN_DAYS",
-                            "ELEVEN_DAYS",
-                            "FIFTEEN_DAYS",
-                            "FIVE_DAYS",
-                            "FOUR_DAYS",
-                            "FOURTEEN_DAYS",
-                            "NINE_DAYS",
-                            "NINETEEN_DAYS",
-                            "ONE_DAY",
-                            "SEVEN_DAYS",
-                            "SEVENTEEN_DAYS",
-                            "SIX_DAYS",
-                            "SIXTEEN_DAYS",
-                            "TEN_DAYS",
-                            "THIRTEEN_DAYS",
-                            "THREE_DAYS",
-                            "TWELVE_DAYS",
-                            "TWENTY_DAYS",
-                            "TWO_DAYS",
-                            "SMARTPOST_TRANSIT_DAYS",
-                            "UNKNOWN"
-                        ]
-                    },
-                    "guaranteedType": {
-                        "type": "string",
-                        "description": "Indicates if there is a guaranteed delivery option applied to the rate.  This is for freight rates only.<br> Valid values<br>GUARANTEED_MORNING - guaranteed delivery on morning of date specified.<br>GUARANTEED_CLOSE_OF_BUSINESS - guaranteed delivery on date specified by close of day",
-                        "enum": [
-                            "GUARANTEED_MORNING",
-                            "GUARANTEED_CLOSE_OF_BUSINESS"
-                        ]
-                    },
-                    "smartPostCommitTime": {
-                        "type": "string",
-                        "description": "CommitTime for SmartPost shipments.",
-                        "example": "commitTime"
-                    },
-                    "dateDetail": {
-                        "$ref": "#/components/schemas/DateDetail"
-                    },
-                    "delayDetails": {
-                        "$ref": "#/components/schemas/DelayDetail"
-                    },
-                    "saturdayDelivery": {
-                        "type": "boolean",
-                        "description": "Specifies the saturdayDelivery.",
-                        "example": false
-                    },
-                    "alternativeCommodityNames": {
-                        "type": "array",
-                        "description": "Specifies the alternate names of commodities.",
-                        "example": [
-                            "Commodity1",
-                            "Commodity2"
-                        ],
-                        "items": {
-                            "type": "string",
-                            "description": "Specifies the items."
-                        }
-                    },
-                    "transitDays": {
-                        "$ref": "#/components/schemas/TransitDays"
-                    },
-                    "label": {
-                        "type": "string",
-                        "description": "This is an informational message to inform client Deliverydate is unavailable. If commitTimestamp and transitTime are unavailable, then this is populated in the response in the client language.",
-                        "example": "Deliverydate unavailable"
-                    },
-                    "commitMessageDetails": {
-                        "type": "string",
-                        "description": "Messages concerning the ability to provide an accurate delivery commitment on an International commit quote. These could be messages providing information about why a commitment could not be returned or a successful message.",
-                        "example": "Message"
-                    },
-                    "commodityName": {
-                        "type": "string",
-                        "description": "The Commodity applicable to this commitment.",
-                        "example": "DOCUMENTS"
-                    }
-                },
-                "description": "The delivery commitment details"
             },
             "DateDetail": {
                 "type": "object",
@@ -3664,52 +3216,10 @@
                 "type": "object",
                 "properties": {
                     "address": {
-                        "$ref": "#/components/schemas/Address_2"
+                        "$ref": "#/components/schemas/Address"
                     }
                 },
                 "description": "Specify the shipper address details."
-            },
-            "Address_2": {
-                "type": "object",
-                "properties": {
-                    "city": {
-                        "type": "string",
-                        "description": "This is a placeholder for City Name. <br> Example: Beverly Hills",
-                        "example": "Beverly Hills"
-                    },
-                    "stateOrProvinceCode": {
-                        "type": "string",
-                        "description": "This is a placeholder for State or Province code. State code is required for US, CA, PR and not required for other countries. Conditional. Max length is 2 .<br> Example: CA <br><a onclick='loadDocReference(\"canadaprovincecodes\")'>Click here to see State Or Province Code</a>",
-                        "example": "TN"
-                    },
-                    "postalCode": {
-                        "type": "string",
-                        "description": "Indicate the Postal code. This is optional for non postal-aware countries. Maximum length is 10.<br> Example: 65247<br><a onclick='loadDocReference(\"postalawarecountries\")'>Click here to see Postal aware countries</a>",
-                        "example": "65247"
-                    },
-                    "countryCode": {
-                        "type": "string",
-                        "description": "This is the two-letter country code. Maximum length is 2.<br>Example: US<br><a onclick='loadDocReference(\"countrycodes\")'>Click here to see Country Codes</a>",
-                        "example": "US"
-                    },
-                    "residential": {
-                        "type": "boolean",
-                        "description": "Indicate whether this address is residential (as opposed to commercial).",
-                        "example": false
-                    }
-                },
-                "description": "This is detailed information on physical location. May be used as an actual physical address (place to which one could go), or as a container of address parts which should be handled as a unit (such as a city-state-ZIP combination within the U.S.).",
-                "example": {
-                    "streetLines": [
-                        "1550 Union Blvd",
-                        "Suite 302"
-                    ],
-                    "city": "Beverly Hills",
-                    "stateOrProvinceCode": "TN",
-                    "postalCode": "38127",
-                    "countryCode": "US",
-                    "residential": false
-                }
             },
             "EMailNotificationDetail": {
                 "type": "object",
@@ -3842,14 +3352,14 @@
                     },
                     "declaredValue": {
                         "description": "This is the Declared Value - represents FedEx Maximum liability in connection with a shipment of that Package, including but not limited to, any loss, damage, delay, misdelivery, any failure to provide information, or misdelivery of information relating to the Shipment.",
-                        "$ref": "#/components/schemas/Money_1"
+                        "$ref": "#/components/schemas/Money"
                     },
                     "weight": {
                         "description": "Indicate the total weight of the requested package line items.",
-                        "$ref": "#/components/schemas/Weight_1_2"
+                        "$ref": "#/components/schemas/Weight"
                     },
                     "dimensions": {
-                        "$ref": "#/components/schemas/Dimensions_1"
+                        "$ref": "#/components/schemas/Dimensions"
                     },
                     "variableHandlingChargeDetail": {
                         "$ref": "#/components/schemas/VariableHandlingChargeDetail"
@@ -3883,87 +3393,6 @@
                     }
                 },
                 "description": "Specifies the details of the content of the package."
-            },
-            "Money_1": {
-                "type": "object",
-                "properties": {
-                    "amount": {
-                        "type": "number",
-                        "description": "Indicate the amount.",
-                        "format": "double",
-                        "example": 12.45
-                    },
-                    "currency": {
-                        "type": "string",
-                        "description": "Indicate the three-character ISO currency code. <br>Example: USD<br><a onclick='loadDocReference(\"currencycodes\")'>Click here to see Currency Codes</a>",
-                        "example": "USD"
-                    }
-                },
-                "description": "Indicate the amount details. This is optional, but if indicated, amount and currency must be provided."
-            },
-            "Weight_1_2": {
-                "type": "object",
-                "properties": {
-                    "units": {
-                        "type": "string",
-                        "description": "Specifies the package weight unit. For Dry Ice the unit of measure is KG.",
-                        "example": "LB",
-                        "enum": [
-                            "KG",
-                            "LB"
-                        ]
-                    },
-                    "value": {
-                        "type": "number",
-                        "description": "Specifies the package weight.<br> Example: 68.25",
-                        "format": "double",
-                        "example": 10
-                    }
-                },
-                "description": "These are the weight details.",
-                "example": {
-                    "units": "LB",
-                    "value": 10
-                }
-            },
-            "Dimensions_1": {
-                "type": "object",
-                "properties": {
-                    "length": {
-                        "type": "integer",
-                        "description": "Indicate the length of the package. No implied decimal places. Maximum value: 999 <br> Example: 20",
-                        "format": "int32",
-                        "example": 100
-                    },
-                    "width": {
-                        "type": "integer",
-                        "description": "Indicate the width of the package. No implied decimal places. Maximum value: 999 <br> Example: 10",
-                        "format": "int32",
-                        "example": 50
-                    },
-                    "height": {
-                        "type": "integer",
-                        "description": "Indicate the height of the package. No implied decimal places. Maximum value: 999 <br> Example: 10",
-                        "format": "int32",
-                        "example": 30
-                    },
-                    "units": {
-                        "type": "string",
-                        "description": "Indicate the unit of measure for the provided dimensions.<br>Valid Values are:<ul><li>IN - Inches</li><li>CM - Centimeters</li></ul>",
-                        "example": "CM",
-                        "enum": [
-                            "CM",
-                            "IN"
-                        ]
-                    }
-                },
-                "description": "Indicate the dimensions of the package.<br> Following conditions will apply: <ul><li>Dimensions are optional but when added, then all three dimensions must be indicated.</li><li>Dimensions are required with YOUR_PACKAGING package type.</li></ul>Note: The Maximum/minimum dimension values varies based on the services and the packaging types. Refer <a href=\"https://www.fedex.com/en-us/service-guide.html\" target=\"_blank\">FedEx Service Guide</a> for service details related to DIM Weighting for FedEx Express and oversize conditions for FedEx Express and FedEx Ground.",
-                "example": {
-                    "length": 100,
-                    "width": 50,
-                    "height": 30,
-                    "units": "CM"
-                }
             },
             "VariableHandlingChargeDetail": {
                 "required": [
@@ -4001,7 +3430,7 @@
                     },
                     "fixedValue": {
                         "description": "Indicate the Fixed value. <br>If you choose FIXED_AMOUNT as the ChargeType, this element allows you to enter the fixed value of the handling charge. The element allows entry of 7 characters before the decimal and 2 characters following the decimal. <br>Example - 5.00.",
-                        "$ref": "#/components/schemas/Money_1"
+                        "$ref": "#/components/schemas/Money"
                     },
                     "rateElementBasis": {
                         "type": "string",
@@ -4066,7 +3495,7 @@
                         }
                     },
                     "dryIceWeight": {
-                        "$ref": "#/components/schemas/Weight_1_2"
+                        "$ref": "#/components/schemas/Weight"
                     }
                 },
                 "description": "These special services are available at the package level for some or all service types. Needs Indicated, if rate data is being requested for the special services. "
@@ -4443,7 +3872,7 @@
                 "type": "object",
                 "properties": {
                     "codCollectionAmount": {
-                        "$ref": "#/components/schemas/Money_1"
+                        "$ref": "#/components/schemas/Money"
                     },
                     "codCollectionType": {
                         "type": "string",
@@ -4487,70 +3916,6 @@
                     }
                 },
                 "description": "Describe the attributes of a battery or cell that are used for classification purposes. Typically this structure would be used to allow customers to declare batteries or cells for which full dangerous goods documentation and procedures are not required."
-            },
-            "Party_2": {
-                "type": "object",
-                "properties": {
-                    "address": {
-                        "$ref": "#/components/schemas/Address_2"
-                    },
-                    "contact": {
-                        "$ref": "#/components/schemas/Contact_2"
-                    },
-                    "accountNumber": {
-                        "$ref": "#/components/schemas/AccountNumber"
-                    }
-                },
-                "description": "Indicate the party to a transaction including the physical address, contact information and account number information.",
-                "example": {
-                    "accountNumber": {
-                        "value": 123456789
-                    }
-                }
-            },
-            "Contact_2": {
-                "type": "object",
-                "properties": {
-                    "personName": {
-                        "type": "string",
-                        "description": "Specify contact name.<br>Note: Recommended Length is 70. There's no specific validation for the length.<br> Example: John Taylor",
-                        "example": "John Taylor"
-                    },
-                    "emailAddress": {
-                        "type": "string",
-                        "description": "Specify contact email address. Maximum length is 80. <br> Example: sample@company.com",
-                        "example": "sample@company.com"
-                    },
-                    "phoneNumber": {
-                        "type": "string",
-                        "description": "Specify contact phone number. Maximum length is 15. <br> Example: 1234567890",
-                        "example": "1234567890"
-                    },
-                    "phoneExtension": {
-                        "type": "string",
-                        "description": "Specify contact phone extension. Maximum length is 6. <br> Example: 1234",
-                        "example": "1234"
-                    },
-                    "faxNumber": {
-                        "type": "string",
-                        "description": "Specify contact fax number. Maximum length is 15. <br> Example: 1234567890",
-                        "example": "1234567890"
-                    },
-                    "companyName": {
-                        "type": "string",
-                        "description": "Specify contact company name. Maximum length is 35.",
-                        "example": "Fedex"
-                    }
-                },
-                "description": "Indicate the contact details.",
-                "example": {
-                    "personName": "John Taylor",
-                    "emailAddress": "sample@company.com",
-                    "phoneNumber": "1234567890",
-                    "phoneExtension": "1234",
-                    "faxNumber": "1234567890",
-                    "companyName": "Fedex"
-                }
             },
             "ShipmentSpecialServicesRequested": {
                 "type": "object",
@@ -4823,7 +4188,7 @@
                 "type": "object",
                 "properties": {
                     "totalWeight": {
-                        "$ref": "#/components/schemas/Weight_1_2"
+                        "$ref": "#/components/schemas/Weight"
                     },
                     "packageCount": {
                         "type": "integer",
@@ -4869,10 +4234,10 @@
                 "type": "object",
                 "properties": {
                     "contact": {
-                        "$ref": "#/components/schemas/Contact_2"
+                        "$ref": "#/components/schemas/Contact"
                     },
                     "address": {
-                        "$ref": "#/components/schemas/Address_1"
+                        "$ref": "#/components/schemas/Address"
                     }
                 },
                 "description": "Specify the contact and address details of a location.",
@@ -4897,37 +4262,6 @@
                         "faxNumber": "fax number"
                     }
                 }
-            },
-            "Address_1": {
-                "type": "object",
-                "properties": {
-                    "city": {
-                        "type": "string",
-                        "description": "Specify name of city, town, etc.<br> Example: Beverly Hills",
-                        "example": "Beverly Hills"
-                    },
-                    "stateOrProvinceCode": {
-                        "type": "string",
-                        "description": "Specify State or province code. Maximum length is 2.State code is required for US, CA, PR and not required for other countries. Conditional. Max length is 2.<br> Example: CA <br><a onclick='loadDocReference(\"canadaprovincecodes\")'>Click here to see State Or Province Codes</a>",
-                        "example": "CA"
-                    },
-                    "postalCode": {
-                        "type": "string",
-                        "description": "Specify the postal code. This is optional for non postal- aware countries. Maximum length is 10.<br> Example: 65247<br><a onclick='loadDocReference(\"postalawarecountries\")'>Click here to see Postal aware countries</a>",
-                        "example": "65247"
-                    },
-                    "countryCode": {
-                        "type": "string",
-                        "description": "The two-letter country code. Maximum length is 2.<br>Example: US<br><a onclick='loadDocReference(\"countrycodes\")'>Click here to see Country Codes</a>",
-                        "example": "US"
-                    },
-                    "residential": {
-                        "type": "boolean",
-                        "description": "Indicate whether this address is residential (as opposed to commercial).",
-                        "example": false
-                    }
-                },
-                "description": "This is detailed information on physical location. May be used as an actual physical address (place to which one could go), or as a container of address parts which should be handled as a unit (such as a city-state-ZIP combination within the US). Country code is required. Postal code is required for postal aware countries. State or province code is mandatory for Puerto Rico."
             },
             "ShipmentCODDetail": {
                 "type": "object",
@@ -5241,7 +4575,7 @@
                     },
                     "weight": {
                         "description": "Specify the Total weight of this commodity. This element is used to estimate duties and taxes.",
-                        "$ref": "#/components/schemas/Weight_1_2"
+                        "$ref": "#/components/schemas/Weight"
                     },
                     "quantity": {
                         "type": "integer",
@@ -5251,10 +4585,10 @@
                     },
                     "customsValue": {
                         "description": "Specify the required Customs value for this commodity.",
-                        "$ref": "#/components/schemas/Money_1"
+                        "$ref": "#/components/schemas/Money"
                     },
                     "unitPrice": {
-                        "$ref": "#/components/schemas/Money_1"
+                        "$ref": "#/components/schemas/Money"
                     },
                     "numberOfPieces": {
                         "type": "integer",
@@ -5416,59 +4750,448 @@
                 },
                 "description": "Details for the Return Shipment."
             },
-            "DeliveryOnInvoiceAcceptanceDetailRecipient_address": {
-                "required": [
-                    "countryCode"
-                ],
+            "Weight": {
+                "type": "object",
                 "properties": {
-                    "streetLines": {
+                    "units": {
+                        "type": "string",
+                        "description": "Specifies the package weight unit. For Dry Ice the unit of measure is KG.",
+                        "example": "LB",
+                        "enum": [
+                            "KG",
+                            "LB"
+                        ]
+                    },
+                    "value": {
+                        "type": "number",
+                        "description": "Specifies the package weight.<br> Example: 68.25",
+                        "format": "double",
+                        "example": 10
+                    }
+                },
+                "description": "These are the weight details.",
+                "example": {
+                    "units": "LB",
+                    "value": 10
+                }
+            },
+            "Surcharge": {
+                "type": "object",
+                "properties": {
+                    "amount": {
+                        "type": "number",
+                        "description": "Identifies the total amount of the shipment-level fees and taxes that are not based on transportation charges or commodity-level estimated duties and taxes.",
+                        "format": "double",
+                        "example": 87.5
+                    },
+                    "level": {
+                        "type": "string",
+                        "description": "Specifies the level of surcharge.",
+                        "example": "level"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Specifies the localized name of the surcharge.",
+                        "example": "name"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "Specifies the description of the surcharge.",
+                        "example": "description"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "Specifies the type of surcharge.",
+                        "example": "type"
+                    }
+                }
+            },
+            "RateDiscount": {
+                "type": "object",
+                "properties": {
+                    "amount": {
+                        "type": "number",
+                        "description": "Indicates the amount for the rate discount.",
+                        "format": "double",
+                        "example": 87.5
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Indicate the name of the discount.<br><a onclick='loadDocReference(\"discounts\")'>Click here to see Discounts</a>",
+                        "example": "name"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "Indicates the description for the rate discount.",
+                        "example": "description"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "Indicates the type.",
+                        "example": "type"
+                    },
+                    "percent": {
+                        "type": "number",
+                        "description": "Indicates the percentage of the rate discount.",
+                        "format": "double",
+                        "example": 10.5
+                    }
+                }
+            },
+            "ShipmentLegRateDetail": {
+                "type": "object",
+                "properties": {
+                    "discounts": {
                         "type": "array",
-                        "description": "This is the combination of number, street name, etc. <br>Note: At least one line is required and streetlines more than 3 will be ignored. Empty lines should not be included. Maximum Length per line is 35.<br>Example: [10 FedEx Parkway, Suite 302, .etc.]",
-                        "example": [
-                            "10 FedEx Parkway",
-                            "Suite 30"
-                        ],
+                        "description": "Specifies the list of discounts. <br><a onclick='loadDocReference(\"discounts\")'>Click here to see Discounts</a>",
+                        "items": {
+                            "$ref": "#/components/schemas/RateDiscount"
+                        }
+                    },
+                    "pricingCode": {
+                        "type": "string",
+                        "description": "Identifies the type of pricing used for this shipment.",
+                        "example": "ACTUAL"
+                    },
+                    "legDescription": {
+                        "type": "string",
+                        "description": "Human-readable text describing the shipment leg.",
+                        "example": "legDescription"
+                    },
+                    "surcharges": {
+                        "type": "array",
+                        "description": "Specifies the list of surcharges.<br>Valid value is:<li>PEAK</li><li>PEAK_ADDTIONAL_HANDLING</li><li>PEAK_OVERSIZE</li><li>PEAK_RESIDENTIAL_DELIVERY</li>",
+                        "items": {
+                            "$ref": "#/components/schemas/Surcharge"
+                        }
+                    },
+                    "specialRatingApplied": {
+                        "type": "array",
+                        "description": "Indicates which special rating cases applied to this shipment.",
                         "items": {
                             "type": "string"
                         }
                     },
-                    "countryCode": {
+                    "taxes": {
+                        "type": "array",
+                        "description": "Specifies the list of taxes.",
+                        "items": {
+                            "$ref": "#/components/schemas/Tax"
+                        }
+                    },
+                    "rateScale": {
                         "type": "string",
-                        "description": "The two-letter country code. <br>Maximum length is 2.<br>Example: US<br><a onclick='loadDocReference(\"countrycodes\")'>Click here to see Country Codes</a>",
-                        "example": "US"
+                        "description": "Indicates the rate scale used."
+                    },
+                    "totalNetCharge": {
+                        "type": "number",
+                        "description": "This shipment's totalNetCharge and totalDutiesTaxesAndFees. Some duties and taxes are only provided if estimated duties and taxes were calculated for this shipment AND duties, taxes and transportation charges are all paid by the same sender's account.",
+                        "format": "double",
+                        "example": 87.5
+                    },
+                    "totalBaseCharge": {
+                        "type": "number",
+                        "description": "Specifies the total base charge list",
+                        "format": "double",
+                        "example": 87.5
+                    },
+                    "currencyExchangeRate": {
+                        "$ref": "#/components/schemas/CurrencyExchangeRate"
+                    },
+                    "totalBillingWeight": {
+                        "description": "Sum of billing weight for the shipment.",
+                        "type": "object",
+                        "$ref": "#/components/schemas/Weight"
+                    },
+                    "currency": {
+                        "type": "string",
+                        "description": "Indicate the three-character ISO currency code. <br>Example: USD<br><a onclick='loadDocReference(\"currencycodes\")'>Click here to see Currency Codes</a>",
+                        "example": "USD"
+                    }
+                }
+            },
+            "Tax": {
+                "type": "object",
+                "properties": {
+                    "amount": {
+                        "type": "number",
+                        "description": "Specifies the list of tax amounts",
+                        "format": "double",
+                        "example": 87.5
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Specifies the localized name of the tax."
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "Specifies the description of the Surcharge/Tax."
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "Specifies the type of Surcharge/Tax."
                     }
                 },
-                "type": "object"
+                "description": "Specifies the Tax surcharge details"
             },
-            "DeliveryOnInvoiceAcceptanceDetailRecipient_contact": {
-                "required": [
-                    "companyName",
-                    "personName",
-                    "phoneNumber"
-                ],
+            "Party": {
+                "type": "object",
                 "properties": {
-                    "companyName": {
-                        "type": "string",
-                        "description": "This is a placeholder for company name. Maximum length is 35.",
-                        "example": "FedEx"
+                    "address": {
+                        "$ref": "#/components/schemas/Address"
                     },
-                    "faxNumber": {
-                        "type": "string",
-                        "description": "This is a placeholder for Fax number. Maximum length is 15.",
-                        "example": "9013577890"
+                    "accountNumber": {
+                        "$ref": "#/components/schemas/AccountNumber"
                     },
+                    "contact": {
+                        "$ref": "#/components/schemas/Contact"
+                    }
+                },
+                "description": "Indicate the party to a transaction including the physical address, contact information and account number information.",
+                "example": {
+                    "accountNumber": {
+                        "value": 123456789
+                    }
+                }
+            },
+            "Party_2": {
+                "type": "object",
+                "properties": {
+                    "address": {
+                        "$ref": "#/components/schemas/Address"
+                    },
+                    "contact": {
+                        "$ref": "#/components/schemas/Contact"
+                    },
+                    "accountNumber": {
+                        "$ref": "#/components/schemas/AccountNumber"
+                    }
+                },
+                "description": "Indicate the party to a transaction including the physical address, contact information and account number information.",
+                "example": {
+                    "accountNumber": {
+                        "value": 123456789
+                    }
+                }
+            },
+            "Address": {
+                "type": "object",
+                "properties": {
+                    "city": {
+                        "type": "string",
+                        "description": "Specify name of city, town, etc.<br> Example: Beverly Hills",
+                        "example": "Beverly Hills"
+                    },
+                    "stateOrProvinceCode": {
+                        "type": "string",
+                        "description": "Specify State or province code. Maximum length is 2.State code is required for US, CA, PR and not required for other countries. Conditional. Max length is 2.<br> Example: CA <br><a onclick='loadDocReference(\"canadaprovincecodes\")'>Click here to see State Or Province Codes</a>",
+                        "example": "CA"
+                    },
+                    "postalCode": {
+                        "type": "string",
+                        "description": "Specify the postal code. This is optional for non postal- aware countries. Maximum length is 10.<br> Example: 65247<br><a onclick='loadDocReference(\"postalawarecountries\")'>Click here to see Postal aware countries</a>",
+                        "example": "65247"
+                    },
+                    "countryCode": {
+                        "type": "string",
+                        "description": "The two-letter country code. Maximum length is 2.<br>Example: US<br><a onclick='loadDocReference(\"countrycodes\")'>Click here to see Country Codes</a>",
+                        "example": "US"
+                    },
+                    "residential": {
+                        "type": "boolean",
+                        "description": "Indicate whether this address is residential (as opposed to commercial).",
+                        "example": false
+                    }
+                },
+                "description": "This is detailed information on physical location. May be used as an actual physical address (place to which one could go), or as a container of address parts which should be handled as a unit (such as a city-state-ZIP combination within the US). Country code is required. Postal code is required for postal aware countries. State or province code is mandatory for Puerto Rico."
+            },
+            "Contact": {
+                "type": "object",
+                "properties": {
                     "personName": {
                         "type": "string",
-                        "description": "This is a placeholder for contact person's name. Maximum Length is 70.",
+                        "description": "Specify contact name.<br>Note: Recommended Length is 70. There's no specific validation for the length.<br> Example: John Taylor",
                         "example": "John Taylor"
+                    },
+                    "emailAddress": {
+                        "type": "string",
+                        "description": "Specify contact email address. Maximum length is 80. <br> Example: sample@company.com",
+                        "example": "sample@company.com"
                     },
                     "phoneNumber": {
                         "type": "string",
-                        "description": "This is a placeholder for phone number associated with this contact. Maximum length is 15.",
-                        "example": "9013577890"
+                        "description": "Specify contact phone number. Maximum length is 15. <br> Example: 1234567890",
+                        "example": "1234567890"
+                    },
+                    "phoneExtension": {
+                        "type": "string",
+                        "description": "Specify contact phone extension. Maximum length is 6. <br> Example: 1234",
+                        "example": "1234"
+                    },
+                    "faxNumber": {
+                        "type": "string",
+                        "description": "Specify contact fax number. Maximum length is 15. <br> Example: 1234567890",
+                        "example": "1234567890"
+                    },
+                    "companyName": {
+                        "type": "string",
+                        "description": "Specify contact company name. Maximum length is 35.",
+                        "example": "Fedex"
                     }
                 },
-                "type": "object"
+                "description": "Indicate the contact details.",
+                "example": {
+                    "personName": "John Taylor",
+                    "emailAddress": "sample@company.com",
+                    "phoneNumber": "1234567890",
+                    "phoneExtension": "1234",
+                    "faxNumber": "1234567890",
+                    "companyName": "Fedex"
+                }
+            },
+            "CommitDetail": {
+                "type": "object",
+                "properties": {
+                    "daysInTransit": {
+                        "type": "string",
+                        "description": "Code indicating the number of transit days.",
+                        "enum": [
+                            "EIGHT_DAYS",
+                            "EIGHTEEN_DAYS",
+                            "ELEVEN_DAYS",
+                            "FIFTEEN_DAYS",
+                            "FIVE_DAYS",
+                            "FOUR_DAYS",
+                            "FOURTEEN_DAYS",
+                            "NINE_DAYS",
+                            "NINETEEN_DAYS",
+                            "ONE_DAY",
+                            "SEVEN_DAYS",
+                            "SEVENTEEN_DAYS",
+                            "SIX_DAYS",
+                            "SIXTEEN_DAYS",
+                            "TEN_DAYS",
+                            "THIRTEEN_DAYS",
+                            "THREE_DAYS",
+                            "TWELVE_DAYS",
+                            "TWENTY_DAYS",
+                            "TWO_DAYS",
+                            "SMARTPOST_TRANSIT_DAYS",
+                            "UNKNOWN"
+                        ]
+                    },
+                    "guaranteedType": {
+                        "type": "string",
+                        "description": "Indicates if there is a guaranteed delivery option applied to the rate.  This is for freight rates only.<br> Valid values<br>GUARANTEED_MORNING - guaranteed delivery on morning of date specified.<br>GUARANTEED_CLOSE_OF_BUSINESS - guaranteed delivery on date specified by close of day",
+                        "enum": [
+                            "GUARANTEED_MORNING",
+                            "GUARANTEED_CLOSE_OF_BUSINESS"
+                        ]
+                    },
+                    "smartPostCommitTime": {
+                        "type": "string",
+                        "description": "CommitTime for SmartPost shipments.",
+                        "example": "commitTime"
+                    },
+                    "dateDetail": {
+                        "$ref": "#/components/schemas/DateDetail"
+                    },
+                    "delayDetails": {
+                        "$ref": "#/components/schemas/DelayDetail"
+                    },
+                    "saturdayDelivery": {
+                        "type": "boolean",
+                        "description": "Specifies the saturdayDelivery.",
+                        "example": false
+                    },
+                    "alternativeCommodityNames": {
+                        "type": "array",
+                        "description": "Specifies the alternate names of commodities.",
+                        "example": [
+                            "Commodity1",
+                            "Commodity2"
+                        ],
+                        "items": {
+                            "type": "string",
+                            "description": "Specifies the items."
+                        }
+                    },
+                    "transitDays": {
+                        "$ref": "#/components/schemas/TransitDays"
+                    },
+                    "label": {
+                        "type": "string",
+                        "description": "This is an informational message to inform client Deliverydate is unavailable. If commitTimestamp and transitTime are unavailable, then this is populated in the response in the client language.",
+                        "example": "Deliverydate unavailable"
+                    },
+                    "commitMessageDetails": {
+                        "type": "string",
+                        "description": "Messages concerning the ability to provide an accurate delivery commitment on an International commit quote. These could be messages providing information about why a commitment could not be returned or a successful message.",
+                        "example": "Message"
+                    },
+                    "commodityName": {
+                        "type": "string",
+                        "description": "The Commodity applicable to this commitment.",
+                        "example": "DOCUMENTS"
+                    }
+                },
+                "description": "The delivery commitment details"
+            },
+            "Money": {
+                "type": "object",
+                "properties": {
+                    "amount": {
+                        "type": "number",
+                        "description": "Indicate the amount.",
+                        "format": "double",
+                        "example": 12.45
+                    },
+                    "currency": {
+                        "type": "string",
+                        "description": "Indicate the three-character ISO currency code. <br>Example: USD<br><a onclick='loadDocReference(\"currencycodes\")'>Click here to see Currency Codes</a>",
+                        "example": "USD"
+                    }
+                },
+                "description": "Indicate the amount details. This is optional, but if indicated, amount and currency must be provided."
+            },
+            "Dimensions": {
+                "type": "object",
+                "properties": {
+                    "length": {
+                        "type": "integer",
+                        "description": "Indicate the length of the package. No implied decimal places. Maximum value: 999 <br> Example: 20",
+                        "format": "int32",
+                        "example": 100
+                    },
+                    "width": {
+                        "type": "integer",
+                        "description": "Indicate the width of the package. No implied decimal places. Maximum value: 999 <br> Example: 10",
+                        "format": "int32",
+                        "example": 50
+                    },
+                    "height": {
+                        "type": "integer",
+                        "description": "Indicate the height of the package. No implied decimal places. Maximum value: 999 <br> Example: 10",
+                        "format": "int32",
+                        "example": 30
+                    },
+                    "units": {
+                        "type": "string",
+                        "description": "Indicate the unit of measure for the provided dimensions.<br>Valid Values are:<ul><li>IN - Inches</li><li>CM - Centimeters</li></ul>",
+                        "example": "CM",
+                        "enum": [
+                            "CM",
+                            "IN"
+                        ]
+                    }
+                },
+                "description": "Indicate the dimensions of the package.<br> Following conditions will apply: <ul><li>Dimensions are optional but when added, then all three dimensions must be indicated.</li><li>Dimensions are required with YOUR_PACKAGING package type.</li></ul>Note: The Maximum/minimum dimension values varies based on the services and the packaging types. Refer <a href=\"https://www.fedex.com/en-us/service-guide.html\" target=\"_blank\">FedEx Service Guide</a> for service details related to DIM Weighting for FedEx Express and oversize conditions for FedEx Express and FedEx Ground.",
+                "example": {
+                    "length": 100,
+                    "width": 50,
+                    "height": 30,
+                    "units": "CM"
+                }
             }
         }
     },
