@@ -32,7 +32,7 @@ final class ShipmentRateDetail2 extends Dto
      * @param  mixed[][]|null  $shipmentLegRateDetails  This is data for a single leg of a shipment's total/summary rates, as calculated per a specific rate type.
      * @param  ?int  $dimDivisor  The value used to calculate the weight based on the dimensions.<br>Example: 0
      * @param  ?string  $rateType  The Type used for this specific set of rate data.<br>Example: RATED_ACCOUNT_SHIPMENT
-     * @param  Surcharge[]|null  $surcharges  Specifies the list of surcharges.<br>Valid value is:<li>PEAK</li><li>PEAK_ADDTIONAL_HANDLING</li><li>PEAK_OVERSIZE</li><li>PEAK_RESIDENTIAL_DELIVERY</li>
+     * @param  Surcharge[]|null  $surcharges  Specifies the list of all surcharges that apply to this package.
      * @param  ?float  $totalSurcharges  The total amount of all surcharges applied to this shipment.<br>Example: 9.88
      * @param  ?Weight  $totalBillingWeight  These are the package weight details.<br>Note: Weight is not required for One rate shipments
      * @param  RateDiscount[]|null  $freightDiscounts  All rate discounts that apply to this shipment.<br><a onclick='loadDocReference("discounts")'>Click here to see Discounts</a>

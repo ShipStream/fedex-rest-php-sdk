@@ -50,7 +50,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO401"
+                                    "$ref": "#/components/schemas/ErrorResponseVO"
                                 }
                             }
                         }
@@ -60,7 +60,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO404"
+                                    "$ref": "#/components/schemas/ErrorResponseVO"
                                 }
                             }
                         }
@@ -70,7 +70,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO422"
+                                    "$ref": "#/components/schemas/ErrorResponseVO"
                                 }
                             }
                         }
@@ -80,7 +80,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO500"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 }
                             }
                         }
@@ -181,17 +181,14 @@
                     },
                     "totalCommodityValue": {
                         "description": "Specify the total commodity value. Either customsClearenceDetail or totalCommodityValue is required.",
-                        "type": "object",
                         "$ref": "#/components/schemas/Money"
                     },
                     "originAddress": {
                         "description": "Provide the shipment origin address details.",
-                        "type": "object",
                         "$ref": "#/components/schemas/Address"
                     },
                     "destinationAddress": {
                         "description": "Provide the shipment destination address details.",
-                        "type": "object",
                         "$ref": "#/components/schemas/Address"
                     },
                     "serviceOptionType": {
@@ -215,7 +212,6 @@
                     },
                     "customsClearanceDetail": {
                         "description": "Specify the Customs clearance details.Either customsClearenceDetail or totalCommodityValue is required.",
-                        "type": "object",
                         "$ref": "#/components/schemas/CustomsClearanceDetailVO"
                     },
                     "shipDate": {
@@ -230,7 +226,6 @@
                     },
                     "totalWeight": {
                         "description": "Provide the total weight for the shipment.",
-                        "type": "object",
                         "$ref": "#/components/schemas/Weight"
                     },
                     "includeURLReferences": {
@@ -302,7 +297,6 @@
                     },
                     "importerOfRecordAccountNumber": {
                         "description": "The descriptive data for the importer of Record for the shipment and account number information.",
-                        "type": "object",
                         "$ref": "#/components/schemas/Party"
                     },
                     "customsValue": {
@@ -345,7 +339,6 @@
                 "properties": {
                     "freightCharge": {
                         "description": "Indicate the freight charge.",
-                        "type": "object",
                         "$ref": "#/components/schemas/Money"
                     },
                     "purpose": {
@@ -372,7 +365,6 @@
                     },
                     "customsValue": {
                         "description": "Required<br>Customs value for this commodity",
-                        "type": "object",
                         "$ref": "#/components/schemas/Money"
                     },
                     "countryOfManufacture": {
@@ -395,7 +387,6 @@
                     },
                     "weight": {
                         "description": "Represents Weight of the packages or shipment.",
-                        "type": "object",
                         "$ref": "#/components/schemas/Weight"
                     },
                     "commodityId": {
@@ -497,7 +488,6 @@
                     },
                     "countryDetails": {
                         "description": "Represents Country Details",
-                        "type": "object",
                         "$ref": "#/components/schemas/RegulatoryCountryDetails"
                     },
                     "cxsalerts": {
@@ -569,7 +559,6 @@
                 "properties": {
                     "shipmentDetails": {
                         "description": "These are Shipment Details.",
-                        "type": "object",
                         "$ref": "#/components/schemas/RegulatoryShipmentDetail"
                     },
                     "countryCode": {
@@ -842,196 +831,6 @@
                     }
                 }
             },
-            "ErrorResponseVO": {
-                "type": "object",
-                "properties": {
-                    "transactionId": {
-                        "type": "string",
-                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
-                        "example": "624deea6-b709-470c-8c39-4b5511281492"
-                    },
-                    "errors": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/CXSError"
-                        }
-                    }
-                },
-                "description": "This holds the error responses."
-            },
-            "CXSError": {
-                "type": "object",
-                "properties": {
-                    "code": {
-                        "description": "Indicates the error code.<br>Example: ACCOUNT.NUMBER.INVALID,LOGIN.REAUTHENTICATE.ERROR,SHIPMENT.USER.UNAUTHORIZED,NOT.FOUND.ERROR,INTERNAL.SERVER.ERROR",
-                        "type": "string"
-                    },
-                    "parameterList": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/Parameter"
-                        }
-                    },
-                    "message": {
-                        "type": "string",
-                        "description": "Indicates the description of API error alert message.<br>Example: We are unable to process this request. Please try again later or contact FedEx Customer Service."
-                    }
-                },
-                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
-            },
-            "ErrorResponseVO401": {
-                "type": "object",
-                "properties": {
-                    "transactionId": {
-                        "type": "string",
-                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
-                        "example": "624deea6-b709-470c-8c39-4b5511281492"
-                    },
-                    "errors": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/CXSError401"
-                        }
-                    }
-                },
-                "description": "This holds the error responses."
-            },
-            "CXSError401": {
-                "type": "object",
-                "properties": {
-                    "code": {
-                        "type": "string",
-                        "description": "Indicates the error code.<br>Example: NOT.AUTHORIZED.ERROR"
-                    },
-                    "parameterList": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/Parameter"
-                        }
-                    },
-                    "message": {
-                        "description": "Indicates the description of API error alert message.<br>Example: Access token expired. Please modify your request and try again.",
-                        "type": "string"
-                    }
-                },
-                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
-            },
-            "ErrorResponseVO422": {
-                "type": "object",
-                "properties": {
-                    "transactionId": {
-                        "type": "string",
-                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
-                        "example": "624deea6-b709-470c-8c39-4b5511281492"
-                    },
-                    "errors": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/CXSError422"
-                        }
-                    }
-                },
-                "description": "This holds the error responses."
-            },
-            "CXSError422": {
-                "type": "object",
-                "properties": {
-                    "code": {
-                        "type": "string",
-                        "description": "Indicates the error code.<br>Example: INVALID.INPUT.EXCEPTION"
-                    },
-                    "parameterList": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/Parameter"
-                        }
-                    },
-                    "message": {
-                        "description": "Validation failed for the object='shipmentRegulatoryDetailsInputVO'.Error count:1",
-                        "type": "string"
-                    }
-                },
-                "description": "Indicates error when mandatory elements are not passed in the request."
-            },
-            "ErrorResponseVO404": {
-                "type": "object",
-                "properties": {
-                    "transactionId": {
-                        "type": "string",
-                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
-                        "example": "624deea6-b709-470c-8c39-4b5511281492"
-                    },
-                    "errors": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/CXSError404"
-                        }
-                    }
-                },
-                "description": "This holds the error responses."
-            },
-            "CXSError404": {
-                "type": "object",
-                "properties": {
-                    "code": {
-                        "type": "string",
-                        "description": "Indicates the error code.<br>Example: NOT.FOUND.ERROR"
-                    },
-                    "parameterList": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/Parameter"
-                        }
-                    },
-                    "message": {
-                        "description": "Indicates the description of API error alert message.<br>Example: The resource you requested is no longer available. Please modify your request and try again.",
-                        "type": "string"
-                    }
-                },
-                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
-            },
-            "ErrorResponseVO500": {
-                "type": "object",
-                "properties": {
-                    "transactionId": {
-                        "type": "string",
-                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
-                        "example": "624deea6-b709-470c-8c39-4b5511281492"
-                    },
-                    "customerTransactionId": {
-                        "type": "string",
-                        "description": "This element allows you to assign a unique identifier to your transaction. This element is also returned in the reply and helps you match the request to the reply. <br> Example: AnyCo_order123456789",
-                        "format": "uuid"
-                    },
-                    "errors": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/CXSError500"
-                        }
-                    }
-                },
-                "description": "This holds the error responses."
-            },
-            "CXSError500": {
-                "type": "object",
-                "properties": {
-                    "code": {
-                        "type": "string",
-                        "description": "Indicates the error code.<br>Example: INTERNAL.SERVER.ERROR"
-                    },
-                    "parameterList": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/Parameter"
-                        }
-                    },
-                    "message": {
-                        "description": "Indicates the description of API error alert message.<br>Example: We encountered an unexpected error and are working to resolve the issue. We apologize for any inconvenience. Please check back at a later time.",
-                        "type": "string"
-                    }
-                },
-                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
-            },
             "Money": {
                 "type": "object",
                 "description": "Specify Insurance charges if applicable.<br><i>Note: FedEx does not provide insurance of any kind</i>.",
@@ -1068,6 +867,65 @@
                     }
                 },
                 "description": "List of parameters which indicates the properties of the alert message."
+            },
+            "ErrorResponseVO": {
+                "type": "object",
+                "properties": {
+                    "transactionId": {
+                        "type": "string",
+                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
+                        "example": "624deea6-b709-470c-8c39-4b5511281492"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CXSError"
+                        }
+                    }
+                },
+                "description": "This holds the error responses."
+            },
+            "ErrorResponseVO_2": {
+                "type": "object",
+                "properties": {
+                    "transactionId": {
+                        "type": "string",
+                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
+                        "example": "624deea6-b709-470c-8c39-4b5511281492"
+                    },
+                    "customerTransactionId": {
+                        "type": "string",
+                        "description": "This element allows you to assign a unique identifier to your transaction. This element is also returned in the reply and helps you match the request to the reply. <br> Example: AnyCo_order123456789",
+                        "format": "uuid"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CXSError"
+                        }
+                    }
+                },
+                "description": "This holds the error responses."
+            },
+            "CXSError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "description": "Indicates the error code.<br>Example: INTERNAL.SERVER.ERROR"
+                    },
+                    "parameterList": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Parameter"
+                        }
+                    },
+                    "message": {
+                        "description": "Indicates the description of API error alert message.<br>Example: We encountered an unexpected error and are working to resolve the issue. We apologize for any inconvenience. Please check back at a later time.",
+                        "type": "string"
+                    }
+                },
+                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
             }
         }
     },

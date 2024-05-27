@@ -22,7 +22,7 @@ final class PackageRateDetail extends Dto
      * @param  ?string  $rateType  Specifies the type used for this specific set of rate data.
      * @param  ?Weight  $billingWeight  These are the package weight details.<br>Note: Weight is not required for One rate shipments
      * @param  ?float  $netFreight  Specifies the sum of freight charges.<br> Example: 10
-     * @param  Surcharge[]|null  $surcharges  Specifies the list of surcharges.<br>Valid value is:<li>PEAK</li><li>PEAK_ADDTIONAL_HANDLING</li><li>PEAK_OVERSIZE</li><li>PEAK_RESIDENTIAL_DELIVERY</li>
+     * @param  Surcharge[]|null  $surcharges  Specifies the list of all surcharges that apply to this package.
      * @param  ?float  $totalSurcharges  The sum of all surcharges on the package.<br> Example: 569
      * @param  ?float  $netFedExCharge  Specifies the sum of packages netFreight and totalSurcharges (not including totalTaxes).<br> Example: 125.32
      * @param  ?float  $netCharge  Specifies the sum of packages netFreight, totalSurcharges and totalTaxes. <br>Example: 563.98

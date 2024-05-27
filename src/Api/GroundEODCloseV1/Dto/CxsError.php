@@ -11,9 +11,9 @@ final class CxsError extends Dto
     protected static array $complexArrayTypes = ['parameterList' => [Parameter::class]];
 
     /**
-     * @param  ?string  $code  Indicates the error code.<br>Example: AVAILABILITY.SHIP.DATE.INVALID,LOGIN.REAUTHENTICATE.ERROR,UNAUTHORIZED.USAGE,NOT.FOUND.ERROR,INTERNAL.SERVER.ERROR
-     * @param  Parameter[]|null  $parameterList
-     * @param  ?string  $message  Indicates the description of API error alert message.<br>Example: We are unable to process this request. Please try again later or contact FedEx Customer Service.
+     * @param  ?string  $code  Indicates the error code.<br>Example: SERVICE.UNAVAILABLE.ERROR
+     * @param  Parameter[]|null  $parameterList  Specifies list of parameters.
+     * @param  ?string  $message  Indicates the description of API error alert message.<br>Example: The service is currently unavailable and we are working to resolve the issue. We apologize for any inconvenience. Please check back at a later time.
      */
     public function __construct(
         public readonly ?string $code = null,

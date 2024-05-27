@@ -20,7 +20,7 @@ final class PackageRateDetail2 extends Dto
      * @param  ?string  $rateType  This is the rate type used.<br>Example: PAYOR_RETAIL_PACKAGE
      * @param  ?Weight  $billingWeight  These are the package weight details.<br>Note: Weight is not required for One rate shipments
      * @param  ?float  $netFreight  This is the net freight charges. i.e. base charge minus total freight discounts for a package.<br>Example: 4.89
-     * @param  Surcharge[]|null  $surcharges  Specifies the list of surcharges.<br>Valid value is:<li>PEAK</li><li>PEAK_ADDTIONAL_HANDLING</li><li>PEAK_OVERSIZE</li><li>PEAK_RESIDENTIAL_DELIVERY</li>
+     * @param  Surcharge[]|null  $surcharges  Specifies the list of all surcharges that apply to this package.
      * @param  ?float  $totalSurcharges  The sum of all surcharges on this package.<br>Example: 22.56
      * @param  ?float  $netFedExCharge  This is sum of net freight and total surcharges (not including totalTaxes) for this package.<br>Example: 12.56
      * @param  ?float  $netCharge  This is the sum of net freight, total surcharges and total taxes for a package.<br>Example: 121.56

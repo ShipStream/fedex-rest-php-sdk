@@ -9,11 +9,7 @@ use Saloon\Enums\Method;
 use Saloon\Http\Response;
 use ShipStream\FedEx\Api\OpenShipV1\Dto\FullSchemaModifyOpenShipment;
 use ShipStream\FedEx\Api\OpenShipV1\Responses\ErrorResponseVo;
-use ShipStream\FedEx\Api\OpenShipV1\Responses\ErrorResponseVo401;
-use ShipStream\FedEx\Api\OpenShipV1\Responses\ErrorResponseVo403;
-use ShipStream\FedEx\Api\OpenShipV1\Responses\ErrorResponseVo404;
-use ShipStream\FedEx\Api\OpenShipV1\Responses\ErrorResponseVo500;
-use ShipStream\FedEx\Api\OpenShipV1\Responses\ErrorResponseVo503;
+use ShipStream\FedEx\Api\OpenShipV1\Responses\ErrorResponseVo2;
 use ShipStream\FedEx\Api\OpenShipV1\Responses\ShpcResponseVoModifyOpenShipment;
 use ShipStream\FedEx\Request;
 
@@ -40,16 +36,12 @@ class ModifyOpenShipment extends Request
 
     public function createDtoFromResponse(
         Response $response,
-    ): ShpcResponseVoModifyOpenShipment|ErrorResponseVo|ErrorResponseVo401|ErrorResponseVo403|ErrorResponseVo404|ErrorResponseVo500|ErrorResponseVo503 {
+    ): ShpcResponseVoModifyOpenShipment|ErrorResponseVo|ErrorResponseVo2 {
         $status = $response->status();
         $responseCls = match ($status) {
             200 => ShpcResponseVoModifyOpenShipment::class,
-            400 => ErrorResponseVo::class,
-            401 => ErrorResponseVo401::class,
-            403 => ErrorResponseVo403::class,
-            404 => ErrorResponseVo404::class,
-            500 => ErrorResponseVo500::class,
-            503 => ErrorResponseVo503::class,
+            400, 500 => ErrorResponseVo::class,
+            401, 403, 404, 503 => ErrorResponseVo2::class,
             default => throw new Exception("Unhandled response status: {$status}")
         };
 

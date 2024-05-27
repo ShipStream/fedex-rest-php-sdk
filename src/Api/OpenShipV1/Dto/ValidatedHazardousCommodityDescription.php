@@ -11,9 +11,7 @@ final class ValidatedHazardousCommodityDescription extends Dto
     /**
      * @param  ?int  $sequenceNumber  In conjunction with the regulatory identifier, this field uniquely identifies a specific hazardous materials commodity.<br>Example: 876
      * @param  ?string  $packingInstructions  Specifies Packing Instructions.<br>Example: packingInstructions
-     * @param  ?string[]  $subsidiaryClasses  Required
-     *
-     * Indicates list of subsidiary classes<br>Example: ["Subsidiary Classes"]
+     * @param  ?string[]  $subsidiaryClasses  Specifies subsidiary Classes.<br>Example:["Subsidiary Classes"]
      * @param  ?string  $labelText  Specifies the text for the label.
      * @param  ?string  $tunnelRestrictionCode  There are five categories of tunnel categorization with A representing the least restrictive and E as the most restrictive. Category A, as the least restrictive, will not be sign-posted. Category E, the most restrictive, only allows the passage of UN2919, UN3291, UN3331, UN3359 and UN3373.<br>Example: UN2919
      * @param  ?string  $specialProvisions  Specifies Special Provisions if any.<br>Example: specialProvisions

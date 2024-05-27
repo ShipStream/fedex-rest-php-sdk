@@ -11,10 +11,7 @@ use Saloon\Http\Response;
 use Saloon\Traits\Body\HasJsonBody;
 use ShipStream\FedEx\Api\GlobalTradeV1\Dto\FullSchema;
 use ShipStream\FedEx\Api\GlobalTradeV1\Responses\ErrorResponseVo;
-use ShipStream\FedEx\Api\GlobalTradeV1\Responses\ErrorResponseVo401;
-use ShipStream\FedEx\Api\GlobalTradeV1\Responses\ErrorResponseVo404;
-use ShipStream\FedEx\Api\GlobalTradeV1\Responses\ErrorResponseVo422;
-use ShipStream\FedEx\Api\GlobalTradeV1\Responses\ErrorResponseVo500;
+use ShipStream\FedEx\Api\GlobalTradeV1\Responses\ErrorResponseVo2;
 use ShipStream\FedEx\Api\GlobalTradeV1\Responses\GticResponseVo;
 use ShipStream\FedEx\Request;
 
@@ -43,17 +40,13 @@ class ShipmentRegulatoryDetails extends Request implements HasBody
         return '/globaltrade/v1/shipments/regulatorydetails/retrieve';
     }
 
-    public function createDtoFromResponse(
-        Response $response,
-    ): GticResponseVo|ErrorResponseVo|ErrorResponseVo401|ErrorResponseVo404|ErrorResponseVo422|ErrorResponseVo500 {
+    public function createDtoFromResponse(Response $response): GticResponseVo|ErrorResponseVo|ErrorResponseVo2
+    {
         $status = $response->status();
         $responseCls = match ($status) {
             200 => GticResponseVo::class,
-            400 => ErrorResponseVo::class,
-            401 => ErrorResponseVo401::class,
-            404 => ErrorResponseVo404::class,
-            422 => ErrorResponseVo422::class,
-            500 => ErrorResponseVo500::class,
+            400, 401, 404, 422 => ErrorResponseVo::class,
+            500 => ErrorResponseVo2::class,
             default => throw new Exception("Unhandled response status: {$status}")
         };
 

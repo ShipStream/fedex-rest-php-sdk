@@ -111,7 +111,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO503"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624xxxxx-b709-470c-8c39-4b55112xxxxx",
@@ -253,7 +253,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO401"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -272,7 +272,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO403"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b55xxxx492",
@@ -291,7 +291,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO404"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -310,7 +310,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO500"
+                                    "$ref": "#/components/schemas/ErrorResponseVO"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5xxxxx1492",
@@ -330,7 +330,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO503"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5xxxxx1492",
@@ -470,7 +470,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO401"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -489,7 +489,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO403"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -508,7 +508,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO404"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -527,7 +527,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO500"
+                                    "$ref": "#/components/schemas/ErrorResponseVO"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -547,7 +547,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO503"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -660,7 +660,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO401"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -679,7 +679,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO403"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -698,7 +698,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO404"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -717,7 +717,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO500"
+                                    "$ref": "#/components/schemas/ErrorResponseVO"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -737,7 +737,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO503"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -878,7 +878,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO401"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -897,7 +897,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO403"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -916,7 +916,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO404"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -935,7 +935,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO500"
+                                    "$ref": "#/components/schemas/ErrorResponseVO"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -955,7 +955,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO503"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -1068,7 +1068,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO401"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624xxxxx-b709-470c-8c39-4b55112xxxxx",
@@ -1087,7 +1087,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO403"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624xxxxx-b709-470c-8c39-4b55112xxxxx",
@@ -1106,7 +1106,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO404"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624xxxxx-b709-470c-8c39-4b55112xxxxx",
@@ -1125,7 +1125,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO500"
+                                    "$ref": "#/components/schemas/ErrorResponseVO"
                                 },
                                 "example": {
                                     "transactionId": "624xxxxx-b709-470c-8c39-4b55112xxxxx",
@@ -1145,7 +1145,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO503"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624xxxxx-b709-470c-8c39-4b55112xxxxx",
@@ -1288,7 +1288,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO401"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624xxxxx-b709-470c-8c39-4b55112xxxxx",
@@ -1307,7 +1307,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO403"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624xxxxx-b709-470c-8c39-4b55112xxxxx",
@@ -1326,7 +1326,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO404"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624xxxxx-b709-470c-8c39-4b55112xxxxx",
@@ -1345,7 +1345,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO500"
+                                    "$ref": "#/components/schemas/ErrorResponseVO"
                                 },
                                 "example": {
                                     "transactionId": "624xxxxx-b709-470c-8c39-4b55112xxxxx",
@@ -1365,7 +1365,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO503"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624xxxxx-b709-470c-8c39-4b55112xxxxx",
@@ -1508,7 +1508,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO401"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624xxxxx-b709-470c-8c39-4b55112xxxxx",
@@ -1527,7 +1527,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO403"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624xxxxx-b709-470c-8c39-4b55112xxxxx",
@@ -1546,7 +1546,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO404"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624xxxxx-b709-470c-8c39-4b55112xxxxx",
@@ -1565,7 +1565,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO500"
+                                    "$ref": "#/components/schemas/ErrorResponseVO"
                                 },
                                 "example": {
                                     "transactionId": "624xxxxx-b709-470c-8c39-4b55112xxxxx",
@@ -1585,7 +1585,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO503"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624xxxxx-b709-470c-8c39-4b55112xxxxx",
@@ -1728,7 +1728,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO401"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -1747,7 +1747,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO403"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -1766,7 +1766,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO404"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -1785,7 +1785,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO500"
+                                    "$ref": "#/components/schemas/ErrorResponseVO"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -1928,7 +1928,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO401"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624xxxxx-b709-470c-8c39-4b55112xxxxx",
@@ -1947,7 +1947,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO403"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624xxxxx-b709-470c-8c39-4b55112xxxxx",
@@ -1966,7 +1966,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO404"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624xxxxx-b709-470c-8c39-4b55112xxxxx",
@@ -1985,7 +1985,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO500"
+                                    "$ref": "#/components/schemas/ErrorResponseVO"
                                 },
                                 "example": {
                                     "transactionId": "624xxxxx-b709-470c-8c39-4b55112xxxxx",
@@ -2005,7 +2005,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO503"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624xxxxx-b709-470c-8c39-4b55112xxxxx",
@@ -2199,7 +2199,6 @@
                                 }
                             ]
                         },
-                        "type": "object",
                         "$ref": "#/components/schemas/ShipperParty"
                     },
                     "recipients": {
@@ -2211,12 +2210,10 @@
                     },
                     "soldTo": {
                         "description": "Will indicate the party responsible for purchasing the goods shipped from the shipper to the recipient. The sold to party is not necessarily the recipient or the importer of record. The sold to party is relevant when the purchaser, rather than the recipient determines when certain customs regulations apply.",
-                        "type": "object",
                         "$ref": "#/components/schemas/SoldToParty"
                     },
                     "origin": {
                         "description": "Specify the Shipment Origin address information, if different from shipper\u2019s address.",
-                        "type": "object",
                         "$ref": "#/components/schemas/ContactAndAddress"
                     },
                     "shippingChargesPayment": {
@@ -2665,7 +2662,6 @@
                     },
                     "codRecipient": {
                         "description": "Descriptive data of the Cash On Delivery along with their details of the physical location.",
-                        "type": "object",
                         "$ref": "#/components/schemas/Party"
                     },
                     "remitToName": {
@@ -2689,7 +2685,6 @@
                     },
                     "codCollectionAmount": {
                         "description": "Indicate the COD collection amount.",
-                        "type": "object",
                         "$ref": "#/components/schemas/Money"
                     },
                     "returnReferenceIndicatorType": {
@@ -2704,7 +2699,6 @@
                     },
                     "shipmentCodAmount": {
                         "description": "Indicate the COD amount for this shipment.",
-                        "type": "object",
                         "$ref": "#/components/schemas/Money"
                     }
                 },
@@ -2816,7 +2810,7 @@
                 "type": "object",
                 "properties": {
                     "phoneNumber": {
-                        "$ref": "#/components/schemas/PhoneNumber1"
+                        "$ref": "#/components/schemas/PhoneNumber"
                     },
                     "deliveryDate": {
                         "type": "string",
@@ -2835,34 +2829,6 @@
                     }
                 },
                 "description": "These are Special service elements for FedEx Ground Home Delivery shipments. If selected, element homedeliveryPremiumType is mandatory. "
-            },
-            "PhoneNumber1": {
-                "type": "object",
-                "properties": {
-                    "areaCode": {
-                        "type": "string",
-                        "description": "Indicate the area code for the phone number."
-                    },
-                    "localNumber": {
-                        "type": "string",
-                        "description": "Indicate the local phone number for contacting in the event of an emergency. Maximum length  is 10."
-                    },
-                    "extension": {
-                        "type": "string",
-                        "description": "Indicate the extension for the phone number."
-                    },
-                    "personalIdentificationNumber": {
-                        "type": "string",
-                        "description": "Indicate the Personal Identification Number associated with the phone number."
-                    }
-                },
-                "description": "Indicate the phone number. Only numeric values allowed.<br> Note that phoneNumber is mandatory when homedeliveryPremiumType is DATE_CERTAIN or EVENING.",
-                "example": {
-                    "areaCode": "901",
-                    "localNumber": "3575012",
-                    "extension": "200",
-                    "personalIdentificationNumber": "98712345"
-                }
             },
             "EMailNotificationDetail": {
                 "type": "object",
@@ -3106,7 +3072,6 @@
                     },
                     "importerOfRecord": {
                         "description": "The descriptive data for the importer of Record for the shipment and their physical address, contact and account number information.",
-                        "type": "object",
                         "$ref": "#/components/schemas/Party"
                     },
                     "generatedDocumentLocale": {
@@ -3119,7 +3084,6 @@
                     },
                     "totalCustomsValue": {
                         "description": "This is the total customs value.",
-                        "type": "object",
                         "$ref": "#/components/schemas/Money"
                     },
                     "partiesToTransactionAreRelated": {
@@ -3131,7 +3095,6 @@
                     },
                     "insuranceCharge": {
                         "description": "Specify insurance charges if applicable. <br><i>Note: FedEx does not provide insurance of any kind.</i>",
-                        "type": "object",
                         "$ref": "#/components/schemas/Money"
                     }
                 },
@@ -3219,7 +3182,6 @@
                     },
                     "taxesOrMiscellaneousCharge": {
                         "description": "Indicate the taxes or miscellaneous charges(other than freight charges or insurance charges) that are associated with the shipment.",
-                        "type": "object",
                         "$ref": "#/components/schemas/Money"
                     },
                     "taxesOrMiscellaneousChargeType": {
@@ -3237,17 +3199,14 @@
                     },
                     "freightCharge": {
                         "description": "Indicate the freight charge.",
-                        "type": "object",
                         "$ref": "#/components/schemas/Money"
                     },
                     "packingCosts": {
                         "description": "Indicate the packing cost.",
-                        "type": "object",
                         "$ref": "#/components/schemas/Money"
                     },
                     "handlingCosts": {
                         "description": "Indicate the handling cost.",
-                        "type": "object",
                         "$ref": "#/components/schemas/Money"
                     },
                     "declarationStatement": {
@@ -3351,7 +3310,6 @@
                 "properties": {
                     "unitPrice": {
                         "description": "This is the unit price.",
-                        "type": "object",
                         "$ref": "#/components/schemas/Money"
                     },
                     "additionalMeasures": {
@@ -3380,7 +3338,6 @@
                     },
                     "customsValue": {
                         "description": "This is the customs value.",
-                        "type": "object",
                         "$ref": "#/components/schemas/Money"
                     },
                     "countryOfManufacture": {
@@ -3699,7 +3656,6 @@
                     },
                     "declaredValue": {
                         "description": "This is the Declared Value of any shipment which represents FedEx maximum liability associated with a shipment. This is including, but not limited to any loss, damage, delay, misdelivery, any failure to provide information, or misdelivery of information related to the Shipment.",
-                        "type": "object",
                         "$ref": "#/components/schemas/Money"
                     },
                     "weight": {
@@ -3707,7 +3663,6 @@
                     },
                     "dimensions": {
                         "description": "Indicate the dimensions of the package.<br> Following conditions will apply: <ul><li>Dimensions are optional but when added, then all three dimensions must be indicated.</li><li>Dimensions are required when using a Express freight service.</li></ul>Note: The maximum/minimum dimension values varies based on the services and the packaging types. Refer <a href='https://www.fedex.com/en-us/service-guide.html' target='_blank'>FedEx Service Guide</a> for service details related to DIM Weighting for FedEx Express and oversize conditions for FedEx Express and FedEx Ground.",
-                        "type": "object",
                         "$ref": "#/components/schemas/Dimensions"
                     },
                     "groupPackageCount": {
@@ -3973,7 +3928,6 @@
                 "properties": {
                     "codCollectionAmount": {
                         "description": "Indicate the COD collection amount.",
-                        "type": "object",
                         "$ref": "#/components/schemas/Money"
                     }
                 },
@@ -4237,7 +4191,6 @@
                     },
                     "dryIceWeight": {
                         "description": "Descriptive data required for a FedEx shipment containing dry ice. Includes weight and units. This element is required when SpecialServiceType DRY_ICE is present in the SpecialServiceTypes collection at the package level.",
-                        "type": "object",
                         "$ref": "#/components/schemas/Weight"
                     },
                     "hazardousPackageDetail": {
@@ -4568,11 +4521,10 @@
                 "properties": {
                     "quantity": {
                         "description": "Indicates hazardous commodity quantity details.",
-                        "type": "object",
                         "$ref": "#/components/schemas/HazardousCommodityQuantityDetail"
                     },
                     "options": {
-                        "$ref": "#/components/schemas/HazardousCommodityContent001"
+                        "$ref": "#/components/schemas/HazardousCommodityContent"
                     },
                     "description": {
                         "$ref": "#/components/schemas/ValidatedHazardousCommodityDescription"
@@ -4588,227 +4540,6 @@
                     }
                 },
                 "description": "These the details on the kind and quantity of an individual hazardous commodity in a package."
-            },
-            "HazardousCommodityQuantityDetail": {
-                "required": [
-                    "amount",
-                    "quantityType"
-                ],
-                "type": "object",
-                "properties": {
-                    "quantityType": {
-                        "type": "string",
-                        "description": "Indicate the measure of units quantity to be validated.",
-                        "example": "GROSS",
-                        "enum": [
-                            "GROSS",
-                            "NET"
-                        ]
-                    },
-                    "amount": {
-                        "type": "number",
-                        "description": "Indicate the amount of the commodity in alternate units.<br>Example: 24.56",
-                        "format": "double",
-                        "example": 24.56
-                    },
-                    "units": {
-                        "type": "string",
-                        "description": "Indicate the unit of measure.<br>Example: KG",
-                        "example": "Kg"
-                    }
-                },
-                "description": "Specify the Hazardous commodity quantity details."
-            },
-            "HazardousCommodityContent001": {
-                "type": "object",
-                "properties": {
-                    "quantity": {
-                        "$ref": "#/components/schemas/HazardousCommodityQuantityDetail"
-                    },
-                    "innerReceptacles": {
-                        "type": "array",
-                        "description": "Specifies the inner receptacles within the container.",
-                        "items": {
-                            "$ref": "#/components/schemas/HazardousCommodityInnerReceptacleDetail01"
-                        }
-                    },
-                    "options": {
-                        "$ref": "#/components/schemas/HazardousCommodityOptionDetail01"
-                    },
-                    "description": {
-                        "$ref": "#/components/schemas/HazardousCommodityDescription01"
-                    }
-                },
-                "description": "Customer-provided specifications for handling individual commodities."
-            },
-            "HazardousCommodityInnerReceptacleDetail01": {
-                "type": "object",
-                "properties": {
-                    "quantity": {
-                        "$ref": "#/components/schemas/HazardousCommodityQuantityDetail002"
-                    }
-                }
-            },
-            "HazardousCommodityQuantityDetail002": {
-                "required": [
-                    "amount",
-                    "quantityType"
-                ],
-                "type": "object",
-                "properties": {
-                    "quantityType": {
-                        "type": "string",
-                        "description": "Specifies which measure of quantity is to be validated.",
-                        "example": "NET",
-                        "enum": [
-                            "GROSS",
-                            "NET"
-                        ]
-                    },
-                    "amount": {
-                        "type": "number",
-                        "description": "Number of units of the type below.<br>Example: 34.56",
-                        "format": "double",
-                        "example": 34.56
-                    },
-                    "units": {
-                        "type": "string",
-                        "description": "Specifies the units.<br>Example: KG",
-                        "example": "Kg"
-                    }
-                },
-                "description": "Indicates the Hazardous Commodity Quantity Detail."
-            },
-            "HazardousCommodityOptionDetail01": {
-                "type": "object",
-                "properties": {
-                    "labelTextOption": {
-                        "type": "string",
-                        "description": "Indicates the label text option.",
-                        "enum": [
-                            "APPEND",
-                            "OVERRIDE",
-                            "STANDARD"
-                        ]
-                    },
-                    "customerSuppliedLabelText": {
-                        "type": "string",
-                        "description": "'DG Data Upload Mode:- Optional.,DG Full Validation Mode:- Optional,Text used in labeling the commodity under control of the LabelTextOption field<br>Example:Customer Supplied Label Text' \n\n",
-                        "example": "Customer Supplied Label Text."
-                    }
-                },
-                "description": "Indicates details of hazardous commodity option detail."
-            },
-            "HazardousCommodityDescription01": {
-                "required": [
-                    "packingGroup",
-                    "reportableQuantity"
-                ],
-                "type": "object",
-                "properties": {
-                    "sequenceNumber": {
-                        "type": "integer",
-                        "description": "Required<br>Specify the sequence number.<br>Example: 9812",
-                        "format": "int32",
-                        "example": 9812
-                    },
-                    "processingOptions": {
-                        "type": "array",
-                        "description": "Indicates any special processing options to be applied to the description of the dangerous goods commodity <br> Example: [\"INCLUDE_SPECIAL_PROVISIONS\"]",
-                        "items": {
-                            "type": "string",
-                            "example": "INCLUDE_SPECIAL_PROVISIONS",
-                            "enum": [
-                                "INCLUDE_SPECIAL_PROVISIONS"
-                            ]
-                        }
-                    },
-                    "subsidiaryClasses": {
-                        "type": "array",
-                        "description": "Required\n\nIndicates list of subsidiary classes<br>Example: [\"Subsidiary Classes\"]",
-                        "example": [
-                            "Subsidiary Classes"
-                        ],
-                        "items": {
-                            "type": "string"
-                        }
-                    },
-                    "labelText": {
-                        "type": "string",
-                        "description": "Specifies the text for the label.",
-                        "example": "labelText"
-                    },
-                    "technicalName": {
-                        "type": "string",
-                        "description": "Specifies the technical name for the hazardous material.",
-                        "example": "technicalName"
-                    },
-                    "packingDetails": {
-                        "$ref": "#/components/schemas/HazardousCommodityPackingDetail01"
-                    },
-                    "authorization": {
-                        "type": "string",
-                        "description": "Information related to quantity limitations and operator or state variations as may be applicable to the dangerous goods commodity.",
-                        "example": "authorization"
-                    },
-                    "reportableQuantity": {
-                        "type": "boolean",
-                        "description": "Reportable Quantity",
-                        "example": true
-                    },
-                    "percentage": {
-                        "type": "number",
-                        "description": "Percentage<br>Example: 12.45",
-                        "format": "double",
-                        "example": 12.45
-                    },
-                    "id": {
-                        "type": "string",
-                        "description": "ID<br>Example: 123",
-                        "example": "123"
-                    },
-                    "packingGroup": {
-                        "type": "string",
-                        "description": "Identifies DOT packing group for a hazardous commodity",
-                        "example": "I",
-                        "enum": [
-                            "DEFAULT",
-                            "I",
-                            "II",
-                            "III"
-                        ]
-                    },
-                    "properShippingName": {
-                        "type": "string",
-                        "description": "The proper shipping name as defined by the regulation. The name can also include qualifying words<br>Example: properShippingName",
-                        "example": "properShippingName"
-                    },
-                    "hazardClass": {
-                        "type": "string",
-                        "description": "Specifies the hazard class for the commodity<br>Example: hazard Class\n",
-                        "example": "hazard Class"
-                    }
-                },
-                "description": "Required<br>Details of hazardous commodity description."
-            },
-            "HazardousCommodityPackingDetail01": {
-                "required": [
-                    "cargoAircraftOnly"
-                ],
-                "type": "object",
-                "properties": {
-                    "packingInstructions": {
-                        "type": "string",
-                        "description": "Coded specification for how commodity is to be packed.<br>Example: packing Instructions",
-                        "example": "packing Instructions"
-                    },
-                    "cargoAircraftOnly": {
-                        "type": "boolean",
-                        "description": "A Boolean value that, when True, specifies the mode of shipment transportation should be Cargo Aircraft for Dangerous Goods. <br>Note: An identifier DGD-CAO is added in AWB for cargo aircraft shipments.",
-                        "example": true
-                    }
-                },
-                "description": "Specifies documentation and limits for validation of an individual packing group/category. DG Data Upload Mode: Required (IATA), Optional (Other), DG Full Validation Mode: Required (IATA), Optional (Other),"
             },
             "ValidatedHazardousCommodityDescription": {
                 "type": "object",
@@ -5087,7 +4818,6 @@
                     },
                     "holdingLocation": {
                         "description": "Indicate the physical address of the FedEx holding location.",
-                        "type": "object",
                         "$ref": "#/components/schemas/JustContactAndAddress"
                     }
                 },
@@ -5410,7 +5140,6 @@
                     },
                     "totalBillingWeight": {
                         "description": "The weight used to calculate these rates.",
-                        "type": "object",
                         "$ref": "#/components/schemas/Weight"
                     },
                     "freightDiscounts": {
@@ -5522,7 +5251,6 @@
                     },
                     "totalDimWeight": {
                         "description": "Sum of dimensional weights for all packages.",
-                        "type": "object",
                         "$ref": "#/components/schemas/Weight"
                     },
                     "totalRebates": {
@@ -5539,7 +5267,6 @@
                     },
                     "currencyExchangeRate": {
                         "description": "Specifies currency exchange rate.",
-                        "type": "object",
                         "$ref": "#/components/schemas/CurrencyExchangeRate"
                     },
                     "dimDivisor": {
@@ -5624,7 +5351,6 @@
                     },
                     "totalBillingWeight": {
                         "description": "The weight used to calculate these rates.",
-                        "type": "object",
                         "$ref": "#/components/schemas/Weight"
                     },
                     "freightDiscounts": {
@@ -5977,27 +5703,6 @@
                 },
                 "description": "List of parameters which indicates the properties of the alert message."
             },
-            "CXSError503": {
-                "type": "object",
-                "properties": {
-                    "code": {
-                        "type": "string",
-                        "description": "Indicates the error code.<br>Example: SERVICE.UNAVAILABLE.ERROR"
-                    },
-                    "parameterList": {
-                        "type": "array",
-                        "description": "Specifies list of parameters.",
-                        "items": {
-                            "$ref": "#/components/schemas/Parameter"
-                        }
-                    },
-                    "message": {
-                        "description": "Indicates the description of API error alert message.<br>Example: The service is currently unavailable and we are working to resolve the issue. We apologize for any inconvenience. Please check back at a later time.",
-                        "type": "string"
-                    }
-                },
-                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
-            },
             "FullSchema-modifyOpenShipment": {
                 "required": [
                     "accountNumber",
@@ -6069,90 +5774,6 @@
                     }
                 },
                 "description": "The response elements received when a shipment is created."
-            },
-            "CXSError401": {
-                "type": "object",
-                "properties": {
-                    "code": {
-                        "type": "string",
-                        "description": "Indicates the error code.<br>Example: NOT.AUTHORIZED.ERROR"
-                    },
-                    "parameterList": {
-                        "type": "array",
-                        "description": "Specifies list of parameters.",
-                        "items": {
-                            "$ref": "#/components/schemas/Parameter"
-                        }
-                    },
-                    "message": {
-                        "description": "Indicates the description of API error alert message.<br>Example: Access token expired. Please modify your request and try again.",
-                        "type": "string"
-                    }
-                },
-                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
-            },
-            "CXSError403": {
-                "type": "object",
-                "properties": {
-                    "code": {
-                        "type": "string",
-                        "description": "Indicates the error code.<br>Example: FORBIDDEN.ERROR"
-                    },
-                    "parameterList": {
-                        "type": "array",
-                        "description": "Specifies list of parameters.",
-                        "items": {
-                            "$ref": "#/components/schemas/Parameter"
-                        }
-                    },
-                    "message": {
-                        "description": "Indicates the description of API error alert message.<br>Example: We could not authorize your credentials. Please check your permissions and try again",
-                        "type": "string"
-                    }
-                },
-                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
-            },
-            "CXSError404": {
-                "type": "object",
-                "properties": {
-                    "code": {
-                        "type": "string",
-                        "description": "Indicates the error code.<br>Example: NOT.FOUND.ERROR"
-                    },
-                    "parameterList": {
-                        "type": "array",
-                        "description": "Specifies list of parameters.",
-                        "items": {
-                            "$ref": "#/components/schemas/Parameter"
-                        }
-                    },
-                    "message": {
-                        "description": "Indicates the description of API error alert message.<br>Example: The resource you requested is no longer available. Please modify your request and try again.",
-                        "type": "string"
-                    }
-                },
-                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
-            },
-            "CXSError500": {
-                "type": "object",
-                "properties": {
-                    "code": {
-                        "type": "string",
-                        "description": "Indicates the error code.<br>Example: INTERNAL.SERVER.ERROR"
-                    },
-                    "parameterList": {
-                        "type": "array",
-                        "description": "Specifies list of parameters.",
-                        "items": {
-                            "$ref": "#/components/schemas/Parameter"
-                        }
-                    },
-                    "message": {
-                        "description": "Indicates the description of API error alert message.<br>Example: We encountered an unexpected error and are working to resolve the issue. We apologize for any inconvenience. Please check back at a later time.",
-                        "type": "string"
-                    }
-                },
-                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
             },
             "FullSchema-confirmOpenShipment": {
                 "required": [
@@ -6229,7 +5850,6 @@
                     },
                     "printedLabelOrigin": {
                         "description": "Specify a contact and address instead of the sender address that will be printed on FedEx label. The sender address will be printed if it is not provided. Using this, you can designate a return address that's different from the sender\u2019s. The destination address must be in the same country as the sender.",
-                        "type": "object",
                         "$ref": "#/components/schemas/ContactAndAddress"
                     },
                     "labelStockType": {
@@ -6406,26 +6026,13 @@
                         ]
                     },
                     "zone001": {
-                        "$ref": "#/components/schemas/DocTabContentZone001"
+                        "$ref": "#/components/schemas/DocTabContentZone"
                     },
                     "barcoded": {
                         "$ref": "#/components/schemas/DocTabContentBarcoded"
                     }
                 },
                 "description": "Specifies details of doc tab content.It is only applicable only with imageType as ZPLII"
-            },
-            "DocTabContentZone001": {
-                "type": "object",
-                "properties": {
-                    "docTabZoneSpecifications": {
-                        "type": "array",
-                        "description": "Indicate the doc tab specifications for the individual doc tab zone on the label.",
-                        "items": {
-                            "$ref": "#/components/schemas/DocTabZoneSpecification"
-                        }
-                    }
-                },
-                "description": "Indicate the doc tab specification for different zones on the label. The specification includes zone number, header and data field to be displayed on the label."
             },
             "DocTabZoneSpecification": {
                 "type": "object",
@@ -7282,7 +6889,6 @@
                 "properties": {
                     "requestedPackageLineItem": {
                         "description": "Contains the data for the package that is to be modified in the open shipment.",
-                        "type": "object",
                         "$ref": "#/components/schemas/RequestedPackageLineItem"
                     },
                     "index": {
@@ -7293,7 +6899,6 @@
                     "shipAction": {
                         "description": "Allowed values are STRONG_VALIDATION",
                         "example": "STRONG_VALIDATION",
-                        "type": "string",
                         "$ref": "#/components/schemas/OpenShipAction"
                     },
                     "accountNumber": {
@@ -7369,7 +6974,6 @@
                     "shipAction": {
                         "description": "There are Ship actions as part of processing the shipment.",
                         "example": "STRONG_VALIDATION",
-                        "type": "string",
                         "$ref": "#/components/schemas/OpenShipmentAction"
                     },
                     "accountNumber": {
@@ -7664,7 +7268,6 @@
                     },
                     "totalDeclaredValue": {
                         "description": "It is the sum of all declared values of all packages in a shipment. The amount of totaldeclaredValue must be equal to the sum of all the individual declaredValues in the shipment. The declaredValue and totalDeclaredValue must match in all currencies in one shipment. This value represents FedEx maximum liability associated with a shipment. This is including, but not limited to any loss, damage, delay, misdelivery, any failure to provide information, or misdelivery of information related to the Shipment.",
-                        "type": "object",
                         "$ref": "#/components/schemas/Money"
                     },
                     "shipper": {
@@ -7698,7 +7301,6 @@
                                 }
                             ]
                         },
-                        "type": "object",
                         "$ref": "#/components/schemas/ShipperParty"
                     },
                     "recipients": {
@@ -7741,7 +7343,6 @@
                     },
                     "origin": {
                         "description": "Indicate shipment origin address information, if it is different from the shipper address.",
-                        "type": "object",
                         "$ref": "#/components/schemas/ContactAndAddress"
                     },
                     "shippingChargesPayment": {
@@ -9046,7 +8647,6 @@
                 "properties": {
                     "totalWeight": {
                         "description": "Specify total dry ice weight for the shipment.",
-                        "type": "object",
                         "$ref": "#/components/schemas/Weight"
                     },
                     "packageCount": {
@@ -9089,6 +8689,34 @@
                     "value": 68
                 }
             },
+            "PhoneNumber": {
+                "type": "object",
+                "properties": {
+                    "areaCode": {
+                        "type": "string",
+                        "description": "Indicate the area code for the phone number."
+                    },
+                    "localNumber": {
+                        "type": "string",
+                        "description": "Indicate the local phone number for contacting in the event of an emergency. Maximum length  is 10."
+                    },
+                    "extension": {
+                        "type": "string",
+                        "description": "Indicate the extension for the phone number."
+                    },
+                    "personalIdentificationNumber": {
+                        "type": "string",
+                        "description": "Indicate the Personal Identification Number associated with the phone number."
+                    }
+                },
+                "description": "Indicate the phone number. Only numeric values allowed.<br> Note that phoneNumber is mandatory when homedeliveryPremiumType is DATE_CERTAIN or EVENING.",
+                "example": {
+                    "areaCode": "901",
+                    "localNumber": "3575012",
+                    "extension": "200",
+                    "personalIdentificationNumber": "98712345"
+                }
+            },
             "CustomerReference": {
                 "type": "object",
                 "properties": {
@@ -9112,6 +8740,197 @@
                     }
                 }
             },
+            "HazardousCommodityQuantityDetail": {
+                "required": [
+                    "amount",
+                    "quantityType"
+                ],
+                "type": "object",
+                "properties": {
+                    "quantityType": {
+                        "type": "string",
+                        "description": "Specifies which measure of quantity is to be validated.",
+                        "example": "NET",
+                        "enum": [
+                            "GROSS",
+                            "NET"
+                        ]
+                    },
+                    "amount": {
+                        "type": "number",
+                        "description": "Number of units of the type below.<br>Example: 34.56",
+                        "format": "double",
+                        "example": 34.56
+                    },
+                    "units": {
+                        "type": "string",
+                        "description": "Specifies the units.<br>Example: KG",
+                        "example": "Kg"
+                    }
+                },
+                "description": "Indicates the Hazardous Commodity Quantity Detail."
+            },
+            "HazardousCommodityContent": {
+                "type": "object",
+                "properties": {
+                    "quantity": {
+                        "$ref": "#/components/schemas/HazardousCommodityQuantityDetail"
+                    },
+                    "innerReceptacles": {
+                        "type": "array",
+                        "description": "Specifies the inner receptacles within the container.",
+                        "items": {
+                            "$ref": "#/components/schemas/HazardousCommodityInnerReceptacleDetail"
+                        }
+                    },
+                    "options": {
+                        "$ref": "#/components/schemas/HazardousCommodityOptionDetail"
+                    },
+                    "description": {
+                        "$ref": "#/components/schemas/HazardousCommodityDescription"
+                    }
+                },
+                "description": "Customer-provided specifications for handling individual commodities."
+            },
+            "HazardousCommodityInnerReceptacleDetail": {
+                "type": "object",
+                "properties": {
+                    "quantity": {
+                        "$ref": "#/components/schemas/HazardousCommodityQuantityDetail"
+                    }
+                }
+            },
+            "HazardousCommodityOptionDetail": {
+                "type": "object",
+                "properties": {
+                    "labelTextOption": {
+                        "type": "string",
+                        "description": "Indicates the label text option.",
+                        "enum": [
+                            "APPEND",
+                            "OVERRIDE",
+                            "STANDARD"
+                        ]
+                    },
+                    "customerSuppliedLabelText": {
+                        "type": "string",
+                        "description": "'DG Data Upload Mode:- Optional.,DG Full Validation Mode:- Optional,Text used in labeling the commodity under control of the LabelTextOption field<br>Example:Customer Supplied Label Text' \n\n",
+                        "example": "Customer Supplied Label Text."
+                    }
+                },
+                "description": "Indicates details of hazardous commodity option detail."
+            },
+            "HazardousCommodityDescription": {
+                "required": [
+                    "packingGroup",
+                    "reportableQuantity"
+                ],
+                "type": "object",
+                "properties": {
+                    "sequenceNumber": {
+                        "type": "integer",
+                        "description": "Required<br>Specify the sequence number.<br>Example: 9812",
+                        "format": "int32",
+                        "example": 9812
+                    },
+                    "processingOptions": {
+                        "type": "array",
+                        "description": "Indicates any special processing options to be applied to the description of the dangerous goods commodity <br> Example: [\"INCLUDE_SPECIAL_PROVISIONS\"]",
+                        "items": {
+                            "type": "string",
+                            "example": "INCLUDE_SPECIAL_PROVISIONS",
+                            "enum": [
+                                "INCLUDE_SPECIAL_PROVISIONS"
+                            ]
+                        }
+                    },
+                    "subsidiaryClasses": {
+                        "type": "array",
+                        "description": "Required\n\nIndicates list of subsidiary classes<br>Example: [\"Subsidiary Classes\"]",
+                        "example": [
+                            "Subsidiary Classes"
+                        ],
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "labelText": {
+                        "type": "string",
+                        "description": "Specifies the text for the label.",
+                        "example": "labelText"
+                    },
+                    "technicalName": {
+                        "type": "string",
+                        "description": "Specifies the technical name for the hazardous material.",
+                        "example": "technicalName"
+                    },
+                    "packingDetails": {
+                        "$ref": "#/components/schemas/HazardousCommodityPackingDetail"
+                    },
+                    "authorization": {
+                        "type": "string",
+                        "description": "Information related to quantity limitations and operator or state variations as may be applicable to the dangerous goods commodity.",
+                        "example": "authorization"
+                    },
+                    "reportableQuantity": {
+                        "type": "boolean",
+                        "description": "Reportable Quantity",
+                        "example": true
+                    },
+                    "percentage": {
+                        "type": "number",
+                        "description": "Percentage<br>Example: 12.45",
+                        "format": "double",
+                        "example": 12.45
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "ID<br>Example: 123",
+                        "example": "123"
+                    },
+                    "packingGroup": {
+                        "type": "string",
+                        "description": "Identifies DOT packing group for a hazardous commodity",
+                        "example": "I",
+                        "enum": [
+                            "DEFAULT",
+                            "I",
+                            "II",
+                            "III"
+                        ]
+                    },
+                    "properShippingName": {
+                        "type": "string",
+                        "description": "The proper shipping name as defined by the regulation. The name can also include qualifying words<br>Example: properShippingName",
+                        "example": "properShippingName"
+                    },
+                    "hazardClass": {
+                        "type": "string",
+                        "description": "Specifies the hazard class for the commodity<br>Example: hazard Class\n",
+                        "example": "hazard Class"
+                    }
+                },
+                "description": "Required<br>Details of hazardous commodity description."
+            },
+            "HazardousCommodityPackingDetail": {
+                "required": [
+                    "cargoAircraftOnly"
+                ],
+                "type": "object",
+                "properties": {
+                    "packingInstructions": {
+                        "type": "string",
+                        "description": "Coded specification for how commodity is to be packed.<br>Example: packing Instructions",
+                        "example": "packing Instructions"
+                    },
+                    "cargoAircraftOnly": {
+                        "type": "boolean",
+                        "description": "A Boolean value that, when True, specifies the mode of shipment transportation should be Cargo Aircraft for Dangerous Goods. <br>Note: An identifier DGD-CAO is added in AWB for cargo aircraft shipments.",
+                        "example": true
+                    }
+                },
+                "description": "Specifies documentation and limits for validation of an individual packing group/category. DG Data Upload Mode: Required (IATA), Optional (Other), DG Full Validation Mode: Required (IATA), Optional (Other),"
+            },
             "ErrorResponseVO": {
                 "type": "object",
                 "properties": {
@@ -9124,6 +8943,22 @@
                         "type": "string",
                         "description": "This element allows you to assign a unique identifier to your transaction. This element is also returned in the reply and helps you match the request to the reply. <br> Example: AnyCo_order123456789",
                         "example": "AnyCo_order123456789"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CXSError"
+                        }
+                    }
+                }
+            },
+            "ErrorResponseVO_2": {
+                "type": "object",
+                "properties": {
+                    "transactionId": {
+                        "type": "string",
+                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
+                        "example": "624deea6-b709-470c-8c39-4b5511281492"
                     },
                     "errors": {
                         "type": "array",
@@ -9154,90 +8989,18 @@
                 },
                 "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
             },
-            "ErrorResponseVO503": {
+            "DocTabContentZone": {
                 "type": "object",
                 "properties": {
-                    "transactionId": {
-                        "type": "string",
-                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
-                        "example": "624deea6-b709-470c-8c39-4b5511281492"
-                    },
-                    "errors": {
+                    "docTabZoneSpecifications": {
                         "type": "array",
+                        "description": "Indicate the doc tab specifications for the individual doc tab zone on the label.",
                         "items": {
-                            "$ref": "#/components/schemas/CXSError503"
+                            "$ref": "#/components/schemas/DocTabZoneSpecification"
                         }
                     }
-                }
-            },
-            "ErrorResponseVO401": {
-                "type": "object",
-                "properties": {
-                    "transactionId": {
-                        "type": "string",
-                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
-                        "example": "624deea6-b709-470c-8c39-4b5511281492"
-                    },
-                    "errors": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/CXSError401"
-                        }
-                    }
-                }
-            },
-            "ErrorResponseVO403": {
-                "type": "object",
-                "properties": {
-                    "transactionId": {
-                        "type": "string",
-                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
-                        "example": "624deea6-b709-470c-8c39-4b5511281492"
-                    },
-                    "errors": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/CXSError403"
-                        }
-                    }
-                }
-            },
-            "ErrorResponseVO404": {
-                "type": "object",
-                "properties": {
-                    "transactionId": {
-                        "type": "string",
-                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
-                        "example": "624deea6-b709-470c-8c39-4b5511281492"
-                    },
-                    "errors": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/CXSError404"
-                        }
-                    }
-                }
-            },
-            "ErrorResponseVO500": {
-                "type": "object",
-                "properties": {
-                    "transactionId": {
-                        "type": "string",
-                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
-                        "example": "624deea6-b709-470c-8c39-4b5511281492"
-                    },
-                    "customerTransactionId": {
-                        "type": "string",
-                        "description": "This element allows you to assign a unique identifier to your transaction. This element is also returned in the reply and helps you match the request to the reply. <br> Example: AnyCo_order123456789",
-                        "example": "AnyCo_order123456789"
-                    },
-                    "errors": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/CXSError500"
-                        }
-                    }
-                }
+                },
+                "description": "Indicate the doc tab specification for different zones on the label. The specification includes zone number, header and data field to be displayed on the label."
             }
         }
     },

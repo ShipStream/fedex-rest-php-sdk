@@ -12,7 +12,7 @@ final class CxsError extends Dto
 
     /**
      * @param  ?string  $code  Indicates the error code.<br>Example: TRACKINGNUMBER.ENTERED.INVALID
-     * @param  Parameter[]|null  $parameterList  Specifies list of parameters.
+     * @param  Parameter[]|null  $parameterList  Specifies the message parameter list.
      * @param  ?string  $message  Indicates the description of API error alert message.<br>Example: Error with entered Tracking Number. Please verify the entered Tracking Number.
      */
     public function __construct(

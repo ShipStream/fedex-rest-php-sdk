@@ -11,7 +11,7 @@ use Saloon\Http\Response;
 use Saloon\Traits\Body\HasJsonBody;
 use ShipStream\FedEx\Api\OpenShipV1\Dto\FullSchemaCreateOpenShipment;
 use ShipStream\FedEx\Api\OpenShipV1\Responses\ErrorResponseVo;
-use ShipStream\FedEx\Api\OpenShipV1\Responses\ErrorResponseVo503;
+use ShipStream\FedEx\Api\OpenShipV1\Responses\ErrorResponseVo2;
 use ShipStream\FedEx\Api\OpenShipV1\Responses\ShpcResponseVoCreateOpenShipment;
 use ShipStream\FedEx\Request;
 
@@ -43,12 +43,12 @@ class CreateOpenShipmentt extends Request implements HasBody
 
     public function createDtoFromResponse(
         Response $response,
-    ): ShpcResponseVoCreateOpenShipment|ErrorResponseVo|ErrorResponseVo503 {
+    ): ShpcResponseVoCreateOpenShipment|ErrorResponseVo|ErrorResponseVo2 {
         $status = $response->status();
         $responseCls = match ($status) {
             200 => ShpcResponseVoCreateOpenShipment::class,
             400, 401, 403, 404, 500 => ErrorResponseVo::class,
-            503 => ErrorResponseVo503::class,
+            503 => ErrorResponseVo2::class,
             default => throw new Exception("Unhandled response status: {$status}")
         };
 
