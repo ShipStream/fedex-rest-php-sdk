@@ -5,11 +5,15 @@ declare(strict_types=1);
 namespace ShipStream\FedEx\Generator\Schema;
 
 use Exception;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Str;
 use InvalidArgumentException;
 use stdClass;
 
 class Refactorer
 {
+    public const REF_BASE = '#/components/schemas/';
+
     private stdClass $currentSchema;
 
     private stdClass $combined;
@@ -39,33 +43,15 @@ class Refactorer
             $this->currentSchema = $originalSchema;
 
             foreach ($this->currentSchema->paths as $path => $operations) {
+                // Standardize tags
                 foreach ($operations as $method => $operation) {
-                    // Standardize tags
                     $operation->tags = [$this->schemaVersion->studlyName()];
-
-                    if (isset($operation->requestBody)) {
-                        foreach ($operation->requestBody->content as $contentType => $mediaType) {
-                            if (isset($mediaType->schema->oneOf)) {
-                                $mediaType->schema = $this->oneOf($mediaType->schema);
-                                $operation->requestBody->content->{$contentType} = $mediaType;
-                            }
-                        }
-                    }
                 }
                 $operations->{$method} = $operation;
                 $combined->paths->{$path} = $operations;
             }
 
             foreach ($this->currentSchema->components->schemas as $name => $component) {
-                // FedEx uses oneOf properties to show multiple examples for a particular
-                // schema or endpoint, but most of them are not actual OpenAPI component definitions
-                // and instead only contain example payloads.
-                if (isset($component->oneOf)) {
-                    $component = $this->oneOf($component);
-                } elseif (isset($component->allOf)) {
-                    $component = $this->allOf($component);
-                }
-
                 if (isset($component->required)) {
                     $required = array_merge(
                         $combined->components->schemas->{$name}->required ?? [],
@@ -75,16 +61,6 @@ class Refactorer
                 }
 
                 foreach ($component->properties ?? [] as $property => $details) {
-                    if (! isset($component->properties)) {
-                        $component->properties = new stdClass;
-                    }
-
-                    if (isset($details->allOf)) {
-                        $details = $this->allOf($details);
-                    } elseif (isset($details->items->allOf)) {
-                        $details->items = $this->allOf($details->items);
-                    }
-
                     if (! isset($component->properties->{$property})) {
                         $component->properties->{$property} = $details;
                     }
@@ -131,20 +107,52 @@ class Refactorer
                     $operation->responses->{'404'}->content->{'application/json'} = $mediaType;
                 }
 
+                if (isset($operation->requestBody)) {
+                    foreach ($operation->requestBody->content as $contentType => $mediaType) {
+                        if (isset($mediaType->schema->oneOf)) {
+                            $mediaType->schema = $this->oneOf($mediaType->schema);
+                            $operation->requestBody->content->{$contentType} = $mediaType;
+                        }
+                    }
+                }
+
                 $operations->{$method} = $operation;
             }
 
             $schema->paths->{$path} = $operations;
         }
 
-        $schema = $this->cleanRefs($schema);
-        $schema = $this->deduplicateComponents($schema);
-
         // Many schemas and properties are missing a type, so we add it in here if it's missing
         // to help with the generation process
         foreach ($schema->components->schemas as $componentName => $component) {
+            // FedEx uses oneOf properties to show multiple examples for a particular
+            // schema or endpoint, but most of them are not actual OpenAPI component definitions
+            // and instead only contain example payloads.
+            if (isset($component->oneOf)) {
+                $component = $this->oneOf($component);
+            } elseif (isset($component->allOf)) {
+                $component = $this->allOf($component);
+            } elseif (isset($component->properties)) {
+                foreach ($component->properties as $property => $details) {
+                    if (isset($details->oneOf)) {
+                        $details = $this->oneOf($details);
+                    } elseif (isset($details->items->oneOf)) {
+                        $details->items = $this->oneOf($details->items);
+                    } elseif (isset($details->allOf)) {
+                        $details = $this->allOf($details);
+                    } elseif (isset($details->items->allOf)) {
+                        $details->items = $this->allOf($details->items);
+                    }
+
+                    $component->properties->{$property} = $details;
+                }
+            }
+
             $schema->components->schemas->{$componentName} = $this->setSchemaTypes($component);
         }
+
+        $schema = $this->cleanRefs($schema);
+        $schema = $this->deduplicateComponents($schema);
 
         $this->combined = $schema;
 
@@ -250,7 +258,8 @@ class Refactorer
             $ref = $refObj->{'$ref'};
             $subComponent = $this->componentByRef($ref);
 
-            if (array_keys((array) $subComponent) === ['example']) {
+            $subComponentKeys = array_keys((array) $subComponent);
+            if (array_diff($subComponentKeys, ['example', 'type']) === []) {
                 $this->blacklistedComponents[] = $ref;
 
                 continue;
@@ -271,9 +280,9 @@ class Refactorer
         return $obj;
     }
 
-    protected function componentByRef(string $ref): stdClass|false
+    protected function componentByRef(string $ref, ?stdClass $schema = null): stdClass|false
     {
-        $schema = $this->combined ?? $this->currentSchema;
+        $schema = $schema ?? $this->combined ?? $this->currentSchema;
         if (! $schema) {
             throw new Exception('Cannot get component by ref without a schema');
         }
@@ -383,7 +392,9 @@ class Refactorer
                     if (isset($property->schema->{'$ref'})) {
                         $property->{'$ref'} = $property->schema->{'$ref'};
                         unset($property->schema);
+                        unset($property->type);
                     }
+
                     $component->properties->{$name} = $property;
                 }
             } elseif (isset($component->items->schema->{'$ref'})) {
@@ -394,13 +405,19 @@ class Refactorer
             $schema->components->schemas->{$componentName} = $component;
         }
 
+        foreach ($schema->components->schemas as $componentName => $component) {
+            if (! static::jsonContains(self::REF_BASE.$componentName, $schema)) {
+                unset($schema->components->schemas->{$componentName});
+            }
+        }
+
         return $schema;
     }
 
     protected function deduplicateComponents(stdClass $schema): stdClass
     {
-        $refBase = '#/components/schemas/';
         $replaced = [];
+        // Remove components that are just a $ref and nothing else
         foreach ($schema->components->schemas as $name => $component) {
             $ref = $component->{'$ref'} ?? false;
             if ($ref) {
@@ -415,12 +432,161 @@ class Refactorer
                 $replaced[$name] = $replaced[$refName] ?? $refName;
 
                 $replacementName = $replaced[$name];
-                $schema = self::jsonReplace("\"$refBase$name\"", "\"$refBase$replacementName\"", $schema);
+                $schema = self::jsonReplace('"'.self::REF_BASE.$name.'"', '"'.self::REF_BASE.$replacementName.'"', $schema);
                 unset($schema->components->schemas->{$name});
             }
         }
 
+        $buildPropTypesMap = function (stdClass $prop, string $propName) use ($schema): array {
+            if (isset($prop->{'$ref'})) {
+                $propType = $this->componentByRef($prop->{'$ref'}, $schema)->type;
+            } else {
+                $propType = $prop->type;
+            }
+
+            return [$propName => $propType];
+        };
+
+        $components = array_keys((array) $schema->components->schemas);
+        $toReduce = [];
+        $deduped = [];
+        foreach ($components as $componentName) {
+            $matches = [];
+
+            // This matches schema components like Weight1, Weight_1, Weight_1_2, etc
+            preg_match('/([A-Za-z_-]+)(_?\d)+$/U', $componentName, $matches);
+
+            // If $componentName doesn't itself match the name structure of a duplicate,
+            // check if there are any other components that are duplicates of $componentName
+            if (! $matches) {
+                $eligibleForMatch = array_diff($components, $deduped, [$componentName]);
+                foreach ($eligibleForMatch as $c) {
+                    preg_match('/^'.$componentName.'(_?\d)+$/', $c, $matches);
+                    if ($matches) {
+                        $baseName = $componentName;
+                        break;
+                    }
+                }
+            } else {
+                $baseName = $matches[1];
+            }
+
+            if ($matches && ! in_array($componentName, $deduped)) {
+                // And this finds components with similar names, including the base name without
+                // any trailing numbers. E.g., Weight_1, Weight_1_2, and Weight
+                $dupeNames = array_filter(
+                    $components,
+                    fn ($c) => preg_match('/^'.$baseName.'(_?\d)*$/', $c) && $c !== $componentName
+                );
+
+                $dupes = Arr::mapWithKeys(
+                    $dupeNames,
+                    fn ($dupe) => [$dupe => $this->componentByRef(self::REF_BASE.$dupe, $schema)]
+                );
+
+                $component = $this->componentByRef(self::REF_BASE.$componentName, $schema);
+                if (! isset($component->properties)) {
+                    continue;
+                }
+
+                $componentProps = Arr::mapWithKeys(
+                    (array) $component->properties,
+                    fn ($p, $k) => $buildPropTypesMap($p, $k),
+                );
+                ksort($componentProps);
+
+                $toReduce[$baseName][$componentName] = [$componentName => $component];
+
+                // Compare each other duplicated component to $component
+                foreach ($dupes as $name => $dupe) {
+                    if (in_array($name, $deduped) || ! isset($dupe->properties)) {
+                        continue;
+                    }
+
+                    $props = Arr::mapWithKeys(
+                        (array) $dupe->properties,
+                        fn ($p, $k) => $buildPropTypesMap($p, $k),
+                    );
+                    ksort($props);
+
+                    // If the current component's props match $firstDupe's props, mark them for
+                    // combination
+                    if ($props === $componentProps) {
+                        $deduped[] = $name;
+                        $toReduce[$baseName][$componentName][$name] = $dupe;
+                    }
+                }
+            }
+
+            if (! $matches && ! in_array($componentName, $deduped)) {
+                $deduped[] = $componentName;
+            }
+        }
+
+        $tempNames = [];
+        $mergedComponents = [];
+        foreach ($toReduce as $baseName => $groups) {
+            foreach ($groups as $group) {
+                $uuid = Str::uuid();
+                $tempComponentName = "{$baseName}_{$uuid}";
+                $requiredProps = [];
+
+                foreach ($group as $member => $definition) {
+                    $tempNames[$baseName][$member] = $tempComponentName;
+                    $requiredProps = array_merge($requiredProps, $definition->required ?? []);
+                }
+
+                if ($requiredProps) {
+                    $requiredProps = array_unique($requiredProps);
+                    $definition->required = $requiredProps;
+                }
+                $mergedComponents[$tempComponentName] = $definition;
+            }
+        }
+
+        foreach ($mergedComponents as $tempName => $definition) {
+            $schema->components->schemas->{$tempName} = $definition;
+        }
+
+        foreach ($tempNames as $baseName => $replaceNames) {
+            foreach ($replaceNames as $original => $tempReplacement) {
+                unset($schema->components->schemas->{$original});
+                $schema = self::jsonReplace(
+                    '"'.self::REF_BASE.$original.'"',
+                    '"'.self::REF_BASE.$tempReplacement.'"',
+                    $schema
+                );
+            }
+        }
+
+        foreach ($tempNames as $baseName => $members) {
+            $uniqueTempNames = array_values(array_unique($members));
+            foreach ($uniqueTempNames as $i => $temp) {
+                $nameIdx = $i + 1;
+                // It makes a little more sense to have Component and Component_2 instead of
+                // Component and Component_1
+                $finalName = $i === 0 ? $baseName : "{$baseName}_{$nameIdx}";
+
+                $schema->components->schemas->{$finalName} = $schema->components->schemas->{$temp};
+                unset($schema->components->schemas->{$temp});
+
+                $schema = self::jsonReplace(
+                    self::REF_BASE.$temp,
+                    self::REF_BASE.$finalName,
+                    $schema
+                );
+            }
+        }
+
         return $schema;
+    }
+
+    protected static function jsonContains(string $find, stdClass $json): bool
+    {
+        return str_contains(
+            json_encode($json, JSON_UNESCAPED_SLASHES),
+            $find
+        );
     }
 
     protected static function jsonReplace(string $find, string $replace, stdClass $json): stdClass
@@ -428,7 +594,7 @@ class Refactorer
         return json_decode(str_replace(
             $find,
             $replace,
-            json_encode($json, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES),
+            json_encode($json, JSON_UNESCAPED_SLASHES),
         ));
     }
 }
