@@ -6,7 +6,7 @@ namespace ShipStream\FedEx\Api\ShipV1\Dto;
 
 use ShipStream\FedEx\Dto;
 
-final class HazardousCommodityOptionDetail01 extends Dto
+final class HazardousCommodityOptionDetail extends Dto
 {
     /**
      * @param  ?string  $labelTextOption  Indicates the label text option.

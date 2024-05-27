@@ -11,11 +11,7 @@ use Saloon\Http\Response;
 use Saloon\Traits\Body\HasJsonBody;
 use ShipStream\FedEx\Api\ShipV1\Dto\FullSchemaShip;
 use ShipStream\FedEx\Api\ShipV1\Responses\ErrorResponseVo;
-use ShipStream\FedEx\Api\ShipV1\Responses\ErrorResponseVo401;
-use ShipStream\FedEx\Api\ShipV1\Responses\ErrorResponseVo403;
-use ShipStream\FedEx\Api\ShipV1\Responses\ErrorResponseVo404;
-use ShipStream\FedEx\Api\ShipV1\Responses\ErrorResponseVo500;
-use ShipStream\FedEx\Api\ShipV1\Responses\ErrorResponseVo503;
+use ShipStream\FedEx\Api\ShipV1\Responses\ErrorResponseVo2;
 use ShipStream\FedEx\Api\ShipV1\Responses\ShpcResponseVoShipShipment;
 use ShipStream\FedEx\Request;
 
@@ -48,16 +44,12 @@ class CreateShipment extends Request implements HasBody
 
     public function createDtoFromResponse(
         Response $response,
-    ): ShpcResponseVoShipShipment|ErrorResponseVo|ErrorResponseVo401|ErrorResponseVo403|ErrorResponseVo404|ErrorResponseVo500|ErrorResponseVo503 {
+    ): ShpcResponseVoShipShipment|ErrorResponseVo|ErrorResponseVo2 {
         $status = $response->status();
         $responseCls = match ($status) {
             200 => ShpcResponseVoShipShipment::class,
-            400 => ErrorResponseVo::class,
-            401 => ErrorResponseVo401::class,
-            403 => ErrorResponseVo403::class,
-            404 => ErrorResponseVo404::class,
-            500 => ErrorResponseVo500::class,
-            503 => ErrorResponseVo503::class,
+            400, 500 => ErrorResponseVo::class,
+            401, 403, 404, 503 => ErrorResponseVo2::class,
             default => throw new Exception("Unhandled response status: {$status}")
         };
 

@@ -11,7 +11,6 @@ use Saloon\Http\Response;
 use Saloon\Traits\Body\HasJsonBody;
 use ShipStream\FedEx\Api\ShipV1\Dto\FullSchemaVerifyShipment;
 use ShipStream\FedEx\Api\ShipV1\Responses\ErrorResponseVo;
-use ShipStream\FedEx\Api\ShipV1\Responses\ErrorResponseVo2;
 use ShipStream\FedEx\Api\ShipV1\Responses\ShpcResponseVoValidate;
 use ShipStream\FedEx\Request;
 
@@ -48,13 +47,12 @@ class ShipmentPackageValidate extends Request implements HasBody
         return '/ship/v1/shipments/packages/validate';
     }
 
-    public function createDtoFromResponse(Response $response): ShpcResponseVoValidate|ErrorResponseVo2|ErrorResponseVo
+    public function createDtoFromResponse(Response $response): ShpcResponseVoValidate|ErrorResponseVo
     {
         $status = $response->status();
         $responseCls = match ($status) {
             200 => ShpcResponseVoValidate::class,
-            400, 401, 403, 500 => ErrorResponseVo2::class,
-            404 => ErrorResponseVo::class,
+            400, 401, 403, 404, 500 => ErrorResponseVo::class,
             default => throw new Exception("Unhandled response status: {$status}")
         };
 

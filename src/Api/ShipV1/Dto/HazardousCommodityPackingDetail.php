@@ -6,7 +6,7 @@ namespace ShipStream\FedEx\Api\ShipV1\Dto;
 
 use ShipStream\FedEx\Dto;
 
-final class HazardousCommodityPackingDetail01 extends Dto
+final class HazardousCommodityPackingDetail extends Dto
 {
     /**
      * @param  bool  $cargoAircraftOnly  A Boolean value that, when True, specifies the mode of shipment transportation should be Cargo Aircraft for Dangerous Goods. <br>Note: An identifier DGD-CAO is added in AWB for cargo aircraft shipments.

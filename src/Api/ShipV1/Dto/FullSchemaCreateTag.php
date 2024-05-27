@@ -9,7 +9,7 @@ use ShipStream\FedEx\Dto;
 final class FullSchemaCreateTag extends Dto
 {
     /**
-     * @param  PartyAccountNumber  $accountNumber  This is FedEx Account number details.
+     * @param  PartyAccountNumber  $accountNumber  The account number of the recipient.
      */
     public function __construct(
         public readonly CreateTagRequestedShipment $requestedShipment,

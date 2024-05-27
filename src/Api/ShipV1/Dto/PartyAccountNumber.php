@@ -9,7 +9,7 @@ use ShipStream\FedEx\Dto;
 final class PartyAccountNumber extends Dto
 {
     /**
-     * @param  ?string  $value  The account number value.Value is required if the paymentType is RECIPIENT, THIRD_PARTY or COLLECT.
+     * @param  ?string  $value  Conditional.<br> The account number value. Max Length is 9.<br>Example: 123456789
      */
     public function __construct(
         public readonly ?string $value = null,

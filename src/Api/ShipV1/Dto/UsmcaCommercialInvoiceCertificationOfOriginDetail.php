@@ -16,7 +16,7 @@ final class UsmcaCommercialInvoiceCertificationOfOriginDetail extends Dto
      * @param  ?string  $certifierSpecification  This is certifier specification.
      * @param  ?string  $importerSpecification  This is importer specification.
      * @param  ?string  $producerSpecification  This is producer specification.
-     * @param  ?Party3  $producer
+     * @param  ?Party2  $producer
      * @param  ?string  $certifierJobTitle  Specify the job title of the certifier
      */
     public function __construct(
@@ -25,7 +25,7 @@ final class UsmcaCommercialInvoiceCertificationOfOriginDetail extends Dto
         public readonly ?string $certifierSpecification = null,
         public readonly ?string $importerSpecification = null,
         public readonly ?string $producerSpecification = null,
-        public readonly ?Party3 $producer = null,
+        public readonly ?Party2 $producer = null,
         public readonly ?string $certifierJobTitle = null,
     ) {
     }

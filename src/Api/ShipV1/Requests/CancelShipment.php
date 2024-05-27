@@ -8,12 +8,8 @@ use Exception;
 use Saloon\Enums\Method;
 use Saloon\Http\Response;
 use ShipStream\FedEx\Api\ShipV1\Dto\FullSchemaCancelShipment;
+use ShipStream\FedEx\Api\ShipV1\Responses\ErrorResponseVo;
 use ShipStream\FedEx\Api\ShipV1\Responses\ErrorResponseVo2;
-use ShipStream\FedEx\Api\ShipV1\Responses\ErrorResponseVo4012;
-use ShipStream\FedEx\Api\ShipV1\Responses\ErrorResponseVo4032;
-use ShipStream\FedEx\Api\ShipV1\Responses\ErrorResponseVo4042;
-use ShipStream\FedEx\Api\ShipV1\Responses\ErrorResponseVo5002;
-use ShipStream\FedEx\Api\ShipV1\Responses\ErrorResponseVo5032;
 use ShipStream\FedEx\Api\ShipV1\Responses\ShpcResponseVoCancelShipment;
 use ShipStream\FedEx\Request;
 
@@ -43,16 +39,12 @@ class CancelShipment extends Request
 
     public function createDtoFromResponse(
         Response $response,
-    ): ShpcResponseVoCancelShipment|ErrorResponseVo2|ErrorResponseVo4012|ErrorResponseVo4032|ErrorResponseVo4042|ErrorResponseVo5002|ErrorResponseVo5032 {
+    ): ShpcResponseVoCancelShipment|ErrorResponseVo|ErrorResponseVo2 {
         $status = $response->status();
         $responseCls = match ($status) {
             200 => ShpcResponseVoCancelShipment::class,
-            400 => ErrorResponseVo2::class,
-            401 => ErrorResponseVo4012::class,
-            403 => ErrorResponseVo4032::class,
-            404 => ErrorResponseVo4042::class,
-            500 => ErrorResponseVo5002::class,
-            503 => ErrorResponseVo5032::class,
+            400, 500 => ErrorResponseVo::class,
+            401, 403, 404, 503 => ErrorResponseVo2::class,
             default => throw new Exception("Unhandled response status: {$status}")
         };
 

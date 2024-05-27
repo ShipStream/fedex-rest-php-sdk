@@ -9,9 +9,9 @@ use ShipStream\FedEx\Dto;
 final class HazardousCommodityQuantityDetail extends Dto
 {
     /**
-     * @param  string  $quantityType  Indicate the measure of units quantity to be validated.
-     * @param  float  $amount  Indicate the amount of the commodity in alternate units.<br>Example: 24.56
-     * @param  ?string  $units  Indicate the unit of measure.<br>Example: KG
+     * @param  string  $quantityType  Specifies which measure of quantity is to be validated.
+     * @param  float  $amount  Number of units of the type below.<br>Example: 34.56
+     * @param  ?string  $units  Specifies the units.<br>Example: KG
      */
     public function __construct(
         public readonly string $quantityType,

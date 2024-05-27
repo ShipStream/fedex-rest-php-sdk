@@ -6,7 +6,7 @@ namespace ShipStream\FedEx\Api\ShipV1\Dto;
 
 use ShipStream\FedEx\Dto;
 
-final class DocTabContentZone001 extends Dto
+final class DocTabContentZone extends Dto
 {
     protected static array $complexArrayTypes = ['docTabZoneSpecifications' => [DocTabZoneSpecification::class]];
 

@@ -22,7 +22,7 @@ final class PackageSpecialServicesRequested extends Dto
      * @param  ?PackageCodDetail  $packageCodDetail  These are COD package details. For use with FedEx Ground services only; COD must be present in shipments special services.
      * @param  ?int  $pieceCountVerificationBoxCount  Provide the pieceCount or VerificationBoxCount for batteries or cells that are contained within this specific package.
      * @param  BatteryDetail[]|null  $batteryDetails  Provide details about the batteries or cells that are contained within this specific package.
-     * @param  ?Weight3  $dryIceWeight  These are the package weight details.<br>Note: Weight is not required for One rate shipments
+     * @param  ?Weight  $dryIceWeight  These are the package weight details.<br>Note: Weight is not required for One rate shipments
      */
     public function __construct(
         public readonly ?array $specialServiceTypes = null,
@@ -34,7 +34,7 @@ final class PackageSpecialServicesRequested extends Dto
         public readonly ?PackageCodDetail $packageCodDetail = null,
         public readonly ?int $pieceCountVerificationBoxCount = null,
         public readonly ?array $batteryDetails = null,
-        public readonly ?Weight3 $dryIceWeight = null,
+        public readonly ?Weight $dryIceWeight = null,
     ) {
     }
 }

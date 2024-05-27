@@ -6,7 +6,7 @@ namespace ShipStream\FedEx\Api\ShipV1\Dto;
 
 use ShipStream\FedEx\Dto;
 
-final class PhoneNumber1 extends Dto
+final class PhoneNumber extends Dto
 {
     /**
      * @param  ?string  $areaCode  Indicate the area code for the phone number.

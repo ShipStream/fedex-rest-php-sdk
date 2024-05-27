@@ -6,7 +6,7 @@ namespace ShipStream\FedEx\Api\ShipV1\Dto;
 
 use ShipStream\FedEx\Dto;
 
-final class CompletedTagDetail2 extends Dto
+final class CompletedTagDetail extends Dto
 {
     /**
      * @param  string  $confirmationNumber  Confirmation Number.<br>Example: 275

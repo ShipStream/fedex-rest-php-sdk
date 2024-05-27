@@ -19,7 +19,7 @@ final class ShipmentSpecialServicesRequested extends Dto
      * @param  ?PendingShipmentDetail  $pendingShipmentDetail  This object is used to specify the Pending Shipment Type for Email label.
      * @param  ?HoldAtLocationDetail  $holdAtLocationDetail  Use this object to specify required information for a shipment to be held at destination FedEx location.<br><i>Note: This object HoldAtLocationDetail is Required, when HOLD_AT_LOCATION is chosen in the specialServiceTypes.</i>
      * @param  ?ShipmentCodDetail  $shipmentCodDetail  This is the shipment level COD detail.
-     * @param  ?ShipmentDryIceDetail1  $shipmentDryIceDetail  This is the descriptive data required for a FedEx shipment containing dangerous materials. This element is required when SpecialServiceType DRY_ICE is selected.<p><i>Note:<ul><li>Dry Ice is a Package level Special Service for Domestic and International shipments.</li><li>Dry Ice must be declared at both Shipment and Package level for International MPS shipments to print the compliance statement on Airway Bill labels.</li></ul></i></p>
+     * @param  ?ShipmentDryIceDetail  $shipmentDryIceDetail  This is the descriptive data required for a FedEx shipment containing dangerous materials. This element is required when SpecialServiceType DRY_ICE is selected.<p><i>Note:<ul><li>Dry Ice is a Package level Special Service for Domestic and International shipments.</li><li>Dry Ice must be declared at both Shipment and Package level for International MPS shipments to print the compliance statement on Airway Bill labels.</li></ul></i></p>
      * @param  ?InternationalControlledExportDetail  $internationalControlledExportDetail  Use this object to specify International Controlled Export shipment Details.<br>Note: licenseOrPermitExpirationDate and licenseOrPermitNumber are not required when type is WAREHOUSE_WITHDRAWAL.
      * @param  ?HomeDeliveryPremiumDetail  $homeDeliveryPremiumDetail  These are Special service elements for FedEx Ground Home Delivery shipments. If selected, element homedeliveryPremiumType is mandatory.
      */
@@ -32,7 +32,7 @@ final class ShipmentSpecialServicesRequested extends Dto
         public readonly ?PendingShipmentDetail $pendingShipmentDetail = null,
         public readonly ?HoldAtLocationDetail $holdAtLocationDetail = null,
         public readonly ?ShipmentCodDetail $shipmentCodDetail = null,
-        public readonly ?ShipmentDryIceDetail1 $shipmentDryIceDetail = null,
+        public readonly ?ShipmentDryIceDetail $shipmentDryIceDetail = null,
         public readonly ?InternationalControlledExportDetail $internationalControlledExportDetail = null,
         public readonly ?HomeDeliveryPremiumDetail $homeDeliveryPremiumDetail = null,
     ) {
