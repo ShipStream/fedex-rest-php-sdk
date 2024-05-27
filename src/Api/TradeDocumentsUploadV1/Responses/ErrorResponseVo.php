@@ -12,7 +12,7 @@ final class ErrorResponseVo extends Response
     protected static array $complexArrayTypes = ['errors' => [CxsError::class]];
 
     /**
-     * @param  CxsError[]|null  $errors  This is an error object detailing errors received in the reply.
+     * @param  CxsError[]|null  $errors
      */
     public function __construct(
         public readonly ?array $errors = null,

@@ -12,11 +12,6 @@ use Saloon\Traits\Body\HasMultipartBody;
 use ShipStream\FedEx\Api\TradeDocumentsUploadV1\Dto\FullSchemaDocumentUploadInputVo;
 use ShipStream\FedEx\Api\TradeDocumentsUploadV1\Responses\DocumentResponseOutputVo;
 use ShipStream\FedEx\Api\TradeDocumentsUploadV1\Responses\ErrorResponseVo;
-use ShipStream\FedEx\Api\TradeDocumentsUploadV1\Responses\ErrorResponseVo401;
-use ShipStream\FedEx\Api\TradeDocumentsUploadV1\Responses\ErrorResponseVo403;
-use ShipStream\FedEx\Api\TradeDocumentsUploadV1\Responses\ErrorResponseVo404;
-use ShipStream\FedEx\Api\TradeDocumentsUploadV1\Responses\ErrorResponseVo500;
-use ShipStream\FedEx\Api\TradeDocumentsUploadV1\Responses\ErrorResponseVo503;
 use ShipStream\FedEx\Request;
 
 /**
@@ -45,18 +40,12 @@ class UploadEtdFiles extends Request implements HasBody
         return '/documents/v1/etds/upload';
     }
 
-    public function createDtoFromResponse(
-        Response $response,
-    ): DocumentResponseOutputVo|ErrorResponseVo|ErrorResponseVo401|ErrorResponseVo403|ErrorResponseVo404|ErrorResponseVo500|ErrorResponseVo503 {
+    public function createDtoFromResponse(Response $response): DocumentResponseOutputVo|ErrorResponseVo
+    {
         $status = $response->status();
         $responseCls = match ($status) {
             201 => DocumentResponseOutputVo::class,
-            400 => ErrorResponseVo::class,
-            401 => ErrorResponseVo401::class,
-            403 => ErrorResponseVo403::class,
-            404 => ErrorResponseVo404::class,
-            500 => ErrorResponseVo500::class,
-            503 => ErrorResponseVo503::class,
+            400, 401, 403, 404, 500, 503 => ErrorResponseVo::class,
             default => throw new Exception("Unhandled response status: {$status}")
         };
 

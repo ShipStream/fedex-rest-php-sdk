@@ -11,10 +11,6 @@ use Saloon\Http\Response;
 use Saloon\Traits\Body\HasMultipartBody;
 use ShipStream\FedEx\Api\TradeDocumentsUploadV1\Dto\FullSchemaImageUploadServiceInputVo;
 use ShipStream\FedEx\Api\TradeDocumentsUploadV1\Responses\ErrorResponseVo;
-use ShipStream\FedEx\Api\TradeDocumentsUploadV1\Responses\ErrorResponseVo401;
-use ShipStream\FedEx\Api\TradeDocumentsUploadV1\Responses\ErrorResponseVo4031;
-use ShipStream\FedEx\Api\TradeDocumentsUploadV1\Responses\ErrorResponseVo404;
-use ShipStream\FedEx\Api\TradeDocumentsUploadV1\Responses\ErrorResponseVo500;
 use ShipStream\FedEx\Api\TradeDocumentsUploadV1\Responses\ImageUploadServiceOutputVo;
 use ShipStream\FedEx\Request;
 
@@ -44,17 +40,12 @@ class ImageUploadServiceInfo extends Request implements HasBody
         return '/documents/v1/lhsimages/upload';
     }
 
-    public function createDtoFromResponse(
-        Response $response,
-    ): ImageUploadServiceOutputVo|ErrorResponseVo|ErrorResponseVo401|ErrorResponseVo4031|ErrorResponseVo404|ErrorResponseVo500 {
+    public function createDtoFromResponse(Response $response): ImageUploadServiceOutputVo|ErrorResponseVo
+    {
         $status = $response->status();
         $responseCls = match ($status) {
             201 => ImageUploadServiceOutputVo::class,
-            400, 503 => ErrorResponseVo::class,
-            401 => ErrorResponseVo401::class,
-            403 => ErrorResponseVo4031::class,
-            404 => ErrorResponseVo404::class,
-            500 => ErrorResponseVo500::class,
+            400, 401, 403, 404, 500, 503 => ErrorResponseVo::class,
             default => throw new Exception("Unhandled response status: {$status}")
         };
 

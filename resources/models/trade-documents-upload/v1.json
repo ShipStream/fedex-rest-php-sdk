@@ -91,7 +91,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO401"
+                                    "$ref": "#/components/schemas/ErrorResponseVO"
                                 },
                                 "example": {
                                     "errors": [
@@ -109,7 +109,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO403"
+                                    "$ref": "#/components/schemas/ErrorResponseVO"
                                 },
                                 "example": {
                                     "errors": [
@@ -127,7 +127,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO404"
+                                    "$ref": "#/components/schemas/ErrorResponseVO"
                                 },
                                 "example": {
                                     "errors": [
@@ -145,7 +145,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO500"
+                                    "$ref": "#/components/schemas/ErrorResponseVO"
                                 },
                                 "example": {
                                     "errors": [
@@ -163,7 +163,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO503"
+                                    "$ref": "#/components/schemas/ErrorResponseVO"
                                 },
                                 "example": {
                                     "errors": [
@@ -297,7 +297,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO401"
+                                    "$ref": "#/components/schemas/ErrorResponseVO"
                                 },
                                 "example": {
                                     "errors": [
@@ -315,7 +315,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO403_1"
+                                    "$ref": "#/components/schemas/ErrorResponseVO"
                                 },
                                 "example": {
                                     "errors": [
@@ -333,7 +333,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO404"
+                                    "$ref": "#/components/schemas/ErrorResponseVO"
                                 },
                                 "example": {
                                     "error": "NOT.FOUND.ERROR",
@@ -347,7 +347,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO500"
+                                    "$ref": "#/components/schemas/ErrorResponseVO"
                                 },
                                 "example": {
                                     "errors": [
@@ -474,213 +474,6 @@
                 },
                 "description": "This is the response indicating upload reference details."
             },
-            "ErrorResponseVO": {
-                "type": "object",
-                "properties": {
-                    "errors": {
-                        "type": "array",
-                        "description": "This is an error object detailing errors received in the reply.",
-                        "items": {
-                            "$ref": "#/components/schemas/CXSError"
-                        }
-                    }
-                }
-            },
-            "CXSError": {
-                "type": "object",
-                "properties": {
-                    "code": {
-                        "type": "string",
-                        "description": "Indicates the error code.<br>Example: 1001"
-                    },
-                    "parameterList": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/Parameter"
-                        }
-                    },
-                    "message": {
-                        "type": "string",
-                        "description": "Indicates the description of API error alert message.<br>Example: Invalid request: no file information.",
-                        "example": "Invalid request: no file information."
-                    }
-                },
-                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
-            },
-            "Parameter": {
-                "type": "object",
-                "properties": {
-                    "value": {
-                        "type": "string",
-                        "description": "This is a parameter value. Example: PRIORITY_OVERNIGHT"
-                    },
-                    "key": {
-                        "type": "string",
-                        "description": "This is a parameter key."
-                    }
-                },
-                "description": "These alert parameter details such as paramter with a key."
-            },
-            "ErrorResponseVO401": {
-                "type": "object",
-                "properties": {
-                    "errors": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/CXSError401"
-                        }
-                    }
-                }
-            },
-            "CXSError401": {
-                "type": "object",
-                "properties": {
-                    "code": {
-                        "type": "string",
-                        "description": "Indicates the error code.<br>Example: AUTHENTICATION.TOKEN.INVALID"
-                    },
-                    "parameterList": {
-                        "type": "array",
-                        "description": "Specifies the message parameter list.",
-                        "items": {
-                            "$ref": "#/components/schemas/Parameter"
-                        }
-                    },
-                    "message": {
-                        "description": "Indicates the description of API error alert message.<br>Example: Invalid token passed in the request",
-                        "type": "string"
-                    }
-                },
-                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
-            },
-            "ErrorResponseVO403": {
-                "type": "object",
-                "properties": {
-                    "errors": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/CXSError403"
-                        }
-                    }
-                }
-            },
-            "CXSError403": {
-                "type": "object",
-                "properties": {
-                    "code": {
-                        "type": "string",
-                        "description": "Indicates the error code.<br>Example: FORBIDDEN.ERROR"
-                    },
-                    "parameterList": {
-                        "type": "array",
-                        "description": "Specifies the message parameter list.",
-                        "items": {
-                            "$ref": "#/components/schemas/Parameter"
-                        }
-                    },
-                    "message": {
-                        "description": "Indicates the description of API error alert message.<br>Example: We could not authorize your credentials. Please check your permissions and try again",
-                        "type": "string"
-                    }
-                },
-                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
-            },
-            "ErrorResponseVO404": {
-                "type": "object",
-                "properties": {
-                    "errors": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/CXSError404"
-                        }
-                    }
-                }
-            },
-            "CXSError404": {
-                "type": "object",
-                "properties": {
-                    "code": {
-                        "type": "string",
-                        "description": "Indicates the error code.<br>Example: NOT.FOUND.ERROR"
-                    },
-                    "parameterList": {
-                        "type": "array",
-                        "description": "Specifies the message parameter list.",
-                        "items": {
-                            "$ref": "#/components/schemas/Parameter"
-                        }
-                    },
-                    "message": {
-                        "description": "Indicates the description of API error alert message.<br>Example: The resource you requested is no longer available. Please modify your request and try again.",
-                        "type": "string"
-                    }
-                },
-                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
-            },
-            "ErrorResponseVO500": {
-                "type": "object",
-                "properties": {
-                    "errors": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/CXSError500"
-                        }
-                    }
-                }
-            },
-            "CXSError500": {
-                "type": "object",
-                "properties": {
-                    "code": {
-                        "type": "string",
-                        "description": "Indicates the error code.<br>Example: INTERNAL.SERVER.ERROR"
-                    },
-                    "parameterList": {
-                        "type": "array",
-                        "description": "Specifies the message parameter list.",
-                        "items": {
-                            "$ref": "#/components/schemas/Parameter"
-                        }
-                    },
-                    "message": {
-                        "description": "Indicates the description of API error alert message.<br>Example: We encountered an unexpected error and are working to resolve the issue. We apologize for any inconvenience. Please check back at a later time.",
-                        "type": "string"
-                    }
-                },
-                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
-            },
-            "ErrorResponseVO503": {
-                "type": "object",
-                "properties": {
-                    "errors": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/CXSError503"
-                        }
-                    }
-                }
-            },
-            "CXSError503": {
-                "type": "object",
-                "properties": {
-                    "code": {
-                        "type": "string",
-                        "description": "Indicates the error code.<br>Example: SERVICE.UNAVAILABLE.ERROR"
-                    },
-                    "parameterList": {
-                        "type": "array",
-                        "description": "Specifies the message parameter list.",
-                        "items": {
-                            "$ref": "#/components/schemas/Parameter"
-                        }
-                    },
-                    "message": {
-                        "description": "Indicates the description of API error alert message.<br>Example: The service is currently unavailable and we are working to resolve the issue. We apologize for any inconvenience. Please check back at a later time.",
-                        "type": "string"
-                    }
-                },
-                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
-            },
             "FullSchema-DocumentUploadInputVO": {
                 "required": [
                     "attachment",
@@ -755,7 +548,6 @@
                         ]
                     },
                     "meta": {
-                        "type": "object",
                         "$ref": "#/components/schemas/MetaObject"
                     }
                 },
@@ -852,54 +644,6 @@
                         "example": "1234"
                     }
                 }
-            },
-            "ErrorResponseVO403_1": {
-                "type": "object",
-                "properties": {
-                    "errors": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/CXSError403_1"
-                        }
-                    }
-                }
-            },
-            "CXSError403_1": {
-                "type": "object",
-                "properties": {
-                    "code": {
-                        "type": "string",
-                        "description": "Indicates the error code.<br>Example: FORBIDDEN.ERROR"
-                    },
-                    "parameterList": {
-                        "type": "array",
-                        "description": "List of parameters.",
-                        "items": {
-                            "$ref": "#/components/schemas/Parameter_1"
-                        }
-                    },
-                    "message": {
-                        "description": "Indicates the description of API error alert message.<br>Example: We could not authorize your credentials. Please check your permissions and try again",
-                        "type": "string"
-                    }
-                },
-                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
-            },
-            "Parameter_1": {
-                "type": "object",
-                "properties": {
-                    "value": {
-                        "type": "string",
-                        "description": "Identifies the error option to be applied. <br>Example: value",
-                        "example": "value"
-                    },
-                    "key": {
-                        "type": "string",
-                        "description": "Indicates the value associated with the key.<br> Example: key",
-                        "example": "key"
-                    }
-                },
-                "description": "List of parameters which indicates the properties of the alert message."
             },
             "FullSchema-ImageUploadServiceInputVO": {
                 "required": [
@@ -1002,6 +746,54 @@
                     }
                 },
                 "description": "Use this object to specify image meta data such as image type, path and index for the file to be uploaded."
+            },
+            "ErrorResponseVO": {
+                "type": "object",
+                "properties": {
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CXSError"
+                        }
+                    }
+                }
+            },
+            "CXSError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "description": "Indicates the error code.<br>Example: FORBIDDEN.ERROR"
+                    },
+                    "parameterList": {
+                        "type": "array",
+                        "description": "List of parameters.",
+                        "items": {
+                            "$ref": "#/components/schemas/Parameter"
+                        }
+                    },
+                    "message": {
+                        "description": "Indicates the description of API error alert message.<br>Example: We could not authorize your credentials. Please check your permissions and try again",
+                        "type": "string"
+                    }
+                },
+                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
+            },
+            "Parameter": {
+                "type": "object",
+                "properties": {
+                    "value": {
+                        "type": "string",
+                        "description": "Identifies the error option to be applied. <br>Example: value",
+                        "example": "value"
+                    },
+                    "key": {
+                        "type": "string",
+                        "description": "Indicates the value associated with the key.<br> Example: key",
+                        "example": "key"
+                    }
+                },
+                "description": "List of parameters which indicates the properties of the alert message."
             }
         }
     },
