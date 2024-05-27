@@ -6,7 +6,7 @@ namespace ShipStream\FedEx\Api\TrackV1\Dto;
 
 use ShipStream\FedEx\Dto;
 
-final class TrackingEventNotificationDetail2 extends Dto
+final class TrackingEventNotificationDetail extends Dto
 {
     protected static array $attributeMap = ['supportHtml' => 'supportHTML'];
 

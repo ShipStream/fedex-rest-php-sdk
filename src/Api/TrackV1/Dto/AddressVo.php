@@ -9,7 +9,7 @@ use ShipStream\FedEx\Dto;
 final class AddressVo extends Dto
 {
     /**
-     * @param  string[]  $streetLines  Combination of number, street name, etc. At least one line is required for a valid physical address; empty lines should not be included.<br> Example: ["1043 North Easy Street", "Suite 999"]. <br>Note: Street lines is shown in response only in secured flow. For non secured flow, street lines is not shown in the response.
+     * @param  string[]  $streetLines  Combination of number, street name, etc. At least one line is required for a valid physical address; empty lines should not be included.<br> Example: ["1043 North Easy Street", "Suite 999"]
      * @param  string  $countryCode  Placeholder for country code (2 characters) for the address.<br>Example: US<br><a onclick='loadDocReference("countrycodes")'>Click here to see Country Codes</a>
      * @param  ?string  $classification  Specifies the FedEx classification type for an address. <br>Valid values are BUSINESS, RESIDENTIAL, MIXED, UNKNOWN.<br> Example: BUSINESS
      * @param  ?bool  $residential  Placeholder to indicate whether the address is residential (as opposed to commercial).

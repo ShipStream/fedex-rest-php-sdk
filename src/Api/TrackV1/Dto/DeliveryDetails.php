@@ -17,7 +17,7 @@ final class DeliveryDetails extends Dto
      * @param  ?string  $destinationServiceArea  Field which holds the destination service area code.<br> Example: EDDUNAVAILABLE
      * @param  ?string  $destinationServiceAreaDescription  Field which holds the description corresponding to the destination service area.<br> Example: Appointment Required
      * @param  ?string  $locationDescription  Field which holds the FedEx location description for the package destination.<br> Example: Receptionist/Front Desk
-     * @param  ?AddressVo1  $actualDeliveryAddress  Address where the package was actually delivered. Contrast with destinationAddress, which is the location to which the package was intended to be delivered. Addresses may differ due to delivery to a behavior, hold at FedEx location, etc.
+     * @param  ?AddressVo2  $actualDeliveryAddress  Address where the package was actually delivered. Contrast with destinationAddress, which is the location to which the package was intended to be delivered. Addresses may differ due to delivery to a behavior, hold at FedEx location, etc.
      * @param  ?bool  $deliveryToday  This element indicates whether the package will be delivered today. The value 'True', indicates that today is package delivery.<br> Example: true
      * @param  ?string  $locationType  Field which holds the FedEx location type code for the package destination. If  Location Type not available we will get empty value.
      * @param  ?string  $signedByName  Field which holds the name of the person who signed for the package, if applicable.<br> Example: Reciever
@@ -30,7 +30,7 @@ final class DeliveryDetails extends Dto
         public readonly ?string $destinationServiceArea = null,
         public readonly ?string $destinationServiceAreaDescription = null,
         public readonly ?string $locationDescription = null,
-        public readonly ?AddressVo1 $actualDeliveryAddress = null,
+        public readonly ?AddressVo2 $actualDeliveryAddress = null,
         public readonly ?bool $deliveryToday = null,
         public readonly ?string $locationType = null,
         public readonly ?string $signedByName = null,

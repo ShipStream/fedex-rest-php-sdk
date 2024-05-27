@@ -50,7 +50,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO401"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -69,7 +69,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO403"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -88,7 +88,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO404"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -107,7 +107,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO500"
+                                    "$ref": "#/components/schemas/ErrorResponseVO"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -127,7 +127,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO503"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -271,7 +271,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO401"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -290,7 +290,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO403"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -309,7 +309,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO404"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -328,7 +328,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO500"
+                                    "$ref": "#/components/schemas/ErrorResponseVO"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -348,7 +348,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO503"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -492,7 +492,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO401"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -511,7 +511,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO403"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -530,7 +530,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO404"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -549,7 +549,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO500"
+                                    "$ref": "#/components/schemas/ErrorResponseVO"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -569,7 +569,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO503"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -713,7 +713,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO401"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -732,7 +732,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO403"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -751,7 +751,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO404"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -770,7 +770,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO500"
+                                    "$ref": "#/components/schemas/ErrorResponseVO"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -790,7 +790,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO503"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -934,7 +934,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO401"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -953,7 +953,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO403"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -972,7 +972,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO404"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -991,7 +991,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO500"
+                                    "$ref": "#/components/schemas/ErrorResponseVO"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -1011,7 +1011,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO503"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -1155,7 +1155,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO401"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -1174,7 +1174,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO403"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -1193,7 +1193,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO404"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -1212,7 +1212,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO500"
+                                    "$ref": "#/components/schemas/ErrorResponseVO"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -1232,7 +1232,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO503"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -1354,7 +1354,7 @@
                         ]
                     },
                     "pagingDetails": {
-                        "$ref": "#/components/schemas/PagingDetails_2"
+                        "$ref": "#/components/schemas/PagingDetails"
                     }
                 },
                 "description": "The request elements for Tracking by associated shipment.",
@@ -1397,68 +1397,6 @@
                     }
                 },
                 "description": "Tracking details for the shipment to be tracked"
-            },
-            "TrackingNumberInfo": {
-                "required": [
-                    "trackingNumber"
-                ],
-                "type": "object",
-                "properties": {
-                    "trackingNumber": {
-                        "type": "string",
-                        "description": "This is a Tracking number for FedEx packages used for tracking a single package or group of packages. <br> Example: 128667043726<br><a onclick='loadDocReference(\"mocktrackingnumbersforfedexexpressandfedexground\")'>Click here to see Mock Tracking Numbers.</a>",
-                        "example": "128667043726"
-                    },
-                    "carrierCode": {
-                        "type": "string",
-                        "description": "This is a placeholder to provide the FedEx operating company (transportation) code used for package delivery. <br> Example: FDXE",
-                        "example": "FDXE",
-                        "enum": [
-                            "FDXE",
-                            "FDXG",
-                            "FXSP",
-                            "FXFR",
-                            "FDXC",
-                            "FXCC",
-                            "FEDEX_CARGO",
-                            "FEDEX_CUSTOM_CRITICAL",
-                            "FEDEX_EXPRESS",
-                            "FEDEX_FREIGHT",
-                            "FEDEX_GROUND",
-                            "FEDEX_OFFICE",
-                            "FEDEX_KINKOS",
-                            "FX",
-                            "FDFR",
-                            "FDEG",
-                            "FXK",
-                            "FDC",
-                            "FDCC"
-                        ]
-                    },
-                    "trackingNumberUniqueId": {
-                        "type": "string",
-                        "description": "Unique identifier used to distinguish duplicate FedEx tracking numbers. This value will be set by FedEx systems. <br> Example: 245822\\~123456789012\\~FDEG",
-                        "example": "245822~123456789012~FDEG"
-                    }
-                },
-                "description": "Information uniquely identifying a shipment such as Tracking number, ShipDate, and Tracking number uniqueId."
-            },
-            "PagingDetails_2": {
-                "type": "object",
-                "properties": {
-                    "resultsPerPage": {
-                        "type": "integer",
-                        "description": "<p>Use this element to specify the number of Tracking results to be returned in the Tracking response. Use this and pagingToken elements, to retrieve remaining set of the track results.</p><p><u>Here is how the paging works:</u><br>For your first track request, send element <i>resultsPerPage</i>, with a number XX (5) and the response will return XX (5) results along with element <i>pagingToken</i> and <i>moreDataAvailable</i> = true or false based on the number of tracking results.</p><ul><li>If <i>moreDataAvailable</i> = false, then there are no more track results can be retrieved further.</li><li>If <i>moreDataAvailable</i> = True, then it means there are more track results and hence send the next tracking request with <i>resultsPerPage</i> = YY (4) and <i>pagingToken</i> = XX + 1 (5)  from Track Response element <i>pagingToken</i>. This can be continued until the <i>moreDataAvailable</i> becomes false or there are no more tracking results.</li></ul> <br> Example: 10",
-                        "format": "int32",
-                        "example": 56
-                    },
-                    "pagingToken": {
-                        "type": "string",
-                        "description": "<p>Use this element to specify the starting sequence for the next set of tracking results. This element can be specified if paging is used in the initial tracking request and you need to request next set of track results.</p><p><i>Note:  This element not to be used in the initial tracking request and only should be used in the subsequent track requests when there is paging (element </i>resultsPerPage <i>is specified) indicated.</i></p> <br> Example: 1234567890",
-                        "example": "38903279038"
-                    }
-                },
-                "description": "Specify the details about how to retrieve the subsequent pages when there is more than one page in the TrackReply."
             },
             "TrkcResponseVO_Associated": {
                 "type": "object",
@@ -1522,7 +1460,7 @@
                 "type": "object",
                 "properties": {
                     "trackingNumberInfo": {
-                        "$ref": "#/components/schemas/TrackingNumberInfo_1"
+                        "$ref": "#/components/schemas/TrackingNumberInfo"
                     },
                     "additionalTrackingInfo": {
                         "$ref": "#/components/schemas/AdditionalTrackingInfo"
@@ -1550,8 +1488,7 @@
                     },
                     "destinationLocation": {
                         "description": "Location details for the recipient where the package will be or has been delivered.",
-                        "type": "object",
-                        "$ref": "#/components/schemas/LocationDetail1"
+                        "$ref": "#/components/schemas/LocationDetail"
                     },
                     "latestStatusDetail": {
                         "$ref": "#/components/schemas/StatusDetail"
@@ -1610,8 +1547,7 @@
                     },
                     "holdAtLocation": {
                         "description": "Location details for the FedEx facility holding package for delivery. Populated only when REDIRECT_TO_HOLD_AT_LOCATION is available as custom delivery options.",
-                        "type": "object",
-                        "$ref": "#/components/schemas/LocationDetail1"
+                        "$ref": "#/components/schemas/LocationDetail"
                     },
                     "customDeliveryOptions": {
                         "type": "array",
@@ -1622,7 +1558,6 @@
                     },
                     "estimatedDeliveryTimeWindow": {
                         "description": "The estimated window for time of delivery.  May be periodically updated based on available in-flight shipment information.",
-                        "type": "object",
                         "$ref": "#/components/schemas/TimeWindow"
                     },
                     "pieceCounts": {
@@ -1637,12 +1572,10 @@
                     },
                     "recipientInformation": {
                         "description": "Contact and address information of recipient.",
-                        "type": "object",
-                        "$ref": "#/components/schemas/ContactAndAddress1"
+                        "$ref": "#/components/schemas/ContactAndAddress"
                     },
                     "standardTransitTimeWindow": {
                         "description": "The standard committed window of time by which the package is expected to be delivered.",
-                        "type": "object",
                         "$ref": "#/components/schemas/TimeWindow"
                     },
                     "shipmentDetails": {
@@ -1664,13 +1597,11 @@
                     },
                     "shipperInformation": {
                         "description": "Contact and address information of shipper.",
-                        "type": "object",
-                        "$ref": "#/components/schemas/ContactAndAddress1"
+                        "$ref": "#/components/schemas/ContactAndAddress"
                     },
                     "lastUpdatedDestinationAddress": {
                         "description": "Last updated delivery address for the package.",
-                        "type": "object",
-                        "$ref": "#/components/schemas/AddressVO1"
+                        "$ref": "#/components/schemas/AddressVO_2"
                     }
                 },
                 "description": "Contains detailed tracking information for the requested packages(s). In case of duplicates, multiple track details will be populated. "
@@ -1796,7 +1727,6 @@
                     },
                     "reasonDetail": {
                         "description": "Specifies the reason details for the consolidation event for a package.",
-                        "type": "object",
                         "$ref": "#/components/schemas/ReasonDetail"
                     },
                     "packageCount": {
@@ -1868,145 +1798,12 @@
                 },
                 "description": "This object contains service description details for the package."
             },
-            "LocationDetail_1": {
-                "required": [
-                    "locationContactAndAddress",
-                    "locationType"
-                ],
-                "type": "object",
-                "properties": {
-                    "locationId": {
-                        "type": "string",
-                        "description": "Location Identification for facilities identified by an alpha numeric location code. Passing Location Id of the Hold at Location (HAL) address is strongly recommended to ensure packages are delivered to the correct address.<br> Example: SEA",
-                        "example": "SEA"
-                    },
-                    "locationContactAndAddress": {
-                        "$ref": "#/components/schemas/ContactAndAddress_1"
-                    },
-                    "locationType": {
-                        "type": "string",
-                        "description": "The FedEx Location Type.<br> Example: PICKUP_LOCTION",
-                        "example": "PICKUP_LOCATION",
-                        "enum": [
-                            "FEDEX_AUTHORIZED_SHIP_CENTER",
-                            "FEDEX_OFFICE",
-                            "FEDEX_SELF_SERVICE_LOCATION",
-                            "FEDEX_STAFFED",
-                            "RETAIL_ALLICANCE_LOCATION",
-                            "FEDEX_GROUND_TERMINAL",
-                            "FEDEX_ONSITE"
-                        ]
-                    }
-                },
-                "description": "Location details for the fedex facility."
-            },
-            "ContactAndAddress_1": {
-                "required": [
-                    "address",
-                    "contact"
-                ],
-                "type": "object",
-                "properties": {
-                    "contact": {
-                        "$ref": "#/components/schemas/ContactVO_1"
-                    },
-                    "address": {
-                        "description": "Required.\n\nDescriptive data for a physical location.  may be used as an actual physical address(place to which one could go), or a container of 'address parts' which should be handled as a unit(such as a city-state-zip combination within the US).\n\nConditional when used with Payor object.  Required if entering using RECIPIENT or THIRD_PARTY.  Required if not-authenticated and SENDER is selected",
-                        "type": "object",
-                        "$ref": "#/components/schemas/AddressVO_1"
-                    }
-                },
-                "description": "Location Contact And Address."
-            },
-            "ContactVO_1": {
-                "type": "object",
-                "properties": {
-                    "personName": {
-                        "type": "string",
-                        "description": "Identifies the contact person's name. Max Length is 70.<br> Example: John Taylor",
-                        "example": "John Taylor"
-                    },
-                    "phoneNumber": {
-                        "type": "string",
-                        "description": "Identifies the phone number associated with this contact. Max length is 15. <br>Example: '1234567890'",
-                        "example": "1234567890"
-                    },
-                    "companyName": {
-                        "type": "string",
-                        "description": "Identifies the company this contact is associated with. Max length is 35. <br> Example: Fedex",
-                        "example": "Fedex"
-                    }
-                },
-                "description": "Indicate the contact details for this package.<br>Note: contact is shown in response only in secured flow. For non secured flow, contact is not shown in the response.'"
-            },
-            "AddressVO_1": {
-                "required": [
-                    "addressVerificationId",
-                    "countryCode",
-                    "streetLines"
-                ],
-                "type": "object",
-                "properties": {
-                    "classification": {
-                        "type": "string",
-                        "description": "Specifies the FedEx classification type for an address. <br>Valid values are BUSINESS, RESIDENTIAL, MIXED, UNKNOWN.<br> Example: BUSINESS",
-                        "example": "BUSINESS"
-                    },
-                    "residential": {
-                        "type": "boolean",
-                        "description": "Placeholder to indicate whether the address is residential (as opposed to commercial).",
-                        "example": false,
-                        "enum": [
-                            true,
-                            false
-                        ]
-                    },
-                    "streetLines": {
-                        "type": "array",
-                        "description": "Combination of number, street name, etc. At least one line is required for a valid physical address; empty lines should not be included.<br> Example: [\"1043 North Easy Street\", \"Suite 999\"]. <br>Note: Street lines is shown in response only in secured flow. For non secured flow, street lines is not shown in the response.",
-                        "example": [
-                            "1043 North Easy Street",
-                            "Suite 999"
-                        ],
-                        "items": {
-                            "type": "string"
-                        }
-                    },
-                    "city": {
-                        "type": "string",
-                        "description": "Conditional<br>The name of the city, town, etc. <br> Example: SEATTLE",
-                        "example": "SEATTLE"
-                    },
-                    "urbanizationCode": {
-                        "type": "string",
-                        "description": "Relevant only to addresses in Puerto Rico, where multiple addresses within the same postal code can have the same house number and street name. When this is the case, the urbanization code is needed to distinguish them.<br> Example: RAFAEL",
-                        "example": "RAFAEL"
-                    },
-                    "stateOrProvinceCode": {
-                        "type": "string",
-                        "description": "This is a placeholder for State or Province code. <br> Example: CA<br><a onclick='loadDocReference(\"canadaprovincecodes\")'>Click here to see State/Province Code</a>",
-                        "example": "WA"
-                    },
-                    "postalCode": {
-                        "type": "string",
-                        "description": "Placeholder to specify postal code for the address. Postal Code is required for postal-aware countries.<br> Example: 98101<br><a onclick='loadDocReference(\"postalawarecountries\")'>Click here to see Postal aware countries</a>",
-                        "example": "98101"
-                    },
-                    "countryCode": {
-                        "type": "string",
-                        "description": "Placeholder for country code (2 characters) for the address.<br>Example: US<br><a onclick='loadDocReference(\"countrycodes\")'>Click here to see Country Codes</a>",
-                        "example": "US"
-                    }
-                },
-                "description": "Address where the package was actually delivered. Contrast with destinationAddress, which is the location to which the package was intended to be delivered. Addresses may differ due to delivery to a behavior, hold at FedEx location, etc."
-            },
             "StatusDetail": {
                 "type": "object",
                 "properties": {
                     "scanLocation": {
                         "description": "Address information related to the associated Status.",
-                        "type": "object",
-                        "$ref": "#/components/schemas/AddressVO1"
+                        "$ref": "#/components/schemas/AddressVO_2"
                     },
                     "code": {
                         "type": "string",
@@ -2040,72 +1837,6 @@
                     }
                 },
                 "description": "Specifies details about the status of the track information for the shipment being tracked.  AncilliaryDetails may also be available which describe the cause of exception along with any action that needs to taken by customer."
-            },
-            "AddressVO": {
-                "required": [
-                    "addressVerificationId",
-                    "countryCode",
-                    "streetLines"
-                ],
-                "type": "object",
-                "properties": {
-                    "classification": {
-                        "type": "string",
-                        "description": "Specifies the FedEx classification type for an address. <br>Valid values are BUSINESS, RESIDENTIAL, MIXED, UNKNOWN.<br> Example: BUSINESS",
-                        "example": "BUSINESS"
-                    },
-                    "residential": {
-                        "type": "boolean",
-                        "description": "Placeholder to indicate whether the address is residential (as opposed to commercial).",
-                        "example": false,
-                        "enum": [
-                            true,
-                            false
-                        ]
-                    },
-                    "streetLines": {
-                        "type": "array",
-                        "description": "Combination of number, street name, etc. At least one line is required for a valid physical address; empty lines should not be included.<br> Example: [\"1043 North Easy Street\", \"Suite 999\"]",
-                        "example": [
-                            "1043 North Easy Street",
-                            "Suite 999"
-                        ],
-                        "items": {
-                            "type": "string"
-                        }
-                    },
-                    "city": {
-                        "type": "string",
-                        "description": "Conditional<br>The name of the city, town, etc. <br> Example: SEATTLE",
-                        "example": "SEATTLE"
-                    },
-                    "urbanizationCode": {
-                        "type": "string",
-                        "description": "Relevant only to addresses in Puerto Rico, where multiple addresses within the same postal code can have the same house number and street name. When this is the case, the urbanization code is needed to distinguish them.<br> Example: RAFAEL",
-                        "example": "RAFAEL"
-                    },
-                    "stateOrProvinceCode": {
-                        "type": "string",
-                        "description": "This is a placeholder for State or Province code. <br> Example: CA<br><a onclick='loadDocReference(\"canadaprovincecodes\")'>Click here to see State/Province Code</a>",
-                        "example": "WA"
-                    },
-                    "postalCode": {
-                        "type": "string",
-                        "description": "Placeholder to specify postal code for the address. Postal Code is required for postal-aware countries.<br> Example: 98101<br><a onclick='loadDocReference(\"postalawarecountries\")'>Click here to see Postal aware countries</a>",
-                        "example": "98101"
-                    },
-                    "countryCode": {
-                        "type": "string",
-                        "description": "Placeholder for country code (2 characters) for the address.<br>Example: US<br><a onclick='loadDocReference(\"countrycodes\")'>Click here to see Country Codes</a>",
-                        "example": "US"
-                    },
-                    "countryName": {
-                        "type": "string",
-                        "description": "Field holds the fully spelled out name of a country.<br> Example: United States",
-                        "example": "United States"
-                    }
-                },
-                "description": "Address where the package was actually delivered. Contrast with destinationAddress, which is the location to which the package was intended to be delivered. Addresses may differ due to delivery to a behavior, hold at FedEx location, etc."
             },
             "StatusAncillaryDetail": {
                 "type": "object",
@@ -2219,29 +1950,6 @@
                 },
                 "description": "Notifications to the end user that provide additional information relevant to the tracked shipment. For example, a notification may indicate that a change in behavior has occurred."
             },
-            "CXSError": {
-                "type": "object",
-                "properties": {
-                    "code": {
-                        "type": "string",
-                        "description": "Error Code. <br> Example: TRACKING.TRACKINGNUMBER.EMPTY",
-                        "example": "TRACKING.TRACKINGNUMBER.EMPTY"
-                    },
-                    "parameterList": {
-                        "type": "array",
-                        "description": "List of parameters.",
-                        "items": {
-                            "$ref": "#/components/schemas/Parameter"
-                        }
-                    },
-                    "message": {
-                        "type": "string",
-                        "description": "Error Message. <br>Example: Please provide tracking number.",
-                        "example": "Please provide tracking number."
-                    }
-                },
-                "description": "Contains error details."
-            },
             "Parameter": {
                 "type": "object",
                 "properties": {
@@ -2327,7 +2035,7 @@
                         "example": "Receptionist/Front Desk"
                     },
                     "actualDeliveryAddress": {
-                        "$ref": "#/components/schemas/AddressVO1"
+                        "$ref": "#/components/schemas/AddressVO_2"
                     },
                     "deliveryToday": {
                         "type": "boolean",
@@ -2421,8 +2129,7 @@
                     },
                     "scanLocation": {
                         "description": "Location Details for the FedEx facility where the scan event occurred.",
-                        "type": "object",
-                        "$ref": "#/components/schemas/AddressVO1"
+                        "$ref": "#/components/schemas/AddressVO_2"
                     },
                     "locationId": {
                         "type": "string",
@@ -2566,7 +2273,6 @@
                     },
                     "declaredValue": {
                         "description": "This is the declared value. Declared Value represents FedEx maximum liability in connection with a shipment of that Package, including but not limited to, any loss, damage, delay, misdelivery, any failure to provide information, or misdelivery of information relating to the Shipment.",
-                        "type": "object",
                         "$ref": "#/components/schemas/Amount"
                     }
                 },
@@ -2682,77 +2388,6 @@
                         "example": 56.8
                     }
                 }
-            },
-            "LocationDetail": {
-                "required": [
-                    "locationContactAndAddress",
-                    "locationType"
-                ],
-                "type": "object",
-                "properties": {
-                    "locationId": {
-                        "type": "string",
-                        "description": "Location Identification for facilities identified by an alpha numeric location code. Passing Location Id of the Hold at Location (HAL) address is strongly recommended to ensure packages are delivered to the correct address.<br> Example: SEA",
-                        "example": "SEA"
-                    },
-                    "locationContactAndAddress": {
-                        "$ref": "#/components/schemas/ContactAndAddress"
-                    },
-                    "locationType": {
-                        "type": "string",
-                        "description": "The FedEx Location Type.<br> Example: PICKUP_LOCTION",
-                        "example": "PICKUP_LOCATION",
-                        "enum": [
-                            "FEDEX_AUTHORIZED_SHIP_CENTER",
-                            "FEDEX_OFFICE",
-                            "FEDEX_SELF_SERVICE_LOCATION",
-                            "FEDEX_STAFFED",
-                            "RETAIL_ALLICANCE_LOCATION",
-                            "FEDEX_GROUND_TERMINAL",
-                            "FEDEX_ONSITE"
-                        ]
-                    }
-                },
-                "description": "Location details for the fedex facility."
-            },
-            "ContactAndAddress": {
-                "required": [
-                    "address",
-                    "contact"
-                ],
-                "type": "object",
-                "properties": {
-                    "contact": {
-                        "$ref": "#/components/schemas/ContactVO"
-                    },
-                    "address": {
-                        "description": "Required.\n\nDescriptive data for a physical location.  may be used as an actual physical address(place to which one could go), or a container of 'address parts' which should be handled as a unit(such as a city-state-zip combination within the US).\n\nConditional when used with Payor object.  Required if entering using RECIPIENT or THIRD_PARTY.  Required if not-authenticated and SENDER is selected",
-                        "type": "object",
-                        "$ref": "#/components/schemas/AddressVO"
-                    }
-                },
-                "description": "Location Contact And Address."
-            },
-            "ContactVO": {
-                "type": "object",
-                "properties": {
-                    "personName": {
-                        "type": "string",
-                        "description": "Identifies the contact person's name. Max Length is 70.<br> Example: John Taylor",
-                        "example": "John Taylor"
-                    },
-                    "phoneNumber": {
-                        "type": "string",
-                        "description": "Identifies the phone number associated with this contact. Max length is 15. <br>Example: '1234567890'",
-                        "example": "1234567890"
-                    },
-                    "companyName": {
-                        "type": "string",
-                        "description": "Identifies the company this contact is associated with. Max length is 35. <br> Example: Fedex",
-                        "example": "Fedex"
-                    }
-                },
-                "description": "Indicate the contact details for this package."
             },
             "CustomDeliveryOption": {
                 "type": "object",
@@ -2989,237 +2624,6 @@
                 },
                 "description": "Specifies the api alerts."
             },
-            "ErrorResponseVO": {
-                "type": "object",
-                "properties": {
-                    "transactionId": {
-                        "type": "string",
-                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
-                        "example": "624deea6-b709-470c-8c39-4b5511281492"
-                    },
-                    "customerTransactionId": {
-                        "type": "string",
-                        "description": "This element allows you to assign a unique identifier to your transaction. This element is also returned in the reply and helps you match the request to the reply. <br> Example: AnyCo_order123456789",
-                        "example": "AnyCo_order123456789"
-                    },
-                    "errors": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/CXSError_2"
-                        }
-                    }
-                }
-            },
-            "CXSError_2": {
-                "type": "object",
-                "properties": {
-                    "code": {
-                        "type": "string",
-                        "description": "Indicates the error code.<br>Example: TRACKING.TRACKINGNUMBER.EMPTY"
-                    },
-                    "parameterList": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/Parameter"
-                        }
-                    },
-                    "message": {
-                        "type": "string",
-                        "description": "Indicates the description of API error alert message.<br>Example: Please provide tracking number."
-                    }
-                },
-                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
-            },
-            "ErrorResponseVO401": {
-                "type": "object",
-                "properties": {
-                    "transactionId": {
-                        "type": "string",
-                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
-                        "example": "624deea6-b709-470c-8c39-4b5511281492"
-                    },
-                    "errors": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/CXSError401"
-                        }
-                    }
-                }
-            },
-            "CXSError401": {
-                "type": "object",
-                "properties": {
-                    "code": {
-                        "type": "string",
-                        "description": "Indicates the error code.<br>Example: NOT.AUTHORIZED.ERROR"
-                    },
-                    "parameterList": {
-                        "type": "array",
-                        "description": "List of parameters.",
-                        "items": {
-                            "$ref": "#/components/schemas/Parameter"
-                        }
-                    },
-                    "message": {
-                        "description": "Indicates the description of API error alert message.<br>Example: Access token expired. Please modify your request and try again.",
-                        "type": "string"
-                    }
-                },
-                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
-            },
-            "ErrorResponseVO403": {
-                "type": "object",
-                "properties": {
-                    "transactionId": {
-                        "type": "string",
-                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
-                        "example": "624deea6-b709-470c-8c39-4b5511281492"
-                    },
-                    "errors": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/CXSError403"
-                        }
-                    }
-                }
-            },
-            "CXSError403": {
-                "type": "object",
-                "properties": {
-                    "code": {
-                        "type": "string",
-                        "description": "Indicates the error code.<br>Example: FORBIDDEN.ERROR"
-                    },
-                    "parameterList": {
-                        "type": "array",
-                        "description": "List of parameters.",
-                        "items": {
-                            "$ref": "#/components/schemas/Parameter"
-                        }
-                    },
-                    "message": {
-                        "description": "Indicates the description of API error alert message.<br>Example: We could not authorize your credentials. Please check your permissions and try again",
-                        "type": "string"
-                    }
-                },
-                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
-            },
-            "ErrorResponseVO404": {
-                "type": "object",
-                "properties": {
-                    "transactionId": {
-                        "type": "string",
-                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
-                        "example": "624deea6-b709-470c-8c39-4b5511281492"
-                    },
-                    "errors": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/CXSError404"
-                        }
-                    }
-                }
-            },
-            "CXSError404": {
-                "type": "object",
-                "properties": {
-                    "code": {
-                        "type": "string",
-                        "description": "Indicates the error code.<br>Example: NOT.FOUND.ERROR"
-                    },
-                    "parameterList": {
-                        "type": "array",
-                        "description": "List of parameters.",
-                        "items": {
-                            "$ref": "#/components/schemas/Parameter"
-                        }
-                    },
-                    "message": {
-                        "description": "Indicates the description of API error alert message.<br>Example: The resource you requested is no longer available. Please modify your request and try again.",
-                        "type": "string"
-                    }
-                },
-                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
-            },
-            "ErrorResponseVO500": {
-                "type": "object",
-                "properties": {
-                    "transactionId": {
-                        "type": "string",
-                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
-                        "example": "624deea6-b709-470c-8c39-4b5511281492"
-                    },
-                    "customerTransactionId": {
-                        "type": "string",
-                        "description": "This element allows you to assign a unique identifier to your transaction. This element is also returned in the reply and helps you match the request to the reply. <br> Example: AnyCo_order123456789",
-                        "example": "AnyCo_order123456789"
-                    },
-                    "errors": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/CXSError500"
-                        }
-                    }
-                }
-            },
-            "CXSError500": {
-                "type": "object",
-                "properties": {
-                    "code": {
-                        "type": "string",
-                        "description": "Indicates the error code.<br>Example: INTERNAL.SERVER.ERROR"
-                    },
-                    "parameterList": {
-                        "type": "array",
-                        "description": "List of parameters.",
-                        "items": {
-                            "$ref": "#/components/schemas/Parameter"
-                        }
-                    },
-                    "message": {
-                        "description": "Indicates the description of API error alert message.<br>Example: We encountered an unexpected error and are working to resolve the issue. We apologize for any inconvenience. Please check back at a later time.",
-                        "type": "string"
-                    }
-                },
-                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
-            },
-            "ErrorResponseVO503": {
-                "type": "object",
-                "properties": {
-                    "transactionId": {
-                        "type": "string",
-                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
-                        "example": "624deea6-b709-470c-8c39-4b5511281492"
-                    },
-                    "errors": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/CXSError503"
-                        }
-                    }
-                }
-            },
-            "CXSError503": {
-                "type": "object",
-                "properties": {
-                    "code": {
-                        "type": "string",
-                        "description": "Indicates the error code.<br>Example: SERVICE.UNAVAILABLE.ERROR"
-                    },
-                    "parameterList": {
-                        "type": "array",
-                        "description": "List of parameters.",
-                        "items": {
-                            "$ref": "#/components/schemas/Parameter"
-                        }
-                    },
-                    "message": {
-                        "description": "Indicates the description of API error alert message.<br>Example: The service is currently unavailable and we are working to resolve the issue. We apologize for any inconvenience. Please check back at a later time.",
-                        "type": "string"
-                    }
-                },
-                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
-            },
             "Full_Schema_Notification": {
                 "required": [
                     "senderContactName",
@@ -3240,7 +2644,7 @@
                         "example": "Lsr1234@gmail.com"
                     },
                     "trackingEventNotificationDetail": {
-                        "$ref": "#/components/schemas/TrackingEventNotificationDetail_2"
+                        "$ref": "#/components/schemas/TrackingEventNotificationDetail"
                     },
                     "trackingNumberInfo": {
                         "$ref": "#/components/schemas/TrackingNumberInfo"
@@ -3257,32 +2661,6 @@
                     }
                 },
                 "description": "The request to receive a tracking notification."
-            },
-            "TrackingEventNotificationDetail_2": {
-                "required": [
-                    "trackingNotifications"
-                ],
-                "type": "object",
-                "properties": {
-                    "trackingNotifications": {
-                        "type": "array",
-                        "description": "List of Tracking notifications requested for events like ON_DELIVERY, ON_ESTIMATED_DELIVERY, ON_EXCEPTION, ON_TENDER.",
-                        "items": {
-                            "$ref": "#/components/schemas/TrackingNotification"
-                        }
-                    },
-                    "personalMessage": {
-                        "type": "string",
-                        "description": "An optional message which will be included in the body of the email.",
-                        "example": "Personal message content"
-                    },
-                    "supportHTML": {
-                        "title": "@Ignore4TPP",
-                        "description": "If value is 'true' then html tags are included in the response date.  If 'false' they are not provided in the response.",
-                        "type": "string"
-                    }
-                },
-                "description": "Tracking Event Notification details."
             },
             "TrackingNotification": {
                 "required": [
@@ -3379,51 +2757,6 @@
                 },
                 "description": "Specifies the Email Notification Details."
             },
-            "TrackingNumberInfo_2": {
-                "required": [
-                    "trackingNumber"
-                ],
-                "type": "object",
-                "properties": {
-                    "trackingNumber": {
-                        "type": "string",
-                        "description": "This is a Tracking number for FedEx packages used for tracking a single package or group of packages. <br> Example: 128667043726<br><a onclick='loadDocReference(\"mocktrackingnumbersforfedexexpressandfedexground\")'>Click here to see Mock Tracking Numbers.</a>",
-                        "example": "128667043726"
-                    },
-                    "carrierCode": {
-                        "type": "string",
-                        "description": "This is a placeholder to provide the FedEx operating company (transportation) code used for package delivery. <br> Example: FDXE",
-                        "example": "FDXE",
-                        "enum": [
-                            "FDXE",
-                            "FDXG",
-                            "FXSP",
-                            "FXFR",
-                            "FDXC",
-                            "FXCC",
-                            "FEDEX_CARGO",
-                            "FEDEX_CUSTOM_CRITICAL",
-                            "FEDEX_EXPRESS",
-                            "FEDEX_FREIGHT",
-                            "FEDEX_GROUND",
-                            "FEDEX_OFFICE",
-                            "FEDEX_KINKOS",
-                            "FX",
-                            "FDFR",
-                            "FDEG",
-                            "FXK",
-                            "FDC",
-                            "FDCC"
-                        ]
-                    },
-                    "trackingNumberUniqueId": {
-                        "type": "string",
-                        "description": "Unique identifier used to distinguish duplicate FedEx tracking numbers. This value will be set by FedEx systems. <br> Example: 245822\\~123456789012\\~FDEG",
-                        "example": "245822~123456789012~FDEG"
-                    }
-                },
-                "description": "Information uniquely identifying a shipment such as Tracking number, ShipDate, and Tracking number uniqueId."
-            },
             "TrkcResponseVO_Notifications": {
                 "type": "object",
                 "properties": {
@@ -3447,12 +2780,10 @@
                 "properties": {
                     "TrackingNumberInfo": {
                         "description": "Tracking number information which uniquely identifies a package. Tracking number information includes tracking number, carrier code and a unique qualifier.",
-                        "type": "object",
-                        "$ref": "#/components/schemas/TrackingNumberInfo_2"
+                        "$ref": "#/components/schemas/TrackingNumberInfo"
                     },
                     "destinationAddress": {
                         "description": "Address where the package was actually delivered. Contrast with destination Address, which is the location to which the package was intended to be delivered. Addresses may differ due to delivery to a neighbor, hold at FedEx location, etc.",
-                        "type": "object",
                         "$ref": "#/components/schemas/AddressVO"
                     },
                     "recipientDetails": {
@@ -3621,7 +2952,6 @@
                 "properties": {
                     "tcnInfo": {
                         "description": "The information associated with the transportation control number.<br>Only 1 TCN is supported per request.",
-                        "type": "object",
                         "$ref": "#/components/schemas/TCNInfo"
                     },
                     "includeDetailedScans": {
@@ -3709,20 +3039,6 @@
                 },
                 "description": "The response elements for the Track by TCN request."
             },
-            "Parameter_2": {
-                "type": "object",
-                "properties": {
-                    "value": {
-                        "type": "string",
-                        "example": "value"
-                    },
-                    "key": {
-                        "type": "string",
-                        "example": "key"
-                    }
-                },
-                "description": "Parameter is a class having key-value pair."
-            },
             "Full_Schema_SPOD": {
                 "required": [
                     "trackDocumentDetail",
@@ -3732,7 +3048,6 @@
                 "properties": {
                     "trackDocumentDetail": {
                         "description": "This object specifies the tracking document details such as types of documents, for example, SIGNATURE_PROOF_OF_DELIVERY and also the format of tracking document. Supported values are PDF and PNG. Default is PDF.",
-                        "type": "object",
                         "$ref": "#/components/schemas/TrackDocumentDetail"
                     },
                     "trackDocumentSpecification": {
@@ -3770,7 +3085,6 @@
                 "type": "object",
                 "properties": {
                     "trackingNumberInfo": {
-                        "type": "object",
                         "$ref": "#/components/schemas/TrackingNumberInfo"
                     },
                     "shipDateBegin": {
@@ -3864,48 +3178,6 @@
                 },
                 "description": "The request elements for Tracking by Tracking Number. "
             },
-            "TrackingNumberInfo_1": {
-                "type": "object",
-                "properties": {
-                    "trackingNumber": {
-                        "type": "string",
-                        "description": "This is a Tracking number for FedEx packages used for tracking a single package or group of packages. <br> Example: 128667043726<br><a onclick='loadDocReference(\"mocktrackingnumbersforfedexexpressandfedexground\")'>Click here to see Mock Tracking Numbers.</a>",
-                        "example": "128667043726"
-                    },
-                    "carrierCode": {
-                        "type": "string",
-                        "description": "This is a placeholder to provide the FedEx operating company (transportation) code used for package delivery. <br> Example: FDXE",
-                        "example": "FDXE",
-                        "enum": [
-                            "FDXE",
-                            "FDXG",
-                            "FXSP",
-                            "FXFR",
-                            "FDXC",
-                            "FXCC",
-                            "FEDEX_CARGO",
-                            "FEDEX_CUSTOM_CRITICAL",
-                            "FEDEX_EXPRESS",
-                            "FEDEX_FREIGHT",
-                            "FEDEX_GROUND",
-                            "FEDEX_OFFICE",
-                            "FEDEX_KINKOS",
-                            "FX",
-                            "FDFR",
-                            "FDEG",
-                            "FXK",
-                            "FDC",
-                            "FDCC"
-                        ]
-                    },
-                    "trackingNumberUniqueId": {
-                        "type": "string",
-                        "description": "Unique identifier used to distinguish duplicate FedEx tracking numbers. This value will be set by FedEx systems. <br> Example: 245822\\~123456789012\\~FDEG",
-                        "example": "245822~123456789012~FDEG"
-                    }
-                },
-                "description": "Information uniquely identifying a shipment such as Tracking number, ShipDate, and Tracking number uniqueId."
-            },
             "TrkcResponseVO_TrackingNumber": {
                 "type": "object",
                 "properties": {
@@ -3958,80 +3230,140 @@
                         "example": "SEA"
                     },
                     "locationContactAndAddress": {
-                        "$ref": "#/components/schemas/ContactAndAddress1"
+                        "$ref": "#/components/schemas/ContactAndAddress"
                     }
                 },
                 "description": "Location details for the fedex facility."
             },
-            "LocationDetail1": {
+            "TrackingNumberInfo": {
                 "type": "object",
                 "properties": {
-                    "locationId": {
+                    "trackingNumber": {
                         "type": "string",
-                        "description": "Location Identification for facilities identified by an alpha numeric location code. Passing Location Id of the Hold at Location (HAL) address is strongly recommended to ensure packages are delivered to the correct address.<br> Example: SEA",
-                        "example": "SEA"
+                        "description": "This is a Tracking number for FedEx packages used for tracking a single package or group of packages. <br> Example: 128667043726<br><a onclick='loadDocReference(\"mocktrackingnumbersforfedexexpressandfedexground\")'>Click here to see Mock Tracking Numbers.</a>",
+                        "example": "128667043726"
                     },
-                    "locationContactAndAddress": {
-                        "$ref": "#/components/schemas/ContactAndAddress1"
-                    },
-                    "locationType": {
+                    "carrierCode": {
                         "type": "string",
-                        "description": "This field holds FedEx Location Type. If  Location Type not available we will get empty value.",
-                        "example": "FEDEX_SHIPSITE",
+                        "description": "This is a placeholder to provide the FedEx operating company (transportation) code used for package delivery. <br> Example: FDXE",
+                        "example": "FDXE",
                         "enum": [
-                            "FEDEX_AUTHORIZED_SHIP_CENTER",
+                            "FDXE",
+                            "FDXG",
+                            "FXSP",
+                            "FXFR",
+                            "FDXC",
+                            "FXCC",
+                            "FEDEX_CARGO",
+                            "FEDEX_CUSTOM_CRITICAL",
+                            "FEDEX_EXPRESS",
+                            "FEDEX_FREIGHT",
+                            "FEDEX_GROUND",
                             "FEDEX_OFFICE",
-                            "FEDEX_SELF_SERVICE_LOCATION",
-                            "FEDEX_GROUND_TERMINAL",
-                            "FEDEX_ONSITE",
-                            "FEDEX_EXPRESS_STATION",
-                            "FEDEX_FACILITY",
-                            "FEDEX_FREIGHT_SERVICE_CENTER",
-                            "FEDEX_HOME_DELIVERY_STATION",
-                            "FEDEX_SHIP_AND_GET",
-                            "FEDEX_SHIPSITE",
-                            "FEDEX_SMART_POST_HUB"
+                            "FEDEX_KINKOS",
+                            "FX",
+                            "FDFR",
+                            "FDEG",
+                            "FXK",
+                            "FDC",
+                            "FDCC"
                         ]
+                    },
+                    "trackingNumberUniqueId": {
+                        "type": "string",
+                        "description": "Unique identifier used to distinguish duplicate FedEx tracking numbers. This value will be set by FedEx systems. <br> Example: 245822\\~123456789012\\~FDEG",
+                        "example": "245822~123456789012~FDEG"
                     }
                 },
-                "description": "Location details for the fedex facility."
+                "description": "Information uniquely identifying a shipment such as Tracking number, ShipDate, and Tracking number uniqueId.",
+                "required": [
+                    "trackingNumber"
+                ]
             },
-            "ContactAndAddress1": {
+            "PagingDetails": {
                 "type": "object",
                 "properties": {
-                    "contact": {
-                        "$ref": "#/components/schemas/ContactVO1"
+                    "resultsPerPage": {
+                        "type": "integer",
+                        "description": "<p>Use this element to specify the number of Tracking results to be returned in the Tracking response. Use this and pagingToken elements, to retrieve remaining set of the track results.</p><p><u>Here is how the paging works:</u><br>For your first track request, send element <i>resultsPerPage</i>, with a number XX (5) and the response will return XX (5) results along with element <i>pagingToken</i> and <i>moreDataAvailable</i> = true or false based on the number of tracking results.</p><ul><li>If <i>moreDataAvailable</i> = false, then there are no more track results can be retrieved further.</li><li>If <i>moreDataAvailable</i> = True, then it means there are more track results and hence send the next tracking request with <i>resultsPerPage</i> = YY (4) and <i>pagingToken</i> = XX + 1 (5)  from Track Response element <i>pagingToken</i>. This can be continued until the <i>moreDataAvailable</i> becomes false or there are no more tracking results.</li></ul> <br> Example: 10",
+                        "format": "int32",
+                        "example": 56
                     },
-                    "address": {
-                        "description": "Required.\n\nDescriptive data for a physical location.  may be used as an actual physical address(place to which one could go), or a container of 'address parts' which should be handled as a unit(such as a city-state-zip combination within the US).\n\nConditional when used with Payor object.  Required if entering using RECIPIENT or THIRD_PARTY.  Required if not-authenticated and SENDER is selected",
-                        "type": "object",
-                        "$ref": "#/components/schemas/AddressVO1"
+                    "pagingToken": {
+                        "type": "string",
+                        "description": "<p>Use this element to specify the starting sequence for the next set of tracking results. This element can be specified if paging is used in the initial tracking request and you need to request next set of track results.</p><p><i>Note:  This element not to be used in the initial tracking request and only should be used in the subsequent track requests when there is paging (element </i>resultsPerPage <i>is specified) indicated.</i></p> <br> Example: 1234567890",
+                        "example": "38903279038"
                     }
                 },
-                "description": "Location Contact And Address."
+                "description": "Specify the details about how to retrieve the subsequent pages when there is more than one page in the TrackReply."
             },
-            "ContactVO1": {
+            "AddressVO": {
+                "required": [
+                    "addressVerificationId",
+                    "countryCode",
+                    "streetLines"
+                ],
                 "type": "object",
                 "properties": {
-                    "personName": {
+                    "classification": {
                         "type": "string",
-                        "description": "Identifies the contact person's name. Max Length is 70.<br> Example: John Taylor",
-                        "example": "John Taylor"
+                        "description": "Specifies the FedEx classification type for an address. <br>Valid values are BUSINESS, RESIDENTIAL, MIXED, UNKNOWN.<br> Example: BUSINESS",
+                        "example": "BUSINESS"
                     },
-                    "phoneNumber": {
-                        "type": "string",
-                        "description": "Identifies the phone number associated with this contact. Max length is 15. <br>Example: '1234567890'",
-                        "example": "1234567890"
+                    "residential": {
+                        "type": "boolean",
+                        "description": "Placeholder to indicate whether the address is residential (as opposed to commercial).",
+                        "example": false,
+                        "enum": [
+                            true,
+                            false
+                        ]
                     },
-                    "companyName": {
+                    "streetLines": {
+                        "type": "array",
+                        "description": "Combination of number, street name, etc. At least one line is required for a valid physical address; empty lines should not be included.<br> Example: [\"1043 North Easy Street\", \"Suite 999\"]",
+                        "example": [
+                            "1043 North Easy Street",
+                            "Suite 999"
+                        ],
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "city": {
                         "type": "string",
-                        "description": "Identifies the company this contact is associated with. Max length is 35. <br> Example: Fedex",
-                        "example": "Fedex"
+                        "description": "Conditional<br>The name of the city, town, etc. <br> Example: SEATTLE",
+                        "example": "SEATTLE"
+                    },
+                    "urbanizationCode": {
+                        "type": "string",
+                        "description": "Relevant only to addresses in Puerto Rico, where multiple addresses within the same postal code can have the same house number and street name. When this is the case, the urbanization code is needed to distinguish them.<br> Example: RAFAEL",
+                        "example": "RAFAEL"
+                    },
+                    "stateOrProvinceCode": {
+                        "type": "string",
+                        "description": "This is a placeholder for State or Province code. <br> Example: CA<br><a onclick='loadDocReference(\"canadaprovincecodes\")'>Click here to see State/Province Code</a>",
+                        "example": "WA"
+                    },
+                    "postalCode": {
+                        "type": "string",
+                        "description": "Placeholder to specify postal code for the address. Postal Code is required for postal-aware countries.<br> Example: 98101<br><a onclick='loadDocReference(\"postalawarecountries\")'>Click here to see Postal aware countries</a>",
+                        "example": "98101"
+                    },
+                    "countryCode": {
+                        "type": "string",
+                        "description": "Placeholder for country code (2 characters) for the address.<br>Example: US<br><a onclick='loadDocReference(\"countrycodes\")'>Click here to see Country Codes</a>",
+                        "example": "US"
+                    },
+                    "countryName": {
+                        "type": "string",
+                        "description": "Field holds the fully spelled out name of a country.<br> Example: United States",
+                        "example": "United States"
                     }
                 },
-                "description": "Indicate the contact details for this package.<br>Note: contact is shown in response only in secured flow. For non secured flow, contact is not shown in the response.'"
+                "description": "Address where the package was actually delivered. Contrast with destinationAddress, which is the location to which the package was intended to be delivered. Addresses may differ due to delivery to a behavior, hold at FedEx location, etc."
             },
-            "AddressVO1": {
+            "AddressVO_2": {
                 "type": "object",
                 "properties": {
                     "addressClassification": {
@@ -4091,6 +3423,165 @@
                     }
                 },
                 "description": "Address where the package was actually delivered. Contrast with destinationAddress, which is the location to which the package was intended to be delivered. Addresses may differ due to delivery to a behavior, hold at FedEx location, etc."
+            },
+            "CXSError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "description": "Indicates the error code.<br>Example: SERVICE.UNAVAILABLE.ERROR"
+                    },
+                    "parameterList": {
+                        "type": "array",
+                        "description": "List of parameters.",
+                        "items": {
+                            "$ref": "#/components/schemas/Parameter"
+                        }
+                    },
+                    "message": {
+                        "description": "Indicates the description of API error alert message.<br>Example: The service is currently unavailable and we are working to resolve the issue. We apologize for any inconvenience. Please check back at a later time.",
+                        "type": "string"
+                    }
+                },
+                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
+            },
+            "LocationDetail": {
+                "type": "object",
+                "properties": {
+                    "locationId": {
+                        "type": "string",
+                        "description": "Location Identification for facilities identified by an alpha numeric location code. Passing Location Id of the Hold at Location (HAL) address is strongly recommended to ensure packages are delivered to the correct address.<br> Example: SEA",
+                        "example": "SEA"
+                    },
+                    "locationContactAndAddress": {
+                        "$ref": "#/components/schemas/ContactAndAddress"
+                    },
+                    "locationType": {
+                        "type": "string",
+                        "description": "This field holds FedEx Location Type. If  Location Type not available we will get empty value.",
+                        "example": "FEDEX_SHIPSITE",
+                        "enum": [
+                            "FEDEX_AUTHORIZED_SHIP_CENTER",
+                            "FEDEX_OFFICE",
+                            "FEDEX_SELF_SERVICE_LOCATION",
+                            "FEDEX_GROUND_TERMINAL",
+                            "FEDEX_ONSITE",
+                            "FEDEX_EXPRESS_STATION",
+                            "FEDEX_FACILITY",
+                            "FEDEX_FREIGHT_SERVICE_CENTER",
+                            "FEDEX_HOME_DELIVERY_STATION",
+                            "FEDEX_SHIP_AND_GET",
+                            "FEDEX_SHIPSITE",
+                            "FEDEX_SMART_POST_HUB"
+                        ]
+                    }
+                },
+                "description": "Location details for the fedex facility.",
+                "required": [
+                    "locationContactAndAddress",
+                    "locationType"
+                ]
+            },
+            "ContactAndAddress": {
+                "type": "object",
+                "properties": {
+                    "contact": {
+                        "$ref": "#/components/schemas/ContactVO"
+                    },
+                    "address": {
+                        "description": "Required.\n\nDescriptive data for a physical location.  may be used as an actual physical address(place to which one could go), or a container of 'address parts' which should be handled as a unit(such as a city-state-zip combination within the US).\n\nConditional when used with Payor object.  Required if entering using RECIPIENT or THIRD_PARTY.  Required if not-authenticated and SENDER is selected",
+                        "$ref": "#/components/schemas/AddressVO_2"
+                    }
+                },
+                "description": "Location Contact And Address.",
+                "required": [
+                    "address",
+                    "contact"
+                ]
+            },
+            "ContactVO": {
+                "type": "object",
+                "properties": {
+                    "personName": {
+                        "type": "string",
+                        "description": "Identifies the contact person's name. Max Length is 70.<br> Example: John Taylor",
+                        "example": "John Taylor"
+                    },
+                    "phoneNumber": {
+                        "type": "string",
+                        "description": "Identifies the phone number associated with this contact. Max length is 15. <br>Example: '1234567890'",
+                        "example": "1234567890"
+                    },
+                    "companyName": {
+                        "type": "string",
+                        "description": "Identifies the company this contact is associated with. Max length is 35. <br> Example: Fedex",
+                        "example": "Fedex"
+                    }
+                },
+                "description": "Indicate the contact details for this package.<br>Note: contact is shown in response only in secured flow. For non secured flow, contact is not shown in the response.'"
+            },
+            "ErrorResponseVO": {
+                "type": "object",
+                "properties": {
+                    "transactionId": {
+                        "type": "string",
+                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
+                        "example": "624deea6-b709-470c-8c39-4b5511281492"
+                    },
+                    "customerTransactionId": {
+                        "type": "string",
+                        "description": "This element allows you to assign a unique identifier to your transaction. This element is also returned in the reply and helps you match the request to the reply. <br> Example: AnyCo_order123456789",
+                        "example": "AnyCo_order123456789"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CXSError"
+                        }
+                    }
+                }
+            },
+            "ErrorResponseVO_2": {
+                "type": "object",
+                "properties": {
+                    "transactionId": {
+                        "type": "string",
+                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
+                        "example": "624deea6-b709-470c-8c39-4b5511281492"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CXSError"
+                        }
+                    }
+                }
+            },
+            "TrackingEventNotificationDetail": {
+                "required": [
+                    "trackingNotifications"
+                ],
+                "type": "object",
+                "properties": {
+                    "trackingNotifications": {
+                        "type": "array",
+                        "description": "List of Tracking notifications requested for events like ON_DELIVERY, ON_ESTIMATED_DELIVERY, ON_EXCEPTION, ON_TENDER.",
+                        "items": {
+                            "$ref": "#/components/schemas/TrackingNotification"
+                        }
+                    },
+                    "personalMessage": {
+                        "type": "string",
+                        "description": "An optional message which will be included in the body of the email.",
+                        "example": "Personal message content"
+                    },
+                    "supportHTML": {
+                        "title": "@Ignore4TPP",
+                        "description": "If value is 'true' then html tags are included in the response date.  If 'false' they are not provided in the response.",
+                        "type": "string"
+                    }
+                },
+                "description": "Tracking Event Notification details."
             }
         }
     },

@@ -11,11 +11,7 @@ use Saloon\Http\Response;
 use Saloon\Traits\Body\HasJsonBody;
 use ShipStream\FedEx\Api\TrackV1\Dto\FullSchemaTrackingReferences;
 use ShipStream\FedEx\Api\TrackV1\Responses\ErrorResponseVo;
-use ShipStream\FedEx\Api\TrackV1\Responses\ErrorResponseVo401;
-use ShipStream\FedEx\Api\TrackV1\Responses\ErrorResponseVo403;
-use ShipStream\FedEx\Api\TrackV1\Responses\ErrorResponseVo404;
-use ShipStream\FedEx\Api\TrackV1\Responses\ErrorResponseVo500;
-use ShipStream\FedEx\Api\TrackV1\Responses\ErrorResponseVo503;
+use ShipStream\FedEx\Api\TrackV1\Responses\ErrorResponseVo2;
 use ShipStream\FedEx\Api\TrackV1\Responses\TrkcResponseVoReferenceNumber;
 use ShipStream\FedEx\Request;
 
@@ -47,16 +43,12 @@ class TrackByReferences extends Request implements HasBody
 
     public function createDtoFromResponse(
         Response $response,
-    ): TrkcResponseVoReferenceNumber|ErrorResponseVo|ErrorResponseVo401|ErrorResponseVo403|ErrorResponseVo404|ErrorResponseVo500|ErrorResponseVo503 {
+    ): TrkcResponseVoReferenceNumber|ErrorResponseVo|ErrorResponseVo2 {
         $status = $response->status();
         $responseCls = match ($status) {
             200 => TrkcResponseVoReferenceNumber::class,
-            400 => ErrorResponseVo::class,
-            401 => ErrorResponseVo401::class,
-            403 => ErrorResponseVo403::class,
-            404 => ErrorResponseVo404::class,
-            500 => ErrorResponseVo500::class,
-            503 => ErrorResponseVo503::class,
+            400, 500 => ErrorResponseVo::class,
+            401, 403, 404, 503 => ErrorResponseVo2::class,
             default => throw new Exception("Unhandled response status: {$status}")
         };
 
