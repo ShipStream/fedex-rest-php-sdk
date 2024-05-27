@@ -9,7 +9,7 @@ use ShipStream\FedEx\Api\LocationsSearchV1\Dto\FullSchemaFindLocation;
 use ShipStream\FedEx\Api\LocationsSearchV1\Requests\FindLocation;
 use ShipStream\FedEx\BaseResource;
 
-class LocationsSearchV1 extends BaseResource
+class Api extends BaseResource
 {
     public function findLocation(FullSchemaFindLocation $fullSchemaFindLocation): Response
     {

@@ -11,7 +11,7 @@ use ShipStream\FedEx\Api\GroundEODCloseV1\Requests\GroundPerformEndOfDayClose;
 use ShipStream\FedEx\Api\GroundEODCloseV1\Requests\PerformEndOfDayClose;
 use ShipStream\FedEx\BaseResource;
 
-class GroundEodCloseV1 extends BaseResource
+class Api extends BaseResource
 {
     public function groundPerformEndOfDayClose(FullSchemaGeodPut $fullSchemaGeodPut): Response
     {

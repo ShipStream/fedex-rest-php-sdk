@@ -9,7 +9,7 @@ use ShipStream\FedEx\Api\GlobalTradeV1\Dto\FullSchema;
 use ShipStream\FedEx\Api\GlobalTradeV1\Requests\ShipmentRegulatoryDetails;
 use ShipStream\FedEx\BaseResource;
 
-class GlobalTradeV1 extends BaseResource
+class Api extends BaseResource
 {
     /**
      * @param  FullSchema  $fullSchema  The request elements to retrieve Shipment Regulatory Details.

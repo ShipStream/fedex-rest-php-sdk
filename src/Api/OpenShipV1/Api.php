@@ -27,7 +27,7 @@ use ShipStream\FedEx\Api\OpenShipV1\Requests\RetrieveOpenShipment;
 use ShipStream\FedEx\Api\OpenShipV1\Requests\RetrieveOpenShipmentPackages;
 use ShipStream\FedEx\BaseResource;
 
-class OpenShipV1 extends BaseResource
+class Api extends BaseResource
 {
     /**
      * @param  FullSchemaCreateOpenShipment  $fullSchemaCreateOpenShipment  The request elements required to create a Openshipment.

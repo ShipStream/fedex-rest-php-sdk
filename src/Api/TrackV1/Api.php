@@ -19,7 +19,7 @@ use ShipStream\FedEx\Api\TrackV1\Requests\TrackingDocuments;
 use ShipStream\FedEx\Api\TrackV1\Requests\TrackMultiplePieceShipment;
 use ShipStream\FedEx\BaseResource;
 
-class TrackV1 extends BaseResource
+class Api extends BaseResource
 {
     /**
      * @param  FullSchemaMultiplePieceShipment  $fullSchemaMultiplePieceShipment  The request elements for Tracking by associated shipment.

@@ -13,7 +13,7 @@ use ShipStream\FedEx\Api\PickupRequestV1\Requests\CheckPickupAvailability;
 use ShipStream\FedEx\Api\PickupRequestV1\Requests\CreatePickup;
 use ShipStream\FedEx\BaseResource;
 
-class PickupRequestV1 extends BaseResource
+class Api extends BaseResource
 {
     /**
      * @param  FullSchemaCreatePickup  $fullSchemaCreatePickup  Use this endpoint to create a pickup request.

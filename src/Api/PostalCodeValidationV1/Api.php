@@ -9,7 +9,7 @@ use ShipStream\FedEx\Api\PostalCodeValidationV1\Dto\FullSchemaValidatePostal;
 use ShipStream\FedEx\Api\PostalCodeValidationV1\Requests\ValidatePostal;
 use ShipStream\FedEx\BaseResource;
 
-class PostalCodeValidationV1 extends BaseResource
+class Api extends BaseResource
 {
     /**
      * @param  FullSchemaValidatePostal  $fullSchemaValidatePostal  The request elements for validating a postal code.

@@ -9,7 +9,7 @@ use ShipStream\FedEx\Api\AuthorizationV1\Dto\FullSchema;
 use ShipStream\FedEx\Api\AuthorizationV1\Requests\ApiAuthorization;
 use ShipStream\FedEx\BaseResource;
 
-class AuthorizationV1 extends BaseResource
+class Api extends BaseResource
 {
     /**
      * @param  FullSchema  $fullSchema  The request elements for OAuth API.

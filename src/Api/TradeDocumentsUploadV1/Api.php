@@ -11,7 +11,7 @@ use ShipStream\FedEx\Api\TradeDocumentsUploadV1\Requests\ImageUploadServiceInfo;
 use ShipStream\FedEx\Api\TradeDocumentsUploadV1\Requests\UploadEtdFiles;
 use ShipStream\FedEx\BaseResource;
 
-class TradeDocumentsUploadV1 extends BaseResource
+class Api extends BaseResource
 {
     /**
      * @param  FullSchemaDocumentUploadInputVo  $fullSchemaDocumentUploadInputVo  The request elements to upload documents.

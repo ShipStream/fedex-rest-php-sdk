@@ -9,20 +9,20 @@ use Saloon\Http\Connector;
 use Saloon\Http\Request;
 use Saloon\Traits\OAuth2\ClientCredentialsGrant;
 use Saloon\Traits\Plugins\AlwaysThrowOnErrors;
-use ShipStream\FedEx\Api\AddressValidationV1\AddressValidationV1;
-use ShipStream\FedEx\Api\AuthorizationV1\AuthorizationV1;
+use ShipStream\FedEx\Api\AddressValidationV1;
+use ShipStream\FedEx\Api\AuthorizationV1;
 use ShipStream\FedEx\Api\AuthorizationV1\Dto\FullSchema;
 use ShipStream\FedEx\Api\AuthorizationV1\Requests\ApiAuthorization;
-use ShipStream\FedEx\Api\FreightLTLV1\FreightLTLV1;
-use ShipStream\FedEx\Api\GroundEODCloseV1\GroundEodCloseV1;
-use ShipStream\FedEx\Api\LocationsSearchV1\LocationsSearchV1;
-use ShipStream\FedEx\Api\OpenShipV1\OpenShipV1;
-use ShipStream\FedEx\Api\PickupRequestV1\PickupRequestV1;
-use ShipStream\FedEx\Api\PostalCodeValidationV1\PostalCodeValidationV1;
-use ShipStream\FedEx\Api\RatesAndTransitTimesV1\RatesAndTransitTimesV1;
-use ShipStream\FedEx\Api\ShipV1\ShipV1;
-use ShipStream\FedEx\Api\TrackV1\TrackV1;
-use ShipStream\FedEx\Api\TradeDocumentsUploadV1\TradeDocumentsUploadV1;
+use ShipStream\FedEx\Api\FreightLTLV1;
+use ShipStream\FedEx\Api\GroundEODCloseV1;
+use ShipStream\FedEx\Api\LocationsSearchV1;
+use ShipStream\FedEx\Api\OpenShipV1;
+use ShipStream\FedEx\Api\PickupRequestV1;
+use ShipStream\FedEx\Api\PostalCodeValidationV1;
+use ShipStream\FedEx\Api\RatesAndTransitTimesV1;
+use ShipStream\FedEx\Api\ShipV1;
+use ShipStream\FedEx\Api\TrackV1;
+use ShipStream\FedEx\Api\TradeDocumentsUploadV1;
 use ShipStream\FedEx\Enums\Endpoint;
 use ShipStream\FedEx\Enums\GrantType;
 
@@ -55,65 +55,64 @@ class FedEx extends Connector
         return $this->endpoint->value;
     }
 
+    public function addressValidationV1(): AddressValidationV1\Api
     {
-    public function addressValidationV1(): AddressValidationV1
-    {
-        return new AddressValidationV1($this);
+        return new AddressValidationV1\Api($this);
     }
 
-    public function authorizationV1(): AuthorizationV1
+    public function authorizationV1(): AuthorizationV1\Api
     {
-        return new AuthorizationV1($this);
+        return new AuthorizationV1\Api($this);
     }
 
-    public function freightLTLV1(): FreightLTLV1
+    public function freightLTLV1(): FreightLTLV1\Api
     {
-        return new FreightLTLV1($this);
+        return new FreightLTLV1\Api($this);
     }
 
-    public function groundEODCloseV1(): GroundEodCloseV1
+    public function groundEODCloseV1(): GroundEodCloseV1\Api
     {
-        return new GroundEODCloseV1($this);
+        return new GroundEODCloseV1\Api($this);
     }
 
-    public function locationsSearchV1(): LocationsSearchV1
+    public function locationsSearchV1(): LocationsSearchV1\Api
     {
-        return new LocationsSearchV1($this);
+        return new LocationsSearchV1\Api($this);
     }
 
-    public function openShipV1(): OpenShipV1
+    public function openShipV1(): OpenShipV1\Api
     {
-        return new OpenShipV1($this);
+        return new OpenShipV1\Api($this);
     }
 
-    public function pickupRequestV1(): PickupRequestV1
+    public function pickupRequestV1(): PickupRequestV1\Api
     {
-        return new PickupRequestV1($this);
+        return new PickupRequestV1\Api($this);
     }
 
-    public function postalCodeValidationV1(): PostalCodeValidationV1
+    public function postalCodeValidationV1(): PostalCodeValidationV1\Api
     {
-        return new PostalCodeValidationV1($this);
+        return new PostalCodeValidationV1\Api($this);
     }
 
-    public function ratesTransitTimesV1(): RatesAndTransitTimesV1
+    public function ratesTransitTimesV1(): RatesAndTransitTimesV1\Api
     {
-        return new RatesAndTransitTimesV1($this);
+        return new RatesAndTransitTimesV1\Api($this);
     }
 
-    public function shipV1(): ShipV1
+    public function shipV1(): ShipV1\Api
     {
-        return new ShipV1($this);
+        return new ShipV1\Api($this);
     }
 
-    public function trackV1(): TrackV1
+    public function trackV1(): TrackV1\Api
     {
-        return new TrackV1($this);
+        return new TrackV1\Api($this);
     }
 
-    public function tradeDocumentsUploadV1(): TradeDocumentsUploadV1
+    public function tradeDocumentsUploadV1(): TradeDocumentsUploadV1\Api
     {
-        return new TradeDocumentsUploadV1($this);
+        return new TradeDocumentsUploadV1\Api($this);
     }
 
     protected function resolveAccessTokenRequest(): Request

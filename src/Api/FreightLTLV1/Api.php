@@ -17,7 +17,7 @@ use ShipStream\FedEx\Api\FreightLTLV1\Requests\FreightRateQuote;
 use ShipStream\FedEx\Api\FreightLTLV1\Requests\FreightShipment;
 use ShipStream\FedEx\BaseResource;
 
-class FreightLtlv1 extends BaseResource
+class Api extends BaseResource
 {
     /**
      * @param  FullSchema  $fullSchema  The request elements for requesting a freight rate quote.

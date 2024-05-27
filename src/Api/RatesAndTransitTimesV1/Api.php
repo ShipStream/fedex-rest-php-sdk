@@ -9,7 +9,7 @@ use ShipStream\FedEx\Api\RatesAndTransitTimesV1\Dto\FullSchemaQuoteRate;
 use ShipStream\FedEx\Api\RatesAndTransitTimesV1\Requests\RateAndTransitTimes;
 use ShipStream\FedEx\BaseResource;
 
-class RatesAndTransitTimesV1 extends BaseResource
+class Api extends BaseResource
 {
     /**
      * @param  FullSchemaQuoteRate  $fullSchemaQuoteRate  The request elements for requesting a rate quote.

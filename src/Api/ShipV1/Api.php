@@ -19,7 +19,7 @@ use ShipStream\FedEx\Api\ShipV1\Requests\GetConfirmedShipmentAsyncResults;
 use ShipStream\FedEx\Api\ShipV1\Requests\ShipmentPackageValidate;
 use ShipStream\FedEx\BaseResource;
 
-class ShipV1 extends BaseResource
+class Api extends BaseResource
 {
     /**
      * @param  FullSchemaShip  $fullSchemaShip  The request elements required to create a shipment.

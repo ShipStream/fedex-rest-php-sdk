@@ -13,7 +13,7 @@ use ShipStream\FedEx\Api\ServiceAvailabilityV1\Requests\GetSpecialServiceOptions
 use ShipStream\FedEx\Api\ServiceAvailabilityV1\Requests\RetrieveServicesAndTransitTimes;
 use ShipStream\FedEx\BaseResource;
 
-class ServiceAvailabilityV1 extends BaseResource
+class Api extends BaseResource
 {
     /**
      * @param  FullSchemaTransitTime  $fullSchemaTransitTime  TransitTimeInputVO describes the details needed in order to get the transit times for a particular shipment.
