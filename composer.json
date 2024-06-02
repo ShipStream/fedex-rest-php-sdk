@@ -1,5 +1,5 @@
 {
-    "name": "shipstream/fedex-php-sdk",
+    "name": "shipstream/fedex-rest-php-sdk",
     "description": "A PHP SDK for FedEx's API",
     "authors": [
         {
@@ -31,7 +31,7 @@
             "@pint",
             "@php-compatibility-check"
         ],
-        "pint": "php vendor/bin/pint",
+        "pint": "php vendor/bin/pint --dirty",
         "php-compatibility-check": "./vendor/bin/phpcs -p ./src ./bin --standard=PHPCompatibility --runtime-set testVersion 8.2-",
         "post-install-cmd": "\"vendor/bin/phpcs\" --config-set installed_paths vendor/phpcompatibility/php-compatibility",
         "post-update-cmd": "\"vendor/bin/phpcs\" --config-set installed_paths vendor/phpcompatibility/php-compatibility"
