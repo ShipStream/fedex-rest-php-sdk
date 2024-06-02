@@ -16,9 +16,6 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Lint
-      run: php vendor/bin pint --test
-
     - name: Check PHP 8.2+ compatibility
       run: composer php-compatibility-check
 
@@ -36,6 +33,9 @@ jobs:
 
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress
+
+    - name: Lint
+      run: php vendor/bin pint --test
 
     - name: Run test suite
       run: composer test
