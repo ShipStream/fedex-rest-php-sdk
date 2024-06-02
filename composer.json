@@ -7,6 +7,7 @@
             "email": "jesse@highsidelabs.co"
         }
     ],
+    "license": "Apache-2.0",
     "require": {
         "highsidelabs/saloon-sdk-generator": "^2.0"
     },
@@ -16,7 +17,8 @@
         "phpcompatibility/php-compatibility": "^9.3",
         "laravel/pint": "^1.15",
         "composer/semver": "^3.4",
-        "ramsey/uuid": "^4.7"
+        "ramsey/uuid": "^4.7",
+        "phpunit/phpunit": "^11.1"
     },
     "autoload": {
         "psr-4": {
@@ -26,6 +28,11 @@
             "src/Generator/constants.php"
         ]
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
     "scripts": {
         "lint": [
             "@pint",
@@ -34,7 +41,8 @@
         "pint": "php vendor/bin/pint --dirty",
         "php-compatibility-check": "./vendor/bin/phpcs -p ./src ./bin --standard=PHPCompatibility --runtime-set testVersion 8.2-",
         "post-install-cmd": "\"vendor/bin/phpcs\" --config-set installed_paths vendor/phpcompatibility/php-compatibility",
-        "post-update-cmd": "\"vendor/bin/phpcs\" --config-set installed_paths vendor/phpcompatibility/php-compatibility"
+        "post-update-cmd": "\"vendor/bin/phpcs\" --config-set installed_paths vendor/phpcompatibility/php-compatibility",
+        "test": "vendor/bin/phpunit"
     },
     "config": {
         "allow-plugins": {
