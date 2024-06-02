@@ -16,9 +16,6 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Check PHP 8.2+ compatibility
-      run: composer php-compatibility-check
-
     - name: Validate composer.json and composer.lock
       run: composer validate --strict
 
@@ -36,6 +33,9 @@ jobs:
 
     - name: Lint
       run: php vendor/bin pint --test
+
+    - name: Check PHP 8.2+ compatibility
+      run: composer php-compatibility-check
 
     - name: Run test suite
       run: composer test
