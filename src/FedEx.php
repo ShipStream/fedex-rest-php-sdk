@@ -24,6 +24,7 @@ use ShipStream\FedEx\Api\ShipV1;
 use ShipStream\FedEx\Api\TrackV1;
 use ShipStream\FedEx\Api\TradeDocumentsUploadV1;
 use ShipStream\FedEx\Auth\MemoryCache;
+use ShipStream\FedEx\Auth\NullAuthenticator;
 use ShipStream\FedEx\Contracts\TokenCache;
 use ShipStream\FedEx\Enums\Endpoint;
 use ShipStream\FedEx\Enums\GrantType;
@@ -71,6 +72,8 @@ class FedEx extends Connector
 
     public function authorizationV1(): AuthorizationV1\Api
     {
+        $this->authenticate(new NullAuthenticator());
+
         return new AuthorizationV1\Api($this);
     }
 
