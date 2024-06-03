@@ -15,6 +15,7 @@
 			</directory>
 		</testsuite>
 	</testsuites>
+
 	<source>
 		<include>
 			<directory suffix=".php">
@@ -22,4 +23,13 @@
 			</directory>
 		</include>
 	</source>
+
+    <php>
+        <!--
+            WARNING: The CLIENT_ID and CLIENT_SECRET values must be FedEx sandbox credentials!
+            If they are production credentials, you risk making real API requests by accident.
+        -->
+        <env name="CLIENT_ID" value="" />
+        <env name="CLIENT_SECRET" value="" />
+    </php>
 </phpunit>

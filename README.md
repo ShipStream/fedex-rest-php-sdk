@@ -89,7 +89,15 @@ We welcome PRs! If you want to submit a PR, we encourage you to first submit an 
 
 Once you're ready to start work on your PR, please check out the [SDK Design](#sdk-design) section below to make sure your changes conform to the overall design of this library.
 
-Before submitting a PR for review, please ensure the test suite is running with `composer test` and that the code is linted using `composer lint`.
+Before submitting a PR for review, please ensure the test suite is working with `composer test` and that the code is linted using `composer lint`.
+
+### Testing
+
+To get the tests up and running, you'll need a set of FedEx REST API sandbox credentials. Since FedEx has a fairly complete sandbox environment, we use their actual sandbox instead of mocking responses.
+
+Once you have credentials, copy `phpunit.dist.xml` to `phpunit.xml` and fill in the `CLIENT_ID` and `CLIENT_SECRET` environment variables with your test credentials. Now you should be able to run the test suite!
+
+Since we are using the actual sandbox API instead of mocking, **make sure you use the `Endpoint::SANDBOX` endpoint in all tests!** FedEx has separate production and sandbox credentials, so you will likely just get an error if you specify the production endpoint, but if you accidentally put production creds in `phpunit.xml` (see below) you will be making real API requests during testing.
 
 
 ## SDK Design
