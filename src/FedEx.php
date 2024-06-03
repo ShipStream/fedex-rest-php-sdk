@@ -23,6 +23,8 @@ use ShipStream\FedEx\Api\RatesAndTransitTimesV1;
 use ShipStream\FedEx\Api\ShipV1;
 use ShipStream\FedEx\Api\TrackV1;
 use ShipStream\FedEx\Api\TradeDocumentsUploadV1;
+use ShipStream\FedEx\Auth\MemoryCache;
+use ShipStream\FedEx\Contracts\TokenCache;
 use ShipStream\FedEx\Enums\Endpoint;
 use ShipStream\FedEx\Enums\GrantType;
 
@@ -38,6 +40,7 @@ class FedEx extends Connector
         public ?string $childKey = null,
         public ?string $childSecret = null,
         public ?bool $proprietaryChild = false,
+        public ?TokenCache $tokenCache = new MemoryCache(),
     ) {
         if (($this->childKey && ! $this->childSecret) || ($this->childSecret && ! $this->childKey)) {
             throw new InvalidArgumentException('Both childKey and childSecret must be provided.');
@@ -46,7 +49,13 @@ class FedEx extends Connector
         $this->oauthConfig()->setClientId($clientId);
         $this->oauthConfig()->setClientSecret($clientSecret);
 
-        $authenticator = $this->getAccessToken();
+        $cacheKey = $this->tokenCacheKey();
+        $authenticator = $tokenCache::get($cacheKey);
+        if (! $authenticator) {
+            $authenticator = $this->getAccessToken();
+            $tokenCache::set($cacheKey, $authenticator);
+        }
+
         $this->authenticate($authenticator);
     }
 
@@ -113,6 +122,13 @@ class FedEx extends Connector
     public function tradeDocumentsUploadV1(): TradeDocumentsUploadV1\Api
     {
         return new TradeDocumentsUploadV1\Api($this);
+    }
+
+    public function tokenCacheKey(): string
+    {
+        $childKeyStr = $this->childKey ? '.'.$this->childKey : '';
+
+        return $this->clientId.$childKeyStr;
     }
 
     protected function resolveAccessTokenRequest(): Request
