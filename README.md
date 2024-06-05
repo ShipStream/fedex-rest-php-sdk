@@ -8,7 +8,7 @@ This is a PHP SDK for working with [FedEx's REST APIs](https://developer.fedex.c
 
 ## Installation
 
-`composer require shipstream/fedex-rest-php-sdk`
+`composer require shipstream/fedex-rest-sdk`
 
 ## Quickstart
 
