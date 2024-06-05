@@ -9,9 +9,10 @@
     ],
     "license": "Apache-2.0",
     "require": {
-        "highsidelabs/saloon-sdk-generator": "^2.0"
+        "saloonphp/saloon": "^3.8"
     },
     "require-dev": {
+        "highsidelabs/saloon-sdk-generator": "^2.0",
         "psy/psysh": "^0.12.3",
         "symfony/console": "^7.0",
         "phpcompatibility/php-compatibility": "^9.3",
