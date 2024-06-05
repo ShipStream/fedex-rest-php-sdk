@@ -26,6 +26,12 @@ jobs:
         extensions: json, dom, curl, libxml, mbstring
         coverage: none
 
+    - name: Create phpunit.xml
+      run: |
+          cp phpunit.dist.xml phpunit.xml
+          sed -i 's/<CLIENT_ID>/${{ secrets.CLIENT_ID }}/' phpunit.xml
+          sed -i 's/<CLIENT_SECRET>/${{ secrets.CLIENT_SECRET }}/' phpunit.xml
+
     - name: Validate composer.json and composer.lock
       run: composer validate --strict
 

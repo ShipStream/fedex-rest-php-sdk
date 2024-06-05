@@ -29,7 +29,7 @@
             WARNING: The CLIENT_ID and CLIENT_SECRET values must be FedEx sandbox credentials!
             If they are production credentials, you risk making real API requests by accident.
         -->
-        <env name="CLIENT_ID" value="" />
-        <env name="CLIENT_SECRET" value="" />
+        <env name="CLIENT_ID" value="<CLIENT_ID>" />
+        <env name="CLIENT_SECRET" value="<CLIENT_SECRET>" />
     </php>
 </phpunit>
