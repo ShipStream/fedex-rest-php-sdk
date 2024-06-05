@@ -1,5 +1,5 @@
 {
-    "name": "shipstream/fedex-rest-php-sdk",
+    "name": "shipstream/fedex-rest-sdk",
     "description": "A PHP SDK for FedEx's API",
     "authors": [
         {
