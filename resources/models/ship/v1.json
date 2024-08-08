@@ -1981,7 +1981,7 @@
                 "properties": {
                     "pendingShipmentType": {
                         "type": "string",
-                        "description": "This is Pending Shipment Type. Must include the value 'EMAIL' for email return shipments.<br>Not applicable for other types of shipments.",
+                        "description": "Specifies the pending shipment type.  Must include the value: EMAIL for email return shipments. <br>Not applicable for other types of shipments<br>Example: EMAIL",
                         "example": "EMAIL",
                         "enum": [
                             "EMAIL"
@@ -2005,7 +2005,7 @@
                     },
                     "expirationTimeStamp": {
                         "type": "string",
-                        "description": "This is the Email Label expiration date. The maximum expiration date for an Email Return Label must be greater of equal to the day of the label request and not greater than 2 years in the future.<br>Example: 2020-01-01",
+                        "description": "Specifies the Email Label expiration date. The maximum expiration date for an Email Return Label must be greater of equal to the day of the label request and not greater than 2 years in the future. Format[YYYY-MM-DD] <br>Example: 2020-01-01",
                         "example": "2020-01-01"
                     }
                 },
@@ -2016,7 +2016,7 @@
                 "properties": {
                     "options": {
                         "type": "array",
-                        "description": "These are processing options.",
+                        "description": "Pending Shipment Processing Option Type<br>Example: ALLOW_MODIFICATIONS",
                         "example": [
                             "ALLOW_MODIFICATIONS"
                         ],
@@ -3252,9 +3252,9 @@
                 "properties": {
                     "maskedData": {
                         "type": "array",
-                        "description": "Specify which data/sections on the label to be masked.<br>Note: <ul><li>SECONDARY_BARCODE &ndash; This is used for Smartpost shipment labels.</li><li>SHIPPER_INFORMATION &ndash; This is used for Third Party Consignee, Intra-UK shipments.</li><li>TOTAL_WEIGHT &ndash; This replaces the Total weight with Actual Weight in Master label and AWB copies.</li></ul>",
+                        "description": "Controls which data/sections will be suppressed.<br>Example: TOTAL_WEIGHT",
                         "example": [
-                            "CUSTOMS_VALUE",
+                            "PACKAGE_SEQUENCE_AND_COUNT",
                             "TOTAL_WEIGHT"
                         ],
                         "items": {
@@ -3321,8 +3321,8 @@
                 "properties": {
                     "type": {
                         "type": "string",
-                        "description": "Specify the type of additional  details to be added on the label.",
-                        "example": "CONSIGNEE",
+                        "description": "Specify the type of additional  details to be added on the label.<br>Example:MANIFEST",
+                        "example": "MANIFEST",
                         "enum": [
                             "BROKER",
                             "CONSIGNEE",
@@ -3339,7 +3339,7 @@
                     },
                     "count": {
                         "type": "integer",
-                        "description": "Specifies the count of label to return.",
+                        "description": "Specifies the count of label to return.<br>Example:1",
                         "example": 1
                     }
                 }
@@ -3449,7 +3449,7 @@
                     },
                     "shippingDocumentTypes": {
                         "type": "array",
-                        "description": "Indicates the types of shipping documents requested.\n",
+                        "description": "Conditionally required in order to obtain shipping documents.Indicates the types of shipping documents requested by the shipper<br>Example:RETURN_INSTRUCTIONS",
                         "example": [
                             "RETURN_INSTRUCTIONS"
                         ],
@@ -3496,7 +3496,7 @@
                 "properties": {
                     "provideInstructions": {
                         "type": "boolean",
-                        "description": "Indicates whether or not to provide the instructions.",
+                        "description": "For those shipping document types which have both a \"form\" and \"instructions\" component (e.g General Agency Agreement), this field indicates whether to provide the instructions.<br>Example: true",
                         "example": true
                     },
                     "optionsRequested": {
@@ -3504,7 +3504,7 @@
                     },
                     "stockType": {
                         "type": "string",
-                        "description": "Indicate the used label stock type. Note to list the correct type of paper for the freight address label option.",
+                        "description": "Specifies the label stock type.  Lists the correct type of paper for the Freight address label option.Specify valid value PAPER_4_PER_PAGE_PORTRAIT.<br>Example:PAPER_TYPE",
                         "example": "PAPER_LETTER",
                         "enum": [
                             "PAPER_LETTER"
@@ -3524,7 +3524,7 @@
                     },
                     "docType": {
                         "type": "string",
-                        "description": "Specify the image format used for a shipping document.<br><a onclick='loadDocReference(\"labelstocktypes\")'>click here to see label format types</a>",
+                        "description": "Specify the image format used for a shipping document.<br>Example:PDF",
                         "example": "PDF",
                         "enum": [
                             "PDF"
@@ -3563,7 +3563,7 @@
                     },
                     "dispositionType": {
                         "type": "string",
-                        "description": "Specify how to create and return the document.",
+                        "description": "Values in this field specify how to create and return the document.<br>Example:CONFIRMED",
                         "example": "CONFIRMED",
                         "enum": [
                             "CONFIRMED",
@@ -3655,7 +3655,7 @@
                 "properties": {
                     "provideInstructions": {
                         "type": "boolean",
-                        "description": "Use this element to indicate whether or not to provide the instructions.",
+                        "description": "For those shipping document types which have both a \"form\" and \"instructions\" component (e.g General Agency Agreement), this field indicates whether to provide the instructions.<br>Example: true",
                         "example": true
                     },
                     "optionsRequested": {
@@ -3663,7 +3663,7 @@
                     },
                     "stockType": {
                         "type": "string",
-                        "description": "Specify the label stock type.<br><a onclick='loadDocReference(\"labelstocktypes\")'>click here to see label format types</a>",
+                        "description": "Specifies the label stock type.  Lists the correct type of paper for the Freight address label option.Specify valid value PAPER_4_PER_PAGE_PORTRAIT<br>Example:PAPER_LETTER",
                         "example": "PAPER_LETTER",
                         "enum": [
                             "PAPER_LETTER"
@@ -3683,7 +3683,7 @@
                     },
                     "docType": {
                         "type": "string",
-                        "description": "Specify the image format used for shipping document.<br><a onclick='loadDocReference(\"labelstocktypes\")'>click here to see label format types</a>",
+                        "description": "Specify the image format used for a shipping document.<br>Example:PNG",
                         "example": "PNG",
                         "enum": [
                             "PNG",
@@ -3719,7 +3719,7 @@
                 "properties": {
                     "id": {
                         "type": "string",
-                        "description": "Specify the Image ID.",
+                        "description": "Specify the Image ID.<br>Example:IMAGE_5",
                         "example": "IMAGE_5",
                         "enum": [
                             "IMAGE_1",
@@ -3731,7 +3731,7 @@
                     },
                     "type": {
                         "type": "string",
-                        "description": "Specify document image type.",
+                        "description": "Specify Customer Image Type.<br>Example:SIGNATURE",
                         "example": "SIGNATURE",
                         "enum": [
                             "SIGNATURE",
@@ -3740,7 +3740,7 @@
                     },
                     "providedImageType": {
                         "type": "string",
-                        "description": "Specify the provided document image type.",
+                        "description": "Provided Image Type<br>Example: SIGNATURE",
                         "example": "SIGNATURE",
                         "enum": [
                             "LETTER_HEAD",
@@ -3941,7 +3941,7 @@
                 "properties": {
                     "sequenceNumber": {
                         "type": "integer",
-                        "description": "Optional. <br>Used only with individual packages as a unique identifier of each requested package. Will be adjusted at the shipment level as pieces are added.",
+                        "description": "Optional. Used only with individual packages as a unique identifier of each requested package. Will be adjusted at the shipment level as pieces are added.<br>Example: 1",
                         "example": "1"
                     },
                     "subPackagingType": {
@@ -3975,7 +3975,7 @@
                     },
                     "itemDescriptionForClearance": {
                         "type": "string",
-                        "description": "Describe the content of the package for customs clearance purposes. This applies to intra-UAE, intra-Columbia and intra-Brazil shipments.",
+                        "description": "Package description used for clearance. The value is required for intra-UAE. and is optional for intra-EU.<br>Example:description",
                         "example": "description"
                     },
                     "contentRecord": {
@@ -4070,10 +4070,13 @@
                 "properties": {
                     "specialServiceTypes": {
                         "type": "array",
-                        "description": "Indicate the types of special services requested for the shipment.<br><a onclick='loadDocReference(\"packagelevelspecialservicetypes\")'>click here to see Package Special Service Types</a>",
+                        "description": "The list of all special services requested for the package.<br><a href=\"/developer-portal/en-us/reference-guide.html#packagespecialservicetypes\" target=\"_blank\">Click here to see Package Special Service Types</a><br>Example:ALCOHOL",
                         "example": [
                             "ALCOHOL",
-                            "NON_STANDARD_CONTAINER"
+                            "NON_STANDARD_CONTAINER",
+                            "DANGEROUS_GOODS",
+                            "SIGNATURE_OPTION",
+                            "PRIORITY_ALERT"
                         ],
                         "items": {
                             "type": "string"
@@ -4081,7 +4084,7 @@
                     },
                     "signatureOptionType": {
                         "type": "string",
-                        "description": "Indicate the Signature Type. <br>Valid Values: <ul><li>ADULT - Adult signature required, at recipient address.</li><li>DIRECT - Signature required, at recipient address.</li><li>INDIRECT - Signature required, alternate address is accepted.This option is available for residential deliveries only</li><li>NO_SIGNATURE_REQUIRED - Signature is not required.</li><li>SERVICE_DEFAULT - Signature handled as per current Service Guide.</li></ul>",
+                        "description": "Signature Option Type<br/>ADULT - Adult signature required, at recipient''s address.<br/>DIRECT - Signature required, at recipient''s address.<br>INDIRECT - Signature required, alternate address is accepted.<br/>NO_SIGNATURE_REQUIRED - Signature is not required.<br/>SERVICE_DEFAULT - Signature handled as per current Service Guide.<br>Example:ADULT",
                         "example": "ADULT",
                         "enum": [
                             "SERVICE_DEFAULT",
@@ -4108,7 +4111,7 @@
                     },
                     "pieceCountVerificationBoxCount": {
                         "type": "integer",
-                        "description": "Provide the pieceCount or VerificationBoxCount for batteries or cells that are contained within this specific package.",
+                        "description": "Provide the pieceCount or VerificationBoxCount for batteries or cells that are contained within this specific package.<br>Example:1",
                         "format": "int32"
                     },
                     "batteryDetails": {
@@ -4120,6 +4123,13 @@
                     },
                     "dryIceWeight": {
                         "$ref": "#/components/schemas/Weight"
+                    },
+                    "standaloneBatteryDetails": {
+                        "type": "array",
+                        "description": "Provide details about the batteries or cells that are contained within this specific package.",
+                        "items": {
+                            "$ref": "#/components/schemas/StandaloneBatteryDetails"
+                        }
                     }
                 },
                 "description": "These are special services that are available at the package level for some or all service types."
@@ -4264,10 +4274,24 @@
                     }
                 }
             },
+            "StandaloneBatteryDetails": {
+                "type": "object",
+                "properties": {
+                    "batteryMaterialType": {
+                        "type": "string",
+                        "description": "Describes the material composition of the battery or cell.",
+                        "example": "LITHIUM_METAL",
+                        "enum": [
+                            "LITHIUM_METAL",
+                            "LITHIUM_ION"
+                        ]
+                    }
+                }
+            },
             "LABELRESPONSEOPTIONS": {
                 "type": "string",
-                "description": "This is to specify whether the encoded bytecode or  the Label URL to be returned in the response.<p>Valid values:<ul><li>LABEL &ndash; Indicates request is for encoded bytecode.</li><li>URL_ONLY &ndash; Indicates label URL request.</li></ul>Note: For asynchronous shipment (More than 40 packages) request only the value LABEL is suported.</p><br><i>Note: With URL_ONLY option, the URL once created will be active for 12 hours.</i>",
-                "example": "LABEL",
+                "description": "LabelResponseOptions specifies the label generation format.<br>Example:URL_ONLY",
+                "example": "URL_ONLY",
                 "enum": [
                     "URL_ONLY",
                     "LABEL"
@@ -4300,7 +4324,7 @@
             },
             "AsynchronousProcessingOptionType_1": {
                 "type": "string",
-                "description": "Indicate the processing option for submitting a Single shot MPS shipment. The value indicates if the MPS to be processed synchronously or asynchronously.<br>Note: <ul><li>Default value is SYNCHRONOUS_ONLY.</li><li>Value or element is not needed when groupPackageCount is less than or equal to 40.</li><li>Must provide element with value ALLOW_ASYNCHRONOUS when groupPackageCount is greater than 40.</li></ul>",
+                "description": "Indicate the processing option for submitting a Single shot MPS shipment. The value indicates if the MPS to be processed synchronously or asynchronously.<br>Note: <ul><li>Default value is SYNCHRONOUS_ONLY.</li><li>Value or element is not needed when groupPackageCount is less than or equal to 40.</li><li>Must provide element with value ALLOW_ASYNCHRONOUS when groupPackageCount is greater than 40.</li></ul> <br>Example:ALLOW_ASYNCHRONUS",
                 "example": "ALLOW_ASYNCHRONOUS",
                 "enum": [
                     "SYNCHRONOUS_ONLY",
@@ -4481,12 +4505,12 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "description": "Specifies the API alert code.<br>Example: SHIP.RECIPIENT.POSTALCITY.MISMATCH",
-                        "example": "SHIP.RECIPIENT.POSTALCITY.MISMATCH"
+                        "description": "Specifies the api alert code.<br>Example: SHIPMENT.VALIDATION.SUCCESS",
+                        "example": "SHIPMENT.VALIDATION.SUCCESS"
                     },
                     "alertType": {
                         "type": "string",
-                        "description": "Specifies the API alert type.",
+                        "description": "Specifies the api alert type.",
                         "example": "NOTE",
                         "enum": [
                             "NOTE",
@@ -4495,8 +4519,8 @@
                     },
                     "message": {
                         "type": "string",
-                        "description": "Specifies the API alert message.<br>Example: Recipient Postal-City Mismatch.",
-                        "example": "Recipient Postal-City Mismatch."
+                        "description": "Specifies the api alert message.<br>Example: Shipment validated successfully. No errors found.",
+                        "example": "Shipment validated successfully. No errors found."
                     }
                 },
                 "description": "These are alert details received in the response."
@@ -4588,7 +4612,7 @@
                         "format": "double",
                         "example": 121.45
                     },
-                    "codcollectionAmount": {
+                    "codCollectionAmount": {
                         "type": "number",
                         "description": "Specifies the Collect on Delivery collection amount.<br>Example: 231.45",
                         "format": "double",
@@ -4601,7 +4625,7 @@
                     },
                     "acceptanceType": {
                         "type": "string",
-                        "description": "Indicates acceptance type.",
+                        "description": "Indicates acceptance type.<br>Example: acceptanceType<br>Example:acceptanceType",
                         "example": "acceptanceType"
                     },
                     "trackingNumber": {
@@ -4665,8 +4689,8 @@
                     },
                     "packagingDescription": {
                         "type": "string",
-                        "description": "Specifies packaging description.",
-                        "example": "description"
+                        "description": "Specifies packaging description<br>Example: Customer Packaging",
+                        "example": "Customer Packaging"
                     },
                     "masterTrackingId": {
                         "$ref": "#/components/schemas/TrackingId"
@@ -4751,7 +4775,7 @@
                 "properties": {
                     "astraHandlingText": {
                         "type": "string",
-                        "description": "This is human-readable astra handling text.",
+                        "description": "Human-readable text for pre-January 2011 clients.<br>Example: astraHandlingText",
                         "example": "astraHandlingText"
                     },
                     "barcodes": {
@@ -4792,7 +4816,7 @@
                 "properties": {
                     "type": {
                         "type": "string",
-                        "description": "This is the type of barcode data available in this instance.<br> Example: COMMON-2D",
+                        "description": "The kind of barcode data in this instance.<br> Example: COMMON-2D",
                         "example": "COMMON-2D"
                     },
                     "value": {
@@ -4808,7 +4832,7 @@
                 "properties": {
                     "type": {
                         "type": "string",
-                        "description": "This is the type of barcode data in this instance. <br>Valid values:<ul><li>ADDRESS - Represents the recipient address.</li></ul>",
+                        "description": "The kind of barcode data in this instance. example valid values are:<br>ADDRESS - Represents the recipient address<br>GROUND - FedEx Ground parcel barcode<br>Example: ADDRESS",
                         "example": "ADDRESS"
                     },
                     "value": {
@@ -4849,7 +4873,7 @@
                         "example": "EXPRESS"
                     },
                     "uspsApplicationId": {
-                        "type": "integer",
+                        "type": "string",
                         "description": "Specify the USPS tracking Identifier associated with FedEx SmartPost shipment.<br>Example: 92",
                         "example": "92"
                     },
@@ -4907,7 +4931,7 @@
                     },
                     "minimumChargeType": {
                         "type": "string",
-                        "description": "Indicates the minumum charge type. INTERNAL FEDEX USE ONLY.",
+                        "description": "Indicates the minumum charge type. INTERNAL FEDEX USE ONLY.Example: minimumChargeType",
                         "example": "CUSTOMER"
                     },
                     "baseCharge": {
@@ -4973,8 +4997,10 @@
                 "type": "object",
                 "properties": {
                     "amount": {
-                        "description": "This is the surcharge amount.<br>Example: 15.35",
-                        "type": "string"
+                        "type": "number",
+                        "format": "double",
+                        "example": "56.22",
+                        "description": "This is the surcharge amount.<br>Example: 15.35"
                     },
                     "surchargeType": {
                         "type": "string",
@@ -5021,7 +5047,7 @@
                     },
                     "cargoAircraftOnly": {
                         "type": "boolean",
-                        "description": "A Boolean value that, when True, specifies the mode of shipment transportation should be Cargo Aircraft for Dangerous Goods. Its default value is set as False.<br>Note: An identifier DGD-CAO is added in AWB for cargo aircraft shipments.",
+                        "description": "When TRUE-indicates that the package can be transported only on a cargo aircraft.<br>Example: true",
                         "example": true
                     },
                     "referenceId": {
@@ -5041,7 +5067,7 @@
             "ValidatedHazardousContainer": {
                 "type": "object",
                 "properties": {
-                    "qvalue": {
+                    "QValue": {
                         "type": "number",
                         "description": "Indicates that the quantity of the dangerous goods packaged is permissible for shipping. This is used to ensure that the dangerous goods commodities do not exceed the net quantity per package restrictions.<br>Example: 2.0",
                         "format": "double",
@@ -5108,7 +5134,7 @@
                     },
                     "labelText": {
                         "type": "string",
-                        "description": "Specifies the text for the label.",
+                        "description": "Specifies Hazard Label Text.<br>Example: labelText",
                         "example": "labelText"
                     },
                     "tunnelRestrictionCode": {
@@ -5158,12 +5184,12 @@
                     },
                     "packingGroup": {
                         "type": "string",
-                        "description": "Specifies packing group.",
+                        "description": "Specifies packing Group.<br>Example: Packing Group",
                         "example": "packingGroup"
                     },
                     "properShippingName": {
                         "type": "string",
-                        "description": "Specifies proper shipping name.",
+                        "description": "Specifies Proper Shipping Name.<br>Example: Proper Shipping Name",
                         "example": "properShippingName"
                     },
                     "hazardClass": {
@@ -5435,7 +5461,7 @@
                     },
                     "description": {
                         "type": "string",
-                        "description": "Specifies the description.",
+                        "description": "specifies the description.<br>Example:description",
                         "example": "description"
                     },
                     "serviceId": {
@@ -5732,17 +5758,17 @@
                     },
                     "level": {
                         "type": "string",
-                        "description": "Indicates the level of tax.",
+                        "description": "Indicates the Level of Tax.<br>Example: level",
                         "example": "level"
                     },
                     "description": {
                         "type": "string",
-                        "description": "Specifies the tax description.",
+                        "description": "Placeholder for the tax description.<br>Example: descrption",
                         "example": "description"
                     },
                     "type": {
                         "type": "string",
-                        "description": "Specifies the type of the tax.",
+                        "description": "Placeholder for the Type of the Tax.<br>Example:type",
                         "example": "type"
                     }
                 },
@@ -5856,7 +5882,7 @@
                     },
                     "minimumChargeType": {
                         "type": "string",
-                        "description": "Specifies minimum charge type.",
+                        "description": "Specifies minimum charge type.Example: minimumChargeType",
                         "example": "minimumChargeType"
                     },
                     "totalDutiesAndTaxes": {
@@ -6591,7 +6617,7 @@
                 "properties": {
                     "aggregationType": {
                         "type": "string",
-                        "description": "Indicate the shipment notification aggregation type.",
+                        "description": "Shipment Notification Aggregation Type.<br>Example:PER_PACKAGE",
                         "example": "PER_PACKAGE",
                         "enum": [
                             "PER_PACKAGE",
@@ -6626,7 +6652,7 @@
                     },
                     "emailNotificationRecipientType": {
                         "type": "string",
-                        "description": "Specify the recipient type for email notification.",
+                        "description": "This is the email notification recipient type.<br>Example: SHIPPER",
                         "example": "SHIPPER",
                         "enum": [
                             "BROKER",
@@ -6981,7 +7007,7 @@
                     },
                     "residential": {
                         "type": "boolean",
-                        "description": "Indicate whether this address is residential (as opposed to commercial).",
+                        "description": "Indicates whether this address is residential (as opposed to commercial).<br>Example: false",
                         "example": false
                     }
                 },
@@ -7084,7 +7110,7 @@
                     },
                     "companyName": {
                         "type": "string",
-                        "description": "Specify contact company name. Maximum length is 35. <br>Note: Either the companyName or personName is mandatory.",
+                        "description": "The shipper's company name. Max length is 35.<br>Example: FedEx",
                         "example": "Fedex"
                     }
                 },
@@ -7202,7 +7228,7 @@
                     },
                     "companyName": {
                         "type": "string",
-                        "description": "Specify contact company name.<br>Recommended length is 35.<br>Note: There's no specific validation for the company name.",
+                        "description": "Contact person's company name.<br>Note: Recommended Length is 35. There's no specific validation for the company name.<br>Example: FedEx",
                         "example": "Fedex"
                     }
                 },
@@ -7256,18 +7282,7 @@
                         "description": "Specify the title of the contact."
                     }
                 },
-                "description": "Specify the contact information.",
-                "example": {
-                    "personName": "John Taylor",
-                    "tollFreePhoneNumber": "6127812",
-                    "emailAddress": "sample@company.com",
-                    "phoneNumber": "1234567890",
-                    "phoneExtension": "91",
-                    "faxNumber": "1234567890",
-                    "pagerNumber": "6127812",
-                    "companyName": "Fedex",
-                    "title": "title"
-                }
+                "description": "Specify the contact information."
             },
             "Address": {
                 "required": [
@@ -7325,13 +7340,14 @@
                 "properties": {
                     "paymentType": {
                         "type": "string",
-                        "description": "Specifies the payment Type. <br>Note: This is required for Express, Ground and SmartPost shipments.<br> The payment type COLLECT is applicable only for Ground shipments.",
+                        "description": "Indicates who and how the shipment will be paid for.Required for Express and Ground.<br>Example: SENDER",
                         "enum": [
                             "SENDER",
                             "RECIPIENT",
                             "THIRD_PARTY",
                             "COLLECT"
-                        ]
+                        ],
+                        "example": "SENDER"
                     },
                     "payor": {
                         "$ref": "#/components/schemas/Payor"
@@ -7379,13 +7395,14 @@
                     },
                     "paymentType": {
                         "type": "string",
-                        "description": "This is a payment type, basically indicates who is the payor for the shipment.<br>Required for Express and Ground.<br>The payment type COLLECT is applicable only for Ground shipments.",
+                        "description": "Indicates who and how the shipment will be paid for.Required for Express and Ground.<br>Example: SENDER",
                         "enum": [
                             "SENDER",
                             "RECIPIENT",
                             "THIRD_PARTY",
                             "COLLECT"
-                        ]
+                        ],
+                        "example": "SENDER"
                     }
                 },
                 "description": "This is a payment type, basically indicates who is the payor for the shipment.Conditional required for International Shipments",
@@ -7419,15 +7436,15 @@
                                     "number": "number",
                                     "tinType": "FEDERAL",
                                     "usage": "usage",
-                                    "effectiveDate": "2000-01-23T04:56:07.000+00:00",
-                                    "expirationDate": "2000-01-23T04:56:07.000+00:00"
+                                    "effectiveDate": "2024-06-13",
+                                    "expirationDate": "2024-06-13"
                                 },
                                 {
                                     "number": "number",
                                     "tinType": "FEDERAL",
                                     "usage": "usage",
-                                    "effectiveDate": "2000-01-23T04:56:07.000+00:00",
-                                    "expirationDate": "2000-01-23T04:56:07.000+00:00"
+                                    "effectiveDate": "2024-06-13",
+                                    "expirationDate": "2024-06-13"
                                 }
                             ]
                         }
@@ -7705,7 +7722,7 @@
                 "properties": {
                     "units": {
                         "type": "string",
-                        "description": "Indicate the weight unit type. The package and commodity weight unit should be the same else the request will result in an error.",
+                        "description": "Indicate the weight unit type. The package and commodity weight unit should be the same else the request will result in an error.<br>Example:KG",
                         "example": "KG",
                         "enum": [
                             "KG"
@@ -7729,19 +7746,23 @@
                 "properties": {
                     "areaCode": {
                         "type": "string",
-                        "description": "Indicate the area code for the phone number."
+                        "description": "Area-Code<br>Example: 901",
+                        "example": "901"
                     },
                     "localNumber": {
                         "type": "string",
-                        "description": "Indicate the local phone number for contacting in the event of an emergency. Maximum length  is 10."
+                        "description": "Local Number<br>Example: 3575012",
+                        "example": "3575012"
                     },
                     "extension": {
                         "type": "string",
-                        "description": "Indicate the extension for the phone number."
+                        "description": "Extension<br>Example: 200",
+                        "example": "200"
                     },
                     "personalIdentificationNumber": {
                         "type": "string",
-                        "description": "Indicate the Personal Identification Number associated with the phone number."
+                        "description": "Personal Identification Number<br>Example: 98712345",
+                        "example": "98712345"
                     }
                 },
                 "description": "Indicate the phone number. Only numeric values allowed.<br> Note that phoneNumber is mandatory when homedeliveryPremiumType is DATE_CERTAIN or EVENING.",
@@ -7757,7 +7778,7 @@
                 "properties": {
                     "customerReferenceType": {
                         "type": "string",
-                        "description": "This is a customer reference type. The value specified here for the element is printed on the Commercial Invoice only for tracking and label information.<p>Note: <ul><li>The P_O_NUMBER value must be specified in customerReferences under requestedPackageLineItems</li><li>The INVOICE_NUMBER value that is printed on the FedEx-supplied invoice must be specified in customerReferences under commercialInvoice. Value defined in this section will print on the label that is attached to the package</li><li>The RMA_ASSOCIATION value sent by the customer is returned on the label in human readable form but also as a barcode.</li></ul>Note: INTRACOUNTRY_REGULATORY_REFERENCE is applicable only in Intra-Brazil.<br><a onclick='loadDocReference(\"customerreferencetypes\")'>For more information, click here for Customer References</a>",
+                        "description": "This is a customer reference type. The value specified here for the element is printed on the Commercial Invoice only for tracking and label information.<p>Note: <ul><li>The P_O_NUMBER value must be specified in customerReferences under requestedPackageLineItems</li><li>The INVOICE_NUMBER value that is printed on the FedEx-supplied invoice must be specified in customerReferences under commercialInvoice. Value defined in this section will print on the label that is attached to the package</li><li>The RMA_ASSOCIATION value sent by the customer is returned on the label in human readable form but also as a barcode.</li></ul>Note: INTRACOUNTRY_REGULATORY_REFERENCE is applicable only in Intra-Brazil.<br><a onclick='loadDocReference(\"customerreferencetypes\")'>For more information, click here for Customer References</a>.<br>Example: DEPARTMENT_NUMBER",
                         "example": "INVOICE_NUMBER",
                         "enum": [
                             "CUSTOMER_REFERENCE",
@@ -7973,7 +7994,7 @@
                     },
                     "cargoAircraftOnly": {
                         "type": "boolean",
-                        "description": "A Boolean value that, when True, specifies the mode of shipment transportation should be Cargo Aircraft for Dangerous Goods. <br>Note: An identifier DGD-CAO is added in AWB for cargo aircraft shipments.",
+                        "description": "A Boolean value that, when True, specifies the mode of shipment transportation should be Cargo Aircraft for Dangerous Goods. <br>Note: An identifier DGD-CAO is added in AWB for cargo aircraft shipments.Example: true",
                         "example": true
                     }
                 },

@@ -3,7 +3,7 @@
         "/documents/v1/etds/upload": {
             "post": {
                 "summary": "Upload Document",
-                "description": "Use this endpoint to upload the trade documents electronically before (pre-shipment) and after (post-shipment) the shipment is created.<br><i>Note&#58; FedEx APIs do not support Cross-Origin Resource Sharing (CORS) mechanism.</i>",
+                "description": "Use this endpoint to upload the trade documentss electronicallyy before (pre-shipment) and after (post-shipment) the shipment is created.<br><i>Note&#58; FedEx APIs do not support Cross-Origin Resource Sharing (CORS) mechanism.</i>",
                 "operationId": "Upload ETD files",
                 "parameters": [
                     {
@@ -190,7 +190,7 @@
                 "x-code-samples": [
                     {
                         "lang": "C#",
-                        "source": "var client = new RestClient(\"https://apis-base.test.cloud.fedex.com/oauth/token\");\nvar request = new RestRequest(Method.POST);\nrequest.AddHeader(\"x-customer-transaction-id\", \"12XXXXXX\");\nrequest.AddHeader(\"Content-Type\", \"multipart/form-data\");\nrequest.AddHeader(\"Authorization\", \"Bearer XXXXXX\");\n// 'input' refers to JSON Payload\nrequest.AddParameter(\"application/x-www-form-urlencoded\", input, ParameterType.RequestBody);\nIRestResponse response = client.Execute(request);"
+                        "source": "var client = new RestClient(\"https://apis-base.test.cloud.fedex.com/oauth/token\");\nvar request = new RestRequest(Method.POST);\nrequest.AddHeader(\"x-customer-transaction-id\", \"12XXXXXX\");\nrequest.AddHeader(\"Content-Type\", \"multipart/form-data\");\nrequest.AddHeader(\"Authorization\", \"Bearer XXXXXX\");\n// 'input' refers to JSON Payload\nrequest.AddParameter(\"undefined\", input, ParameterType.RequestBody);\nIRestResponse response = client.Execute(request);"
                     },
                     {
                         "lang": "JAVA",
@@ -206,7 +206,7 @@
                     },
                     {
                         "lang": "PYTHON",
-                        "source": "import requests\n\nurl = \"https://apis-base.test.cloud.fedex.com/oauth/token\"\n\npayload = input # 'input' refers to JSON Payload\nheaders = {\n    'x-customer-transaction-id': \"12XXXXXX\"\n    'Content-Type': \"multipart/form-data\",\n    'Authorization': \"Bearer XXXXXX\"\n    }\n\nresponse = requests.post(url, data=payload, headers=headers)\n\nprint(response.text)"
+                        "source": "import requests\n\nurl = \"https://apis-base.test.cloud.fedex.com/oauth/token\"\n\npayload = input # 'input' refers to JSON Payload\nheaders = {\n    'x-customer-transaction-id': \"12XXXXXX\"\n    'Content-Type': \"multipart/form-data\",\n    'Authorization': \"Bearer XXXXXX\"\n    }\n\nresponse = requests.request(\"POST\", url, data=payload, headers=headers)\n\nprint(response.text)"
                     },
                     {
                         "lang": "RUST",
@@ -370,7 +370,8 @@
                                 "example": {
                                     "errors": [
                                         {
-                                            "code": "SERVICE.UNAVAILABLE"
+                                            "code": "SERVICE.UNAVAILABLE",
+                                            "message": null
                                         }
                                     ]
                                 }
@@ -391,7 +392,7 @@
                 "x-code-samples": [
                     {
                         "lang": "C#",
-                        "source": "var client = new RestClient(\"https://apis-base.test.cloud.fedex.com/oauth/token\");\nvar request = new RestRequest(Method.POST);\nrequest.AddHeader(\"x-customer-transaction-id\", \"12XXXXXX\");\nrequest.AddHeader(\"Authorization\", \"Bearer XXXXX\");\n// 'input' refers to JSON Payload\nrequest.AddParameter(\"application/x-www-form-urlencoded\", input, ParameterType.RequestBody);\nIRestResponse response = client.Execute(request);"
+                        "source": "var client = new RestClient(\"https://apis-base.test.cloud.fedex.com/oauth/token\");\nvar request = new RestRequest(Method.POST);\nrequest.AddHeader(\"x-customer-transaction-id\", \"12XXXXXX\");\nrequest.AddHeader(\"Authorization\", \"Bearer XXXXX\");\n// 'input' refers to JSON Payload\nrequest.AddParameter(\"undefined\", input, ParameterType.RequestBody);\nIRestResponse response = client.Execute(request);"
                     },
                     {
                         "lang": "JAVA",
@@ -407,7 +408,7 @@
                     },
                     {
                         "lang": "PYTHON",
-                        "source": "import requests\n\nurl = \"https://apis-base.test.cloud.fedex.com/oauth/token\"\n\npayload = input # 'input' refers to JSON Payload\nheaders = {\n    'x-customer-transaction-id': \"12XXXXXX\",\n    'Authorization': \"Bearer XXXXX\"\n    }\n\nresponse = requests.post(url, data=payload, headers=headers)\n\nprint(response.text)"
+                        "source": "import requests\n\nurl = \"https://apis-base.test.cloud.fedex.com/oauth/token\"\n\npayload = input # 'input' refers to JSON Payload\nheaders = {\n    'x-customer-transaction-id': \"12XXXXXX\",\n    'Authorization': \"Bearer XXXXX\"\n    }\n\nresponse = requests.request(\"POST\", url, data=payload, headers=headers)\n\nprint(response.text)"
                     },
                     {
                         "lang": "RUST",
@@ -463,7 +464,7 @@
                     },
                     "folderId": {
                         "type": "array",
-                        "description": "This is the reference server folder id, where the document is uploaded. Note that, for a Pre-Shipment Upload scenario, this field will return a pseudo data.",
+                        "description": "This is the reference server folder id, where the document is uploaded. ",
                         "example": [
                             "0b0493e1812f8921"
                         ],
@@ -763,17 +764,16 @@
                 "properties": {
                     "code": {
                         "type": "string",
-                        "description": "Indicates the error code.<br>Example: FORBIDDEN.ERROR"
+                        "description": "Indicates the error code.<br>Example: INTERNAL.SERVER.ERROR"
                     },
                     "parameterList": {
                         "type": "array",
-                        "description": "List of parameters.",
                         "items": {
                             "$ref": "#/components/schemas/Parameter"
                         }
                     },
                     "message": {
-                        "description": "Indicates the description of API error alert message.<br>Example: We could not authorize your credentials. Please check your permissions and try again",
+                        "description": "Indicates the description of API error alert message.<br>Example: We encountered an unexpected error and are working to resolve the issue. We apologize for any inconvenience. Please check back at a later time.",
                         "type": "string"
                     }
                 },
@@ -784,16 +784,16 @@
                 "properties": {
                     "value": {
                         "type": "string",
-                        "description": "Identifies the error option to be applied. <br>Example: value",
-                        "example": "value"
+                        "description": "Identifies the error option to be applied.",
+                        "example": "1"
                     },
                     "key": {
                         "type": "string",
-                        "description": "Indicates the value associated with the key.<br> Example: key",
-                        "example": "key"
+                        "description": "Indicates the value associated with the key.",
+                        "example": "DOC_INDEX"
                     }
                 },
-                "description": "List of parameters which indicates the properties of the alert message."
+                "description": "Elements used in document storage"
             }
         }
     },

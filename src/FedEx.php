@@ -4,8 +4,11 @@ declare(strict_types=1);
 
 namespace ShipStream\FedEx;
 
+use Closure;
 use InvalidArgumentException;
+use RuntimeException;
 use Saloon\Http\Connector;
+use Saloon\Http\PendingRequest;
 use Saloon\Http\Request;
 use Saloon\Traits\OAuth2\ClientCredentialsGrant;
 use Saloon\Traits\Plugins\AlwaysThrowOnErrors;
@@ -34,6 +37,9 @@ class FedEx extends Connector
     use AlwaysThrowOnErrors;
     use ClientCredentialsGrant;
 
+    /**
+     * @param  ?Closure(PendingRequest): string  $transactionIdGenerator
+     */
     public function __construct(
         public string $clientId,
         public string $clientSecret,
@@ -42,6 +48,7 @@ class FedEx extends Connector
         public ?string $childSecret = null,
         public ?bool $proprietaryChild = false,
         public ?TokenCache $tokenCache = new MemoryCache(),
+        public ?Closure $transactionIdGenerator = null,
     ) {
         if (($this->childKey && ! $this->childSecret) || ($this->childSecret && ! $this->childKey)) {
             throw new InvalidArgumentException('Both childKey and childSecret must be provided.');
@@ -63,6 +70,20 @@ class FedEx extends Connector
     public function resolveBaseUrl(): string
     {
         return $this->endpoint->value;
+    }
+
+    public function boot(PendingRequest $pendingRequest): void
+    {
+        if ($this->transactionIdGenerator) {
+            $transactionId = ($this->transactionIdGenerator)($pendingRequest);
+            if (! is_string($transactionId)) {
+                throw new RuntimeException(
+                    '$transactionIdGenerator closure must return strings, '.gettype($transactionId).' returned.'
+                );
+            }
+
+            $pendingRequest->headers()->add('x-customer-transaction-id', $transactionId);
+        }
     }
 
     public function addressValidationV1(): AddressValidationV1\Api

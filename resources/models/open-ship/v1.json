@@ -3817,6 +3817,13 @@
                     },
                     "dryIceWeight": {
                         "$ref": "#/components/schemas/Weight"
+                    },
+                    "standaloneBatteryDetails": {
+                        "type": "array",
+                        "description": "Provide details about the batteries or cells that are contained within this specific package.",
+                        "items": {
+                            "$ref": "#/components/schemas/StandaloneBatteryDetails"
+                        }
                     }
                 },
                 "description": "These are special services that are available at the package level for some or all service types."
@@ -3959,6 +3966,20 @@
                             "LITHIUM_METAL",
                             "LITHIUM_ION",
                             "UNKNOWN"
+                        ]
+                    }
+                }
+            },
+            "StandaloneBatteryDetails": {
+                "type": "object",
+                "properties": {
+                    "batteryMaterialType": {
+                        "type": "string",
+                        "description": "Describes the material composition of the battery or cell.",
+                        "example": "LITHIUM_METAL",
+                        "enum": [
+                            "LITHIUM_METAL",
+                            "LITHIUM_ION"
                         ]
                     }
                 }
@@ -5912,6 +5933,11 @@
                         "type": "boolean",
                         "description": "Specify whether or not the return deposition is needed.",
                         "example": true
+                    },
+                    "resolution": {
+                        "type": "integer",
+                        "description": "Specifies the image resolution in DPI (Dots Per Inch). Valid values are 203 & 300. If not provided or for any other value, system will default it to 203.",
+                        "example": 300
                     }
                 },
                 "description": "These are label specification details includes the image type, printer format, and label stock for label. Can also specify specific details such as doc-tab content, regulatory labels, and masking data on the label."

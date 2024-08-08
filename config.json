@@ -2,6 +2,9 @@
   "version": "1.0.0",
   "type": "openapi",
   "outputDir": "src/Api",
+  "ignoredParams": {
+    "header": ["authorization", "content-type", "x-locale", "x-customer-transaction-id"]
+  },
   "force": true,
   "namespace": "ShipStream\\FedEx\\Api",
   "connectorName": "FedEx",

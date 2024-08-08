@@ -1314,6 +1314,20 @@
                     }
                 }
             },
+            "StandaloneBatteryDetails": {
+                "type": "object",
+                "properties": {
+                    "batteryMaterialType": {
+                        "type": "string",
+                        "description": "Describes the material composition of the battery or cell.",
+                        "example": "LITHIUM_METAL",
+                        "enum": [
+                            "LITHIUM_METAL",
+                            "LITHIUM_ION"
+                        ]
+                    }
+                }
+            },
             "SubPackageInfo": {
                 "type": "object",
                 "properties": {
@@ -1826,6 +1840,13 @@
                     "dryIceWeight": {
                         "description": "These are the weight details.",
                         "$ref": "#/components/schemas/Weight"
+                    },
+                    "standaloneBatteryDetails": {
+                        "type": "array",
+                        "description": "Provide details about the batteries or cells that are contained within this specific package.",
+                        "items": {
+                            "$ref": "#/components/schemas/StandaloneBatteryDetails"
+                        }
                     }
                 },
                 "description": "These are special services that are available at the package level for some or all service types."
