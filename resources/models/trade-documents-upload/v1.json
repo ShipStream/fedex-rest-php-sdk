@@ -1641,35 +1641,6 @@
                 },
                 "description": "Use this object to specify image meta data such as image type, path and index for the file to be uploaded."
             },
-            "MultiBasePreResponse_output": {
-                "type": "object",
-                "properties": {
-                    "documentResponses": {
-                        "type": "array",
-                        "example": [
-                            {
-                                "metaData": {
-                                    "formCode": "USMCA",
-                                    "documentType": "PRO",
-                                    "docId": "kgr9lgjU3juqxyhf"
-                                },
-                                "fileReferenceId": "PI_2"
-                            },
-                            {
-                                "metaData": {
-                                    "formCode": "USMCA",
-                                    "documentType": "CI",
-                                    "docId": "CPK8nMAkD5Ngw0vK"
-                                },
-                                "fileReferenceId": "CI_1"
-                            }
-                        ],
-                        "items": {
-                            "$ref": "#/components/schemas/MultiDocumentPreResponse"
-                        }
-                    }
-                }
-            },
             "MultiBasePreResponse_1_output": {
                 "type": "object",
                 "properties": {

@@ -62,6 +62,8 @@ class SchemaVersion
         $refactorer->clean();
         // Apply manual modifications to the schema (from resources/metadata/modifications.json)
         $refactored = $refactorer->applyModifications();
+        // Finally, remove any components that were made unnecessary by manual modifications
+        $refactored = $refactorer->removeUnusedComponents($refactored);
 
         $path = $this->path();
         $pathDir = dirname($path);

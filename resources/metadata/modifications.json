@@ -27,6 +27,18 @@
             }
         ]
     },
+    "ship": {
+        "1": [
+            {
+                "comment": "The upstream items definition here is an anyOf with two different components with identical schemas, so we're just picking one",
+                "action": "replace",
+                "path": "components.schemas.TransactionShipmentOutputVO.properties.alerts.items",
+                "value": {
+                    "$ref": "#/components/schemas/Alert_3P"
+                }
+            }
+        ]
+    },
     "track": {
         "1": [
             {

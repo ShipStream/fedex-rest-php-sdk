@@ -17,6 +17,7 @@ final class TransactionShipmentOutputVo extends Dto
     protected static array $complexArrayTypes = [
         'shipmentDocuments' => LabelResponseVo::class,
         'pieceResponses' => PieceResponse::class,
+        'alerts' => Alert3p::class,
     ];
 
     /**
@@ -26,7 +27,7 @@ final class TransactionShipmentOutputVo extends Dto
      * @param  LabelResponseVo[]|null  $shipmentDocuments  These are shipping document details.
      * @param  PieceResponse[]|null  $pieceResponses  Specifies the information about the pieces, received in the response.
      * @param  ?string  $serviceName  This is the service name associated with the shipment.<br>Example: FedEx Ground
-     * @param  ?string[]  $alerts  These are alert details received in the response.
+     * @param  Alert3p[]|null  $alerts  These are alert details received in the response.
      * @param  ?CompletedShipmentDetail  $completedShipmentDetail  Returns the result of processing the desired package as a single-package shipment.
      * @param  ?ShipmentAdvisoryDetails  $shipmentAdvisoryDetails  These are shipment advisory details.
      * @param  ?string  $masterTrackingNumber  This is a master tracking number for the shipment (must be unique for stand-alone open shipments, or unique within consolidation if consolidation key is provided).<br>Example: 794953535000

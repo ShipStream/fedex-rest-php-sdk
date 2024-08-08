@@ -1734,47 +1734,6 @@
                     "deliveryInstructions": "Delivery Instructions"
                 }
             },
-            "ResponsiblePartyParty": {
-                "required": [
-                    "accountNumber"
-                ],
-                "type": "object",
-                "properties": {
-                    "address": {
-                        "$ref": "#/components/schemas/PartyAddress"
-                    },
-                    "contact": {
-                        "$ref": "#/components/schemas/PartyContact"
-                    },
-                    "accountNumber": {
-                        "$ref": "#/components/schemas/PartyAccountNumber"
-                    }
-                },
-                "description": "Indicate the payer Information responsible for paying for the shipment. <br>Note: ResponsibleParty accountNumber is required for ACCOUNT based services.",
-                "example": {
-                    "address": {
-                        "streetLines": [
-                            "10 FedEx Parkway",
-                            "Suite 302"
-                        ],
-                        "city": "Beverly Hills",
-                        "stateOrProvinceCode": "CA",
-                        "postalCode": "90210",
-                        "countryCode": "US",
-                        "residential": false
-                    },
-                    "contact": {
-                        "personName": "John Taylor",
-                        "emailAddress": "sample@company.com",
-                        "phoneExtension": "000",
-                        "phoneNumber": "XXXX345671",
-                        "companyName": "FedEx"
-                    },
-                    "accountNumber": {
-                        "value": "Your account number"
-                    }
-                }
-            },
             "ShipmentSpecialServicesRequested": {
                 "type": "object",
                 "properties": {
@@ -4425,7 +4384,7 @@
                         "type": "array",
                         "description": "These are alert details received in the response.",
                         "items": {
-                            "$ref": "#/components/schemas/Alert"
+                            "$ref": "#/components/schemas/Alert_3P"
                         }
                     },
                     "completedShipmentDetail": {
@@ -4533,6 +4492,22 @@
                     }
                 },
                 "description": "These are alert details received in the response."
+            },
+            "Alert_3P": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "description": "Specifies the api alert code.<br>Example: RECIPIENTCONTACT.PHONENUMBER.INVALID",
+                        "example": "RECIPIENTCONTACT.PHONENUMBER.INVALID"
+                    },
+                    "message": {
+                        "type": "string",
+                        "description": "Specifies the api alert message.<br>Example: Recipient\u2019s phone number format is not matching with recipient's country code; hence, recipient will not receive Convenient Delivery Options. Moving forward, please provide valid mobile phone number.",
+                        "example": "Recipient\u2019s phone number format is not matching with recipient's country code; hence, recipient will not receive Convenient Delivery Options. Moving forward, please provide valid mobile phone number."
+                    }
+                },
+                "description": "Specifies the api alerts."
             },
             "PieceResponse": {
                 "type": "object",

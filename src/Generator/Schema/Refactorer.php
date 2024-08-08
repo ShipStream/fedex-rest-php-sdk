@@ -216,7 +216,7 @@ class Refactorer
 
             $obj->schema = $allOf[0];
             data_forget($obj, 'allOf');
-        } elseif (
+        } elseif (  // Sometimes there is an inline schema and a ref to an identical schema in an allOf
             count($allOf) === 2
             && (
                 (isset($allOf[0]->{'$ref'}) && isset($allOf[1]->properties))
@@ -405,13 +405,22 @@ class Refactorer
             $schema->components->schemas->{$componentName} = $component;
         }
 
-        foreach ($schema->components->schemas as $componentName => $component) {
-            if (! static::jsonContains(self::REF_BASE.$componentName, $schema)) {
-                unset($schema->components->schemas->{$componentName});
+        $schema = $this->removeUnusedComponents($schema);
+
+        return $schema;
+    }
+
+    public function removeUnusedComponents(stdClass $schema): stdClass
+    {
+        $_schema = clone $schema;
+
+        foreach ($_schema->components->schemas as $componentName => $component) {
+            if (! static::jsonContains(self::REF_BASE.$componentName, $_schema)) {
+                unset($_schema->components->schemas->{$componentName});
             }
         }
 
-        return $schema;
+        return $_schema;
     }
 
     protected function deduplicateComponents(stdClass $schema): stdClass

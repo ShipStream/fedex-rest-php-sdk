@@ -2454,44 +2454,6 @@
                     "deliveryInstructions": "Delivery Instructions"
                 }
             },
-            "ResponsiblePartyParty": {
-                "type": "object",
-                "properties": {
-                    "address": {
-                        "$ref": "#/components/schemas/PartyAddress"
-                    },
-                    "contact": {
-                        "$ref": "#/components/schemas/PartyContact"
-                    },
-                    "accountNumber": {
-                        "$ref": "#/components/schemas/PartyAccountNumber"
-                    }
-                },
-                "description": "Indicate the payer Information responsible for paying for the shipment. <br>Note: ResponsibleParty accountNumber is required for ACCOUNT based services.",
-                "example": {
-                    "address": {
-                        "streetLines": [
-                            "10 FedEx Parkway",
-                            "Suite 302"
-                        ],
-                        "city": "Beverly Hills",
-                        "stateOrProvinceCode": "CA",
-                        "postalCode": "90210",
-                        "countryCode": "US",
-                        "residential": false
-                    },
-                    "contact": {
-                        "personName": "John Taylor",
-                        "emailAddress": "sample@company.com",
-                        "phoneExtension": "000",
-                        "phoneNumber": "XXXX345671",
-                        "companyName": "FedEx"
-                    },
-                    "accountNumber": {
-                        "value": "Your account number"
-                    }
-                }
-            },
             "PartyAccountNumber": {
                 "type": "object",
                 "properties": {
