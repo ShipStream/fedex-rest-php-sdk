@@ -11,10 +11,14 @@ declare(strict_types=1);
 namespace ShipStream\FedEx\Api\TradeDocumentsUploadV1;
 
 use Saloon\Http\Response;
+use ShipStream\FedEx\Api\TradeDocumentsUploadV1\Dto\FullSchemaBase64multiDocumentRequest;
 use ShipStream\FedEx\Api\TradeDocumentsUploadV1\Dto\FullSchemaDocumentUploadInputVo;
 use ShipStream\FedEx\Api\TradeDocumentsUploadV1\Dto\FullSchemaImageUploadServiceInputVo;
+use ShipStream\FedEx\Api\TradeDocumentsUploadV1\Dto\FullSchemaMultiDocumentRequest;
 use ShipStream\FedEx\Api\TradeDocumentsUploadV1\Requests\ImageUploadServiceInfo;
 use ShipStream\FedEx\Api\TradeDocumentsUploadV1\Requests\UploadEtdFiles;
+use ShipStream\FedEx\Api\TradeDocumentsUploadV1\Requests\UploadMultiEncodedEtDfiles;
+use ShipStream\FedEx\Api\TradeDocumentsUploadV1\Requests\UploadMultiEtDfiles;
 use ShipStream\FedEx\BaseResource;
 
 class Api extends BaseResource
@@ -34,5 +38,19 @@ class Api extends BaseResource
         FullSchemaImageUploadServiceInputVo $fullSchemaImageUploadServiceInputVo,
     ): Response {
         return $this->connector->send(new ImageUploadServiceInfo($fullSchemaImageUploadServiceInputVo));
+    }
+
+    public function uploadMultiEtDfiles(FullSchemaMultiDocumentRequest $fullSchemaMultiDocumentRequest): Response
+    {
+        return $this->connector->send(new UploadMultiEtDfiles($fullSchemaMultiDocumentRequest));
+    }
+
+    /**
+     * @param  FullSchemaBase64multiDocumentRequest  $fullSchemaBase64multiDocumentRequest  Provide all the documents' details and shipment meta data
+     */
+    public function uploadMultiEncodedEtDfiles(
+        FullSchemaBase64multiDocumentRequest $fullSchemaBase64multiDocumentRequest,
+    ): Response {
+        return $this->connector->send(new UploadMultiEncodedEtDfiles($fullSchemaBase64multiDocumentRequest));
     }
 }
