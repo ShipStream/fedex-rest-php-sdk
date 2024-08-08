@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class LtlRequestedShipment extends Dto
 {
-    protected static array $complexArrayTypes = ['requestedPackageLineItems' => [LtlRequestedPackageLineItem::class]];
+    protected static array $complexArrayTypes = ['requestedPackageLineItems' => LtlRequestedPackageLineItem::class];
 
     /**
      * @param  RateParty  $shipper  Specify the shipper address details.

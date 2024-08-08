@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class CustomsClearanceDetail extends Dto
 {
-    protected static array $complexArrayTypes = ['commodities' => [Commodity::class], 'brokers' => [BrokerDetail::class]];
+    protected static array $complexArrayTypes = ['commodities' => Commodity::class, 'brokers' => BrokerDetail::class];
 
     /**
      * @param  Commodity[]  $commodities  Specify the commodity details.

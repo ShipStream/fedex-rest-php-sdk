@@ -15,14 +15,14 @@ use ShipStream\FedEx\Dto;
 final class TrackResult extends Dto
 {
     protected static array $complexArrayTypes = [
-        'consolidationDetail' => [ConsolidationDetail::class],
-        'informationNotes' => [InformationNoteDetail::class],
-        'specialHandlings' => [TrackSpecialHandling::class],
-        'availableImages' => [AvailableImagesDetail::class],
-        'scanEvents' => [ScanEvent::class],
-        'dateAndTimes' => [TrackingDateAndTime::class],
-        'customDeliveryOptions' => [CustomDeliveryOption::class],
-        'pieceCounts' => [PieceCountDetail::class],
+        'consolidationDetail' => ConsolidationDetail::class,
+        'informationNotes' => InformationNoteDetail::class,
+        'specialHandlings' => TrackSpecialHandling::class,
+        'availableImages' => AvailableImagesDetail::class,
+        'scanEvents' => ScanEvent::class,
+        'dateAndTimes' => TrackingDateAndTime::class,
+        'customDeliveryOptions' => CustomDeliveryOption::class,
+        'pieceCounts' => PieceCountDetail::class,
     ];
 
     /**
@@ -50,12 +50,12 @@ final class TrackResult extends Dto
      * @param  ?TimeWindow  $estimatedDeliveryTimeWindow
      * @param  PieceCountDetail[]|null  $pieceCounts  Piece count information at origin and destination.
      * @param  ?LocationDetailOrigin  $originLocation  Location details for the fedex facility.
-     * @param  ?ContactAndAddress  $recipientInformation  Location Contact And Address.
+     * @param  ?ContactAndAddress2  $recipientInformation  Location Contact And Address.
      * @param  ?TimeWindow  $standardTransitTimeWindow
      * @param  ?TrackShipmentDetail  $shipmentDetails  Shipment level details for the shipment being tracked. Includes overall shipment weight, contents etc.
      * @param  ?ReasonDetail  $reasonDetail  This object contains reason description and type.
      * @param  ?string[]  $availableNotifications  The types of email notifications that are available for the package. <br> Example:ON_DELIVERY
-     * @param  ?ContactAndAddress  $shipperInformation  Location Contact And Address.
+     * @param  ?ContactAndAddress2  $shipperInformation  Location Contact And Address.
      * @param  ?AddressVo2  $lastUpdatedDestinationAddress  Address where the package was actually delivered. Contrast with destinationAddress, which is the location to which the package was intended to be delivered. Addresses may differ due to delivery to a behavior, hold at FedEx location, etc.
      */
     public function __construct(
@@ -83,12 +83,12 @@ final class TrackResult extends Dto
         public readonly ?TimeWindow $estimatedDeliveryTimeWindow = null,
         public readonly ?array $pieceCounts = null,
         public readonly ?LocationDetailOrigin $originLocation = null,
-        public readonly ?ContactAndAddress $recipientInformation = null,
+        public readonly ?ContactAndAddress2 $recipientInformation = null,
         public readonly ?TimeWindow $standardTransitTimeWindow = null,
         public readonly ?TrackShipmentDetail $shipmentDetails = null,
         public readonly ?ReasonDetail $reasonDetail = null,
         public readonly ?array $availableNotifications = null,
-        public readonly ?ContactAndAddress $shipperInformation = null,
+        public readonly ?ContactAndAddress2 $shipperInformation = null,
         public readonly ?AddressVo2 $lastUpdatedDestinationAddress = null,
     ) {
     }

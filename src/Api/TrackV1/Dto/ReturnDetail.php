@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class ReturnDetail extends Dto
 {
-    protected static array $complexArrayTypes = ['reasonDetail' => [ReasonDetail::class]];
+    protected static array $complexArrayTypes = ['reasonDetail' => ReasonDetail::class];
 
     /**
      * @param  ?string  $authorizationName  Name of person authorizing the return, entered by the customer.

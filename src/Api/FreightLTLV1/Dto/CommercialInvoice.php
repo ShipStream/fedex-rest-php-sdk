@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class CommercialInvoice extends Dto
 {
-    protected static array $complexArrayTypes = ['customerReferences' => [CustomerReference::class]];
+    protected static array $complexArrayTypes = ['customerReferences' => CustomerReference::class];
 
     /**
      * @param  ?string  $originatorName  The originator name that will populate the Commercial Invoice (or Pro Forma).

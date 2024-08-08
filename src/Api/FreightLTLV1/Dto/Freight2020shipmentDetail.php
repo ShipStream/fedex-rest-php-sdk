@@ -17,15 +17,17 @@ final class Freight2020shipmentDetail extends Dto
     protected static array $attributeMap = ['aliasId' => 'aliasID'];
 
     protected static array $complexArrayTypes = [
-        'lineItem' => [FreightShipmentLineItem::class],
-        'specialServicePayments' => [FreightSpecialServicePayment::class],
-        'printedReferences' => [PrintedReference::class],
+        'lineItem' => FreightShipmentLineItem2::class,
+        'specialServicePayments' => FreightSpecialServicePayment::class,
+        'printedReferences' => PrintedReference::class,
     ];
 
     /**
      * @param  string  $role  Required<br>
      *                        Indicates the role of the party submitting the transaction.
-     * @param  FreightShipmentLineItem[]  $lineItem  Details of the commodities in the shipment.
+     * @param  FreightShipmentLineItem2[]  $lineItem  Required
+     *
+     * Class/weight pairs and associated details for a Freight shipment.
      * @param  LtlContactAndAddress  $fedExFreightBillingContactAndAddress  Specify the Billing Contact and Address details of the location for above FedEx Freight Account Number.
      * @param  int  $totalHandlingUnits  Total number of individual handling units in the entire shipment (for unit pricing). May not be negative.<br>Example: 12
      * @param  FreightSpecialServicePayment[]|null  $specialServicePayments  Indicates which party will pay surcharges for any special services which support split billing.

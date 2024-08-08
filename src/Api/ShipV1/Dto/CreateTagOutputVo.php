@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class CreateTagOutputVo extends Dto
 {
-    protected static array $complexArrayTypes = ['alerts' => [Alert::class]];
+    protected static array $complexArrayTypes = ['alerts' => Alert::class];
 
     /**
      * @param  ?string  $masterTrackingNumber  Specifies the Master Tracking Number for the requested shipment.<br>Example: 997338100007320

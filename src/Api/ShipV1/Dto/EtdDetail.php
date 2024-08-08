@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class EtdDetail extends Dto
 {
-    protected static array $complexArrayTypes = ['attachedDocuments' => [UploadDocumentReferenceDetail::class]];
+    protected static array $complexArrayTypes = ['attachedDocuments' => UploadDocumentReferenceDetail::class];
 
     /**
      * @param  ?string[]  $attributes  Specifies the Post Document Upload <br> Example: POST_SHIPMENT_UPLOAD_REQUESTED

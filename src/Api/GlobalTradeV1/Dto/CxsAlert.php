@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class CxsAlert extends Dto
 {
-    protected static array $complexArrayTypes = ['parameterList' => [Parameter::class]];
+    protected static array $complexArrayTypes = ['parameterList' => Parameter::class];
 
     /**
      * @param  ?string  $code  Specifies the API alert code.

@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class LabelResponseVo extends Dto
 {
-    protected static array $complexArrayTypes = ['alerts' => [Alert::class]];
+    protected static array $complexArrayTypes = ['alerts' => Alert::class];
 
     /**
      * @param  ?string  $contentKey  This is the content key for the document/label.<br>Example: content key
@@ -22,7 +22,7 @@ final class LabelResponseVo extends Dto
      * @param  ?string  $contentType  Indicates the type of document/label.
      * @param  ?string  $trackingNumber  This is a tracking number for the package. <br>Example: 49XXX0000XXX20032835<br>
      * @param  ?string  $docType  This is the document type.<br>Example: PDF
-     * @param  Alert[]|null  $alerts  The cxs alert code, alert type, and alert message obtained when a rate quote is requested.
+     * @param  Alert[]|null  $alerts  These are alerts received in the label response.
      * @param  ?string  $encodedLabel  Specifies if the document is encoded.<br>Example: encoded label
      * @param  ?string  $url  The URL of the shipping document/label<br>Example: https://.../document/v2/document/retrieve/SH,794816968200_Merge/isLabel=true&autoPrint=false<br><br><i>Note: The URL once created will be active for 24 hours.</i>
      */

@@ -15,8 +15,8 @@ use ShipStream\FedEx\Dto;
 final class ModifyOpenShipmentOutputVo extends Dto
 {
     protected static array $complexArrayTypes = [
-        'transactionShipments' => [TransactionOpenShipmentOutputVo::class],
-        'alerts' => [Alert::class],
+        'transactionShipments' => TransactionOpenShipmentOutputVo::class,
+        'alerts' => Alert::class,
     ];
 
     /**

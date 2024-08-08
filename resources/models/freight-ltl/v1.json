@@ -3076,9 +3076,6 @@
                     "freightGuaranteeDetail": {
                         "$ref": "#/components/schemas/FreightGuaranteeDetail"
                     },
-                    "shipmentCODDetail": {
-                        "$ref": "#/components/schemas/ShipmentCODDetail"
-                    },
                     "freightDirectDetail": {
                         "$ref": "#/components/schemas/FreightDirectDetail"
                     },
@@ -3086,99 +3083,7 @@
                         "$ref": "#/components/schemas/CustomDeliveryWindowDetail"
                     }
                 },
-                "description": "These special services are available at the shipment level for some or all service types.<br>If the shipper is requesting a special service which requires additional data (such as the COD amount), the shipment special service type must be present in the specialServiceTypes collection, and the supporting detail must be provided in the appropriate sub-object below. "
-            },
-            "ShipmentCODDetail": {
-                "required": [
-                    "codCollectionType"
-                ],
-                "type": "object",
-                "properties": {
-                    "addTransportationChargesDetail": {
-                        "$ref": "#/components/schemas/CODTransportationChargesDetail"
-                    },
-                    "codRecipient": {
-                        "description": "Descriptive data of the Cash On Delivery along with their details of the physical location.",
-                        "$ref": "#/components/schemas/Party_2"
-                    },
-                    "remitToName": {
-                        "type": "string",
-                        "description": "Specify the name of the person or company receiving the secured/unsecured funds payment.",
-                        "example": "remitToName"
-                    },
-                    "codCollectionType": {
-                        "type": "string",
-                        "description": "Specify the preference type based on funds to be collected by FedEx upon shipment delivery. <br><br> Note: <ul><li>Ground shipments accept only CASH as the COD collection type.</li><li>Express shipments accept ANY and GUARANTEED_FUNDS as the COD collection type.",
-                        "enum": [
-                            "ANY",
-                            "CASH",
-                            "GUARANTEED_FUNDS"
-                        ]
-                    },
-                    "financialInstitutionContactAndAddress": {
-                        "$ref": "#/components/schemas/ContactAndAddress"
-                    },
-                    "codCollectionAmount": {
-                        "description": "Indicate the COD collection amount.",
-                        "$ref": "#/components/schemas/Money"
-                    },
-                    "returnReferenceIndicatorType": {
-                        "type": "string",
-                        "description": "Indicate return reference type information to include on the COD return shipping label.",
-                        "enum": [
-                            "INVOICE",
-                            "PO",
-                            "REFERENCE",
-                            "TRACKING"
-                        ]
-                    },
-                    "shipmentCodAmount": {
-                        "description": "Indicate the COD amount for this shipment.",
-                        "$ref": "#/components/schemas/Money"
-                    }
-                },
-                "description": "This is the shipment level COD detail."
-            },
-            "CODTransportationChargesDetail": {
-                "type": "object",
-                "properties": {
-                    "rateType": {
-                        "type": "string",
-                        "description": "Specify the Rate Type used.",
-                        "enum": [
-                            "ACCOUNT",
-                            "CURRENT",
-                            "CUSTOM"
-                        ]
-                    },
-                    "rateLevelType": {
-                        "type": "string",
-                        "description": "Specify which level the rate to be applied.",
-                        "enum": [
-                            "BUNDLED_RATE",
-                            "INDIVIDUAL_PACKAGE_RATE"
-                        ]
-                    },
-                    "chargeLevelType": {
-                        "type": "string",
-                        "description": "Specify which level the charges to be applied.",
-                        "enum": [
-                            "CURRENT_PACKAGE",
-                            "SUM_OF_PACKAGES"
-                        ]
-                    },
-                    "chargeType": {
-                        "type": "string",
-                        "description": "Specify Charge type.",
-                        "enum": [
-                            "COD_SURCHARGE",
-                            "NET_CHARGE",
-                            "NET_FREIGHT",
-                            "TOTAL_CUSTOMER_CHARGE"
-                        ]
-                    }
-                },
-                "description": "Use this object to specify C.O.D. transportation charges."
+                "description": "These special services are available at the shipment level for some or all service types. If the shipper is requesting a special service which requires additional data (such as DO_NOT_STACK_PALLETS), the shipment special service type must be present in the specialServiceTypes collection, and the supporting detail must be provided in the appropriate sub-object below."
             },
             "CustomDeliveryWindowDetail": {
                 "type": "object",
@@ -5468,12 +5373,6 @@
                         "description": "Specifies the net discount amount.<br>Example: 121.45",
                         "format": "double",
                         "example": 121.45
-                    },
-                    "codcollectionAmount": {
-                        "type": "number",
-                        "description": "Specifies the Collect on Delivery collection amount.<br>Example: 231.45",
-                        "format": "double",
-                        "example": 231.45
                     },
                     "masterTrackingNumber": {
                         "type": "string",

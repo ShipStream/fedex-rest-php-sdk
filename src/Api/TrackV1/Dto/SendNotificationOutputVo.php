@@ -16,7 +16,7 @@ final class SendNotificationOutputVo extends Dto
 {
     protected static array $attributeMap = ['trackingNumberInfo' => 'TrackingNumberInfo'];
 
-    protected static array $complexArrayTypes = ['alerts' => [Alert::class]];
+    protected static array $complexArrayTypes = ['alerts' => Alert::class];
 
     /**
      * @param  ?TrackingNumberInfo  $trackingNumberInfo  Information uniquely identifying a shipment such as Tracking number, ShipDate, and Tracking number uniqueId.

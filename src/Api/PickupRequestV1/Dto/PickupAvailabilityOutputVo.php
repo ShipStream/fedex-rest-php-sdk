@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class PickupAvailabilityOutputVo extends Dto
 {
-    protected static array $complexArrayTypes = ['options' => [PickupScheduleOption::class], 'alerts' => [Alert::class]];
+    protected static array $complexArrayTypes = ['options' => PickupScheduleOption::class, 'alerts' => Alert::class];
 
     /**
      * @param  ?string  $requestTimestamp  The time when the PickupAvailability request was processed.<br>Note:<br>1.The date format must be YYYY-MM-DDTHH:MM:SS.<br> 2.The time must be in the format: HH:MM:SS using a 24-hour clock.<br>3.The date and time are separated by the letter T, such as 2015-03-25T09:30:00.<br>4.The time is local to the pickup postal code<br> 5.Do not include a TZD (time zone designator) as it will be ignored.<br>Example: 2019-11-15T11:00:00

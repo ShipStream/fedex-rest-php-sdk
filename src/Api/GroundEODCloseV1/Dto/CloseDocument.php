@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class CloseDocument extends Dto
 {
-    protected static array $complexArrayTypes = ['parts' => [ShippingDocumentPart::class]];
+    protected static array $complexArrayTypes = ['parts' => ShippingDocumentPart::class];
 
     /**
      * @param  ?string  $type  Specifies the type of report.

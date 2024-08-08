@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class RetrieveOpenShipmentOutputVo extends Dto
 {
-    protected static array $complexArrayTypes = ['alerts' => [Alert::class]];
+    protected static array $complexArrayTypes = ['alerts' => Alert::class];
 
     /**
      * @param  ?RequestedShipment  $requestedShipment  The descriptive data for the requested shipment.

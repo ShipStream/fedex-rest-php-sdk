@@ -14,7 +14,9 @@ use ShipStream\FedEx\Dto;
 
 final class ShipShipmentEmailNotificationDetail extends Dto
 {
-    protected static array $complexArrayTypes = ['emailNotificationRecipients' => [EmailNotificationRecipient::class]];
+    protected static array $complexArrayTypes = [
+        'emailNotificationRecipients' => ShipShipmentEmailNotificationRecipient::class,
+    ];
 
     /**
      * @param  ?string  $aggregationType  This is the shipment Notification Aggregation Type.

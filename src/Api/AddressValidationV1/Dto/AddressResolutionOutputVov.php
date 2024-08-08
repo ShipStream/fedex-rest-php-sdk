@@ -14,10 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class AddressResolutionOutputVov extends Dto
 {
-    protected static array $complexArrayTypes = [
-        'resolvedAddresses' => [ResolvedAddress::class],
-        'alerts' => [Alert::class],
-    ];
+    protected static array $complexArrayTypes = ['resolvedAddresses' => ResolvedAddress::class, 'alerts' => Alert::class];
 
     /**
      * @param  ResolvedAddress[]|null  $resolvedAddresses  Indicates the list of resolved addresses. The detailed resolved address includes city, state, postal information, and resolution method.

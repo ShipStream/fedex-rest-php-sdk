@@ -26,7 +26,7 @@ final class ShipmentOperationalDetail extends Dto
      * @param  ?string  $astraDescription  Specifies astra description.<br>Example: SMART POST
      * @param  ?int  $originLocationNumber  Specifies origin location number.<br>Example: 243
      * @param  ?string  $deliveryDate  Specifies delivery date for the shipment. The format is [YYYY-MM-DD]<br>Example: 2001-04-05
-     * @param  ?string[]  $deliveryEligibilities  Indicate the delivery eligibilities.
+     * @param  ?string[]  $deliveryEligibilities  FedEx Ground delivery features for which this shipment may be eligible.<br>Example: ["deliveryEligibilities"]
      * @param  ?bool  $ineligibleForMoneyBackGuarantee  Indicates that this shipment is not eligible for money back guarantee.
      * @param  ?string  $maximumTransitTime  Maximum expected transit time.<br>Example: SEVEN_DAYS
      * @param  ?string  $destinationLocationStateOrProvinceCode  This is the state or province code of the shipment destination location, and is not necessarily the same as the postal state.<br>Example: GA<br><a onclick='loadDocReference("canadaprovincecodes")'>click here to see State or Province Code</a>

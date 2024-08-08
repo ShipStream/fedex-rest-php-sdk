@@ -16,7 +16,7 @@ final class TrackingEventNotificationDetail extends Dto
 {
     protected static array $attributeMap = ['supportHtml' => 'supportHTML'];
 
-    protected static array $complexArrayTypes = ['trackingNotifications' => [TrackingNotification::class]];
+    protected static array $complexArrayTypes = ['trackingNotifications' => TrackingNotification::class];
 
     /**
      * @param  TrackingNotification[]  $trackingNotifications  List of Tracking notifications requested for events like ON_DELIVERY, ON_ESTIMATED_DELIVERY, ON_EXCEPTION, ON_TENDER.

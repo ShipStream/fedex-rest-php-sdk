@@ -14,7 +14,10 @@ use ShipStream\FedEx\Dto;
 
 final class PackageSpecialServicesRequested extends Dto
 {
-    protected static array $complexArrayTypes = ['batteryDetails' => [BatteryDetail::class]];
+    protected static array $complexArrayTypes = [
+        'batteryDetails' => BatteryDetail::class,
+        'standaloneBatteryDetails' => StandaloneBatteryDetails::class,
+    ];
 
     /**
      * @param  ?string  $signatureOptionType  Indicate the Signature Type.<br>Valid Values:<ul><li>ADULT - Adult signature required, at recipient address.</li><li>DIRECT - Signature required, at recipient address.</li><li>INDIRECT - Signature required, alternate address is accepted.(This option is available for residential deliveries only)</li><li>NO_SIGNATURE_REQUIRED - Signature is not required.</li><li>SERVICE_DEFAULT - Signature handled as per current Service Guide.</li></ul>
@@ -25,6 +28,7 @@ final class PackageSpecialServicesRequested extends Dto
      * @param  BatteryDetail[]|null  $batteryDetails  Indicates the battery details.
      * @param  ?string[]  $specialServiceTypes  Special services requested for the shipment.<br>Example: <ul><li>RETURN_SHIPMENT</li><li>BROKER_SELECT_OPTION</li><li>CALL_BEFORE_DELIVERY</li><li>COD</li><li>CUSTOM_DELIVERY_WINDOW</li></ul><a onclick='loadDocReference("shipmentlevelspecialservicetypes")'>Click here to see Shipment level Special Service Types</a>
      * @param  ?Weight  $dryIceWeight  Specify the total weight of the shipment. <br>This is only applies to International shipments and should be used on the first package of a multiple piece shipment. This value contains 1 explicit decimal position.
+     * @param  StandaloneBatteryDetails[]|null  $standaloneBatteryDetails  Provide details about the batteries or cells that are contained within this specific package.
      */
     public function __construct(
         public readonly CodDetail $codDetail,
@@ -36,6 +40,7 @@ final class PackageSpecialServicesRequested extends Dto
         public readonly ?array $batteryDetails = null,
         public readonly ?array $specialServiceTypes = null,
         public readonly ?Weight $dryIceWeight = null,
+        public readonly ?array $standaloneBatteryDetails = null,
     ) {
     }
 }

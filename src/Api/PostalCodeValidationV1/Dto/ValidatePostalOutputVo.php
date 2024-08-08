@@ -15,8 +15,8 @@ use ShipStream\FedEx\Dto;
 final class ValidatePostalOutputVo extends Dto
 {
     protected static array $complexArrayTypes = [
-        'alerts' => [Alert::class],
-        'locationDescriptions' => [LocationDescription::class],
+        'alerts' => Alert::class,
+        'locationDescriptions' => LocationDescription::class,
     ];
 
     /**

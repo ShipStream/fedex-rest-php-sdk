@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class CommodityClarificationDetail extends Dto
 {
-    protected static array $complexArrayTypes = ['suggestions' => [SuggestedCommodityDetail::class]];
+    protected static array $complexArrayTypes = ['suggestions' => SuggestedCommodityDetail::class];
 
     /**
      * @param  ?int  $commodityIndex  This is a index identifying the commodity in the request that resulted in this COMMODITY or DOCUMENT type prohibition.<br>Example: 25

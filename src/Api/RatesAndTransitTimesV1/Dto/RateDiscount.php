@@ -15,11 +15,11 @@ use ShipStream\FedEx\Dto;
 final class RateDiscount extends Dto
 {
     /**
-     * @param  ?float  $amount  Indicates the amount for the rate discount.
-     * @param  ?string  $name  Indicate the name of the discount.<br><a onclick='loadDocReference("discounts")'>Click here to see Discounts</a>
-     * @param  ?string  $description  Indicates the description for the rate discount.
-     * @param  ?string  $type  Indicates the type.
-     * @param  ?float  $percent  Indicates the percentage of the rate discount.
+     * @param  ?float  $amount  Indicates the amount for the rate discount.<br> Example: 87.5
+     * @param  ?string  $name  Indicate the name of the discount.<a href="/developer-portal/en-us/reference-guide.html#discounts" target="_blank">Click here to see Discounts</a> <br> Example: name
+     * @param  ?string  $description  Indicates the description for the rate discount.<br> Example: Description
+     * @param  ?string  $type  Indicates the type. <br> Example: type
+     * @param  ?float  $percent  Indicates the percentage of the rate discount. <br> Example: 10.5
      */
     public function __construct(
         public readonly ?float $amount = null,

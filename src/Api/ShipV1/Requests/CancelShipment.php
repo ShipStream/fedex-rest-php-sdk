@@ -11,8 +11,10 @@ declare(strict_types=1);
 namespace ShipStream\FedEx\Api\ShipV1\Requests;
 
 use Exception;
+use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Response;
+use Saloon\Traits\Body\HasJsonBody;
 use ShipStream\FedEx\Api\ShipV1\Dto\FullSchemaCancelShipment;
 use ShipStream\FedEx\Api\ShipV1\Responses\ErrorResponseVo;
 use ShipStream\FedEx\Api\ShipV1\Responses\ErrorResponseVo2;
@@ -26,8 +28,10 @@ use ShipStream\FedEx\Request;
  * to FedEx. This request will cancel all packages within the shipment.<br><i>Note: FedEx APIs do not
  * support Cross-Origin Resource Sharing (CORS) mechanism.</i>
  */
-class CancelShipment extends Request
+class CancelShipment extends Request implements HasBody
 {
+    use HasJsonBody;
+
     protected Method $method = Method::PUT;
 
     /**
@@ -54,7 +58,7 @@ class CancelShipment extends Request
             default => throw new Exception("Unhandled response status: {$status}")
         };
 
-        return $responseCls::deserialize($response->json(), $responseCls);
+        return $responseCls::deserialize($response->json());
     }
 
     public function defaultBody(): array

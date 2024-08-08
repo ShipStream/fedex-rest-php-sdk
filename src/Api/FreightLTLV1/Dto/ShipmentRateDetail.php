@@ -14,10 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class ShipmentRateDetail extends Dto
 {
-    protected static array $complexArrayTypes = [
-        'freightDiscount' => [RateDiscount::class],
-        'surCharges' => [Surcharge::class],
-    ];
+    protected static array $complexArrayTypes = ['freightDiscount' => RateDiscount::class, 'surCharges' => Surcharge::class];
 
     /**
      * @param  ?CurrencyExchangeRate  $currencyExchangeRate  Specifies the currency exchange performed on financial amounts on this rate.

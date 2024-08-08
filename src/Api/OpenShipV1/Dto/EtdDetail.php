@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class EtdDetail extends Dto
 {
-    protected static array $complexArrayTypes = ['attachedDocuments' => [UploadDocumentReferenceDetail::class]];
+    protected static array $complexArrayTypes = ['attachedDocuments' => UploadDocumentReferenceDetail::class];
 
     /**
      * @param  ?string[]  $attributes  Use this attribute to specify if the Trade documents will be uploaded post the shipment.

@@ -15,9 +15,9 @@ use ShipStream\FedEx\Dto;
 final class PieceResponse extends Dto
 {
     protected static array $complexArrayTypes = [
-        'transactionDetails' => [TransactionDetailVo::class],
-        'packageDocuments' => [LabelResponseVo::class],
-        'customerReferences' => [CustomerReference::class],
+        'transactionDetails' => TransactionDetailVo::class,
+        'packageDocuments' => LabelResponseVo::class,
+        'customerReferences' => CustomerReference::class,
     ];
 
     /**
@@ -34,7 +34,6 @@ final class PieceResponse extends Dto
      * @param  ?float  $baseRateAmount  Specifies the base rate amount.<br>Example: 321.45
      * @param  ?int  $packageSequenceNumber  Indicates package sequence number.<br>Example: 215
      * @param  ?float  $netDiscountAmount  Specifies the net discount amount.<br>Example: 121.45
-     * @param  ?float  $codcollectionAmount  Specifies the Collect on Delivery collection amount.<br>Example: 231.45
      * @param  ?string  $masterTrackingNumber  This is a master tracking number for the shipment (must be unique for stand-alone open shipments, or unique within consolidation if consolidation key is provided).<br>Example: 794XXXXX5000
      * @param  ?string  $acceptanceType  Indicates acceptance type.
      * @param  ?string  $trackingNumber  This is a tracking number associated with this package. <br>Example: 49XXX0000XXX20032835
@@ -55,7 +54,6 @@ final class PieceResponse extends Dto
         public readonly ?float $baseRateAmount = null,
         public readonly ?int $packageSequenceNumber = null,
         public readonly ?float $netDiscountAmount = null,
-        public readonly ?float $codcollectionAmount = null,
         public readonly ?string $masterTrackingNumber = null,
         public readonly ?string $acceptanceType = null,
         public readonly ?string $trackingNumber = null,

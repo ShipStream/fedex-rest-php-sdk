@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class RequestedAppointmentDetail extends Dto
 {
-    protected static array $complexArrayTypes = ['window' => [TimeWindow::class]];
+    protected static array $complexArrayTypes = ['window' => TimeWindow::class];
 
     /**
      * @param  ?string  $date  Field which holds the requested appointment date.<br>Format: YYYY-MM-DD<br> example: '2019-05-07'

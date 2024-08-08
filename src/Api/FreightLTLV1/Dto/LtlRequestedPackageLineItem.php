@@ -15,8 +15,8 @@ use ShipStream\FedEx\Dto;
 final class LtlRequestedPackageLineItem extends Dto
 {
     protected static array $complexArrayTypes = [
-        'associatedFreightLineItems' => [AssociatedFreightLineItemDetail::class],
-        'contentRecord' => [ContentRecord::class],
+        'associatedFreightLineItems' => AssociatedFreightLineItemDetail::class,
+        'contentRecord' => ContentRecord::class,
     ];
 
     /**

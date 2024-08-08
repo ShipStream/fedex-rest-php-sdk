@@ -15,8 +15,8 @@ use ShipStream\FedEx\Dto;
 final class LocationHours extends Dto
 {
     protected static array $complexArrayTypes = [
-        'exceptionalHours' => [TimeRange::class],
-        'operationalHours' => [TimeRange::class],
+        'exceptionalHours' => TimeRange::class,
+        'operationalHours' => TimeRange::class,
     ];
 
     /**

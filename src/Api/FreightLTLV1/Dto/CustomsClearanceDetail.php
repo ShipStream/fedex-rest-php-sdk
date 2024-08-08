@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class CustomsClearanceDetail extends Dto
 {
-    protected static array $complexArrayTypes = ['commodities' => [Commodity::class], 'brokers' => [BrokerDetail2::class]];
+    protected static array $complexArrayTypes = ['commodities' => Commodity::class, 'brokers' => BrokerDetail2::class];
 
     /**
      * @param  CommercialInvoice  $commercialInvoice  Use this object to provide Commercial Invoice details. This element is required for electronic upload of CI data. It will serve to create/transmit an electronic Commercial Invoice through the FedEx system.<br>Customers are responsible for printing their own Commercial Invoice.<br>If you would like FedEx to generate a Commercial Invoice and transmit it to Customs for clearance purposes, you need to specify that in the ETDDetail/RequestedDocumentCopies element.<br>Supports maximum of 99 commodity line items.

@@ -44,7 +44,6 @@ trait Deserializes
         $attributeMap = $hasAttributeMap
             ? array_flip($reflectionClass->getProperty('attributeMap')->getValue())
             : [];
-        $unknownKeys = [];
 
         foreach ($data as $rawKey => $value) {
             $key = $rawKey;
@@ -53,16 +52,9 @@ trait Deserializes
             }
 
             if (! array_key_exists($key, $attributeTypes)) {
-                $unknownKeys[] = $key;
-
                 continue;
             }
             $deserializedParams[$key] = static::deserializeValue($value, $attributeTypes[$key]);
-        }
-
-        if (count($unknownKeys) > 0) {
-            $cls = static::class;
-            echo "Warning: Unknown keys when deserializing into $cls: ".implode(', ', $unknownKeys)."\n";
         }
 
         return new static(...$deserializedParams);
@@ -80,10 +72,10 @@ trait Deserializes
                 'date', 'datetime' => DateTime::createFromFormat(DateTime::RFC3339, $value),
                 'array', 'mixed' => $value,
                 'null' => null,
-                default => 0x0,
+                default => chr(0),
             };
 
-            if ($_value !== 0x0) {
+            if ($_value !== chr(0)) {
                 return $_value;
             }
 
@@ -97,11 +89,9 @@ trait Deserializes
 
             return $type::deserialize($value);
         } elseif (is_array($type)) {
-            $typeLen = count($type);
-            if ($typeLen !== 1) {
-                throw new InvalidAttributeTypeException(
-                    "Complex array type must have a single value (the type of the array items), $typeLen given"
-                );
+            // Handle optional complex array types
+            if ($value === null) {
+                return null;
             }
 
             $deserialized = [];

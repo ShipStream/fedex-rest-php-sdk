@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class CompletedPackageDetail extends Dto
 {
-    protected static array $complexArrayTypes = ['trackingIds' => [TrackingId::class]];
+    protected static array $complexArrayTypes = ['trackingIds' => TrackingId::class];
 
     /**
      * @param  ?int  $sequenceNumber  This is package sequence number. No negative value or decimals are allowed.<br>Example: 256

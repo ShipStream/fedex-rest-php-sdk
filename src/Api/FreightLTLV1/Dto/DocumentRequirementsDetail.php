@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class DocumentRequirementsDetail extends Dto
 {
-    protected static array $complexArrayTypes = ['generationDetails' => [DocumentGenerationDetail::class]];
+    protected static array $complexArrayTypes = ['generationDetails' => DocumentGenerationDetail::class];
 
     /**
      * @param  ?string[]  $requiredDocuments  Indicates the required documents information.<br>Example: ["COMMERCIAL_OR_PRO_FORMA_INVOICE","AIR_WAYBILL"]

@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class CompleteTrackResult extends Dto
 {
-    protected static array $complexArrayTypes = ['trackResults' => [TrackResult::class]];
+    protected static array $complexArrayTypes = ['trackResults' => TrackResult::class];
 
     /**
      * @param  ?string  $trackingNumber  A tracking number to identify a package.<br> Example: 123456789012

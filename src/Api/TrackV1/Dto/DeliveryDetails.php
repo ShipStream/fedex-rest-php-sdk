@@ -15,7 +15,7 @@ use ShipStream\FedEx\Dto;
 final class DeliveryDetails extends Dto
 {
     protected static array $complexArrayTypes = [
-        'deliveryOptionEligibilityDetails' => [DeliveryOptionElgibilityDetails::class],
+        'deliveryOptionEligibilityDetails' => DeliveryOptionElgibilityDetails::class,
     ];
 
     /**

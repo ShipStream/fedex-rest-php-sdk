@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class VerifyShipmentOutputVo extends Dto
 {
-    protected static array $complexArrayTypes = ['alerts' => [Alert::class]];
+    protected static array $complexArrayTypes = ['alerts' => Alert::class];
 
     /**
      * @param  Alert[]|null  $alerts  The alerts received when a Shipment Package Validate is processed. This includes the alert code, alert type, and alert message.

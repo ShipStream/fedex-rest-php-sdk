@@ -15,8 +15,8 @@ use ShipStream\FedEx\Dto;
 final class TransitTimeRequestedShipment extends Dto
 {
     protected static array $complexArrayTypes = [
-        'recipients' => [TransitTimeRecipient::class],
-        'requestedPackageLineItems' => [TransitTimeRequestedPackageLineItem::class],
+        'recipients' => TransitTimeRecipient::class,
+        'requestedPackageLineItems' => TransitTimeRequestedPackageLineItem::class,
     ];
 
     /**

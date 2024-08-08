@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class DeleteOpenShipmentOutputVo extends Dto
 {
-    protected static array $complexArrayTypes = ['alerts' => [Alert::class]];
+    protected static array $complexArrayTypes = ['alerts' => Alert::class];
 
     /**
      * @param  ?bool  $deletedOpenshipment  Indicates if the open shipment is deleted or not. <br>Example: True

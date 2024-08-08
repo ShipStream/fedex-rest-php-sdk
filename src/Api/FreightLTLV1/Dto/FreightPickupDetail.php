@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class FreightPickupDetail extends Dto
 {
-    protected static array $complexArrayTypes = ['lineItems' => [LineItems::class]];
+    protected static array $complexArrayTypes = ['lineItems' => LineItems::class];
 
     /**
      * @param  ?FreightAccountNumber  $accountNumber  Indicate the Account number details to be invoiced for freight pickup.

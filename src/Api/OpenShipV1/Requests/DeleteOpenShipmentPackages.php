@@ -11,8 +11,10 @@ declare(strict_types=1);
 namespace ShipStream\FedEx\Api\OpenShipV1\Requests;
 
 use Exception;
+use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Response;
+use Saloon\Traits\Body\HasJsonBody;
 use ShipStream\FedEx\Api\OpenShipV1\Dto\FullSchemaDeletePackagesFromOpenShipment;
 use ShipStream\FedEx\Api\OpenShipV1\Responses\ErrorResponseVo;
 use ShipStream\FedEx\Api\OpenShipV1\Responses\ErrorResponseVo2;
@@ -26,8 +28,10 @@ use ShipStream\FedEx\Request;
  * information before the shipment is confirmed.<br><i>Note: FedEx APIs do not support Cross-Origin
  * Resource Sharing (CORS) mechanism.</i>
  */
-class DeleteOpenShipmentPackages extends Request
+class DeleteOpenShipmentPackages extends Request implements HasBody
 {
+    use HasJsonBody;
+
     protected Method $method = Method::PUT;
 
     public function __construct(
@@ -51,7 +55,7 @@ class DeleteOpenShipmentPackages extends Request
             default => throw new Exception("Unhandled response status: {$status}")
         };
 
-        return $responseCls::deserialize($response->json(), $responseCls);
+        return $responseCls::deserialize($response->json());
     }
 
     public function defaultBody(): array

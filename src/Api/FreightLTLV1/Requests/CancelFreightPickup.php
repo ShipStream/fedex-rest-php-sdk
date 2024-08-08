@@ -11,8 +11,10 @@ declare(strict_types=1);
 namespace ShipStream\FedEx\Api\FreightLTLV1\Requests;
 
 use Exception;
+use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Response;
+use Saloon\Traits\Body\HasJsonBody;
 use ShipStream\FedEx\Api\FreightLTLV1\Dto\FullSchemaCancelFreightPickup;
 use ShipStream\FedEx\Api\FreightLTLV1\Responses\ErrorResponseVo;
 use ShipStream\FedEx\Api\FreightLTLV1\Responses\PudcResponseVoCancelPickup;
@@ -26,8 +28,10 @@ use ShipStream\FedEx\Request;
  * dispatched to the pickup location.<br><i>Note: FedEx APIs do not support Cross-Origin Resource
  * Sharing (CORS) mechanism.</i>
  */
-class CancelFreightPickup extends Request
+class CancelFreightPickup extends Request implements HasBody
 {
+    use HasJsonBody;
+
     protected Method $method = Method::PUT;
 
     /**
@@ -52,7 +56,7 @@ class CancelFreightPickup extends Request
             default => throw new Exception("Unhandled response status: {$status}")
         };
 
-        return $responseCls::deserialize($response->json(), $responseCls);
+        return $responseCls::deserialize($response->json());
     }
 
     public function defaultBody(): array

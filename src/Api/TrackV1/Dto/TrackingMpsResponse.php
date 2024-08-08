@@ -15,8 +15,8 @@ use ShipStream\FedEx\Dto;
 final class TrackingMpsResponse extends Dto
 {
     protected static array $complexArrayTypes = [
-        'completeTrackResults' => [CompleteTrackResult::class],
-        'alerts' => [Alert::class],
+        'completeTrackResults' => CompleteTrackResult::class,
+        'alerts' => Alert::class,
     ];
 
     /**

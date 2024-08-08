@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class PendingShipmentDetail extends Dto
 {
-    protected static array $complexArrayTypes = ['attachedDocuments' => [UploadDocumentReferenceDetail::class]];
+    protected static array $complexArrayTypes = ['attachedDocuments' => UploadDocumentReferenceDetail::class];
 
     /**
      * @param  string  $pendingShipmentType  This is Pending Shipment Type. Must include the value 'EMAIL' for email return shipments.<br>Not applicable for other types of shipments.

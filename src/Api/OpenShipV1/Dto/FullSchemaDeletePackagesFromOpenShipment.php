@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class FullSchemaDeletePackagesFromOpenShipment extends Dto
 {
-    protected static array $complexArrayTypes = ['trackingIds' => [TrackingId::class]];
+    protected static array $complexArrayTypes = ['trackingIds' => TrackingId::class];
 
     /**
      * @param  string  $index  This is a unique value assigned to the already created Open Shipment. If this isn’t available then provide the master tracking number.<br>Example: Test1234

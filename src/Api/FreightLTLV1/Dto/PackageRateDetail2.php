@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class PackageRateDetail2 extends Dto
 {
-    protected static array $complexArrayTypes = ['surcharges' => [Surcharge::class]];
+    protected static array $complexArrayTypes = ['surcharges' => Surcharge2::class];
 
     /**
      * @param  ?string  $ratedWeightMethod  Indicates the weight types used in calculating this rate, such as actual weight or dimensional weight.<br> Example: DIM
@@ -26,7 +26,7 @@ final class PackageRateDetail2 extends Dto
      * @param  ?string  $rateType  This is the rate type used.<br>Example: PAYOR_RETAIL_PACKAGE
      * @param  ?Weight  $billingWeight  These are the package weight details.<br>Note: Weight is not required for One rate shipments
      * @param  ?float  $netFreight  This is the net freight charges. i.e. base charge minus total freight discounts for a package.<br>Example: 4.89
-     * @param  Surcharge[]|null  $surcharges  Specifies the list of all surcharges that apply to this package.
+     * @param  Surcharge2[]|null  $surcharges  These are all surcharges on this package.<br><a onclick='loadDocReference("surcharges")'>click here to see Surcharges</a>
      * @param  ?float  $totalSurcharges  The sum of all surcharges on this package.<br>Example: 22.56
      * @param  ?float  $netFedExCharge  This is sum of net freight and total surcharges (not including totalTaxes) for this package.<br>Example: 12.56
      * @param  ?float  $netCharge  This is the sum of net freight, total surcharges and total taxes for a package.<br>Example: 121.56

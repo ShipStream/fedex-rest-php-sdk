@@ -14,11 +14,11 @@ use ShipStream\FedEx\Dto;
 
 final class CreatePickupOutputVo extends Dto
 {
-    protected static array $complexArrayTypes = ['alerts' => [Alert::class]];
+    protected static array $complexArrayTypes = ['alerts' => Alert::class];
 
     /**
      * @param  ?string  $pickupConfirmationCode  The confirmation number provided to the customer when a freight pickup is requested. <br> Example : XXXX101XXOS45XXXX
-     * @param  Alert[]|null  $alerts  The cxs alert code, alert type, and alert message obtained when a rate quote is requested.
+     * @param  Alert[]|null  $alerts  These are optional alerts received when a Create freight pickup is requested. This includes an alert code, type, and message.
      */
     public function __construct(
         public readonly ?string $pickupConfirmationCode = null,

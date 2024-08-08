@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class SpodResponseVo extends Dto
 {
-    protected static array $complexArrayTypes = ['alerts' => [Alert::class]];
+    protected static array $complexArrayTypes = ['alerts' => Alert::class];
 
     /**
      * @param  ?Localization  $localization  Specifies the language details for email notification.

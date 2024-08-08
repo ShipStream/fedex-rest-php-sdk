@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class PickupNotificationDetail extends Dto
 {
-    protected static array $complexArrayTypes = ['emailDetails' => [EmailDetail::class]];
+    protected static array $complexArrayTypes = ['emailDetails' => EmailDetail::class];
 
     /**
      * @param  EmailDetail[]|null  $emailDetails  Specify the list of email addresses along with locale to which the pickup confirmation email should be sent.

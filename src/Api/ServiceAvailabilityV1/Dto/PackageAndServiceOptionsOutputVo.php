@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class PackageAndServiceOptionsOutputVo extends Dto
 {
-    protected static array $complexArrayTypes = ['packageOptions' => [PackageTypeDetail::class], 'alerts' => [Alert::class]];
+    protected static array $complexArrayTypes = ['packageOptions' => PackageTypeDetail::class, 'alerts' => Alert::class];
 
     /**
      * @param  PackageTypeDetail[]|null  $packageOptions  The available packaging options for the shipment. This also includes the applicable rate types, the weight limit, or any other information related to the shipment. </br>Valid values for the weight limit are:<br>-maxMetricWeightAllowed<br>-maxWeightAllowed<br>-oneRateMaxWeightAllowed<br>-oneRateMaxMetricWeightAllowed

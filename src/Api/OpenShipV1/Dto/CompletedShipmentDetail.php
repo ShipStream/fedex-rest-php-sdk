@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class CompletedShipmentDetail extends Dto
 {
-    protected static array $complexArrayTypes = ['completedPackageDetails' => [CompletedPackageDetail::class]];
+    protected static array $complexArrayTypes = ['completedPackageDetails' => CompletedPackageDetail::class];
 
     /**
      * @param  CompletedPackageDetail[]|null  $completedPackageDetails  Indicates the completed package details.

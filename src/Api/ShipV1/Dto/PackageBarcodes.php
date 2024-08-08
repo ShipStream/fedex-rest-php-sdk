@@ -15,8 +15,8 @@ use ShipStream\FedEx\Dto;
 final class PackageBarcodes extends Dto
 {
     protected static array $complexArrayTypes = [
-        'binaryBarcodes' => [BinaryBarcode::class],
-        'stringBarcodes' => [StringBarcode::class],
+        'binaryBarcodes' => BinaryBarcode::class,
+        'stringBarcodes' => StringBarcode::class,
     ];
 
     /**

@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class PendingShipmentAccessDetail extends Dto
 {
-    protected static array $complexArrayTypes = ['accessorDetails' => [PendingShipmentAccessorDetail::class]];
+    protected static array $complexArrayTypes = ['accessorDetails' => PendingShipmentAccessorDetail::class];
 
     /**
      * @param  PendingShipmentAccessorDetail[]|null  $accessorDetails  Indicates the details about the users who can access the shipment.

@@ -15,9 +15,9 @@ use ShipStream\FedEx\Dto;
 final class ShipmentRateDetail2 extends Dto
 {
     protected static array $complexArrayTypes = [
-        'taxes' => [Tax::class],
-        'surcharges' => [Surcharge::class],
-        'freightDiscounts' => [RateDiscount::class],
+        'shipmentLegRateDetails' => ShipmentLegRateDetail2::class,
+        'surcharges' => Surcharge2::class,
+        'freightDiscounts' => RateDiscount2::class,
     ];
 
     /**
@@ -29,19 +29,19 @@ final class ShipmentRateDetail2 extends Dto
      * @param  ?float  $totalTaxes  Total of the transportation-based taxes.<br>Example: 3.45
      * @param  ?float  $totalDutiesAndTaxes  Total of all values under this shipment's duties and taxes; only provided if estimated duties and taxes were calculated for this shipment.<br>Example: 6.78
      * @param  ?float  $totalAncillaryFeesAndTaxes  Identifies the total amount of the shipment-level fees and taxes that are not based on transportation charges or commodity-level estimated duties and taxes.<br>Example: 5.67
-     * @param  Tax[]|null  $taxes  Specifies the list of taxes.
+     * @param  mixed[][]|null  $taxes  All transportation-based taxes applicable to this shipment.
      * @param  ?float  $totalRebates  The total sum of all rebates applied to this shipment.<br>Example: 1.98
      * @param  ?float  $fuelSurchargePercent  Specifies a fuel surcharge percentage.<br>Example: 4.56
      * @param  ?CurrencyExchangeRate  $currencyExchangeRate  Specifies the currency exchange performed on financial amounts on this rate.
      * @param  ?float  $totalNetFreight  The freight charge minus discounts.<br>Example: 9.56
      * @param  ?float  $totalNetFedExCharge  This is the sum of shipment's total net freight, total surchages (not including totalTaxes).<br>Example: 88.56
-     * @param  mixed[][]|null  $shipmentLegRateDetails  This is data for a single leg of a shipment's total/summary rates, as calculated per a specific rate type.
+     * @param  ShipmentLegRateDetail2[]|null  $shipmentLegRateDetails  This is data for a single leg of a shipment's total/summary rates, as calculated per a specific rate type.
      * @param  ?int  $dimDivisor  The value used to calculate the weight based on the dimensions.<br>Example: 0
      * @param  ?string  $rateType  The Type used for this specific set of rate data.<br>Example: RATED_ACCOUNT_SHIPMENT
-     * @param  Surcharge[]|null  $surcharges  Specifies the list of all surcharges that apply to this package.
+     * @param  Surcharge2[]|null  $surcharges  All surcharges that apply to this shipment.<br><a onclick='loadDocReference("surcharges")'>click here to see Surcharges</a>
      * @param  ?float  $totalSurcharges  The total amount of all surcharges applied to this shipment.<br>Example: 9.88
      * @param  ?Weight  $totalBillingWeight  These are the package weight details.<br>Note: Weight is not required for One rate shipments
-     * @param  RateDiscount[]|null  $freightDiscounts  All rate discounts that apply to this shipment.<br><a onclick='loadDocReference("discounts")'>Click here to see Discounts</a>
+     * @param  RateDiscount2[]|null  $freightDiscounts  Indicates the freight discounts.
      * @param  ?string  $rateScale  Indicates the rate scale used.<br>Example: 00000
      * @param  ?float  $totalNetCharge  The net charge after applying all discounts and surcharges.<br>Example: 3.78
      * @param  ?float  $totalBaseCharge  The total Shipment charge that was calculated before surcharges, discounts and taxes.<br>Example: 234.56

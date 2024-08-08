@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class CertificateOfOriginDetail extends Dto
 {
-    protected static array $complexArrayTypes = ['customerImageUsages' => [CustomerImageUsage::class]];
+    protected static array $complexArrayTypes = ['customerImageUsages' => CustomerImageUsage::class];
 
     /**
      * @param  CustomerImageUsage[]|null  $customerImageUsages  Specifies the usage and identification of customer supplied images to be used on this document.

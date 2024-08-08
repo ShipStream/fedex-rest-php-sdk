@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class PackageTypeDetail extends Dto
 {
-    protected static array $complexArrayTypes = ['packagingInfoList' => [SubPackageInfo::class]];
+    protected static array $complexArrayTypes = ['packagingInfoList' => SubPackageInfo::class];
 
     /**
      * @param  ?KeyDisplayTextVo  $serviceType  this object holds applicable key and display text value pairs.

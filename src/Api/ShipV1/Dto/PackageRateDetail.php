@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class PackageRateDetail extends Dto
 {
-    protected static array $complexArrayTypes = ['surcharges' => [Surcharge::class]];
+    protected static array $complexArrayTypes = ['surcharges' => Surcharge::class];
 
     /**
      * @param  ?string  $ratedWeightMethod  Indicates the weight types used in calculating this rate, such as actual weight or dimensional weight.<br> Example: DIM

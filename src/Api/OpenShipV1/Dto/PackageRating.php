@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class PackageRating extends Dto
 {
-    protected static array $complexArrayTypes = ['packageRateDetails' => [PackageRateDetail::class]];
+    protected static array $complexArrayTypes = ['packageRateDetails' => PackageRateDetail::class];
 
     /**
      * @param  ?float  $effectiveNetDiscount  This is the difference between the list and account net charge.<br>Example: 0.0

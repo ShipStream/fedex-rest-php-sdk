@@ -14,11 +14,11 @@ use ShipStream\FedEx\Dto;
 
 final class EmailLabelDetail extends Dto
 {
-    protected static array $complexArrayTypes = ['recipients' => [RecipientsParty::class]];
+    protected static array $complexArrayTypes = ['recipients' => EmailRecipient::class];
 
     /**
-     * @param  RecipientsParty[]|null  $recipients  Indicate the descriptive data for the recipient location to which the shipment is to be received.
-     * @param  ?string  $message  This is an optional personalized message to be included in the email to the recipient.
+     * @param  EmailRecipient[]|null  $recipients  This is Email label recipient email address, shipment role, & language locale details. Atleast one entry must be specified.
+     * @param  ?string  $message  Specifies an optional personalized message to be included in the email to the email label recipient.<br>Example: YOUR OPTIONAL MESSAGE
      */
     public function __construct(
         public readonly ?array $recipients = null,

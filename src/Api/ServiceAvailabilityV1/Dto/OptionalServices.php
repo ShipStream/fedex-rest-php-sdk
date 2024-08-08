@@ -15,12 +15,12 @@ use ShipStream\FedEx\Dto;
 final class OptionalServices extends Dto
 {
     protected static array $complexArrayTypes = [
-        'signatureOptionsList' => [CodeDisplayTextVo::class],
-        'packageSpecialServicesList' => [PackageSpecialServiceOption::class],
-        'batteryOptionList' => [BatteryDetail::class],
-        'alertList' => [KeyDisplayTextVo::class],
-        'shipmentSpecialServicesList' => [ShipmentSpecialServiceOption::class],
-        'alerts' => [Alert::class],
+        'signatureOptionsList' => CodeDisplayTextVo::class,
+        'packageSpecialServicesList' => PackageSpecialServiceOption::class,
+        'batteryOptionList' => BatteryDetail::class,
+        'alertList' => KeyDisplayTextVo::class,
+        'shipmentSpecialServicesList' => ShipmentSpecialServiceOption::class,
+        'alerts' => Alert::class,
     ];
 
     /**

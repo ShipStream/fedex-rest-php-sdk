@@ -15,8 +15,8 @@ use ShipStream\FedEx\Dto;
 final class ContactAncillaryDetail extends Dto
 {
     protected static array $complexArrayTypes = [
-        'emailAddresses' => [EMailDetail::class],
-        'phoneNumberDetails' => [PhoneNumberDetail::class],
+        'emailAddresses' => EMailDetail::class,
+        'phoneNumberDetails' => PhoneNumberDetail::class,
     ];
 
     /**

@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class ShipmentRating extends Dto
 {
-    protected static array $complexArrayTypes = ['shipmentRateDetails' => [ShipmentRateDetail::class]];
+    protected static array $complexArrayTypes = ['shipmentRateDetails' => ShipmentRateDetail::class];
 
     /**
      * @param  ?string  $actualRateType  This rate type identifies which entry in the following array is considered as presenting the "actual" rates for the shipment.<br>Example: PAYOR_LIST_SHIPMENT

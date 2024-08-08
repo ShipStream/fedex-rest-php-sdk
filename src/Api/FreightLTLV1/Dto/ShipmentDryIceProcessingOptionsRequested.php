@@ -15,7 +15,7 @@ use ShipStream\FedEx\Dto;
 final class ShipmentDryIceProcessingOptionsRequested extends Dto
 {
     /**
-     * @param  ?string[]  $options  Indicates the format options. SUPPRESS_ADDITIONAL_LANGUAGES value will suppress English language if another language is specified in the language code field.
+     * @param  ?string[]  $options  Specifies the options.<br>Example: ["options"]
      */
     public function __construct(
         public readonly ?array $options = null,

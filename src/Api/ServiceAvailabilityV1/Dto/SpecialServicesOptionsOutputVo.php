@@ -14,10 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class SpecialServicesOptionsOutputVo extends Dto
 {
-    protected static array $complexArrayTypes = [
-        'alerts' => [Alert::class],
-        'serviceOptionsList' => [OptionalServices::class],
-    ];
+    protected static array $complexArrayTypes = ['alerts' => Alert::class, 'serviceOptionsList' => OptionalServices::class];
 
     /**
      * @param  Alert[]|null  $alerts  The cxs alert type, alert code, and alert message.

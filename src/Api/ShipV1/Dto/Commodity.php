@@ -16,7 +16,7 @@ final class Commodity extends Dto
 {
     protected static array $attributeMap = ['cImarksAndNumbers' => 'cIMarksAndNumbers'];
 
-    protected static array $complexArrayTypes = ['additionalMeasures' => [AdditionalMeasures::class]];
+    protected static array $complexArrayTypes = ['additionalMeasures' => AdditionalMeasures::class];
 
     /**
      * @param  string  $description  Required<br>ScrewsMaximum allowed 450 characters.<br>Example: description

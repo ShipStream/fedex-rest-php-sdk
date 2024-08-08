@@ -15,8 +15,8 @@ use ShipStream\FedEx\Dto;
 final class LtlRateReplyDetail extends Dto
 {
     protected static array $complexArrayTypes = [
-        'customerMessages' => [CustomerMessage::class],
-        'freightTransitLocationDetail' => [FreightTransitLocationDetail::class],
+        'customerMessages' => CustomerMessage::class,
+        'freightTransitLocationDetail' => FreightTransitLocationDetail::class,
     ];
 
     /**

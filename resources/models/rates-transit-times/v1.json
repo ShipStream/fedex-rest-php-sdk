@@ -1459,7 +1459,7 @@
                         "$ref": "#/components/schemas/ServiceDescription"
                     },
                     "brokerDetail": {
-                        "$ref": "#/components/schemas/BrokerDetail"
+                        "$ref": "#/components/schemas/BrokerDetail_RateReply"
                     },
                     "commit": {
                         "$ref": "#/components/schemas/CommitDetail"
@@ -1917,14 +1917,6 @@
             "EdtCharge": {
                 "type": "object",
                 "properties": {
-                    "alternateHarmonizedCodes": {
-                        "type": "array",
-                        "description": "Specifies the alternate harmonized codes for the commodity.<br> Example: alternateHarmonizedCodes",
-                        "example": "alternateHarmonizedCodes",
-                        "items": {
-                            "type": "string"
-                        }
-                    },
                     "edtTaxDetail": {
                         "$ref": "#/components/schemas/EdtTaxDetail"
                     },
@@ -2419,14 +2411,6 @@
                             "$ref": "#/components/schemas/ProductName"
                         }
                     },
-                    "operatingOrgCodes": {
-                        "type": "array",
-                        "description": "Specifies operating organization codes.<br> Example: 'FXG'",
-                        "example": "FXG",
-                        "items": {
-                            "type": "string"
-                        }
-                    },
                     "astraDescription": {
                         "type": "string",
                         "description": "Specifies astra description. <br> Example: INTL1ST",
@@ -2490,29 +2474,33 @@
                             "IMPORT"
                         ]
                     },
-                    "brokerCommitTimestamp": {
-                        "type": "string",
-                        "description": "This is the delivery commitment date/time the shipment will arrive at the border. <br> Example: 2019-07-22",
-                        "example": "2019-07-22"
+                    "brokerAddress": {
+                        "$ref": "#/components/schemas/Brokeraddress"
+                    }
+                },
+                "description": "These are Broker Detail for the rate quote."
+            },
+            "BrokerDetail_RateReply": {
+                "required": [
+                    "broker",
+                    "type"
+                ],
+                "type": "object",
+                "properties": {
+                    "broker": {
+                        "$ref": "#/components/schemas/Party"
                     },
-                    "brokerCommitDayOfWeek": {
+                    "type": {
                         "type": "string",
-                        "description": "This is the delivery commitment day of the week the shipment will arrive at the border. <br> Example: SUNDAY",
-                        "example": "SUNDAY"
-                    },
-                    "brokerLocationId": {
-                        "type": "string",
-                        "description": "This is the FedEx location identifier for the broker. <br> Example: HKAA",
-                        "example": "brokerLocationId"
+                        "description": "This is Broker Type.",
+                        "example": "EXPORT",
+                        "enum": [
+                            "EXPORT",
+                            "IMPORT"
+                        ]
                     },
                     "brokerAddress": {
                         "$ref": "#/components/schemas/Brokeraddress"
-                    },
-                    "brokerToDestinationDays": {
-                        "type": "integer",
-                        "description": "These are number of days it will take for the shipment to make it from broker. <br> Example: 10",
-                        "format": "int32",
-                        "example": 10
                     }
                 },
                 "description": "These are Broker Detail for the rate quote."
@@ -2870,9 +2858,6 @@
                         "description": "Indicate the FedEx service type used for this shipment. The results will be filtered by the service type value indicated. If no serviceType is indicated then all the applicable services and corresponding rates will be returned.<br>Example: STANDARD_OVERNIGHT<br><a onclick='loadDocReference(\"servicetypes\")'>Click here to see Service Types</a>",
                         "example": "STANDARD_OVERNIGHT"
                     },
-                    "emailNotificationDetail": {
-                        "$ref": "#/components/schemas/EMailNotificationDetail"
-                    },
                     "preferredCurrency": {
                         "type": "string",
                         "description": "Indicate the currency the caller requests to have used in all returned monetary values (when a choice is possible). Used in conjunction with the rateRequestType data element. This element is used to pull Preferred rates.<br>Example: USD<br><a onclick='loadDocReference(\"currencycodes\")'> Click here to see Currency Codes</a>",
@@ -2950,25 +2935,11 @@
                     "customsClearanceDetail": {
                         "$ref": "#/components/schemas/CustomsClearanceDetail"
                     },
-                    "groupShipment": {
-                        "title": ":\"@Ignore4TPP\"",
-                        "type": "boolean",
-                        "example": true
-                    },
                     "serviceTypeDetail": {
                         "$ref": "#/components/schemas/ServiceTypeDetailVO"
                     },
                     "smartPostInfoDetail": {
                         "$ref": "#/components/schemas/SmartPostInfoDetail"
-                    },
-                    "expressFreightDetail": {
-                        "$ref": "#/components/schemas/ExpressFreightDetail"
-                    },
-                    "groundShipment": {
-                        "title": "@Ignore4TPP",
-                        "type": "boolean",
-                        "description": "If set to 'true', indicates it is a Ground shipment.<br> Example: 'false'",
-                        "example": false
                     }
                 },
                 "description": "This is shipment data for which a rate quote (or rate-shipping comparison) is requested."
@@ -2984,110 +2955,6 @@
                     }
                 },
                 "description": "Specify the shipper address details."
-            },
-            "EMailNotificationDetail": {
-                "type": "object",
-                "properties": {
-                    "recipients": {
-                        "type": "array",
-                        "description": " The list of recipients for shipment notifications.",
-                        "items": {
-                            "$ref": "#/components/schemas/EmailNotificationRecipient"
-                        }
-                    },
-                    "personalMessage": {
-                        "type": "string",
-                        "description": "Indicates the personal message to be added with the notification."
-                    },
-                    "PrintedReference": {
-                        "$ref": "#/components/schemas/EMailNotificationDetail_PrintedReference"
-                    }
-                },
-                "description": "Object to specify email details for shipment notifications."
-            },
-            "EmailNotificationRecipient": {
-                "required": [
-                    "emailAddress"
-                ],
-                "type": "object",
-                "properties": {
-                    "emailAddress": {
-                        "type": "string",
-                        "description": "Identifies the email address associated with this contact."
-                    },
-                    "notificationEventType": {
-                        "type": "array",
-                        "description": "Specifies notification event type.",
-                        "items": {
-                            "type": "string",
-                            "enum": [
-                                "ON_DELIVERY",
-                                "ON_EXCEPTION",
-                                "ON_SHIPMENT",
-                                "ON_TENDER",
-                                "ON_ESTIMATED_DELIVERY",
-                                "ON_PICKUP",
-                                "ON_LABEL",
-                                "ON_BILL_OF_LADING"
-                            ]
-                        }
-                    },
-                    "smsDetail": {
-                        "$ref": "#/components/schemas/SmsDetail"
-                    },
-                    "notificationFormatType": {
-                        "type": "string",
-                        "description": "Specifies Notification Format Type.",
-                        "enum": [
-                            "HTML",
-                            "TEXT"
-                        ]
-                    },
-                    "emailNotificationRecipientType": {
-                        "type": "string",
-                        "description": "Required Email Notification Recipient Type.",
-                        "enum": [
-                            "BROKER",
-                            "OTHER",
-                            "RECIPIENT",
-                            "SHIPPER",
-                            "THIRD_PARTY",
-                            "OTHER1",
-                            "OTHER2"
-                        ]
-                    },
-                    "notificationType": {
-                        "type": "string",
-                        "description": "Specifies the type of the notification received.",
-                        "enum": [
-                            "EMAIL",
-                            "SMS_TEXT_MESSAGE"
-                        ]
-                    },
-                    "locale": {
-                        "type": "string",
-                        "description": "Specify the locale details.<br>Example: 'en_US'<br><a onclick='loadDocReference(\"locales\")'>Click here to see the list of available locales<br></a><br>Note: If the locale is left blank or an invalid locale is entered, an error message is returned in response."
-                    }
-                },
-                "description": "Data specifying the recipient(s) of notifications related to the movement of the shipment. At a minimnum an EmailnotificationRecipientType, at least one NoficationEventType, and an EmailAddress are required."
-            },
-            "SmsDetail": {
-                "description": "Specifies the SMS notification details.<br>Conditionally required for SMS notifications.",
-                "schema": {
-                    "required": [
-                        "phoneNumber",
-                        "phoneNumberCountryCode"
-                    ],
-                    "properties": {
-                        "phoneNumber": {
-                            "type": "string"
-                        },
-                        "phoneNumberCountryCode": {
-                            "type": "string"
-                        }
-                    }
-                },
-                "type": "string"
             },
             "RequestedPackageLineItem": {
                 "required": [
@@ -3105,14 +2972,6 @@
                         "description": "Indicate the grouped package count. These are number of identical package(s) each with one or more commodities. <br> Example: 2",
                         "format": "int32",
                         "example": 1
-                    },
-                    "contentRecord": {
-                        "title": "@Ignore4TPP",
-                        "type": "array",
-                        "description": "Specifies the content record.",
-                        "items": {
-                            "$ref": "#/components/schemas/ContentRecord"
-                        }
                     },
                     "declaredValue": {
                         "description": "This is the Declared Value - represents FedEx Maximum liability in connection with a shipment of that Package, including but not limited to, any loss, damage, delay, misdelivery, any failure to provide information, or misdelivery of information relating to the Shipment.",
@@ -3134,28 +2993,19 @@
                     }
                 }
             },
-            "ContentRecord": {
+            "StandaloneBatteryDetails": {
                 "type": "object",
                 "properties": {
-                    "itemNumber": {
+                    "batteryMaterialType": {
                         "type": "string",
-                        "description": "Specifies Item Number."
-                    },
-                    "receivedQuantity": {
-                        "type": "integer",
-                        "description": "Specifies Received Quantity.",
-                        "format": "int32"
-                    },
-                    "description": {
-                        "type": "string",
-                        "description": "Specifies description for the content record."
-                    },
-                    "partNumber": {
-                        "type": "string",
-                        "description": "Specifies Part Number."
+                        "description": "Describes the material composition of the battery or cell.",
+                        "example": "LITHIUM_METAL",
+                        "enum": [
+                            "LITHIUM_METAL",
+                            "LITHIUM_ION"
+                        ]
                     }
-                },
-                "description": "Specifies the details of the content of the package."
+                }
             },
             "VariableHandlingChargeDetail": {
                 "required": [
@@ -3259,6 +3109,13 @@
                     },
                     "dryIceWeight": {
                         "$ref": "#/components/schemas/Weight"
+                    },
+                    "standaloneBatteryDetails": {
+                        "type": "array",
+                        "description": "Provides details about the batteries or cells that are contained within this specific package.",
+                        "items": {
+                            "$ref": "#/components/schemas/StandaloneBatteryDetails"
+                        }
                     }
                 },
                 "description": "These special services are available at the package level for some or all service types. Needs Indicated, if rate data is being requested for the special services. "
@@ -3288,11 +3145,6 @@
             "DangerousGoodsDetail": {
                 "type": "object",
                 "properties": {
-                    "offeror": {
-                        "type": "string",
-                        "description": "Indicate the Offeror's name or contract number, per DOT regulation.<br>Example: John Smith",
-                        "example": "Offeror Name"
-                    },
                     "accessibility": {
                         "type": "string",
                         "description": "Indicate the Dangerous Goods Accessibility Type.<br> Inaccessible means it does not have to be accessible on the aircraft.  Accessible means it must be fully accessible on the aircraft, and is more strictly controlled.",
@@ -3300,11 +3152,6 @@
                             "ACCESSIBLE",
                             "INACCESSIBLE"
                         ]
-                    },
-                    "emergencyContactNumber": {
-                        "type": "string",
-                        "description": "Indicate the emergency telephone/contact number.",
-                        "example": "3268545905"
                     },
                     "options": {
                         "type": "array",
@@ -3341,9 +3188,6 @@
                             "IATA",
                             "ORMD"
                         ]
-                    },
-                    "packaging": {
-                        "$ref": "#/components/schemas/HazardousCommodityPackagingDetail"
                     }
                 },
                 "description": "Use this object to specify Dangerous Goods shipment Detail."
@@ -3692,9 +3536,6 @@
                     "internationalTrafficInArmsRegulationsDetail": {
                         "$ref": "#/components/schemas/InternationalTrafficInArmsRegulationsDetail"
                     },
-                    "pendingShipmentDetail": {
-                        "$ref": "#/components/schemas/PendingShipmentDetail"
-                    },
                     "holdAtLocationDetail": {
                         "$ref": "#/components/schemas/HoldAtLocationDetail"
                     },
@@ -3742,210 +3583,6 @@
                     }
                 },
                 "description": "These are International Traffic In Arms Regulations shipment service Details."
-            },
-            "PendingShipmentDetail": {
-                "type": "object",
-                "properties": {
-                    "pendingShipmentType": {
-                        "type": "string",
-                        "description": "This is Pending Shipment Type. Must include the value EMAIL for email return shipments.<br>Not applicable for other types of shipments.",
-                        "enum": [
-                            "EMAIL"
-                        ]
-                    },
-                    "processingOptions": {
-                        "$ref": "#/components/schemas/PendingShipmentProcessingOptionsRequested"
-                    },
-                    "recommendedDocumentSpecification": {
-                        "$ref": "#/components/schemas/RecommendedDocumentSpecification"
-                    },
-                    "emailLabelDetail": {
-                        "$ref": "#/components/schemas/EmailLabelDetail"
-                    },
-                    "documentReferences": {
-                        "type": "array",
-                        "description": "These are Upload document details provided by the initiator of the shipment.",
-                        "items": {
-                            "$ref": "#/components/schemas/UploadDocumentReferenceDetail"
-                        }
-                    },
-                    "expirationTimeStamp": {
-                        "type": "string",
-                        "description": "Specify the Email Return Label expiration date. The Maximum expiration date for an Email Return Label must be greater or equal to the day of the label request and not greater than 2 years in the future.<br>Example: 2012-12-31.",
-                        "example": "2012-12-31"
-                    },
-                    "shipmentDryIceDetail": {
-                        "$ref": "#/components/schemas/ShipmentDryIceDetail"
-                    }
-                },
-                "description": "This object is used to specify the Pending Shipment Type for Email label."
-            },
-            "PendingShipmentProcessingOptionsRequested": {
-                "type": "object",
-                "properties": {
-                    "options": {
-                        "type": "array",
-                        "description": "These are Pending Shipment processing options.<br> Example: [\"ALLOW_MODIFICATIONS\"]",
-                        "items": {
-                            "type": "string",
-                            "enum": [
-                                "ALLOW_MODIFICATIONS"
-                            ]
-                        }
-                    }
-                },
-                "description": "Use this object to specify the processing options associated with Pending Shipment request. This is useful for the Email Label originator to specify if the completer can make modifications to editable shipment data."
-            },
-            "RecommendedDocumentSpecification": {
-                "type": "object",
-                "properties": {
-                    "types": {
-                        "type": "array",
-                        "description": "This is a document type.",
-                        "items": {
-                            "type": "string",
-                            "enum": [
-                                "ANTIQUE_STATEMENT_EUROPEAN_UNION",
-                                "ANTIQUE_STATEMENT_UNITED_STATES",
-                                "ASSEMBLER_DECLARATION",
-                                "BEARING_WORKSHEET",
-                                "CERTIFICATE_OF_SHIPMENTS_TO_SYRIA",
-                                "COMMERCIAL_INVOICE_FOR_THE_CARIBBEAN_COMMON_MARKET",
-                                "CONIFEROUS_SOLID_WOOD_PACKAGING_MATERIAL_TO_THE_PEOPLES_REPUBLIC_OF_CHINA",
-                                "DECLARATION_FOR_FREE_ENTRY_OF_RETURNED_AMERICAN_PRODUCTS",
-                                "DECLARATION_OF_BIOLOGICAL_STANDARDS",
-                                "DECLARATION_OF_IMPORTED_ELECTRONIC_PRODUCTS_SUBJECT_TO_RADIATION_CONTROL_STANDARD",
-                                "ELECTRONIC_INTEGRATED_CIRCUIT_WORKSHEET",
-                                "FILM_AND_VIDEO_CERTIFICATE",
-                                "INTERIM_FOOTWEAR_INVOICE",
-                                "NAFTA_CERTIFICATE_OF_ORIGIN_CANADA_ENGLISH",
-                                "NAFTA_CERTIFICATE_OF_ORIGIN_CANADA_FRENCH",
-                                "NAFTA_CERTIFICATE_OF_ORIGIN_SPANISH",
-                                "NAFTA_CERTIFICATE_OF_ORIGIN_UNITED_STATES",
-                                "PACKING_LIST",
-                                "PRINTED_CIRCUIT_BOARD_WORKSHEET",
-                                "REPAIRED_WATCH_BREAKOUT_WORKSHEET",
-                                "STATEMENT_REGARDING_THE_IMPORT_OF_RADIO_FREQUENCY_DEVICES",
-                                "TOXIC_SUBSTANCES_CONTROL_ACT",
-                                "UNITED_STATES_CARIBBEAN_BASIN_TRADE_PARTNERSHIP_ACT_CERTIFICATE_OF_ORIGIN_TEXTILES",
-                                "UNITED_STATES_CARIBBEAN_BASIN_TRADE_PARTNERSHIP_ACT_CERTIFICATE_OF_ORIGIN_NON_TEXTILES",
-                                "UNITED_STATES_NEW_WATCH_WORKSHEET",
-                                "UNITED_STATES_WATCH_REPAIR_DECLARATION"
-                            ]
-                        }
-                    }
-                },
-                "description": "These are recommended document specification which are recommended to be included with the shipment."
-            },
-            "EmailLabelDetail": {
-                "type": "object",
-                "properties": {
-                    "recipients": {
-                        "type": "array",
-                        "description": "Describes specific information about the list of email label shipment reipients.",
-                        "items": {
-                            "$ref": "#/components/schemas/EmailRecipient"
-                        }
-                    },
-                    "message": {
-                        "type": "string",
-                        "description": "customer specified message to be included in the email to the end-user."
-                    }
-                },
-                "description": "Describes specific information about the email label shipment.<ul><li>Message: Content of the email message</li><li>Recipients: EMailRecipient</li><li>emailAddress - email address of the recipient</li><li>role - role type of the recipient</li><li>optionsRequested</li><li>localization</li>"
-            },
-            "EmailRecipient": {
-                "required": [
-                    "emailAddress"
-                ],
-                "type": "object",
-                "properties": {
-                    "emailAddress": {
-                        "type": "string",
-                        "description": "This is the placeholder for Email address of the end-user to be  notified of the return label. Maximum length is 200 characters."
-                    },
-                    "optionsRequested": {
-                        "$ref": "#/components/schemas/EmailOptionsRequested"
-                    },
-                    "role": {
-                        "type": "string",
-                        "description": "Specifies the role of the recipient to the pending shipment.",
-                        "enum": [
-                            "SHIPMENT_COMPLETOR",
-                            "SHIPMENT_INITIATOR"
-                        ]
-                    },
-                    "locale": {
-                        "$ref": "#/components/schemas/Locale"
-                    }
-                },
-                "description": "Use this object to specify the recipient email information."
-            },
-            "EmailOptionsRequested": {
-                "type": "object",
-                "properties": {
-                    "options": {
-                        "type": "array",
-                        "description": "Specifies the options.",
-                        "items": {
-                            "type": "string",
-                            "enum": [
-                                "PRODUCE_PAPERLESS_SHIPPING_FORMAT",
-                                "SUPPRESS_ADDITIONAL_LANGUAGES",
-                                "SUPPRESS_ACCESS_EMAILS"
-                            ]
-                        }
-                    }
-                },
-                "description": "Indicates how the email notifications for the pending shipment need to be processed."
-            },
-            "Locale": {
-                "type": "object",
-                "properties": {
-                    "country": {
-                        "type": "string",
-                        "description": "This is country code.<br>Example: US<br><a onclick='loadDocReference(\"countrycodes\")'>Click here to see Country Codes</a>"
-                    },
-                    "language": {
-                        "type": "string",
-                        "description": "This is language code.<br>Example: en<br><a onclick='loadDocReference(\"locales\")'>Click here to see Locale</a>"
-                    }
-                },
-                "description": "These are Locale details.<br>Note: If the locale is left blank or an invalid locale is entered, an error message is returned in response."
-            },
-            "UploadDocumentReferenceDetail": {
-                "type": "object",
-                "properties": {
-                    "documentType": {
-                        "type": "string",
-                        "description": "These are the type of document specified in the PendingShipment request.",
-                        "enum": [
-                            "CERTIFICATE_OF_ORIGIN",
-                            "COMMERCIAL_INVOICE",
-                            "ETD_LABEL",
-                            "NAFTA_CERTIFICATE_OF_ORIGIN",
-                            "NET_RATE_SHEET",
-                            "OTHER",
-                            "PRO_FORMA_INVOICE"
-                        ]
-                    },
-                    "customerReference": {
-                        "title": "@Ignore4TPP",
-                        "type": "string",
-                        "description": "Customer Reference"
-                    },
-                    "description": {
-                        "type": "string",
-                        "description": "Indicate description of the shipping documents produced for the shipper by FedEx (see ShippingDocumentSpecification) which should be copied back to the shipper in the shipment result data.",
-                        "example": "ShippingDocumentSpecification"
-                    },
-                    "documentId": {
-                        "type": "string",
-                        "description": "Specify the document ID for the uploaded document.",
-                        "example": "98123"
-                    }
-                },
-                "description": "Upload document details provided by the initator of the shipment."
             },
             "ShipmentDryIceDetail": {
                 "type": "object",
@@ -4140,9 +3777,6 @@
             "HomeDeliveryPremiumDetail": {
                 "type": "object",
                 "properties": {
-                    "phoneNumber": {
-                        "$ref": "#/components/schemas/Party_PhoneNumber"
-                    },
                     "shipTimestamp": {
                         "type": "string",
                         "description": "This is shipment date. Both the date and time portions of the string are expected to be used. The date should not be a past date or a date more than 10 days in the future. The time is the local time of the shipment based on the shipper's time zone.<br>Formats: YYYY-MM-DD, YYYY-MM-DD HH:MM:SS <br> Example: 2024-06-14 19:23:51",
@@ -4159,41 +3793,6 @@
                     }
                 },
                 "description": "These are Special service elements for FedEx Ground Home Delivery shipments. If selected, element homedeliveryPremiumType is mandatory.\n\n"
-            },
-            "Party_PhoneNumber": {
-                "type": "object",
-                "properties": {
-                    "areaCode": {
-                        "type": "string",
-                        "description": "Indicate the area Code for the phone number."
-                    },
-                    "extension": {
-                        "type": "string",
-                        "description": "Indicate the extension for the phone number."
-                    },
-                    "countryCode": {
-                        "type": "string",
-                        "description": "Indicate the two-letter country code.<br>Example: US<br><a onclick='loadDocReference(\"countrycodes\")'>Click here to see Country Codes</a>"
-                    },
-                    "personalIdentificationNumber": {
-                        "type": "string",
-                        "description": "Indicate the Personal Identification Number associated with the phone number.",
-                        "example": "3575012"
-                    },
-                    "localNumber": {
-                        "type": "string",
-                        "description": "Indicate the local phone number for contacting in the event of an emergency.",
-                        "example": "234123"
-                    }
-                },
-                "description": "Indicate the phone number. Only numeric values allowed.",
-                "example": {
-                    "areaCode": "areaCode",
-                    "extension": "extension",
-                    "countryCode": "countryCode",
-                    "personalIdentificationNumber": "personalIdentificationNumber",
-                    "localNumber": "localNumber"
-                }
             },
             "CustomsClearanceDetail": {
                 "required": [
@@ -4455,44 +4054,6 @@
                     }
                 },
                 "description": "Use this object to specify the smartpost shipment details. <br>Required for SMARTPOST service. If SmartPostInfoDetail is indicated, the elements below it are also required."
-            },
-            "ExpressFreightDetail": {
-                "type": "object",
-                "properties": {
-                    "bookingConfirmationNumber": {
-                        "type": "string",
-                        "description": "An advance booking number is optional for FedEx 1Day Freight. When you call 1.800.332.0807 to book your freight shipment, you will receive a booking number. This booking number is included in the Ship request, and prints on the shipping label"
-                    },
-                    "shippersLoadAndCount": {
-                        "type": "integer",
-                        "description": "Describes the shippers loaded total package counts.",
-                        "format": "int32"
-                    }
-                },
-                "description": "Conditional\"\nDetails specific to a FedEx Express Freight\u00ae shipment (i.e. FedEx First Freight, FedEx 1Day, 2Day, and 3Day Freight)."
-            },
-            "EMailNotificationDetail_PrintedReference": {
-                "type": "object",
-                "properties": {
-                    "printedReferenceType": {
-                        "type": "string",
-                        "description": "Indicates the printed reference type.",
-                        "enum": [
-                            "BILL_OF_LADING",
-                            "CONSIGNEE_ID_NUMBER",
-                            "INTERLINE_PRO_NUMBER",
-                            "PO_NUMBER",
-                            "SHIPPER_ID_NUMBER",
-                            "SHIPPER_ID1_NUMBER",
-                            "SHIPPER_ID2_NUMBER"
-                        ]
-                    },
-                    "value": {
-                        "type": "string",
-                        "description": "Specifies printed reference value."
-                    }
-                },
-                "description": "Specifies Printed Reference."
             },
             "ShipmentSpecialServicesRequested_returnShipmentDetail": {
                 "type": "object",

@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class FullSchemaValidateAddress extends Dto
 {
-    protected static array $complexArrayTypes = ['addressesToValidate' => [ResolveContactAndAddress::class]];
+    protected static array $complexArrayTypes = ['addressesToValidate' => ResolveContactAndAddress::class];
 
     /**
      * @param  ResolveContactAndAddress[]  $addressesToValidate  Indicate the address to be validated and resolved. This includes the address details, such as streetline, state or province code, country code and postal code. <br><br><i>Note: Up to 100 of these can be submitted in a single request.</i>

@@ -15,7 +15,7 @@ use ShipStream\FedEx\Response;
 
 final class ErrorResponseVo extends Response
 {
-    protected static array $complexArrayTypes = ['errors' => [CxsError::class]];
+    protected static array $complexArrayTypes = ['errors' => CxsError::class];
 
     /**
      * @param  ?string  $transactionId  The transaction ID is a special set of numbers that defines each transaction.<br>Example: 6f821609-aeb6-4ffe-b783-6e60b20f2801

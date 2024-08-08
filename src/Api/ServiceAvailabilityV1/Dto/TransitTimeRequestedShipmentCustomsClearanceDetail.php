@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class TransitTimeRequestedShipmentCustomsClearanceDetail extends Dto
 {
-    protected static array $complexArrayTypes = ['commodities' => [TransitTimeCommodity::class]];
+    protected static array $complexArrayTypes = ['commodities' => TransitTimeCommodity::class];
 
     /**
      * @param  TransitTimeCommodity[]  $commodities  Specify the commodity details.

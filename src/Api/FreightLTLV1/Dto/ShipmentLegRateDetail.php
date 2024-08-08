@@ -15,16 +15,16 @@ use ShipStream\FedEx\Dto;
 final class ShipmentLegRateDetail extends Dto
 {
     protected static array $complexArrayTypes = [
-        'discounts' => [RateDiscount::class],
-        'surcharges' => [Surcharge::class],
-        'taxes' => [Tax::class],
+        'discounts' => RateDiscount::class,
+        'surcharges' => Surcharge::class,
+        'taxes' => Tax::class,
     ];
 
     /**
      * @param  RateDiscount[]|null  $discounts  Specifies the list of discounts. <br><a onclick='loadDocReference("discounts")'>Click here to see Discounts</a>
      * @param  ?string  $pricingCode  Identifies the type of pricing used for this shipment.
      * @param  ?string  $legDescription  Human-readable text describing the shipment leg.
-     * @param  Surcharge[]|null  $surcharges  Specifies the list of all surcharges that apply to this package.
+     * @param  Surcharge[]|null  $surcharges  Specifies the list of surcharges.<br>Valid value is:<li>PEAK</li><li>PEAK_ADDTIONAL_HANDLING</li><li>PEAK_OVERSIZE</li><li>PEAK_RESIDENTIAL_DELIVERY</li>
      * @param  ?string[]  $specialRatingApplied  Indicates which special rating cases applied to this shipment.
      * @param  Tax[]|null  $taxes  Specifies the list of taxes.
      * @param  ?string  $rateScale  Indicates the rate scale used.

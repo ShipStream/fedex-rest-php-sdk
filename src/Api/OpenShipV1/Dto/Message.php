@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class Message extends Dto
 {
-    protected static array $complexArrayTypes = ['parameters' => [MessageParameter::class]];
+    protected static array $complexArrayTypes = ['parameters' => MessageParameter::class];
 
     /**
      * @param  ?string  $code  Specifies the message code for the tag created.<br>Example: code

@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class FullSchemaAddPackagesToOpenShipment extends Dto
 {
-    protected static array $complexArrayTypes = ['requestedPackageLineItems' => [RequestedPackageLineItem::class]];
+    protected static array $complexArrayTypes = ['requestedPackageLineItems' => RequestedPackageLineItem::class];
 
     /**
      * @param  string  $index  This is a unique value assigned to the already created Open Shipment. If this isn’t available then provide the master tracking number.<br>Example: Test1234

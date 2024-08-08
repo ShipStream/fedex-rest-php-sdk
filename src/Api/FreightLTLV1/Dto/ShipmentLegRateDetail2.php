@@ -15,9 +15,9 @@ use ShipStream\FedEx\Dto;
 final class ShipmentLegRateDetail2 extends Dto
 {
     protected static array $complexArrayTypes = [
-        'taxes' => [Tax::class],
-        'surcharges' => [Surcharge::class],
-        'freightDiscounts' => [RateDiscount::class],
+        'taxes' => Tax2::class,
+        'surcharges' => Surcharge2::class,
+        'freightDiscounts' => RateDiscount2::class,
     ];
 
     /**
@@ -40,10 +40,10 @@ final class ShipmentLegRateDetail2 extends Dto
      * @param  ?float  $totalDutiesAndTaxes  Total of shipments duties and taxes; only provided if estimated duties and taxes were calculated for this shipment.<br>Example: 17.78
      * @param  ?float  $totalNetFreight  The freight charge minus discounts.<br>Example: 6.0
      * @param  ?float  $totalNetFedExCharge  This is the sum of shipment's total surcharges (not including total taxes).<br>Example: 3.2
-     * @param  Surcharge[]|null  $surcharges  Specifies the list of all surcharges that apply to this package.
+     * @param  Surcharge2[]|null  $surcharges  All surcharges that apply to this shipment.<br><a onclick='loadDocReference("surcharges")'>click here to see surcharges</a>
      * @param  ?float  $totalSurcharges  The total of all surcharges.<br>Example: 5.0
      * @param  ?Weight  $totalBillingWeight  These are the package weight details.<br>Note: Weight is not required for One rate shipments
-     * @param  RateDiscount[]|null  $freightDiscounts  All rate discounts that apply to this shipment.<br><a onclick='loadDocReference("discounts")'>Click here to see Discounts</a>
+     * @param  RateDiscount2[]|null  $freightDiscounts
      * @param  ?string  $rateScale  Indicates the rate scale used.<br>Example: 6702
      * @param  ?float  $totalNetCharge  The net charge after applying all discounts and surcharges.<br>Example: 253
      * @param  ?float  $totalNetChargeWithDutiesAndTaxes  Sum of total net charge, total duties and taxes; only provided if estimated duties and taxes were calculated for this shipment and duties, taxes and transportation charges are all paid by the same sender account.<br>Example: 25.67

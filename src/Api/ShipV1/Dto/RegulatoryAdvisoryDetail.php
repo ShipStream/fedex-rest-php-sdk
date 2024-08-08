@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class RegulatoryAdvisoryDetail extends Dto
 {
-    protected static array $complexArrayTypes = ['prohibitions' => [RegulatoryProhibition::class]];
+    protected static array $complexArrayTypes = ['prohibitions' => RegulatoryProhibition::class];
 
     /**
      * @param  RegulatoryProhibition[]|null  $prohibitions  It is a regulatory probitions.

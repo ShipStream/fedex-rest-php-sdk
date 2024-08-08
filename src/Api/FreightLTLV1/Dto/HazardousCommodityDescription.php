@@ -19,7 +19,9 @@ final class HazardousCommodityDescription extends Dto
      * @param  string  $packingGroup  Identifies DOT packing group for a hazardous commodity
      * @param  ?int  $sequenceNumber  Required<br>Specify the sequence number.<br>Example: 9812
      * @param  ?string[]  $processingOptions  Indicates any special processing options to be applied to the description of the dangerous goods commodity <br> Example: ["INCLUDE_SPECIAL_PROVISIONS"]
-     * @param  ?string[]  $subsidiaryClasses  Specifies subsidiary Classes.<br>Example:["Subsidiary Classes"]
+     * @param  ?string[]  $subsidiaryClasses  Required
+     *
+     * Indicates list of subsidiary classes<br>Example: ["Subsidiary Classes"]
      * @param  ?string  $labelText  Specifies the text for the label.
      * @param  ?string  $technicalName  Specifies the technical name for the hazardous material.
      * @param  ?HazardousCommodityPackingDetail  $packingDetails  Specifies documentation and limits for validation of an individual packing group/category. DG Data Upload Mode: Required (IATA), Optional (Other), DG Full Validation Mode: Required (IATA), Optional (Other),

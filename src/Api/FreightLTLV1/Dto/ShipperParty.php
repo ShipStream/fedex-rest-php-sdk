@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class ShipperParty extends Dto
 {
-    protected static array $complexArrayTypes = ['tins' => [TaxpayerIdentification::class]];
+    protected static array $complexArrayTypes = ['tins' => TaxpayerIdentification::class];
 
     /**
      * @param  PartyAddress  $address  Specify detailed Billing Address information for above FedEx Freight Account Number. May be used as an actual physical address (place to which one could go), or as a container of address parts which should be handled as a unit (such as a city-state-ZIP combination within the US).

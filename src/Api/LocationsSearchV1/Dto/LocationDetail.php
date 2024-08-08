@@ -15,8 +15,8 @@ use ShipStream\FedEx\Dto;
 final class LocationDetail extends Dto
 {
     protected static array $complexArrayTypes = [
-        'storeHours' => [LocationHours::class],
-        'carrierDetailList' => [FastCarrierDetails::class],
+        'storeHours' => LocationHours::class,
+        'carrierDetailList' => FastCarrierDetails::class,
     ];
 
     /**

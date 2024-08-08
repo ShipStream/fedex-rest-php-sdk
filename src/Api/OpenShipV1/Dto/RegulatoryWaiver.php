@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class RegulatoryWaiver extends Dto
 {
-    protected static array $complexArrayTypes = ['advisories' => [Message::class]];
+    protected static array $complexArrayTypes = ['advisories' => Message::class];
 
     /**
      * @param  Message[]|null  $advisories  Indicates the advisories list.

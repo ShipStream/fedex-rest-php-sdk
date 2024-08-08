@@ -15,7 +15,7 @@ use ShipStream\FedEx\Dto;
 final class ShipShipmentEmailNotificationDetail extends Dto
 {
     protected static array $complexArrayTypes = [
-        'emailNotificationRecipients' => [ShipShipmentEmailNotificationRecipient::class],
+        'emailNotificationRecipients' => ShipShipmentEmailNotificationRecipient::class,
     ];
 
     /**

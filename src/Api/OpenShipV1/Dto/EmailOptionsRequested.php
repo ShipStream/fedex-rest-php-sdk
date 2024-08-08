@@ -15,7 +15,7 @@ use ShipStream\FedEx\Dto;
 final class EmailOptionsRequested extends Dto
 {
     /**
-     * @param  ?string[]  $options  Indicate type of DG being reported.
+     * @param  ?string[]  $options  These are the processing options.
      */
     public function __construct(
         public readonly ?array $options = null,

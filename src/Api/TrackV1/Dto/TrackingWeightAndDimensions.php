@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class TrackingWeightAndDimensions extends Dto
 {
-    protected static array $complexArrayTypes = ['weight' => [Weight::class], 'dimensions' => [Dimensions::class]];
+    protected static array $complexArrayTypes = ['weight' => Weight::class, 'dimensions' => Dimensions::class];
 
     /**
      * @param  Weight[]|null  $weight  Field which holds the weight of the package.

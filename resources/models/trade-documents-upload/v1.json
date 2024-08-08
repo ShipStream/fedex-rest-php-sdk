@@ -792,8 +792,152 @@
                         "description": "Indicates the value associated with the key.",
                         "example": "DOC_INDEX"
                     }
+                }
+            },
+            "MultiBasePreResponse": {
+                "type": "object",
+                "properties": {
+                    "customerTransactionId": {
+                        "type": "string",
+                        "description": "This element allows you to assign a unique identifier to your transaction. This element is also returned in the reply and helps you match the request to the reply.",
+                        "example": "5678b975-ev0e-420b-8d7b-aa6ce65ec48n"
+                    },
+                    "transactionId": {
+                        "type": "string",
+                        "description": "The transaction ID is a special set of numbers that defines each transaction.",
+                        "example": "624deea6-b709-470c-8c39-4b5511281492"
+                    },
+                    "output": {
+                        "$ref": "#/components/schemas/MultiBasePreResponse_1_output"
+                    }
+                }
+            },
+            "MultiMetaDataRequest": {
+                "required": [
+                    "contentType",
+                    "fileName",
+                    "shipDocumentType"
+                ],
+                "type": "object",
+                "properties": {
+                    "fileName": {
+                        "type": "string",
+                        "description": "Specify the file name being uploaded.<br> Example: invoice_file1.txt",
+                        "example": "invoice_file1.txt"
+                    },
+                    "fileReferenceId": {
+                        "type": "string",
+                        "description": "Specify the unique reference to the file. <br> Example : inv_file1_ctx_02132021_5",
+                        "example": "CI_1"
+                    },
+                    "contentType": {
+                        "type": "string",
+                        "description": "Specify the file type or content type of the document to be uploaded",
+                        "enum": [
+                            "application/pdf",
+                            "application/x-soffice",
+                            "application/doc",
+                            "text/richtext",
+                            "text/rtf",
+                            "application/x-rtf",
+                            "application/rtf",
+                            "application/msword",
+                            "text/plain",
+                            "image/bmp",
+                            "image/png",
+                            "image/gif",
+                            "image/jpeg",
+                            "image/tiff",
+                            "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                            "application/vnd.ms-excel"
+                        ]
+                    },
+                    "formCode": {
+                        "type": "string",
+                        "description": "Specify the form code. This value is required for the shipments travelling between the 3 countries US, CA & MX and when the shipment is USMCA eligible. <br> Note: if shipDocumentType value provided is either USMCA_CERTIFICATION_OF_ORIGIN or USMCA_COMMERCIAL_INVOICE_CERTIFICATION_OF_ORIGIN, then it is REQUIRED to pass value as USMCA",
+                        "example": "USMCA"
+                    },
+                    "originLocationCode": {
+                        "type": "string",
+                        "description": "Provide origin FedEx location code for the shipment. This is only required for Post Shipment document upload. This value is present in Create Shipment response.",
+                        "example": "BSLA"
+                    },
+                    "destinationLocationCode": {
+                        "type": "string",
+                        "description": "Provide destination FedEx location code for the shipment. This is only required for Post Shipment document upload. This value is present in Create Shipment response.",
+                        "example": "SFOA"
+                    },
+                    "shipDocumentType": {
+                        "type": "string",
+                        "description": "Provide the type of document to be uploaded. <br><br>For more information on the individual documents, visit Overview section <b>Upload Documents</b> on this page.",
+                        "example": "USMCA_CERTIFICATION_OF_ORIGIN",
+                        "enum": [
+                            "CERTIFICATE_OF_ORIGIN",
+                            "COMMERCIAL_INVOICE",
+                            "ETD_LABEL",
+                            "OTHER",
+                            "PRO_FORMA_INVOICE",
+                            "USMCA_CERTIFICATION_OF_ORIGIN",
+                            "USMCA_COMMERCIAL_INVOICE_CERTIFICATION_OF_ORIGIN"
+                        ]
+                    }
                 },
                 "description": "Elements used in document storage"
+            },
+            "MultiMetaDataRequest_2": {
+                "required": [
+                    "contentType",
+                    "fileContentBase64",
+                    "shipDocumentType"
+                ],
+                "type": "object",
+                "properties": {
+                    "fileReferenceId": {
+                        "type": "string",
+                        "description": "Specify the unique reference bytecode to the file. <br> Example : inv_file1_ctx_02132021_5",
+                        "example": "CI_1"
+                    },
+                    "contentType": {
+                        "type": "string",
+                        "description": "Specify media type(MIME) of file. <br> Example : text/plain <br><a onclick='loadDocReference(\"contenttypes\")'> Click here for available Content Types</a>",
+                        "example": "text/plain"
+                    },
+                    "formCode": {
+                        "type": "string",
+                        "description": "Specify the form code. This value is required for the shipments travelling between the 3 countries US, CA & MX and when the shipment is USMCA eligible. <br> Note: if shipDocumentType value provided is either USMCA_CERTIFICATION_OF_ORIGIN or USMCA_COMMERCIAL_INVOICE_CERTIFICATION_OF_ORIGIN, then it is REQUIRED to pass value as USMCA",
+                        "example": "USMCA"
+                    },
+                    "originLocationCode": {
+                        "type": "string",
+                        "description": "Provide origin FedEx location code for the shipment. This is only required for Post Shipment document upload. This value is present in Create Shipment response.",
+                        "example": "BSLA"
+                    },
+                    "destinationLocationCode": {
+                        "type": "string",
+                        "description": "Provide destination FedEx location code for the shipment. This is only required for Post Shipment document upload. This value is present in Create Shipment response.",
+                        "example": "SFOA"
+                    },
+                    "shipDocumentType": {
+                        "type": "string",
+                        "description": "Provide the type of document to be uploaded. <br><br>For more information on the individual documents, visit Overview section <b>Upload Documents</b> on this page.",
+                        "example": "USMCA_CERTIFICATION_OF_ORIGIN",
+                        "enum": [
+                            "CERTIFICATE_OF_ORIGIN",
+                            "COMMERCIAL_INVOICE",
+                            "ETD_LABEL",
+                            "OTHER",
+                            "PRO_FORMA_INVOICE",
+                            "USMCA_CERTIFICATION_OF_ORIGIN",
+                            "USMCA_COMMERCIAL_INVOICE_CERTIFICATION_OF_ORIGIN"
+                        ]
+                    },
+                    "fileContentBase64": {
+                        "type": "string",
+                        "description": "Provide the bycode content for base64 file upload",
+                        "example": "dGVzdGluZyBmb3IgbXVsdGlmaWxlIHVwbG9hZCB0ZXN0LWExDQp0ZXN0aW5nIGZvciBtdWx0a        WZpbGUgdXBsb2FkIHRlc3QtYTENCkphbmFyZGhhbiBTaGluZ2FkZQ"
+                    }
+                }
             }
         }
     },

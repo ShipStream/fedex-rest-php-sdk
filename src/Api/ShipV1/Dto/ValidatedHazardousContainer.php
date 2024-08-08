@@ -14,8 +14,9 @@ use ShipStream\FedEx\Dto;
 
 final class ValidatedHazardousContainer extends Dto
 {
-    protected static array $complexArrayTypes = ['hazardousCommodities' => [ValidatedHazardousCommodityContent::class]];
     protected static array $attributeMap = ['qValue' => 'QValue'];
+
+    protected static array $complexArrayTypes = ['hazardousCommodities' => ValidatedHazardousCommodityContent::class];
 
     /**
      * @param  ?float  $qValue  Indicates that the quantity of the dangerous goods packaged is permissible for shipping. This is used to ensure that the dangerous goods commodities do not exceed the net quantity per package restrictions.<br>Example: 2.0

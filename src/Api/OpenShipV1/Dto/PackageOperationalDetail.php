@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class PackageOperationalDetail extends Dto
 {
-    protected static array $complexArrayTypes = ['operationalInstructions' => [OperationalInstructions::class]];
+    protected static array $complexArrayTypes = ['operationalInstructions' => OperationalInstructions::class];
 
     /**
      * @param  ?string  $astraHandlingText  This is human-readable astra handling text.

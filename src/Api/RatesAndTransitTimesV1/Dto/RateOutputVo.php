@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class RateOutputVo extends Dto
 {
-    protected static array $complexArrayTypes = ['rateReplyDetails' => [RateReplyDetail::class], 'alerts' => [Alert::class]];
+    protected static array $complexArrayTypes = ['rateReplyDetails' => RateReplyDetail::class, 'alerts' => Alert::class];
 
     /**
      * @param  RateReplyDetail[]|null  $rateReplyDetails  This object will hold the rate and shipment data returned for a request.

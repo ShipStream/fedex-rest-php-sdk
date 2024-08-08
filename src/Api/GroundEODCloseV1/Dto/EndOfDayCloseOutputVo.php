@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class EndOfDayCloseOutputVo extends Dto
 {
-    protected static array $complexArrayTypes = ['alerts' => [Alert::class], 'closeDocuments' => [CloseDocument::class]];
+    protected static array $complexArrayTypes = ['alerts' => Alert::class, 'closeDocuments' => CloseDocument::class];
 
     /**
      * @param  Alert[]|null  $alerts

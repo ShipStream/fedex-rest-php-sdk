@@ -1348,7 +1348,8 @@
                     "requestedPackageLineItems",
                     "serviceType",
                     "shipper",
-                    "shippingChargesPayment"
+                    "shippingChargesPayment",
+                    "totalWeight"
                 ],
                 "type": "object",
                 "properties": {
@@ -1626,6 +1627,10 @@
             },
             "TaxpayerIdentification": {
                 "type": "object",
+                "required": [
+                    "number",
+                    "tinType"
+                ],
                 "properties": {
                     "number": {
                         "type": "string",
@@ -1897,7 +1902,8 @@
             },
             "ReturnEmailDetail": {
                 "required": [
-                    "merchantPhoneNumber"
+                    "merchantPhoneNumber",
+                    "allowedSpecialService"
                 ],
                 "type": "object",
                 "properties": {
@@ -1934,6 +1940,9 @@
             },
             "ReturnAssociationDetail": {
                 "type": "object",
+                "required": [
+                    "trackingNumber"
+                ],
                 "properties": {
                     "shipDatestamp": {
                         "type": "string",
@@ -4149,7 +4158,7 @@
                     },
                     "content": {
                         "type": "array",
-                        "description": "Specifies Content for the Priority Alert Detail.",
+                        "description": "Specifies Content for the Priority Alert Detail.<br>Example:string",
                         "example": [
                             "string"
                         ],
@@ -6393,7 +6402,8 @@
                     "requestedPackageLineItems",
                     "serviceType",
                     "shipper",
-                    "shippingChargesPayment"
+                    "shippingChargesPayment",
+                    "totalWeight"
                 ],
                 "type": "object",
                 "properties": {
@@ -7247,11 +7257,8 @@
                 "properties": {
                     "personName": {
                         "type": "string",
-                        "description": "Specify person name.<br>Example: John Taylor"
-                    },
-                    "tollFreePhoneNumber": {
-                        "type": "string",
-                        "description": "Specify toll free phone number.<br>Example: XXXX7812"
+                        "description": "Specify person name.<br>Example: John Taylor",
+                        "example": "John"
                     },
                     "emailAddress": {
                         "type": "string",
@@ -7268,18 +7275,6 @@
                     "companyName": {
                         "type": "string",
                         "description": "Specify company name."
-                    },
-                    "pagerNumber": {
-                        "type": "string",
-                        "description": "Specify pager number.<br>Example: XXX7812"
-                    },
-                    "faxNumber": {
-                        "type": "string",
-                        "description": "Specify fax number.<br>Example: XXXX567890"
-                    },
-                    "title": {
-                        "type": "string",
-                        "description": "Specify the title of the contact."
                     }
                 },
                 "description": "Specify the contact information."
@@ -7623,7 +7618,10 @@
                             "expirationDate": "2000-01-23T04:56:07.000+00:00"
                         }
                     ]
-                }
+                },
+                "required": [
+                    "contact"
+                ]
             },
             "Party_2": {
                 "type": "object",

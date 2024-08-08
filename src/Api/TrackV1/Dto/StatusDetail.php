@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class StatusDetail extends Dto
 {
-    protected static array $complexArrayTypes = ['ancillaryDetails' => [StatusAncillaryDetail::class]];
+    protected static array $complexArrayTypes = ['ancillaryDetails' => StatusAncillaryDetail::class];
 
     /**
      * @param  ?AddressVo2  $scanLocation  Address where the package was actually delivered. Contrast with destinationAddress, which is the location to which the package was intended to be delivered. Addresses may differ due to delivery to a behavior, hold at FedEx location, etc.

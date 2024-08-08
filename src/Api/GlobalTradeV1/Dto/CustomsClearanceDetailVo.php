@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class CustomsClearanceDetailVo extends Dto
 {
-    protected static array $complexArrayTypes = ['commodities' => [CommodityVo::class]];
+    protected static array $complexArrayTypes = ['commodities' => CommodityVo::class];
 
     /**
      * @param  Money  $customsValue  Specify Insurance charges if applicable.<br><i>Note: FedEx does not provide insurance of any kind</i>.

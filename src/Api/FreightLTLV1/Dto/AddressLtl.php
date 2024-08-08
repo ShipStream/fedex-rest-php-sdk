@@ -15,7 +15,7 @@ use ShipStream\FedEx\Dto;
 final class AddressLtl extends Dto
 {
     /**
-     * @param  ?string[]  $streetLines  This is the combination of number, street name, etc. <br>Note: At least one line is required and streetlines more than 3 will be ignored. Empty lines should not be included. Maximum Length per line is 35.<br>Example: [10 FedEx Parkway, Suite 302, .etc.]
+     * @param  ?string[]  $streetLines  This is a combination of number, street name, etc. <br>Note: At least one line is required and streetlines more than 3 will be ignored. Empty lines should not be included.<br>Example: [\"10 FedEx Parkway\", \"Suite 302\"]
      * @param  ?string  $urbanizationCode  Optional<br> In Puerto Rico, identical street names and address number ranges can be found within the same ZIP Code. In these cases, the urbanization name is the only element that correctly identifies the location of a particular address.<br> Example: URB FAIR OAKS
      * @param  ?string  $city  This is a placeholder for City Name. <br>Note: This is conditional and not required in all the shipping requests. <br> Example: Beverly Hills
      * @param  ?string  $stateOrProvinceCode  This is a placeholder for State or Province code.Maximum length is 2.State code is required for US, CA, PR and not required for other countries. Conditional. Max length is 2 <br> Example: CA <br><a onclick='loadDocReference("canadaprovincecodes")'>Click here to see State/Province Code</a>

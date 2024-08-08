@@ -16,7 +16,7 @@ final class Commodity extends Dto
 {
     protected static array $attributeMap = ['cImarksAndNumbers' => 'cIMarksAndNumbers'];
 
-    protected static array $complexArrayTypes = ['additionalMeasures' => [AdditionalMeasures::class]];
+    protected static array $complexArrayTypes = ['additionalMeasures' => AdditionalMeasures::class];
 
     /**
      * @param  Money  $unitPrice  Specifies taxes or miscellaneous charge.
@@ -32,7 +32,7 @@ final class Commodity extends Dto
      * @param  ?string  $harmonizedCode  This is to specify the Harmonized Tariff System (HTS) code to meet U.S. and foreign governments' customs requirements. These are mainly used to estimate the duties and taxes.<br>Example: 0613<br>To research the classification for your commodity, use the FedEx Global Trade Manager online at <a href='http://www.fedex.com/gtm' target='_blank'>fedex.com/gtm</a>. You will find country-specific information to determine whether your commodity is considered to be a document or non-document for your destination.
      * @param  ?string  $name  This is Commodity name.<br>Example: Non-Threaded Rivets
      * @param  ?string  $exportLicenseNumber  This is the export license number for the shipment.<br>Example: 26456
-     * @param  ?DateTime  $exportLicenseExpirationDate  Specify the export license expiration date for the shipment.<br>Format YYYY-MM-DD<br>Example : 2009-04-12
+     * @param  ?\DateTimeInterface  $exportLicenseExpirationDate  Specify the export license expiration date for the shipment.<br>Format YYYY-MM-DD<br>Example : 2009-04-12
      * @param  ?string  $partNumber  This is a part number.<br>Example: 167
      * @param  ?string  $purpose  This is the purpose of this shipment. This is used for calculation of duties and taxes.
      * @param  ?UsmcaDetail  $usmcaDetail  Indicates the USMCA detail
@@ -51,7 +51,7 @@ final class Commodity extends Dto
         public readonly ?string $harmonizedCode = null,
         public readonly ?string $name = null,
         public readonly ?string $exportLicenseNumber = null,
-        public readonly ?\DateTime $exportLicenseExpirationDate = null,
+        public readonly ?\DateTimeInterface $exportLicenseExpirationDate = null,
         public readonly ?string $partNumber = null,
         public readonly ?string $purpose = null,
         public readonly ?UsmcaDetail $usmcaDetail = null,

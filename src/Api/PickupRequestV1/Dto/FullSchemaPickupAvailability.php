@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class FullSchemaPickupAvailability extends Dto
 {
-    protected static array $complexArrayTypes = ['packageDetails' => [RequestedPickupPackageDetail::class]];
+    protected static array $complexArrayTypes = ['packageDetails' => RequestedPickupPackageDetail::class];
 
     /**
      * @param  Address  $pickupAddress  Descriptive data for a physical location. May be used as an actual physical address (place to which one could go), or as a container of "address parts" which should be handled as a unit (such as a city-state-ZIP combination within the US).

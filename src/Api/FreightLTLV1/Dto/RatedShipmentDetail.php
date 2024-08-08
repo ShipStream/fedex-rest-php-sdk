@@ -15,10 +15,10 @@ use ShipStream\FedEx\Dto;
 final class RatedShipmentDetail extends Dto
 {
     protected static array $complexArrayTypes = [
-        'edtCharges' => [EdtCharge::class],
-        'ratedPackages' => [RatedPackageDetail::class],
-        'ancillaryFeesAndTaxes' => [AncillaryFeesAndTaxes::class],
-        'preferredEdtCharges' => [EdtCharge::class],
+        'edtCharges' => EdtCharge::class,
+        'ratedPackages' => RatedPackageDetail::class,
+        'ancillaryFeesAndTaxes' => AncillaryFeesAndTaxes::class,
+        'preferredEdtCharges' => EdtCharge::class,
     ];
 
     /**

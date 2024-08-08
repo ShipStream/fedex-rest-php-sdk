@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class CxsError extends Dto
 {
-    protected static array $complexArrayTypes = ['parameterList' => [Parameter::class]];
+    protected static array $complexArrayTypes = ['parameterList' => Parameter::class];
 
     /**
      * @param  ?string  $code  Indicates the error code.<br>Example: NOT.FOUND.ERROR

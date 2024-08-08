@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class FreightDirectDataDetails extends Dto
 {
-    protected static array $complexArrayTypes = ['phoneNumberDetails' => [FreightPhoneNumberDetail::class]];
+    protected static array $complexArrayTypes = ['phoneNumberDetails' => FreightPhoneNumberDetail::class];
 
     /**
      * @param  ?string  $type  This field provides the type for FedexFreight Detail service.<br> Example: <ul><li>BASIC</li><li>BASIC_BY_APPOINTMENT</li><li>PREMIUM</li><li>STANDARD</li></ul>

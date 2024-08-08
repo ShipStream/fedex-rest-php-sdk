@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class DocTabContentZone extends Dto
 {
-    protected static array $complexArrayTypes = ['docTabZoneSpecifications' => [DocTabZoneSpecification::class]];
+    protected static array $complexArrayTypes = ['docTabZoneSpecifications' => DocTabZoneSpecification::class];
 
     /**
      * @param  DocTabZoneSpecification[]|null  $docTabZoneSpecifications  Indicate the doc tab specifications for the individual doc tab zone on the label.

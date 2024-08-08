@@ -23,11 +23,11 @@ use ShipStream\FedEx\Request;
 /**
  * Freight RateQuote
  *
- * This endpoint provides the abilityy to retrieve rateee quotes and optional transit information...
- * The rate is calculated based on the origin and destination of the shipment. Additional information
- * such as carrier code, service type, or service option can be used to filter the results. Applicable
+ * This endpoint provides the ability to retrieve rate quotes and optionall transit information. The
+ * rate is calculated based on the origin and destination of the shipment. Additional information such
+ * as carrier code, service type, or service option can be used to filter the results. Applicable
  * operating company is FedEx Freight.<br><i>Note: FedEx APIs do not support Cross-Origin Resource
- * Sharing (CORS) mechanism...</i>
+ * Sharing (CORS) mechanism.</i>
  */
 class FreightRateQuote extends Request implements HasBody
 {
@@ -57,7 +57,7 @@ class FreightRateQuote extends Request implements HasBody
             default => throw new Exception("Unhandled response status: {$status}")
         };
 
-        return $responseCls::deserialize($response->json(), $responseCls);
+        return $responseCls::deserialize($response->json());
     }
 
     public function defaultBody(): array

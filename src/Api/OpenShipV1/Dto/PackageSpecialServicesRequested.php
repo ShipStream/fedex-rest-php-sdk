@@ -16,7 +16,10 @@ final class PackageSpecialServicesRequested extends Dto
 {
     protected static array $attributeMap = ['packageCodDetail' => 'packageCODDetail'];
 
-    protected static array $complexArrayTypes = ['batteryDetails' => [BatteryDetail::class]];
+    protected static array $complexArrayTypes = [
+        'batteryDetails' => BatteryDetail::class,
+        'standaloneBatteryDetails' => StandaloneBatteryDetails::class,
+    ];
 
     /**
      * @param  ?string[]  $specialServiceTypes  Indicate the types of special services requested for the shipment.<br><a onclick='loadDocReference("packagelevelspecialservicetypes")'>click here to see Package Special Service Types</a>

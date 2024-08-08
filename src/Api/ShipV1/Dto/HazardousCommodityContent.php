@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class HazardousCommodityContent extends Dto
 {
-    protected static array $complexArrayTypes = ['innerReceptacles' => [HazardousCommodityInnerReceptacleDetail::class]];
+    protected static array $complexArrayTypes = ['innerReceptacles' => HazardousCommodityInnerReceptacleDetail::class];
 
     /**
      * @param  ?HazardousCommodityQuantityDetail  $quantity  Indicates the Hazardous Commodity Quantity Detail.

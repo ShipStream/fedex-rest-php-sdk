@@ -15,15 +15,15 @@ use ShipStream\FedEx\Dto;
 final class PackageAndOptionsRequestedShipment extends Dto
 {
     protected static array $complexArrayTypes = [
-        'recipients' => [TransitTimeRecipient::class],
-        'requestedPackageLineItems' => [TransitTimeRequestedPackageLineItem::class],
+        'recipients' => Party::class,
+        'requestedPackageLineItems' => RequestedPackageLineItem::class,
     ];
 
     /**
      * @param  PartyShipper  $shipper  The shipper details, such as postal code, state or province code, and country code of the shipper.
-     * @param  TransitTimeRecipient[]  $recipients  Provide recipients physical location/address details to where the shipment delivered.
+     * @param  Party[]  $recipients  Specifies the recipient details, such as postal code, state or province code, and country code of the recipient. Note: At least one recipient is required.
      * @param  ?string  $shipDateStamp  Required.<br>Specify the Shipment date. Required for future ship date. Default is current date if not indicated or date is in the past. <br>Format is YYYY-MM-DD.<br>Example: 2019-09-06
-     * @param  TransitTimeRequestedPackageLineItem[]|null  $requestedPackageLineItems  One or more package-attribute descriptions, each of which describes an individual package, a group of identical packages, or (for the total-piece-total-weight case) common characteristics of all packages in the shipment.<br>At least one array instance containing the weight for at least one package is required for EXPRESS and GROUND shipments.  Not used for FREIGHT.<br>Single piece requests will have one RequestedPackageLineItem.<br>Multiple piece requests will have multiple RequestedPackageLineItems.<br> Maximum occurrences is 99.
+     * @param  RequestedPackageLineItem[]|null  $requestedPackageLineItems  These are one or more package-attribute descriptions, each of which describes an individual package, a group of identical packages, or (for the total-piece-total-weight case) common characteristics of all packages in the shipment.<ul><li>At least one instance containing the weight for at least one package is required for EXPRESS and GROUND shipments.</li><li>Not used for FREIGHT.</li><li>Single piece requests will have one RequestedPackageLineItem.</li><li>Multiple piece requests will have multiple RequestedPackageLineItems.</li><li>Maximum occurrences is 99.</li></ul>
      * @param  ?FreightShipmentDetail  $freightShipmentDetail  Conditional
      *
      * Details specific to a FedEx Freight LTL shipment (i.e. FedEx Priority and Economy Freight). If freight shipment detail is applicable, then the following fields are required. 'aliasID', 'clientDiscountPercent', 'fedExFreightAccountNumber', 'fedExFreightBillingContactAndAddress', 'lineItem', and 'role'.

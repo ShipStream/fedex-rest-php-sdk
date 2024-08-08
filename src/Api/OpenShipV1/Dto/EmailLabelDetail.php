@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class EmailLabelDetail extends Dto
 {
-    protected static array $complexArrayTypes = ['recipients' => [RecipientsParty::class]];
+    protected static array $complexArrayTypes = ['recipients' => EmailRecipient::class];
 
     /**
      * @param  EmailRecipient[]|null  $recipients  This is Email label recipient email address, shipment role, & language locale details. Atleast one entry must be specified.

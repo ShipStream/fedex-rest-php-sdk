@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class DeletePackagesFromOpenShipmentOutputVo extends Dto
 {
-    protected static array $complexArrayTypes = ['alerts' => [Alert::class]];
+    protected static array $complexArrayTypes = ['alerts' => Alert::class];
 
     /**
      * @param  ?bool  $deletedPackagesFromOpenshipment  This element shows the status of openshipment packages deletion

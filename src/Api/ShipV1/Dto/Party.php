@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class Party extends Dto
 {
-    protected static array $complexArrayTypes = ['tins' => [TaxpayerIdentification::class]];
+    protected static array $complexArrayTypes = ['tins' => TaxpayerIdentification::class];
 
     /**
      * @param  Contact  $contact  Indicate the contact details of the shipper.

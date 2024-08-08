@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class RequestedPackageLineItem extends Dto
 {
-    protected static array $complexArrayTypes = ['customerReferences' => [CustomerReference::class]];
+    protected static array $complexArrayTypes = ['customerReferences' => CustomerReference::class];
 
     /**
      * @param  Weight  $weight  Specify the total weight of the shipment. <br>This is only applies to International shipments and should be used on the first package of a multiple piece shipment. This value contains 1 explicit decimal position.

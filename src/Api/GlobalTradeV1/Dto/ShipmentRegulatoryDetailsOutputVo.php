@@ -14,10 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class ShipmentRegulatoryDetailsOutputVo extends Dto
 {
-    protected static array $complexArrayTypes = [
-        'userMessages' => [RegulatoryMessage::class],
-        'cxsalerts' => [CxsAlert::class],
-    ];
+    protected static array $complexArrayTypes = ['userMessages' => RegulatoryMessage::class, 'cxsalerts' => CxsAlert::class];
 
     /**
      * @param  RegulatoryMessage[]  $userMessages  Represents User Message

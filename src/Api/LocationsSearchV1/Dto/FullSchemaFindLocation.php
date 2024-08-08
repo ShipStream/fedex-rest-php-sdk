@@ -15,8 +15,8 @@ use ShipStream\FedEx\Dto;
 final class FullSchemaFindLocation extends Dto
 {
     protected static array $complexArrayTypes = [
-        'locationCapabilities' => [LocationCapabilities::class],
-        'packageAttributes' => [PackageAttribute::class],
+        'locationCapabilities' => LocationCapabilities::class,
+        'packageAttributes' => PackageAttribute::class,
     ];
 
     /**

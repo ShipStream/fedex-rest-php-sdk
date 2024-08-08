@@ -14,14 +14,14 @@ use ShipStream\FedEx\Dto;
 
 final class FreightPickupAvailabilityOutputVo extends Dto
 {
-    protected static array $complexArrayTypes = ['alerts' => [Alert::class]];
+    protected static array $complexArrayTypes = ['options' => FreightPickupScheduleOption::class, 'alerts' => Alert::class];
 
     /**
      * @param  ?string  $closeTime  Indicates the close time corresponding to the close time type .<br>Example: 12:00:00-05:00
      * @param  ?string  $closeTimeType  Identifies whether the close time is specified by the customer or is the default time.
      * @param  ?string  $localTime  A string used to represent the concept of local time at particular location. The format is hh:mm. The local time format does not contain any representation for the time zone.<br>Example: 19:20
-     * @param  ?string[]  $options  Indicates the format options. SUPPRESS_ADDITIONAL_LANGUAGES value will suppress English language if another language is specified in the language code field.
-     * @param  Alert[]|null  $alerts  The cxs alert code, alert type, and alert message obtained when a rate quote is requested.
+     * @param  FreightPickupScheduleOption[]|null  $options  The pickup schedule details, such as the availability for pickup, time when the package is ready to be picked up, indication if the address is residential, cutoff time of the pickup, access time and driver's access to pick up the package.
+     * @param  Alert[]|null  $alerts  Any optional alert messages received when a pickup availability is requested. This includes an alert code, type, and message.
      */
     public function __construct(
         public readonly ?string $closeTime = null,

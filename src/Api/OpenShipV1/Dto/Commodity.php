@@ -16,7 +16,7 @@ final class Commodity extends Dto
 {
     protected static array $attributeMap = ['cImarksAndNumbers' => 'cIMarksAndNumbers'];
 
-    protected static array $complexArrayTypes = ['additionalMeasures' => [AdditionalMeasures::class]];
+    protected static array $complexArrayTypes = ['additionalMeasures' => AdditionalMeasures::class];
 
     /**
      * @param  string  $description  This is the commodity description. Maximum allowed 450 characters.<br><a onclick='loadDocReference("vaguecommoditydescriptions")'>click here to see Vague commodity descriptions</a>

@@ -1572,7 +1572,7 @@
                     },
                     "recipientInformation": {
                         "description": "Contact and address information of recipient.",
-                        "$ref": "#/components/schemas/ContactAndAddress"
+                        "$ref": "#/components/schemas/ContactAndAddress_2"
                     },
                     "standardTransitTimeWindow": {
                         "description": "The standard committed window of time by which the package is expected to be delivered.",
@@ -1597,7 +1597,7 @@
                     },
                     "shipperInformation": {
                         "description": "Contact and address information of shipper.",
-                        "$ref": "#/components/schemas/ContactAndAddress"
+                        "$ref": "#/components/schemas/ContactAndAddress_2"
                     },
                     "lastUpdatedDestinationAddress": {
                         "description": "Last updated delivery address for the package.",
@@ -2388,6 +2388,27 @@
                         "example": 56.8
                     }
                 }
+            },
+            "ContactVO": {
+                "type": "object",
+                "properties": {
+                    "personName": {
+                        "type": "string",
+                        "description": "Identifies the contact person's name. Max Length is 70.<br> Example: John Taylor",
+                        "example": "John Taylor"
+                    },
+                    "phoneNumber": {
+                        "type": "string",
+                        "description": "Identifies the phone number associated with this contact. Max length is 15. <br>Example: '1234567890'",
+                        "example": "1234567890"
+                    },
+                    "companyName": {
+                        "type": "string",
+                        "description": "Identifies the company this contact is associated with. Max length is 35. <br> Example: Fedex",
+                        "example": "Fedex"
+                    }
+                },
+                "description": "Indicate the contact details for this package."
             },
             "CustomDeliveryOption": {
                 "type": "object",
@@ -3230,7 +3251,7 @@
                         "example": "SEA"
                     },
                     "locationContactAndAddress": {
-                        "$ref": "#/components/schemas/ContactAndAddress"
+                        "$ref": "#/components/schemas/ContactAndAddress_2"
                     }
                 },
                 "description": "Location details for the fedex facility."
@@ -3335,11 +3356,6 @@
                         "description": "Conditional<br>The name of the city, town, etc. <br> Example: SEATTLE",
                         "example": "SEATTLE"
                     },
-                    "urbanizationCode": {
-                        "type": "string",
-                        "description": "Relevant only to addresses in Puerto Rico, where multiple addresses within the same postal code can have the same house number and street name. When this is the case, the urbanization code is needed to distinguish them.<br> Example: RAFAEL",
-                        "example": "RAFAEL"
-                    },
                     "stateOrProvinceCode": {
                         "type": "string",
                         "description": "This is a placeholder for State or Province code. <br> Example: CA<br><a onclick='loadDocReference(\"canadaprovincecodes\")'>Click here to see State/Province Code</a>",
@@ -3396,11 +3412,6 @@
                         "description": "Conditional<br>The name of the city, town, etc. <br> Example: SEATTLE",
                         "example": "SEATTLE"
                     },
-                    "urbanizationCode": {
-                        "type": "string",
-                        "description": "Relevant only to addresses in Puerto Rico, where multiple addresses within the same postal code can have the same house number and street name. When this is the case, the urbanization code is needed to distinguish them.<br> Example: RAFAEL",
-                        "example": "RAFAEL"
-                    },
                     "stateOrProvinceCode": {
                         "type": "string",
                         "description": "This is a placeholder for State or Province code. <br> Example: CA<br><a onclick='loadDocReference(\"canadaprovincecodes\")'>Click here to see State/Province Code</a>",
@@ -3454,7 +3465,7 @@
                         "example": "SEA"
                     },
                     "locationContactAndAddress": {
-                        "$ref": "#/components/schemas/ContactAndAddress"
+                        "$ref": "#/components/schemas/ContactAndAddress_2"
                     },
                     "locationType": {
                         "type": "string",
@@ -3483,6 +3494,10 @@
                 ]
             },
             "ContactAndAddress": {
+                "required": [
+                    "address",
+                    "contact"
+                ],
                 "type": "object",
                 "properties": {
                     "contact": {
@@ -3490,35 +3505,20 @@
                     },
                     "address": {
                         "description": "Required.\n\nDescriptive data for a physical location.  may be used as an actual physical address(place to which one could go), or a container of 'address parts' which should be handled as a unit(such as a city-state-zip combination within the US).\n\nConditional when used with Payor object.  Required if entering using RECIPIENT or THIRD_PARTY.  Required if not-authenticated and SENDER is selected",
+                        "$ref": "#/components/schemas/AddressVO"
+                    }
+                },
+                "description": "Location Contact And Address."
+            },
+            "ContactAndAddress_2": {
+                "type": "object",
+                "properties": {
+                    "address": {
+                        "description": "Required.\n\nDescriptive data for a physical location.  may be used as an actual physical address(place to which one could go), or a container of 'address parts' which should be handled as a unit(such as a city-state-zip combination within the US).\n\nConditional when used with Payor object.  Required if entering using RECIPIENT or THIRD_PARTY.  Required if not-authenticated and SENDER is selected",
                         "$ref": "#/components/schemas/AddressVO_2"
                     }
                 },
-                "description": "Location Contact And Address.",
-                "required": [
-                    "address",
-                    "contact"
-                ]
-            },
-            "ContactVO": {
-                "type": "object",
-                "properties": {
-                    "personName": {
-                        "type": "string",
-                        "description": "Identifies the contact person's name. Max Length is 70.<br> Example: John Taylor",
-                        "example": "John Taylor"
-                    },
-                    "phoneNumber": {
-                        "type": "string",
-                        "description": "Identifies the phone number associated with this contact. Max length is 15. <br>Example: '1234567890'",
-                        "example": "1234567890"
-                    },
-                    "companyName": {
-                        "type": "string",
-                        "description": "Identifies the company this contact is associated with. Max length is 35. <br> Example: Fedex",
-                        "example": "Fedex"
-                    }
-                },
-                "description": "Indicate the contact details for this package.<br>Note: contact is shown in response only in secured flow. For non secured flow, contact is not shown in the response.'"
+                "description": "Location Contact And Address."
             },
             "ErrorResponseVO": {
                 "type": "object",

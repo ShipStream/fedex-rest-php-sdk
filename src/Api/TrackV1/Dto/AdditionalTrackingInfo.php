@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class AdditionalTrackingInfo extends Dto
 {
-    protected static array $complexArrayTypes = ['packageIdentifiers' => [PackageIdentifier::class]];
+    protected static array $complexArrayTypes = ['packageIdentifiers' => PackageIdentifier::class];
 
     /**
      * @param  ?bool  $hasAssociatedShipments  Field which indicates if the current shipment has associated shipments.<br> Example: false

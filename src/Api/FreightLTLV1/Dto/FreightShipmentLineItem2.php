@@ -15,7 +15,7 @@ use ShipStream\FedEx\Dto;
 final class FreightShipmentLineItem2 extends Dto
 {
     /**
-     * @param  string  $subPackagingType  This is a sub package type for the package.<br><a href='/api/en-us/guides/api-reference.html#subpackagetypes' target='_blank'>Click here to see Sub-Package Types </a>
+     * @param  string  $subPackagingType  This is a sub package type for the package.<br><a onclick='loadDocReference("subpackagetypes")'>Click here to see Sub-Packaging Types</a>
      * @param  string  $description  Customer-provided description of this line item.<br>Example: description
      * @param  Weight  $weight  These are the package weight details.<br>Note: Weight is not required for One rate shipments
      * @param  int  $pieces  Total number of pieces.<br> Example: 12

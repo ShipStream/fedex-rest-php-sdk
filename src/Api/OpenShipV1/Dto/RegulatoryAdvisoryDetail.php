@@ -15,8 +15,8 @@ use ShipStream\FedEx\Dto;
 final class RegulatoryAdvisoryDetail extends Dto
 {
     protected static array $complexArrayTypes = [
-        'commodityClarifications' => [CommodityClarificationDetail::class],
-        'prohibitions' => [RegulatoryProhibition::class],
+        'commodityClarifications' => CommodityClarificationDetail::class,
+        'prohibitions' => RegulatoryProhibition::class,
     ];
 
     /**

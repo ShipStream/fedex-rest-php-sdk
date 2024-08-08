@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class ReturnShippingDocumentFormat extends Dto
 {
-    protected static array $complexArrayTypes = ['dispositions' => [ShippingDocumentDispositionDetail::class]];
+    protected static array $complexArrayTypes = ['dispositions' => ShippingDocumentDispositionDetail::class];
 
     /**
      * @param  ?bool  $provideInstructions  For those shipping document types which have both a "form" and "instructions" component (e.g General Agency Agreement), this field indicates whether to provide the instructions.<br>Example: true

@@ -15,9 +15,9 @@ use ShipStream\FedEx\Dto;
 final class TrackShipmentDetail extends Dto
 {
     protected static array $complexArrayTypes = [
-        'contents' => [ShipmentContent::class],
-        'weight' => [Weight::class],
-        'splitShipments' => [TrackSplitShipment::class],
+        'contents' => ShipmentContent::class,
+        'weight' => Weight::class,
+        'splitShipments' => TrackSplitShipment::class,
     ];
 
     /**

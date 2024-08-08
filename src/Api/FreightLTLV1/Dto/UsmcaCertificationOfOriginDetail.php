@@ -14,10 +14,10 @@ use ShipStream\FedEx\Dto;
 
 final class UsmcaCertificationOfOriginDetail extends Dto
 {
-    protected static array $complexArrayTypes = ['customerImageUsages' => [CustomerImageUsage::class]];
+    protected static array $complexArrayTypes = ['customerImageUsages' => CustomerImageUsage::class];
 
     /**
-     * @param  CustomerImageUsage[]|null  $customerImageUsages  Specify the use and identification of supplied images to be used on document.
+     * @param  CustomerImageUsage[]|null  $customerImageUsages  Specifies the usage and identification of customer supplied images to be used on this document.
      * @param  ?ShippingDocumentFormat  $documentFormat  Specify the shipping document format.
      * @param  ?string  $certifierSpecification  This is certifier specification.
      * @param  ?string  $importerSpecification  This is importer specification.

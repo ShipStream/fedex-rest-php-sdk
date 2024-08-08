@@ -15,8 +15,8 @@ use ShipStream\FedEx\Dto;
 final class CustomerSpecifiedLabelDetail extends Dto
 {
     protected static array $complexArrayTypes = [
-        'regulatoryLabels' => [RegulatoryLabelContentDetail::class],
-        'additionalLabels' => [AdditionalLabelsDetail::class],
+        'regulatoryLabels' => RegulatoryLabelContentDetail::class,
+        'additionalLabels' => AdditionalLabelsDetail::class,
     ];
 
     /**

@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class DangerousGoodsContainer extends Dto
 {
-    protected static array $complexArrayTypes = ['hazardousCommodities' => [HazardousCommodityContent::class]];
+    protected static array $complexArrayTypes = ['hazardousCommodities' => HazardousCommodityContent::class];
 
     /**
      * @param  ?string  $offeror  Specify the shipper name(offeror) or contact number. Required on all shipping papers.

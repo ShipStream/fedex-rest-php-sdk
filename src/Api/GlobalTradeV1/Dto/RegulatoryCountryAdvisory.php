@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class RegulatoryCountryAdvisory extends Dto
 {
-    protected static array $complexArrayTypes = ['messages' => [Message::class]];
+    protected static array $complexArrayTypes = ['messages' => Message::class];
 
     /**
      * @param  ?string  $types  Specifies the advisory type.

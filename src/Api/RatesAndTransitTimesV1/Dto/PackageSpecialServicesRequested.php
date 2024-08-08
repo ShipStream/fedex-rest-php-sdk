@@ -16,7 +16,10 @@ final class PackageSpecialServicesRequested extends Dto
 {
     protected static array $attributeMap = ['packageCodDetail' => 'packageCODDetail'];
 
-    protected static array $complexArrayTypes = ['batteryDetails' => [BatteryClassificationDetail::class]];
+    protected static array $complexArrayTypes = [
+        'batteryDetails' => BatteryClassificationDetail::class,
+        'standaloneBatteryDetails' => StandaloneBatteryDetails::class,
+    ];
 
     /**
      * @param  ?string[]  $specialServiceTypes  Indicate the special services  requested.<br><a onclick='loadDocReference("packagelevelspecialservicetypes")'>Click here to see Package level Special Service Types</a>
@@ -27,6 +30,7 @@ final class PackageSpecialServicesRequested extends Dto
      * @param  ?int  $pieceCountVerificationBoxCount  Provide the pieceCount or VerificationBoxCount for batteries or cells that are contained within this specific package.
      * @param  BatteryClassificationDetail[]|null  $batteryDetails  Specify the details about the batteries or cells that are contained within this specific package.
      * @param  ?Weight  $dryIceWeight  These are the weight details.
+     * @param  StandaloneBatteryDetails[]|null  $standaloneBatteryDetails  Provides details about the batteries or cells that are contained within this specific package.
      */
     public function __construct(
         public readonly ?array $specialServiceTypes = null,
@@ -37,6 +41,7 @@ final class PackageSpecialServicesRequested extends Dto
         public readonly ?int $pieceCountVerificationBoxCount = null,
         public readonly ?array $batteryDetails = null,
         public readonly ?Weight $dryIceWeight = null,
+        public readonly ?array $standaloneBatteryDetails = null,
     ) {
     }
 }

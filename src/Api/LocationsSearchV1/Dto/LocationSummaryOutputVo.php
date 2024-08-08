@@ -15,10 +15,10 @@ use ShipStream\FedEx\Dto;
 final class LocationSummaryOutputVo extends Dto
 {
     protected static array $complexArrayTypes = [
-        'alerts' => [Alert::class],
-        'ambiguousAddress' => [LocationDetail::class],
-        'locationCapabilities' => [LocationCapabilities::class],
-        'packageMaximumLimits' => [PackageAttribute::class],
+        'alerts' => Alert::class,
+        'ambiguousAddress' => LocationDetail::class,
+        'locationCapabilities' => LocationCapabilities::class,
+        'packageMaximumLimits' => PackageAttribute::class,
     ];
 
     /**
@@ -44,7 +44,7 @@ final class LocationSummaryOutputVo extends Dto
      * @param  ?bool  $sameState  Filter to display locations within the same state as the search criteria.<br>Valid values: True, False.
      * @param  ?bool  $sameCountry  Filter to display locations within the same country as the search criteria.<br>Valid values: True, False.
      * @param  ?string  $redirectToHoldType  Specify the type of service supported by a FedEx location for redirect to hold.<br>Valid values: FEDEX_EXPRESS, FEDEX_GROUND, FEDEX_GROUND_HOME_DELIVERY.
-     * @param  ?string[]  $locationAttrTypes  Specify attributes to filter location types. If more than one value is specified, only those locations that have all the specified attributes will be returned.<br>Note: In order to filter for DROP_BOX location, need to add locationTypes as FEDEX_SELF_SERVICE_LOCATION
+     * @param  ?string[]  $locationAttrTypes  Indicates the attributes for the location.
      * @param  LocationCapabilities[]|null  $locationCapabilities  Specify to filter the locations based on their capabilities.
      * @param  PackageAttribute[]|null  $packageMaximumLimits  Any required location supported package constraints to narrow the search.<br>For example, a package weighing more than 151 pounds may not be supported at all location types.  Drop box location would be excluded.
      * @param  ?string[]  $locationTypes  Results filter which narrows the search to specific types of FedEx Locations.

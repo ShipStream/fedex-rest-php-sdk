@@ -15,14 +15,15 @@ use ShipStream\FedEx\Dto;
 final class ShipmentLegRateDetail extends Dto
 {
     protected static array $complexArrayTypes = [
-        'surcharges' => [Surcharge::class],
-        'freightDiscounts' => [RateDiscount::class],
+        'taxes' => Tax::class,
+        'surcharges' => Surcharge::class,
+        'freightDiscounts' => RateDiscount::class,
     ];
 
     /**
      * @param  ?string  $rateZone  Indicates the rate zone used (based on origin and destination).<br>Example: rateZone
      * @param  ?string  $pricingCode  Specifies the Pricing Code.<br>Example: pricingCode
-     * @param  mixed[][]|null  $taxes  All transportation-based taxes applicable to this shipment.
+     * @param  Tax[]|null  $taxes  Specifies the taxes.
      * @param  ?Weight  $totalDimWeight  These are the package weight details.<br>Note: Weight is not required for One rate shipments
      * @param  ?float  $totalRebates  Specifies the total rebate.<br>Example: 2.0
      * @param  ?float  $fuelSurchargePercent  Specifies a fuel surcharge percentage.<br>Example: 6.0

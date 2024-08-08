@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class FullSchemaTrackingNumbers extends Dto
 {
-    protected static array $complexArrayTypes = ['trackingInfo' => [TrackingInfo::class]];
+    protected static array $complexArrayTypes = ['trackingInfo' => TrackingInfo::class];
 
     /**
      * @param  bool  $includeDetailedScans  Indicates if detailed scans are requested or not. <br/>Valid values are True, or False.

@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class TransitTimeOutput extends Dto
 {
-    protected static array $complexArrayTypes = ['alerts' => [Alert::class], 'transitTimes' => [TransitTime::class]];
+    protected static array $complexArrayTypes = ['alerts' => Alert::class, 'transitTimes' => TransitTime::class];
 
     /**
      * @param  Alert[]|null  $alerts  These are alert details received with the response.

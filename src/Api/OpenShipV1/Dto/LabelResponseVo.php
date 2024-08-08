@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class LabelResponseVo extends Dto
 {
-    protected static array $complexArrayTypes = ['alerts' => [Alert::class]];
+    protected static array $complexArrayTypes = ['alerts' => Alert::class];
 
     /**
      * @param  ?string  $contentKey  This is the content key for the document/label.<br>Example: content key

@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class CompletedEtdDetail extends Dto
 {
-    protected static array $complexArrayTypes = ['uploadDocumentReferenceDetails' => [UploadDocumentReferenceDetail::class]];
+    protected static array $complexArrayTypes = ['uploadDocumentReferenceDetails' => UploadDocumentReferenceDetail::class];
 
     /**
      * @param  ?string  $folderId  Returns the folder id where the documents is uploaded <br> Example: "0b0493e580dc1a1b"

@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class FullSchemaSpod extends Dto
 {
-    protected static array $complexArrayTypes = ['trackDocumentSpecification' => [TrackDocumentSpecification::class]];
+    protected static array $complexArrayTypes = ['trackDocumentSpecification' => TrackDocumentSpecification::class];
 
     /**
      * @param  TrackDocumentDetail  $trackDocumentDetail  Specifies the tracking document details.

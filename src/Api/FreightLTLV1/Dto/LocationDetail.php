@@ -17,8 +17,8 @@ final class LocationDetail extends Dto
     protected static array $attributeMap = ['mapUrl' => 'mapURL'];
 
     protected static array $complexArrayTypes = [
-        'storeHours' => [LocationHours::class],
-        'carrierDetails' => [CarrierDetails::class],
+        'storeHours' => LocationHours::class,
+        'carrierDetails' => CarrierDetails::class,
     ];
 
     /**

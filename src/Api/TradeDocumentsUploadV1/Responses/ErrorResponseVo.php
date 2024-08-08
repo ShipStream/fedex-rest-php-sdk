@@ -15,7 +15,7 @@ use ShipStream\FedEx\Response;
 
 final class ErrorResponseVo extends Response
 {
-    protected static array $complexArrayTypes = ['errors' => [CxsError::class]];
+    protected static array $complexArrayTypes = ['errors' => CxsError::class];
 
     /**
      * @param  CxsError[]|null  $errors

@@ -15,9 +15,9 @@ use ShipStream\FedEx\Dto;
 final class TrackingReferencesResponse extends Dto
 {
     protected static array $complexArrayTypes = [
-        'cxsErrors' => [CxsError::class],
-        'completeTrackResults' => [CompleteTrackResult::class],
-        'alerts' => [Alert::class],
+        'cxsErrors' => CxsError::class,
+        'completeTrackResults' => CompleteTrackResult::class,
+        'alerts' => Alert::class,
     ];
 
     /**

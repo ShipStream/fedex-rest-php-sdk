@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class FullSchemaCreatePickup extends Dto
 {
-    protected static array $complexArrayTypes = ['totalWeight' => [Weight::class]];
+    protected static array $complexArrayTypes = ['totalWeight' => Weight::class];
 
     /**
      * @param  PartyAccountNumber  $associatedAccountNumber  Specify the assigned FedEx Account Number. If the transportation charges to be billed to a payor other than the sender or recipient, provide the FedEx Account Number. Specify this field when payment type is selected as SENDER.

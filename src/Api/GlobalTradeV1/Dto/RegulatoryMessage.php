@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class RegulatoryMessage extends Dto
 {
-    protected static array $complexArrayTypes = ['messageParameters' => [MessageParameters::class]];
+    protected static array $complexArrayTypes = ['messageParameters' => MessageParameters::class];
 
     /**
      * @param  ?string  $code  Indicates the message code.

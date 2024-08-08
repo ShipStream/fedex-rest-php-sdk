@@ -16,7 +16,7 @@ final class ResolvedAddress extends Dto
 {
     protected static array $attributeMap = ['normalizedStatusNameDpv' => 'normalizedStatusNameDPV'];
 
-    protected static array $complexArrayTypes = ['cityToken' => [ResolutionToken::class]];
+    protected static array $complexArrayTypes = ['cityToken' => ResolutionToken::class];
 
     /**
      * @param  ?string[]  $streetLinesToken  Indicates the resolved street address lines.<br>Example: [\"7372 PARKRIDGE BLVD\", \"APT 286, 2903 sprank\"]

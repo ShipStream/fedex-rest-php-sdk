@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class CompletedHazardousPackageDetail extends Dto
 {
-    protected static array $complexArrayTypes = ['containers' => [ValidatedHazardousContainer::class]];
+    protected static array $complexArrayTypes = ['containers' => ValidatedHazardousContainer::class];
 
     /**
      * @param  ?string  $regulation  Specifies the hazardous package regulation type.<br>Example: IATA

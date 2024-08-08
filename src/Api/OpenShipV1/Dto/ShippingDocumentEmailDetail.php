@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class ShippingDocumentEmailDetail extends Dto
 {
-    protected static array $complexArrayTypes = ['eMailRecipients' => [ShippingDocumentEmailRecipient::class]];
+    protected static array $complexArrayTypes = ['eMailRecipients' => ShippingDocumentEmailRecipient::class];
 
     /**
      * @param  ShippingDocumentEmailRecipient[]  $eMailRecipients  Indicates the shipping document email recipients.

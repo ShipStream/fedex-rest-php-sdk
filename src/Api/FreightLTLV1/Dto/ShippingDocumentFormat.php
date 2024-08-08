@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class ShippingDocumentFormat extends Dto
 {
-    protected static array $complexArrayTypes = ['dispositions' => [ShippingDocumentDispositionDetail::class]];
+    protected static array $complexArrayTypes = ['dispositions' => ShippingDocumentDispositionDetail::class];
 
     /**
      * @param  ?bool  $provideInstructions  Indicates whether or not to provide the instructions.

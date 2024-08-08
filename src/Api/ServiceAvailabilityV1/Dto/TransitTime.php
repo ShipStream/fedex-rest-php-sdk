@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class TransitTime extends Dto
 {
-    protected static array $complexArrayTypes = ['transitTimeDetails' => [TransitTimeDetail::class]];
+    protected static array $complexArrayTypes = ['transitTimeDetails' => TransitTimeDetail::class];
 
     /**
      * @param  TransitTimeDetail[]|null  $transitTimeDetails  Specifies the details regarding transit times.

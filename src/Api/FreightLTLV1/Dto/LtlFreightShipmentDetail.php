@@ -16,7 +16,7 @@ final class LtlFreightShipmentDetail extends Dto
 {
     protected static array $attributeMap = ['aliasId' => 'aliasID'];
 
-    protected static array $complexArrayTypes = ['lineItem' => [FreightShipmentLineItem::class]];
+    protected static array $complexArrayTypes = ['lineItem' => FreightShipmentLineItem::class];
 
     /**
      * @param  string  $role  Indicates the role of the party submitting the transaction.

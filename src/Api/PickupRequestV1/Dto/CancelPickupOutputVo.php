@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class CancelPickupOutputVo extends Dto
 {
-    protected static array $complexArrayTypes = ['alerts' => [Alert::class]];
+    protected static array $complexArrayTypes = ['alerts' => Alert::class];
 
     /**
      * @param  ?string  $pickupConfirmationCode  Specify the pickup confirmation code. <br> Example: NQAA97

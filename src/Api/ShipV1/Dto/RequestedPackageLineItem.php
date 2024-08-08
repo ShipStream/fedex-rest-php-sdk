@@ -15,8 +15,8 @@ use ShipStream\FedEx\Dto;
 final class RequestedPackageLineItem extends Dto
 {
     protected static array $complexArrayTypes = [
-        'customerReferences' => [CustomerReference::class],
-        'contentRecord' => [ContentRecord::class],
+        'customerReferences' => CustomerReference::class,
+        'contentRecord' => ContentRecord::class,
     ];
 
     /**

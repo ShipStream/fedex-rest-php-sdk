@@ -14,10 +14,10 @@ use ShipStream\FedEx\Dto;
 
 final class ShipmentSpecialServicesRequestedFreightDirectDetail extends Dto
 {
-    protected static array $complexArrayTypes = ['freightDirectDataDetails' => [FreightDirectDataDetails::class]];
+    protected static array $complexArrayTypes = ['freightDirectDataDetails' => FreightDirectDataDetail::class];
 
     /**
-     * @param  FreightDirectDataDetails[]|null  $freightDirectDataDetails  This field provides the list of data for Fedex Direct Detail service.
+     * @param  FreightDirectDataDetail[]|null  $freightDirectDataDetails
      */
     public function __construct(
         public readonly ?array $freightDirectDataDetails = null,

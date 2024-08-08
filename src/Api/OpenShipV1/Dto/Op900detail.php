@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class Op900detail extends Dto
 {
-    protected static array $complexArrayTypes = ['customerImageUsages' => [CustomerImageUsage::class]];
+    protected static array $complexArrayTypes = ['customerImageUsages' => CustomerImageUsage::class];
 
     /**
      * @param  CustomerImageUsage[]|null  $customerImageUsages  Specify the use and identification of supplied images to be used on document.
