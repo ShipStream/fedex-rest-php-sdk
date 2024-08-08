@@ -60,6 +60,7 @@ The `FedEx` class constructor accepts the following arguments:
 * `childSecret`: The corresponding secret key for the child client ID, if one is provided. Optional.
 * `proprietaryChild`: Specifies if the child credentials (if any) are for a proprietary parent/child relationship. Default `false`.
 * `tokenCache`: An implementation of the [`TokenCache`](https://github.com/ShipStream/fedex-rest-php-sdk/blob/main/src/Contracts/TokenCache.php) interface. This is used to cache access tokens, so that a new one isn't retrieved on every request. Defaults to the [`MemoryCache`](https://github.com/ShipStream/fedex-rest-php-sdk/blob/main/src/Auth/MemoryCache.php) implementation.
+* `transactionIdGenerator`: A closure that takes a `PendingRequest` and returns a `string`, which will be used to inject `x-customer-transaction-id` header values into requests. Optional. 
 
 
 ## Saloon features
