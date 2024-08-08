@@ -127,7 +127,7 @@ $ php bin/console schema:download \
 
 This step is the simplest of the three. The `resources/apis.json` is the primary source of truth for what all the different segments of FedEx's REST API are, what their names are, and the URLs of their OpenAPI schema files. Some API segments (for instance, the Service Availability API) are composed of multiple OpenAPI model files. The `apis.json` file is also built to support multiple versions of the same API segment, in case FedEx later releases new versions of these APIs. There is a more complete description of the `apis.json` file [below](#apisjson).
 
-Downloaded OpenAPI models are placed in `resources/models/.raw/<api-name>`, and are not version controlled. Once the models for a particular API segment have been downloaded, they can then be refactored.
+Downloaded OpenAPI models are placed in `resources/models/.raw/<api-name>`. Once the models for a particular API segment have been downloaded, they can then be refactored.
 
 ### Refactoring schemas: `php bin/console schema:refactor`
 
@@ -144,7 +144,7 @@ A wide variety of refactoring processes are run on the raw schemas to get them r
 
 Once refactoring is complete, the finalized OpenAPI model file is saved to `resources/models/<api-name>/<version>.json`. These files _are_ version-controlled, unlike the raw models, because having them available to everyone makes it easier to reason about the autogeneration process.
 
-### Generating code
+### Generating code: `php bin/console schema:generate`
 
 Finally, the code is generated from the finalized OpenAPI models. We use `highsidelabs/saloon-sdk-generator` for this, which handles most of the heavy lifting. All the code in the `ShipStream\FedEx\Api` namespace is autogenerate, so _do not_ edit any of that code directly! Any changes in that namespace will be overridden the next time the library is generated, so if you want to make a change to any of that code, that change will have to be made by either a) modifying/extending the generator code, or b) via the [`modifications.json`](#modificationsjson) file.
 

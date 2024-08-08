@@ -1,0 +1,883 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Track API",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "/"
+        }
+    ],
+    "paths": {
+        "/track/v1/notifications": {
+            "post": {
+                "summary": "Send Notification",
+                "description": "This endpoint helps you setup up, customize the tracking event notifications to be received for a shipment.<br><i>Note: FedEx APIs do not support Cross-Origin Resource Sharing (CORS) mechanism.</i>",
+                "operationId": "19f112535f47e237486334074740bb66",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "oneOf": [
+                                    {
+                                        "$ref": "#/components/schemas/Full_Schema_Notification"
+                                    },
+                                    {
+                                        "$ref": "#/components/schemas/Send_Shipment_Notifications"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "required": false
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/TrkcResponseVO_Notifications"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponseVO"
+                                },
+                                "example": {
+                                    "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
+                                    "customerTransactionId": "AnyCo_order123456789",
+                                    "errors": [
+                                        {
+                                            "code": "TRACKING.TRACKINGNUMBER.NOTFOUND",
+                                            "message": "Tracking number cannot be found. Please correct the tracking number and try again."
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponseVO401"
+                                },
+                                "example": {
+                                    "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
+                                    "errors": [
+                                        {
+                                            "code": "NOT.AUTHORIZED.ERROR",
+                                            "message": "Access token expired. Please modify your request and try again."
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponseVO403"
+                                },
+                                "example": {
+                                    "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
+                                    "errors": [
+                                        {
+                                            "code": "FORBIDDEN.ERROR",
+                                            "message": "We could not authorize your credentials. Please check your permissions and try again."
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponseVO404"
+                                },
+                                "example": {
+                                    "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
+                                    "errors": [
+                                        {
+                                            "code": "NOT.FOUND.ERROR",
+                                            "message": "The resource you requested is no longer available. Please modify your request and try again."
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Failure",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponseVO500"
+                                },
+                                "example": {
+                                    "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
+                                    "customerTransactionId": "AnyCo_order123456789",
+                                    "errors": [
+                                        {
+                                            "code": "INTERNAL.SERVER.ERROR",
+                                            "message": "We encountered an unexpected error and are working to resolve the issue. We apologize for any inconvenience. Please check back at a later time."
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "503": {
+                        "description": "Service Unavailable",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponseVO503"
+                                },
+                                "example": {
+                                    "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
+                                    "customerTransactionId": "AnyCo_order123456789",
+                                    "errors": [
+                                        {
+                                            "code": "SERVICE.UNAVAILABLE.ERROR",
+                                            "message": "The service is currently unavailable and we are working to resolve the issue. We apologize for any inconvenience. Please check back at a later time."
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "x-customer-transaction-id",
+                        "description": "This element allows you to assign a unique identifier to your transaction. This element is also returned in the reply and helps you match the request to the reply.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "624deea6-b709-470c-8c39-4b5511281492"
+                        }
+                    },
+                    {
+                        "in": "header",
+                        "name": "content-type",
+                        "description": "This is used to indicate the media type of the resource. The media type is a string sent along with the file indicating format of the file.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "application/json"
+                        }
+                    },
+                    {
+                        "in": "header",
+                        "name": "x-locale",
+                        "description": "This indicates the combination of language code and country code.  <a onclick='loadDocReference(\"locales\")'>Click here to see Locales</a>",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "en_US"
+                        }
+                    },
+                    {
+                        "in": "header",
+                        "name": "authorization",
+                        "description": "This indicates the authorization token for the input request.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "Bearer XXX"
+                        }
+                    }
+                ],
+                "x-code-samples": [
+                    {
+                        "lang": "C#",
+                        "source": "var client = new RestClient(\"https://apis-sandbox.fedex.com/track/v1/notifications\");\nvar request = new RestRequest(Method.POST);\nrequest.AddHeader(\"Authorization\", \"Bearer \");\nrequest.AddHeader(\"X-locale\", \"en_US\");\nrequest.AddHeader(\"Content-Type\", \"application/json\");\n// 'input' refers to JSON Payload\nrequest.AddParameter(\"application/x-www-form-urlencoded\", input, ParameterType.RequestBody);\nIRestResponse response = client.Execute(request);\n\n\n\n\n"
+                    },
+                    {
+                        "lang": "JAVA",
+                        "source": "OkHttpClient client = new OkHttpClient();\n\nMediaType mediaType = MediaType.parse(\"application/json\");\n// 'input' refers to JSON Payload\nRequestBody body = RequestBody.create(mediaType, input);\nRequest request = new Request.Builder()\n    .url(\"https://apis-sandbox.fedex.com/track/v1/notifications\")\n    .post(body)\n    .addHeader(\"Content-Type\", \"application/json\")\n    .addHeader(\"X-locale\", \"en_US\")\n    .addHeader(\"Authorization\", \"Bearer \")\n    .build();\n            \nResponse response = client.newCall(request).execute();"
+                    },
+                    {
+                        "lang": "JAVASCRIPT",
+                        "source": "// 'input' refers to JSON Payload\nvar data = JSON.stringify(input);\n  \n  var xhr = new XMLHttpRequest();\n  xhr.withCredentials = true;\n  \n  xhr.addEventListener(\"readystatechange\", function () {\n    if (this.readyState === 4) {\n      console.log(this.responseText);\n    }\n  });\n  \n  xhr.open(\"POST\", \"https://apis-sandbox.fedex.com/track/v1/notifications\");\n  xhr.setRequestHeader(\"Content-Type\", \"application/json\");\n  xhr.setRequestHeader(\"X-locale\", \"en_US\");\n  xhr.setRequestHeader(\"Authorization\", \"Bearer \");\n  \n  xhr.send(data);"
+                    },
+                    {
+                        "lang": "PHP",
+                        "source": "<?php\n\n$request = new HttpRequest();\n$request->setUrl('https://apis-sandbox.fedex.com/track/v1/notifications');\n$request->setMethod(HTTP_METH_POST);\n\n$request->setHeaders(array(\n  'Authorization' => 'Bearer ',\n  'X-locale' => 'en_US',\n  'Content-Type' => 'application/json'\n));\n\n$request->setBody(input); // 'input' refers to JSON Payload\n\ntry {\n  $response = $request->send();\n\n  echo $response->getBody();\n} catch (HttpException $ex) {\n  echo $ex;\n}"
+                    },
+                    {
+                        "lang": "PYTHON",
+                        "source": "import requests\n\nurl = \"https://apis-sandbox.fedex.com/track/v1/notifications\"\n\npayload = input # 'input' refers to JSON Payload\nheaders = {\n    'Content-Type': \"application/json\",\n    'X-locale': \"en_US\",\n    'Authorization': \"Bearer \"\n    }\n\nresponse = requests.post(url, data=payload, headers=headers)\n\nprint(response.text)"
+                    },
+                    {
+                        "lang": "RUST",
+                        "source": "extern crate reqwest;\n\nuse std::io::Read;\n\nfn construct_headers() -> HeaderMap {\n    let mut headers = HeaderMap::new();\n    headers.insert(\"Content-Type\", \"application/json\");\n    headers.insert(\"X-locale\", \"en_US\");\n    headers.insert(\"Authorization\", \"Bearer \");\n    headers\n}\n\nfn run() -> Result<()> {\n    let client = reqwest::Client::new();\n    let mut res = client.post(\"https://apis-sandbox.fedex.com/track/v1/notifications\")\n        .body(input) // 'input' refers to JSON Payload\n        .headers(construct_headers())\n        .send()?;\n    let mut body = String::new();\n    res.read_to_string(&mut body)?;\n\n    println!(\"Status: {}\", res.status());\n    println!(\"Headers:\\n{:#?}\", res.headers());\n    println!(\"Body:\\n{}\", body);\n\n    Ok(())\n}"
+                    },
+                    {
+                        "lang": "SWIFT",
+                        "source": "import Foundation\n\nlet headers = [\n  \"Content-Type\": \"application/json\",\n  \"X-locale\": \"en_US\",\n  \"Authorization\": \"Bearer \"\n]\nlet parameters = [\n  input // 'input' refers to JSON Payload\n] as [String : Any]\n\nlet postData = JSONSerialization.data(withJSONObject: parameters, options: [])\n\nlet request = NSMutableURLRequest(url: NSURL(string: \"https://apis-sandbox.fedex.com/track/v1/notifications\")! as URL,\n                                        cachePolicy: .useProtocolCachePolicy,\n                                    timeoutInterval: 10.0)\nrequest.httpMethod = \"POST\"\nrequest.allHTTPHeaderFields = headers\nrequest.httpBody = postData as Data\n\nlet session = URLSession.shared\nlet dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in\n  if (error != nil) {\n    print(error)\n  } else {\n    let httpResponse = response as? HTTPURLResponse\n    print(httpResponse)\n  }\n})\n\ndataTask.resume()"
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Full_Schema_Notification": {
+                "required": [
+                    "senderContactName",
+                    "senderEMailAddress",
+                    "trackingEventNotificationDetail",
+                    "trackingNumberInfo"
+                ],
+                "type": "object",
+                "properties": {
+                    "senderContactName": {
+                        "type": "string",
+                        "description": "Placeholder for Sender contact name.<br> Example: Sam Smith",
+                        "example": "Sam Smith"
+                    },
+                    "senderEMailAddress": {
+                        "type": "string",
+                        "description": "Email address of the sender from which the shipment notification will be sent.<br>Example: LSR123@gmail.com",
+                        "example": "Lsr1234@gmail.com"
+                    },
+                    "trackingEventNotificationDetail": {
+                        "$ref": "#/components/schemas/TrackingEventNotificationDetail"
+                    },
+                    "trackingNumberInfo": {
+                        "$ref": "#/components/schemas/TrackingNumberInfo"
+                    },
+                    "shipDateBegin": {
+                        "type": "string",
+                        "description": "ShipDateBegin and ShipDateEnd are recommended to narrow the search, reduce lookup time, and avoid duplicates when searching for a specific tracking number in a specific time range. <br>Format: YYYY-MM-DD<br>example:'2019-10-13'",
+                        "example": "2019-10-13"
+                    },
+                    "shipDateEnd": {
+                        "type": "string",
+                        "description": "ShipDateBegin and ShipDateEnd are recommended to narrow the search, reduce lookup time, and avoid duplicates when searching for a specific tracking number in a specific time range. <br>Format: YYYY-MM-DD<br>example:'2019-10-13'",
+                        "example": "2019-10-31"
+                    }
+                },
+                "description": "The request to receive a tracking notification."
+            },
+            "TrackingEventNotificationDetail": {
+                "description": "Object for holding tracking event Notification details.",
+                "allOf": [
+                    {
+                        "$ref": "#/components/schemas/TrackingEventNotificationDetail_2"
+                    }
+                ]
+            },
+            "TrackingEventNotificationDetail_2": {
+                "required": [
+                    "trackingNotifications"
+                ],
+                "type": "object",
+                "properties": {
+                    "trackingNotifications": {
+                        "type": "array",
+                        "description": "List of Tracking notifications requested for events like ON_DELIVERY, ON_ESTIMATED_DELIVERY, ON_EXCEPTION, ON_TENDER.",
+                        "items": {
+                            "$ref": "#/components/schemas/TrackingNotification"
+                        }
+                    },
+                    "personalMessage": {
+                        "type": "string",
+                        "description": "An optional message which will be included in the body of the email.",
+                        "example": "Personal message content"
+                    },
+                    "supportHTML": {
+                        "title": "@Ignore4TPP",
+                        "description": "If value is 'true' then html tags are included in the response date.  If 'false' they are not provided in the response."
+                    }
+                },
+                "description": "Tracking Event Notification details."
+            },
+            "TrackingNotification": {
+                "required": [
+                    "notificationDetail",
+                    "notificationEventTypes"
+                ],
+                "type": "object",
+                "properties": {
+                    "notificationDetail": {
+                        "$ref": "#/components/schemas/TrackingNotificationDetail"
+                    },
+                    "role": {
+                        "type": "string",
+                        "description": "This is to specify Recipient_Role in the shipment. <br>Possible values - BROKER, OTHER, RECIPIENT, SHIPPER <br> Example: SHIPPER",
+                        "example": "SHIPPER"
+                    },
+                    "notificationEventTypes": {
+                        "type": "array",
+                        "description": "Identifies the events for which the client is requesting notifications. <br>Possible Values are: ON_DELIVERY, ON_ESTIMATED_DELIVERY, ON_EXCEPTION, ON_TENDER",
+                        "example": [
+                            "ON_DELIVERY",
+                            "ON_EXCEPTION",
+                            "ON_ESTIMATED_DELIVERY"
+                        ],
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "currentResultRequestedFlag": {
+                        "type": "boolean",
+                        "description": "If value is 'true' the current tracking results for the shipment along with notification details will be provided to the client. If 'false' only results for the notification request is provided.<br>Defaults to 'false'<br>Example: true",
+                        "example": true
+                    }
+                },
+                "description": "Identifies a list of details for Tracking Notifications"
+            },
+            "TrackingNotificationDetail": {
+                "required": [
+                    "emailDetail",
+                    "localization",
+                    "notificationType"
+                ],
+                "type": "object",
+                "properties": {
+                    "localization": {
+                        "$ref": "#/components/schemas/Localization"
+                    },
+                    "emailDetail": {
+                        "$ref": "#/components/schemas/EmailDetail"
+                    },
+                    "notificationType": {
+                        "type": "string",
+                        "description": "Identifies the format of the notification. <br>valid values are 'HTML' or 'TEXT'.",
+                        "example": "HTML"
+                    }
+                },
+                "description": "Information about the notification email and the language of the notification requested."
+            },
+            "Localization": {
+                "required": [
+                    "languageCode"
+                ],
+                "type": "object",
+                "properties": {
+                    "languageCode": {
+                        "type": "string",
+                        "description": "Identifies two-letter code for the language (e.g. en/EN, fr/FR, es/ES etc..).<br> Example: en",
+                        "example": "en"
+                    },
+                    "localeCode": {
+                        "type": "string",
+                        "description": "Identifies the two-letter code for the region, used to further identify the requested language.  for example, if you request Spanish, you must include a locale code of <i>US</i> for North American Spanish, or <i>MX</i> for Mexico. <br> Example: US<br><a onclick='loadDocReference(\"locales\")'>Click here to see Locales</a>",
+                        "example": "US"
+                    }
+                },
+                "description": "Specifies the language details for email notification."
+            },
+            "EmailDetail": {
+                "required": [
+                    "emailAddress"
+                ],
+                "type": "object",
+                "properties": {
+                    "emailAddress": {
+                        "type": "string",
+                        "description": "Specifies email address on which user wants to get notified for various registered events.<br>Example: p1@fedex.com",
+                        "example": "p1@fedex.com"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Specifies the name of the notification recipient.<br>Example: Sam Smith",
+                        "example": "Preethi"
+                    }
+                },
+                "description": "Specifies the Email Notification Details."
+            },
+            "TrackingNumberInfo": {
+                "description": "Information uniquely identifying the shipment such as Tracking Qualifier, Carrier Code, and Tracking number.",
+                "allOf": [
+                    {
+                        "$ref": "#/components/schemas/TrackingNumberInfo_2"
+                    }
+                ]
+            },
+            "TrackingNumberInfo_2": {
+                "required": [
+                    "trackingNumber"
+                ],
+                "type": "object",
+                "properties": {
+                    "trackingNumber": {
+                        "type": "string",
+                        "description": "This is a Tracking number for FedEx packages used for tracking a single package or group of packages. <br> Example: 128667043726<br><a onclick='loadDocReference(\"mocktrackingnumbersforfedexexpressandfedexground\")'>Click here to see Mock Tracking Numbers.</a>",
+                        "example": "128667043726"
+                    },
+                    "carrierCode": {
+                        "type": "string",
+                        "description": "This is a placeholder to provide the FedEx operating company (transportation) code used for package delivery. <br> Example: FDXE",
+                        "example": "FDXE",
+                        "enum": [
+                            "FDXE",
+                            "FDXG",
+                            "FXSP",
+                            "FXFR",
+                            "FDXC",
+                            "FXCC",
+                            "FEDEX_CARGO",
+                            "FEDEX_CUSTOM_CRITICAL",
+                            "FEDEX_EXPRESS",
+                            "FEDEX_FREIGHT",
+                            "FEDEX_GROUND",
+                            "FEDEX_OFFICE",
+                            "FEDEX_KINKOS",
+                            "FX",
+                            "FDFR",
+                            "FDEG",
+                            "FXK",
+                            "FDC",
+                            "FDCC"
+                        ]
+                    },
+                    "trackingNumberUniqueId": {
+                        "type": "string",
+                        "description": "Unique identifier used to distinguish duplicate FedEx tracking numbers. This value will be set by FedEx systems. <br> Example: 245822\\~123456789012\\~FDEG",
+                        "example": "245822~123456789012~FDEG"
+                    }
+                },
+                "description": "Information uniquely identifying a shipment such as Tracking number, ShipDate, and Tracking number uniqueId."
+            },
+            "Send_Shipment_Notifications": {
+                "example": {
+                    "trackingNumberInfo": {
+                        "trackingNumber": "770269059988"
+                    },
+                    "senderEMailAddress": "testuser@fedex.com",
+                    "senderContactName": "TestUser",
+                    "trackingEventNotificationDetail": {
+                        "trackingNotifications": [
+                            {
+                                "notificationEventTypes": [
+                                    "ON_ESTIMATED_DELIVERY",
+                                    "ON_TENDER",
+                                    "ON_EXCEPTION",
+                                    "ON_DELIVERY"
+                                ],
+                                "notificationDetail": {
+                                    "notificationType": "HTML",
+                                    "emailDetail": {
+                                        "emailAddress": "testuser@fedex.com"
+                                    },
+                                    "localization": {
+                                        "languageCode": "en",
+                                        "localeCode": "US"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            },
+            "TrkcResponseVO_Notifications": {
+                "type": "object",
+                "properties": {
+                    "transactionId": {
+                        "type": "string",
+                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
+                        "example": "624deea6-b709-470c-8c39-4b5511281492"
+                    },
+                    "customerTransactionId": {
+                        "type": "string",
+                        "description": "This element allows you to assign a unique identifier to your transaction. This element is also returned in the reply and helps you match the request to the reply. <br> Example: AnyCo_order123456789",
+                        "example": "AnyCo_order123456789"
+                    },
+                    "output": {
+                        "$ref": "#/components/schemas/BaseProcessOutputVO_Notification"
+                    }
+                },
+                "description": "This is a wrapper class for outputVO"
+            },
+            "BaseProcessOutputVO_Notification": {
+                "$ref": "#/components/schemas/SendNotificationOutputVO"
+            },
+            "SendNotificationOutputVO": {
+                "properties": {
+                    "TrackingNumberInfo": {
+                        "description": "Tracking number information which uniquely identifies a package. Tracking number information includes tracking number, carrier code and a unique qualifier.",
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/TrackingNumberInfo_2"
+                            }
+                        ]
+                    },
+                    "destinationAddress": {
+                        "description": "Address where the package was actually delivered. Contrast with destination Address, which is the location to which the package was intended to be delivered. Addresses may differ due to delivery to a neighbor, hold at FedEx location, etc.",
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/AddressVO"
+                            }
+                        ]
+                    },
+                    "recipientDetails": {
+                        "type": "array",
+                        "description": "Details of the recipient notification events. Possible events are - ON_DELIVERY, ON_ESTIMATED_DELIVERY, ON_EXCEPTION, ON_TENDER.",
+                        "items": {
+                            "$ref": "#/components/schemas/notificationEventTypes"
+                        }
+                    },
+                    "alerts": {
+                        "type": "array",
+                        "description": "The cxs shipment alerts. This includes the alert type, code, and            message.<br>example: TRACKING.DATA.NOTFOUND -  Tracking data unavailable",
+                        "example": "TRACKING.DATA.NOTFOUND -  Tracking data unavailable",
+                        "items": {
+                            "$ref": "#/components/schemas/Alert"
+                        }
+                    }
+                }
+            },
+            "AddressVO": {
+                "required": [
+                    "addressVerificationId",
+                    "countryCode",
+                    "streetLines"
+                ],
+                "type": "object",
+                "properties": {
+                    "classification": {
+                        "type": "string",
+                        "description": "Specifies the FedEx classification type for an address. <br>Valid values are BUSINESS, RESIDENTIAL, MIXED, UNKNOWN.<br> Example: BUSINESS",
+                        "example": "BUSINESS"
+                    },
+                    "residential": {
+                        "type": "boolean",
+                        "description": "Placeholder to indicate whether the address is residential (as opposed to commercial).",
+                        "example": false,
+                        "enum": [
+                            true,
+                            false
+                        ]
+                    },
+                    "streetLines": {
+                        "type": "array",
+                        "description": "Combination of number, street name, etc. At least one line is required for a valid physical address; empty lines should not be included.<br> Example: [\"1043 North Easy Street\", \"Suite 999\"]",
+                        "example": [
+                            "1043 North Easy Street",
+                            "Suite 999"
+                        ],
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "city": {
+                        "type": "string",
+                        "description": "Conditional<br>The name of the city, town, etc. <br> Example: SEATTLE",
+                        "example": "SEATTLE"
+                    },
+                    "stateOrProvinceCode": {
+                        "type": "string",
+                        "description": "This is a placeholder for State or Province code. <br> Example: CA<br><a onclick='loadDocReference(\"canadaprovincecodes\")'>Click here to see State/Province Code</a>",
+                        "example": "WA"
+                    },
+                    "postalCode": {
+                        "type": "string",
+                        "description": "Placeholder to specify postal code for the address. Postal Code is required for postal-aware countries.<br> Example: 98101<br><a onclick='loadDocReference(\"postalawarecountries\")'>Click here to see Postal aware countries</a>",
+                        "example": "98101"
+                    },
+                    "countryCode": {
+                        "type": "string",
+                        "description": "Placeholder for country code (2 characters) for the address.<br>Example: US<br><a onclick='loadDocReference(\"countrycodes\")'>Click here to see Country Codes</a>",
+                        "example": "US"
+                    },
+                    "countryName": {
+                        "type": "string",
+                        "description": "Field holds the fully spelled out name of a country.<br> Example: United States",
+                        "example": "United States"
+                    }
+                },
+                "description": "Address where the package was actually delivered. Contrast with destinationAddress, which is the location to which the package was intended to be delivered. Addresses may differ due to delivery to a behavior, hold at FedEx location, etc."
+            },
+            "notificationEventTypes": {
+                "type": "array",
+                "description": "Identifies the events for which the client is requesting notifications. Possible events are -  ON_DELIVERY, ON_ESTIMATED_DELIVERY, ON_EXCEPTION, ON_TENDER <br> Example: [ON_DELIVERY,ON_ESTIMATED_DELIVERY,ON_EXCEPTION]",
+                "items": {
+                    "type": "string",
+                    "example": "[\"ON_ESTIMATED_DELIVERY\"]"
+                }
+            },
+            "Alert": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "description": "Specifies the api alert code."
+                    },
+                    "alertType": {
+                        "type": "string",
+                        "description": "Specifies the api alert type.",
+                        "enum": [
+                            "NOTE",
+                            "WARNING"
+                        ]
+                    },
+                    "message": {
+                        "type": "string",
+                        "description": "Specifies the api alert message."
+                    }
+                },
+                "description": "Specifies the api alerts."
+            },
+            "ErrorResponseVO": {
+                "type": "object",
+                "properties": {
+                    "transactionId": {
+                        "type": "string",
+                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
+                        "example": "624deea6-b709-470c-8c39-4b5511281492"
+                    },
+                    "customerTransactionId": {
+                        "type": "string",
+                        "description": "This element allows you to assign a unique identifier to your transaction. This element is also returned in the reply and helps you match the request to the reply. <br> Example: AnyCo_order123456789",
+                        "example": "AnyCo_order123456789"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CXSError"
+                        }
+                    }
+                }
+            },
+            "CXSError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "description": "Indicates the error code.<br>Example: TRACKING.TRACKINGNUMBER.NOTFOUND"
+                    },
+                    "parameterList": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Parameter"
+                        }
+                    },
+                    "message": {
+                        "type": "string",
+                        "description": "Indicates the description of API error alert message.<br>Example: Tracking number cannot be found. Please correct the tracking number and try again."
+                    }
+                },
+                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
+            },
+            "Parameter": {
+                "type": "object",
+                "properties": {
+                    "value": {
+                        "type": "string",
+                        "description": "Identifies the error option to be applied. <br>Example: value",
+                        "example": "value"
+                    },
+                    "key": {
+                        "type": "string",
+                        "description": "Indicates the value associated with the key.<br> Example: key",
+                        "example": "key"
+                    }
+                },
+                "description": "List of parameters which indicates the properties of the alert message."
+            },
+            "ErrorResponseVO401": {
+                "type": "object",
+                "properties": {
+                    "transactionId": {
+                        "type": "string",
+                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
+                        "example": "624deea6-b709-470c-8c39-4b5511281492"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CXSError401"
+                        }
+                    }
+                }
+            },
+            "CXSError401": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "description": "Indicates the error code.<br>Example: NOT.AUTHORIZED.ERROR"
+                    },
+                    "parameterList": {
+                        "type": "array",
+                        "description": "List of parameters.",
+                        "items": {
+                            "$ref": "#/components/schemas/Parameter"
+                        }
+                    },
+                    "message": {
+                        "description": "Indicates the description of API error alert message.<br>Example: Access token expired. Please modify your request and try again."
+                    }
+                },
+                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
+            },
+            "ErrorResponseVO403": {
+                "type": "object",
+                "properties": {
+                    "transactionId": {
+                        "type": "string",
+                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
+                        "example": "624deea6-b709-470c-8c39-4b5511281492"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CXSError403"
+                        }
+                    }
+                }
+            },
+            "CXSError403": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "description": "Indicates the error code.<br>Example: FORBIDDEN.ERROR"
+                    },
+                    "parameterList": {
+                        "type": "array",
+                        "description": "List of parameters.",
+                        "items": {
+                            "$ref": "#/components/schemas/Parameter"
+                        }
+                    },
+                    "message": {
+                        "description": "Indicates the description of API error alert message.<br>Example: We could not authorize your credentials. Please check your permissions and try again"
+                    }
+                },
+                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
+            },
+            "ErrorResponseVO404": {
+                "type": "object",
+                "properties": {
+                    "transactionId": {
+                        "type": "string",
+                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
+                        "example": "624deea6-b709-470c-8c39-4b5511281492"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CXSError404"
+                        }
+                    }
+                }
+            },
+            "CXSError404": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "description": "Indicates the error code.<br>Example: NOT.FOUND.ERROR"
+                    },
+                    "parameterList": {
+                        "type": "array",
+                        "description": "List of parameters.",
+                        "items": {
+                            "$ref": "#/components/schemas/Parameter"
+                        }
+                    },
+                    "message": {
+                        "description": "Indicates the description of API error alert message.<br>Example: The resource you requested is no longer available. Please modify your request and try again."
+                    }
+                },
+                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
+            },
+            "ErrorResponseVO500": {
+                "type": "object",
+                "properties": {
+                    "transactionId": {
+                        "type": "string",
+                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
+                        "example": "624deea6-b709-470c-8c39-4b5511281492"
+                    },
+                    "customerTransactionId": {
+                        "type": "string",
+                        "description": "This element allows you to assign a unique identifier to your transaction. This element is also returned in the reply and helps you match the request to the reply. <br> Example: AnyCo_order123456789",
+                        "example": "AnyCo_order123456789"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CXSError500"
+                        }
+                    }
+                }
+            },
+            "CXSError500": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "description": "Indicates the error code.<br>Example: INTERNAL.SERVER.ERROR"
+                    },
+                    "parameterList": {
+                        "type": "array",
+                        "description": "List of parameters.",
+                        "items": {
+                            "$ref": "#/components/schemas/Parameter"
+                        }
+                    },
+                    "message": {
+                        "description": "Indicates the description of API error alert message.<br>Example: We encountered an unexpected error and are working to resolve the issue. We apologize for any inconvenience. Please check back at a later time."
+                    }
+                },
+                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
+            },
+            "ErrorResponseVO503": {
+                "type": "object",
+                "properties": {
+                    "transactionId": {
+                        "type": "string",
+                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
+                        "example": "624deea6-b709-470c-8c39-4b5511281492"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CXSError503"
+                        }
+                    }
+                }
+            },
+            "CXSError503": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "description": "Indicates the error code.<br>Example: SERVICE.UNAVAILABLE.ERROR"
+                    },
+                    "parameterList": {
+                        "type": "array",
+                        "description": "List of parameters.",
+                        "items": {
+                            "$ref": "#/components/schemas/Parameter"
+                        }
+                    },
+                    "message": {
+                        "description": "Indicates the description of API error alert message.<br>Example: The service is currently unavailable and we are working to resolve the issue. We apologize for any inconvenience. Please check back at a later time."
+                    }
+                },
+                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
+            }
+        }
+    }
+}
