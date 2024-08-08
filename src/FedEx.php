@@ -16,6 +16,7 @@ use ShipStream\FedEx\Api\AddressValidationV1;
 use ShipStream\FedEx\Api\AuthorizationV1;
 use ShipStream\FedEx\Api\AuthorizationV1\Dto\FullSchema;
 use ShipStream\FedEx\Api\AuthorizationV1\Requests\ApiAuthorization;
+use ShipStream\FedEx\Api\ConsolidationV1;
 use ShipStream\FedEx\Api\FreightLTLV1;
 use ShipStream\FedEx\Api\GroundEODCloseV1;
 use ShipStream\FedEx\Api\LocationsSearchV1;
@@ -96,6 +97,11 @@ class FedEx extends Connector
         $this->authenticate(new NullAuthenticator());
 
         return new AuthorizationV1\Api($this);
+    }
+
+    public function consolidationV1(): ConsolidationV1\Api
+    {
+        return new ConsolidationV1\Api($this);
     }
 
     public function freightLTLV1(): FreightLTLV1\Api

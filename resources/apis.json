@@ -17,6 +17,15 @@
       }
     ]
   },
+  "consolidation": {
+    "name": "Consolidation",
+    "versions": [
+      {
+        "version": "1",
+        "url": "https://developer.fedex.com/wirc/json/api_groups/ShipConsolidation/ShipConsolidation-Resource.json"
+      }
+    ]
+  },
   "locations-search": {
     "name": "Locations Search",
     "versions": [
