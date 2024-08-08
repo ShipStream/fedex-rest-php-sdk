@@ -3,7 +3,7 @@
         "/rate/v1/freight/rates/quotes": {
             "post": {
                 "summary": "Rate Freight LTL",
-                "description": "This endpoint provides the abilityy to retrieve rateee quotes and optional transit information... The rate is calculated based on the origin and destination of the shipment. Additional information such as carrier code, service type, or service option can be used to filter the results. Applicable operating company is FedEx Freight.<br><i>Note: FedEx APIs do not support Cross-Origin Resource Sharing (CORS) mechanism...</i>",
+                "description": "This endpoint provides the ability to retrieve rate quotes and optionall transit information. The rate is calculated based on the origin and destination of the shipment. Additional information such as carrier code, service type, or service option can be used to filter the results. Applicable operating company is FedEx Freight.<br><i>Note: FedEx APIs do not support Cross-Origin Resource Sharing (CORS) mechanism.</i>",
                 "operationId": "Freight RateQuote",
                 "requestBody": {
                     "content": {
@@ -3190,7 +3190,7 @@
                     },
                     "requestTime": {
                         "type": "string",
-                        "description": "Indicates the time requested.<br>Example: 10:00:00",
+                        "description": "Indicates the time requested.<br>Format: HH:MM:SS<br>Example: 10:00:00",
                         "example": "10:00:00"
                     },
                     "requestRange": {
@@ -5635,7 +5635,7 @@
                     },
                     "operationalInstructions": {
                         "type": "array",
-                        "description": "These are operational instruction such as Ground Information printed on a given area of the label, one-dimensional barcode with only x-axis that contains the details of the shipment in encrypted form, COD Return operational instructions data such as COD amount, SECURED or UNSECURED.",
+                        "description": "These are operational instruction such as Ground Information printed on a given area of the label, one-dimensional barcode with only x-axis that contains the details of the shipment in encrypted form, SECURED or UNSECURED. ",
                         "items": {
                             "$ref": "#/components/schemas/OperationalInstructions"
                         }
@@ -8035,7 +8035,7 @@
                     },
                     "value": {
                         "type": "number",
-                        "description": "Weight Value.<br> Example: 68.25<br><a href='https://developer.fedex.com/api/en-us/guides/api-reference.html#packagetypes' target='_blank'>Click here to see Weight Values</a>",
+                        "description": "Weight Value.<br> Example: 68.25<br><a onclick='loadDocReference(\"packagetypes\")'>Click here to see Weight Values</a>",
                         "format": "double",
                         "example": 68.25
                     }
@@ -8120,7 +8120,7 @@
                     },
                     "subPackagingType": {
                         "type": "string",
-                        "description": "This is a sub package type for the package.<br><a href='/api/en-us/guides/api-reference.html#subpackagetypes' target='_blank'>Click here to see Sub-Package Types </a>",
+                        "description": "This is a sub package type for the package.<br>a onclick='loadDocReference(\"subpackagetypes\")'>Click here to see Sub-Packaging Types</a>",
                         "enum": [
                             "BAG",
                             "BARREL",
@@ -8243,7 +8243,7 @@
                     },
                     "subPackagingType": {
                         "type": "string",
-                        "description": "This is a sub package type for the package.<br><a href='/api/en-us/guides/api-reference.html#subpackagetypes' target='_blank'>Click here to see Sub-Package Types </a>",
+                        "description": "This is a sub package type for the package.<br><a onclick='loadDocReference(\"subpackagetypes\")'>Click here to see Sub-Packaging Types</a>",
                         "example": "BUNDLE",
                         "enum": [
                             "BUNDLE",

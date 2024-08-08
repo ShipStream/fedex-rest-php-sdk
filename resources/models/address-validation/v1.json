@@ -725,7 +725,7 @@
     },
     "openapi": "3.0.0",
     "info": {
-        "title": "Address Validation API",
+        "title": "Address Validation APi",
         "version": "1.0.0"
     }
 }

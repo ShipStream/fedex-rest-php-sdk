@@ -3,7 +3,7 @@
         "/ship/v1/shipments": {
             "post": {
                 "summary": "Create Shipment",
-                "description": "This endpoint helps you to create shipment requests therebyy validating all the shippingg input information and either generates the labels (if the responses is synchronous) or a job ID if transaction is processed using asynchronous method.<br><i>Note: FedEx APIs do not support Cross-Origin Resource Sharing (CORS) mechanism.</i>",
+                "description": "This endpoint helpsss you to create shipment requests thereby validating all the shipping input information and either generates the labels (if the responses is synchronous) or a job ID if transaction is processed using asynchronous method.<br><i>Note: FedEx APIs do not support Cross-Origin Resource Sharing (CORS) mechanism.</i>",
                 "operationId": "Create Shipment",
                 "requestBody": {
                     "content": {
@@ -849,7 +849,7 @@
         "/ship/v1/shipments/tag": {
             "post": {
                 "summary": "Create Tag",
-                "description": "FedEx creates and delivers a return shipping label to your customer and collects the item for return. Your customer needs to have the package ready for pickup when the FedEx driver arrives. Use this endpoint to create tag requests for FedEx Express and FedEx Ground shipments.<br><i>Note: FedEx APIs do not support Cross-Origin Resource Sharing (CORS) mechanism.</i>",
+                "description": "FedEx creates and delivers a returnnn shipping label to your customer and collects the item for return. Your customer needs to have the package ready for pickup when the FedEx driver arrives. Use this endpoint to create tag requests for FedEx Express and FedEx Ground shipments.<br><i>Note: FedEx APIs do not support Cross-Origin Resource Sharing (CORS) mechanism.</i>",
                 "operationId": "Create Tag",
                 "requestBody": {
                     "content": {
@@ -1387,8 +1387,8 @@
                                     "number": "XXX567",
                                     "tinType": "FEDERAL",
                                     "usage": "usage",
-                                    "effectiveDate": "2000-01-23T04:56:07.000+00:00",
-                                    "expirationDate": "2000-01-23T04:56:07.000+00:00"
+                                    "effectiveDate": "2024-06-13",
+                                    "expirationDate": "2024-06-13"
                                 }
                             ]
                         },
@@ -1407,12 +1407,12 @@
                     },
                     "recipientLocationNumber": {
                         "type": "string",
-                        "description": "A unique identifier for a recipient location.",
+                        "description": "A unique identifier for a recipient location.<br>Example:1234567",
                         "example": "1234567"
                     },
                     "pickupType": {
                         "type": "string",
-                        "description": "Indicate the pickup type method by which the shipment to be tendered to FedEx.<br><a onclick='loadDocReference(\"pickuptypes\")'>Click here for more information on Pickup Types.</a>",
+                        "description": "Indicates if shipment is being dropped off at a FedEx location or being picked up by FedEx or if it's a regularly scheduled pickup for this shipment. Required for FedEx Express and Ground Shipment.<br>Example: USE_SCHEDULED_PICKUP",
                         "example": "USE_SCHEDULED_PICKUP",
                         "enum": [
                             "CONTACT_FEDEX_TO_SCHEDULE",
@@ -1463,7 +1463,7 @@
                     },
                     "blockInsightVisibility": {
                         "type": "boolean",
-                        "description": "Indicate if the shipment be available to be visible/tracked using FedEx InSight<sup>\u00ae</sup> tool. If value indicated as true, only the shipper/payer will have visibility of this shipment in the FedEx InSight<sup>\u00ae</sup> tool.",
+                        "description": "If true, only the shipper/payer will have visibility of this shipment.<br>Valid Value : true, false.<br> Default:false<br>Example: true",
                         "example": true
                     },
                     "labelSpecification": {
@@ -1634,7 +1634,7 @@
                     },
                     "tinType": {
                         "type": "string",
-                        "description": "Indicate the type of tax identification number.",
+                        "description": "Identifies the type of Tax Identification Number in Shipment processing.<br>Example: FEDERAL",
                         "example": "FEDERAL",
                         "enum": [
                             "PERSONAL_NATIONAL",
@@ -1647,18 +1647,20 @@
                     },
                     "usage": {
                         "type": "string",
-                        "description": "Specify the reason for using the tax identification number in shipment processing.",
+                        "description": "Identifies the usage of Tax Identification Number in Shipment processing.<br>Example: usage",
                         "example": "usage"
                     },
                     "effectiveDate": {
                         "type": "string",
-                        "description": "Specify the tax ID effective date.<br>Example: 2000-01-23T04:56:07.000+00:00",
-                        "example": "2000-01-23T04:56:07.000+00:00"
+                        "description": "Effective Date. FORMAT[YYYY-MM-DD] <br>Example: 2024-06-13",
+                        "format": "Date",
+                        "example": "2024-06-13"
                     },
                     "expirationDate": {
                         "type": "string",
-                        "description": "Specify the tax ID expiration date.<br>Example: 2000-01-23T04:56:07.000+00:00",
-                        "example": "2000-01-23T04:56:07.000+00:00"
+                        "description": "Expiration Date. FORMAT[YYYY-MM-DD]<br>Example: 2024-06-13",
+                        "format": "Date",
+                        "example": "2024-06-13"
                     }
                 },
                 "example": {
@@ -1820,12 +1822,13 @@
                 "properties": {
                     "attributes": {
                         "type": "array",
-                        "description": "Use this attribute to specify if the Trade documents will be uploaded post the shipment.",
+                        "description": "Specifies the Post Document Upload <br> Example: POST_SHIPMENT_UPLOAD_REQUESTED",
                         "items": {
                             "type": "string",
                             "enum": [
                                 "POST_SHIPMENT_UPLOAD_REQUESTED"
-                            ]
+                            ],
+                            "example": "POST_SHIPMENT_UPLOAD_REQUESTED"
                         }
                     },
                     "attachedDocuments": {
@@ -1837,7 +1840,7 @@
                     },
                     "requestedDocumentTypes": {
                         "type": "array",
-                        "description": "Indicate the types of shipping documents produced for the shipper by FedEx. The types of shipping documents are copied back to the shipper in the shipment result data.<br>Note: For more information document types, refer business overview topic - <a href='#shippingandcustoms'><b>Shipping and Customs Documents.</b></a>",
+                        "description": "Indicates the types of shipping documents requested by the shipper.<br>Example: CERTIFICATE_OF_ORIGIN, COMMERCIAL_INVOICE etc.",
                         "example": [
                             "VICS_BILL_OF_LADING",
                             "GENERAL_AGENCY_AGREEMENT"
@@ -1882,7 +1885,7 @@
                     },
                     "returnType": {
                         "type": "string",
-                        "description": "This is the return Type. Required to be set to PRINT_RETURN_LABEL for printed return label shipments. For email return label shipments returnType must be set to PENDING and pendingShipmentDetail must be set to EMAIL.",
+                        "description": "This specifies the return Type. Required to be set to PRINT_RETURN_LABEL for printed return label shipments.For email return label shipments returnType must be set to PENDING and pendingShipmentDetail must be set to EMAIL.<br>Valid Values : PENDING, PRINT_RETURN_LABEL<br>Example: PRINT_RETURN_LABEL",
                         "example": "PRINT_RETURN_LABEL",
                         "enum": [
                             "PENDING",
@@ -2036,7 +2039,10 @@
                     "types": {
                         "type": "array",
                         "description": "This is the recommended document Type.<br><a onclick='loadDocReference(\"shipmentdocumenttype\")'>click here to see shipment document type</a>",
-                        "example": "ANTIQUE_STATEMENT_EUROPEAN_UNION",
+                        "example": [
+                            "ANTIQUE_STATEMENT_EUROPEAN_UNION",
+                            "ANTIQUE_STATEMENT_UNITED_STATES"
+                        ],
                         "items": {
                             "type": "string",
                             "enum": [
@@ -2070,7 +2076,7 @@
                         }
                     }
                 },
-                "description": "These are documents that are recommended to be included with the shipment."
+                "description": "These are documents that are recommended to be included with the shipment.<br>Example:ANTIQUE_STATEMENT_EUROPEAN_UNION"
             },
             "EmailLabelDetail": {
                 "type": "object",
@@ -2084,7 +2090,7 @@
                     },
                     "message": {
                         "type": "string",
-                        "description": "This is an optional personalized message to be included in the email to the recipient.",
+                        "description": "Specifies an optional personalized message to be included in the email to the email label recipient.<br>Example: YOUR OPTIONAL MESSAGE",
                         "example": "your optional message"
                     }
                 },
@@ -2099,19 +2105,20 @@
                 "properties": {
                     "emailAddress": {
                         "type": "string",
-                        "description": "This is recipient email address for notifying the return label. Maximum length 200 characters.<br> Example: neena@abc.com",
-                        "example": "neena@fedex.com"
+                        "description": "This is recipient email address for notifying the return label. Maximum length 200 characters.<br> Example: neenaaaaa@abc.com",
+                        "example": "nnnnneena@fedex.com"
                     },
                     "optionsRequested": {
                         "$ref": "#/components/schemas/EmailOptionsRequested"
                     },
                     "role": {
                         "type": "string",
-                        "description": "This is to specify Recipient role in the shipment.Shipment completor role is needed when we pass shipment initiator. We cannot use shipment initiator alone.",
+                        "description": "Relationship that the emailRecipient has to the pending email return label shipments.<br> Valid Values: SHIPMENT_COMPLETOR,SHIPMENT_INITIATOR<br>Example: SHIPMENT_COMPLETOR",
                         "enum": [
                             "SHIPMENT_COMPLETOR",
                             "SHIPMENT_INITIATOR"
-                        ]
+                        ],
+                        "example": "SHIPMENT_COMPLETOR"
                     },
                     "locale": {
                         "type": "string",
@@ -2159,7 +2166,7 @@
                     },
                     "locationType": {
                         "type": "string",
-                        "description": "Specifies the type of facility at which package/shipment is to be held.",
+                        "description": "Type of facility at which package/shipment is to be held.<br> Example: FEDEX_ONSITE",
                         "example": "FEDEX_ONSITE",
                         "enum": [
                             "FEDEX_AUTHORIZED_SHIP_CENTER",
@@ -2189,19 +2196,20 @@
                     },
                     "remitToName": {
                         "type": "string",
-                        "description": "Specify the name of the person or company receiving the secured/unsecured funds payment.",
+                        "description": "Specify the name of the person or company receiving the secured/unsecured funds payment<br>Example: remitToName",
                         "example": "remitToName"
                     },
                     "codCollectionType": {
                         "type": "string",
-                        "description": "Identifies the type of funds FedEx should collect upon shipment delivery",
+                        "description": "Identifies the type of funds FedEx should collect upon shipment delivery<br>Example: CASH",
                         "enum": [
                             "ANY",
                             "CASH",
                             "GUARANTEED_FUNDS",
                             "COMPANY_CHECK",
                             "PERSONAL_CHECK"
-                        ]
+                        ],
+                        "example": "CASH"
                     },
                     "financialInstitutionContactAndAddress": {
                         "$ref": "#/components/schemas/ContactAndAddress"
@@ -2212,13 +2220,14 @@
                     },
                     "returnReferenceIndicatorType": {
                         "type": "string",
-                        "description": "Indicate return reference type information to include on the COD return shipping label.",
+                        "description": "Indicates which type of reference information to include on the COD return shipping label.<br>Example: INVOICE",
                         "enum": [
                             "INVOICE",
                             "PO",
                             "REFERENCE",
                             "TRACKING"
-                        ]
+                        ],
+                        "example": "INVOICE"
                     },
                     "shipmentCodAmount": {
                         "description": "Indicate the COD amount for this shipment.",
@@ -2237,7 +2246,8 @@
                             "ACCOUNT",
                             "CURRENT",
                             "CUSTOM"
-                        ]
+                        ],
+                        "example": "ACCOUNT"
                     },
                     "rateLevelType": {
                         "type": "string",
@@ -2296,7 +2306,7 @@
                     },
                     "type": {
                         "type": "string",
-                        "description": "Indicate International Controlled Export Type.",
+                        "description": "International Controlled Export Type<br>Example: WAREHOUSE_WITHDRAWAL",
                         "example": "WAREHOUSE_WITHDRAWAL",
                         "enum": [
                             "DEA_036",
@@ -2325,7 +2335,7 @@
                     },
                     "homedeliveryPremiumType": {
                         "type": "string",
-                        "description": "This is Home Delivery Premium Type. It allows to specify additional premimum service options for the home delivery shipment. Can specify Evening delivery or a Date certain, or can specify appointment for the delivery.",
+                        "description": "Home Delivery Premium Type.  Allows the user to specify additional premimum service options for their home delivery shipment. Customer can specify Evening delivery or a Date certain, or can specify they would like to make an appointment for the delivery.<br>Example: APPOINTMENT",
                         "example": "APPOINTMENT",
                         "enum": [
                             "APPOINTMENT",
@@ -2341,7 +2351,7 @@
                 "properties": {
                     "aggregationType": {
                         "type": "string",
-                        "description": "This is the shipment Notification Aggregation Type.",
+                        "description": "Shipment Notification Aggregation Type.<br>Example:PER_PACKAGE",
                         "example": "PER_PACKAGE",
                         "enum": [
                             "PER_PACKAGE",
@@ -2377,7 +2387,7 @@
                     },
                     "emailNotificationRecipientType": {
                         "type": "string",
-                        "description": "Specify the recipient type for email notification.",
+                        "description": "This is the email notification recipient type.<br>Example: SHIPPER",
                         "example": "SHIPPER",
                         "enum": [
                             "BROKER",
@@ -2466,7 +2476,7 @@
                 "properties": {
                     "rateType": {
                         "type": "string",
-                        "description": "The rate type indicates what type of rate request is being returned; account, preferred, incentive, etc.",
+                        "description": "The rate type indicates what type of rate request is being returned; account, preferred, incentive, etc<br>Example: PREFERRED_CURRENCY",
                         "example": "PREFERRED_CURRENCY",
                         "enum": [
                             "ACCOUNT",
@@ -2488,7 +2498,7 @@
                     },
                     "rateLevelType": {
                         "type": "string",
-                        "description": "indicates whether or not the rating is being done at the package level, or if the packages are bundled together. At the package level, charges are applied based on the details of each individual package. If they are bundled, one package is chosen as the parent and charges are applied based on that one package.",
+                        "description": "indicates whether or not the rating is being done at the package level, or if the packages are bundled together. At the package level, charges are applied based on the details of each individual package. If they are bundled, one package is chosen as the parent and charges are applied based on that one package.<br>Example: INDIVIDUAL_PACKAGE_RATE",
                         "example": "INDIVIDUAL_PACKAGE_RATE",
                         "enum": [
                             "BUNDLED_RATE",
@@ -2522,8 +2532,11 @@
                 "properties": {
                     "regulatoryControls": {
                         "type": "array",
-                        "description": "These are the regulatory controls applicable to the shipment.",
-                        "example": "NOT_IN_FREE_CIRCULATION",
+                        "description": "These are the regulatory controls applicable to the shipment.<br> Example:USMCA,FOOD_OR_PERISHABLE",
+                        "example": [
+                            "NOT_IN_FREE_CIRCULATION",
+                            "USMCA"
+                        ],
                         "items": {
                             "type": "string",
                             "enum": [
@@ -2546,7 +2559,7 @@
                     },
                     "freightOnValue": {
                         "type": "string",
-                        "description": "Specify the risk owner for the Freight shipment.This element is only mandatory or valid for Intra India shipments.",
+                        "description": "Specify the risk owner for the Freight shipment.This element is only mandatory or valid for Intra India shipments.<br>Example: OWN_RISK",
                         "example": "OWN_RISK",
                         "enum": [
                             "CARRIER_RISK",
@@ -2565,8 +2578,8 @@
                     },
                     "isDocumentOnly": {
                         "type": "boolean",
-                        "description": "Used to specify if a shipment is document shipment or not. Used only for International Express document shipments. Default value is false.",
-                        "example": true
+                        "description": "Defaults to false. Only used for international Express requests to indicate if just documents are being shipped or not. A valude of DERIVED will cause the value to be determined by PMIS based on the specified commodities information<br>Example: false",
+                        "example": false
                     },
                     "recipientCustomsId": {
                         "$ref": "#/components/schemas/RecipientCustomsId"
@@ -2613,7 +2626,7 @@
                     },
                     "type": {
                         "type": "string",
-                        "description": "Identifies the type of broker.",
+                        "description": "Identifies the type of Broker.<br>Example: IMPORT",
                         "example": "IMPORT",
                         "enum": [
                             "IMPORT"
@@ -2664,7 +2677,7 @@
                 "properties": {
                     "originatorName": {
                         "type": "string",
-                        "description": "The originator name that will populate the Commercial Invoice (or Pro Forma).",
+                        "description": "The originatorName that will populate the Commercial Invoice (or Pro Forma).<br>Example: originator name",
                         "example": "originator Name"
                     },
                     "comments": {
@@ -2690,7 +2703,7 @@
                     },
                     "taxesOrMiscellaneousChargeType": {
                         "type": "string",
-                        "description": "Indicate the type of taxes Or miscellaneous charge.",
+                        "description": "Specifies the Taxes Or Miscellaneous Charge Type<br>Example: COMMISSIONS",
                         "example": "COMMISSIONS",
                         "enum": [
                             "COMMISSIONS",
@@ -2702,15 +2715,15 @@
                         ]
                     },
                     "freightCharge": {
-                        "description": "Indicate the freight charge.",
+                        "description": "Indicates the freight charge added by the shipper/customer for shipping the package. Optional to the customer.",
                         "$ref": "#/components/schemas/Money"
                     },
                     "packingCosts": {
-                        "description": "Indicate the packing cost.",
+                        "description": "Indicates the packing cost added by the shipper/customer for shipping the package. Optional to the customer.",
                         "$ref": "#/components/schemas/Money"
                     },
                     "handlingCosts": {
-                        "description": "Indicate the handling cost.",
+                        "description": "Indicates the packing cost added by the shipper/customer for shipping the package. Optional to the customer.",
                         "$ref": "#/components/schemas/Money"
                     },
                     "declarationStatement": {
@@ -2720,7 +2733,7 @@
                     },
                     "termsOfSale": {
                         "type": "string",
-                        "description": "Specify terms Of Sale that will be populated on the Commercial Invoice (or Pro Forma). Maximum length is 3<br>Valid values are:<ul><li>FCA/FOB (Free Carrier/Free On Board): Seller is responsible for all costs of delivering goods to destination. (Default)</li><li>CIP (Costs, Insurance Paid): Seller is responsible for miscellaneous charges to destination.</li><li>CPT (Carriage Paid To): Buyer is responsible for insurance.</li><li>EXW (Ex Works): Seller makes goods available to buyer. Buyer is responsible for delivering goods to destination.</li><li>DDU (Delivered Duty Unpaid): Seller is responsible for delivering goods to destination. Buyer is responsible for clearing goods through Bureau of Customs and Border Protection.</li><li>DDP (Delivered Duty Paid): Seller is responsible for delivering goods to destination, including duties, taxes, and miscellaneous fees.</li><li>DAP (Delivered at Place): Seller pays for carriage to the named place, except for costs related to import clearance, and assumes all risks prior to the point that the goods are ready for unloading by the buyer.</li><li>DPU(Deliver at Place of Unloading)</li></ul>",
+                        "description": "The termsOfSale that will populate the Commercial Invoice (or Pro Forma). Max length is 3<br>Example: FCA",
                         "example": "FCA"
                     },
                     "specialInstructions": {
@@ -2730,7 +2743,7 @@
                     },
                     "shipmentPurpose": {
                         "type": "string",
-                        "description": "This is the reason for the shipment. <br>Note: SOLD is not a valid purpose for a Proforma Invoice.",
+                        "description": "The reason for the shipment. Note: SOLD is not a valid purpose for a Proforma Invoice.<br>Example: REPAIR_AND_RETURN",
                         "example": "REPAIR_AND_RETURN",
                         "enum": [
                             "GIFT",
@@ -2861,7 +2874,7 @@
                     },
                     "description": {
                         "type": "string",
-                        "description": "This is the commodity description. Maximum allowed 450 characters.<br><a onclick='loadDocReference(\"vaguecommoditydescriptions\")'>click here to see Vague commodity descriptions</a>",
+                        "description": "Required<br>ScrewsMaximum allowed 450 characters.<br>Example: description",
                         "example": "description"
                     },
                     "name": {
@@ -2889,7 +2902,7 @@
                     },
                     "purpose": {
                         "type": "string",
-                        "description": "This is the purpose of this shipment. This is used for calculation of duties and taxes.",
+                        "description": "This field is used for calculation of duties and taxes.<br><br> Valid values are : BUSINESS and CONSUMER. <br>Example:BUSINESS",
                         "example": "BUSINESS",
                         "enum": [
                             "BUSINESS",
@@ -3073,12 +3086,12 @@
                 "properties": {
                     "countryOfOriginLowValueDocumentRequested": {
                         "type": "boolean",
-                        "description": "Specify the country Of Origin of Low Value Document for Customs declaration.",
+                        "description": "Specify the country Of Origin of Low Value Document for Customs declaration.<br>Example:true",
                         "example": true
                     },
                     "customsRole": {
                         "type": "string",
-                        "description": "Specify the shipper role for Customs declaration.",
+                        "description": "Customs Role Type.<br>Example: EXPORTER",
                         "example": "EXPORTER",
                         "enum": [
                             "EXPORTER",
@@ -3097,7 +3110,7 @@
                 "properties": {
                     "ancillaryEndorsement": {
                         "type": "string",
-                        "description": "Indicate the type of ancillary endorsement. Is required for Presorted Standard but not for returns or parcel select. <br>Note: Not all are usable for all ancillary endorsements.<br>For more information, refer to the <a href = 'https://www.fedex.com/en-us/shipping/fedex-smartpost/rates-zones.html' target='_blank'>FedEx SmartPost\u00ae</a>.",
+                        "description": "Required for Presorted Standard but not for returns or parcel select. They are not all usable for all ancillary endorsements.<br>Example: RETURN_SERVICE",
                         "example": "RETURN_SERVICE",
                         "enum": [
                             "ADDRESS_CORRECTION",
@@ -3109,12 +3122,12 @@
                     },
                     "hubId": {
                         "type": "string",
-                        "description": "Specify the four-digit numeric Hub ID value used for smartport shipments.<br><a onclick='loadDocReference(\"smartposthubids\")'>click here to see Hub Ids</a>",
+                        "description": "Required<br>Specify the HubID using the four-digit numeric value.<br>Example: 5015",
                         "example": "5015"
                     },
                     "indicia": {
                         "type": "string",
-                        "description": "Specify the indicia type.<br>Available options include:<ul><li>MEDIA_MAIL</li><li>PARCEL_SELECT (1 LB through 70 LB)</li><li>PRESORTED_BOUND_PRINTED_MATTER</li><li>PRESORTED_STANDARD (less than 1 LB)</li><li>PARCEL_RETURN</li></ul>",
+                        "description": "Specify the indicia type.<br>Available options include:<ul><li>MEDIA_MAIL</li><li>PARCEL_SELECT (1 LB through 70 LB)</li><li>PRESORTED_BOUND_PRINTED_MATTER</li><li>PRESORTED_STANDARD (less than 1 LB)</li><li>PARCEL_RETURN</li></ul>Example:PRESORTED_STANDARD",
                         "example": "PRESORTED_STANDARD",
                         "enum": [
                             "MEDIA_MAIL",
@@ -3126,7 +3139,7 @@
                     },
                     "specialServices": {
                         "type": "string",
-                        "description": "Specify the special handling associated with Smartpost Shipment.",
+                        "description": "SmartPost Shipment Special Service Type<br>Example: USPS_DELIVERY_CONFIRMATION",
                         "example": "USPS_DELIVERY_CONFIRMATION",
                         "enum": [
                             "USPS_DELIVERY_CONFIRMATION"
@@ -3144,7 +3157,7 @@
                 "properties": {
                     "labelFormatType": {
                         "type": "string",
-                        "description": "Specify the label Format Type.<br><a onclick='loadDocReference(\"labelstocktypes\")'>click here to see label format types</a>",
+                        "description": "Specifies the label Format Type<br>Example: COMMON2D",
                         "example": "COMMON2D",
                         "enum": [
                             "COMMON2D",
@@ -3168,8 +3181,8 @@
                     },
                     "labelStockType": {
                         "type": "string",
-                        "description": "Indicate the label stock type used. <br><a onclick='loadDocReference(\"labelstocktypes\")'>click here to see label format types</a>",
-                        "example": "PAPER_85X11_TOP_HALF_LABEL",
+                        "description": "Label Stock Type.<br>Example: PAPER_7X475",
+                        "example": "PAPER_7X475",
                         "enum": [
                             "PAPER_4X6",
                             "PAPER_4X675",
@@ -3203,7 +3216,7 @@
                     },
                     "imageType": {
                         "type": "string",
-                        "description": "Specify the image format used for a shipping document.<br><a onclick='loadDocReference(\"labelstocktypes\")'>click here to see label format types</a>",
+                        "description": "Specifies the image type of this shipping document.<br>Example:PDF",
                         "example": "PDF",
                         "enum": [
                             "ZPLII",
@@ -3222,9 +3235,14 @@
                         ]
                     },
                     "returnedDispositionDetail": {
-                        "type": "boolean",
-                        "description": "Specify whether or not the return deposition is needed.",
-                        "example": true
+                        "type": "string",
+                        "description": "Specifies a particular way in which a kind of shipping document is to be produced and provided<br>Example:RETURNED",
+                        "example": "RETURNED"
+                    },
+                    "resolution": {
+                        "type": "integer",
+                        "description": "Specifies the image resolution in DPI (Dots Per Inch). Valid values are 203 & 300. If not provided or for any other value, system will default it to 203.",
+                        "example": 300
                     }
                 },
                 "description": "These are label specification details includes the image type, printer format, and label stock for label. Can also specify specific details such as doc-tab content, regulatory labels, and masking data on the label."

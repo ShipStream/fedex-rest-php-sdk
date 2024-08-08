@@ -2,7 +2,7 @@
     "paths": {
         "/rate/v1/rates/quotes": {
             "post": {
-                "summary": "Rate and Transit times V1",
+                "summary": "Rate and Transit times",
                 "description": "This endpoint provides the ability to retrieve rate quotes and optionalll transit information. The rate is calculated based on the origin and destination of the shipment. Additional information such as carrier code, service type, or service option can be used to filter the results. If carrier code is provided, the response includes the rate quotes for the specific transportation carrier. This endpoint provides the rates for FedEx Ground and FedEx Express and does not offer rates for FedEx Freight.<br><i>Note: FedEx APIs do not support Cross-Origin Resource Sharing (CORS) mechanism.</i>",
                 "operationId": "Rate and Transit times",
                 "requestBody": {
@@ -1430,7 +1430,7 @@
                     },
                     "packagingType": {
                         "type": "string",
-                        "description": "This is the Packaging type. For Ground/SmartPost,it  will always be YOUR_PACKAGING. For domestic Express, the packaging may have been bumped so it may not match the value specified on the request. For International Express the packaging may be bumped and not mapped.<br><a onclick='loadDocReference(\"packagetypes\")'>Click here to see Package Types</a>",
+                        "description": "Packaging type associated with this particular rate.  For Ground/SmartPost will always be YOUR_PACKAGING.  For domestic Express, the packaging may have been bumped so it may not match the value specified on the request.  For international Express the packaging may be bumped and not mapped.<br>Example: YOUR_PACKAGING <br><a href=\"/developer-portal/en-us/reference-guide.html#packagetypes\" target=\"_blank\">Click here to see Package Types</a>",
                         "example": "YOUR_PACKAGING"
                     },
                     "customerMessages": {
@@ -1743,7 +1743,7 @@
                 "properties": {
                     "rateType": {
                         "type": "string",
-                        "description": "Indicates the rate type used for this rate data.",
+                        "description": "Type used for this specific set of rate data.<br>Example: ACCOUNT",
                         "example": "ACCOUNT",
                         "enum": [
                             "ACCOUNT",
@@ -1759,7 +1759,7 @@
                     },
                     "ratedWeightMethod": {
                         "type": "string",
-                        "description": "Indicates the weight type used for the rate.'",
+                        "description": "Indicates which weight was used for the rate.<br>Example: 'ACTUAL'",
                         "example": "ACTUAL",
                         "enum": [
                             "ACTUAL",
@@ -1779,19 +1779,19 @@
                     },
                     "totalDutiesTaxesAndFees": {
                         "type": "number",
-                        "description": "This is the total amount of the duties and taxes plus the total ancillary fees and taxes.",
+                        "description": "The total amount of the duties and taxes plus the total ancillary fees and taxes.<br> Example: 445.54",
                         "format": "double",
                         "example": 445.54
                     },
                     "totalDiscounts": {
                         "type": "number",
-                        "description": "This is the total discount.<br><a onclick='loadDocReference(\"discounts\")'>Click here to see Discounts</a>",
+                        "description": "This is the total discount.<br> Example: 445.54<br><a href='/api/en-us/reference-guide.html#discounts' target='_blank'>Click here to see FedEx Discounts</a>",
                         "format": "double",
                         "example": 445.54
                     },
                     "totalDutiesAndTaxes": {
                         "type": "number",
-                        "description": "The total of shipment/package Duties and taxes.",
+                        "description": "The sum of shipment/package Duties and taxes.<br> Example: 445.54",
                         "format": "double",
                         "example": 445.54
                     },
@@ -2140,7 +2140,7 @@
                     },
                     "ratingBasis": {
                         "type": "string",
-                        "description": "Is a RatingBasisType.",
+                        "description": "Allows clients to determine whether to add charges at the package level when Per Piece Rating details are returned.<br><ul><li>SHIPMENT_WEIGHT_BASED - Indicates shipment weight is used to calculate the rate.</li><br><li>FLAT_RATE_PER_PAK - Indicates shipment is rated based on number of packs, weight would be considered for overweight surcharge but not for calculating shipment rate.</li><br><li>PACK_WEIGHT_BASED - Indicates individual package weight would be rated and aggregated to get shipment rate weight.</li></ul> Example : SHIPMENT_WEIGHT_BASED.",
                         "example": "SHIPMENT_WEIGHT_BASED",
                         "enum": [
                             "SHIPMENT_WEIGHT_BASED",
@@ -2196,7 +2196,7 @@
                     },
                     "dimDivisor": {
                         "type": "integer",
-                        "description": "Identifies the type of divisor applied.",
+                        "description": "Identifies the type of divisor that was applied.<br> Example: 10",
                         "format": "int32",
                         "example": 10
                     },
@@ -2622,7 +2622,7 @@
                 "properties": {
                     "dayOfWeek": {
                         "type": "string",
-                        "description": "The days of the week for which this capability applies.",
+                        "description": "specific day of week in short format<br>Example: MON, TUE",
                         "example": "THU"
                     },
                     "dayFormat": {
@@ -2686,13 +2686,13 @@
                 "type": "object",
                 "properties": {
                     "description": {
-                        "description": "Indicates the number of days the package/shipment is to be in transit.",
+                        "description": "Specifies the number of days the package/shipment is to be in transit. <br> Example: 2 Business Days",
                         "type": "string",
                         "example": "2-7 Business Days"
                     },
                     "minimumTransitTime": {
                         "type": "string",
-                        "description": "This is the code indicating the number of transit days.",
+                        "description": "Code indicating the number of transit days.<br> Example: TW0_DAYS",
                         "enum": [
                             "EIGHT_DAYS",
                             "EIGHTEEN_DAYS",
@@ -2799,9 +2799,10 @@
                     },
                     "carrierCodes": {
                         "type": "array",
-                        "description": "Specify the four letter code of a FedEx operating company that meets your requirements.<br>Examples of FedEx Operating Companies are:<ul><li>FDXE - FedEx Express</li><li>FDXG - FedEx Ground</li><li>FXSP - FedEx SmartPost</li><li>FXCC - FedEx Custom Critical.</li></ul>",
+                        "description": "Specify the four letter code of a FedEx operating company that meets your requirements.<br> Example: FDXE<br><ul><li>FDXE - FedEx Express</li><li>FDXG - FedEx Ground</li><li>FXSP - FedEx SmartPost</li><li>FXCC - FedEx Custom Critical.</li></ul>",
                         "example": [
-                            "FDXE"
+                            "FDXE",
+                            "FDXG"
                         ],
                         "items": {
                             "type": "string"
@@ -2825,7 +2826,7 @@
                     },
                     "variableOptions": {
                         "type": "string",
-                        "description": "Specify service options whose combinations are to be considered when replying with available services.",
+                        "description": "Specify service options whose combinations are to be considered when replying with available services.<br>Example: FREIGHT_GUARANTEE</br>",
                         "example": "FREIGHT_GUARANTEE",
                         "enum": [
                             "SATURDAY_DELIVERY",
@@ -2836,7 +2837,7 @@
                     },
                     "rateSortOrder": {
                         "type": "string",
-                        "description": "This is a sort order you can specify to control the order of the response data: <br> Example: <ul><li>SERVICENAMETRADITIONAL - data in order of highest to lowest service (Default)</li><li>COMMITASCENDING - data in order of ascending delivery committment</li><li>COMMITDESCENDING - data in order of descending delivery committment.</li></ul>",
+                        "description": "This is a sort order you can specify to control the order of the response data. <br> Example: SERVICENAMETRADITIONAL</br> <br> <ul><li>SERVICENAMETRADITIONAL - data in order of highest to lowest service (Default)</li><li>COMMITASCENDING - data in order of ascending delivery committment</li><li>COMMITDESCENDING - data in order of descending delivery committment.</li></ul></br>",
                         "example": "SERVICENAMETRADITIONAL",
                         "enum": [
                             "COMMITASCENDING",
@@ -3670,7 +3671,7 @@
                     },
                     "packing": {
                         "type": "string",
-                        "description": "Indicate the packing arrangement of the battery or cell with respect to other items within the same package.",
+                        "description": "Indicate the packing arrangement of the battery or cell with respect to other items within the same package. Example: CONTAINED_IN_EQUIPMENT",
                         "enum": [
                             "CONTAINED_IN_EQUIPMENT",
                             "PACKED_WITH_EQUIPMENT"
@@ -4144,7 +4145,7 @@
                     },
                     "shipTimestamp": {
                         "type": "string",
-                        "description": "This is shipment date. Both the date and time portions of the string are expected to be used. The date should not be a past date or a date more than 10 days in the future. The time is the local time of the shipment based on the shipper's time zone.<br>Format: YYYY-MM-DD. <br>Example: 2019-06-26.",
+                        "description": "This is shipment date. Both the date and time portions of the string are expected to be used. The date should not be a past date or a date more than 10 days in the future. The time is the local time of the shipment based on the shipper's time zone.<br>Formats: YYYY-MM-DD, YYYY-MM-DD HH:MM:SS <br> Example: 2024-06-14 19:23:51",
                         "example": "2020-04-24"
                     },
                     "homedeliveryPremiumType": {
@@ -4542,28 +4543,28 @@
                 "properties": {
                     "amount": {
                         "type": "number",
-                        "description": "Identifies the total amount of the shipment-level fees and taxes that are not based on transportation charges or commodity-level estimated duties and taxes.",
+                        "description": "Identifies the total amount of the shipment-level fees and taxes that are not based on transportation charges or commodity-level estimated duties and taxes. <br> Example: 87.5",
                         "format": "double",
                         "example": 87.5
                     },
                     "level": {
                         "type": "string",
-                        "description": "Specifies the level of surcharge.",
+                        "description": "The level of surcharge. <br> Example: level",
                         "example": "level"
                     },
                     "name": {
                         "type": "string",
-                        "description": "Specifies the localized name of the surcharge.",
+                        "description": "The localized name of the surcharge. <br> Example: name",
                         "example": "name"
                     },
                     "description": {
                         "type": "string",
-                        "description": "Specifies the description of the surcharge.",
+                        "description": "The description of the surcharge. <br> Example: description",
                         "example": "description"
                     },
                     "type": {
                         "type": "string",
-                        "description": "Specifies the type of surcharge.",
+                        "description": "The type of surcharge. <br> Example: type",
                         "example": "type"
                     }
                 }
@@ -4573,28 +4574,28 @@
                 "properties": {
                     "amount": {
                         "type": "number",
-                        "description": "Indicates the amount for the rate discount.",
+                        "description": "Indicates the amount for the rate discount.<br> Example: 87.5",
                         "format": "double",
                         "example": 87.5
                     },
                     "name": {
                         "type": "string",
-                        "description": "Indicate the name of the discount.<br><a onclick='loadDocReference(\"discounts\")'>Click here to see Discounts</a>",
+                        "description": "Indicate the name of the discount.<a href=\"/developer-portal/en-us/reference-guide.html#discounts\" target=\"_blank\">Click here to see Discounts</a> <br> Example: name",
                         "example": "name"
                     },
                     "description": {
                         "type": "string",
-                        "description": "Indicates the description for the rate discount.",
+                        "description": "Indicates the description for the rate discount.<br> Example: Description",
                         "example": "description"
                     },
                     "type": {
                         "type": "string",
-                        "description": "Indicates the type.",
+                        "description": "Indicates the type. <br> Example: type",
                         "example": "type"
                     },
                     "percent": {
                         "type": "number",
-                        "description": "Indicates the percentage of the rate discount.",
+                        "description": "Indicates the percentage of the rate discount. <br> Example: 10.5",
                         "format": "double",
                         "example": 10.5
                     }
@@ -4612,12 +4613,12 @@
                     },
                     "pricingCode": {
                         "type": "string",
-                        "description": "Identifies the type of pricing used for this shipment.",
+                        "description": "Identifies the type of pricing used for this shipment.<br> Example: ACTUAL",
                         "example": "ACTUAL"
                     },
                     "legDescription": {
                         "type": "string",
-                        "description": "Human-readable text describing the shipment leg.",
+                        "description": "Human-readable text describing the shipment leg.<br> Example: legDescription",
                         "example": "legDescription"
                     },
                     "surcharges": {
@@ -4643,17 +4644,17 @@
                     },
                     "rateScale": {
                         "type": "string",
-                        "description": "Indicates the rate scale used."
+                        "description": "Indicates the rate scale used. <br> Example: *USER IMS20160104  LD067110"
                     },
                     "totalNetCharge": {
                         "type": "number",
-                        "description": "This shipment's totalNetCharge and totalDutiesTaxesAndFees. Some duties and taxes are only provided if estimated duties and taxes were calculated for this shipment AND duties, taxes and transportation charges are all paid by the same sender's account.",
+                        "description": "This shipment's totalNetCharge and totalDutiesTaxesAndFees. Some duties and taxes are only provided if estimated duties and taxes were calculated for this shipment AND duties, taxes and transportation charges are all paid by the same sender's account.<br> Example: 87.5",
                         "format": "double",
                         "example": 87.5
                     },
                     "totalBaseCharge": {
                         "type": "number",
-                        "description": "Specifies the total base charge list",
+                        "description": "Specifies the total base charge list.<br> Example: 87.5",
                         "format": "double",
                         "example": 87.5
                     },
@@ -4676,21 +4677,21 @@
                 "properties": {
                     "amount": {
                         "type": "number",
-                        "description": "Specifies the list of tax amounts",
+                        "description": "Specifies the list of tax amounts. <br> Example : 87.5",
                         "format": "double",
                         "example": 87.5
                     },
                     "name": {
                         "type": "string",
-                        "description": "Specifies the localized name of the tax."
+                        "description": "Specifies the localized name of the tax.<br> Example: Name"
                     },
                     "description": {
                         "type": "string",
-                        "description": "Specifies the description of the Surcharge/Tax."
+                        "description": "Specifies the description of the Surcharge/Tax. <br> Example: description"
                     },
                     "type": {
                         "type": "string",
-                        "description": "Specifies the type of Surcharge/Tax."
+                        "description": "Specifies the type of Surcharge/Tax.<br> Example: type"
                     }
                 },
                 "description": "Specifies the Tax surcharge details"
@@ -4815,7 +4816,7 @@
                 "properties": {
                     "daysInTransit": {
                         "type": "string",
-                        "description": "Code indicating the number of transit days.",
+                        "description": "Code indicating the number of transit days.<br> Example: EIGHTEEN_DAYS",
                         "enum": [
                             "EIGHT_DAYS",
                             "EIGHTEEN_DAYS",
@@ -4843,7 +4844,7 @@
                     },
                     "guaranteedType": {
                         "type": "string",
-                        "description": "Indicates if there is a guaranteed delivery option applied to the rate.  This is for freight rates only.<br> Valid values<br>GUARANTEED_MORNING - guaranteed delivery on morning of date specified.<br>GUARANTEED_CLOSE_OF_BUSINESS - guaranteed delivery on date specified by close of day",
+                        "description": "Indicates if there is a guaranteed delivery option applied to the rate.  This is for freight rates only.<br> Valid values<br>GUARANTEED_MORNING - guaranteed delivery on morning of date specified.<br>GUARANTEED_CLOSE_OF_BUSINESS - guaranteed delivery on date specified by close of day<br> Example: GUARANTEED_MORNING",
                         "enum": [
                             "GUARANTEED_MORNING",
                             "GUARANTEED_CLOSE_OF_BUSINESS"
@@ -4882,17 +4883,17 @@
                     },
                     "label": {
                         "type": "string",
-                        "description": "This is an informational message to inform client Deliverydate is unavailable. If commitTimestamp and transitTime are unavailable, then this is populated in the response in the client language.",
+                        "description": "This is an informational message to inform client Deliverydate is unavailable. If commitTimestamp and transitTime are unavailable, then this is populated in the response in the client language.<br>Example: Deliverydate unavailable",
                         "example": "Deliverydate unavailable"
                     },
                     "commitMessageDetails": {
                         "type": "string",
-                        "description": "Messages concerning the ability to provide an accurate delivery commitment on an International commit quote. These could be messages providing information about why a commitment could not be returned or a successful message.",
+                        "description": "Messages concerning the ability to provide an accurate delivery commitment on an International commit quote. These could be messages providing information about why a commitment could not be returned or a successful message. <br> Example: Message",
                         "example": "Message"
                     },
                     "commodityName": {
                         "type": "string",
-                        "description": "The Commodity applicable to this commitment.",
+                        "description": "The Commodity applicable to this commitment.<br> Example: DOCUMENTS",
                         "example": "DOCUMENTS"
                     }
                 },
@@ -4961,7 +4962,7 @@
                 "properties": {
                     "amount": {
                         "type": "number",
-                        "description": "Indicate the amount.",
+                        "description": "Indicates the amount. Example: 12.45",
                         "format": "double",
                         "example": 12.45
                     },

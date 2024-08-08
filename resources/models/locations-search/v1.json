@@ -1190,37 +1190,58 @@
                         }
                     },
                     "locationId": "COSA",
-                    "storeHours": {
-                        "dayofweek": "TUESDAY",
-                        "operationalHoursType": "OPEN_BY_HOURS",
-                        "operationalHours": [
-                            {
-                                "begins": "08:00:00",
-                                "ends": "17:00:00"
-                            }
-                        ],
-                        "exceptionalHoursType": "CLOSED_ALL_DAY",
-                        "exceptionalHours": [
-                            {
-                                "begins": "08:00:00",
-                                "ends": "17:00:00"
-                            }
-                        ]
-                    },
+                    "storeHours": [
+                        {
+                            "dayofweek": "MONDAY",
+                            "operationalHoursType": "OPEN_BY_HOURS",
+                            "operationalHours": [
+                                {
+                                    "begins": "08:00:00",
+                                    "ends": "17:00:00"
+                                }
+                            ],
+                            "exceptionalHoursType": "CLOSED_ALL_DAY",
+                            "exceptionalHours": [
+                                {
+                                    "begins": "08:00:00",
+                                    "ends": "17:00:00"
+                                }
+                            ]
+                        },
+                        {
+                            "dayofweek": "TUESDAY",
+                            "operationalHoursType": "OPEN_BY_HOURS",
+                            "operationalHours": [
+                                {
+                                    "begins": "08:00:00",
+                                    "ends": "17:00:00"
+                                }
+                            ],
+                            "exceptionalHoursType": "CLOSED_ALL_DAY",
+                            "exceptionalHours": [
+                                {
+                                    "begins": "08:00:00",
+                                    "ends": "17:00:00"
+                                }
+                            ]
+                        }
+                    ],
                     "carrierDetailList": [
                         {
                             "serviceType": "PRIORITY_OVERNIGHT",
                             "countryRelationshipType": "DOMESTIC",
                             "carrierCodeType": "FDXE",
-                            "latestDropoffDetails": {
-                                "dayOfWeek": "MONDAY",
-                                "exceptionalTime": "08:30:00",
-                                "exceptionalOverlay": {
-                                    "time": "09:00:00",
-                                    "type": "WEST_COAST"
-                                },
-                                "operationTime": "08:30:00"
-                            },
+                            "latestDropoffDetails": [
+                                {
+                                    "dayOfWeek": "MONDAY",
+                                    "exceptionalTime": "08:30:00",
+                                    "exceptionalOverlay": {
+                                        "time": "09:00:00",
+                                        "type": "WEST_COAST"
+                                    },
+                                    "operationTime": "08:30:00"
+                                }
+                            ],
                             "serviceCategory": "EXPRESS_PARCEL"
                         },
                         {
@@ -1463,6 +1484,7 @@
                     "dayofweek": {
                         "type": "string",
                         "description": "The day of the week for the location hours.",
+                        "example": "MONDAY",
                         "enum": [
                             "SUNDAY",
                             "MONDAY",

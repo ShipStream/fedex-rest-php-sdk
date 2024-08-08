@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace ShipStream\FedEx\Traits;
 
-use DateTime;
+use DateTimeInterface;
 use ReflectionClass;
 use ShipStream\FedEx\Exceptions\InvalidAttributeTypeException;
 
@@ -52,15 +52,15 @@ trait HasArrayableAttributes
             }
         }
 
-        return $asArray;
+        return array_filter($asArray, fn ($v) => $v !== null);
     }
 
     public function valueToArray(mixed $value, array|string $type): mixed
     {
         if (is_null($value)) {
             return null;
-        } elseif ($value instanceof DateTime) {
-            return $value->format(DateTime::RFC3339);
+        } elseif ($value instanceof DateTimeInterface) {
+            return $value->format(static::$datetimeFormat);
         } elseif (is_string($type)) {
             if (class_exists($type)) {
                 return $value->toArray();
