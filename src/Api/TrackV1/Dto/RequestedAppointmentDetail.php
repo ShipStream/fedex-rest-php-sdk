@@ -21,8 +21,7 @@ final class RequestedAppointmentDetail extends Dto
      * @param  TimeWindow[]|null  $window  Array of different appointment time windows available on the date specified such as, Morning, afternoon, mid-day.
      */
     public function __construct(
-        public readonly ?string $date = null,
-        public readonly ?array $window = null,
-    ) {
-    }
+        public ?string $date = null,
+        public ?array $window = null,
+    ) {}
 }

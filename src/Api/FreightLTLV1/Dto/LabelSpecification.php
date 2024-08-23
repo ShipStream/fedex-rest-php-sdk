@@ -27,16 +27,15 @@ final class LabelSpecification extends Dto
      * @param  ?int  $resolution  Specifies the image resolution in DPI (Dots Per Inch). Valid values are 203 & 300. If not provided or for any other value, system will default it to 203.
      */
     public function __construct(
-        public readonly string $labelStockType,
-        public readonly string $imageType,
-        public readonly ?string $labelFormatType = null,
-        public readonly ?string $labelOrder = null,
-        public readonly ?CustomerSpecifiedLabelDetail $customerSpecifiedDetail = null,
-        public readonly ?ContactAndAddress $printedLabelOrigin = null,
-        public readonly ?string $labelRotation = null,
-        public readonly ?string $labelPrintingOrientation = null,
-        public readonly ?bool $returnedDispositionDetail = null,
-        public readonly ?int $resolution = null,
-    ) {
-    }
+        public string $labelStockType,
+        public string $imageType,
+        public ?string $labelFormatType = null,
+        public ?string $labelOrder = null,
+        public ?CustomerSpecifiedLabelDetail $customerSpecifiedDetail = null,
+        public ?ContactAndAddress $printedLabelOrigin = null,
+        public ?string $labelRotation = null,
+        public ?string $labelPrintingOrientation = null,
+        public ?bool $returnedDispositionDetail = null,
+        public ?int $resolution = null,
+    ) {}
 }

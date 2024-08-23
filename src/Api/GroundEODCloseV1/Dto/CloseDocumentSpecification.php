@@ -18,11 +18,9 @@ final class CloseDocumentSpecification extends Dto
 
     /**
      * @param  ?string[]  $closeDocumentTypes  Indicated the type of close documents requested by the caller. <br> Example: OP_950
-     * @param  ?Op950detail  $op950detail
      */
     public function __construct(
-        public readonly ?array $closeDocumentTypes = null,
-        public readonly ?Op950detail $op950detail = null,
-    ) {
-    }
+        public ?array $closeDocumentTypes = null,
+        public ?Op950detail $op950detail = null,
+    ) {}
 }

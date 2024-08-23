@@ -20,9 +20,8 @@ final class CustomerImageUsage extends Dto
      * @param  ?string  $providedImageType  Specify the provided document image type.
      */
     public function __construct(
-        public readonly ?string $id = null,
-        public readonly ?string $type = null,
-        public readonly ?string $providedImageType = null,
-    ) {
-    }
+        public ?string $id = null,
+        public ?string $type = null,
+        public ?string $providedImageType = null,
+    ) {}
 }

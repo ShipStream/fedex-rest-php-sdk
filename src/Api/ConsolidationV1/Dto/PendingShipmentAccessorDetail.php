@@ -21,10 +21,9 @@ final class PendingShipmentAccessorDetail extends Dto
      * @param  ?string  $userId  Specifies the accessor User ID.
      */
     public function __construct(
-        public readonly ?string $password = null,
-        public readonly ?string $role = null,
-        public readonly ?string $emailLabelUrl = null,
-        public readonly ?string $userId = null,
-    ) {
-    }
+        public ?string $password = null,
+        public ?string $role = null,
+        public ?string $emailLabelUrl = null,
+        public ?string $userId = null,
+    ) {}
 }

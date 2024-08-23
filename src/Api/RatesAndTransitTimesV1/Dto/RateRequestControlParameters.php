@@ -21,10 +21,9 @@ final class RateRequestControlParameters extends Dto
      * @param  ?string  $rateSortOrder  This is a sort order you can specify to control the order of the response data. <br> Example: SERVICENAMETRADITIONAL</br> <br> <ul><li>SERVICENAMETRADITIONAL - data in order of highest to lowest service (Default)</li><li>COMMITASCENDING - data in order of ascending delivery committment</li><li>COMMITDESCENDING - data in order of descending delivery committment.</li></ul></br>
      */
     public function __construct(
-        public readonly ?bool $returnTransitTimes = null,
-        public readonly ?bool $servicesNeededOnRateFailure = null,
-        public readonly ?string $variableOptions = null,
-        public readonly ?string $rateSortOrder = null,
-    ) {
-    }
+        public ?bool $returnTransitTimes = null,
+        public ?bool $servicesNeededOnRateFailure = null,
+        public ?string $variableOptions = null,
+        public ?string $rateSortOrder = null,
+    ) {}
 }

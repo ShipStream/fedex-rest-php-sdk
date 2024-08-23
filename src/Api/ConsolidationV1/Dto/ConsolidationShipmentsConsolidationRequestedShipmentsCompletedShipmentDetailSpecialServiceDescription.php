@@ -14,13 +14,8 @@ use ShipStream\FedEx\Dto;
 
 final class ConsolidationShipmentsConsolidationRequestedShipmentsCompletedShipmentDetailSpecialServiceDescription extends Dto
 {
-    /**
-     * @param  ?ConsolidationShipmentsConsolidationRequestedShipmentsCompletedShipmentDetailSpecialServiceDescriptionIdentifier  $identifier
-     * @param  ?ConsolidationShipmentsConsolidationRequestedShipmentsCompletedShipmentDetailSpecialServiceDescriptionNames  $names
-     */
     public function __construct(
-        public readonly ?ConsolidationShipmentsConsolidationRequestedShipmentsCompletedShipmentDetailSpecialServiceDescriptionIdentifier $identifier = null,
-        public readonly ?ConsolidationShipmentsConsolidationRequestedShipmentsCompletedShipmentDetailSpecialServiceDescriptionNames $names = null,
-    ) {
-    }
+        public ?ConsolidationShipmentsConsolidationRequestedShipmentsCompletedShipmentDetailSpecialServiceDescriptionIdentifier $identifier = null,
+        public ?ConsolidationShipmentsConsolidationRequestedShipmentsCompletedShipmentDetailSpecialServiceDescriptionNames $names = null,
+    ) {}
 }

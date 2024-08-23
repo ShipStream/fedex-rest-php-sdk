@@ -20,9 +20,8 @@ final class Party extends Dto
      * @param  ?AccountNumber  $accountNumber  This is FedEx account number details.
      */
     public function __construct(
-        public readonly Address $address,
-        public readonly ?Contact2 $contact = null,
-        public readonly ?AccountNumber $accountNumber = null,
-    ) {
-    }
+        public Address $address,
+        public ?Contact2 $contact = null,
+        public ?AccountNumber $accountNumber = null,
+    ) {}
 }

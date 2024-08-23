@@ -35,16 +35,15 @@ final class FreightShipmentDetail extends Dto
      * Total number of individual handling units in the entire shipment (for unit pricing). May not be negative
      */
     public function __construct(
-        public readonly ?Dimensions $shipmentDimensions = null,
-        public readonly ?bool $alternateBilling = null,
-        public readonly ?array $lineItem = null,
-        public readonly ?string $role = null,
-        public readonly ?float $clientDiscountPercent = null,
-        public readonly ?ContactAndAddress $fedExFreightBillingContactAndAddress = null,
-        public readonly ?string $aliasId = null,
-        public readonly ?LiabilityCoverageDetail $liabilityCoverageDetail = null,
-        public readonly ?AccountNumber $fedExFreightAccountNumber = null,
-        public readonly ?int $totalHandlingUnits = null,
-    ) {
-    }
+        public ?Dimensions $shipmentDimensions = null,
+        public ?bool $alternateBilling = null,
+        public ?array $lineItem = null,
+        public ?string $role = null,
+        public ?float $clientDiscountPercent = null,
+        public ?ContactAndAddress $fedExFreightBillingContactAndAddress = null,
+        public ?string $aliasId = null,
+        public ?LiabilityCoverageDetail $liabilityCoverageDetail = null,
+        public ?AccountNumber $fedExFreightAccountNumber = null,
+        public ?int $totalHandlingUnits = null,
+    ) {}
 }

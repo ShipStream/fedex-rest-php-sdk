@@ -19,8 +19,7 @@ final class KeyDisplayTextVo extends Dto
      * @param  ?string  $key  Unique Key
      */
     public function __construct(
-        public readonly ?string $displayText = null,
-        public readonly ?string $key = null,
-    ) {
-    }
+        public ?string $displayText = null,
+        public ?string $key = null,
+    ) {}
 }

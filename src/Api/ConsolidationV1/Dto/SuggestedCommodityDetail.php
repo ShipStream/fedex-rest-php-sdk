@@ -19,8 +19,7 @@ final class SuggestedCommodityDetail extends Dto
      * @param  ?string  $harmonizedCode  harmonized code<br>Example: harmonized Code
      */
     public function __construct(
-        public readonly ?string $description = null,
-        public readonly ?string $harmonizedCode = null,
-    ) {
-    }
+        public ?string $description = null,
+        public ?string $harmonizedCode = null,
+    ) {}
 }

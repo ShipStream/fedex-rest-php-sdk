@@ -25,12 +25,11 @@ final class FullSchemaNotification extends Dto
      * @param  ?string  $shipDateEnd  ShipDateBegin and ShipDateEnd are recommended to narrow the search, reduce lookup time, and avoid duplicates when searching for a specific tracking number in a specific time range. <br>Format: YYYY-MM-DD<br>example:'2019-10-13'
      */
     public function __construct(
-        public readonly string $senderContactName,
-        public readonly string $senderEmailAddress,
-        public readonly TrackingEventNotificationDetail $trackingEventNotificationDetail,
-        public readonly TrackingNumberInfo $trackingNumberInfo,
-        public readonly ?string $shipDateBegin = null,
-        public readonly ?string $shipDateEnd = null,
-    ) {
-    }
+        public string $senderContactName,
+        public string $senderEmailAddress,
+        public TrackingEventNotificationDetail $trackingEventNotificationDetail,
+        public TrackingNumberInfo $trackingNumberInfo,
+        public ?string $shipDateBegin = null,
+        public ?string $shipDateEnd = null,
+    ) {}
 }

@@ -29,25 +29,23 @@ final class LocationDetail extends Dto
      * @param  ?string  $locationType  The FedEx Location Type.
      * @param  ?string[]  $locationAttributeTypes  Attributes for the location.
      * @param  ?bool  $lockerAvailability  Indicates if FedEx locker is available at the location.<br> Valid values: True, False.
-     * @param  ?PackageAttribute  $packageMaximumLimits
      * @param  ?string  $specialInstructions  Indicates the special instructions needed to access a location.
      * @param  ?string  $rthservice  Indicates if the location supports RedirectToHold Service.
      * @param  ?LocationCapabilities  $locationCapabilities  Location capabilities such as services, day of week, ability to dropoff, pickup shipments, ability to hold shipments for pickup, etc.
      */
     public function __construct(
-        public readonly ?Distance $distance = null,
-        public readonly ?ContactAndAddress $contactAndAddress = null,
-        public readonly ?string $locationId = null,
-        public readonly ?array $storeHours = null,
-        public readonly ?array $carrierDetailList = null,
-        public readonly ?GeoPositionalCoordinates $geoPositionalCoordinates = null,
-        public readonly ?string $locationType = null,
-        public readonly ?array $locationAttributeTypes = null,
-        public readonly ?bool $lockerAvailability = null,
-        public readonly ?PackageAttribute $packageMaximumLimits = null,
-        public readonly ?string $specialInstructions = null,
-        public readonly ?string $rthservice = null,
-        public readonly ?LocationCapabilities $locationCapabilities = null,
-    ) {
-    }
+        public ?Distance $distance = null,
+        public ?ContactAndAddress $contactAndAddress = null,
+        public ?string $locationId = null,
+        public ?array $storeHours = null,
+        public ?array $carrierDetailList = null,
+        public ?GeoPositionalCoordinates $geoPositionalCoordinates = null,
+        public ?string $locationType = null,
+        public ?array $locationAttributeTypes = null,
+        public ?bool $lockerAvailability = null,
+        public ?PackageAttribute $packageMaximumLimits = null,
+        public ?string $specialInstructions = null,
+        public ?string $rthservice = null,
+        public ?LocationCapabilities $locationCapabilities = null,
+    ) {}
 }

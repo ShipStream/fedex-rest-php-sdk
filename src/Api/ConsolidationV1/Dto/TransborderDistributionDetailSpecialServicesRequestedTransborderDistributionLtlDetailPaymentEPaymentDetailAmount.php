@@ -19,8 +19,7 @@ final class TransborderDistributionDetailSpecialServicesRequestedTransborderDist
      * @param  ?float  $amount  Amount
      */
     public function __construct(
-        public readonly ?string $currency = null,
-        public readonly ?float $amount = null,
-    ) {
-    }
+        public ?string $currency = null,
+        public ?float $amount = null,
+    ) {}
 }

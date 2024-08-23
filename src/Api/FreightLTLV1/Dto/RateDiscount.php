@@ -22,11 +22,10 @@ final class RateDiscount extends Dto
      * @param  ?float  $percent  Indicates the percentage of the rate discount.
      */
     public function __construct(
-        public readonly ?float $amount = null,
-        public readonly ?string $name = null,
-        public readonly ?string $description = null,
-        public readonly ?string $type = null,
-        public readonly ?float $percent = null,
-    ) {
-    }
+        public ?float $amount = null,
+        public ?string $name = null,
+        public ?string $description = null,
+        public ?string $type = null,
+        public ?float $percent = null,
+    ) {}
 }

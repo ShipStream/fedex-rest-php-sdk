@@ -18,7 +18,6 @@ final class CommercialInvoice extends Dto
      * @param  ?string  $shipmentPurpose  The reason for the shipment.  Note: SOLD is not a valid purpose for a Proforma Invoice.
      */
     public function __construct(
-        public readonly ?string $shipmentPurpose = null,
-    ) {
-    }
+        public ?string $shipmentPurpose = null,
+    ) {}
 }

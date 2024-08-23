@@ -20,6 +20,5 @@ final class ConfirmConsolidationResponse extends Response
      */
     public function __construct(
         public readonly ?ConfirmConsolidationOutputVo $output = null,
-    ) {
-    }
+    ) {}
 }

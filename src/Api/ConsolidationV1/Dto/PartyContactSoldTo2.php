@@ -21,10 +21,9 @@ final class PartyContactSoldTo2 extends Dto
      * @param  ?string  $emailAddress  Specify contact email address. Maximum length is 80. <br> Example: sample@company.com
      */
     public function __construct(
-        public readonly string $personName,
-        public readonly string $phoneNumber,
-        public readonly string $companyName,
-        public readonly ?string $emailAddress = null,
-    ) {
-    }
+        public string $personName,
+        public string $phoneNumber,
+        public string $companyName,
+        public ?string $emailAddress = null,
+    ) {}
 }

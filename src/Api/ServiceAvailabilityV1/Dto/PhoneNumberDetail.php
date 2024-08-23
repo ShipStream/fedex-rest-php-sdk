@@ -21,10 +21,9 @@ final class PhoneNumberDetail extends Dto
      * @param  ?string  $type  Indicate the Phone Number Type.
      */
     public function __construct(
-        public readonly ?PhoneNumber $number = null,
-        public readonly ?array $permissions = null,
-        public readonly ?string $usage = null,
-        public readonly ?string $type = null,
-    ) {
-    }
+        public ?PhoneNumber $number = null,
+        public ?array $permissions = null,
+        public ?string $usage = null,
+        public ?string $type = null,
+    ) {}
 }

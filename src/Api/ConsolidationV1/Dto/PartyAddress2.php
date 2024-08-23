@@ -22,11 +22,10 @@ final class PartyAddress2 extends Dto
      * @param  ?string  $stateOrProvinceCode  This is a placeholder for state or province code.<br>Example: CA.<br><a onclick='loadDocReference("canadaprovincecodes")'>click here to see State or Province Code</a>
      */
     public function __construct(
-        public readonly array $streetLines,
-        public readonly string $city,
-        public readonly string $postalCode,
-        public readonly string $countryCode,
-        public readonly ?string $stateOrProvinceCode = null,
-    ) {
-    }
+        public array $streetLines,
+        public string $city,
+        public string $postalCode,
+        public string $countryCode,
+        public ?string $stateOrProvinceCode = null,
+    ) {}
 }

@@ -27,14 +27,13 @@ final class ServiceDescription extends Dto
      * @param  ?string  $serviceCategory  FOR FEDEX INTERNAL USE ONLY. This is tied to the Product EFS interface definition which will currently contain the values of parcel.<br>Example: EXPRESS_PARCEL
      */
     public function __construct(
-        public readonly ?string $serviceType = null,
-        public readonly ?string $code = null,
-        public readonly ?array $names = null,
-        public readonly ?array $operatingOrgCodes = null,
-        public readonly ?string $astraDescription = null,
-        public readonly ?string $description = null,
-        public readonly ?string $serviceId = null,
-        public readonly ?string $serviceCategory = null,
-    ) {
-    }
+        public ?string $serviceType = null,
+        public ?string $code = null,
+        public ?array $names = null,
+        public ?array $operatingOrgCodes = null,
+        public ?string $astraDescription = null,
+        public ?string $description = null,
+        public ?string $serviceId = null,
+        public ?string $serviceCategory = null,
+    ) {}
 }

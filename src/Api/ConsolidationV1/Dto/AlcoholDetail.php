@@ -19,8 +19,7 @@ final class AlcoholDetail extends Dto
      * @param  ?string  $shipperAgreementType  Specifies what type of entity the shipper of the alcohol shipment is registered as, for example, fulfillment house, retailer or a winery.
      */
     public function __construct(
-        public readonly ?string $alcoholRecipientType = null,
-        public readonly ?string $shipperAgreementType = null,
-    ) {
-    }
+        public ?string $alcoholRecipientType = null,
+        public ?string $shipperAgreementType = null,
+    ) {}
 }

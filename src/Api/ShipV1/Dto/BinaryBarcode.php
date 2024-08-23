@@ -19,8 +19,7 @@ final class BinaryBarcode extends Dto
      * @param  ?string  $value  This is the value.
      */
     public function __construct(
-        public readonly ?string $type = null,
-        public readonly ?string $value = null,
-    ) {
-    }
+        public ?string $type = null,
+        public ?string $value = null,
+    ) {}
 }

@@ -24,13 +24,12 @@ final class ShipShipmentEmailNotificationRecipient extends Dto
      * @param  ?string[]  $notificationEventType  These are to specify the notification event types.<br> Example: [ON_PICKUP_DRIVER_ARRIVED, ON_SHIPMENT]<br><a onclick='loadDocReference("notificationeventtypes")'>Click here for more information on Notification Event Types.</a>
      */
     public function __construct(
-        public readonly string $emailNotificationRecipientType,
-        public readonly string $emailAddress,
-        public readonly ?string $name = null,
-        public readonly ?string $notificationFormatType = null,
-        public readonly ?string $notificationType = null,
-        public readonly ?string $locale = null,
-        public readonly ?array $notificationEventType = null,
-    ) {
-    }
+        public string $emailNotificationRecipientType,
+        public string $emailAddress,
+        public ?string $name = null,
+        public ?string $notificationFormatType = null,
+        public ?string $notificationType = null,
+        public ?string $locale = null,
+        public ?array $notificationEventType = null,
+    ) {}
 }

@@ -22,9 +22,8 @@ final class FullSchemaValidateAddress extends Dto
      * @param  ?AddressResolutionControlParameters  $validateAddressControlParameters  Specify the parameters applied to validate the address.
      */
     public function __construct(
-        public readonly array $addressesToValidate,
-        public readonly ?string $inEffectAsOfTimestamp = null,
-        public readonly ?AddressResolutionControlParameters $validateAddressControlParameters = null,
-    ) {
-    }
+        public array $addressesToValidate,
+        public ?string $inEffectAsOfTimestamp = null,
+        public ?AddressResolutionControlParameters $validateAddressControlParameters = null,
+    ) {}
 }

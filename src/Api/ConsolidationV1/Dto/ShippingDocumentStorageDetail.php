@@ -21,10 +21,9 @@ final class ShippingDocumentStorageDetail extends Dto
      * @param  ?string  $fileSuffix  Suffix to be placed at the end of the file name;required on some platforms to determine file type
      */
     public function __construct(
-        public readonly ?string $type = null,
-        public readonly ?string $filePath = null,
-        public readonly ?string $fileNaming = null,
-        public readonly ?string $fileSuffix = null,
-    ) {
-    }
+        public ?string $type = null,
+        public ?string $filePath = null,
+        public ?string $fileNaming = null,
+        public ?string $fileSuffix = null,
+    ) {}
 }

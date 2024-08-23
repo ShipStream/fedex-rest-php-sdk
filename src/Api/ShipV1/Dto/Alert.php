@@ -20,9 +20,8 @@ final class Alert extends Dto
      * @param  ?string  $message  Specifies the api alert message.<br>Example: Shipment validated successfully. No errors found.
      */
     public function __construct(
-        public readonly ?string $code = null,
-        public readonly ?string $alertType = null,
-        public readonly ?string $message = null,
-    ) {
-    }
+        public ?string $code = null,
+        public ?string $alertType = null,
+        public ?string $message = null,
+    ) {}
 }

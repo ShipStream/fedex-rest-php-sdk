@@ -22,9 +22,8 @@ final class ShippingDocumentEmailDetail extends Dto
      * @param  ?string  $grouping  Identifies the convention by which documents are to be grouped as email attachment.
      */
     public function __construct(
-        public readonly array $eMailRecipients,
-        public readonly ?string $locale = null,
-        public readonly ?string $grouping = null,
-    ) {
-    }
+        public array $eMailRecipients,
+        public ?string $locale = null,
+        public ?string $grouping = null,
+    ) {}
 }

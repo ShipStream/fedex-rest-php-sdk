@@ -21,8 +21,7 @@ final class CreatePickupOutputVo extends Dto
      * @param  Alert[]|null  $alerts  These are optional alerts received when a Create freight pickup is requested. This includes an alert code, type, and message.
      */
     public function __construct(
-        public readonly ?string $pickupConfirmationCode = null,
-        public readonly ?array $alerts = null,
-    ) {
-    }
+        public ?string $pickupConfirmationCode = null,
+        public ?array $alerts = null,
+    ) {}
 }

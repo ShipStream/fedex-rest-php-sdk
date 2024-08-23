@@ -19,8 +19,7 @@ final class Weight extends Dto
      * @param  float  $value  Weight Value.<br> Example: 68.25<br>
      */
     public function __construct(
-        public readonly string $units,
-        public readonly float $value,
-    ) {
-    }
+        public string $units,
+        public float $value,
+    ) {}
 }

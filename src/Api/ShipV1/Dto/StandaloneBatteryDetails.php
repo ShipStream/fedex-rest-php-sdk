@@ -18,7 +18,6 @@ final class StandaloneBatteryDetails extends Dto
      * @param  ?string  $batteryMaterialType  Describes the material composition of the battery or cell.
      */
     public function __construct(
-        public readonly ?string $batteryMaterialType = null,
-    ) {
-    }
+        public ?string $batteryMaterialType = null,
+    ) {}
 }

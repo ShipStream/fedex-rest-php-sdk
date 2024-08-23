@@ -36,8 +36,7 @@ class DeleteOpenShipmentPackages extends Request implements HasBody
 
     public function __construct(
         public FullSchemaDeletePackagesFromOpenShipment $fullSchemaDeletePackagesFromOpenShipment,
-    ) {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {

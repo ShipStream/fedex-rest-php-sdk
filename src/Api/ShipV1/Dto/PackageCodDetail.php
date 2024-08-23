@@ -18,7 +18,6 @@ final class PackageCodDetail extends Dto
      * @param  ?Money  $codCollectionAmount  This customs value is applicable for all items(or units) under the specified commodity
      */
     public function __construct(
-        public readonly ?Money $codCollectionAmount = null,
-    ) {
-    }
+        public ?Money $codCollectionAmount = null,
+    ) {}
 }

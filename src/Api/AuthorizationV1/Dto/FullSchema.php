@@ -30,11 +30,10 @@ final class FullSchema extends Dto
      * @param  ?string  $childSecret  Specify the Client secret also known as Customer Secret. This element is used as a login credential for a Compatible customer or a Proprietary Parent Child customer to access the application on behalf of their customer.<br>Example: XXXX-XXX-XXXX-XXX<br>Note: This element should be used by Compatible and Proprietary Parent Child customers.
      */
     public function __construct(
-        public readonly string $grantType,
-        public readonly string $clientId,
-        public readonly string $clientSecret,
-        public readonly ?string $childKey = null,
-        public readonly ?string $childSecret = null,
-    ) {
-    }
+        public string $grantType,
+        public string $clientId,
+        public string $clientSecret,
+        public ?string $childKey = null,
+        public ?string $childSecret = null,
+    ) {}
 }

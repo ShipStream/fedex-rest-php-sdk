@@ -19,8 +19,7 @@ final class RegulatoryLabelContentDetail extends Dto
      * @param  ?string  $type  Regulatory Label Type
      */
     public function __construct(
-        public readonly ?string $generationOptions = null,
-        public readonly ?string $type = null,
-    ) {
-    }
+        public ?string $generationOptions = null,
+        public ?string $type = null,
+    ) {}
 }

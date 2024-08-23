@@ -23,10 +23,9 @@ final class RateOutputVo extends Dto
      * @param  Alert[]|null  $alerts  The alert code, alert type, and alert message obtained when a rate quote is requested.
      */
     public function __construct(
-        public readonly ?array $rateReplyDetails = null,
-        public readonly ?string $quoteDate = null,
-        public readonly ?bool $isEncoded = null,
-        public readonly ?array $alerts = null,
-    ) {
-    }
+        public ?array $rateReplyDetails = null,
+        public ?string $quoteDate = null,
+        public ?bool $isEncoded = null,
+        public ?array $alerts = null,
+    ) {}
 }

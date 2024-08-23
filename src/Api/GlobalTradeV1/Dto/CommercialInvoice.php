@@ -19,8 +19,7 @@ final class CommercialInvoice extends Dto
      * @param  ?string  $purpose  It describes the purpose.
      */
     public function __construct(
-        public readonly ?Money $freightCharge = null,
-        public readonly ?string $purpose = null,
-    ) {
-    }
+        public ?Money $freightCharge = null,
+        public ?string $purpose = null,
+    ) {}
 }

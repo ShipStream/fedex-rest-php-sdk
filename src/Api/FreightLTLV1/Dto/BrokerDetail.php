@@ -24,13 +24,12 @@ final class BrokerDetail extends Dto
      * @param  ?int  $brokerToDestinationDays  These are number of days it will take for the shipment to make it from broker. <br> Example: 10
      */
     public function __construct(
-        public readonly Party $broker,
-        public readonly string $type,
-        public readonly ?string $brokerCommitTimestamp = null,
-        public readonly ?string $brokerCommitDayOfWeek = null,
-        public readonly ?string $brokerLocationId = null,
-        public readonly ?Brokeraddress $brokerAddress = null,
-        public readonly ?int $brokerToDestinationDays = null,
-    ) {
-    }
+        public Party $broker,
+        public string $type,
+        public ?string $brokerCommitTimestamp = null,
+        public ?string $brokerCommitDayOfWeek = null,
+        public ?string $brokerLocationId = null,
+        public ?Brokeraddress $brokerAddress = null,
+        public ?int $brokerToDestinationDays = null,
+    ) {}
 }

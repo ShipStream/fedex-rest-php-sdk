@@ -22,11 +22,10 @@ final class Address extends Dto
      * @param  ?bool  $residential  Indicate whether this address is residential (as opposed to commercial).
      */
     public function __construct(
-        public readonly ?string $city = null,
-        public readonly ?string $stateOrProvinceCode = null,
-        public readonly ?string $postalCode = null,
-        public readonly ?string $countryCode = null,
-        public readonly ?bool $residential = null,
-    ) {
-    }
+        public ?string $city = null,
+        public ?string $stateOrProvinceCode = null,
+        public ?string $postalCode = null,
+        public ?string $countryCode = null,
+        public ?bool $residential = null,
+    ) {}
 }

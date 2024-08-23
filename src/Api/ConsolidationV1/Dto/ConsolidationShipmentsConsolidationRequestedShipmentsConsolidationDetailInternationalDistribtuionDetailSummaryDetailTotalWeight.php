@@ -14,13 +14,8 @@ use ShipStream\FedEx\Dto;
 
 final class ConsolidationShipmentsConsolidationRequestedShipmentsConsolidationDetailInternationalDistribtuionDetailSummaryDetailTotalWeight extends Dto
 {
-    /**
-     * @param  ?string  $units
-     * @param  ?string  $value
-     */
     public function __construct(
-        public readonly ?string $units = null,
-        public readonly ?string $value = null,
-    ) {
-    }
+        public ?string $units = null,
+        public ?string $value = null,
+    ) {}
 }

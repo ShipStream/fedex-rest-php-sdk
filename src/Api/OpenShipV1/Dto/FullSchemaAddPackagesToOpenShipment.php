@@ -23,10 +23,9 @@ final class FullSchemaAddPackagesToOpenShipment extends Dto
      * @param  ?string  $shipAction  Indicate shipment action for the Shipment. <ul><li>CONFIRM &ndash; used in case of shipment submission</li><li>TRANSFER &ndash; used in case of Email Label Shipment or Pending Shipment submission.
      */
     public function __construct(
-        public readonly string $index,
-        public readonly PartyAccountNumber $accountNumber,
-        public readonly array $requestedPackageLineItems,
-        public readonly ?string $shipAction = null,
-    ) {
-    }
+        public string $index,
+        public PartyAccountNumber $accountNumber,
+        public array $requestedPackageLineItems,
+        public ?string $shipAction = null,
+    ) {}
 }

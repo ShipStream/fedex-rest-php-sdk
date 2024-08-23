@@ -19,8 +19,7 @@ final class ParsedContactAndAddress extends Dto
      * @param  ?Contact  $contact  Indicate the contact details for this shipment.
      */
     public function __construct(
-        public readonly ?Address $address = null,
-        public readonly ?Contact $contact = null,
-    ) {
-    }
+        public ?Address $address = null,
+        public ?Contact $contact = null,
+    ) {}
 }

@@ -24,13 +24,12 @@ final class TransborderDistributionDetailSpecialServicesRequestedTransborderDist
      * @param  ?TransborderDistributionDetailSpecialServicesRequestedTransborderDistributionLtlDetailPaymentCreditCardTransactionDetailAttributesDetail  $attributesDetail  Specifies details about the credit card transaction that drive decisions about credit card processing.
      */
     public function __construct(
-        public readonly ?string $authorizationId = null,
-        public readonly ?string $authorizationType = null,
-        public readonly ?string $settlementScheduleType = null,
-        public readonly ?TransborderDistributionDetailSpecialServicesRequestedTransborderDistributionLtlDetailPaymentCreditCardTransactionDetailFraudDetectionDetail $fraudDetectionDetail = null,
-        public readonly ?string $payorAuthenticationCode = null,
-        public readonly ?string $payorAuthenticationSessionId = null,
-        public readonly ?TransborderDistributionDetailSpecialServicesRequestedTransborderDistributionLtlDetailPaymentCreditCardTransactionDetailAttributesDetail $attributesDetail = null,
-    ) {
-    }
+        public ?string $authorizationId = null,
+        public ?string $authorizationType = null,
+        public ?string $settlementScheduleType = null,
+        public ?TransborderDistributionDetailSpecialServicesRequestedTransborderDistributionLtlDetailPaymentCreditCardTransactionDetailFraudDetectionDetail $fraudDetectionDetail = null,
+        public ?string $payorAuthenticationCode = null,
+        public ?string $payorAuthenticationSessionId = null,
+        public ?TransborderDistributionDetailSpecialServicesRequestedTransborderDistributionLtlDetailPaymentCreditCardTransactionDetailAttributesDetail $attributesDetail = null,
+    ) {}
 }

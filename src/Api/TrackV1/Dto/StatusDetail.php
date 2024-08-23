@@ -26,13 +26,12 @@ final class StatusDetail extends Dto
      * @param  ?DelayDetail  $delayDetail  Specifies the information about delays.
      */
     public function __construct(
-        public readonly ?AddressVo2 $scanLocation = null,
-        public readonly ?string $code = null,
-        public readonly ?string $derivedCode = null,
-        public readonly ?array $ancillaryDetails = null,
-        public readonly ?string $statusByLocale = null,
-        public readonly ?string $description = null,
-        public readonly ?DelayDetail $delayDetail = null,
-    ) {
-    }
+        public ?AddressVo2 $scanLocation = null,
+        public ?string $code = null,
+        public ?string $derivedCode = null,
+        public ?array $ancillaryDetails = null,
+        public ?string $statusByLocale = null,
+        public ?string $description = null,
+        public ?DelayDetail $delayDetail = null,
+    ) {}
 }

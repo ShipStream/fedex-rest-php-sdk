@@ -20,9 +20,8 @@ final class ContactAndAddress extends Dto
      * @param  ?AddressAncillaryDetail  $addressAncillaryDetail  Indicate the additional address details for the physical location .
      */
     public function __construct(
-        public readonly ?Address $address = null,
-        public readonly ?Contact $contact = null,
-        public readonly ?AddressAncillaryDetail $addressAncillaryDetail = null,
-    ) {
-    }
+        public ?Address $address = null,
+        public ?Contact $contact = null,
+        public ?AddressAncillaryDetail $addressAncillaryDetail = null,
+    ) {}
 }

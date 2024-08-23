@@ -19,8 +19,7 @@ final class FullSchemaTransitTime extends Dto
      * @param  ?string[]  $carrierCodes  Specify the four letter code of a FedEx operating company that meets your requirements<br>Examples of FedEx Operating Companies are:<ul><li>FDXE - FedEx Express</li><li>FDXG - FedEx Ground</li><li>FXSP - FedEx SmartPost</li><li>FXCC - FedEx Custom Critical.</li></ul>
      */
     public function __construct(
-        public readonly ?TransitTimeRequestedShipment $requestedShipment = null,
-        public readonly ?array $carrierCodes = null,
-    ) {
-    }
+        public ?TransitTimeRequestedShipment $requestedShipment = null,
+        public ?array $carrierCodes = null,
+    ) {}
 }

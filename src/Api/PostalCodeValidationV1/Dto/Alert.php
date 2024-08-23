@@ -23,10 +23,9 @@ final class Alert extends Dto
      * @param  ?string  $message  This is the alert message. <br> Example: We are unable to process this request. Please try again later or contact FedEx Customer Service.
      */
     public function __construct(
-        public readonly ?string $code = null,
-        public readonly ?string $alertType = null,
-        public readonly ?array $parameterList = null,
-        public readonly ?string $message = null,
-    ) {
-    }
+        public ?string $code = null,
+        public ?string $alertType = null,
+        public ?array $parameterList = null,
+        public ?string $message = null,
+    ) {}
 }

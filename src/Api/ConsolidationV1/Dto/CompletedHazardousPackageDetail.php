@@ -26,13 +26,12 @@ final class CompletedHazardousPackageDetail extends Dto
      * @param  ?float  $radioactiveTransportIndex  Specifies the maximum radiation level from the package (measured in microSieverts per hour at a distance of one meter from the external surface of the package, divided by 10).
      */
     public function __construct(
-        public readonly ?string $regulation = null,
-        public readonly ?string $accessibility = null,
-        public readonly ?string $labelType = null,
-        public readonly ?array $containers = null,
-        public readonly ?bool $cargoAircraftOnly = null,
-        public readonly ?string $referenceId = null,
-        public readonly ?float $radioactiveTransportIndex = null,
-    ) {
-    }
+        public ?string $regulation = null,
+        public ?string $accessibility = null,
+        public ?string $labelType = null,
+        public ?array $containers = null,
+        public ?bool $cargoAircraftOnly = null,
+        public ?string $referenceId = null,
+        public ?float $radioactiveTransportIndex = null,
+    ) {}
 }

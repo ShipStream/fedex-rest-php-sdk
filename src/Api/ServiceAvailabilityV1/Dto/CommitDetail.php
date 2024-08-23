@@ -24,13 +24,12 @@ final class CommitDetail extends Dto
      * @param  ?CommitDetailDateDetail  $dateDetail  Specific date and time.
      */
     public function __construct(
-        public readonly ?string $brokerCommitTimestamp = null,
-        public readonly ?string $cutOffTime = null,
-        public readonly ?string $commodityName = null,
-        public readonly ?CommitDetailTransitDays $transitDays = null,
-        public readonly ?string $commitMessageDetails = null,
-        public readonly ?CleansedAddressandLocationDetail $derivedDestinationDetail = null,
-        public readonly ?CommitDetailDateDetail $dateDetail = null,
-    ) {
-    }
+        public ?string $brokerCommitTimestamp = null,
+        public ?string $cutOffTime = null,
+        public ?string $commodityName = null,
+        public ?CommitDetailTransitDays $transitDays = null,
+        public ?string $commitMessageDetails = null,
+        public ?CleansedAddressandLocationDetail $derivedDestinationDetail = null,
+        public ?CommitDetailDateDetail $dateDetail = null,
+    ) {}
 }

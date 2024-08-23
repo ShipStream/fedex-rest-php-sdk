@@ -35,8 +35,7 @@ class TrackingDocuments extends Request implements HasBody
 
     public function __construct(
         public FullSchemaSpod $fullSchemaSpod,
-    ) {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {

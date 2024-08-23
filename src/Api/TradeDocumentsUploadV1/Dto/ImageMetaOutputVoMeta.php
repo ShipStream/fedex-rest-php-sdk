@@ -19,8 +19,7 @@ final class ImageMetaOutputVoMeta extends Dto
      * @param  ?string  $imageIndex  Returns the image index that is specified in the request.<br>            Example: IMAGE_1
      */
     public function __construct(
-        public readonly ?string $imageType = null,
-        public readonly ?string $imageIndex = null,
-    ) {
-    }
+        public ?string $imageType = null,
+        public ?string $imageIndex = null,
+    ) {}
 }

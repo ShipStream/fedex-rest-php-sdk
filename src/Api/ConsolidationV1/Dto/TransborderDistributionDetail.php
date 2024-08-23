@@ -20,9 +20,8 @@ final class TransborderDistributionDetail extends Dto
      * @param  ?SummaryDetail  $summaryDetail  Package type, number, and weight details
      */
     public function __construct(
-        public readonly ?TransborderDistributionDetailSpecialServicesRequested $specialServicesRequested = null,
-        public readonly ?string $routing = null,
-        public readonly ?SummaryDetail $summaryDetail = null,
-    ) {
-    }
+        public ?TransborderDistributionDetailSpecialServicesRequested $specialServicesRequested = null,
+        public ?string $routing = null,
+        public ?SummaryDetail $summaryDetail = null,
+    ) {}
 }

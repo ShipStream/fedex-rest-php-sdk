@@ -29,24 +29,22 @@ final class FullSchemaCreatePickup extends Dto
      * @param  ?string  $commodityDescription  Description of the commodity being shipped. <br>Example:This field contains Commodity Description.<br><a onclick='loadDocReference("vaguecommoditydescriptions")'>Click here to see Vague commodity descriptions</a>
      * @param  ?ExpressFreightPickupDetail  $expressFreightDetail  Provides the Express Freight pickup detailed information.
      * @param  ?int  $oversizePackageCount  Specify the number of oversize packages that are tendered to FedEx Ground.
-     * @param  ?PickupNotificationDetail  $pickupNotificationDetail
      */
     public function __construct(
-        public readonly AccountNumber $associatedAccountNumber,
-        public readonly PickupOriginDetail $originDetail,
-        public readonly string $carrierCode,
-        public readonly ?string $associatedAccountNumberType = null,
-        public readonly ?Weight $totalWeight = null,
-        public readonly ?int $packageCount = null,
-        public readonly ?Address2 $accountAddressOfRecord = null,
-        public readonly ?string $remarks = null,
-        public readonly ?string $countryRelationships = null,
-        public readonly ?string $pickupType = null,
-        public readonly ?string $trackingNumber = null,
-        public readonly ?string $commodityDescription = null,
-        public readonly ?ExpressFreightPickupDetail $expressFreightDetail = null,
-        public readonly ?int $oversizePackageCount = null,
-        public readonly ?PickupNotificationDetail $pickupNotificationDetail = null,
-    ) {
-    }
+        public AccountNumber $associatedAccountNumber,
+        public PickupOriginDetail $originDetail,
+        public string $carrierCode,
+        public ?string $associatedAccountNumberType = null,
+        public ?Weight $totalWeight = null,
+        public ?int $packageCount = null,
+        public ?Address2 $accountAddressOfRecord = null,
+        public ?string $remarks = null,
+        public ?string $countryRelationships = null,
+        public ?string $pickupType = null,
+        public ?string $trackingNumber = null,
+        public ?string $commodityDescription = null,
+        public ?ExpressFreightPickupDetail $expressFreightDetail = null,
+        public ?int $oversizePackageCount = null,
+        public ?PickupNotificationDetail $pickupNotificationDetail = null,
+    ) {}
 }

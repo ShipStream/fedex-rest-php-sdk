@@ -20,9 +20,8 @@ final class ImporterOfRecord extends Dto
      * @param  ?PartyAccountNumber  $accountNumber  Specify the assigned FedEx Account Number. If the transportation charges to be billed to a payor other than the sender or recipient, provide the FedEx account number.
      */
     public function __construct(
-        public readonly PartyAddress2 $address,
-        public readonly PartyContact $contact,
-        public readonly ?PartyAccountNumber $accountNumber = null,
-    ) {
-    }
+        public PartyAddress2 $address,
+        public PartyContact $contact,
+        public ?PartyAccountNumber $accountNumber = null,
+    ) {}
 }

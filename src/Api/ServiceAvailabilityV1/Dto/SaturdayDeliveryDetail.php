@@ -18,7 +18,6 @@ final class SaturdayDeliveryDetail extends Dto
      * @param  ?ParsedContactAndAddress  $locationContactAndAddress  These are contact and address details for this special service.
      */
     public function __construct(
-        public readonly ?ParsedContactAndAddress $locationContactAndAddress = null,
-    ) {
-    }
+        public ?ParsedContactAndAddress $locationContactAndAddress = null,
+    ) {}
 }

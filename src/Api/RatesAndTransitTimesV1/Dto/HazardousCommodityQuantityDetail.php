@@ -20,9 +20,8 @@ final class HazardousCommodityQuantityDetail extends Dto
      * @param  ?string  $units  Specify unit details.
      */
     public function __construct(
-        public readonly ?string $quantityType = null,
-        public readonly ?float $amount = null,
-        public readonly ?string $units = null,
-    ) {
-    }
+        public ?string $quantityType = null,
+        public ?float $amount = null,
+        public ?string $units = null,
+    ) {}
 }

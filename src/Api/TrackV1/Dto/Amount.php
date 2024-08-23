@@ -19,8 +19,7 @@ final class Amount extends Dto
      * @param  ?float  $value  Field which holds the amount value. <br> Example: 56.80
      */
     public function __construct(
-        public readonly ?string $currency = null,
-        public readonly ?float $value = null,
-    ) {
-    }
+        public ?string $currency = null,
+        public ?float $value = null,
+    ) {}
 }

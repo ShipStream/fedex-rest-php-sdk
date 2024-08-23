@@ -38,8 +38,7 @@ class DeleteConsolidationShipments extends Request implements HasBody
      */
     public function __construct(
         public FullSchemaDeleteShipment $fullSchemaDeleteShipment,
-    ) {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {

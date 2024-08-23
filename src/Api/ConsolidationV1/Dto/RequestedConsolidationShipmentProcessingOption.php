@@ -18,7 +18,6 @@ final class RequestedConsolidationShipmentProcessingOption extends Dto
      * @param  ?string  $options  Specifies the options.
      */
     public function __construct(
-        public readonly ?string $options = null,
-    ) {
-    }
+        public ?string $options = null,
+    ) {}
 }

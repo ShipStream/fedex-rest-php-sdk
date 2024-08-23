@@ -24,6 +24,5 @@ final class CountryCxsResponseVo extends Response
         public readonly ?string $transactionId = null,
         public readonly ?string $customerTransactionId = null,
         public readonly ?ValidatePostalOutputVo $output = null,
-    ) {
-    }
+    ) {}
 }

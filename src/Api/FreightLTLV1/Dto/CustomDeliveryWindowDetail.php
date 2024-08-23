@@ -21,10 +21,9 @@ final class CustomDeliveryWindowDetail extends Dto
      * @param  ?string  $type  Indicates the type of shipment.<br>Example: AFTER
      */
     public function __construct(
-        public readonly ?string $requestDate = null,
-        public readonly ?string $requestTime = null,
-        public readonly ?RetrieveDateRange $requestRange = null,
-        public readonly ?string $type = null,
-    ) {
-    }
+        public ?string $requestDate = null,
+        public ?string $requestTime = null,
+        public ?RetrieveDateRange $requestRange = null,
+        public ?string $type = null,
+    ) {}
 }

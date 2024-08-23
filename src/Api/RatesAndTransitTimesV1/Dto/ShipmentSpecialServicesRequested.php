@@ -28,15 +28,14 @@ final class ShipmentSpecialServicesRequested extends Dto
      * @param  ?string[]  $specialServiceTypes  Indicate special services for which the rate data is being requested. Special Services are available at the shipment level for some or all service types.<br>Example: BROKER_SELECT_OPTION <br><a onclick='loadDocReference("shipmentlevelspecialservicetypes")'>Click here to see Shipment level Special Service Types</a>
      */
     public function __construct(
-        public readonly ?ShipmentSpecialServicesRequestedReturnShipmentDetail $returnShipmentDetail = null,
-        public readonly ?DeliveryOnInvoiceAcceptanceDetail $deliveryOnInvoiceAcceptanceDetail = null,
-        public readonly ?InternationalTrafficInArmsRegulationsDetail $internationalTrafficInArmsRegulationsDetail = null,
-        public readonly ?HoldAtLocationDetail $holdAtLocationDetail = null,
-        public readonly ?ShipmentCodDetail $shipmentCodDetail = null,
-        public readonly ?ShipmentDryIceDetail $shipmentDryIceDetail = null,
-        public readonly ?InternationalControlledExportDetail $internationalControlledExportDetail = null,
-        public readonly ?HomeDeliveryPremiumDetail $homeDeliveryPremiumDetail = null,
-        public readonly ?array $specialServiceTypes = null,
-    ) {
-    }
+        public ?ShipmentSpecialServicesRequestedReturnShipmentDetail $returnShipmentDetail = null,
+        public ?DeliveryOnInvoiceAcceptanceDetail $deliveryOnInvoiceAcceptanceDetail = null,
+        public ?InternationalTrafficInArmsRegulationsDetail $internationalTrafficInArmsRegulationsDetail = null,
+        public ?HoldAtLocationDetail $holdAtLocationDetail = null,
+        public ?ShipmentCodDetail $shipmentCodDetail = null,
+        public ?ShipmentDryIceDetail $shipmentDryIceDetail = null,
+        public ?InternationalControlledExportDetail $internationalControlledExportDetail = null,
+        public ?HomeDeliveryPremiumDetail $homeDeliveryPremiumDetail = null,
+        public ?array $specialServiceTypes = null,
+    ) {}
 }

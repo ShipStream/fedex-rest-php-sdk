@@ -20,9 +20,8 @@ final class DocumentMetaOutput extends Dto
      * @param  ?string[]  $folderId  This is the reference server folder id, where the document is uploaded.
      */
     public function __construct(
-        public readonly ?string $documentType = null,
-        public readonly ?string $docId = null,
-        public readonly ?array $folderId = null,
-    ) {
-    }
+        public ?string $documentType = null,
+        public ?string $docId = null,
+        public ?array $folderId = null,
+    ) {}
 }

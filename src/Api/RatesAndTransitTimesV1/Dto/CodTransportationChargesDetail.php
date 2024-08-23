@@ -21,10 +21,9 @@ final class CodTransportationChargesDetail extends Dto
      * @param  ?string  $chargeType  Specify the Charges Type.
      */
     public function __construct(
-        public readonly ?string $rateType = null,
-        public readonly ?string $rateLevelType = null,
-        public readonly ?string $chargeLevelType = null,
-        public readonly ?string $chargeType = null,
-    ) {
-    }
+        public ?string $rateType = null,
+        public ?string $rateLevelType = null,
+        public ?string $chargeLevelType = null,
+        public ?string $chargeType = null,
+    ) {}
 }

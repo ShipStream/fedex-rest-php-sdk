@@ -42,8 +42,7 @@ class RateAndTransitTimes extends Request implements HasBody
      */
     public function __construct(
         public FullSchemaQuoteRate $fullSchemaQuoteRate,
-    ) {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {

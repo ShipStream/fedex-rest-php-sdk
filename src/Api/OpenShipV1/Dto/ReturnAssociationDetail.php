@@ -19,8 +19,7 @@ final class ReturnAssociationDetail extends Dto
      * @param  ?string  $trackingNumber  This is a tracking number associated with this package.<br>Example: 49XXX0000XXX20032835
      */
     public function __construct(
-        public readonly ?string $shipDatestamp = null,
-        public readonly ?string $trackingNumber = null,
-    ) {
-    }
+        public ?string $shipDatestamp = null,
+        public ?string $trackingNumber = null,
+    ) {}
 }

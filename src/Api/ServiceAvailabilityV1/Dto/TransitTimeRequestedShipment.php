@@ -32,16 +32,15 @@ final class TransitTimeRequestedShipment extends Dto
      * @param  ?TransitTimeRequestedShipmentCustomsClearanceDetail  $customsClearanceDetail  This is Customs clearance data associated with the shipment. This is used for both international and intra-country shipping and rating. Customs commodity data is required for international and intra-country rating.
      */
     public function __construct(
-        public readonly TransitTimeRequestedShipmentShipper $shipper,
-        public readonly array $recipients,
-        public readonly string $packagingType,
-        public readonly array $requestedPackageLineItems,
-        public readonly ?string $serviceType = null,
-        public readonly ?string $shipDatestamp = null,
-        public readonly ?string $pickupType = null,
-        public readonly ?TransitTimeShippingChargesPayment $shippingChargesPayment = null,
-        public readonly ?TransitTimeRequestedShipmentShipmentSpecialServices $shipmentSpecialServices = null,
-        public readonly ?TransitTimeRequestedShipmentCustomsClearanceDetail $customsClearanceDetail = null,
-    ) {
-    }
+        public TransitTimeRequestedShipmentShipper $shipper,
+        public array $recipients,
+        public string $packagingType,
+        public array $requestedPackageLineItems,
+        public ?string $serviceType = null,
+        public ?string $shipDatestamp = null,
+        public ?string $pickupType = null,
+        public ?TransitTimeShippingChargesPayment $shippingChargesPayment = null,
+        public ?TransitTimeRequestedShipmentShipmentSpecialServices $shipmentSpecialServices = null,
+        public ?TransitTimeRequestedShipmentCustomsClearanceDetail $customsClearanceDetail = null,
+    ) {}
 }

@@ -24,8 +24,7 @@ final class TrackingNumbersResponseTcn extends Dto
      * @param  Alert[]|null  $alerts  alert type, alert code, and alert message<br>Example: TRACKING.DATA.NOTFOUND -  Tracking data unavailable
      */
     public function __construct(
-        public readonly ?array $completeTrackResults = null,
-        public readonly ?array $alerts = null,
-    ) {
-    }
+        public ?array $completeTrackResults = null,
+        public ?array $alerts = null,
+    ) {}
 }

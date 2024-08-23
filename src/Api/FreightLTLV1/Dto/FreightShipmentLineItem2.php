@@ -36,19 +36,18 @@ final class FreightShipmentLineItem2 extends Dto
      * @param  ?bool  $classProvidedByCustomer  The estimate freight class from customer-provided dimensions and weight.
      */
     public function __construct(
-        public readonly string $subPackagingType,
-        public readonly string $description,
-        public readonly Weight $weight,
-        public readonly int $pieces,
-        public readonly string $freightClass,
-        public readonly string $id,
-        public readonly ?int $handlingUnits = null,
-        public readonly ?string $nmfcCode = null,
-        public readonly ?Volume $volume = null,
-        public readonly ?string $purchaseOrderNumber = null,
-        public readonly ?string $hazardousMaterials = null,
-        public readonly ?Dimensions $dimensions = null,
-        public readonly ?bool $classProvidedByCustomer = null,
-    ) {
-    }
+        public string $subPackagingType,
+        public string $description,
+        public Weight $weight,
+        public int $pieces,
+        public string $freightClass,
+        public string $id,
+        public ?int $handlingUnits = null,
+        public ?string $nmfcCode = null,
+        public ?Volume $volume = null,
+        public ?string $purchaseOrderNumber = null,
+        public ?string $hazardousMaterials = null,
+        public ?Dimensions $dimensions = null,
+        public ?bool $classProvidedByCustomer = null,
+    ) {}
 }

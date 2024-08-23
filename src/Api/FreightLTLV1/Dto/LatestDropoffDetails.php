@@ -22,11 +22,10 @@ final class LatestDropoffDetails extends Dto
      * @param  ?string  $operationTime  Specifies the operation time.
      */
     public function __construct(
-        public readonly ?string $dayOfWeek = null,
-        public readonly ?Overlay $operationalOverlay = null,
-        public readonly ?string $exceptionalTime = null,
-        public readonly ?Overlay $exceptionalOverlay = null,
-        public readonly ?string $operationTime = null,
-    ) {
-    }
+        public ?string $dayOfWeek = null,
+        public ?Overlay $operationalOverlay = null,
+        public ?string $exceptionalTime = null,
+        public ?Overlay $exceptionalOverlay = null,
+        public ?string $operationTime = null,
+    ) {}
 }

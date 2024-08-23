@@ -19,8 +19,7 @@ final class TransborderDistributionDetailSpecialServicesRequested extends Dto
      * @param  ?TransborderDistributionDetailSpecialServicesRequestedTransborderDistributionLtlDetail  $transborderDistributionLtlDetail  Specifies details for the origin-country LTL services performed by FedEx.
      */
     public function __construct(
-        public readonly ?string $specialServiceTypes = null,
-        public readonly ?TransborderDistributionDetailSpecialServicesRequestedTransborderDistributionLtlDetail $transborderDistributionLtlDetail = null,
-    ) {
-    }
+        public ?string $specialServiceTypes = null,
+        public ?TransborderDistributionDetailSpecialServicesRequestedTransborderDistributionLtlDetail $transborderDistributionLtlDetail = null,
+    ) {}
 }

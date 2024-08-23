@@ -21,8 +21,7 @@ final class ShipmentRating extends Dto
      * @param  ShipmentRateDetail2[]|null  $shipmentRateDetails  Each element of this field provides shipment-level rate totals for a specific rate type.
      */
     public function __construct(
-        public readonly ?string $actualRateType = null,
-        public readonly ?array $shipmentRateDetails = null,
-    ) {
-    }
+        public ?string $actualRateType = null,
+        public ?array $shipmentRateDetails = null,
+    ) {}
 }

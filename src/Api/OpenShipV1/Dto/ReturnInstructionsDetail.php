@@ -19,8 +19,7 @@ final class ReturnInstructionsDetail extends Dto
      * @param  ?ReturnShippingDocumentFormat  $documentFormat  These are characteristics of a shipping document to be produced.
      */
     public function __construct(
-        public readonly ?string $customText = null,
-        public readonly ?ReturnShippingDocumentFormat $documentFormat = null,
-    ) {
-    }
+        public ?string $customText = null,
+        public ?ReturnShippingDocumentFormat $documentFormat = null,
+    ) {}
 }

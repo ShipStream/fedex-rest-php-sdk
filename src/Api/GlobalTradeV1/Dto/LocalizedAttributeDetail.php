@@ -20,9 +20,8 @@ final class LocalizedAttributeDetail extends Dto
      * @param  ?string  $description  Specifies elabaorate material description and other technical details of the product beingshipped.
      */
     public function __construct(
-        public readonly ?Localization $localization = null,
-        public readonly ?string $name = null,
-        public readonly ?string $description = null,
-    ) {
-    }
+        public ?Localization $localization = null,
+        public ?string $name = null,
+        public ?string $description = null,
+    ) {}
 }

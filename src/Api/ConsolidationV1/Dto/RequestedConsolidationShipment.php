@@ -29,30 +29,26 @@ final class RequestedConsolidationShipment extends Dto
      * @param  int  $packageCount  The number of packages.
      * @param  RequestedPackageLineItem[]  $requestedPackageLineItems
      * @param  ?RequestedConsolidationShipmentSpecialServicesRequested  $specialServicesRequested  These special services are available at the shipment level for some or all service types.<br>If the shipper is requesting a special service which requires additional data (such as the COD amount), the shipment special service type must be present in the specialServiceTypes collection, and the supporting detail must be provided in the appropriate sub-object below.<br>RETURN_SHIPMENT is required for creating return shipments.
-     * @param  ?string  $dropOffType
      * @param  ?Weight  $totalWeight  Indicate the shipment total weight in pounds.<br>Example: 10.6<br>Note: <ul><li>This only applies to International shipments and should be used on the first package of a multiple piece shipment.</li><li>This value contains 1 explicit decimal position.</li><li>For one Label at a time shipments, the unit of totalWeight is considered same as the unit of weight provided in requestedPackageLineItem field.</li></ul>
      * @param  RecipientParty[]|null  $recipients
-     * @param  ?RequestedConsolidationShipmentProcessingOption  $processingOption
      * @param  ?CustomsClearanceDetail  $customsClearanceDetail  Required for International and intra-country Shipments. Information about this package that only applies to an international (export) shipment or return.
-     * @param  ?string  $rateRequestTypes
      */
     public function __construct(
-        public readonly string $shipDatestamp,
-        public readonly string $pickupType,
-        public readonly string $serviceType,
-        public readonly string $packagingType,
-        public readonly ShipperParty $shipper,
-        public readonly Payment $shippingChargesPayment,
-        public readonly LabelSpecification $labelSpecification,
-        public readonly int $packageCount,
-        public readonly array $requestedPackageLineItems,
-        public readonly ?RequestedConsolidationShipmentSpecialServicesRequested $specialServicesRequested = null,
-        public readonly ?string $dropOffType = null,
-        public readonly ?Weight $totalWeight = null,
-        public readonly ?array $recipients = null,
-        public readonly ?RequestedConsolidationShipmentProcessingOption $processingOption = null,
-        public readonly ?CustomsClearanceDetail $customsClearanceDetail = null,
-        public readonly ?string $rateRequestTypes = null,
-    ) {
-    }
+        public string $shipDatestamp,
+        public string $pickupType,
+        public string $serviceType,
+        public string $packagingType,
+        public ShipperParty $shipper,
+        public Payment $shippingChargesPayment,
+        public LabelSpecification $labelSpecification,
+        public int $packageCount,
+        public array $requestedPackageLineItems,
+        public ?RequestedConsolidationShipmentSpecialServicesRequested $specialServicesRequested = null,
+        public ?string $dropOffType = null,
+        public ?Weight $totalWeight = null,
+        public ?array $recipients = null,
+        public ?RequestedConsolidationShipmentProcessingOption $processingOption = null,
+        public ?CustomsClearanceDetail $customsClearanceDetail = null,
+        public ?string $rateRequestTypes = null,
+    ) {}
 }

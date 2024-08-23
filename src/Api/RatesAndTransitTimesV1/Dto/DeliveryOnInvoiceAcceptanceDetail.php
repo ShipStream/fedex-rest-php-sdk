@@ -18,7 +18,6 @@ final class DeliveryOnInvoiceAcceptanceDetail extends Dto
      * @param  ?Party2  $recipient  Indicate the party to a transaction including the physical address, contact information and account number information.
      */
     public function __construct(
-        public readonly ?Party2 $recipient = null,
-    ) {
-    }
+        public ?Party2 $recipient = null,
+    ) {}
 }

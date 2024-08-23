@@ -21,8 +21,7 @@ final class BaseProcessOutputVoRetrieveConsolidation extends Dto
      * @param  Alert[]|null  $alerts  The alerts received when processing a shipment request.
      */
     public function __construct(
-        public readonly ?RetrievedConsolidation $retrievedConsolidation = null,
-        public readonly ?array $alerts = null,
-    ) {
-    }
+        public ?RetrievedConsolidation $retrievedConsolidation = null,
+        public ?array $alerts = null,
+    ) {}
 }

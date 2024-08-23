@@ -19,8 +19,7 @@ final class Measure extends Dto
      * @param  float  $quantity  Specify commodity quantity.
      */
     public function __construct(
-        public readonly string $uom,
-        public readonly float $quantity,
-    ) {
-    }
+        public string $uom,
+        public float $quantity,
+    ) {}
 }

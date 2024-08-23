@@ -21,14 +21,12 @@ final class PackageDescription extends Dto
      * @param  ?string  $code  Specifies code of the Service.<br>example: 80
      * @param  ProductName[]|null  $names  Branded, translated, and/or localized names for this service.
      * @param  ?string  $astraDescription  Specifies astra description.<br>Example: SMART POST
-     * @param  ?string  $description
      */
     public function __construct(
-        public readonly ?string $packagingType = null,
-        public readonly ?string $code = null,
-        public readonly ?array $names = null,
-        public readonly ?string $astraDescription = null,
-        public readonly ?string $description = null,
-    ) {
-    }
+        public ?string $packagingType = null,
+        public ?string $code = null,
+        public ?array $names = null,
+        public ?string $astraDescription = null,
+        public ?string $description = null,
+    ) {}
 }

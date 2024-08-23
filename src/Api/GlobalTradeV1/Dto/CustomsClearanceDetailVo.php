@@ -26,13 +26,12 @@ final class CustomsClearanceDetailVo extends Dto
      * @param  ?string  $documentContent  Defaults to COMMODITY. Only used for int'l Express requests to indicate if just documents are being shipped or not.
      */
     public function __construct(
-        public readonly Money $customsValue,
-        public readonly array $commodities,
-        public readonly ?array $regulatoryControls = null,
-        public readonly ?Money $insuranceCharges = null,
-        public readonly ?Party $importerOfRecordAccountNumber = null,
-        public readonly ?CommercialInvoice $commercialInvoice = null,
-        public readonly ?string $documentContent = null,
-    ) {
-    }
+        public Money $customsValue,
+        public array $commodities,
+        public ?array $regulatoryControls = null,
+        public ?Money $insuranceCharges = null,
+        public ?Party $importerOfRecordAccountNumber = null,
+        public ?CommercialInvoice $commercialInvoice = null,
+        public ?string $documentContent = null,
+    ) {}
 }

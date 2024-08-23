@@ -24,13 +24,12 @@ final class Address2 extends Dto
      * @param  ?string  $addressClassification  Classifies a given address as either of unknown, residential, mixed or business.
      */
     public function __construct(
-        public readonly ?array $streetLines = null,
-        public readonly ?string $city = null,
-        public readonly ?string $stateOrProvinceCode = null,
-        public readonly ?string $postalCode = null,
-        public readonly ?string $countryCode = null,
-        public readonly ?bool $residential = null,
-        public readonly ?string $addressClassification = null,
-    ) {
-    }
+        public ?array $streetLines = null,
+        public ?string $city = null,
+        public ?string $stateOrProvinceCode = null,
+        public ?string $postalCode = null,
+        public ?string $countryCode = null,
+        public ?bool $residential = null,
+        public ?string $addressClassification = null,
+    ) {}
 }

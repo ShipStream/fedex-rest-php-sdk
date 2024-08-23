@@ -19,8 +19,7 @@ final class InformationNoteDetail extends Dto
      * @param  ?string  $description  Field which holds the The informational message in human readable form.<br> Example: this is an informational message
      */
     public function __construct(
-        public readonly ?string $code = null,
-        public readonly ?string $description = null,
-    ) {
-    }
+        public ?string $code = null,
+        public ?string $description = null,
+    ) {}
 }

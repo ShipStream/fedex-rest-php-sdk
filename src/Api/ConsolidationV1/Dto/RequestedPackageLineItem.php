@@ -39,21 +39,20 @@ final class RequestedPackageLineItem extends Dto
      * @param  Commodity[]|null  $commodities  Details about the dutiable packages.
      */
     public function __construct(
-        public readonly Weight $weight,
-        public readonly ?int $sequenceNumber = null,
-        public readonly ?string $subPackagingType = null,
-        public readonly ?array $customerReferences = null,
-        public readonly ?Money2 $declaredValue = null,
-        public readonly ?Dimensions $dimensions = null,
-        public readonly ?string $physicalPackaging = null,
-        public readonly ?int $groupPackageCount = null,
-        public readonly ?string $itemDescriptionForClearance = null,
-        public readonly ?array $contentRecord = null,
-        public readonly ?string $itemDescription = null,
-        public readonly ?VariableHandlingChargeDetail $variableHandlingChargeDetail = null,
-        public readonly ?PackageSpecialServicesRequested $packageSpecialServices = null,
-        public readonly ?array $associatedFreightLineItems = null,
-        public readonly ?array $commodities = null,
-    ) {
-    }
+        public Weight $weight,
+        public ?int $sequenceNumber = null,
+        public ?string $subPackagingType = null,
+        public ?array $customerReferences = null,
+        public ?Money2 $declaredValue = null,
+        public ?Dimensions $dimensions = null,
+        public ?string $physicalPackaging = null,
+        public ?int $groupPackageCount = null,
+        public ?string $itemDescriptionForClearance = null,
+        public ?array $contentRecord = null,
+        public ?string $itemDescription = null,
+        public ?VariableHandlingChargeDetail $variableHandlingChargeDetail = null,
+        public ?PackageSpecialServicesRequested $packageSpecialServices = null,
+        public ?array $associatedFreightLineItems = null,
+        public ?array $commodities = null,
+    ) {}
 }

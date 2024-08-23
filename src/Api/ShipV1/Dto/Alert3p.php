@@ -19,8 +19,7 @@ final class Alert3p extends Dto
      * @param  ?string  $message  Specifies the api alert message.<br>Example: Recipient’s phone number format is not matching with recipient's country code; hence, recipient will not receive Convenient Delivery Options. Moving forward, please provide valid mobile phone number.
      */
     public function __construct(
-        public readonly ?string $code = null,
-        public readonly ?string $message = null,
-    ) {
-    }
+        public ?string $code = null,
+        public ?string $message = null,
+    ) {}
 }

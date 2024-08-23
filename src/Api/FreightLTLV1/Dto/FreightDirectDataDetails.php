@@ -23,10 +23,9 @@ final class FreightDirectDataDetails extends Dto
      * @param  FreightPhoneNumberDetail[]|null  $phoneNumberDetails
      */
     public function __construct(
-        public readonly ?string $type = null,
-        public readonly ?string $transportationType = null,
-        public readonly ?string $emailAddress = null,
-        public readonly ?array $phoneNumberDetails = null,
-    ) {
-    }
+        public ?string $type = null,
+        public ?string $transportationType = null,
+        public ?string $emailAddress = null,
+        public ?array $phoneNumberDetails = null,
+    ) {}
 }

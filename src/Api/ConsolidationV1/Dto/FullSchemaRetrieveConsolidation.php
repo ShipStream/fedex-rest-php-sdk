@@ -19,8 +19,7 @@ final class FullSchemaRetrieveConsolidation extends Dto
      * @param  ConsolidationKey  $consolidationKey  Identifies the consolidation to which this open shipment should be added after successful creation.
      */
     public function __construct(
-        public readonly PartyAccountNumber $accountNumber,
-        public readonly ConsolidationKey $consolidationKey,
-    ) {
-    }
+        public PartyAccountNumber $accountNumber,
+        public ConsolidationKey $consolidationKey,
+    ) {}
 }

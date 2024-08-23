@@ -20,10 +20,9 @@ final class FullSchemaCancelTag extends Dto
      * @param  ?string  $trackingNumber  The tracking number for the Express or Ground Tag to the cancelled.<br>Example: 301025281523<br><a onclick='loadDocReference("mocktrackingnumbersforfedexexpressandfedexground")'>Click here to see mock tracking numbers for FedEx Express and FedEx Ground.</a>
      */
     public function __construct(
-        public readonly PartyAccountNumber $accountNumber,
-        public readonly string $serviceType,
-        public readonly CompletedTagDetail $completedTagDetail,
-        public readonly ?string $trackingNumber = null,
-    ) {
-    }
+        public PartyAccountNumber $accountNumber,
+        public string $serviceType,
+        public CompletedTagDetail $completedTagDetail,
+        public ?string $trackingNumber = null,
+    ) {}
 }

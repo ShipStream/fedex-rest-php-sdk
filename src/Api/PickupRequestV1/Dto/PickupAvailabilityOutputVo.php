@@ -22,9 +22,8 @@ final class PickupAvailabilityOutputVo extends Dto
      * @param  Alert[]|null  $alerts  Any optional alert messages received when a pickup availability is requested. This includes an alert code, type, and message.
      */
     public function __construct(
-        public readonly ?string $requestTimestamp = null,
-        public readonly ?array $options = null,
-        public readonly ?array $alerts = null,
-    ) {
-    }
+        public ?string $requestTimestamp = null,
+        public ?array $options = null,
+        public ?array $alerts = null,
+    ) {}
 }

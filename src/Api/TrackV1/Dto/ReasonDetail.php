@@ -19,8 +19,7 @@ final class ReasonDetail extends Dto
      * @param  ?string  $type  Field which holds the reason type.<br> Example: REJECTED
      */
     public function __construct(
-        public readonly ?string $description = null,
-        public readonly ?string $type = null,
-    ) {
-    }
+        public ?string $description = null,
+        public ?string $type = null,
+    ) {}
 }

@@ -19,8 +19,7 @@ final class FullSchemaTrackingReferences extends Dto
      * @param  ?bool  $includeDetailedScans  Indicates if the detailed scans are being requested or not. If true, the detailed scans will be included in the response returned. <br>Valid values are True or False.
      */
     public function __construct(
-        public readonly ReferenceInformation $referencesInformation,
-        public readonly ?bool $includeDetailedScans = null,
-    ) {
-    }
+        public ReferenceInformation $referencesInformation,
+        public ?bool $includeDetailedScans = null,
+    ) {}
 }

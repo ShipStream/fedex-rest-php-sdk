@@ -38,8 +38,7 @@ class UploadEtdFiles extends Request implements HasBody
      */
     public function __construct(
         public FullSchemaDocumentUploadInputVo $fullSchemaDocumentUploadInputVo,
-    ) {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {

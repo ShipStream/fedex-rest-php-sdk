@@ -20,9 +20,8 @@ final class ContactVo extends Dto
      * @param  ?string  $companyName  Identifies the company this contact is associated with. Max length is 35. <br> Example: Fedex
      */
     public function __construct(
-        public readonly ?string $personName = null,
-        public readonly ?string $phoneNumber = null,
-        public readonly ?string $companyName = null,
-    ) {
-    }
+        public ?string $personName = null,
+        public ?string $phoneNumber = null,
+        public ?string $companyName = null,
+    ) {}
 }

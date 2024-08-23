@@ -19,8 +19,7 @@ final class TransborderDistributionDetailSpecialServicesRequestedTransborderDist
      * @param  ?string  $ltlScacCode  Standard Carrier Alpha Code for origin-country LTL services.
      */
     public function __construct(
-        public readonly ?TransborderDistributionDetailSpecialServicesRequestedTransborderDistributionLtlDetailPayment $payment = null,
-        public readonly ?string $ltlScacCode = null,
-    ) {
-    }
+        public ?TransborderDistributionDetailSpecialServicesRequestedTransborderDistributionLtlDetailPayment $payment = null,
+        public ?string $ltlScacCode = null,
+    ) {}
 }

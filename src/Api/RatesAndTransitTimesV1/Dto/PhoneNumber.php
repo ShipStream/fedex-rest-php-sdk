@@ -22,11 +22,10 @@ final class PhoneNumber extends Dto
      * @param  ?string  $localNumber  Telephone number to use for contact in the event of an emergency.
      */
     public function __construct(
-        public readonly string $areaCode,
-        public readonly string $countryCode,
-        public readonly ?string $extension = null,
-        public readonly ?string $personalIdentificationNumber = null,
-        public readonly ?string $localNumber = null,
-    ) {
-    }
+        public string $areaCode,
+        public string $countryCode,
+        public ?string $extension = null,
+        public ?string $personalIdentificationNumber = null,
+        public ?string $localNumber = null,
+    ) {}
 }

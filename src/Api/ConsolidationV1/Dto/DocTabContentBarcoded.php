@@ -16,11 +16,9 @@ final class DocTabContentBarcoded extends Dto
 {
     /**
      * @param  ?string  $symbology  Barcode Symbology Type
-     * @param  ?DocTabZoneSpecification  $specification
      */
     public function __construct(
-        public readonly ?string $symbology = null,
-        public readonly ?DocTabZoneSpecification $specification = null,
-    ) {
-    }
+        public ?string $symbology = null,
+        public ?DocTabZoneSpecification $specification = null,
+    ) {}
 }

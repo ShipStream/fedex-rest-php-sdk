@@ -19,8 +19,7 @@ final class TransitTimeRequestedShipmentShipmentSpecialServicesShipmentDryIceDet
      * @param  ?int  $packageCount  Specify dry ice shipment package count.<br>Example: 12
      */
     public function __construct(
-        public readonly ?TransitTimeRequestedShipmentShipmentSpecialServicesShipmentDryIceDetailTotalWeight $totalWeight = null,
-        public readonly ?int $packageCount = null,
-    ) {
-    }
+        public ?TransitTimeRequestedShipmentShipmentSpecialServicesShipmentDryIceDetailTotalWeight $totalWeight = null,
+        public ?int $packageCount = null,
+    ) {}
 }

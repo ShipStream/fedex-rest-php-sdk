@@ -20,9 +20,8 @@ final class CarrierDetails extends Dto
      * @param  ?LatestDropoffDetails  $latestDropoffDetails  Describes the latest dropoff details for the location.
      */
     public function __construct(
-        public readonly ?string $countryRelationshipType = null,
-        public readonly ?string $carrierCodeType = null,
-        public readonly ?LatestDropoffDetails $latestDropoffDetails = null,
-    ) {
-    }
+        public ?string $countryRelationshipType = null,
+        public ?string $carrierCodeType = null,
+        public ?LatestDropoffDetails $latestDropoffDetails = null,
+    ) {}
 }

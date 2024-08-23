@@ -25,12 +25,11 @@ final class ShippingDocument extends Dto
      * @param  ShippingDocumentParts[]|null  $parts  Indicates documentation part details.
      */
     public function __construct(
-        public readonly ?string $type = null,
-        public readonly ?string $shippingDocumentDisposition = null,
-        public readonly ?string $imageType = null,
-        public readonly ?int $resolution = null,
-        public readonly ?int $copiesToPrint = null,
-        public readonly ?array $parts = null,
-    ) {
-    }
+        public ?string $type = null,
+        public ?string $shippingDocumentDisposition = null,
+        public ?string $imageType = null,
+        public ?int $resolution = null,
+        public ?int $copiesToPrint = null,
+        public ?array $parts = null,
+    ) {}
 }

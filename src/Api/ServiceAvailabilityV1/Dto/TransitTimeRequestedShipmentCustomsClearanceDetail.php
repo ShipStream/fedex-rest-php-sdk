@@ -20,7 +20,6 @@ final class TransitTimeRequestedShipmentCustomsClearanceDetail extends Dto
      * @param  TransitTimeCommodity[]  $commodities  Specify the commodity details.
      */
     public function __construct(
-        public readonly array $commodities,
-    ) {
-    }
+        public array $commodities,
+    ) {}
 }

@@ -19,8 +19,7 @@ final class PickupDetail extends Dto
      * @param  string  $latestPickupDateTime  Specify the last possible pickup date and time.
      */
     public function __construct(
-        public readonly string $readyPickupDateTime,
-        public readonly string $latestPickupDateTime,
-    ) {
-    }
+        public string $readyPickupDateTime,
+        public string $latestPickupDateTime,
+    ) {}
 }

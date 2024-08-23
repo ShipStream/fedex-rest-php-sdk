@@ -18,7 +18,6 @@ final class ConfirmConsolidationOutputVoCompletedConsolidationDetail extends Dto
      * @param  ?ConsolidationShipments  $consolidationShipments  These are details when Confirm Consolidation is Synchronously Processed.
      */
     public function __construct(
-        public readonly ?ConsolidationShipments $consolidationShipments = null,
-    ) {
-    }
+        public ?ConsolidationShipments $consolidationShipments = null,
+    ) {}
 }

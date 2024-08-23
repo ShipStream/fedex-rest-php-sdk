@@ -27,16 +27,15 @@ final class ReferenceInfo extends Dto
      * @param  ?string  $referenceValue  Reference Value attached to the shipment
      */
     public function __construct(
-        public readonly ?string $regulatoryReferenceNumber = null,
-        public readonly ?string $yourReference = null,
-        public readonly ?string $countryCode = null,
-        public readonly ?string $postalCode = null,
-        public readonly ?string $purchaseOrderNumber = null,
-        public readonly ?string $departmentNumber = null,
-        public readonly ?string $invoiceNumber = null,
-        public readonly ?string $accountNbr = null,
-        public readonly ?string $shipDate = null,
-        public readonly ?string $referenceValue = null,
-    ) {
-    }
+        public ?string $regulatoryReferenceNumber = null,
+        public ?string $yourReference = null,
+        public ?string $countryCode = null,
+        public ?string $postalCode = null,
+        public ?string $purchaseOrderNumber = null,
+        public ?string $departmentNumber = null,
+        public ?string $invoiceNumber = null,
+        public ?string $accountNbr = null,
+        public ?string $shipDate = null,
+        public ?string $referenceValue = null,
+    ) {}
 }

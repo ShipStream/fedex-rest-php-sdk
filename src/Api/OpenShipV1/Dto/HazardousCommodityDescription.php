@@ -32,19 +32,18 @@ final class HazardousCommodityDescription extends Dto
      * @param  ?string  $hazardClass  Specifies the hazard class for the commodity<br>Example: hazard Class
      */
     public function __construct(
-        public readonly bool $reportableQuantity,
-        public readonly string $packingGroup,
-        public readonly ?int $sequenceNumber = null,
-        public readonly ?array $processingOptions = null,
-        public readonly ?array $subsidiaryClasses = null,
-        public readonly ?string $labelText = null,
-        public readonly ?string $technicalName = null,
-        public readonly ?HazardousCommodityPackingDetail $packingDetails = null,
-        public readonly ?string $authorization = null,
-        public readonly ?float $percentage = null,
-        public readonly ?string $id = null,
-        public readonly ?string $properShippingName = null,
-        public readonly ?string $hazardClass = null,
-    ) {
-    }
+        public bool $reportableQuantity,
+        public string $packingGroup,
+        public ?int $sequenceNumber = null,
+        public ?array $processingOptions = null,
+        public ?array $subsidiaryClasses = null,
+        public ?string $labelText = null,
+        public ?string $technicalName = null,
+        public ?HazardousCommodityPackingDetail $packingDetails = null,
+        public ?string $authorization = null,
+        public ?float $percentage = null,
+        public ?string $id = null,
+        public ?string $properShippingName = null,
+        public ?string $hazardClass = null,
+    ) {}
 }

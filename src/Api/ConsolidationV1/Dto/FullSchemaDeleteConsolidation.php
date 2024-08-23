@@ -20,9 +20,8 @@ final class FullSchemaDeleteConsolidation extends Dto
      * @param  TrackingIds  $trackingId  The field is present to allow use of preassigned Master Airway Bill tracking number.
      */
     public function __construct(
-        public readonly PartyAccountNumber $accountNumber,
-        public readonly ConsolidationKey $consolidationKey,
-        public readonly TrackingIds $trackingId,
-    ) {
-    }
+        public PartyAccountNumber $accountNumber,
+        public ConsolidationKey $consolidationKey,
+        public TrackingIds $trackingId,
+    ) {}
 }

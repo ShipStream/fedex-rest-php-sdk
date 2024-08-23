@@ -39,8 +39,7 @@ class ValidatePostal extends Request implements HasBody
      */
     public function __construct(
         public FullSchemaValidatePostal $fullSchemaValidatePostal,
-    ) {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {

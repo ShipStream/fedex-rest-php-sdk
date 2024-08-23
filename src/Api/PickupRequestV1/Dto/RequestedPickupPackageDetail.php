@@ -18,7 +18,6 @@ final class RequestedPickupPackageDetail extends Dto
      * @param  ?PackageSpecialServices  $packageSpecialServices  Indicates the special services associated with this package.
      */
     public function __construct(
-        public readonly ?PackageSpecialServices $packageSpecialServices = null,
-    ) {
-    }
+        public ?PackageSpecialServices $packageSpecialServices = null,
+    ) {}
 }

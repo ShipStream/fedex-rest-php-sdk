@@ -19,8 +19,7 @@ final class LiabilityCoverageDetail extends Dto
      * @param  ?Money  $coverageAmount  Specifies taxes or miscellaneous charge.
      */
     public function __construct(
-        public readonly ?string $coverageType = null,
-        public readonly ?Money $coverageAmount = null,
-    ) {
-    }
+        public ?string $coverageType = null,
+        public ?Money $coverageAmount = null,
+    ) {}
 }

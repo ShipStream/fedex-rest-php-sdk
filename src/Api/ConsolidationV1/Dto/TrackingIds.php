@@ -20,9 +20,8 @@ final class TrackingIds extends Dto
      * @param  string  $trackingNumber  This is a number associated with a package that is used to track it.
      */
     public function __construct(
-        public readonly string $trackingIdType,
-        public readonly string $formId,
-        public readonly string $trackingNumber,
-    ) {
-    }
+        public string $trackingIdType,
+        public string $formId,
+        public string $trackingNumber,
+    ) {}
 }

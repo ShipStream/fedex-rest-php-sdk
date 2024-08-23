@@ -18,7 +18,6 @@ final class ShipmentSpecialServicesRequestedFreightGuaranteeDetail extends Dto
      * @param  ?string  $time  Specified the time <br>Example: 10:00
      */
     public function __construct(
-        public readonly ?string $time = null,
-    ) {
-    }
+        public ?string $time = null,
+    ) {}
 }

@@ -20,7 +20,6 @@ final class PieceResponse extends Dto
      * @param  PieceResponses[]|null  $packageDocuments  These are package documents returned in the response
      */
     public function __construct(
-        public readonly ?array $packageDocuments = null,
-    ) {
-    }
+        public ?array $packageDocuments = null,
+    ) {}
 }

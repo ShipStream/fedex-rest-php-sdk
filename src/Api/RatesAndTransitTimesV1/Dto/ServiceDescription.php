@@ -26,13 +26,12 @@ final class ServiceDescription extends Dto
      * @param  ?string  $serviceCategory  Specifies service category. <br> Example: parcel
      */
     public function __construct(
-        public readonly ?string $serviceType = null,
-        public readonly ?string $code = null,
-        public readonly ?array $names = null,
-        public readonly ?string $astraDescription = null,
-        public readonly ?string $description = null,
-        public readonly ?string $serviceId = null,
-        public readonly ?string $serviceCategory = null,
-    ) {
-    }
+        public ?string $serviceType = null,
+        public ?string $code = null,
+        public ?array $names = null,
+        public ?string $astraDescription = null,
+        public ?string $description = null,
+        public ?string $serviceId = null,
+        public ?string $serviceCategory = null,
+    ) {}
 }

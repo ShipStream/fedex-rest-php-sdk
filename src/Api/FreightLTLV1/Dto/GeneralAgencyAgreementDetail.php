@@ -18,7 +18,6 @@ final class GeneralAgencyAgreementDetail extends Dto
      * @param  ?ShippingDocumentFormat  $documentFormat  Specify the shipping document format.
      */
     public function __construct(
-        public readonly ?ShippingDocumentFormat $documentFormat = null,
-    ) {
-    }
+        public ?ShippingDocumentFormat $documentFormat = null,
+    ) {}
 }

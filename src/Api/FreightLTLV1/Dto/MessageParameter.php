@@ -19,8 +19,7 @@ final class MessageParameter extends Dto
      * @param  ?string  $value  Specifies the message parameter value of the code.<br>Example: value
      */
     public function __construct(
-        public readonly ?string $id = null,
-        public readonly ?string $value = null,
-    ) {
-    }
+        public ?string $id = null,
+        public ?string $value = null,
+    ) {}
 }

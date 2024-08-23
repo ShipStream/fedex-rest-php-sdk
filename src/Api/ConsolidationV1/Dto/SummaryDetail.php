@@ -27,16 +27,15 @@ final class SummaryDetail extends Dto
      * @param  ?int  $numberOfUnconsolidatedCommodities  Number of unconsolidated commodities
      */
     public function __construct(
-        public readonly ?int $expressPacakgeCount = null,
-        public readonly ?SummaryDetailExpressTotalPackageWeight $expressTotalPackageWeight = null,
-        public readonly ?SummaryDetailExpressTotalPackageAdjustedWeight $expressTotalPackageAdjustedWeight = null,
-        public readonly ?int $expressFreightPackageCount = null,
-        public readonly ?SummaryDetailExpressTotalFreightWeight $expressTotalFreightWeight = null,
-        public readonly ?SummaryDetailExpressTotalFreightAdjustedWeight $expressTotalFreightAdjustedWeight = null,
-        public readonly ?int $groundPackageCount = null,
-        public readonly ?SummaryDetailGroundTotalPackageWeight $groundTotalPackageWeight = null,
-        public readonly ?SummaryDetailGroundTotalPackageAdjustedWeight $groundTotalPackageAdjustedWeight = null,
-        public readonly ?int $numberOfUnconsolidatedCommodities = null,
-    ) {
-    }
+        public ?int $expressPacakgeCount = null,
+        public ?SummaryDetailExpressTotalPackageWeight $expressTotalPackageWeight = null,
+        public ?SummaryDetailExpressTotalPackageAdjustedWeight $expressTotalPackageAdjustedWeight = null,
+        public ?int $expressFreightPackageCount = null,
+        public ?SummaryDetailExpressTotalFreightWeight $expressTotalFreightWeight = null,
+        public ?SummaryDetailExpressTotalFreightAdjustedWeight $expressTotalFreightAdjustedWeight = null,
+        public ?int $groundPackageCount = null,
+        public ?SummaryDetailGroundTotalPackageWeight $groundTotalPackageWeight = null,
+        public ?SummaryDetailGroundTotalPackageAdjustedWeight $groundTotalPackageAdjustedWeight = null,
+        public ?int $numberOfUnconsolidatedCommodities = null,
+    ) {}
 }

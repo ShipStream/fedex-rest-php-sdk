@@ -19,9 +19,8 @@ final class RegulatoryCountryDetails extends Dto
      * @param  string  $category  Indicates the Regulatory details category.
      */
     public function __construct(
-        public readonly RegulatoryShipmentDetail $shipmentDetails,
-        public readonly string $countryCode,
-        public readonly string $category,
-    ) {
-    }
+        public RegulatoryShipmentDetail $shipmentDetails,
+        public string $countryCode,
+        public string $category,
+    ) {}
 }

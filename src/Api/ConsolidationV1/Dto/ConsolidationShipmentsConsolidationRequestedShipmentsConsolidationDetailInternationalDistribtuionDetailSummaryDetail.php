@@ -15,16 +15,13 @@ use ShipStream\FedEx\Dto;
 final class ConsolidationShipmentsConsolidationRequestedShipmentsConsolidationDetailInternationalDistribtuionDetailSummaryDetail extends Dto
 {
     /**
-     * @param  ?ConsolidationShipmentsConsolidationRequestedShipmentsConsolidationDetailInternationalDistribtuionDetailSummaryDetailTotalWeight  $totalWeight
      * @param  ?int  $totalPackageCount  non-negative number
      * @param  ?int  $totalUniqueAddressCount  non-negative number
-     * @param  ?ConsolidationShipmentsConsolidationRequestedShipmentsConsolidationDetailInternationalDistribtuionDetailSummaryDetailTotalCustomsValue  $totalCustomsValue
      */
     public function __construct(
-        public readonly ?ConsolidationShipmentsConsolidationRequestedShipmentsConsolidationDetailInternationalDistribtuionDetailSummaryDetailTotalWeight $totalWeight = null,
-        public readonly ?int $totalPackageCount = null,
-        public readonly ?int $totalUniqueAddressCount = null,
-        public readonly ?ConsolidationShipmentsConsolidationRequestedShipmentsConsolidationDetailInternationalDistribtuionDetailSummaryDetailTotalCustomsValue $totalCustomsValue = null,
-    ) {
-    }
+        public ?ConsolidationShipmentsConsolidationRequestedShipmentsConsolidationDetailInternationalDistribtuionDetailSummaryDetailTotalWeight $totalWeight = null,
+        public ?int $totalPackageCount = null,
+        public ?int $totalUniqueAddressCount = null,
+        public ?ConsolidationShipmentsConsolidationRequestedShipmentsConsolidationDetailInternationalDistribtuionDetailSummaryDetailTotalCustomsValue $totalCustomsValue = null,
+    ) {}
 }

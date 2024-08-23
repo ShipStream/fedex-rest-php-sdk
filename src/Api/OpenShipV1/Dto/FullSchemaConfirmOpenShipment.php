@@ -23,12 +23,11 @@ final class FullSchemaConfirmOpenShipment extends Dto
      * @param  ?ShippingDocumentSpecification  $shippingDocumentSpecification  Use this object to provide all data required for additional (non-label) shipping documents to be produced.
      */
     public function __construct(
-        public readonly string $labelResponseOptions,
-        public readonly LabelSpecification $labelSpecification,
-        public readonly string $index,
-        public readonly PartyAccountNumber $accountNumber,
-        public readonly ?string $edtRequestType = null,
-        public readonly ?ShippingDocumentSpecification $shippingDocumentSpecification = null,
-    ) {
-    }
+        public string $labelResponseOptions,
+        public LabelSpecification $labelSpecification,
+        public string $index,
+        public PartyAccountNumber $accountNumber,
+        public ?string $edtRequestType = null,
+        public ?ShippingDocumentSpecification $shippingDocumentSpecification = null,
+    ) {}
 }

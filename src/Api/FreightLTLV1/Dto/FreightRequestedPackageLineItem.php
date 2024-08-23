@@ -36,19 +36,18 @@ final class FreightRequestedPackageLineItem extends Dto
      * @param  ?VariableHandlingChargeDetail  $variableHandlingChargeDetail  Indicate the details about how to calculate variable handling charges at the shipment level. They can be based on a percentage of the shipping charges or a fixed amount. If indicated, element rateLevelType is required.
      */
     public function __construct(
-        public readonly string $subPackagingType,
-        public readonly Weight $weight,
-        public readonly array $associatedFreightLineItems,
-        public readonly ?string $sequenceNumber = null,
-        public readonly ?array $customerReferences = null,
-        public readonly ?Money $declaredValue = null,
-        public readonly ?Dimensions $dimensions = null,
-        public readonly ?string $physicalPackaging = null,
-        public readonly ?int $groupPackageCount = null,
-        public readonly ?string $itemDescriptionForClearance = null,
-        public readonly ?array $contentRecord = null,
-        public readonly ?string $itemDescription = null,
-        public readonly ?VariableHandlingChargeDetail $variableHandlingChargeDetail = null,
-    ) {
-    }
+        public string $subPackagingType,
+        public Weight $weight,
+        public array $associatedFreightLineItems,
+        public ?string $sequenceNumber = null,
+        public ?array $customerReferences = null,
+        public ?Money $declaredValue = null,
+        public ?Dimensions $dimensions = null,
+        public ?string $physicalPackaging = null,
+        public ?int $groupPackageCount = null,
+        public ?string $itemDescriptionForClearance = null,
+        public ?array $contentRecord = null,
+        public ?string $itemDescription = null,
+        public ?VariableHandlingChargeDetail $variableHandlingChargeDetail = null,
+    ) {}
 }

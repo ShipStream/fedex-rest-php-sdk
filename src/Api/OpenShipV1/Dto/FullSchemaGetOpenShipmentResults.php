@@ -20,9 +20,8 @@ final class FullSchemaGetOpenShipmentResults extends Dto
      * @param  PartyAccountNumber  $accountNumber  This is FedEx Account number details.
      */
     public function __construct(
-        public readonly string $resultMethodType,
-        public readonly string $jobId,
-        public readonly PartyAccountNumber $accountNumber,
-    ) {
-    }
+        public string $resultMethodType,
+        public string $jobId,
+        public PartyAccountNumber $accountNumber,
+    ) {}
 }

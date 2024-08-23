@@ -20,9 +20,8 @@ final class HoldAtLocationDetail extends Dto
      * @param  ?ContactAndAddress  $locationContactAndAddress  Specifies the contact and address details of a location.
      */
     public function __construct(
-        public readonly string $locationType,
-        public readonly ?string $locationId = null,
-        public readonly ?ContactAndAddress $locationContactAndAddress = null,
-    ) {
-    }
+        public string $locationType,
+        public ?string $locationId = null,
+        public ?ContactAndAddress $locationContactAndAddress = null,
+    ) {}
 }

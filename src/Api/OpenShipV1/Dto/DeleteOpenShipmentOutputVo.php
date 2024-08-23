@@ -21,8 +21,7 @@ final class DeleteOpenShipmentOutputVo extends Dto
      * @param  Alert[]|null  $alerts  The alert details received in the response.
      */
     public function __construct(
-        public readonly ?bool $deletedOpenshipment = null,
-        public readonly ?array $alerts = null,
-    ) {
-    }
+        public ?bool $deletedOpenshipment = null,
+        public ?array $alerts = null,
+    ) {}
 }

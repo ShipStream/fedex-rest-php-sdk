@@ -24,6 +24,5 @@ final class TrkcResponseVoReferenceNumber extends Response
         public readonly ?string $transactionId = null,
         public readonly ?string $customerTransactionId = null,
         public readonly ?TrackingReferencesResponse $output = null,
-    ) {
-    }
+    ) {}
 }

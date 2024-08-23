@@ -28,15 +28,14 @@ final class RequestedPackageLineItem extends Dto
      * @param  ?PackageSpecialServicesRequested  $packageSpecialServices  These are special services that are available at the package level for some or all service types.
      */
     public function __construct(
-        public readonly Weight $weight,
-        public readonly ?string $physicalPackaging = null,
-        public readonly ?int $groupPackageCount = null,
-        public readonly ?string $itemDescriptionForClearance = null,
-        public readonly ?array $customerReferences = null,
-        public readonly ?ContentRecord $contentRecord = null,
-        public readonly ?Money $declaredValue = null,
-        public readonly ?Dimensions $dimensions = null,
-        public readonly ?PackageSpecialServicesRequested $packageSpecialServices = null,
-    ) {
-    }
+        public Weight $weight,
+        public ?string $physicalPackaging = null,
+        public ?int $groupPackageCount = null,
+        public ?string $itemDescriptionForClearance = null,
+        public ?array $customerReferences = null,
+        public ?ContentRecord $contentRecord = null,
+        public ?Money $declaredValue = null,
+        public ?Dimensions $dimensions = null,
+        public ?PackageSpecialServicesRequested $packageSpecialServices = null,
+    ) {}
 }

@@ -25,14 +25,13 @@ final class RegulatoryProhibition extends Dto
      * @param  ?string  $status  Indicates the prohibitory status.<br>Example: status
      */
     public function __construct(
-        public readonly ?string $derivedHarmonizedCode = null,
-        public readonly ?Message $advisory = null,
-        public readonly ?int $commodityIndex = null,
-        public readonly ?string $source = null,
-        public readonly ?array $categories = null,
-        public readonly ?string $type = null,
-        public readonly ?RegulatoryWaiver $waiver = null,
-        public readonly ?string $status = null,
-    ) {
-    }
+        public ?string $derivedHarmonizedCode = null,
+        public ?Message $advisory = null,
+        public ?int $commodityIndex = null,
+        public ?string $source = null,
+        public ?array $categories = null,
+        public ?string $type = null,
+        public ?RegulatoryWaiver $waiver = null,
+        public ?string $status = null,
+    ) {}
 }

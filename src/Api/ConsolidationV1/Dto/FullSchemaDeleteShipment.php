@@ -21,10 +21,9 @@ final class FullSchemaDeleteShipment extends Dto
      * @param  ?string  $resourceKey  This is a unique number assigned by FedEx to the packages for tracking. This will help in the identification of the dangerous goods shipments to mark it for removal on the manifest report.
      */
     public function __construct(
-        public readonly PartyAccountNumber $accountNumber,
-        public readonly string $trackingNumber,
-        public readonly ?string $deletionControl = null,
-        public readonly ?string $resourceKey = null,
-    ) {
-    }
+        public PartyAccountNumber $accountNumber,
+        public string $trackingNumber,
+        public ?string $deletionControl = null,
+        public ?string $resourceKey = null,
+    ) {}
 }

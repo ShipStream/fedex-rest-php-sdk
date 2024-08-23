@@ -28,12 +28,11 @@ final class ValidatePostalOutputVo extends Dto
      * @param  ?string  $cleanedPostalCode  This is a cleaned postal code returned in the reply.</br>Example: 94267<br><a onclick='loadDocReference("postalawarecountries")'>Click here to see Postal aware countries</a>
      */
     public function __construct(
-        public readonly ?string $countryCode = null,
-        public readonly ?string $cityFirstInitials = null,
-        public readonly ?string $stateOrProvinceCode = null,
-        public readonly ?array $alerts = null,
-        public readonly ?array $locationDescriptions = null,
-        public readonly ?string $cleanedPostalCode = null,
-    ) {
-    }
+        public ?string $countryCode = null,
+        public ?string $cityFirstInitials = null,
+        public ?string $stateOrProvinceCode = null,
+        public ?array $alerts = null,
+        public ?array $locationDescriptions = null,
+        public ?string $cleanedPostalCode = null,
+    ) {}
 }

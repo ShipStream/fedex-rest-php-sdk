@@ -22,9 +22,8 @@ final class Party3 extends Dto
      * @param  TaxpayerIdentification[]|null  $tins  This is the tax identification number details.
      */
     public function __construct(
-        public readonly ?PartyAddress2 $address = null,
-        public readonly ?PartyContact2 $contact = null,
-        public readonly ?array $tins = null,
-    ) {
-    }
+        public ?PartyAddress2 $address = null,
+        public ?PartyContact2 $contact = null,
+        public ?array $tins = null,
+    ) {}
 }

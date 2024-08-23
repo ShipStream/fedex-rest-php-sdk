@@ -33,16 +33,15 @@ final class LtlTransactionShipmentOutputVo extends Dto
      * @param  ?string  $masterTrackingNumber  This is a master tracking number for the shipment (must be unique for stand-alone open shipments, or unique within consolidation if consolidation key is provided).<br>Example: 794953535000
      */
     public function __construct(
-        public readonly ?string $serviceType = null,
-        public readonly ?string $shipDatestamp = null,
-        public readonly ?string $serviceCategory = null,
-        public readonly ?array $shipmentDocuments = null,
-        public readonly ?array $pieceResponses = null,
-        public readonly ?string $serviceName = null,
-        public readonly ?array $alerts = null,
-        public readonly ?CompletedShipmentDetail $completedShipmentDetail = null,
-        public readonly ?ShipmentAdvisoryDetails $shipmentAdvisoryDetails = null,
-        public readonly ?string $masterTrackingNumber = null,
-    ) {
-    }
+        public ?string $serviceType = null,
+        public ?string $shipDatestamp = null,
+        public ?string $serviceCategory = null,
+        public ?array $shipmentDocuments = null,
+        public ?array $pieceResponses = null,
+        public ?string $serviceName = null,
+        public ?array $alerts = null,
+        public ?CompletedShipmentDetail $completedShipmentDetail = null,
+        public ?ShipmentAdvisoryDetails $shipmentAdvisoryDetails = null,
+        public ?string $masterTrackingNumber = null,
+    ) {}
 }

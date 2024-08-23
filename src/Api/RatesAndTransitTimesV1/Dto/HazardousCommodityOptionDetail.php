@@ -19,8 +19,7 @@ final class HazardousCommodityOptionDetail extends Dto
      * @param  ?string  $customerSuppliedLabelText  Text used in labeling the commodity under control of the labelTextOption field.
      */
     public function __construct(
-        public readonly ?string $labelTextOption = null,
-        public readonly ?string $customerSuppliedLabelText = null,
-    ) {
-    }
+        public ?string $labelTextOption = null,
+        public ?string $customerSuppliedLabelText = null,
+    ) {}
 }

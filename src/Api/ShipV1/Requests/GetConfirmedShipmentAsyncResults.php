@@ -36,8 +36,7 @@ class GetConfirmedShipmentAsyncResults extends Request implements HasBody
 
     public function __construct(
         public FullSchemaGetConfirmedShipmentAsyncResults $fullSchemaGetConfirmedShipmentAsyncResults,
-    ) {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {

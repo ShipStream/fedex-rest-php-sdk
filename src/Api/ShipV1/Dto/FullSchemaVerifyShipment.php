@@ -19,8 +19,7 @@ final class FullSchemaVerifyShipment extends Dto
      * @param  ?ShipperAccountNumber  $accountNumber  The account number associated with the shipment.
      */
     public function __construct(
-        public readonly RequestedShipmentVerify $requestedShipment,
-        public readonly ?ShipperAccountNumber $accountNumber = null,
-    ) {
-    }
+        public RequestedShipmentVerify $requestedShipment,
+        public ?ShipperAccountNumber $accountNumber = null,
+    ) {}
 }

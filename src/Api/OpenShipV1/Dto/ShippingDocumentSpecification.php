@@ -27,14 +27,13 @@ final class ShippingDocumentSpecification extends Dto
      * @param  ?CommercialInvoiceDetail  $commercialInvoiceDetail  The instructions indicating how to print the Commercial Invoice( e.g. image type) Specifies characteristics of a shipping document to be produced.
      */
     public function __construct(
-        public readonly ?GeneralAgencyAgreementDetail $generalAgencyAgreementDetail = null,
-        public readonly ?ReturnInstructionsDetail $returnInstructionsDetail = null,
-        public readonly ?Op900detail $op900detail = null,
-        public readonly ?UsmcaCertificationOfOriginDetail $usmcaCertificationOfOriginDetail = null,
-        public readonly ?UsmcaCommercialInvoiceCertificationOfOriginDetail $usmcaCommercialInvoiceCertificationOfOriginDetail = null,
-        public readonly ?array $shippingDocumentTypes = null,
-        public readonly ?CertificateOfOriginDetail $certificateOfOrigin = null,
-        public readonly ?CommercialInvoiceDetail $commercialInvoiceDetail = null,
-    ) {
-    }
+        public ?GeneralAgencyAgreementDetail $generalAgencyAgreementDetail = null,
+        public ?ReturnInstructionsDetail $returnInstructionsDetail = null,
+        public ?Op900detail $op900detail = null,
+        public ?UsmcaCertificationOfOriginDetail $usmcaCertificationOfOriginDetail = null,
+        public ?UsmcaCommercialInvoiceCertificationOfOriginDetail $usmcaCommercialInvoiceCertificationOfOriginDetail = null,
+        public ?array $shippingDocumentTypes = null,
+        public ?CertificateOfOriginDetail $certificateOfOrigin = null,
+        public ?CommercialInvoiceDetail $commercialInvoiceDetail = null,
+    ) {}
 }

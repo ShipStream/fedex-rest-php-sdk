@@ -23,12 +23,11 @@ final class ShipmentCodDetail extends Dto
      * @param  ?string  $returnReferenceIndicatorType  Indicate the type of reference information to include on the COD return shipping label.
      */
     public function __construct(
-        public readonly ?CodTransportationChargesDetail $addTransportationChargesDetail = null,
-        public readonly ?Party2 $codRecipient = null,
-        public readonly ?string $remitToName = null,
-        public readonly ?string $codCollectionType = null,
-        public readonly ?ContactAndAddress $financialInstitutionContactAndAddress = null,
-        public readonly ?string $returnReferenceIndicatorType = null,
-    ) {
-    }
+        public ?CodTransportationChargesDetail $addTransportationChargesDetail = null,
+        public ?Party2 $codRecipient = null,
+        public ?string $remitToName = null,
+        public ?string $codCollectionType = null,
+        public ?ContactAndAddress $financialInstitutionContactAndAddress = null,
+        public ?string $returnReferenceIndicatorType = null,
+    ) {}
 }

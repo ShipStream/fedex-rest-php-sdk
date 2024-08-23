@@ -20,9 +20,8 @@ final class CurrencyExchangeRate extends Dto
      * @param  ?float  $rate  Multiplier used to convert fromCurrency units to intoCurrency units.
      */
     public function __construct(
-        public readonly ?string $fromCurrency = null,
-        public readonly ?string $intoCurrency = null,
-        public readonly ?float $rate = null,
-    ) {
-    }
+        public ?string $fromCurrency = null,
+        public ?string $intoCurrency = null,
+        public ?float $rate = null,
+    ) {}
 }

@@ -24,6 +24,5 @@ final class PudcResponseVoCreatePickup extends Response
         public readonly ?string $transactionId = null,
         public readonly ?string $customerTransactionId = null,
         public readonly ?CreatePickupOutputVo $output = null,
-    ) {
-    }
+    ) {}
 }

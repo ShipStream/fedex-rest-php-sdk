@@ -29,18 +29,17 @@ final class LineItems extends Dto
      * @param  ?ShipmentSpecialServicesRequested  $shipmentSpecialServicesRequested  Specifies the shipment special services requested.
      */
     public function __construct(
-        public readonly ?TrackingNumberInfo $trackingNumber = null,
-        public readonly ?string $service = null,
-        public readonly ?float $sequenceNumber = null,
-        public readonly ?float $totalHandlingUnits = null,
-        public readonly ?bool $justOneMore = null,
-        public readonly ?string $description = null,
-        public readonly ?string $packaging = null,
-        public readonly ?float $pieces = null,
-        public readonly ?Weight $weight = null,
-        public readonly ?LineItemsDimensions $dimensions = null,
-        public readonly ?Address2 $destination = null,
-        public readonly ?ShipmentSpecialServicesRequested $shipmentSpecialServicesRequested = null,
-    ) {
-    }
+        public ?TrackingNumberInfo $trackingNumber = null,
+        public ?string $service = null,
+        public ?float $sequenceNumber = null,
+        public ?float $totalHandlingUnits = null,
+        public ?bool $justOneMore = null,
+        public ?string $description = null,
+        public ?string $packaging = null,
+        public ?float $pieces = null,
+        public ?Weight $weight = null,
+        public ?LineItemsDimensions $dimensions = null,
+        public ?Address2 $destination = null,
+        public ?ShipmentSpecialServicesRequested $shipmentSpecialServicesRequested = null,
+    ) {}
 }

@@ -20,9 +20,8 @@ final class Payment2 extends Dto
      * @param  ?string  $paymentType  Indicates who and how the shipment will be paid for.Required for Express and Ground.<br>Example: SENDER
      */
     public function __construct(
-        public readonly ?Payor $payor = null,
-        public readonly ?BillingDetails $billingDetails = null,
-        public readonly ?string $paymentType = null,
-    ) {
-    }
+        public ?Payor $payor = null,
+        public ?BillingDetails $billingDetails = null,
+        public ?string $paymentType = null,
+    ) {}
 }

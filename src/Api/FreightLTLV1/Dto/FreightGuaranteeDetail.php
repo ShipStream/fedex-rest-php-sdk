@@ -19,8 +19,7 @@ final class FreightGuaranteeDetail extends Dto
      * @param  string  $guaranteeTimestamp  Specify the time of shipment based on shippers time zone.<br>Example: 2009-04-12
      */
     public function __construct(
-        public readonly string $freightGuaranteeType,
-        public readonly string $guaranteeTimestamp,
-    ) {
-    }
+        public string $freightGuaranteeType,
+        public string $guaranteeTimestamp,
+    ) {}
 }

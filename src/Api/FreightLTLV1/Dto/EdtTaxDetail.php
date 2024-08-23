@@ -24,13 +24,12 @@ final class EdtTaxDetail extends Dto
      * @param  ?string  $effectiveDate  Specifies the Estimated duties and taxes effective date. Format [YYYY-MM-DD].<br>  Example: 2019-12-06
      */
     public function __construct(
-        public readonly ?string $edtTaxType = null,
-        public readonly ?float $amount = null,
-        public readonly ?float $taxableValue = null,
-        public readonly ?string $name = null,
-        public readonly ?string $description = null,
-        public readonly ?string $formula = null,
-        public readonly ?string $effectiveDate = null,
-    ) {
-    }
+        public ?string $edtTaxType = null,
+        public ?float $amount = null,
+        public ?float $taxableValue = null,
+        public ?string $name = null,
+        public ?string $description = null,
+        public ?string $formula = null,
+        public ?string $effectiveDate = null,
+    ) {}
 }

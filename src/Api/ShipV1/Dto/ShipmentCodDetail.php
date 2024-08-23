@@ -25,14 +25,13 @@ final class ShipmentCodDetail extends Dto
      * @param  ?Money  $shipmentCodAmount  This customs value is applicable for all items(or units) under the specified commodity
      */
     public function __construct(
-        public readonly string $codCollectionType,
-        public readonly ?CodTransportationChargesDetail $addTransportationChargesDetail = null,
-        public readonly ?Party $codRecipient = null,
-        public readonly ?string $remitToName = null,
-        public readonly ?ContactAndAddress $financialInstitutionContactAndAddress = null,
-        public readonly ?Money $codCollectionAmount = null,
-        public readonly ?string $returnReferenceIndicatorType = null,
-        public readonly ?Money $shipmentCodAmount = null,
-    ) {
-    }
+        public string $codCollectionType,
+        public ?CodTransportationChargesDetail $addTransportationChargesDetail = null,
+        public ?Party $codRecipient = null,
+        public ?string $remitToName = null,
+        public ?ContactAndAddress $financialInstitutionContactAndAddress = null,
+        public ?Money $codCollectionAmount = null,
+        public ?string $returnReferenceIndicatorType = null,
+        public ?Money $shipmentCodAmount = null,
+    ) {}
 }

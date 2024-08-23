@@ -34,21 +34,20 @@ final class CustomsClearanceDetail extends Dto
      * @param  ?string  $freightOnValue  Identifies responsibilities with respect to loss, damage, etc.
      */
     public function __construct(
-        public readonly ?CustomsOptionDetail $customsOption = null,
-        public readonly ?ImporterOfRecord $importerOfRecord = null,
-        public readonly ?RecipientCustomsId $recipientCustomsId = null,
-        public readonly ?Payment $dutiesPayment = null,
-        public readonly ?string $documentContent = null,
-        public readonly ?Money2 $totalCustomsValue = null,
-        public readonly ?array $regulatoryControls = null,
-        public readonly ?Money2 $insuranceCharges = null,
-        public readonly ?ConsolidationCustomsDeclarationStatementDetail $declarationStatementDetail = null,
-        public readonly ?CustomsClearanceDetail1CommercialInvoice $commercialInvoice = null,
-        public readonly ?ExportDetail $exportDetail = null,
-        public readonly ?array $commodities = null,
-        public readonly ?array $brokers = null,
-        public readonly ?string $clearanceBrokerage = null,
-        public readonly ?string $freightOnValue = null,
-    ) {
-    }
+        public ?CustomsOptionDetail $customsOption = null,
+        public ?ImporterOfRecord $importerOfRecord = null,
+        public ?RecipientCustomsId $recipientCustomsId = null,
+        public ?Payment $dutiesPayment = null,
+        public ?string $documentContent = null,
+        public ?Money2 $totalCustomsValue = null,
+        public ?array $regulatoryControls = null,
+        public ?Money2 $insuranceCharges = null,
+        public ?ConsolidationCustomsDeclarationStatementDetail $declarationStatementDetail = null,
+        public ?CustomsClearanceDetail1CommercialInvoice $commercialInvoice = null,
+        public ?ExportDetail $exportDetail = null,
+        public ?array $commodities = null,
+        public ?array $brokers = null,
+        public ?string $clearanceBrokerage = null,
+        public ?string $freightOnValue = null,
+    ) {}
 }

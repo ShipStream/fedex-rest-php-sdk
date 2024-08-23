@@ -21,10 +21,9 @@ final class SmartPostInfoDetail extends Dto
      * @param  ?string  $specialServices  SmartPost Shipment Special Service Type<br>Example: USPS_DELIVERY_CONFIRMATION
      */
     public function __construct(
-        public readonly string $hubId,
-        public readonly string $indicia,
-        public readonly ?string $ancillaryEndorsement = null,
-        public readonly ?string $specialServices = null,
-    ) {
-    }
+        public string $hubId,
+        public string $indicia,
+        public ?string $ancillaryEndorsement = null,
+        public ?string $specialServices = null,
+    ) {}
 }

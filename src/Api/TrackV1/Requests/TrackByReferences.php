@@ -39,8 +39,7 @@ class TrackByReferences extends Request implements HasBody
      */
     public function __construct(
         public FullSchemaTrackingReferences $fullSchemaTrackingReferences,
-    ) {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {

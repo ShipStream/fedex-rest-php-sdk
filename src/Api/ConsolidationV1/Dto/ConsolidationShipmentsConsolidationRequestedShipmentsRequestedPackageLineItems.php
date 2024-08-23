@@ -24,13 +24,12 @@ final class ConsolidationShipmentsConsolidationRequestedShipmentsRequestedPackag
      * @param  ?ConsolidationShipmentsConsolidationRequestedShipmentsRequestedPackageLineItemsCustomerReferences  $customerReferences  These are additional customer reference data for commercial invoice.<br>Note: The groupPackageCount must be specified to retrieve customer references.
      */
     public function __construct(
-        public readonly ?string $sequenceNumber = null,
-        public readonly ?string $groupNumber = null,
-        public readonly ?string $groupPackageCount = null,
-        public readonly ?ConsolidationShipmentsConsolidationRequestedShipmentsRequestedPackageLineItemsTrackingId $trackingId = null,
-        public readonly ?Weight $weights = null,
-        public readonly ?Dimensions $dimensions = null,
-        public readonly ?ConsolidationShipmentsConsolidationRequestedShipmentsRequestedPackageLineItemsCustomerReferences $customerReferences = null,
-    ) {
-    }
+        public ?string $sequenceNumber = null,
+        public ?string $groupNumber = null,
+        public ?string $groupPackageCount = null,
+        public ?ConsolidationShipmentsConsolidationRequestedShipmentsRequestedPackageLineItemsTrackingId $trackingId = null,
+        public ?Weight $weights = null,
+        public ?Dimensions $dimensions = null,
+        public ?ConsolidationShipmentsConsolidationRequestedShipmentsRequestedPackageLineItemsCustomerReferences $customerReferences = null,
+    ) {}
 }

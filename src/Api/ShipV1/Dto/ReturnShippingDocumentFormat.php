@@ -25,12 +25,11 @@ final class ReturnShippingDocumentFormat extends Dto
      * @param  ?string  $docType  Specify the image format used for a shipping document.<br>Example:PNG
      */
     public function __construct(
-        public readonly ?bool $provideInstructions = null,
-        public readonly ?DocumentFormatOptionsRequested $optionsRequested = null,
-        public readonly ?string $stockType = null,
-        public readonly ?array $dispositions = null,
-        public readonly ?string $locale = null,
-        public readonly ?string $docType = null,
-    ) {
-    }
+        public ?bool $provideInstructions = null,
+        public ?DocumentFormatOptionsRequested $optionsRequested = null,
+        public ?string $stockType = null,
+        public ?array $dispositions = null,
+        public ?string $locale = null,
+        public ?string $docType = null,
+    ) {}
 }

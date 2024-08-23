@@ -20,9 +20,8 @@ final class Address extends Dto
      * @param  ?string  $stateOrProvinceCode  This is a placeholder for state or province code.<br>Example: CA.<br><a onclick='loadDocReference("canadaprovincecodes")'>click here to see State or Province Code</a>
      */
     public function __construct(
-        public readonly string $countryCode,
-        public readonly ?string $postalCode = null,
-        public readonly ?string $stateOrProvinceCode = null,
-    ) {
-    }
+        public string $countryCode,
+        public ?string $postalCode = null,
+        public ?string $stateOrProvinceCode = null,
+    ) {}
 }

@@ -19,8 +19,7 @@ final class ContactAndAddress extends Dto
      * @param  ?Address2  $address  Descriptive data for a physical location. May be used as an actual physical address (place to which one could go), or as a container of "address parts" which should be handled as a unit (such as a city-state-ZIP combination within the US).
      */
     public function __construct(
-        public readonly ?Contact $contact = null,
-        public readonly ?Address2 $address = null,
-    ) {
-    }
+        public ?Contact $contact = null,
+        public ?Address2 $address = null,
+    ) {}
 }

@@ -35,22 +35,21 @@ final class CustomsClearanceDetail extends Dto
      * @param  ?Money  $insuranceCharge  Specifies taxes or miscellaneous charge.
      */
     public function __construct(
-        public readonly CommercialInvoice $commercialInvoice,
-        public readonly array $commodities,
-        public readonly ?array $regulatoryControls = null,
-        public readonly ?array $brokers = null,
-        public readonly ?string $freightOnValue = null,
-        public readonly ?Payment2 $dutiesPayment = null,
-        public readonly ?bool $isDocumentOnly = null,
-        public readonly ?RecipientCustomsId $recipientCustomsId = null,
-        public readonly ?CustomsOptionDetail $customsOption = null,
-        public readonly ?Party $importerOfRecord = null,
-        public readonly ?string $generatedDocumentLocale = null,
-        public readonly ?ExportDetail $exportDetail = null,
-        public readonly ?Money $totalCustomsValue = null,
-        public readonly ?bool $partiesToTransactionAreRelated = null,
-        public readonly ?CustomsDeclarationStatementDetail $declarationStatementDetail = null,
-        public readonly ?Money $insuranceCharge = null,
-    ) {
-    }
+        public CommercialInvoice $commercialInvoice,
+        public array $commodities,
+        public ?array $regulatoryControls = null,
+        public ?array $brokers = null,
+        public ?string $freightOnValue = null,
+        public ?Payment2 $dutiesPayment = null,
+        public ?bool $isDocumentOnly = null,
+        public ?RecipientCustomsId $recipientCustomsId = null,
+        public ?CustomsOptionDetail $customsOption = null,
+        public ?Party $importerOfRecord = null,
+        public ?string $generatedDocumentLocale = null,
+        public ?ExportDetail $exportDetail = null,
+        public ?Money $totalCustomsValue = null,
+        public ?bool $partiesToTransactionAreRelated = null,
+        public ?CustomsDeclarationStatementDetail $declarationStatementDetail = null,
+        public ?Money $insuranceCharge = null,
+    ) {}
 }

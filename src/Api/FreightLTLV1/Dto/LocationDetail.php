@@ -33,15 +33,14 @@ final class LocationDetail extends Dto
      * @param  CarrierDetails[]|null  $carrierDetails  Specifies the carrierDetails.
      */
     public function __construct(
-        public readonly ?GeoPositionalCoordinates $geoPositionalCoordinates = null,
-        public readonly ?array $storeHours = null,
-        public readonly ?string $locationId = null,
-        public readonly ?string $specialInstructions = null,
-        public readonly ?array $locationAttributeTypes = null,
-        public readonly ?string $mapUrl = null,
-        public readonly ?string $locationType = null,
-        public readonly ?ContactAndAddress $contactAndAddress = null,
-        public readonly ?array $carrierDetails = null,
-    ) {
-    }
+        public ?GeoPositionalCoordinates $geoPositionalCoordinates = null,
+        public ?array $storeHours = null,
+        public ?string $locationId = null,
+        public ?string $specialInstructions = null,
+        public ?array $locationAttributeTypes = null,
+        public ?string $mapUrl = null,
+        public ?string $locationType = null,
+        public ?ContactAndAddress $contactAndAddress = null,
+        public ?array $carrierDetails = null,
+    ) {}
 }

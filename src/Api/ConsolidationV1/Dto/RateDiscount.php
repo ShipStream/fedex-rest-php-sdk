@@ -21,10 +21,9 @@ final class RateDiscount extends Dto
      * @param  ?string  $description  Specifies the description of the discounted rate.
      */
     public function __construct(
-        public readonly ?float $amount = null,
-        public readonly ?string $rateDiscountType = null,
-        public readonly ?float $percent = null,
-        public readonly ?string $description = null,
-    ) {
-    }
+        public ?float $amount = null,
+        public ?string $rateDiscountType = null,
+        public ?float $percent = null,
+        public ?string $description = null,
+    ) {}
 }

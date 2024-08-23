@@ -22,11 +22,10 @@ final class Address extends Dto
      * @param  ?string  $countryCode  Specify the ISO Alpha2 code of the country.<br>Example: US <br><a onclick='loadDocReference("countrycodes")'>Click here to see Country Codes</a>
      */
     public function __construct(
-        public readonly array $streetLines,
-        public readonly string $city,
-        public readonly string $postalCode,
-        public readonly ?string $stateOrProvinceCode = null,
-        public readonly ?string $countryCode = null,
-    ) {
-    }
+        public array $streetLines,
+        public string $city,
+        public string $postalCode,
+        public ?string $stateOrProvinceCode = null,
+        public ?string $countryCode = null,
+    ) {}
 }

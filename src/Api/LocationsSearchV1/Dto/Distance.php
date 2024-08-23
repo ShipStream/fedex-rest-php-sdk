@@ -19,8 +19,7 @@ final class Distance extends Dto
      * @param  ?float  $value  Specifies the distance value.<br>Example: 3.5
      */
     public function __construct(
-        public readonly ?string $units = null,
-        public readonly ?float $value = null,
-    ) {
-    }
+        public ?string $units = null,
+        public ?float $value = null,
+    ) {}
 }

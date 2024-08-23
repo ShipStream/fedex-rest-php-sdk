@@ -25,14 +25,13 @@ final class MetaObject extends Dto
      * @param  ?string  $destinationLocationCode  Provide destination FedEx location code for the shipment. <br><br> Example: JNUA
      */
     public function __construct(
-        public readonly string $shipDocumentType,
-        public readonly string $originCountryCode,
-        public readonly string $destinationCountryCode,
-        public readonly ?string $formCode = null,
-        public readonly ?string $trackingNumber = null,
-        public readonly ?string $shipmentDate = null,
-        public readonly ?string $originLocationCode = null,
-        public readonly ?string $destinationLocationCode = null,
-    ) {
-    }
+        public string $shipDocumentType,
+        public string $originCountryCode,
+        public string $destinationCountryCode,
+        public ?string $formCode = null,
+        public ?string $trackingNumber = null,
+        public ?string $shipmentDate = null,
+        public ?string $originLocationCode = null,
+        public ?string $destinationLocationCode = null,
+    ) {}
 }

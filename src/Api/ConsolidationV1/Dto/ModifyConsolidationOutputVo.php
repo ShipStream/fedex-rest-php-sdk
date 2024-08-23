@@ -18,7 +18,6 @@ final class ModifyConsolidationOutputVo extends Dto
      * @param  ?RetrievedConsolidation  $modifyConsolidation  Specifies the consolidation that is being retrieved
      */
     public function __construct(
-        public readonly ?RetrievedConsolidation $modifyConsolidation = null,
-    ) {
-    }
+        public ?RetrievedConsolidation $modifyConsolidation = null,
+    ) {}
 }

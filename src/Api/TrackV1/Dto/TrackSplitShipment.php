@@ -21,10 +21,9 @@ final class TrackSplitShipment extends Dto
      * @param  ?string  $statusCode  Field which holds the status code. <br> Example: statusCode
      */
     public function __construct(
-        public readonly ?string $pieceCount = null,
-        public readonly ?string $statusDescription = null,
-        public readonly ?string $timestamp = null,
-        public readonly ?string $statusCode = null,
-    ) {
-    }
+        public ?string $pieceCount = null,
+        public ?string $statusDescription = null,
+        public ?string $timestamp = null,
+        public ?string $statusCode = null,
+    ) {}
 }

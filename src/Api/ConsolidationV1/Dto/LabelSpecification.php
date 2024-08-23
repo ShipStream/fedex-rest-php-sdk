@@ -21,7 +21,6 @@ final class LabelSpecification extends Dto
      * @param  ?string  $labelFormatType  Specify the label Format Type.<br><a onclick='loadDocReference("labelstocktypes")'>click here to see label format types</a>
      * @param  ?string  $labelStockType  Indicate the label stock type used. <br><a onclick='loadDocReference("labelstocktypes")'>click here to see label format types</a>
      * @param  ?string  $imageType  Specify the image format used for a shipping document.<br><a onclick='loadDocReference("labelstocktypes")'>click here to see label format types</a>
-     * @param  ?LabelSpecificationProcessingOptionsRequested  $processingOptionsRequested
      * @param  ShippingDocumentDispositionDetail[]|null  $dispositions  Specifies how to create, organize, and return the document.
      * @param  ?string  $labelPrintingOrientation  This is applicable only to documents produced on thermal printers with roll stock.
      * @param  ?string  $labelRotation  This is applicable only to documents produced on thermal printers with roll stock.
@@ -30,17 +29,16 @@ final class LabelSpecification extends Dto
      * @param  ?int  $resolution  Specifies the image resolution in DPI (Dots Per Inch). Valid values are 203 & 300. If not provided or for any other value, system will default it to 203.
      */
     public function __construct(
-        public readonly ContactAndAddress $printedLabelOrigin,
-        public readonly ?string $labelFormatType = null,
-        public readonly ?string $labelStockType = null,
-        public readonly ?string $imageType = null,
-        public readonly ?LabelSpecificationProcessingOptionsRequested $processingOptionsRequested = null,
-        public readonly ?array $dispositions = null,
-        public readonly ?string $labelPrintingOrientation = null,
-        public readonly ?string $labelRotation = null,
-        public readonly ?string $labelOrder = null,
-        public readonly ?CustomerSpecifiedLabelDetail $customerSpecifiedDetail = null,
-        public readonly ?int $resolution = null,
-    ) {
-    }
+        public ContactAndAddress $printedLabelOrigin,
+        public ?string $labelFormatType = null,
+        public ?string $labelStockType = null,
+        public ?string $imageType = null,
+        public ?LabelSpecificationProcessingOptionsRequested $processingOptionsRequested = null,
+        public ?array $dispositions = null,
+        public ?string $labelPrintingOrientation = null,
+        public ?string $labelRotation = null,
+        public ?string $labelOrder = null,
+        public ?CustomerSpecifiedLabelDetail $customerSpecifiedDetail = null,
+        public ?int $resolution = null,
+    ) {}
 }

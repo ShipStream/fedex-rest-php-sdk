@@ -20,9 +20,8 @@ final class LtlShipmentSpecialServicesRequested extends Dto
      * @param  ?FreightDirectDetail  $freightDirectDetail  Specifies the freight Direct Detail.It is used for Fedex Freight Direct.
      */
     public function __construct(
-        public readonly ?FreightGuaranteeDetail $freightGuaranteeDetail = null,
-        public readonly ?array $specialServiceTypes = null,
-        public readonly ?FreightDirectDetail $freightDirectDetail = null,
-    ) {
-    }
+        public ?FreightGuaranteeDetail $freightGuaranteeDetail = null,
+        public ?array $specialServiceTypes = null,
+        public ?FreightDirectDetail $freightDirectDetail = null,
+    ) {}
 }

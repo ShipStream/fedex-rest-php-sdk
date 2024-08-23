@@ -21,10 +21,9 @@ final class ShipmentContent extends Dto
      * @param  ?string  $partNumber  Holds the part number of the content in shipment. <br> Example: RK1345
      */
     public function __construct(
-        public readonly ?string $itemNumber = null,
-        public readonly ?string $receivedQuantity = null,
-        public readonly ?string $description = null,
-        public readonly ?string $partNumber = null,
-    ) {
-    }
+        public ?string $itemNumber = null,
+        public ?string $receivedQuantity = null,
+        public ?string $description = null,
+        public ?string $partNumber = null,
+    ) {}
 }

@@ -23,12 +23,11 @@ final class DelayDetail extends Dto
      * @param  ?string  $description  The name of the holiday in that country that is causing the delay.
      */
     public function __construct(
-        public readonly ?string $date = null,
-        public readonly ?string $dayOfWeek = null,
-        public readonly ?string $level = null,
-        public readonly ?string $point = null,
-        public readonly ?string $type = null,
-        public readonly ?string $description = null,
-    ) {
-    }
+        public ?string $date = null,
+        public ?string $dayOfWeek = null,
+        public ?string $level = null,
+        public ?string $point = null,
+        public ?string $type = null,
+        public ?string $description = null,
+    ) {}
 }

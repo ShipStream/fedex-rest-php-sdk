@@ -41,8 +41,7 @@ class GetSpecialServiceOptions extends Request implements HasBody
      */
     public function __construct(
         public FullSchemaSpecialServiceOptions $fullSchemaSpecialServiceOptions,
-    ) {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {

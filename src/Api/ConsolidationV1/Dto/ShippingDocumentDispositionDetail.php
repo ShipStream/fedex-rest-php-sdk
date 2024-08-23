@@ -22,11 +22,10 @@ final class ShippingDocumentDispositionDetail extends Dto
      * @param  ?ShippingDocumentPrintDetail  $printDetail  Specifies printing options for a shipping document.
      */
     public function __construct(
-        public readonly ?ShippingDocumentEmailDetail $eMailDetail = null,
-        public readonly ?string $dispositionType = null,
-        public readonly ?string $grouping = null,
-        public readonly ?ShippingDocumentStorageDetail $storageDetail = null,
-        public readonly ?ShippingDocumentPrintDetail $printDetail = null,
-    ) {
-    }
+        public ?ShippingDocumentEmailDetail $eMailDetail = null,
+        public ?string $dispositionType = null,
+        public ?string $grouping = null,
+        public ?ShippingDocumentStorageDetail $storageDetail = null,
+        public ?ShippingDocumentPrintDetail $printDetail = null,
+    ) {}
 }

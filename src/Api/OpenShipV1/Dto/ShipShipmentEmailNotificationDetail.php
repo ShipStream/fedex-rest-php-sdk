@@ -24,9 +24,8 @@ final class ShipShipmentEmailNotificationDetail extends Dto
      * @param  ?string  $personalMessage  This is your personal message for the email.<br><br>Note: The maximum personal message character limit depends on the element notificationFormatType values:<ul><li>If notificationFormatType is TEXT, then only 120 characters printed on the email</li><li>If notificationFormatType is HTML, then 500 characters printed on the email</li></ul><br>Example: This is concerning the order 123456 of 26 July 2021 - art no 34324-23 Teddy Bear, brown
      */
     public function __construct(
-        public readonly ?string $aggregationType = null,
-        public readonly ?array $emailNotificationRecipients = null,
-        public readonly ?string $personalMessage = null,
-    ) {
-    }
+        public ?string $aggregationType = null,
+        public ?array $emailNotificationRecipients = null,
+        public ?string $personalMessage = null,
+    ) {}
 }

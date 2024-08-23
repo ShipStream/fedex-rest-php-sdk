@@ -22,9 +22,8 @@ final class ShipmentConsolidationDetail extends Dto
      * @param  AssociatedTrackingDetails[]|null  $associatedTrackingIds  Provides the associated tracking id
      */
     public function __construct(
-        public readonly ?string $type = null,
-        public readonly ?string $role = null,
-        public readonly ?array $associatedTrackingIds = null,
-    ) {
-    }
+        public ?string $type = null,
+        public ?string $role = null,
+        public ?array $associatedTrackingIds = null,
+    ) {}
 }

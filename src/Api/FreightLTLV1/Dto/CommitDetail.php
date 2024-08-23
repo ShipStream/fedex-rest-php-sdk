@@ -26,15 +26,14 @@ final class CommitDetail extends Dto
      * @param  ?string  $commodityName  The Commodity applicable to this commitment.
      */
     public function __construct(
-        public readonly ?string $daysInTransit = null,
-        public readonly ?string $guaranteedType = null,
-        public readonly ?DateDetail $dateDetail = null,
-        public readonly ?bool $saturdayDelivery = null,
-        public readonly ?array $alternativeCommodityNames = null,
-        public readonly ?TransitDays $transitDays = null,
-        public readonly ?string $label = null,
-        public readonly ?string $commitMessageDetails = null,
-        public readonly ?string $commodityName = null,
-    ) {
-    }
+        public ?string $daysInTransit = null,
+        public ?string $guaranteedType = null,
+        public ?DateDetail $dateDetail = null,
+        public ?bool $saturdayDelivery = null,
+        public ?array $alternativeCommodityNames = null,
+        public ?TransitDays $transitDays = null,
+        public ?string $label = null,
+        public ?string $commitMessageDetails = null,
+        public ?string $commodityName = null,
+    ) {}
 }

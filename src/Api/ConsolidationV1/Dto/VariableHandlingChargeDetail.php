@@ -22,11 +22,10 @@ final class VariableHandlingChargeDetail extends Dto
      * @param  ?string  $rateElementBasis  Specifies the charge upon which the variable handling percentage amount is calculated.
      */
     public function __construct(
-        public readonly ?string $rateType = null,
-        public readonly ?float $percentValue = null,
-        public readonly ?string $rateLevelType = null,
-        public readonly ?Money2 $fixedValue = null,
-        public readonly ?string $rateElementBasis = null,
-    ) {
-    }
+        public ?string $rateType = null,
+        public ?float $percentValue = null,
+        public ?string $rateLevelType = null,
+        public ?Money2 $fixedValue = null,
+        public ?string $rateElementBasis = null,
+    ) {}
 }

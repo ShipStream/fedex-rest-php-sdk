@@ -20,7 +20,6 @@ final class DocTabContentZone extends Dto
      * @param  DocTabZoneSpecification[]|null  $docTabZoneSpecifications  Indicate the doc tab specifications for the individual doc tab zone on the label.
      */
     public function __construct(
-        public readonly ?array $docTabZoneSpecifications = null,
-    ) {
-    }
+        public ?array $docTabZoneSpecifications = null,
+    ) {}
 }

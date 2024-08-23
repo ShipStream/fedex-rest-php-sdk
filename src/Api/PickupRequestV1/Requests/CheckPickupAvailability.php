@@ -38,8 +38,7 @@ class CheckPickupAvailability extends Request implements HasBody
      */
     public function __construct(
         public FullSchemaPickupAvailability $fullSchemaPickupAvailability,
-    ) {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {

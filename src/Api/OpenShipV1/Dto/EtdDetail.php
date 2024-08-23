@@ -22,9 +22,8 @@ final class EtdDetail extends Dto
      * @param  ?string[]  $requestedDocumentTypes  Indicate the types of shipping documents to be produced by FedEx and copied back in the shipment result data.<br>Note: For more information document types, refer business overview topic - <a href='#shippingandcustoms'><b>Shipping and Customs Documents.</b></a>
      */
     public function __construct(
-        public readonly ?array $attributes = null,
-        public readonly ?array $attachedDocuments = null,
-        public readonly ?array $requestedDocumentTypes = null,
-    ) {
-    }
+        public ?array $attributes = null,
+        public ?array $attachedDocuments = null,
+        public ?array $requestedDocumentTypes = null,
+    ) {}
 }

@@ -20,7 +20,6 @@ final class DocTabContentZone extends Dto
      * @param  DocTabZoneSpecification[]|null  $docTabZoneSpecifications
      */
     public function __construct(
-        public readonly ?array $docTabZoneSpecifications = null,
-    ) {
-    }
+        public ?array $docTabZoneSpecifications = null,
+    ) {}
 }

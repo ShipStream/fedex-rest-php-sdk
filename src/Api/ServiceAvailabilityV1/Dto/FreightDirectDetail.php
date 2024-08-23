@@ -20,7 +20,6 @@ final class FreightDirectDetail extends Dto
      * @param  FreightDirectDataDetails[]|null  $freightDirectDataDetails  This field provides the list of data for Fedex Direct Detail service.There can be maximum of two allowed values for this field.
      */
     public function __construct(
-        public readonly ?array $freightDirectDataDetails = null,
-    ) {
-    }
+        public ?array $freightDirectDataDetails = null,
+    ) {}
 }

@@ -20,9 +20,8 @@ final class ShipmentSpecialServicesRequested extends Dto
      * @param  ?string[]  $specialServiceTypes  Special services requested for the shipment.<br>Example: FREIGHT_GUARANTEE <br><a onclick='loadDocReference("freightlevelspecialservicetypes")'>Click here to see Freight Level Special Service Types</a>
      */
     public function __construct(
-        public readonly ?ShipmentSpecialServicesRequestedFreightGuaranteeDetail $freightGuaranteeDetail = null,
-        public readonly ?ShipmentSpecialServicesRequestedFreightDirectDetail $freightDirectDetail = null,
-        public readonly ?array $specialServiceTypes = null,
-    ) {
-    }
+        public ?ShipmentSpecialServicesRequestedFreightGuaranteeDetail $freightGuaranteeDetail = null,
+        public ?ShipmentSpecialServicesRequestedFreightDirectDetail $freightDirectDetail = null,
+        public ?array $specialServiceTypes = null,
+    ) {}
 }

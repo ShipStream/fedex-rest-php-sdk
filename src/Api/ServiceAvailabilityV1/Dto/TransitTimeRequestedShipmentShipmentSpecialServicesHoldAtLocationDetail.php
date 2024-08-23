@@ -20,9 +20,8 @@ final class TransitTimeRequestedShipmentShipmentSpecialServicesHoldAtLocationDet
      * @param  ?TransitTimeRequestedShipmentShipmentSpecialServicesHoldAtLocationDetailLocationContactAndAddress  $locationContactAndAddress  Specify the contact and address details of a location.
      */
     public function __construct(
-        public readonly string $locationId,
-        public readonly ?string $locationType = null,
-        public readonly ?TransitTimeRequestedShipmentShipmentSpecialServicesHoldAtLocationDetailLocationContactAndAddress $locationContactAndAddress = null,
-    ) {
-    }
+        public string $locationId,
+        public ?string $locationType = null,
+        public ?TransitTimeRequestedShipmentShipmentSpecialServicesHoldAtLocationDetailLocationContactAndAddress $locationContactAndAddress = null,
+    ) {}
 }

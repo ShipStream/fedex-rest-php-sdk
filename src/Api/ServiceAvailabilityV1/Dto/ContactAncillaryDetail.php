@@ -27,11 +27,10 @@ final class ContactAncillaryDetail extends Dto
      * @param  ?string  $title  Indicate the contact title.
      */
     public function __construct(
-        public readonly ?array $emailAddresses = null,
-        public readonly ?string $prefix = null,
-        public readonly ?array $phoneNumberDetails = null,
-        public readonly ?CompanyName $companyName = null,
-        public readonly ?string $title = null,
-    ) {
-    }
+        public ?array $emailAddresses = null,
+        public ?string $prefix = null,
+        public ?array $phoneNumberDetails = null,
+        public ?CompanyName $companyName = null,
+        public ?string $title = null,
+    ) {}
 }

@@ -28,17 +28,16 @@ final class TransitTimeCommodity extends Dto
      * @param  ?string  $partNumber  Specify the part number if any. Example: P1
      */
     public function __construct(
-        public readonly string $description,
-        public readonly TransitTimeCommodityUnitPrice $customsValue,
-        public readonly int $numberOfPieces,
-        public readonly ?int $quantity = null,
-        public readonly ?TransitTimeCommodityUnitPrice $unitPrice = null,
-        public readonly ?TransitTimeRequestedShipmentShipmentSpecialServicesShipmentDryIceDetailTotalWeight $weight = null,
-        public readonly ?string $countryOfManufacture = null,
-        public readonly ?string $quantityUnits = null,
-        public readonly ?string $name = null,
-        public readonly ?string $harmonizedCode = null,
-        public readonly ?string $partNumber = null,
-    ) {
-    }
+        public string $description,
+        public TransitTimeCommodityUnitPrice $customsValue,
+        public int $numberOfPieces,
+        public ?int $quantity = null,
+        public ?TransitTimeCommodityUnitPrice $unitPrice = null,
+        public ?TransitTimeRequestedShipmentShipmentSpecialServicesShipmentDryIceDetailTotalWeight $weight = null,
+        public ?string $countryOfManufacture = null,
+        public ?string $quantityUnits = null,
+        public ?string $name = null,
+        public ?string $harmonizedCode = null,
+        public ?string $partNumber = null,
+    ) {}
 }

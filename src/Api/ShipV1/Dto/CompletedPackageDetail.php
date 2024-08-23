@@ -28,15 +28,14 @@ final class CompletedPackageDetail extends Dto
      * @param  ?CompletedHazardousPackageDetail  $hazardousPackageDetail  Complete package-level hazardous commodity information for a single package.
      */
     public function __construct(
-        public readonly ?int $sequenceNumber = null,
-        public readonly ?PackageOperationalDetail $operationalDetail = null,
-        public readonly ?string $signatureOption = null,
-        public readonly ?array $trackingIds = null,
-        public readonly ?int $groupNumber = null,
-        public readonly ?string $oversizeClass = null,
-        public readonly ?PackageRating $packageRating = null,
-        public readonly ?Weight $dryIceWeight = null,
-        public readonly ?CompletedHazardousPackageDetail $hazardousPackageDetail = null,
-    ) {
-    }
+        public ?int $sequenceNumber = null,
+        public ?PackageOperationalDetail $operationalDetail = null,
+        public ?string $signatureOption = null,
+        public ?array $trackingIds = null,
+        public ?int $groupNumber = null,
+        public ?string $oversizeClass = null,
+        public ?PackageRating $packageRating = null,
+        public ?Weight $dryIceWeight = null,
+        public ?CompletedHazardousPackageDetail $hazardousPackageDetail = null,
+    ) {}
 }

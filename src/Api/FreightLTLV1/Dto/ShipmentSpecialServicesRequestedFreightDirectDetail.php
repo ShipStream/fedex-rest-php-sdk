@@ -20,7 +20,6 @@ final class ShipmentSpecialServicesRequestedFreightDirectDetail extends Dto
      * @param  FreightDirectDataDetail[]|null  $freightDirectDataDetails
      */
     public function __construct(
-        public readonly ?array $freightDirectDataDetails = null,
-    ) {
-    }
+        public ?array $freightDirectDataDetails = null,
+    ) {}
 }

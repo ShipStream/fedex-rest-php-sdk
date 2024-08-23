@@ -23,12 +23,11 @@ final class ShipmentSpecialServiceOption extends Dto
      * @param  ?string  $specialServiceType  Specify special services requested for the package.<br>Example: BROKER_SELECT_OPTION<br><a onclick='loadDocReference("shipmentlevelspecialservicetypes")'>Click here to see Shipment Level Special Service Types.</a>
      */
     public function __construct(
-        public readonly ?string $customerIntegrationMode = null,
-        public readonly ?string $astraDescription = null,
-        public readonly ?array $ltlPaymentTerms = null,
-        public readonly ?string $subType = null,
-        public readonly ?string $value = null,
-        public readonly ?string $specialServiceType = null,
-    ) {
-    }
+        public ?string $customerIntegrationMode = null,
+        public ?string $astraDescription = null,
+        public ?array $ltlPaymentTerms = null,
+        public ?string $subType = null,
+        public ?string $value = null,
+        public ?string $specialServiceType = null,
+    ) {}
 }

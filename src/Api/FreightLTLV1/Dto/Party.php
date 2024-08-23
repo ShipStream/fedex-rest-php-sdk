@@ -20,9 +20,8 @@ final class Party extends Dto
      * @param  ?AccountNumber  $accountNumber  This is the Account number details.<br><i>Note:<ul><li>If the paymentType is Sender, then the account number is optional in shippingChargesPayment.</li><li>In case if this is shipping account number, do use the account number used for creating Auth Token.</li></ul>
      */
     public function __construct(
-        public readonly ?Address $address = null,
-        public readonly ?Contact $contact = null,
-        public readonly ?AccountNumber $accountNumber = null,
-    ) {
-    }
+        public ?Address $address = null,
+        public ?Contact $contact = null,
+        public ?AccountNumber $accountNumber = null,
+    ) {}
 }

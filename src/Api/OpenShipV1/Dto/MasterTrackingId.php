@@ -21,10 +21,9 @@ final class MasterTrackingId extends Dto
      * @param  ?string  $trackingNumber  This is a number associated with a package that is used to track it.For child shipment of an oneLabelAtATime shipments,this should be same as the masterTrackingNumber of the parent shipment. <br>Example: 49XXX0000XXX20032835
      */
     public function __construct(
-        public readonly ?string $formId = null,
-        public readonly ?string $trackingIdType = null,
-        public readonly ?string $uspsApplicationId = null,
-        public readonly ?string $trackingNumber = null,
-    ) {
-    }
+        public ?string $formId = null,
+        public ?string $trackingIdType = null,
+        public ?string $uspsApplicationId = null,
+        public ?string $trackingNumber = null,
+    ) {}
 }

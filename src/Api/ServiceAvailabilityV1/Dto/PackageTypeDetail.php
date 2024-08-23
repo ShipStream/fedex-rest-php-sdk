@@ -28,15 +28,14 @@ final class PackageTypeDetail extends Dto
      * @param  ?Money  $maxDeclaredValue  Optional, but if indicated 'amount' and 'currency' must be provided.
      */
     public function __construct(
-        public readonly ?KeyDisplayTextVo $serviceType = null,
-        public readonly ?Weight $oneRateMaxWeightAllowed = null,
-        public readonly ?Weight $maxWeightAllowed = null,
-        public readonly ?array $rateTypes = null,
-        public readonly ?array $packagingInfoList = null,
-        public readonly ?KeyDisplayTextVo $packageType = null,
-        public readonly ?Weight $maxMetricWeightAllowed = null,
-        public readonly ?Weight $oneRateMaxMetricWeightAllowed = null,
-        public readonly ?Money $maxDeclaredValue = null,
-    ) {
-    }
+        public ?KeyDisplayTextVo $serviceType = null,
+        public ?Weight $oneRateMaxWeightAllowed = null,
+        public ?Weight $maxWeightAllowed = null,
+        public ?array $rateTypes = null,
+        public ?array $packagingInfoList = null,
+        public ?KeyDisplayTextVo $packageType = null,
+        public ?Weight $maxMetricWeightAllowed = null,
+        public ?Weight $oneRateMaxMetricWeightAllowed = null,
+        public ?Money $maxDeclaredValue = null,
+    ) {}
 }

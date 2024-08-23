@@ -24,13 +24,12 @@ final class CleansedAddressandLocationDetail extends Dto
      * @param  ?int  $locationNumber  The op-co specific numeric identifier for a FedEx location.
      */
     public function __construct(
-        public readonly ?string $serviceArea = null,
-        public readonly ?string $countryCode = null,
-        public readonly ?string $locationId = null,
-        public readonly ?string $airportId = null,
-        public readonly ?string $postalCode = null,
-        public readonly ?string $stateOrProvinceCode = null,
-        public readonly ?int $locationNumber = null,
-    ) {
-    }
+        public ?string $serviceArea = null,
+        public ?string $countryCode = null,
+        public ?string $locationId = null,
+        public ?string $airportId = null,
+        public ?string $postalCode = null,
+        public ?string $stateOrProvinceCode = null,
+        public ?int $locationNumber = null,
+    ) {}
 }

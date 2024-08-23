@@ -18,7 +18,6 @@ final class DocumentRules extends Dto
      * @param  string  $workflowName  Specify workflow name. To upload custom signature and letterhead images/company logo use value <i>LetterheadSignature</i>
      */
     public function __construct(
-        public readonly string $workflowName,
-    ) {
-    }
+        public string $workflowName,
+    ) {}
 }

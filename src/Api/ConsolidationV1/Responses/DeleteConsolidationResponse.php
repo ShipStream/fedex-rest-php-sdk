@@ -24,6 +24,5 @@ final class DeleteConsolidationResponse extends Response
         public readonly ?string $customerTransactionId = null,
         public readonly ?string $transactionId = null,
         public readonly ?DeleteConsolidationOutputVo $output = null,
-    ) {
-    }
+    ) {}
 }

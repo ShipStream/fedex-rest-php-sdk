@@ -19,8 +19,7 @@ final class PagingDetails extends Dto
      * @param  ?string  $pagingToken  <p>Use this element to specify the starting sequence for the next set of tracking results. This element can be specified if paging is used in the initial tracking request and you need to request next set of track results.</p><p><i>Note:  This element not to be used in the initial tracking request and only should be used in the subsequent track requests when there is paging (element </i>resultsPerPage <i>is specified) indicated.</i></p> <br> Example: 1234567890
      */
     public function __construct(
-        public readonly ?int $resultsPerPage = null,
-        public readonly ?string $pagingToken = null,
-    ) {
-    }
+        public ?int $resultsPerPage = null,
+        public ?string $pagingToken = null,
+    ) {}
 }

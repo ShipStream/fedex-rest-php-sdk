@@ -19,8 +19,7 @@ final class FullSchemaDocumentUploadInputVo extends Dto
      * @param  EtdUploadRequest  $document  Provide all the document details and shipment meta data.
      */
     public function __construct(
-        public readonly string $attachment,
-        public readonly EtdUploadRequest $document,
-    ) {
-    }
+        public string $attachment,
+        public EtdUploadRequest $document,
+    ) {}
 }

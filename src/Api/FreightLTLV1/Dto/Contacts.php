@@ -22,11 +22,10 @@ final class Contacts extends Dto
      * @param  ?string  $emailAddress  contact person's email address.
      */
     public function __construct(
-        public readonly ?string $companyName = null,
-        public readonly ?string $personName = null,
-        public readonly ?string $phoneNumber = null,
-        public readonly ?string $phoneExtension = null,
-        public readonly ?string $emailAddress = null,
-    ) {
-    }
+        public ?string $companyName = null,
+        public ?string $personName = null,
+        public ?string $phoneNumber = null,
+        public ?string $phoneExtension = null,
+        public ?string $emailAddress = null,
+    ) {}
 }

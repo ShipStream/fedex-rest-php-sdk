@@ -18,7 +18,6 @@ final class PendingShipmentProcessingOptionsRequested extends Dto
      * @param  ?string[]  $options  These are processing options.
      */
     public function __construct(
-        public readonly ?array $options = null,
-    ) {
-    }
+        public ?array $options = null,
+    ) {}
 }

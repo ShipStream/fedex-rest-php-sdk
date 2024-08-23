@@ -22,11 +22,10 @@ final class DocTabZoneSpecification extends Dto
      * @param  ?string  $justification  Doc Tab Zone Justification Type
      */
     public function __construct(
-        public readonly ?int $zoneNumber = null,
-        public readonly ?string $header = null,
-        public readonly ?string $dataField = null,
-        public readonly ?string $literalValue = null,
-        public readonly ?string $justification = null,
-    ) {
-    }
+        public ?int $zoneNumber = null,
+        public ?string $header = null,
+        public ?string $dataField = null,
+        public ?string $literalValue = null,
+        public ?string $justification = null,
+    ) {}
 }

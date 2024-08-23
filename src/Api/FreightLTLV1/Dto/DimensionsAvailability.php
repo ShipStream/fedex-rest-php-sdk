@@ -21,10 +21,9 @@ final class DimensionsAvailability extends Dto
      * @param  ?string  $units  Unit of measure for the provided dimensions.<br>Valid Values are IN - inches, CM - centimeters. <br><i>Note: Any value other than CM including blank/null will default to IN.</i><br>Example: CM
      */
     public function __construct(
-        public readonly ?int $length = null,
-        public readonly ?int $width = null,
-        public readonly ?int $height = null,
-        public readonly ?string $units = null,
-    ) {
-    }
+        public ?int $length = null,
+        public ?int $width = null,
+        public ?int $height = null,
+        public ?string $units = null,
+    ) {}
 }

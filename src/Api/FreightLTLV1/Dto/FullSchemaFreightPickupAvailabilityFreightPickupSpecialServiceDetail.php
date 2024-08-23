@@ -18,7 +18,6 @@ final class FullSchemaFreightPickupAvailabilityFreightPickupSpecialServiceDetail
      * @param  ?ShipmentSpecialServicesRequested  $shipmentSpecialServicesRequested  Specifies the shipment special services requested.
      */
     public function __construct(
-        public readonly ?ShipmentSpecialServicesRequested $shipmentSpecialServicesRequested = null,
-    ) {
-    }
+        public ?ShipmentSpecialServicesRequested $shipmentSpecialServicesRequested = null,
+    ) {}
 }

@@ -39,8 +39,7 @@ class TrackByTrackingNumber extends Request implements HasBody
      */
     public function __construct(
         public FullSchemaTrackingNumbers $fullSchemaTrackingNumbers,
-    ) {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {

@@ -22,11 +22,10 @@ final class PartyContact extends Dto
      * @param  ?string  $companyName  Specify contact company name. Maximum length is 35. <br>Note: Either the companyName or personName is mandatory.
      */
     public function __construct(
-        public readonly string $phoneNumber,
-        public readonly ?string $personName = null,
-        public readonly ?string $emailAddress = null,
-        public readonly ?string $phoneExtension = null,
-        public readonly ?string $companyName = null,
-    ) {
-    }
+        public string $phoneNumber,
+        public ?string $personName = null,
+        public ?string $emailAddress = null,
+        public ?string $phoneExtension = null,
+        public ?string $companyName = null,
+    ) {}
 }

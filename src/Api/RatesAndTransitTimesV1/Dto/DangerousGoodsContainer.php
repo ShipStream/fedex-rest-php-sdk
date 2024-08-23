@@ -27,14 +27,13 @@ final class DangerousGoodsContainer extends Dto
      * @param  ?string  $radioactiveContainerClass  Indicate the packaging type of the container used to package the radioactive materials.
      */
     public function __construct(
-        public readonly ?string $offeror = null,
-        public readonly ?array $hazardousCommodities = null,
-        public readonly ?int $numberOfContainers = null,
-        public readonly ?string $containerType = null,
-        public readonly ?PhoneNumber $emergencyContactNumber = null,
-        public readonly ?HazardousCommodityPackagingDetail $packaging = null,
-        public readonly ?string $packingType = null,
-        public readonly ?string $radioactiveContainerClass = null,
-    ) {
-    }
+        public ?string $offeror = null,
+        public ?array $hazardousCommodities = null,
+        public ?int $numberOfContainers = null,
+        public ?string $containerType = null,
+        public ?PhoneNumber $emergencyContactNumber = null,
+        public ?HazardousCommodityPackagingDetail $packaging = null,
+        public ?string $packingType = null,
+        public ?string $radioactiveContainerClass = null,
+    ) {}
 }

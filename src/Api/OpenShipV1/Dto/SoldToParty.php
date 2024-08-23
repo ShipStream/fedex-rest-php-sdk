@@ -23,10 +23,9 @@ final class SoldToParty extends Dto
      * @param  ?PartyAccountNumber  $accountNumber  This is FedEx Account number details.
      */
     public function __construct(
-        public readonly ?PartyAddress $address = null,
-        public readonly ?PartyContact $contact = null,
-        public readonly ?array $tins = null,
-        public readonly ?PartyAccountNumber $accountNumber = null,
-    ) {
-    }
+        public ?PartyAddress $address = null,
+        public ?PartyContact $contact = null,
+        public ?array $tins = null,
+        public ?PartyAccountNumber $accountNumber = null,
+    ) {}
 }

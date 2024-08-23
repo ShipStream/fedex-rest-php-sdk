@@ -39,8 +39,7 @@ class CancelShipment extends Request implements HasBody
      */
     public function __construct(
         public FullSchemaCancelShipment $fullSchemaCancelShipment,
-    ) {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {

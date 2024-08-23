@@ -19,8 +19,7 @@ final class Op950detailFormatTopOfPageOffset extends Dto
      * @param  ?string  $units  The units for this measurement.
      */
     public function __construct(
-        public readonly ?string $value = null,
-        public readonly ?string $units = null,
-    ) {
-    }
+        public ?string $value = null,
+        public ?string $units = null,
+    ) {}
 }

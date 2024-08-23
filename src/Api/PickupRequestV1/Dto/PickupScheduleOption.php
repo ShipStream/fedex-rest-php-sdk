@@ -32,21 +32,20 @@ final class PickupScheduleOption extends Dto
      * @param  ?string[]  $latestTimeOptions  The LatestTimeOptions indicates the possible latest time windows for the shipment to be picked up.FedEx will assume the shipment is ready for pickup at this time <br>Example: 12:00:00,12:30:00,13:00:00,13:30:00....23:59:00<br> Note:LatestTimeOptions are return till endoftheday timings.
      */
     public function __construct(
-        public readonly ?string $carrier = null,
-        public readonly ?bool $available = null,
-        public readonly ?string $pickupDate = null,
-        public readonly ?string $cutOffTime = null,
-        public readonly ?Duration $accessTime = null,
-        public readonly ?bool $residentialAvailable = null,
-        public readonly ?string $countryRelationship = null,
-        public readonly ?string $scheduleDay = null,
-        public readonly ?string $defaultReadyTime = null,
-        public readonly ?string $defaultLatestTimeOptions = null,
-        public readonly ?string $earlyCutOffTime = null,
-        public readonly ?Duration $earlyAccessTime = null,
-        public readonly ?string $earlyPickupLocationId = null,
-        public readonly ?array $readyTimeOptions = null,
-        public readonly ?array $latestTimeOptions = null,
-    ) {
-    }
+        public ?string $carrier = null,
+        public ?bool $available = null,
+        public ?string $pickupDate = null,
+        public ?string $cutOffTime = null,
+        public ?Duration $accessTime = null,
+        public ?bool $residentialAvailable = null,
+        public ?string $countryRelationship = null,
+        public ?string $scheduleDay = null,
+        public ?string $defaultReadyTime = null,
+        public ?string $defaultLatestTimeOptions = null,
+        public ?string $earlyCutOffTime = null,
+        public ?Duration $earlyAccessTime = null,
+        public ?string $earlyPickupLocationId = null,
+        public ?array $readyTimeOptions = null,
+        public ?array $latestTimeOptions = null,
+    ) {}
 }

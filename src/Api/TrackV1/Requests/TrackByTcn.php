@@ -38,8 +38,7 @@ class TrackByTcn extends Request implements HasBody
      */
     public function __construct(
         public FullSchemaTcn $fullSchemaTcn,
-    ) {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {

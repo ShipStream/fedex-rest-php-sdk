@@ -19,8 +19,7 @@ final class FullSchemaMultiDocumentRequest extends Dto
      * @param  ?string[]  $fileAttachments  Input the actual document/file to be uploaded.
      */
     public function __construct(
-        public readonly ?MultiEtdUploadRequest $documentInformation = null,
-        public readonly ?array $fileAttachments = null,
-    ) {
-    }
+        public ?MultiEtdUploadRequest $documentInformation = null,
+        public ?array $fileAttachments = null,
+    ) {}
 }

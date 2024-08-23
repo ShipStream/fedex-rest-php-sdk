@@ -21,8 +21,7 @@ final class EmailLabelDetail extends Dto
      * @param  ?string  $message  Specifies an optional personalized message to be included in the email to the email label recipient.<br>Example: YOUR OPTIONAL MESSAGE
      */
     public function __construct(
-        public readonly ?array $recipients = null,
-        public readonly ?string $message = null,
-    ) {
-    }
+        public ?array $recipients = null,
+        public ?string $message = null,
+    ) {}
 }

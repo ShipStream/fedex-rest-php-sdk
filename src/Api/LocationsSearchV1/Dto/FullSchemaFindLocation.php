@@ -20,8 +20,6 @@ final class FullSchemaFindLocation extends Dto
     ];
 
     /**
-     * @param  ?LocationsSummaryRequestControlParameters  $locationsSummaryRequestControlParameters
-     * @param  ?SearchLocationConstraints  $constraints
      * @param  ?string  $locationSearchCriterion  Specify the criteria to be used to search for FedEx locations. Default value is ADDRESS if no value is passed.<p>Valid values: <ul><li>ADDRESS &ndash; Search by address. Location detail data is required.</li><li>GEOGRAPHIC_COORDINATES &ndash; Search by geocodes. Location geocodes are required.</li><li>PHONE_NUMBER &ndash; Search by phone number. Location Phone number is required.</li></ul></p><p><i>Note: Country code is REQUIRED when searching by any of the LocationsSearchCriterion, even PhoneNumber and GeorgraphicCoordinates.</i></p>
      * @param  ?string  $phoneNumber  Specify the phone number(Only LandLine allowed) if the locationSearchCriterion is set to 'PHONE_NUMBER'.Given that is the case, the location search will be made based on the phone number value and the location object(postalCode&countryCode) will be completely ignored. <br> Example: 9015551234
      * @param  ?string  $multipleMatchesAction  Specify the criterion to be used to return location results when there are multiple matches.<br>Valid values: RETURN_ALL,RETURN_ERROR, RETURN_FIRST.<br><br><i>Note: The 'maxResults' value takes precedence over RETURN_ALL value.</i>
@@ -41,26 +39,25 @@ final class FullSchemaFindLocation extends Dto
      * @param  ?bool  $getCall  Get a call. <br>Valid values: True, False.
      */
     public function __construct(
-        public readonly Location $location,
-        public readonly ?LocationsSummaryRequestControlParameters $locationsSummaryRequestControlParameters = null,
-        public readonly ?SearchLocationConstraints $constraints = null,
-        public readonly ?string $locationSearchCriterion = null,
-        public readonly ?string $phoneNumber = null,
-        public readonly ?string $multipleMatchesAction = null,
-        public readonly ?Sort $sort = null,
-        public readonly ?TrackingInfo $trackingInfo = null,
-        public readonly ?bool $sameState = null,
-        public readonly ?bool $sameCountry = null,
-        public readonly ?string $redirectToHoldType = null,
-        public readonly ?array $locationAttrTypes = null,
-        public readonly ?array $locationCapabilities = null,
-        public readonly ?array $packageAttributes = null,
-        public readonly ?array $locationTypes = null,
-        public readonly ?bool $includeHoliday = null,
-        public readonly ?string $dropoffTime = null,
-        public readonly ?string $dropOffServiceType = null,
-        public readonly ?array $carrierCodes = null,
-        public readonly ?bool $getCall = null,
-    ) {
-    }
+        public Location $location,
+        public ?LocationsSummaryRequestControlParameters $locationsSummaryRequestControlParameters = null,
+        public ?SearchLocationConstraints $constraints = null,
+        public ?string $locationSearchCriterion = null,
+        public ?string $phoneNumber = null,
+        public ?string $multipleMatchesAction = null,
+        public ?Sort $sort = null,
+        public ?TrackingInfo $trackingInfo = null,
+        public ?bool $sameState = null,
+        public ?bool $sameCountry = null,
+        public ?string $redirectToHoldType = null,
+        public ?array $locationAttrTypes = null,
+        public ?array $locationCapabilities = null,
+        public ?array $packageAttributes = null,
+        public ?array $locationTypes = null,
+        public ?bool $includeHoliday = null,
+        public ?string $dropoffTime = null,
+        public ?string $dropOffServiceType = null,
+        public ?array $carrierCodes = null,
+        public ?bool $getCall = null,
+    ) {}
 }

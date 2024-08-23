@@ -20,9 +20,8 @@ final class ServiceDescriptionDetail extends Dto
      * @param  ?string  $type  This is the service type.<br> Example: FEDEX_FREIGHT_ECONOMY<br><a onclick='loadDocReference("servicetypes")'>Click here to see Service Types</a>
      */
     public function __construct(
-        public readonly ?string $description = null,
-        public readonly ?string $shortDescription = null,
-        public readonly ?string $type = null,
-    ) {
-    }
+        public ?string $description = null,
+        public ?string $shortDescription = null,
+        public ?string $type = null,
+    ) {}
 }

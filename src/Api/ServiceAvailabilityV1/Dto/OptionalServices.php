@@ -36,16 +36,15 @@ final class OptionalServices extends Dto
      * @param  Alert[]|null  $alerts
      */
     public function __construct(
-        public readonly ?string $serviceType = null,
-        public readonly ?bool $issEnabled = null,
-        public readonly ?array $signatureOptionsList = null,
-        public readonly ?array $packageSpecialServicesList = null,
-        public readonly ?array $returnShipmentList = null,
-        public readonly ?string $carrierCode = null,
-        public readonly ?array $batteryOptionList = null,
-        public readonly ?array $alertList = null,
-        public readonly ?array $shipmentSpecialServicesList = null,
-        public readonly ?array $alerts = null,
-    ) {
-    }
+        public ?string $serviceType = null,
+        public ?bool $issEnabled = null,
+        public ?array $signatureOptionsList = null,
+        public ?array $packageSpecialServicesList = null,
+        public ?array $returnShipmentList = null,
+        public ?string $carrierCode = null,
+        public ?array $batteryOptionList = null,
+        public ?array $alertList = null,
+        public ?array $shipmentSpecialServicesList = null,
+        public ?array $alerts = null,
+    ) {}
 }

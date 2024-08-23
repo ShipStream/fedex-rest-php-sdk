@@ -23,10 +23,9 @@ final class DangerousGoodsDetail extends Dto
      * @param  ?string  $regulation  The hazardous package shipment regulation type.
      */
     public function __construct(
-        public readonly ?string $accessibility = null,
-        public readonly ?array $options = null,
-        public readonly ?array $containers = null,
-        public readonly ?string $regulation = null,
-    ) {
-    }
+        public ?string $accessibility = null,
+        public ?array $options = null,
+        public ?array $containers = null,
+        public ?string $regulation = null,
+    ) {}
 }

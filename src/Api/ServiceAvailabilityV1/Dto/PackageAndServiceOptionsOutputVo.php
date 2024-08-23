@@ -24,11 +24,10 @@ final class PackageAndServiceOptionsOutputVo extends Dto
      * @param  Alert[]|null  $alerts  The cxs alert type, alert code, and alert message that is received when package and service options are requested.
      */
     public function __construct(
-        public readonly ?array $packageOptions = null,
-        public readonly ?bool $oneRate = null,
-        public readonly ?array $advancedRegulatoryPackages = null,
-        public readonly ?array $serviceOptions = null,
-        public readonly ?array $alerts = null,
-    ) {
-    }
+        public ?array $packageOptions = null,
+        public ?bool $oneRate = null,
+        public ?array $advancedRegulatoryPackages = null,
+        public ?array $serviceOptions = null,
+        public ?array $alerts = null,
+    ) {}
 }

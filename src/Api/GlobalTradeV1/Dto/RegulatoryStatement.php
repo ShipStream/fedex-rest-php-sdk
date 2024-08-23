@@ -29,18 +29,17 @@ final class RegulatoryStatement extends Dto
      * @param  ?string  $statementUrl  This represents statement url.
      */
     public function __construct(
-        public readonly ?RegulatoryMessage $userMessage = null,
-        public readonly ?string $supportType = null,
-        public readonly ?string $allowability = null,
-        public readonly ?string $fileName = null,
-        public readonly ?string $agencyUrl = null,
-        public readonly ?string $documentUrl = null,
-        public readonly ?string $id = null,
-        public readonly ?string $completionType = null,
-        public readonly ?string $agencyName = null,
-        public readonly ?LocalizedAttributeDetail $localizedAttributes = null,
-        public readonly ?array $documentIds = null,
-        public readonly ?string $statementUrl = null,
-    ) {
-    }
+        public ?RegulatoryMessage $userMessage = null,
+        public ?string $supportType = null,
+        public ?string $allowability = null,
+        public ?string $fileName = null,
+        public ?string $agencyUrl = null,
+        public ?string $documentUrl = null,
+        public ?string $id = null,
+        public ?string $completionType = null,
+        public ?string $agencyName = null,
+        public ?LocalizedAttributeDetail $localizedAttributes = null,
+        public ?array $documentIds = null,
+        public ?string $statementUrl = null,
+    ) {}
 }

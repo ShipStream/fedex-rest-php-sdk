@@ -19,8 +19,7 @@ final class ConsolidationShipmentsConsolidationRequestedShipmentsCompletedShipme
      * @param  ?PackageBarcodes  $barcodes  Each instance of this data type represents the set of barcodes (of all types) which are associated with a specific package.
      */
     public function __construct(
-        public readonly ?OperationalInstructions $operationalInstructions = null,
-        public readonly ?PackageBarcodes $barcodes = null,
-    ) {
-    }
+        public ?OperationalInstructions $operationalInstructions = null,
+        public ?PackageBarcodes $barcodes = null,
+    ) {}
 }

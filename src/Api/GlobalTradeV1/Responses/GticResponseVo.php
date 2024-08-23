@@ -24,6 +24,5 @@ final class GticResponseVo extends Response
         public readonly ?string $transactionId = null,
         public readonly ?string $customerTransactionId = null,
         public readonly ?ShipmentRegulatoryDetailsOutputVo $output = null,
-    ) {
-    }
+    ) {}
 }

@@ -19,8 +19,7 @@ final class HazardousCommodityPackagingDetail extends Dto
      * @param  ?string  $units  Specify the unit of the package.
      */
     public function __construct(
-        public readonly ?int $count = null,
-        public readonly ?string $units = null,
-    ) {
-    }
+        public ?int $count = null,
+        public ?string $units = null,
+    ) {}
 }

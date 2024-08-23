@@ -19,8 +19,7 @@ final class PrintedReference extends Dto
      * @param  ?string  $value  Indicates the value for printed type.<br> Example: 1
      */
     public function __construct(
-        public readonly ?string $printedReferenceType = null,
-        public readonly ?string $value = null,
-    ) {
-    }
+        public ?string $printedReferenceType = null,
+        public ?string $value = null,
+    ) {}
 }

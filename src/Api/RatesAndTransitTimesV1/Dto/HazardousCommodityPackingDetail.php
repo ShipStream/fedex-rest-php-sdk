@@ -19,8 +19,7 @@ final class HazardousCommodityPackingDetail extends Dto
      * @param  ?bool  $cargoAircraftOnly  Indicates the shipment is packaged/documented for movement ONLY on cargo aircraft.
      */
     public function __construct(
-        public readonly ?string $packingInstructions = null,
-        public readonly ?bool $cargoAircraftOnly = null,
-    ) {
-    }
+        public ?string $packingInstructions = null,
+        public ?bool $cargoAircraftOnly = null,
+    ) {}
 }

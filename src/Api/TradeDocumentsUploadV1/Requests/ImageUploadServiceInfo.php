@@ -38,8 +38,7 @@ class ImageUploadServiceInfo extends Request implements HasBody
      */
     public function __construct(
         public FullSchemaImageUploadServiceInputVo $fullSchemaImageUploadServiceInputVo,
-    ) {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {

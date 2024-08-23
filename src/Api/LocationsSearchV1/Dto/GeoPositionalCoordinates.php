@@ -19,8 +19,7 @@ final class GeoPositionalCoordinates extends Dto
      * @param  ?float  $longitude  The geo coordinate value that specifies the East-West position of the address.<br>Example: 115.1398° W
      */
     public function __construct(
-        public readonly ?float $latitude = null,
-        public readonly ?float $longitude = null,
-    ) {
-    }
+        public ?float $latitude = null,
+        public ?float $longitude = null,
+    ) {}
 }

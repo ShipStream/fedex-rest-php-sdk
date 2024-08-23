@@ -22,9 +22,8 @@ final class RegulatoryWaiver extends Dto
      * @param  ?string  $id  Indicates the prohibitory ID.<br>Example: id
      */
     public function __construct(
-        public readonly ?array $advisories = null,
-        public readonly ?string $description = null,
-        public readonly ?string $id = null,
-    ) {
-    }
+        public ?array $advisories = null,
+        public ?string $description = null,
+        public ?string $id = null,
+    ) {}
 }

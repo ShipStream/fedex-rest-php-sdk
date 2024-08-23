@@ -20,9 +20,8 @@ final class FullSchemaModifyConsolidation extends Dto
      * @param  PartyAccountNumber  $accountNumber  Specify the assigned FedEx Account Number. If the transportation charges to be billed to a payor other than the sender or recipient, provide the FedEx account number.
      */
     public function __construct(
-        public readonly ConsolidationKey $consolidationKey,
-        public readonly RequestedConsolidation $requestedConsolidation,
-        public readonly PartyAccountNumber $accountNumber,
-    ) {
-    }
+        public ConsolidationKey $consolidationKey,
+        public RequestedConsolidation $requestedConsolidation,
+        public PartyAccountNumber $accountNumber,
+    ) {}
 }

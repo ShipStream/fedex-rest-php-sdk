@@ -35,18 +35,17 @@ final class ShipmentLegRateDetail extends Dto
      * @param  ?string  $currency  Indicate the three-character ISO currency code. <br>Example: USD<br><a onclick='loadDocReference("currencycodes")'>Click here to see Currency Codes</a>
      */
     public function __construct(
-        public readonly ?array $discounts = null,
-        public readonly ?string $pricingCode = null,
-        public readonly ?string $legDescription = null,
-        public readonly ?array $surcharges = null,
-        public readonly ?array $specialRatingApplied = null,
-        public readonly ?array $taxes = null,
-        public readonly ?string $rateScale = null,
-        public readonly ?float $totalNetCharge = null,
-        public readonly ?float $totalBaseCharge = null,
-        public readonly ?CurrencyExchangeRate $currencyExchangeRate = null,
-        public readonly ?Weight $totalBillingWeight = null,
-        public readonly ?string $currency = null,
-    ) {
-    }
+        public ?array $discounts = null,
+        public ?string $pricingCode = null,
+        public ?string $legDescription = null,
+        public ?array $surcharges = null,
+        public ?array $specialRatingApplied = null,
+        public ?array $taxes = null,
+        public ?string $rateScale = null,
+        public ?float $totalNetCharge = null,
+        public ?float $totalBaseCharge = null,
+        public ?CurrencyExchangeRate $currencyExchangeRate = null,
+        public ?Weight $totalBillingWeight = null,
+        public ?string $currency = null,
+    ) {}
 }

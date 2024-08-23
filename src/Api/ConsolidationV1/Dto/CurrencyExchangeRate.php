@@ -20,9 +20,8 @@ final class CurrencyExchangeRate extends Dto
      * @param  ?string  $intoCurrency  The currency code for the final(converted INTO) currency.<br><a href="/developer-portal/en-us/reference-guide.html#currencycodes" target="_blank">Click here to see Currency Codes</a>
      */
     public function __construct(
-        public readonly ?float $rate = null,
-        public readonly ?string $fromCurrency = null,
-        public readonly ?string $intoCurrency = null,
-    ) {
-    }
+        public ?float $rate = null,
+        public ?string $fromCurrency = null,
+        public ?string $intoCurrency = null,
+    ) {}
 }

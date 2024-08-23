@@ -19,8 +19,7 @@ final class SubPackageInfo extends Dto
      * @param  ?string  $description  The description of the SubPackage Type
      */
     public function __construct(
-        public readonly ?string $dimension = null,
-        public readonly ?string $description = null,
-    ) {
-    }
+        public ?string $dimension = null,
+        public ?string $description = null,
+    ) {}
 }

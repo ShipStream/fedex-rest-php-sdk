@@ -19,8 +19,7 @@ final class PhoneNumberDetails extends Dto
      * @param  ?string  $phoneNumberType  Indicates the phone number type.<br> Example: <ul><li>FAX</li><li>HOME</li><li>MOBILE</li><li>PAGER</li><li>TOLL_FREE</li><li>WORK</li></ul>
      */
     public function __construct(
-        public readonly ?string $phoneNumber = null,
-        public readonly ?string $phoneNumberType = null,
-    ) {
-    }
+        public ?string $phoneNumber = null,
+        public ?string $phoneNumberType = null,
+    ) {}
 }

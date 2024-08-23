@@ -28,17 +28,16 @@ final class PickupOriginDetailLtl extends Dto
      * @param  ?string  $geographicalPostalCode  This is the alternate postal code associated with pickup location. (Applicable only for European pickups)
      */
     public function __construct(
-        public readonly PartyCreatePickupLtl $pickupLocation,
-        public readonly string $readyDateTimestamp,
-        public readonly string $customerCloseTime,
-        public readonly ?string $pickupAddressType = null,
-        public readonly ?string $pickupDateType = null,
-        public readonly ?string $packageLocation = null,
-        public readonly ?string $buildingPart = null,
-        public readonly ?string $buildingPartDescription = null,
-        public readonly ?bool $earlyPickup = null,
-        public readonly ?string $suppliesRequested = null,
-        public readonly ?string $geographicalPostalCode = null,
-    ) {
-    }
+        public PartyCreatePickupLtl $pickupLocation,
+        public string $readyDateTimestamp,
+        public string $customerCloseTime,
+        public ?string $pickupAddressType = null,
+        public ?string $pickupDateType = null,
+        public ?string $packageLocation = null,
+        public ?string $buildingPart = null,
+        public ?string $buildingPartDescription = null,
+        public ?bool $earlyPickup = null,
+        public ?string $suppliesRequested = null,
+        public ?string $geographicalPostalCode = null,
+    ) {}
 }

@@ -20,9 +20,8 @@ final class BatteryClassificationDetail extends Dto
      * @param  ?string  $packing  Indicate the packing arrangement of the battery or cell with respect to other items within the same package. Example: CONTAINED_IN_EQUIPMENT
      */
     public function __construct(
-        public readonly ?string $material = null,
-        public readonly ?string $regulatorySubType = null,
-        public readonly ?string $packing = null,
-    ) {
-    }
+        public ?string $material = null,
+        public ?string $regulatorySubType = null,
+        public ?string $packing = null,
+    ) {}
 }

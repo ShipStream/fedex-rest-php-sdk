@@ -19,8 +19,7 @@ final class ErrorsParameterList extends Dto
      * @param  ?string  $value  This is a parameter value. Example: carrierCode
      */
     public function __construct(
-        public readonly ?string $key = null,
-        public readonly ?string $value = null,
-    ) {
-    }
+        public ?string $key = null,
+        public ?string $value = null,
+    ) {}
 }

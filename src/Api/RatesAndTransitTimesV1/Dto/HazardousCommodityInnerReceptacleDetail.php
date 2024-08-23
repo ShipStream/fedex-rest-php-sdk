@@ -18,7 +18,6 @@ final class HazardousCommodityInnerReceptacleDetail extends Dto
      * @param  ?HazardousCommodityQuantityDetail  $quantity  Specifies Hazardous Commodity Quantity Detail.
      */
     public function __construct(
-        public readonly ?HazardousCommodityQuantityDetail $quantity = null,
-    ) {
-    }
+        public ?HazardousCommodityQuantityDetail $quantity = null,
+    ) {}
 }

@@ -19,8 +19,7 @@ final class MessageParameters extends Dto
      * @param  ?string  $value  Indicates the message.
      */
     public function __construct(
-        public readonly ?string $id = null,
-        public readonly ?string $value = null,
-    ) {
-    }
+        public ?string $id = null,
+        public ?string $value = null,
+    ) {}
 }

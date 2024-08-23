@@ -22,9 +22,8 @@ final class CancelPickupOutputVo extends Dto
      * @param  Alert[]|null  $alerts  Optional alerts received when a cancel pickup is requested. This includes an alert code, type, and message.
      */
     public function __construct(
-        public readonly ?string $pickupConfirmationCode = null,
-        public readonly ?string $cancelConfirmationMessage = null,
-        public readonly ?array $alerts = null,
-    ) {
-    }
+        public ?string $pickupConfirmationCode = null,
+        public ?string $cancelConfirmationMessage = null,
+        public ?array $alerts = null,
+    ) {}
 }

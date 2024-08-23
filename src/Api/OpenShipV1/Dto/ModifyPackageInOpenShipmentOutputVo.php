@@ -24,8 +24,7 @@ final class ModifyPackageInOpenShipmentOutputVo extends Dto
      * @param  Alert[]|null  $alerts  The alerts received when a shipShipment is processed. This includes the alert code, alert type, and alert message.
      */
     public function __construct(
-        public readonly ?array $transactionShipments = null,
-        public readonly ?array $alerts = null,
-    ) {
-    }
+        public ?array $transactionShipments = null,
+        public ?array $alerts = null,
+    ) {}
 }

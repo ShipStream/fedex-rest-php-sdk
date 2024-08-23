@@ -24,13 +24,12 @@ final class FreightPickupScheduleOption extends Dto
      * @param  ?string  $scheduleDay  Indicates the scheduled day.
      */
     public function __construct(
-        public readonly ?string $carrier = null,
-        public readonly ?bool $available = null,
-        public readonly ?string $pickupDate = null,
-        public readonly ?string $cutOffTime = null,
-        public readonly ?Duration $accessTime = null,
-        public readonly ?bool $residentialAvailable = null,
-        public readonly ?string $scheduleDay = null,
-    ) {
-    }
+        public ?string $carrier = null,
+        public ?bool $available = null,
+        public ?string $pickupDate = null,
+        public ?string $cutOffTime = null,
+        public ?Duration $accessTime = null,
+        public ?bool $residentialAvailable = null,
+        public ?string $scheduleDay = null,
+    ) {}
 }

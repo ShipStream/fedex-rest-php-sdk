@@ -21,10 +21,9 @@ final class TrackingId extends Dto
      * @param  ?string  $trackingNumber  This is a number associated with a package that is used to track it. <br>Example: 49XXX0000XXX20032835
      */
     public function __construct(
-        public readonly ?int $formId = null,
-        public readonly ?string $trackingIdType = null,
-        public readonly ?int $uspsApplicationId = null,
-        public readonly ?string $trackingNumber = null,
-    ) {
-    }
+        public ?int $formId = null,
+        public ?string $trackingIdType = null,
+        public ?int $uspsApplicationId = null,
+        public ?string $trackingNumber = null,
+    ) {}
 }

@@ -18,7 +18,6 @@ final class LocationDetail extends Dto
      * @param  ?LocationDetailGeoPositionalCoordinates  $geoPositionalCoordinates  the ISO6709GeographicCoordinates for a specific geographic location
      */
     public function __construct(
-        public readonly ?LocationDetailGeoPositionalCoordinates $geoPositionalCoordinates = null,
-    ) {
-    }
+        public ?LocationDetailGeoPositionalCoordinates $geoPositionalCoordinates = null,
+    ) {}
 }

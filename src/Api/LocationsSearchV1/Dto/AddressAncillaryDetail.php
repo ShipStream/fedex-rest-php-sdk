@@ -29,18 +29,17 @@ final class AddressAncillaryDetail extends Dto
      * @param  ?string  $room  This is room specific information for the given address.<br>Example: Room B-23
      */
     public function __construct(
-        public readonly string $locationInCity,
-        public readonly string $displayName,
-        public readonly ?string $suite = null,
-        public readonly ?string $adderssVerificationOverrideReason = null,
-        public readonly ?string $locationInProperty = null,
-        public readonly ?string $addtionalDescriptions = null,
-        public readonly ?string $department = null,
-        public readonly ?string $roomFloor = null,
-        public readonly ?string $crossStreet = null,
-        public readonly ?string $building = null,
-        public readonly ?string $apartment = null,
-        public readonly ?string $room = null,
-    ) {
-    }
+        public string $locationInCity,
+        public string $displayName,
+        public ?string $suite = null,
+        public ?string $adderssVerificationOverrideReason = null,
+        public ?string $locationInProperty = null,
+        public ?string $addtionalDescriptions = null,
+        public ?string $department = null,
+        public ?string $roomFloor = null,
+        public ?string $crossStreet = null,
+        public ?string $building = null,
+        public ?string $apartment = null,
+        public ?string $room = null,
+    ) {}
 }

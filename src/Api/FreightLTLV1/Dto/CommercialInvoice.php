@@ -32,19 +32,18 @@ final class CommercialInvoice extends Dto
      * @param  ?ShipEmailDispositionDetail  $emailNotificationDetail  These are email disposition details. Provides the type and email addresses of e-mail recipients. If returnedDispositionDetail in labelSpecification is set as true then email will be send with label and documents copy.
      */
     public function __construct(
-        public readonly ?string $originatorName = null,
-        public readonly ?array $comments = null,
-        public readonly ?array $customerReferences = null,
-        public readonly ?Money $taxesOrMiscellaneousCharge = null,
-        public readonly ?string $taxesOrMiscellaneousChargeType = null,
-        public readonly ?Money $freightCharge = null,
-        public readonly ?Money $packingCosts = null,
-        public readonly ?Money $handlingCosts = null,
-        public readonly ?string $declarationStatement = null,
-        public readonly ?string $termsOfSale = null,
-        public readonly ?string $specialInstructions = null,
-        public readonly ?string $shipmentPurpose = null,
-        public readonly ?ShipEmailDispositionDetail $emailNotificationDetail = null,
-    ) {
-    }
+        public ?string $originatorName = null,
+        public ?array $comments = null,
+        public ?array $customerReferences = null,
+        public ?Money $taxesOrMiscellaneousCharge = null,
+        public ?string $taxesOrMiscellaneousChargeType = null,
+        public ?Money $freightCharge = null,
+        public ?Money $packingCosts = null,
+        public ?Money $handlingCosts = null,
+        public ?string $declarationStatement = null,
+        public ?string $termsOfSale = null,
+        public ?string $specialInstructions = null,
+        public ?string $shipmentPurpose = null,
+        public ?ShipEmailDispositionDetail $emailNotificationDetail = null,
+    ) {}
 }

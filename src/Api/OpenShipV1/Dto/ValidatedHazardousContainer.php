@@ -21,8 +21,7 @@ final class ValidatedHazardousContainer extends Dto
      * @param  ValidatedHazardousCommodityContent[]|null  $hazardousCommodities  Indicates the details of the hazardous commodities in the completed package.
      */
     public function __construct(
-        public readonly ?float $qvalue = null,
-        public readonly ?array $hazardousCommodities = null,
-    ) {
-    }
+        public ?float $qvalue = null,
+        public ?array $hazardousCommodities = null,
+    ) {}
 }

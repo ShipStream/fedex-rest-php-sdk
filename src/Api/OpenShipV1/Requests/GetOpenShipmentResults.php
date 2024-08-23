@@ -36,8 +36,7 @@ class GetOpenShipmentResults extends Request implements HasBody
 
     public function __construct(
         public FullSchemaGetOpenShipmentResults $fullSchemaGetOpenShipmentResults,
-    ) {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {

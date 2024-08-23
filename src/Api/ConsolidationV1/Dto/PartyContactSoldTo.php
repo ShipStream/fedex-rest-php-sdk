@@ -22,11 +22,10 @@ final class PartyContactSoldTo extends Dto
      * @param  ?string  $phoneExtension  The shipper's phone extension. Max length is 6.<br>Example: 91
      */
     public function __construct(
-        public readonly string $personName,
-        public readonly string $phoneNumber,
-        public readonly string $companyName,
-        public readonly ?string $emailAddress = null,
-        public readonly ?string $phoneExtension = null,
-    ) {
-    }
+        public string $personName,
+        public string $phoneNumber,
+        public string $companyName,
+        public ?string $emailAddress = null,
+        public ?string $phoneExtension = null,
+    ) {}
 }

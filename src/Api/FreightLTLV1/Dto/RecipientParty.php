@@ -23,10 +23,9 @@ final class RecipientParty extends Dto
      * @param  ?string  $deliveryInstructions  Specify the delivery instructions to be added with the Freight shipment.
      */
     public function __construct(
-        public readonly PartyAddress $address,
-        public readonly PartyContact $contact,
-        public readonly ?array $tins = null,
-        public readonly ?string $deliveryInstructions = null,
-    ) {
-    }
+        public PartyAddress $address,
+        public PartyContact $contact,
+        public ?array $tins = null,
+        public ?string $deliveryInstructions = null,
+    ) {}
 }

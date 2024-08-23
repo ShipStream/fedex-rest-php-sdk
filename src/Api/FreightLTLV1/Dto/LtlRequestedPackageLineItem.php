@@ -29,13 +29,12 @@ final class LtlRequestedPackageLineItem extends Dto
      * @param  ?Dimensions  $dimensions  Indicate the dimensions of the package.<br> Following conditions will apply: <ul><li>Dimensions are optional but when added, then all three dimensions must be indicated.</li><li>Dimensions are required with YOUR_PACKAGING package type.</li></ul>Note: The maximum/minimum dimension values varies based on the services and the packaging types. Refer <a href="https://www.fedex.com/en-us/service-guide.html" target="_blank">FedEx Service Guide</a> for service details related to DIM Weighting for FedEx Express and oversize conditions for FedEx Express and FedEx Ground.
      */
     public function __construct(
-        public readonly string $subPackagingType,
-        public readonly Weight $weight,
-        public readonly array $associatedFreightLineItems,
-        public readonly ?int $groupPackageCount = null,
-        public readonly ?array $contentRecord = null,
-        public readonly ?Money $declaredValue = null,
-        public readonly ?Dimensions $dimensions = null,
-    ) {
-    }
+        public string $subPackagingType,
+        public Weight $weight,
+        public array $associatedFreightLineItems,
+        public ?int $groupPackageCount = null,
+        public ?array $contentRecord = null,
+        public ?Money $declaredValue = null,
+        public ?Dimensions $dimensions = null,
+    ) {}
 }

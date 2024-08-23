@@ -21,10 +21,9 @@ final class ContentRecord extends Dto
      * @param  ?string  $partNumber  This is the part number.
      */
     public function __construct(
-        public readonly ?string $itemNumber = null,
-        public readonly ?int $receivedQuantity = null,
-        public readonly ?string $description = null,
-        public readonly ?string $partNumber = null,
-    ) {
-    }
+        public ?string $itemNumber = null,
+        public ?int $receivedQuantity = null,
+        public ?string $description = null,
+        public ?string $partNumber = null,
+    ) {}
 }

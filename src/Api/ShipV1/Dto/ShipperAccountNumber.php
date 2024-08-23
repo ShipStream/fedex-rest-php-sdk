@@ -18,7 +18,6 @@ final class ShipperAccountNumber extends Dto
      * @param  string  $value  The account number value. Maximum length is 9 .<br>Example: Your account number
      */
     public function __construct(
-        public readonly string $value,
-    ) {
-    }
+        public string $value,
+    ) {}
 }

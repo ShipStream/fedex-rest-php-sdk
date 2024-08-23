@@ -24,11 +24,10 @@ final class ConsolidationDetail extends Dto
      * @param  ?string  $eventType  Specifies the consolidation event type for a package.  A package can be ADDED to, REMOVED from, or EXCLUDED from a consolidation. <br> Example: PACKAGE_ADDED_TO_CONSOLIDATION
      */
     public function __construct(
-        public readonly ?string $timeStamp = null,
-        public readonly ?string $consolidationId = null,
-        public readonly ?ReasonDetail $reasonDetail = null,
-        public readonly ?int $packageCount = null,
-        public readonly ?string $eventType = null,
-    ) {
-    }
+        public ?string $timeStamp = null,
+        public ?string $consolidationId = null,
+        public ?ReasonDetail $reasonDetail = null,
+        public ?int $packageCount = null,
+        public ?string $eventType = null,
+    ) {}
 }

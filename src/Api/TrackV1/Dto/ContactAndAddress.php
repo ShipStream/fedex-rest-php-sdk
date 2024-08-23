@@ -19,8 +19,7 @@ final class ContactAndAddress extends Dto
      * @param  AddressVo  $address  Address where the package was actually delivered. Contrast with destinationAddress, which is the location to which the package was intended to be delivered. Addresses may differ due to delivery to a behavior, hold at FedEx location, etc.
      */
     public function __construct(
-        public readonly ContactVo $contact,
-        public readonly AddressVo $address,
-    ) {
-    }
+        public ContactVo $contact,
+        public AddressVo $address,
+    ) {}
 }

@@ -23,10 +23,9 @@ final class SoldToParty extends Dto
      * @param  ?AccountNumber  $accountNumber  This is the Account number details.<br><i>Note:<ul><li>If the paymentType is Sender, then the account number is optional in shippingChargesPayment.</li><li>In case if this is shipping account number, do use the account number used for creating Auth Token.</li></ul>
      */
     public function __construct(
-        public readonly ?PartyAddress $address = null,
-        public readonly ?PartyContact $contact = null,
-        public readonly ?array $tins = null,
-        public readonly ?AccountNumber $accountNumber = null,
-    ) {
-    }
+        public ?PartyAddress $address = null,
+        public ?PartyContact $contact = null,
+        public ?array $tins = null,
+        public ?AccountNumber $accountNumber = null,
+    ) {}
 }

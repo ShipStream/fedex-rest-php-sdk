@@ -24,6 +24,5 @@ final class ShpcResponseVoShipShipment extends Response
         public readonly ?string $transactionId = null,
         public readonly ?string $customerTransactionId = null,
         public readonly ?ShipShipmentOutputVo $output = null,
-    ) {
-    }
+    ) {}
 }

@@ -22,9 +22,8 @@ final class FullSchemaDeletePackagesFromOpenShipment extends Dto
      * @param  TrackingId[]  $trackingIds  One or more tracking IDs, for which the packages to be removed from the shipment.
      */
     public function __construct(
-        public readonly string $index,
-        public readonly PartyAccountNumber $accountNumber,
-        public readonly array $trackingIds,
-    ) {
-    }
+        public string $index,
+        public PartyAccountNumber $accountNumber,
+        public array $trackingIds,
+    ) {}
 }

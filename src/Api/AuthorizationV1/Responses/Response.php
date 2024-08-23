@@ -31,6 +31,5 @@ final class Response extends Response1
         public readonly ?string $tokenType = null,
         public readonly ?int $expiresIn = null,
         public readonly ?string $scope = null,
-    ) {
-    }
+    ) {}
 }

@@ -24,10 +24,9 @@ final class FullSchemaFreightShipment extends Dto
      *                                  <br>Example: true or false
      */
     public function __construct(
-        public readonly FreightRequestedShipmentFreight $freightRequestedShipment,
-        public readonly string $labelResponseOptions,
-        public readonly ShipperAccountNumber $accountNumber,
-        public readonly ?bool $oneLabelAtAtime = null,
-    ) {
-    }
+        public FreightRequestedShipmentFreight $freightRequestedShipment,
+        public string $labelResponseOptions,
+        public ShipperAccountNumber $accountNumber,
+        public ?bool $oneLabelAtAtime = null,
+    ) {}
 }

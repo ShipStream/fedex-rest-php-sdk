@@ -18,7 +18,6 @@ final class SignatureOptionDetail extends Dto
      * @param  ?string  $signatureReleaseNumber  This is the release number. Required if signature option is NO_SIGNATURE_REQUIRED.<br> Example: 23456
      */
     public function __construct(
-        public readonly ?string $signatureReleaseNumber = null,
-    ) {
-    }
+        public ?string $signatureReleaseNumber = null,
+    ) {}
 }

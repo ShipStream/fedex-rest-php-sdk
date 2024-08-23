@@ -22,9 +22,8 @@ final class DocumentRequirementsDetail extends Dto
      * @param  DocumentGenerationDetail[]|null  $generationDetails  Provides the generation details.
      */
     public function __construct(
-        public readonly ?array $requiredDocuments = null,
-        public readonly ?array $prohibitedDocuments = null,
-        public readonly ?array $generationDetails = null,
-    ) {
-    }
+        public ?array $requiredDocuments = null,
+        public ?array $prohibitedDocuments = null,
+        public ?array $generationDetails = null,
+    ) {}
 }

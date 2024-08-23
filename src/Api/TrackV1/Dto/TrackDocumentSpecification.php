@@ -21,10 +21,9 @@ final class TrackDocumentSpecification extends Dto
      * @param  ?string  $accountNumber  Specifies Signature Proof of Delivery(SPOD) account number for the shipment being tracked.<br>Conditionally required when documentType is BILL_OF_LADING or FREIGHT_BILLING_DOCUMENT<br>Example: 123456789
      */
     public function __construct(
-        public readonly TrackingNumberInfo $trackingNumberInfo,
-        public readonly ?string $shipDateBegin = null,
-        public readonly ?string $shipDateEnd = null,
-        public readonly ?string $accountNumber = null,
-    ) {
-    }
+        public TrackingNumberInfo $trackingNumberInfo,
+        public ?string $shipDateBegin = null,
+        public ?string $shipDateEnd = null,
+        public ?string $accountNumber = null,
+    ) {}
 }

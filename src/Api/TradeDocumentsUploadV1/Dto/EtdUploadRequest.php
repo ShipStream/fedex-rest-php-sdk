@@ -22,11 +22,10 @@ final class EtdUploadRequest extends Dto
      * @param  ?string  $carrierCode  Specify the four letter code of a FedEx operating company that meets your requirements.<br>Examples of FedEx Operating Companies are:<ul><li>FDXE - FedEx Express</li><li>FDXG - FedEx Ground</li><li>FXSP - FedEx SmartPost</li><li>FXCC - FedEx Custom Critical.</li></ul>
      */
     public function __construct(
-        public readonly string $workflowName,
-        public readonly string $name,
-        public readonly string $contentType,
-        public readonly MetaObject $meta,
-        public readonly ?string $carrierCode = null,
-    ) {
-    }
+        public string $workflowName,
+        public string $name,
+        public string $contentType,
+        public MetaObject $meta,
+        public ?string $carrierCode = null,
+    ) {}
 }

@@ -18,8 +18,7 @@ final class FullSchemaCreateTag extends Dto
      * @param  PartyAccountNumber  $accountNumber  The account number of the recipient.
      */
     public function __construct(
-        public readonly CreateTagRequestedShipment $requestedShipment,
-        public readonly PartyAccountNumber $accountNumber,
-    ) {
-    }
+        public CreateTagRequestedShipment $requestedShipment,
+        public PartyAccountNumber $accountNumber,
+    ) {}
 }

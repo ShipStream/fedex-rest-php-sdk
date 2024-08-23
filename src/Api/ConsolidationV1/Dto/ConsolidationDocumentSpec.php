@@ -29,16 +29,15 @@ final class ConsolidationDocumentSpec extends Dto
      * @param  Formats[]|null  $customDocumentDetails  Specifies the child reference number report detail for consolidated SoldTo summary report detail.
      */
     public function __construct(
-        public readonly ?array $consolidationDocumentTypes = null,
-        public readonly ?ConsolidationDocumentSpec1ConsolidatedCommercialInvoiceDetail $consolidatedCommercialInvoiceDetail = null,
-        public readonly ?ConsolidationDocumentSpec1CustomsPackingListDetail $customsPackingListDetail = null,
-        public readonly ?ConsolidationDocumentSpec1CrnReportDetail $crnReportDetail = null,
-        public readonly ?ConsolidationDocumentSpec1CondensedCrnReportDetail $condensedCrnReportDetail = null,
-        public readonly ?ConsolidationDocumentSpec1ConsolidatedCustomsLinehaulReportDetail $consolidatedCustomsLinehaulReportDetail = null,
-        public readonly ?ConsolidationDocumentSpec1ConsolidatedPartyReportDetail $consolidatedPartyReportDetail = null,
-        public readonly ?ConsolidationDocumentSpec1ConsolidatedSoldToSummaryReportDetail $consolidatedSoldToSummaryReportDetail = null,
-        public readonly ?ConsolidationDocumentSpec1ConsolidatedSoldToSummaryReportDetail $commoditiesByTrackingNumberDetail = null,
-        public readonly ?array $customDocumentDetails = null,
-    ) {
-    }
+        public ?array $consolidationDocumentTypes = null,
+        public ?ConsolidationDocumentSpec1ConsolidatedCommercialInvoiceDetail $consolidatedCommercialInvoiceDetail = null,
+        public ?ConsolidationDocumentSpec1CustomsPackingListDetail $customsPackingListDetail = null,
+        public ?ConsolidationDocumentSpec1CrnReportDetail $crnReportDetail = null,
+        public ?ConsolidationDocumentSpec1CondensedCrnReportDetail $condensedCrnReportDetail = null,
+        public ?ConsolidationDocumentSpec1ConsolidatedCustomsLinehaulReportDetail $consolidatedCustomsLinehaulReportDetail = null,
+        public ?ConsolidationDocumentSpec1ConsolidatedPartyReportDetail $consolidatedPartyReportDetail = null,
+        public ?ConsolidationDocumentSpec1ConsolidatedSoldToSummaryReportDetail $consolidatedSoldToSummaryReportDetail = null,
+        public ?ConsolidationDocumentSpec1ConsolidatedSoldToSummaryReportDetail $commoditiesByTrackingNumberDetail = null,
+        public ?array $customDocumentDetails = null,
+    ) {}
 }

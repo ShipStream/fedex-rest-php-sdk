@@ -19,8 +19,7 @@ final class CustomerReference extends Dto
      * @param  ?string  $value  This is a customer reference type value.<br>Example: 3686
      */
     public function __construct(
-        public readonly ?string $customerReferenceType = null,
-        public readonly ?string $value = null,
-    ) {
-    }
+        public ?string $customerReferenceType = null,
+        public ?string $value = null,
+    ) {}
 }

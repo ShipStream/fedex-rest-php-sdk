@@ -31,13 +31,12 @@ final class PackageAndOptionsRequestedShipment extends Dto
      * @param  ?string  $pickupType  Conditional Required for Express and Ground, but optional for FREIGHT or SMARTPOST.<br>Indicate the pickup type method by which the shipment yo be tendered to FedEx.<br><i>Note: The value of this element does not specify dispatching the courier for package pickup.</i><br><a onclick='loadDocReference("pickuptypes")'>Click here for more information on Pickup Types.</a><br>Note:For services like FedEx International Connect Plus(FICP) & Regional Economy(RE)/Regional Economy Freight(REF) pickupType is mandatory.
      */
     public function __construct(
-        public readonly PartyShipper $shipper,
-        public readonly array $recipients,
-        public readonly ?string $shipDateStamp = null,
-        public readonly ?array $requestedPackageLineItems = null,
-        public readonly ?FreightShipmentDetail $freightShipmentDetail = null,
-        public readonly ?ShipmentSpecialServicesRequested $specialServicesRequested = null,
-        public readonly ?string $pickupType = null,
-    ) {
-    }
+        public PartyShipper $shipper,
+        public array $recipients,
+        public ?string $shipDateStamp = null,
+        public ?array $requestedPackageLineItems = null,
+        public ?FreightShipmentDetail $freightShipmentDetail = null,
+        public ?ShipmentSpecialServicesRequested $specialServicesRequested = null,
+        public ?string $pickupType = null,
+    ) {}
 }

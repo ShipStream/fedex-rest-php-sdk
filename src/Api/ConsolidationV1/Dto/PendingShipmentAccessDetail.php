@@ -20,7 +20,6 @@ final class PendingShipmentAccessDetail extends Dto
      * @param  PendingShipmentAccessorDetail[]|null  $accessorDetails  Indicates the details about the users who can access the shipment.
      */
     public function __construct(
-        public readonly ?array $accessorDetails = null,
-    ) {
-    }
+        public ?array $accessorDetails = null,
+    ) {}
 }

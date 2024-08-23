@@ -36,7 +36,6 @@ final class LocationSummaryOutputVo extends Dto
      * @param  ?bool  $latestLocationReturned  Indicates whether value for latest locations were returned or not. <br>Valid values: True, False.
      * @param  ?int  $lockerAvailabilityCode  Code for locker availability
      * @param  ?string  $lockerAvailabilityMessage  Message for locker availability
-     * @param  ?Location  $location
      * @param  ?string  $phoneNumber  Specify the phone number If the locationSearchCriterion is set to 'PHONE_NUMBER'.The mobile numbers will not return results when set as a criterion. <br> Example: 9015551234
      * @param  ?string  $multipleMatchesAction  Specify the criterion to be used to return location results when there are multiple matches.<br><br><i>Note: The 'maxResults' value takes precedence over RETURN_ALL value.</i>
      * @param  ?Sort  $sort  Specifies how the location search results will be sorted in the reply.
@@ -57,39 +56,38 @@ final class LocationSummaryOutputVo extends Dto
      * @param  ?bool  $getCall  Get a call. Valid values: True, False.
      */
     public function __construct(
-        public readonly ?int $totalResults = null,
-        public readonly ?int $resultsReturned = null,
-        public readonly ?Address $matchedAddress = null,
-        public readonly ?GeoPositionalCoordinates $matchedAddressGeoCoord = null,
-        public readonly ?array $locationDetailList = null,
-        public readonly ?array $alerts = null,
-        public readonly ?LocationDetail $nearestLocation = null,
-        public readonly ?LocationDetail $latestLocation = null,
-        public readonly ?array $ambiguousAddress = null,
-        public readonly ?bool $ambiguousLocationsReturned = null,
-        public readonly ?bool $nearestLocationReturned = null,
-        public readonly ?bool $latestLocationReturned = null,
-        public readonly ?int $lockerAvailabilityCode = null,
-        public readonly ?string $lockerAvailabilityMessage = null,
-        public readonly ?Location $location = null,
-        public readonly ?string $phoneNumber = null,
-        public readonly ?string $multipleMatchesAction = null,
-        public readonly ?Sort $sort = null,
-        public readonly ?TrackingInfo $trackingInfo = null,
-        public readonly ?bool $sameState = null,
-        public readonly ?bool $sameCountry = null,
-        public readonly ?string $redirectToHoldType = null,
-        public readonly ?array $locationAttrTypes = null,
-        public readonly ?array $locationCapabilities = null,
-        public readonly ?array $packageMaximumLimits = null,
-        public readonly ?array $locationTypes = null,
-        public readonly ?bool $includeHoliday = null,
-        public readonly ?string $dropoffTime = null,
-        public readonly ?string $dropOffServiceType = null,
-        public readonly ?string $searchBy = null,
-        public readonly ?string $contentOptions = null,
-        public readonly ?array $carrierCodes = null,
-        public readonly ?bool $getCall = null,
-    ) {
-    }
+        public ?int $totalResults = null,
+        public ?int $resultsReturned = null,
+        public ?Address $matchedAddress = null,
+        public ?GeoPositionalCoordinates $matchedAddressGeoCoord = null,
+        public ?array $locationDetailList = null,
+        public ?array $alerts = null,
+        public ?LocationDetail $nearestLocation = null,
+        public ?LocationDetail $latestLocation = null,
+        public ?array $ambiguousAddress = null,
+        public ?bool $ambiguousLocationsReturned = null,
+        public ?bool $nearestLocationReturned = null,
+        public ?bool $latestLocationReturned = null,
+        public ?int $lockerAvailabilityCode = null,
+        public ?string $lockerAvailabilityMessage = null,
+        public ?Location $location = null,
+        public ?string $phoneNumber = null,
+        public ?string $multipleMatchesAction = null,
+        public ?Sort $sort = null,
+        public ?TrackingInfo $trackingInfo = null,
+        public ?bool $sameState = null,
+        public ?bool $sameCountry = null,
+        public ?string $redirectToHoldType = null,
+        public ?array $locationAttrTypes = null,
+        public ?array $locationCapabilities = null,
+        public ?array $packageMaximumLimits = null,
+        public ?array $locationTypes = null,
+        public ?bool $includeHoliday = null,
+        public ?string $dropoffTime = null,
+        public ?string $dropOffServiceType = null,
+        public ?string $searchBy = null,
+        public ?string $contentOptions = null,
+        public ?array $carrierCodes = null,
+        public ?bool $getCall = null,
+    ) {}
 }

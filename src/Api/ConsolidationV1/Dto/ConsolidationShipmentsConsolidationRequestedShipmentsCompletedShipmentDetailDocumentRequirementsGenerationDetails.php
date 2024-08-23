@@ -19,8 +19,7 @@ final class ConsolidationShipmentsConsolidationRequestedShipmentsCompletedShipme
      * @param  ?int  $minimumCopiesRequired  It is a non-Negative Integer.<br>Example: 3
      */
     public function __construct(
-        public readonly ?string $type = null,
-        public readonly ?int $minimumCopiesRequired = null,
-    ) {
-    }
+        public ?string $type = null,
+        public ?int $minimumCopiesRequired = null,
+    ) {}
 }

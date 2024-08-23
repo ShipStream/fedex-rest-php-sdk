@@ -19,8 +19,7 @@ final class LocationDetailOrigin extends Dto
      * @param  ?ContactAndAddress2  $locationContactAndAddress  Location Contact And Address.
      */
     public function __construct(
-        public readonly ?string $locationId = null,
-        public readonly ?ContactAndAddress2 $locationContactAndAddress = null,
-    ) {
-    }
+        public ?string $locationId = null,
+        public ?ContactAndAddress2 $locationContactAndAddress = null,
+    ) {}
 }

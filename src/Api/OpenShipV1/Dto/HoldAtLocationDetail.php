@@ -20,9 +20,8 @@ final class HoldAtLocationDetail extends Dto
      * @param  ?string  $locationType  Specifies the type of facility at which package/shipment is to be held.
      */
     public function __construct(
-        public readonly string $locationId,
-        public readonly ?ContactAndAddress $locationContactAndAddress = null,
-        public readonly ?string $locationType = null,
-    ) {
-    }
+        public string $locationId,
+        public ?ContactAndAddress $locationContactAndAddress = null,
+        public ?string $locationType = null,
+    ) {}
 }

@@ -22,11 +22,10 @@ final class CompanyName extends Dto
      * @param  ?string  $storeId  This is Store identifier within a company.
      */
     public function __construct(
-        public readonly ?string $division = null,
-        public readonly ?string $companyCd = null,
-        public readonly ?string $name = null,
-        public readonly ?string $department = null,
-        public readonly ?string $storeId = null,
-    ) {
-    }
+        public ?string $division = null,
+        public ?string $companyCd = null,
+        public ?string $name = null,
+        public ?string $department = null,
+        public ?string $storeId = null,
+    ) {}
 }

@@ -39,8 +39,7 @@ class FreightShipment extends Request implements HasBody
      */
     public function __construct(
         public FullSchemaFreightShipment $fullSchemaFreightShipment,
-    ) {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {

@@ -20,7 +20,6 @@ final class TransitTime extends Dto
      * @param  TransitTimeDetail[]|null  $transitTimeDetails  Specifies the details regarding transit times.
      */
     public function __construct(
-        public readonly ?array $transitTimeDetails = null,
-    ) {
-    }
+        public ?array $transitTimeDetails = null,
+    ) {}
 }

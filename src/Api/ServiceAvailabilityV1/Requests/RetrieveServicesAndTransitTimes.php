@@ -38,8 +38,7 @@ class RetrieveServicesAndTransitTimes extends Request implements HasBody
      */
     public function __construct(
         public FullSchemaTransitTime $fullSchemaTransitTime,
-    ) {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {

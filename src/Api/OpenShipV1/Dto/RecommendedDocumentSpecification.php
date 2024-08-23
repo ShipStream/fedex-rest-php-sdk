@@ -18,7 +18,6 @@ final class RecommendedDocumentSpecification extends Dto
      * @param  string[]  $types  This is the recommended document Type.<br><a onclick='loadDocReference("shipmentdocumenttype")'>click here to see shipment document type</a>
      */
     public function __construct(
-        public readonly array $types,
-    ) {
-    }
+        public array $types,
+    ) {}
 }

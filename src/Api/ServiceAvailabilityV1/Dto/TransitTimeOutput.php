@@ -22,9 +22,8 @@ final class TransitTimeOutput extends Dto
      * @param  ?bool  $encoded  This field specifies the encoded flag.
      */
     public function __construct(
-        public readonly ?array $alerts = null,
-        public readonly ?array $transitTimes = null,
-        public readonly ?bool $encoded = null,
-    ) {
-    }
+        public ?array $alerts = null,
+        public ?array $transitTimes = null,
+        public ?bool $encoded = null,
+    ) {}
 }

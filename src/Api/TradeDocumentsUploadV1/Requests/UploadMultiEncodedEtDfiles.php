@@ -38,8 +38,7 @@ class UploadMultiEncodedEtDfiles extends Request implements HasBody
      */
     public function __construct(
         public FullSchemaBase64multiDocumentRequest $fullSchemaBase64multiDocumentRequest,
-    ) {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {

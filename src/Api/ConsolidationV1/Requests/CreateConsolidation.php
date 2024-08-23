@@ -39,8 +39,7 @@ class CreateConsolidation extends Request implements HasBody
      */
     public function __construct(
         public FullSchemaCreateConsolidation $fullSchemaCreateConsolidation,
-    ) {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {

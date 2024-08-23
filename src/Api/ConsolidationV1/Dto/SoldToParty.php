@@ -23,10 +23,9 @@ final class SoldToParty extends Dto
      * @param  ?PartyAccountNumber  $accountNumber  Specify the assigned FedEx Account Number. If the transportation charges to be billed to a payor other than the sender or recipient, provide the FedEx account number.
      */
     public function __construct(
-        public readonly ?PartyAddressSoldTo $address = null,
-        public readonly ?PartyContactSoldTo2 $contact = null,
-        public readonly ?array $tins = null,
-        public readonly ?PartyAccountNumber $accountNumber = null,
-    ) {
-    }
+        public ?PartyAddressSoldTo $address = null,
+        public ?PartyContactSoldTo2 $contact = null,
+        public ?array $tins = null,
+        public ?PartyAccountNumber $accountNumber = null,
+    ) {}
 }

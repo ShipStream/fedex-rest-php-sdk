@@ -16,13 +16,11 @@ final class ConsolidationShipments extends Dto
 {
     /**
      * @param  ?string  $shipmentRoleType  Specify the role type of shipment
-     * @param  ?ConsolidationShipmentsConsolidationRequestedShipments  $consolidationRequestedShipments
      * @param  ?ConsolidationCompletedShipmentDetail  $completedShipmentDetail  Returns the result of processing the desired package as a single-package shipment.
      */
     public function __construct(
-        public readonly ?string $shipmentRoleType = null,
-        public readonly ?ConsolidationShipmentsConsolidationRequestedShipments $consolidationRequestedShipments = null,
-        public readonly ?ConsolidationCompletedShipmentDetail $completedShipmentDetail = null,
-    ) {
-    }
+        public ?string $shipmentRoleType = null,
+        public ?ConsolidationShipmentsConsolidationRequestedShipments $consolidationRequestedShipments = null,
+        public ?ConsolidationCompletedShipmentDetail $completedShipmentDetail = null,
+    ) {}
 }

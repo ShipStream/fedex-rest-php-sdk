@@ -18,7 +18,6 @@ final class PackageCodDetail extends Dto
      * @param  ?Money  $codCollectionAmount  Specifies taxes or miscellaneous charge.
      */
     public function __construct(
-        public readonly ?Money $codCollectionAmount = null,
-    ) {
-    }
+        public ?Money $codCollectionAmount = null,
+    ) {}
 }

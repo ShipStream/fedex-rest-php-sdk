@@ -19,8 +19,7 @@ final class TrackingDateAndTime extends Dto
      * @param  ?string  $type  Field which holds information about the type of tracking date or timestamp.<br> Example: 'ACTUAL_DELIVERY'
      */
     public function __construct(
-        public readonly ?string $dateTime = null,
-        public readonly ?string $type = null,
-    ) {
-    }
+        public ?string $dateTime = null,
+        public ?string $type = null,
+    ) {}
 }

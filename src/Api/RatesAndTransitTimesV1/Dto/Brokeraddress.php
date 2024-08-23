@@ -27,16 +27,15 @@ final class Brokeraddress extends Dto
      * @param  ?string  $countryName  Specify the country name.<br> Example: India
      */
     public function __construct(
-        public readonly ?array $streetLines = null,
-        public readonly ?string $city = null,
-        public readonly ?string $stateOrProvinceCode = null,
-        public readonly ?string $postalCode = null,
-        public readonly ?string $countryCode = null,
-        public readonly ?bool $residential = null,
-        public readonly ?string $classification = null,
-        public readonly ?string $geographicCoordinates = null,
-        public readonly ?string $urbanizationCode = null,
-        public readonly ?string $countryName = null,
-    ) {
-    }
+        public ?array $streetLines = null,
+        public ?string $city = null,
+        public ?string $stateOrProvinceCode = null,
+        public ?string $postalCode = null,
+        public ?string $countryCode = null,
+        public ?bool $residential = null,
+        public ?string $classification = null,
+        public ?string $geographicCoordinates = null,
+        public ?string $urbanizationCode = null,
+        public ?string $countryName = null,
+    ) {}
 }

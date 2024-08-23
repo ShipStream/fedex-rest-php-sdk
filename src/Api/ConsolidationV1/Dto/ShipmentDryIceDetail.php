@@ -20,9 +20,8 @@ final class ShipmentDryIceDetail extends Dto
      * @param  ?ShipmentDryIceProcessingOptionsRequested  $processingOptions  Specify that dry ice information is only applicable at the shipment level. Package level dry ice information would not apply.
      */
     public function __construct(
-        public readonly Weight $totalWeight,
-        public readonly int $packageCount,
-        public readonly ?ShipmentDryIceProcessingOptionsRequested $processingOptions = null,
-    ) {
-    }
+        public Weight $totalWeight,
+        public int $packageCount,
+        public ?ShipmentDryIceProcessingOptionsRequested $processingOptions = null,
+    ) {}
 }

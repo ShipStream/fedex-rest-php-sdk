@@ -21,10 +21,9 @@ final class Tax extends Dto
      * @param  ?string  $type  Placeholder for the Type of the Tax.<br>Example:type
      */
     public function __construct(
-        public readonly ?float $amount = null,
-        public readonly ?string $level = null,
-        public readonly ?string $description = null,
-        public readonly ?string $type = null,
-    ) {
-    }
+        public ?float $amount = null,
+        public ?string $level = null,
+        public ?string $description = null,
+        public ?string $type = null,
+    ) {}
 }

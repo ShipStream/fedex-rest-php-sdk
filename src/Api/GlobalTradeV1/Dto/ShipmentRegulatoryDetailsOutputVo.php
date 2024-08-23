@@ -21,9 +21,8 @@ final class ShipmentRegulatoryDetailsOutputVo extends Dto
      * @param  CxsAlert[]|null  $cxsalerts
      */
     public function __construct(
-        public readonly array $userMessages,
-        public readonly RegulatoryCountryDetails $countryDetails,
-        public readonly ?array $cxsalerts = null,
-    ) {
-    }
+        public array $userMessages,
+        public RegulatoryCountryDetails $countryDetails,
+        public ?array $cxsalerts = null,
+    ) {}
 }

@@ -19,8 +19,7 @@ final class StringBarcode extends Dto
      * @param  ?string  $value  This is the value.<br>Example: 1010062512241535917900794953544894
      */
     public function __construct(
-        public readonly ?string $type = null,
-        public readonly ?string $value = null,
-    ) {
-    }
+        public ?string $type = null,
+        public ?string $value = null,
+    ) {}
 }

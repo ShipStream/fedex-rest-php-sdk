@@ -19,8 +19,7 @@ final class JustContactAndAddress extends Dto
      * @param  ?Contact2  $contact  Specify the contact information.
      */
     public function __construct(
-        public readonly ?Address $address = null,
-        public readonly ?Contact2 $contact = null,
-    ) {
-    }
+        public ?Address $address = null,
+        public ?Contact2 $contact = null,
+    ) {}
 }

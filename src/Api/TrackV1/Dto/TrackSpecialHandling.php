@@ -20,9 +20,8 @@ final class TrackSpecialHandling extends Dto
      * @param  ?string  $paymentType  Field which holds information about the payment handling related to the special handling.<br> Example: OTHER
      */
     public function __construct(
-        public readonly ?string $description = null,
-        public readonly ?string $type = null,
-        public readonly ?string $paymentType = null,
-    ) {
-    }
+        public ?string $description = null,
+        public ?string $type = null,
+        public ?string $paymentType = null,
+    ) {}
 }

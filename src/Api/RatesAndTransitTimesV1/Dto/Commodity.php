@@ -28,17 +28,16 @@ final class Commodity extends Dto
      * @param  ?string  $partNumber  Specify the part number if any. Example: P1
      */
     public function __construct(
-        public readonly ?string $description = null,
-        public readonly ?Weight $weight = null,
-        public readonly ?int $quantity = null,
-        public readonly ?Money $customsValue = null,
-        public readonly ?Money $unitPrice = null,
-        public readonly ?int $numberOfPieces = null,
-        public readonly ?string $countryOfManufacture = null,
-        public readonly ?string $quantityUnits = null,
-        public readonly ?string $name = null,
-        public readonly ?string $harmonizedCode = null,
-        public readonly ?string $partNumber = null,
-    ) {
-    }
+        public ?string $description = null,
+        public ?Weight $weight = null,
+        public ?int $quantity = null,
+        public ?Money $customsValue = null,
+        public ?Money $unitPrice = null,
+        public ?int $numberOfPieces = null,
+        public ?string $countryOfManufacture = null,
+        public ?string $quantityUnits = null,
+        public ?string $name = null,
+        public ?string $harmonizedCode = null,
+        public ?string $partNumber = null,
+    ) {}
 }

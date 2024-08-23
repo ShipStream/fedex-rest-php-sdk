@@ -21,10 +21,9 @@ final class FullSchemaCreateOpenShipment extends Dto
      * @param  ?string  $index  This is a unique value assigned to the already created Open Shipment. If this isn’t available then provide the master tracking number.<br>Note: If index is not provided while create open shipment then the master tracking id of create open ship will act as index for the shipment.<br>Example: Test1234
      */
     public function __construct(
-        public readonly OpenshipmentRequestedShipment $requestedShipment,
-        public readonly PartyAccountNumber $accountNumber,
-        public readonly ?string $openShipmentAction = null,
-        public readonly ?string $index = null,
-    ) {
-    }
+        public OpenshipmentRequestedShipment $requestedShipment,
+        public PartyAccountNumber $accountNumber,
+        public ?string $openShipmentAction = null,
+        public ?string $index = null,
+    ) {}
 }

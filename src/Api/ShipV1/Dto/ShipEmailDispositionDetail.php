@@ -20,9 +20,8 @@ final class ShipEmailDispositionDetail extends Dto
      * @param  ?string  $recipientType  Specify the recipient Type.<br>Example: SHIPPER/BROKER
      */
     public function __construct(
-        public readonly ?string $emailAddress = null,
-        public readonly ?string $type = null,
-        public readonly ?string $recipientType = null,
-    ) {
-    }
+        public ?string $emailAddress = null,
+        public ?string $type = null,
+        public ?string $recipientType = null,
+    ) {}
 }

@@ -20,9 +20,8 @@ final class EMailDetail extends Dto
      * @param  ?string[]  $permissions  Indicate the Email Permission Type.
      */
     public function __construct(
-        public readonly ?string $emailNotificationFormatType = null,
-        public readonly ?string $address = null,
-        public readonly ?array $permissions = null,
-    ) {
-    }
+        public ?string $emailNotificationFormatType = null,
+        public ?string $address = null,
+        public ?array $permissions = null,
+    ) {}
 }

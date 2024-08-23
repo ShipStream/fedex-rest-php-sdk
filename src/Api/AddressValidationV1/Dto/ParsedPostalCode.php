@@ -20,9 +20,8 @@ final class ParsedPostalCode extends Dto
      * @param  ?string  $deliveryPoint  Indicates the tertiary value in Postal Code.<br> Example: 50
      */
     public function __construct(
-        public readonly ?string $base = null,
-        public readonly ?string $addOn = null,
-        public readonly ?string $deliveryPoint = null,
-    ) {
-    }
+        public ?string $base = null,
+        public ?string $addOn = null,
+        public ?string $deliveryPoint = null,
+    ) {}
 }

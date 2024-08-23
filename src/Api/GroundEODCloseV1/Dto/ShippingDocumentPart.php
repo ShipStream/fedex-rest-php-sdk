@@ -19,8 +19,7 @@ final class ShippingDocumentPart extends Dto
      * @param  ?string  $image  Graphic or printer commands for this image.
      */
     public function __construct(
-        public readonly ?int $documentPartSequenceNumber = null,
-        public readonly ?string $image = null,
-    ) {
-    }
+        public ?int $documentPartSequenceNumber = null,
+        public ?string $image = null,
+    ) {}
 }

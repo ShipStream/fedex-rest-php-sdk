@@ -20,9 +20,8 @@ final class TransitTimeRequestedPackageLineItemPackageSpecialServicesBatteryDeta
      * @param  ?string  $batteryRegulatoryType  A regulation specific classification for the battery or cell.
      */
     public function __construct(
-        public readonly ?string $batteryMaterialType = null,
-        public readonly ?string $batteryPackingType = null,
-        public readonly ?string $batteryRegulatoryType = null,
-    ) {
-    }
+        public ?string $batteryMaterialType = null,
+        public ?string $batteryPackingType = null,
+        public ?string $batteryRegulatoryType = null,
+    ) {}
 }

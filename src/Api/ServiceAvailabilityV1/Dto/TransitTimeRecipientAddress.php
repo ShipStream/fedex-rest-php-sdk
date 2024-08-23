@@ -22,11 +22,10 @@ final class TransitTimeRecipientAddress extends Dto
      * @param  ?bool  $residential  Indicates whether the address is residential (as opposed to commercial).<br> Example: false
      */
     public function __construct(
-        public readonly string $postalCode,
-        public readonly string $countryCode,
-        public readonly ?string $city = null,
-        public readonly ?string $stateOrProvinceCode = null,
-        public readonly ?bool $residential = null,
-    ) {
-    }
+        public string $postalCode,
+        public string $countryCode,
+        public ?string $city = null,
+        public ?string $stateOrProvinceCode = null,
+        public ?bool $residential = null,
+    ) {}
 }

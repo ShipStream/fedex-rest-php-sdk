@@ -19,8 +19,7 @@ final class TransactionDetailVo extends Dto
      * @param  ?string  $transactionId  This element has a unique identifier added in your request, helps you match the request to the reply. Maximum of 40 characters allowed.<br>Example: XXXX_XXX123XXXXX.
      */
     public function __construct(
-        public readonly ?string $transactionDetails = null,
-        public readonly ?string $transactionId = null,
-    ) {
-    }
+        public ?string $transactionDetails = null,
+        public ?string $transactionId = null,
+    ) {}
 }

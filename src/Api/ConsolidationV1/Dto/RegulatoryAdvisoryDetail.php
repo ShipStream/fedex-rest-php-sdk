@@ -24,8 +24,7 @@ final class RegulatoryAdvisoryDetail extends Dto
      * @param  RegulatoryProhibition[]|null  $prohibitions  It is a regulatory probitions.
      */
     public function __construct(
-        public readonly ?array $commodityClarifications = null,
-        public readonly ?array $prohibitions = null,
-    ) {
-    }
+        public ?array $commodityClarifications = null,
+        public ?array $prohibitions = null,
+    ) {}
 }

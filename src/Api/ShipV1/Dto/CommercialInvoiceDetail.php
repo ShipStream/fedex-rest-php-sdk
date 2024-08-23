@@ -21,8 +21,7 @@ final class CommercialInvoiceDetail extends Dto
      * @param  ?ShippingDocumentFormat  $documentFormat  Specify the shipping document format.
      */
     public function __construct(
-        public readonly ?array $customerImageUsages = null,
-        public readonly ?ShippingDocumentFormat $documentFormat = null,
-    ) {
-    }
+        public ?array $customerImageUsages = null,
+        public ?ShippingDocumentFormat $documentFormat = null,
+    ) {}
 }

@@ -23,12 +23,11 @@ final class FullSchemaCancelFreightPickup extends Dto
      * @param  ?string  $scheduledDate  Specifies the date when pickup dispatch occurs.<br>Format YYYY-MM-DD <br> Example: 2019-10-15
      */
     public function __construct(
-        public readonly PartyAccountNumber $associatedAccountNumber,
-        public readonly string $pickupConfirmationCode,
-        public readonly string $reason,
-        public readonly string $contactName,
-        public readonly ?string $remarks = null,
-        public readonly ?string $scheduledDate = null,
-    ) {
-    }
+        public PartyAccountNumber $associatedAccountNumber,
+        public string $pickupConfirmationCode,
+        public string $reason,
+        public string $contactName,
+        public ?string $remarks = null,
+        public ?string $scheduledDate = null,
+    ) {}
 }

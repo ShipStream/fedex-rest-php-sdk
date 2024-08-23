@@ -24,6 +24,5 @@ final class TrkcResponseVoAssociated extends Response
         public readonly ?string $transactionId = null,
         public readonly ?string $customerTransactionId = null,
         public readonly ?TrackingMpsResponse $output = null,
-    ) {
-    }
+    ) {}
 }

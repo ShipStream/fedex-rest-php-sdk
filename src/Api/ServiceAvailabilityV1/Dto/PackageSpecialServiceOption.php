@@ -20,9 +20,8 @@ final class PackageSpecialServiceOption extends Dto
      * @param  ?string  $specialServiceType  Indicate the types of special services requested for the shipment.<br><a onclick='loadDocReference("packagelevelspecialservicetypes")'>Click here to see Package level Special Service Types</a>
      */
     public function __construct(
-        public readonly ?string $customerIntegrationMode = null,
-        public readonly ?string $subType = null,
-        public readonly ?string $specialServiceType = null,
-    ) {
-    }
+        public ?string $customerIntegrationMode = null,
+        public ?string $subType = null,
+        public ?string $specialServiceType = null,
+    ) {}
 }

@@ -21,10 +21,9 @@ final class FullSchemaMultiplePieceShipment extends Dto
      * @param  ?PagingDetails  $pagingDetails  Specify the details about how to retrieve the subsequent pages when there is more than one page in the TrackReply.
      */
     public function __construct(
-        public readonly TrackingInfo $masterTrackingNumberInfo,
-        public readonly string $associatedType,
-        public readonly ?bool $includeDetailedScans = null,
-        public readonly ?PagingDetails $pagingDetails = null,
-    ) {
-    }
+        public TrackingInfo $masterTrackingNumberInfo,
+        public string $associatedType,
+        public ?bool $includeDetailedScans = null,
+        public ?PagingDetails $pagingDetails = null,
+    ) {}
 }

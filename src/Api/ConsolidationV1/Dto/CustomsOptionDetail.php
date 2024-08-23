@@ -19,8 +19,7 @@ final class CustomsOptionDetail extends Dto
      * @param  ?string  $type  Specify the reason for a global return, as recognized by Customs.
      */
     public function __construct(
-        public readonly ?string $description = null,
-        public readonly ?string $type = null,
-    ) {
-    }
+        public ?string $description = null,
+        public ?string $type = null,
+    ) {}
 }

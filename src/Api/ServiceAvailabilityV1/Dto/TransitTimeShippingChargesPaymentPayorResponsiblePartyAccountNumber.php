@@ -18,7 +18,6 @@ final class TransitTimeShippingChargesPaymentPayorResponsiblePartyAccountNumber 
      * @param  string  $value  Conditionally required.<br>Account number is required for ACCOUNT based rates. Account number value max length is 9. <br> Example: 60xxxxxx2
      */
     public function __construct(
-        public readonly string $value,
-    ) {
-    }
+        public string $value,
+    ) {}
 }

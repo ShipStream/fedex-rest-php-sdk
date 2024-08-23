@@ -20,9 +20,8 @@ final class ImageMetaOutputVo extends Dto
      * @param  ?string  $documentReferenceId  Returns the document reference ID associated with the request.
      */
     public function __construct(
-        public readonly ?ImageMetaOutputVoMeta $meta = null,
-        public readonly ?string $status = null,
-        public readonly ?string $documentReferenceId = null,
-    ) {
-    }
+        public ?ImageMetaOutputVoMeta $meta = null,
+        public ?string $status = null,
+        public ?string $documentReferenceId = null,
+    ) {}
 }

@@ -19,8 +19,7 @@ final class Weight extends Dto
      * @param  float  $value  This is the weight. Maximum length is 99999.
      */
     public function __construct(
-        public readonly string $units,
-        public readonly float $value,
-    ) {
-    }
+        public string $units,
+        public float $value,
+    ) {}
 }

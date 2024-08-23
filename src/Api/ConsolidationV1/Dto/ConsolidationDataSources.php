@@ -19,8 +19,7 @@ final class ConsolidationDataSources extends Dto
      * @param  ?string  $consolidationDataSourceType  Identifies how the content of the field should be determined.
      */
     public function __construct(
-        public readonly ?string $consolidationDataType = null,
-        public readonly ?string $consolidationDataSourceType = null,
-    ) {
-    }
+        public ?string $consolidationDataType = null,
+        public ?string $consolidationDataSourceType = null,
+    ) {}
 }

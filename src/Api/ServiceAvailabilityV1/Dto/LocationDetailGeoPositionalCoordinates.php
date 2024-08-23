@@ -19,8 +19,7 @@ final class LocationDetailGeoPositionalCoordinates extends Dto
      * @param  ?float  $longitude  Field holds the longitude value
      */
     public function __construct(
-        public readonly ?float $latitude = null,
-        public readonly ?float $longitude = null,
-    ) {
-    }
+        public ?float $latitude = null,
+        public ?float $longitude = null,
+    ) {}
 }

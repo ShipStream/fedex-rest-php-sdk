@@ -18,7 +18,6 @@ final class ShipmentDryIceProcessingOptionsRequested extends Dto
      * @param  ?string[]  $options  Specifies the options.<br>Example: ["options"]
      */
     public function __construct(
-        public readonly ?array $options = null,
-    ) {
-    }
+        public ?array $options = null,
+    ) {}
 }

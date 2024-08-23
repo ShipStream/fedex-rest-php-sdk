@@ -25,14 +25,13 @@ final class ReferenceInformation extends Dto
      * @param  ?string  $destinationPostalCode  Conditionally required. <br>Indicate recipient postal code. Required for postal-aware countries. <br> Note: Either account number or destination postal code and country code are mandatory to track by reference. <br> Example: 75063<br><a onclick='loadDocReference("postalawarecountries")'>Click here to see Postal aware countries</a>
      */
     public function __construct(
-        public readonly string $value,
-        public readonly string $shipDateBegin,
-        public readonly string $shipDateEndDate,
-        public readonly ?string $carrierCode = null,
-        public readonly ?string $type = null,
-        public readonly ?string $accountNumber = null,
-        public readonly ?string $destinationCountryCode = null,
-        public readonly ?string $destinationPostalCode = null,
-    ) {
-    }
+        public string $value,
+        public string $shipDateBegin,
+        public string $shipDateEndDate,
+        public ?string $carrierCode = null,
+        public ?string $type = null,
+        public ?string $accountNumber = null,
+        public ?string $destinationCountryCode = null,
+        public ?string $destinationPostalCode = null,
+    ) {}
 }

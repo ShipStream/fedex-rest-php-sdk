@@ -32,16 +32,15 @@ final class PieceResponses extends Dto
      * @param  ?float  $baseRateAmount  Returns the base rate amount.<br>Example: 321.45
      */
     public function __construct(
-        public readonly ?string $masterTrackingNumber = null,
-        public readonly ?string $trackingNumber = null,
-        public readonly ?float $additionalChargesDiscount = null,
-        public readonly ?float $netRateAmount = null,
-        public readonly ?float $netChargeAmount = null,
-        public readonly ?float $netDiscountAmount = null,
-        public readonly ?array $packageDocuments = null,
-        public readonly ?array $customerReferences = null,
-        public readonly ?float $codcollectionAmount = null,
-        public readonly ?float $baseRateAmount = null,
-    ) {
-    }
+        public ?string $masterTrackingNumber = null,
+        public ?string $trackingNumber = null,
+        public ?float $additionalChargesDiscount = null,
+        public ?float $netRateAmount = null,
+        public ?float $netChargeAmount = null,
+        public ?float $netDiscountAmount = null,
+        public ?array $packageDocuments = null,
+        public ?array $customerReferences = null,
+        public ?float $codcollectionAmount = null,
+        public ?float $baseRateAmount = null,
+    ) {}
 }

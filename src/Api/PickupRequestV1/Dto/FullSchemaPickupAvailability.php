@@ -32,19 +32,18 @@ final class FullSchemaPickupAvailability extends Dto
      * @param  ?string  $associatedAccountNumberType  This represents a kind of legacy account number from a FedEx operating entity for the account number associated to the pickup.<br>Valid values are: FEDEX_EXPRESS<br>FEDEX_GROUND<br>
      */
     public function __construct(
-        public readonly Address $pickupAddress,
-        public readonly array $pickupRequestType,
-        public readonly array $carriers,
-        public readonly string $countryRelationship,
-        public readonly ?string $dispatchDate = null,
-        public readonly ?string $packageReadyTime = null,
-        public readonly ?string $customerCloseTime = null,
-        public readonly ?string $pickupType = null,
-        public readonly ?PickupShipmentAttributes $shipmentAttributes = null,
-        public readonly ?int $numberOfBusinessDays = null,
-        public readonly ?array $packageDetails = null,
-        public readonly ?string $associatedAccountNumber = null,
-        public readonly ?string $associatedAccountNumberType = null,
-    ) {
-    }
+        public Address $pickupAddress,
+        public array $pickupRequestType,
+        public array $carriers,
+        public string $countryRelationship,
+        public ?string $dispatchDate = null,
+        public ?string $packageReadyTime = null,
+        public ?string $customerCloseTime = null,
+        public ?string $pickupType = null,
+        public ?PickupShipmentAttributes $shipmentAttributes = null,
+        public ?int $numberOfBusinessDays = null,
+        public ?array $packageDetails = null,
+        public ?string $associatedAccountNumber = null,
+        public ?string $associatedAccountNumberType = null,
+    ) {}
 }

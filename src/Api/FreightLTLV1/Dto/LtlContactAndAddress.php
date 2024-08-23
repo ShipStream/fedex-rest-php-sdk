@@ -19,8 +19,7 @@ final class LtlContactAndAddress extends Dto
      * @param  ?Contact  $contact  Indicate the contact details of the shipper.
      */
     public function __construct(
-        public readonly LtlAddress $address,
-        public readonly ?Contact $contact = null,
-    ) {
-    }
+        public LtlAddress $address,
+        public ?Contact $contact = null,
+    ) {}
 }

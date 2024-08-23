@@ -37,22 +37,21 @@ final class ResolvedAddress extends Dto
      * @param  ?Attributes  $attributes  These are the  key-value pair as additional information returned along with the address processed by the system. These attribute will list what is working and what is not on the input address. For More information, look in to Chapter Address Attributes in the Overview.<br><a onclick='loadDocReference("addressattributes")'>Click here to see Address Attributes</a>
      */
     public function __construct(
-        public readonly ?array $streetLinesToken = null,
-        public readonly ?string $city = null,
-        public readonly ?string $stateOrProvinceCode = null,
-        public readonly ?string $countryCode = null,
-        public readonly ?array $customerMessage = null,
-        public readonly ?array $cityToken = null,
-        public readonly ?ResolutionToken $postalCodeToken = null,
-        public readonly ?ParsedPostalCode $parsedPostalCode = null,
-        public readonly ?string $classification = null,
-        public readonly ?bool $postOfficeBox = null,
-        public readonly ?bool $normalizedStatusNameDpv = null,
-        public readonly ?string $standardizedStatusNameMatchSource = null,
-        public readonly ?string $resolutionMethodName = null,
-        public readonly ?bool $ruralRouteHighwayContract = null,
-        public readonly ?bool $generalDelivery = null,
-        public readonly ?Attributes $attributes = null,
-    ) {
-    }
+        public ?array $streetLinesToken = null,
+        public ?string $city = null,
+        public ?string $stateOrProvinceCode = null,
+        public ?string $countryCode = null,
+        public ?array $customerMessage = null,
+        public ?array $cityToken = null,
+        public ?ResolutionToken $postalCodeToken = null,
+        public ?ParsedPostalCode $parsedPostalCode = null,
+        public ?string $classification = null,
+        public ?bool $postOfficeBox = null,
+        public ?bool $normalizedStatusNameDpv = null,
+        public ?string $standardizedStatusNameMatchSource = null,
+        public ?string $resolutionMethodName = null,
+        public ?bool $ruralRouteHighwayContract = null,
+        public ?bool $generalDelivery = null,
+        public ?Attributes $attributes = null,
+    ) {}
 }

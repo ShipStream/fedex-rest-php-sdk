@@ -22,9 +22,8 @@ final class PackageOperationalDetail extends Dto
      * @param  OperationalInstructions[]|null  $operationalInstructions
      */
     public function __construct(
-        public readonly ?string $astraHandlingText = null,
-        public readonly ?PackageBarcodes $barcodes = null,
-        public readonly ?array $operationalInstructions = null,
-    ) {
-    }
+        public ?string $astraHandlingText = null,
+        public ?PackageBarcodes $barcodes = null,
+        public ?array $operationalInstructions = null,
+    ) {}
 }

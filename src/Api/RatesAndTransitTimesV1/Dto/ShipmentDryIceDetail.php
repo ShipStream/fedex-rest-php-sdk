@@ -19,8 +19,7 @@ final class ShipmentDryIceDetail extends Dto
      * @param  ?int  $packageCount  This is package count.<br>Example: 12
      */
     public function __construct(
-        public readonly ?Weight $totalWeight = null,
-        public readonly ?int $packageCount = null,
-    ) {
-    }
+        public ?Weight $totalWeight = null,
+        public ?int $packageCount = null,
+    ) {}
 }

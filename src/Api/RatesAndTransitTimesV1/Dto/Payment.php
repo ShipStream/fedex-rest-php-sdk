@@ -19,8 +19,7 @@ final class Payment extends Dto
      * @param  ?string  $paymentType  Indicate the payment Type. Applicable for Express and Ground rates.
      */
     public function __construct(
-        public readonly ?Payor $payor = null,
-        public readonly ?string $paymentType = null,
-    ) {
-    }
+        public ?Payor $payor = null,
+        public ?string $paymentType = null,
+    ) {}
 }

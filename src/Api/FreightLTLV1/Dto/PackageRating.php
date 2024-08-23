@@ -22,9 +22,8 @@ final class PackageRating extends Dto
      * @param  PackageRateDetail2[]|null  $packageRateDetails  Data for a package's rates, as calculated per a specific rate type.
      */
     public function __construct(
-        public readonly ?float $effectiveNetDiscount = null,
-        public readonly ?string $actualRateType = null,
-        public readonly ?array $packageRateDetails = null,
-    ) {
-    }
+        public ?float $effectiveNetDiscount = null,
+        public ?string $actualRateType = null,
+        public ?array $packageRateDetails = null,
+    ) {}
 }

@@ -30,17 +30,16 @@ final class RequestedShipmentVerifyShipmentSpecialServices extends Dto
      * @param  ?HomeDeliveryPremiumDetail  $homeDeliveryPremiumDetail  These are Special service elements for FedEx Ground Home Delivery shipments. If selected, element homedeliveryPremiumType is mandatory.
      */
     public function __construct(
-        public readonly ?array $specialServiceTypes = null,
-        public readonly ?EtdDetail $etdDetail = null,
-        public readonly ?ReturnShipmentDetail $returnShipmentDetail = null,
-        public readonly ?DeliveryOnInvoiceAcceptanceDetail $deliveryOnInvoiceAcceptanceDetail = null,
-        public readonly ?InternationalTrafficInArmsRegulationsDetail $internationalTrafficInArmsRegulationsDetail = null,
-        public readonly ?PendingShipmentDetail $pendingShipmentDetail = null,
-        public readonly ?HoldAtLocationDetail $holdAtLocationDetail = null,
-        public readonly ?ShipmentCodDetail $shipmentCodDetail = null,
-        public readonly ?ShipmentDryIceDetail $shipmentDryIceDetail = null,
-        public readonly ?InternationalControlledExportDetail $internationalControlledExportDetail = null,
-        public readonly ?HomeDeliveryPremiumDetail $homeDeliveryPremiumDetail = null,
-    ) {
-    }
+        public ?array $specialServiceTypes = null,
+        public ?EtdDetail $etdDetail = null,
+        public ?ReturnShipmentDetail $returnShipmentDetail = null,
+        public ?DeliveryOnInvoiceAcceptanceDetail $deliveryOnInvoiceAcceptanceDetail = null,
+        public ?InternationalTrafficInArmsRegulationsDetail $internationalTrafficInArmsRegulationsDetail = null,
+        public ?PendingShipmentDetail $pendingShipmentDetail = null,
+        public ?HoldAtLocationDetail $holdAtLocationDetail = null,
+        public ?ShipmentCodDetail $shipmentCodDetail = null,
+        public ?ShipmentDryIceDetail $shipmentDryIceDetail = null,
+        public ?InternationalControlledExportDetail $internationalControlledExportDetail = null,
+        public ?HomeDeliveryPremiumDetail $homeDeliveryPremiumDetail = null,
+    ) {}
 }

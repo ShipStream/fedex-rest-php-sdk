@@ -19,8 +19,7 @@ final class Volume extends Dto
      * @param  ?float  $value  The amount of volume. <br> Example: 9.965781217890562
      */
     public function __construct(
-        public readonly ?string $units = null,
-        public readonly ?float $value = null,
-    ) {
-    }
+        public ?string $units = null,
+        public ?float $value = null,
+    ) {}
 }

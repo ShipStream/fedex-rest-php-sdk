@@ -19,8 +19,7 @@ final class CancelTagOuputVo extends Dto
      * @param  ?string  $successMessage  Message received when a tag is successfully cancelled.<br>Example: success
      */
     public function __construct(
-        public readonly ?bool $cancelledTag = null,
-        public readonly ?string $successMessage = null,
-    ) {
-    }
+        public ?bool $cancelledTag = null,
+        public ?string $successMessage = null,
+    ) {}
 }

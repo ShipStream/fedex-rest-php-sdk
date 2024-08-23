@@ -18,7 +18,6 @@ final class TransborderDistributionDetailSpecialServicesRequestedTransborderDist
      * @param  ?string[]  $types  Will be used to make decisions on credit card processing
      */
     public function __construct(
-        public readonly ?array $types = null,
-    ) {
-    }
+        public ?array $types = null,
+    ) {}
 }

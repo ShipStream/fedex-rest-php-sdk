@@ -21,10 +21,9 @@ final class UploadDocumentReferenceDetail extends Dto
      * @param  ?string  $documentId  This is the uploaded document ID value.<br>Example: 090927d680038c61
      */
     public function __construct(
-        public readonly ?string $documentType = null,
-        public readonly ?string $documentReference = null,
-        public readonly ?string $description = null,
-        public readonly ?string $documentId = null,
-    ) {
-    }
+        public ?string $documentType = null,
+        public ?string $documentReference = null,
+        public ?string $description = null,
+        public ?string $documentId = null,
+    ) {}
 }

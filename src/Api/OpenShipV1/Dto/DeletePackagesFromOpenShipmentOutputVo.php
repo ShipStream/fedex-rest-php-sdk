@@ -21,8 +21,7 @@ final class DeletePackagesFromOpenShipmentOutputVo extends Dto
      * @param  Alert[]|null  $alerts  The alerts received when a Shipment is processed. This includes the alert code, alert type, and alert message.
      */
     public function __construct(
-        public readonly ?bool $deletedPackagesFromOpenshipment = null,
-        public readonly ?array $alerts = null,
-    ) {
-    }
+        public ?bool $deletedPackagesFromOpenshipment = null,
+        public ?array $alerts = null,
+    ) {}
 }

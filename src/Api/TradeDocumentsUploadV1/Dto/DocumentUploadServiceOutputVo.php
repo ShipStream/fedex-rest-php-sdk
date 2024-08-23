@@ -18,7 +18,6 @@ final class DocumentUploadServiceOutputVo extends Dto
      * @param  ?DocumentMetaOutput  $meta  This is the response indicating upload reference details.
      */
     public function __construct(
-        public readonly ?DocumentMetaOutput $meta = null,
-    ) {
-    }
+        public ?DocumentMetaOutput $meta = null,
+    ) {}
 }

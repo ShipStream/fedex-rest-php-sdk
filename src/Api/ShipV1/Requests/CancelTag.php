@@ -40,8 +40,7 @@ class CancelTag extends Request implements HasBody
     public function __construct(
         protected string $shipmentid,
         public FullSchemaCancelTag $fullSchemaCancelTag,
-    ) {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {

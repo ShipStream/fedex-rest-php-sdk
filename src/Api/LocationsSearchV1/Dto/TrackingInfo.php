@@ -20,9 +20,8 @@ final class TrackingInfo extends Dto
      * @param  ?string  $shipDate  The date of shipment.<br> Example: 2019-10-13
      */
     public function __construct(
-        public readonly ?string $uniqueTrackingId = null,
-        public readonly ?string $trackingNumber = null,
-        public readonly ?string $shipDate = null,
-    ) {
-    }
+        public ?string $uniqueTrackingId = null,
+        public ?string $trackingNumber = null,
+        public ?string $shipDate = null,
+    ) {}
 }

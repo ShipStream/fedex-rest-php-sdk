@@ -29,16 +29,15 @@ final class CommodityVo extends Dto
      * @param  ?Measure  $additionalMeasures  This object contains additional quantitative information other than weight and quantity to calculate duties and taxes.
      */
     public function __construct(
-        public readonly string $harmonizedCode,
-        public readonly ?string $quantity = null,
-        public readonly ?string $quantityUom = null,
-        public readonly ?Money $customsValue = null,
-        public readonly ?string $countryOfManufacture = null,
-        public readonly ?string $name = null,
-        public readonly ?string $description = null,
-        public readonly ?Weight $weight = null,
-        public readonly ?int $commodityId = null,
-        public readonly ?Measure $additionalMeasures = null,
-    ) {
-    }
+        public string $harmonizedCode,
+        public ?string $quantity = null,
+        public ?string $quantityUom = null,
+        public ?Money $customsValue = null,
+        public ?string $countryOfManufacture = null,
+        public ?string $name = null,
+        public ?string $description = null,
+        public ?Weight $weight = null,
+        public ?int $commodityId = null,
+        public ?Measure $additionalMeasures = null,
+    ) {}
 }

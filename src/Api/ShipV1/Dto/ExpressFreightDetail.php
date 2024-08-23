@@ -20,9 +20,8 @@ final class ExpressFreightDetail extends Dto
      * @param  ?bool  $packingListEnclosed  This indicates whether or not the Packing List is enclosed with the shipment. A packing list is a document that includes details about the contents of a package. <br> Example: true
      */
     public function __construct(
-        public readonly ?string $bookingConfirmationNumber = null,
-        public readonly ?int $shippersLoadAndCount = null,
-        public readonly ?bool $packingListEnclosed = null,
-    ) {
-    }
+        public ?string $bookingConfirmationNumber = null,
+        public ?int $shippersLoadAndCount = null,
+        public ?bool $packingListEnclosed = null,
+    ) {}
 }

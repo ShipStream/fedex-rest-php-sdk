@@ -24,8 +24,7 @@ final class PackageBarcodes extends Dto
      * @param  StringBarcode[]|null  $stringBarcodes
      */
     public function __construct(
-        public readonly ?array $binaryBarcodes = null,
-        public readonly ?array $stringBarcodes = null,
-    ) {
-    }
+        public ?array $binaryBarcodes = null,
+        public ?array $stringBarcodes = null,
+    ) {}
 }

@@ -40,8 +40,7 @@ class CreateShipment extends Request implements HasBody
      */
     public function __construct(
         public FullSchemaShip $fullSchemaShip,
-    ) {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {

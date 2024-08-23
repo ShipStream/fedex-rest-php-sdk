@@ -18,7 +18,6 @@ final class ConsolidationDocumentSpec1ConsolidatedSoldToSummaryReportDetail exte
      * @param  ?Formats  $format  Specifies the formats.
      */
     public function __construct(
-        public readonly ?Formats $format = null,
-    ) {
-    }
+        public ?Formats $format = null,
+    ) {}
 }

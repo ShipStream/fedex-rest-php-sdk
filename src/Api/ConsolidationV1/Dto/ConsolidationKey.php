@@ -20,9 +20,8 @@ final class ConsolidationKey extends Dto
      * @param  string  $type  Specify the type of consolidation.
      */
     public function __construct(
-        public readonly string $date,
-        public readonly string $index,
-        public readonly string $type,
-    ) {
-    }
+        public string $date,
+        public string $index,
+        public string $type,
+    ) {}
 }

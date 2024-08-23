@@ -21,10 +21,9 @@ final class ReturnShipmentDetail extends Dto
      * @param  ?ReturnAssociationDetail  $returnAssociationDetail  Specifies the details of an outbound shipment in order to associate the return shipment to it.
      */
     public function __construct(
-        public readonly string $returnType,
-        public readonly ?ReturnEmailDetail $returnEmailDetail = null,
-        public readonly ?ReturnMerchandiseAuthorization $rma = null,
-        public readonly ?ReturnAssociationDetail $returnAssociationDetail = null,
-    ) {
-    }
+        public string $returnType,
+        public ?ReturnEmailDetail $returnEmailDetail = null,
+        public ?ReturnMerchandiseAuthorization $rma = null,
+        public ?ReturnAssociationDetail $returnAssociationDetail = null,
+    ) {}
 }

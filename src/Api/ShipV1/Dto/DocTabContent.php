@@ -20,9 +20,8 @@ final class DocTabContent extends Dto
      * @param  ?DocTabContentBarcoded  $barcoded  It is a doc tab content type which is in barcoded format.
      */
     public function __construct(
-        public readonly ?string $docTabContentType = null,
-        public readonly ?DocTabContentZone $zone001 = null,
-        public readonly ?DocTabContentBarcoded $barcoded = null,
-    ) {
-    }
+        public ?string $docTabContentType = null,
+        public ?DocTabContentZone $zone001 = null,
+        public ?DocTabContentBarcoded $barcoded = null,
+    ) {}
 }

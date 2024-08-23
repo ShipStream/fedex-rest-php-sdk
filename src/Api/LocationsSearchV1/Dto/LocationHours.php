@@ -27,11 +27,10 @@ final class LocationHours extends Dto
      * @param  TimeRange[]|null  $exceptionalHours  List of operating hours for the location that are an exception from the normal hours of operation.
      */
     public function __construct(
-        public readonly ?string $dayofweek = null,
-        public readonly ?string $operationalHoursType = null,
-        public readonly ?array $operationalHours = null,
-        public readonly ?string $exceptionalHoursType = null,
-        public readonly ?array $exceptionalHours = null,
-    ) {
-    }
+        public ?string $dayofweek = null,
+        public ?string $operationalHoursType = null,
+        public ?array $operationalHours = null,
+        public ?string $exceptionalHoursType = null,
+        public ?array $exceptionalHours = null,
+    ) {}
 }

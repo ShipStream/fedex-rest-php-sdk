@@ -18,7 +18,6 @@ final class TransitTimeShippingChargesPaymentPayor extends Dto
      * @param  ?TransitTimeShippingChargesPaymentPayorResponsibleParty  $responsibleParty  Conditional. The descriptive data for the payor of the shipment and their physical address, contact and account number information.
      */
     public function __construct(
-        public readonly ?TransitTimeShippingChargesPaymentPayorResponsibleParty $responsibleParty = null,
-    ) {
-    }
+        public ?TransitTimeShippingChargesPaymentPayorResponsibleParty $responsibleParty = null,
+    ) {}
 }

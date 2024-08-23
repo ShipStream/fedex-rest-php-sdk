@@ -22,11 +22,10 @@ final class LocationCapabilities extends Dto
      * @param  ?string[]  $daysOfWeek  The days of the week for which this capability applies.<br>Valid values:<ul><li>MON</li><li>TUE</li><li>WED</li><li>THU</li><li>FRI</li><li>SAT</li><li>SUN</li></ul>
      */
     public function __construct(
-        public readonly ?string $serviceType = null,
-        public readonly ?string $carrierCode = null,
-        public readonly ?string $transferOfPossessionType = null,
-        public readonly ?string $serviceCategory = null,
-        public readonly ?array $daysOfWeek = null,
-    ) {
-    }
+        public ?string $serviceType = null,
+        public ?string $carrierCode = null,
+        public ?string $transferOfPossessionType = null,
+        public ?string $serviceCategory = null,
+        public ?array $daysOfWeek = null,
+    ) {}
 }

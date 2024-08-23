@@ -19,8 +19,7 @@ final class Locale extends Dto
      * @param  ?string  $language  Language<br>Example: en
      */
     public function __construct(
-        public readonly ?string $country = null,
-        public readonly ?string $language = null,
-    ) {
-    }
+        public ?string $country = null,
+        public ?string $language = null,
+    ) {}
 }

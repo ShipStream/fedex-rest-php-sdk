@@ -20,7 +20,6 @@ final class VerifyShipmentOutputVo extends Dto
      * @param  Alert[]|null  $alerts  The alerts received when a Shipment Package Validate is processed. This includes the alert code, alert type, and alert message.
      */
     public function __construct(
-        public readonly ?array $alerts = null,
-    ) {
-    }
+        public ?array $alerts = null,
+    ) {}
 }

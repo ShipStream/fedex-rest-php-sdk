@@ -20,9 +20,8 @@ final class LicenseOrPermitDetail extends Dto
      * @param  ?string  $expirationDate  Specifies Expiration Date.<br>Format [YYYY-MM-DD]<br>Example: 2019-04-09
      */
     public function __construct(
-        public readonly ?string $number = null,
-        public readonly ?string $effectiveDate = null,
-        public readonly ?string $expirationDate = null,
-    ) {
-    }
+        public ?string $number = null,
+        public ?string $effectiveDate = null,
+        public ?string $expirationDate = null,
+    ) {}
 }

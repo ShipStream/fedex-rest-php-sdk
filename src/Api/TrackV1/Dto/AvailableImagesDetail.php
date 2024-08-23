@@ -19,8 +19,7 @@ final class AvailableImagesDetail extends Dto
      * @param  ?string  $type  Field which holds the type of available images for the shipment being tracked.<br> Example: BILL_OF_LADING
      */
     public function __construct(
-        public readonly ?string $size = null,
-        public readonly ?string $type = null,
-    ) {
-    }
+        public ?string $size = null,
+        public ?string $type = null,
+    ) {}
 }

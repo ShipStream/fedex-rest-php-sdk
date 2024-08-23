@@ -20,9 +20,8 @@ final class DestinationControlDetail extends Dto
      * @param  ?string[]  $destinationCountries  Specify DCS shipment destination country. You may enter up to four country codes in this element. Up to 11 alphanumeric characters are allowed.<br>Example: US<br><a onclick='loadDocReference("countrycodes")'>click here to see Country codes</a>
      */
     public function __construct(
-        public readonly string $statementTypes,
-        public readonly ?string $endUser = null,
-        public readonly ?array $destinationCountries = null,
-    ) {
-    }
+        public string $statementTypes,
+        public ?string $endUser = null,
+        public ?array $destinationCountries = null,
+    ) {}
 }

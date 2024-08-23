@@ -19,8 +19,7 @@ final class VariableHandlingCharges extends Dto
      * @param  ?float  $variableHandlingCharge  The variable handling charge amount calculated based on the requested variable handling charge detail. <br> Example: 403.2
      */
     public function __construct(
-        public readonly ?float $totalCustomerCharge = null,
-        public readonly ?float $variableHandlingCharge = null,
-    ) {
-    }
+        public ?float $totalCustomerCharge = null,
+        public ?float $variableHandlingCharge = null,
+    ) {}
 }

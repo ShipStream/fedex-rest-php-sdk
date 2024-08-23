@@ -20,9 +20,8 @@ final class HomeDeliveryPremiumDetail extends Dto
      * @param  ?string  $homedeliveryPremiumType  This is Home Delivery Premium Type. It allows to specify additional premimum service options for the home delivery shipment. Can specify Evening delivery or a Date certain, or can specify appointment for the delivery.
      */
     public function __construct(
-        public readonly ?PhoneNumber $phoneNumber = null,
-        public readonly ?string $deliveryDate = null,
-        public readonly ?string $homedeliveryPremiumType = null,
-    ) {
-    }
+        public ?PhoneNumber $phoneNumber = null,
+        public ?string $deliveryDate = null,
+        public ?string $homedeliveryPremiumType = null,
+    ) {}
 }

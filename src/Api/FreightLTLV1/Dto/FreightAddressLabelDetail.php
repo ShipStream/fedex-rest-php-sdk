@@ -20,9 +20,8 @@ final class FreightAddressLabelDetail extends Dto
      * @param  ?string  $startingPosition  Specifies the quadrant of the page on which the label printing will start.
      */
     public function __construct(
-        public readonly ?int $copies = null,
-        public readonly ?ShippingDocumentFormat $documentFormat = null,
-        public readonly ?string $startingPosition = null,
-    ) {
-    }
+        public ?int $copies = null,
+        public ?ShippingDocumentFormat $documentFormat = null,
+        public ?string $startingPosition = null,
+    ) {}
 }

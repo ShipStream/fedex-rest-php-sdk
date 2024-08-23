@@ -19,8 +19,7 @@ final class SummaryDetailExpressTotalFreightWeight extends Dto
      * @param  ?int  $value  Weight amount
      */
     public function __construct(
-        public readonly ?string $units = null,
-        public readonly ?int $value = null,
-    ) {
-    }
+        public ?string $units = null,
+        public ?int $value = null,
+    ) {}
 }

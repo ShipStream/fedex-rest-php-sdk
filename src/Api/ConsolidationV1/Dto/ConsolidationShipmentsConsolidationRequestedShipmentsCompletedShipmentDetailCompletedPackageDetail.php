@@ -20,19 +20,17 @@ final class ConsolidationShipmentsConsolidationRequestedShipmentsCompletedShipme
      * @param  ?int  $sequenceNumber  This is package sequence number. No negative value or decimals are allowed.<br>Example: 256
      * @param  ?TrackingIds  $trackingId  The field is present to allow use of preassigned Master Airway Bill tracking number.
      * @param  ?int  $groupNumber  This is group shipment number. Used with request containing PACKAGE_GROUPS, to identify which group of identical packages was used to produce a reply item.<br>Example: 10
-     * @param  ?ConsolidationShipmentsConsolidationRequestedShipmentsCompletedShipmentDetailCompletedPackageDetailOperationalDetail  $operationalDetail
      * @param  ?Label  $label  Label details for the package
      * @param  ShippingDocument[]|null  $packageDocuments
      * @param  ?string  $signatureOptions  It specifies the signature option applied, to allow cases in which the value requested conflicted with other service features in the shipment. <br>Example: DIRECT
      */
     public function __construct(
-        public readonly ?int $sequenceNumber = null,
-        public readonly ?TrackingIds $trackingId = null,
-        public readonly ?int $groupNumber = null,
-        public readonly ?ConsolidationShipmentsConsolidationRequestedShipmentsCompletedShipmentDetailCompletedPackageDetailOperationalDetail $operationalDetail = null,
-        public readonly ?Label $label = null,
-        public readonly ?array $packageDocuments = null,
-        public readonly ?string $signatureOptions = null,
-    ) {
-    }
+        public ?int $sequenceNumber = null,
+        public ?TrackingIds $trackingId = null,
+        public ?int $groupNumber = null,
+        public ?ConsolidationShipmentsConsolidationRequestedShipmentsCompletedShipmentDetailCompletedPackageDetailOperationalDetail $operationalDetail = null,
+        public ?Label $label = null,
+        public ?array $packageDocuments = null,
+        public ?string $signatureOptions = null,
+    ) {}
 }

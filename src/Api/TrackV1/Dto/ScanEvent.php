@@ -28,17 +28,16 @@ final class ScanEvent extends Dto
      * @param  ?DelayDetail  $delayDetail  Specifies the information about delays.
      */
     public function __construct(
-        public readonly ?string $date = null,
-        public readonly ?string $derivedStatus = null,
-        public readonly ?AddressVo2 $scanLocation = null,
-        public readonly ?string $locationId = null,
-        public readonly ?string $locationType = null,
-        public readonly ?string $exceptionDescription = null,
-        public readonly ?string $eventDescription = null,
-        public readonly ?string $eventType = null,
-        public readonly ?string $derivedStatusCode = null,
-        public readonly ?string $exceptionCode = null,
-        public readonly ?DelayDetail $delayDetail = null,
-    ) {
-    }
+        public ?string $date = null,
+        public ?string $derivedStatus = null,
+        public ?AddressVo2 $scanLocation = null,
+        public ?string $locationId = null,
+        public ?string $locationType = null,
+        public ?string $exceptionDescription = null,
+        public ?string $eventDescription = null,
+        public ?string $eventType = null,
+        public ?string $derivedStatusCode = null,
+        public ?string $exceptionCode = null,
+        public ?DelayDetail $delayDetail = null,
+    ) {}
 }

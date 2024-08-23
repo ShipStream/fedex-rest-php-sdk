@@ -21,10 +21,9 @@ final class Surcharge2 extends Dto
      * @param  ?string  $description  Specifies the description for the surcharge.
      */
     public function __construct(
-        public readonly ?string $amount = null,
-        public readonly ?string $surchargeType = null,
-        public readonly ?string $level = null,
-        public readonly ?string $description = null,
-    ) {
-    }
+        public ?string $amount = null,
+        public ?string $surchargeType = null,
+        public ?string $level = null,
+        public ?string $description = null,
+    ) {}
 }

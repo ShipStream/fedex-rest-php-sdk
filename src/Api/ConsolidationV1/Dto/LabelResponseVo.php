@@ -23,12 +23,11 @@ final class LabelResponseVo extends Dto
      * @param  ?string  $url  The URL of the shipping document/label<br>Example: https://.../document/v2/document/retrieve/SH,794816968200_Merge/isLabel=true&autoPrint=false<br><i>Note: The URL once created will be active for 24 hours.</i>
      */
     public function __construct(
-        public readonly ?int $copiesToPrint = null,
-        public readonly ?string $contentType = null,
-        public readonly ?string $trackingNumber = null,
-        public readonly ?string $docType = null,
-        public readonly ?string $encodedLabel = null,
-        public readonly ?string $url = null,
-    ) {
-    }
+        public ?int $copiesToPrint = null,
+        public ?string $contentType = null,
+        public ?string $trackingNumber = null,
+        public ?string $docType = null,
+        public ?string $encodedLabel = null,
+        public ?string $url = null,
+    ) {}
 }

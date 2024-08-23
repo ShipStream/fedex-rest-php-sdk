@@ -15,18 +15,13 @@ use ShipStream\FedEx\Dto;
 final class ConsolidationShipmentsConsolidationRequestedShipmentsConsolidationDetail extends Dto
 {
     /**
-     * @param  ?string  $relationshipTimeStamp
-     * @param  ?string  $type
-     * @param  ?string  $role
-     * @param  ?ConsolidationShipmentsConsolidationRequestedShipmentsConsolidationDetailInternationalDistribtuionDetail  $internationalDistribtuionDetail
      * @param  ?TransborderDistributionDetail  $transborderDistributionDetail  Specifies attributes of a shipment whithin a transborder distribution.
      */
     public function __construct(
-        public readonly ?string $relationshipTimeStamp = null,
-        public readonly ?string $type = null,
-        public readonly ?string $role = null,
-        public readonly ?ConsolidationShipmentsConsolidationRequestedShipmentsConsolidationDetailInternationalDistribtuionDetail $internationalDistribtuionDetail = null,
-        public readonly ?TransborderDistributionDetail $transborderDistributionDetail = null,
-    ) {
-    }
+        public ?string $relationshipTimeStamp = null,
+        public ?string $type = null,
+        public ?string $role = null,
+        public ?ConsolidationShipmentsConsolidationRequestedShipmentsConsolidationDetailInternationalDistribtuionDetail $internationalDistribtuionDetail = null,
+        public ?TransborderDistributionDetail $transborderDistributionDetail = null,
+    ) {}
 }

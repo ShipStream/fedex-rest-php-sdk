@@ -21,10 +21,9 @@ final class ConsolidationShipmentsConsolidationRequestedShipmentsLabelSpecificat
      * @param  ?string  $labelPrintingOrientation  This is applicable only to documents produced on thermal printers with roll stock.
      */
     public function __construct(
-        public readonly ?string $labelFormatType = null,
-        public readonly ?string $labelStockType = null,
-        public readonly ?string $imageType = null,
-        public readonly ?string $labelPrintingOrientation = null,
-    ) {
-    }
+        public ?string $labelFormatType = null,
+        public ?string $labelStockType = null,
+        public ?string $imageType = null,
+        public ?string $labelPrintingOrientation = null,
+    ) {}
 }

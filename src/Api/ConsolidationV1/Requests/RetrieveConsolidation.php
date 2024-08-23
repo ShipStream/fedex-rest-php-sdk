@@ -38,8 +38,7 @@ class RetrieveConsolidation extends Request implements HasBody
      */
     public function __construct(
         public FullSchemaRetrieveConsolidation $fullSchemaRetrieveConsolidation,
-    ) {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {

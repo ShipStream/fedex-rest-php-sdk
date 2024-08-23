@@ -18,7 +18,6 @@ final class AddressResolutionControlParameters extends Dto
      * @param  ?bool  $includeResolutionTokens  Use this to request detailed information of the address components once the validation is complete. The details specify the changes made to each address component to resolve the address.
      */
     public function __construct(
-        public readonly ?bool $includeResolutionTokens = null,
-    ) {
-    }
+        public ?bool $includeResolutionTokens = null,
+    ) {}
 }

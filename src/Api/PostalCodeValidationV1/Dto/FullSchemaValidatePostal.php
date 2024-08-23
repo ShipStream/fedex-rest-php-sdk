@@ -24,13 +24,12 @@ final class FullSchemaValidatePostal extends Dto
      * @param  ?bool  $checkForMismatch  This element checks for mismatch between State/Province Code and Postal Code. <ul><li>When the checkForMismatch is set TRUE, for U.S. and Canada: The values in State/Province Code are checked with respect to Postal Code provided. If these entries are valid, the response provides respective State/Province Code and Postal Code. In case of mismatch of Postal Code and State/Province Code an error message is displayed.</li><li> When the checkForMismatch is set FALSE, for U.S. and Canada: The values in State/Province Code are not checked with respect to Postal Code provided. Instead the given data is reflected in the response.</li></ul> <br> For regions other than U.S and Canada regardless of the value of checkForMismatch the State/Province Code are checked with respect to the Postal Code and the response provides the respective State/Province Code and Postal Code.
      */
     public function __construct(
-        public readonly string $carrierCode,
-        public readonly string $countryCode,
-        public readonly string $stateOrProvinceCode,
-        public readonly string $postalCode,
-        public readonly string $shipDate,
-        public readonly ?string $routingCode = null,
-        public readonly ?bool $checkForMismatch = null,
-    ) {
-    }
+        public string $carrierCode,
+        public string $countryCode,
+        public string $stateOrProvinceCode,
+        public string $postalCode,
+        public string $shipDate,
+        public ?string $routingCode = null,
+        public ?bool $checkForMismatch = null,
+    ) {}
 }

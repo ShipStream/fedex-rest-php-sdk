@@ -18,7 +18,6 @@ final class ConsolidationProcessingOptionsRequested extends Dto
      * @param  ?string[]  $options  Specifies the options for precessing options. This is mandatory for International Ground Distribution.<br>Example: REQUIRE_PRE_EPIC_BARCODE
      */
     public function __construct(
-        public readonly ?array $options = null,
-    ) {
-    }
+        public ?array $options = null,
+    ) {}
 }

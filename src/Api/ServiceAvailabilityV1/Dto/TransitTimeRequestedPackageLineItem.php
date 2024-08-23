@@ -21,10 +21,9 @@ final class TransitTimeRequestedPackageLineItem extends Dto
      * @param  ?TransitTimeRequestedPackageLineItemPackageSpecialServices  $packageSpecialServices  Optional.<br>These special services are available at the package level for some or all service types.  Indicated if rate data is being requested for the special services.
      */
     public function __construct(
-        public readonly TransitTimeRequestedPackageLineItemWeight $weight,
-        public readonly ?TransitTimeRequestedPackageLineItemDeclaredValue $declaredValue = null,
-        public readonly ?TransitTimeRequestedPackageLineItemDimensions $dimensions = null,
-        public readonly ?TransitTimeRequestedPackageLineItemPackageSpecialServices $packageSpecialServices = null,
-    ) {
-    }
+        public TransitTimeRequestedPackageLineItemWeight $weight,
+        public ?TransitTimeRequestedPackageLineItemDeclaredValue $declaredValue = null,
+        public ?TransitTimeRequestedPackageLineItemDimensions $dimensions = null,
+        public ?TransitTimeRequestedPackageLineItemPackageSpecialServices $packageSpecialServices = null,
+    ) {}
 }

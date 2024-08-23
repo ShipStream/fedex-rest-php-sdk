@@ -37,8 +37,7 @@ class CreateTag extends Request implements HasBody
 
     public function __construct(
         public FullSchemaCreateTag $fullSchemaCreateTag,
-    ) {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {

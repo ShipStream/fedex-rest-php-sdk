@@ -19,8 +19,7 @@ final class TransitTimeRequestedPackageLineItemPackageSpecialServicesCodDetailCo
      * @param  ?string  $currency  Three-character ISO currency code. <br>Example: USD<br><a onclick='loadDocReference("currencycodes")'>Click here to see Currency Codes</a>
      */
     public function __construct(
-        public readonly ?float $amount = null,
-        public readonly ?string $currency = null,
-    ) {
-    }
+        public ?float $amount = null,
+        public ?string $currency = null,
+    ) {}
 }

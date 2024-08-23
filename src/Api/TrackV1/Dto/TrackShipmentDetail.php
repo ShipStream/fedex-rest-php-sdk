@@ -28,11 +28,10 @@ final class TrackShipmentDetail extends Dto
      * @param  TrackSplitShipment[]|null  $splitShipments  Field which holds information about split shipments.
      */
     public function __construct(
-        public readonly ?array $contents = null,
-        public readonly ?bool $beforePossessionStatus = null,
-        public readonly ?array $weight = null,
-        public readonly ?string $contentPieceCount = null,
-        public readonly ?array $splitShipments = null,
-    ) {
-    }
+        public ?array $contents = null,
+        public ?bool $beforePossessionStatus = null,
+        public ?array $weight = null,
+        public ?string $contentPieceCount = null,
+        public ?array $splitShipments = null,
+    ) {}
 }

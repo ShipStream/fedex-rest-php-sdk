@@ -19,8 +19,7 @@ final class Duration extends Dto
      * @param  ?int  $minutes  This is the minimum time window in minutes that is allocated for the FedEx courier to make the pickup.<br> Example: 'PT1H0M' means Pickup Time is 1 Hour and 0 Minutes
      */
     public function __construct(
-        public readonly ?int $hours = null,
-        public readonly ?int $minutes = null,
-    ) {
-    }
+        public ?int $hours = null,
+        public ?int $minutes = null,
+    ) {}
 }

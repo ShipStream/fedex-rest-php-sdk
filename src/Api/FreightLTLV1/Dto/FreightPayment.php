@@ -20,8 +20,7 @@ final class FreightPayment extends Dto
      * @param  ?Payor  $payor  Information about the person who is paying for the shipment. Not applicable for credit card payment.
      */
     public function __construct(
-        public readonly string $paymentType,
-        public readonly ?Payor $payor = null,
-    ) {
-    }
+        public string $paymentType,
+        public ?Payor $payor = null,
+    ) {}
 }

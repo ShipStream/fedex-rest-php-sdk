@@ -24,13 +24,12 @@ final class MultiMetaDataRequest2 extends Dto
      * @param  ?string  $destinationLocationCode  Provide destination FedEx location code for the shipment. This is only required for Post Shipment document upload. This value is present in Create Shipment response.
      */
     public function __construct(
-        public readonly string $contentType,
-        public readonly string $shipDocumentType,
-        public readonly string $fileContentBase64,
-        public readonly ?string $fileReferenceId = null,
-        public readonly ?string $formCode = null,
-        public readonly ?string $originLocationCode = null,
-        public readonly ?string $destinationLocationCode = null,
-    ) {
-    }
+        public string $contentType,
+        public string $shipDocumentType,
+        public string $fileContentBase64,
+        public ?string $fileReferenceId = null,
+        public ?string $formCode = null,
+        public ?string $originLocationCode = null,
+        public ?string $destinationLocationCode = null,
+    ) {}
 }

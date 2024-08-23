@@ -19,8 +19,7 @@ final class CompletedHoldAtLocationDetail extends Dto
      * @param  ?CompletedHoldAtLocationDetailHoldingLocation  $holdingLocation  Specifies the physical address of the FedEx holding location.
      */
     public function __construct(
-        public readonly ?string $holdingLocationType = null,
-        public readonly ?CompletedHoldAtLocationDetailHoldingLocation $holdingLocation = null,
-    ) {
-    }
+        public ?string $holdingLocationType = null,
+        public ?CompletedHoldAtLocationDetailHoldingLocation $holdingLocation = null,
+    ) {}
 }

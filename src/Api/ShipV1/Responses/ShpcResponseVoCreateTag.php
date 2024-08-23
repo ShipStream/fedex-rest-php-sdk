@@ -24,6 +24,5 @@ final class ShpcResponseVoCreateTag extends Response
         public readonly ?string $transactionId = null,
         public readonly ?string $customerTransactionId = null,
         public readonly ?CreateTagOutputVo $output = null,
-    ) {
-    }
+    ) {}
 }

@@ -24,11 +24,10 @@ final class SpodResponseVo extends Dto
      * @param  Alert[]|null  $alerts  Specifies the alert received when the recipient's signature has been            taken as a proof of shipment delivery.<br>Example: TRACKING.DATA.NOTFOUND -  Tracking data unavailable
      */
     public function __construct(
-        public readonly ?Localization $localization = null,
-        public readonly ?string $documentType = null,
-        public readonly ?string $documentFormat = null,
-        public readonly ?array $document = null,
-        public readonly ?array $alerts = null,
-    ) {
-    }
+        public ?Localization $localization = null,
+        public ?string $documentType = null,
+        public ?string $documentFormat = null,
+        public ?array $document = null,
+        public ?array $alerts = null,
+    ) {}
 }

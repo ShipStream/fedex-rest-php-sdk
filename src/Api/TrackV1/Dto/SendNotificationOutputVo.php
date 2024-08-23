@@ -25,10 +25,9 @@ final class SendNotificationOutputVo extends Dto
      * @param  Alert[]|null  $alerts  The cxs shipment alerts. This includes the alert type, code, and            message.<br>example: TRACKING.DATA.NOTFOUND -  Tracking data unavailable
      */
     public function __construct(
-        public readonly ?TrackingNumberInfo $trackingNumberInfo = null,
-        public readonly ?AddressVo $destinationAddress = null,
-        public readonly ?array $recipientDetails = null,
-        public readonly ?array $alerts = null,
-    ) {
-    }
+        public ?TrackingNumberInfo $trackingNumberInfo = null,
+        public ?AddressVo $destinationAddress = null,
+        public ?array $recipientDetails = null,
+        public ?array $alerts = null,
+    ) {}
 }

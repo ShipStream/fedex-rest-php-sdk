@@ -20,9 +20,8 @@ final class BrokerDetailRateReply extends Dto
      * @param  ?Brokeraddress  $brokerAddress  This is the broker address used for this shipment.
      */
     public function __construct(
-        public readonly Party $broker,
-        public readonly string $type,
-        public readonly ?Brokeraddress $brokerAddress = null,
-    ) {
-    }
+        public Party $broker,
+        public string $type,
+        public ?Brokeraddress $brokerAddress = null,
+    ) {}
 }

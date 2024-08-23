@@ -19,8 +19,7 @@ final class WeightAvailability extends Dto
      * @param  ?float  $value  Weight Value.<br> Example: 68.25<br><a onclick='loadDocReference("packagetypes")'>Click here to see Weight Values</a>
      */
     public function __construct(
-        public readonly ?string $units = null,
-        public readonly ?float $value = null,
-    ) {
-    }
+        public ?string $units = null,
+        public ?float $value = null,
+    ) {}
 }

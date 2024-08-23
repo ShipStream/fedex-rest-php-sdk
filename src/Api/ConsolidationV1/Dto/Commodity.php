@@ -27,16 +27,15 @@ final class Commodity extends Dto
      * @param  ?string  $commodityId  Value used to identify a commodity description; must be unique within the containing shipment.
      */
     public function __construct(
-        public readonly string $name,
-        public readonly int $numberOfPieces,
-        public readonly string $description,
-        public readonly ?string $countryOfManufacture = null,
-        public readonly ?Weight $weight = null,
-        public readonly ?int $quantity = null,
-        public readonly ?string $quantityUnits = null,
-        public readonly ?Money2 $unitPrice = null,
-        public readonly ?Money2 $customsValue = null,
-        public readonly ?string $commodityId = null,
-    ) {
-    }
+        public string $name,
+        public int $numberOfPieces,
+        public string $description,
+        public ?string $countryOfManufacture = null,
+        public ?Weight $weight = null,
+        public ?int $quantity = null,
+        public ?string $quantityUnits = null,
+        public ?Money2 $unitPrice = null,
+        public ?Money2 $customsValue = null,
+        public ?string $commodityId = null,
+    ) {}
 }

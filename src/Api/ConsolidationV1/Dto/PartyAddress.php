@@ -23,12 +23,11 @@ final class PartyAddress extends Dto
      * @param  ?bool  $residential  Indicates whether this address is residential (as opposed to commercial).<br>Example: false
      */
     public function __construct(
-        public readonly array $streetLines,
-        public readonly string $city,
-        public readonly string $postalCode,
-        public readonly string $countryCode,
-        public readonly ?string $stateOrProvinceCode = null,
-        public readonly ?bool $residential = null,
-    ) {
-    }
+        public array $streetLines,
+        public string $city,
+        public string $postalCode,
+        public string $countryCode,
+        public ?string $stateOrProvinceCode = null,
+        public ?bool $residential = null,
+    ) {}
 }

@@ -20,9 +20,8 @@ final class CompletedHazardousShipmentDetail extends Dto
      * @param  ?ShipmentDryIceDetail  $dryIceDetail  Specifies the shipment level totals of dry ice data across all packages.
      */
     public function __construct(
-        public readonly ?CompletedHazardousSummaryDetail $hazardousSummaryDetail = null,
-        public readonly ?AdrLicenseDetail $adrLicense = null,
-        public readonly ?ShipmentDryIceDetail $dryIceDetail = null,
-    ) {
-    }
+        public ?CompletedHazardousSummaryDetail $hazardousSummaryDetail = null,
+        public ?AdrLicenseDetail $adrLicense = null,
+        public ?ShipmentDryIceDetail $dryIceDetail = null,
+    ) {}
 }

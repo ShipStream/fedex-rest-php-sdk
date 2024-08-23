@@ -20,9 +20,8 @@ final class DangerousGoodsDetail extends Dto
      * @param  ?bool  $cargoAircraftOnly  cargoAircraftOnly is an optional field in the request which accepts Boolean values in order to create Cargo Aircraft only shipment. its default value is set as False
      */
     public function __construct(
-        public readonly ?string $trackingNumber = null,
-        public readonly ?string $accessibility = null,
-        public readonly ?bool $cargoAircraftOnly = null,
-    ) {
-    }
+        public ?string $trackingNumber = null,
+        public ?string $accessibility = null,
+        public ?bool $cargoAircraftOnly = null,
+    ) {}
 }

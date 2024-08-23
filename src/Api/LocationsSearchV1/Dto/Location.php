@@ -19,8 +19,7 @@ final class Location extends Dto
      * @param  ?GeoCode  $longLat  The ISO6709 geographic coordinates for a specific geographic location, specifically latitude and longitude.
      */
     public function __construct(
-        public readonly Address $address,
-        public readonly ?GeoCode $longLat = null,
-    ) {
-    }
+        public Address $address,
+        public ?GeoCode $longLat = null,
+    ) {}
 }

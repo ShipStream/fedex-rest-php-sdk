@@ -25,14 +25,13 @@ final class AddressVo extends Dto
      * @param  ?string  $countryName  Field holds the fully spelled out name of a country.<br> Example: United States
      */
     public function __construct(
-        public readonly array $streetLines,
-        public readonly string $countryCode,
-        public readonly ?string $classification = null,
-        public readonly ?bool $residential = null,
-        public readonly ?string $city = null,
-        public readonly ?string $stateOrProvinceCode = null,
-        public readonly ?string $postalCode = null,
-        public readonly ?string $countryName = null,
-    ) {
-    }
+        public array $streetLines,
+        public string $countryCode,
+        public ?string $classification = null,
+        public ?bool $residential = null,
+        public ?string $city = null,
+        public ?string $stateOrProvinceCode = null,
+        public ?string $postalCode = null,
+        public ?string $countryName = null,
+    ) {}
 }

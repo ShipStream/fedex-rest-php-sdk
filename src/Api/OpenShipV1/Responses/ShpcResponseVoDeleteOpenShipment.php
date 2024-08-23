@@ -24,6 +24,5 @@ final class ShpcResponseVoDeleteOpenShipment extends Response
         public readonly ?string $transactionId = null,
         public readonly ?string $customerTransactionId = null,
         public readonly ?DeleteOpenShipmentOutputVo $output = null,
-    ) {
-    }
+    ) {}
 }

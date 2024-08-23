@@ -24,11 +24,10 @@ final class Party extends Dto
      * @param  ?string  $deliveryInstructions  Used with Ground Home Delivery and Freight.<br> Example: FRONT DOOR
      */
     public function __construct(
-        public readonly ?PartyAddress $address = null,
-        public readonly ?PartyContact $contact = null,
-        public readonly ?PartyAccountNumber $accountNumber = null,
-        public readonly ?array $tins = null,
-        public readonly ?string $deliveryInstructions = null,
-    ) {
-    }
+        public ?PartyAddress $address = null,
+        public ?PartyContact $contact = null,
+        public ?PartyAccountNumber $accountNumber = null,
+        public ?array $tins = null,
+        public ?string $deliveryInstructions = null,
+    ) {}
 }

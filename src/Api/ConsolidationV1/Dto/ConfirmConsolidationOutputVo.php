@@ -24,10 +24,9 @@ final class ConfirmConsolidationOutputVo extends Dto
      * @param  Alert[]|null  $alerts  The alerts received when a ConsfirmConsolidation is processed. This includes the alert code, alert type, and alert message.
      */
     public function __construct(
-        public readonly ?string $processingOptionType = null,
-        public readonly ?string $jobId = null,
-        public readonly ?ConfirmConsolidationOutputVoCompletedConsolidationDetail $completedConsolidationDetail = null,
-        public readonly ?array $alerts = null,
-    ) {
-    }
+        public ?string $processingOptionType = null,
+        public ?string $jobId = null,
+        public ?ConfirmConsolidationOutputVoCompletedConsolidationDetail $completedConsolidationDetail = null,
+        public ?array $alerts = null,
+    ) {}
 }

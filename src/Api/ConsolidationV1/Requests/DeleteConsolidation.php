@@ -39,8 +39,7 @@ class DeleteConsolidation extends Request implements HasBody
      */
     public function __construct(
         public FullSchemaDeleteConsolidation $fullSchemaDeleteConsolidation,
-    ) {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {

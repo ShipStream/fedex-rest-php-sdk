@@ -23,10 +23,9 @@ final class CancelShipmentOutputVo extends Dto
      * @param  Alert[]|null  $alerts  This is a cancellation request alert. This alert includes information such as alert code, alert type, and alert message.
      */
     public function __construct(
-        public readonly ?bool $cancelledShipment = null,
-        public readonly ?bool $cancelledHistory = null,
-        public readonly ?string $successMessage = null,
-        public readonly ?array $alerts = null,
-    ) {
-    }
+        public ?bool $cancelledShipment = null,
+        public ?bool $cancelledHistory = null,
+        public ?string $successMessage = null,
+        public ?array $alerts = null,
+    ) {}
 }

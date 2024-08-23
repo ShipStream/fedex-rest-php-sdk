@@ -20,8 +20,7 @@ final class TransitTimeShippingChargesPayment extends Dto
      *                                Indicates who and how the shipment will be paid for.
      */
     public function __construct(
-        public readonly ?TransitTimeShippingChargesPaymentPayor $payor = null,
-        public readonly ?string $paymentType = null,
-    ) {
-    }
+        public ?TransitTimeShippingChargesPaymentPayor $payor = null,
+        public ?string $paymentType = null,
+    ) {}
 }

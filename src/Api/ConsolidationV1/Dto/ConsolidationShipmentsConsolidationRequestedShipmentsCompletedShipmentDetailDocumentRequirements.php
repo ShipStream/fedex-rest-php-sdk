@@ -19,8 +19,7 @@ final class ConsolidationShipmentsConsolidationRequestedShipmentsCompletedShipme
      * @param  ?ConsolidationShipmentsConsolidationRequestedShipmentsCompletedShipmentDetailDocumentRequirementsGenerationDetails  $generationDetails  Specifies the generation details.
      */
     public function __construct(
-        public readonly ?string $requiredDocuments = null,
-        public readonly ?ConsolidationShipmentsConsolidationRequestedShipmentsCompletedShipmentDetailDocumentRequirementsGenerationDetails $generationDetails = null,
-    ) {
-    }
+        public ?string $requiredDocuments = null,
+        public ?ConsolidationShipmentsConsolidationRequestedShipmentsCompletedShipmentDetailDocumentRequirementsGenerationDetails $generationDetails = null,
+    ) {}
 }

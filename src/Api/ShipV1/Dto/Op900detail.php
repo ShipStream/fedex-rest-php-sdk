@@ -22,9 +22,8 @@ final class Op900detail extends Dto
      * @param  ?ShippingDocumentFormat  $documentFormat  Specify the shipping document format.
      */
     public function __construct(
-        public readonly ?array $customerImageUsages = null,
-        public readonly ?string $signatureName = null,
-        public readonly ?ShippingDocumentFormat $documentFormat = null,
-    ) {
-    }
+        public ?array $customerImageUsages = null,
+        public ?string $signatureName = null,
+        public ?ShippingDocumentFormat $documentFormat = null,
+    ) {}
 }

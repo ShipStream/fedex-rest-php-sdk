@@ -24,6 +24,5 @@ final class CreateConsolidationShipmentResponse extends Response
         public readonly ?string $customerTransactionId = null,
         public readonly ?string $transactionId = null,
         public readonly ?CreateConsolidationShipmentOutputVoDetails $output = null,
-    ) {
-    }
+    ) {}
 }

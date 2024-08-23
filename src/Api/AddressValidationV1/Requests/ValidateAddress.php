@@ -40,8 +40,7 @@ class ValidateAddress extends Request implements HasBody
      */
     public function __construct(
         public FullSchemaValidateAddress $fullSchemaValidateAddress,
-    ) {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {

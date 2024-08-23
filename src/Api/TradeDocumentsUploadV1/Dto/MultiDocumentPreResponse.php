@@ -16,11 +16,9 @@ final class MultiDocumentPreResponse extends Dto
 {
     /**
      * @param  ?string  $fileReferenceId  Unique reference to the file
-     * @param  ?MultiMetaDataPreResponse  $metaData
      */
     public function __construct(
-        public readonly ?string $fileReferenceId = null,
-        public readonly ?MultiMetaDataPreResponse $metaData = null,
-    ) {
-    }
+        public ?string $fileReferenceId = null,
+        public ?MultiMetaDataPreResponse $metaData = null,
+    ) {}
 }

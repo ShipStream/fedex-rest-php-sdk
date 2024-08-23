@@ -19,8 +19,7 @@ final class FreightSpecialServicePayment extends Dto
      * @param  ?string  $paymentType  Indicates the payment type.
      */
     public function __construct(
-        public readonly ?string $specialService = null,
-        public readonly ?string $paymentType = null,
-    ) {
-    }
+        public ?string $specialService = null,
+        public ?string $paymentType = null,
+    ) {}
 }

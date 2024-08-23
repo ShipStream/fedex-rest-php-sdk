@@ -22,9 +22,8 @@ final class ShippingDocumentEmailDetail extends Dto
      * @param  ?string  $grouping  Shipping Document Email Grouping Type
      */
     public function __construct(
-        public readonly array $eMailRecipients,
-        public readonly ?Locale $locale = null,
-        public readonly ?string $grouping = null,
-    ) {
-    }
+        public array $eMailRecipients,
+        public ?Locale $locale = null,
+        public ?string $grouping = null,
+    ) {}
 }

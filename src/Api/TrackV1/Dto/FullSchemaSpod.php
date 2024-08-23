@@ -21,8 +21,7 @@ final class FullSchemaSpod extends Dto
      * @param  TrackDocumentSpecification[]  $trackDocumentSpecification  This is the placeholder for document specification details required to identify the shipment being tracked. This includes tracking information such as tracking qualifier, carrier code, and tracking number.<br>At least one trackDocumentSpecification is required. Maximum limit is 30.
      */
     public function __construct(
-        public readonly TrackDocumentDetail $trackDocumentDetail,
-        public readonly array $trackDocumentSpecification,
-    ) {
-    }
+        public TrackDocumentDetail $trackDocumentDetail,
+        public array $trackDocumentSpecification,
+    ) {}
 }

@@ -22,11 +22,10 @@ final class InternationalControlledExportDetail extends Dto
      * @param  ?string  $licenseOrPermitExpirationDate  Indicates the State Department License or DEA Permit expiration date. Format: YYYY-MM-DD
      */
     public function __construct(
-        public readonly ?string $type = null,
-        public readonly ?string $foreignTradeZoneCode = null,
-        public readonly ?string $entryNumber = null,
-        public readonly ?string $licenseOrPermitNumber = null,
-        public readonly ?string $licenseOrPermitExpirationDate = null,
-    ) {
-    }
+        public ?string $type = null,
+        public ?string $foreignTradeZoneCode = null,
+        public ?string $entryNumber = null,
+        public ?string $licenseOrPermitNumber = null,
+        public ?string $licenseOrPermitExpirationDate = null,
+    ) {}
 }

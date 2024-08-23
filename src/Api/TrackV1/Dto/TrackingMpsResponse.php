@@ -24,8 +24,7 @@ final class TrackingMpsResponse extends Dto
      * @param  Alert[]|null  $alerts  The cxs alert type, alert code, and alert messages.<br>Example: example: TRACKING.DATA.NOTFOUND -  Tracking data unavailable
      */
     public function __construct(
-        public readonly ?array $completeTrackResults = null,
-        public readonly ?array $alerts = null,
-    ) {
-    }
+        public ?array $completeTrackResults = null,
+        public ?array $alerts = null,
+    ) {}
 }

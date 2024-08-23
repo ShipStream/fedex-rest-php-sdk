@@ -23,12 +23,11 @@ final class TransitTimeRequestedShipmentShipmentSpecialServices extends Dto
      * @param  ?TransitTimeRequestedShipmentShipmentSpecialServicesShipmentDryIceDetail  $shipmentDryIceDetail  Use this object to indicate package count with weight for this shipment containing dry ice. Dry ice is supported in both shipment level and package level services.
      */
     public function __construct(
-        public readonly ?array $specialServiceTypes = null,
-        public readonly ?TransitTimeRequestedShipmentShipmentSpecialServicesCodDetail $codDetail = null,
-        public readonly ?TransitTimeRequestedShipmentShipmentSpecialServicesInternationalControlledExportDetail $internationalControlledExportDetail = null,
-        public readonly ?TransitTimeRequestedShipmentShipmentSpecialServicesHomeDeliveryPremiumDetail $homeDeliveryPremiumDetail = null,
-        public readonly ?TransitTimeRequestedShipmentShipmentSpecialServicesHoldAtLocationDetail $holdAtLocationDetail = null,
-        public readonly ?TransitTimeRequestedShipmentShipmentSpecialServicesShipmentDryIceDetail $shipmentDryIceDetail = null,
-    ) {
-    }
+        public ?array $specialServiceTypes = null,
+        public ?TransitTimeRequestedShipmentShipmentSpecialServicesCodDetail $codDetail = null,
+        public ?TransitTimeRequestedShipmentShipmentSpecialServicesInternationalControlledExportDetail $internationalControlledExportDetail = null,
+        public ?TransitTimeRequestedShipmentShipmentSpecialServicesHomeDeliveryPremiumDetail $homeDeliveryPremiumDetail = null,
+        public ?TransitTimeRequestedShipmentShipmentSpecialServicesHoldAtLocationDetail $holdAtLocationDetail = null,
+        public ?TransitTimeRequestedShipmentShipmentSpecialServicesShipmentDryIceDetail $shipmentDryIceDetail = null,
+    ) {}
 }

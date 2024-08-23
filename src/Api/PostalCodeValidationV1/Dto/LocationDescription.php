@@ -21,10 +21,9 @@ final class LocationDescription extends Dto
      * @param  string  $airportId  Airport Id of the postal code provided. <br> Example: BLR
      */
     public function __construct(
-        public readonly string $locationId,
-        public readonly string $locationNumber,
-        public readonly string $serviceArea,
-        public readonly string $airportId,
-    ) {
-    }
+        public string $locationId,
+        public string $locationNumber,
+        public string $serviceArea,
+        public string $airportId,
+    ) {}
 }

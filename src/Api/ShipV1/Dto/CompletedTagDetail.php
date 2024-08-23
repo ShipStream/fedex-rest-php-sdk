@@ -20,9 +20,8 @@ final class CompletedTagDetail extends Dto
      * @param  string  $dispatchDate  The dispatch date for the FedEx Tag to be cancelled.<br>Example: 2019-08-03
      */
     public function __construct(
-        public readonly string $confirmationNumber,
-        public readonly string $location,
-        public readonly string $dispatchDate,
-    ) {
-    }
+        public string $confirmationNumber,
+        public string $location,
+        public string $dispatchDate,
+    ) {}
 }

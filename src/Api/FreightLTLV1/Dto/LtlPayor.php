@@ -18,7 +18,6 @@ final class LtlPayor extends Dto
      * @param  ?Party  $responsibleParty  Indicate the party to a transaction including the physical address, contact information and account number information.
      */
     public function __construct(
-        public readonly ?Party $responsibleParty = null,
-    ) {
-    }
+        public ?Party $responsibleParty = null,
+    ) {}
 }

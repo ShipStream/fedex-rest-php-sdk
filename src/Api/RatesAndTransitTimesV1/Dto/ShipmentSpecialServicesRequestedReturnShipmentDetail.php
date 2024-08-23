@@ -18,7 +18,6 @@ final class ShipmentSpecialServicesRequestedReturnShipmentDetail extends Dto
      * @param  ?string  $returnType  The type of return shipment being requested.
      */
     public function __construct(
-        public readonly ?string $returnType = null,
-    ) {
-    }
+        public ?string $returnType = null,
+    ) {}
 }

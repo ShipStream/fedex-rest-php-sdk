@@ -19,8 +19,7 @@ final class FullSchemaImageUploadServiceInputVo extends Dto
      * @param  Document  $document  Indicate the image reference metadata details.
      */
     public function __construct(
-        public readonly string $attachment,
-        public readonly Document $document,
-    ) {
-    }
+        public string $attachment,
+        public Document $document,
+    ) {}
 }

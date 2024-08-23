@@ -24,6 +24,5 @@ final class ShpcResponseVoModifyPackageInOpenShipment extends Response
         public readonly ?string $transactionId = null,
         public readonly ?string $customerTransactionId = null,
         public readonly ?ModifyPackageInOpenShipmentOutputVo $output = null,
-    ) {
-    }
+    ) {}
 }

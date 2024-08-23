@@ -38,8 +38,7 @@ class CreateConsolidationShipment extends Request implements HasBody
      */
     public function __construct(
         public FullSchemaCreateConsolidationShipment $fullSchemaCreateConsolidationShipment,
-    ) {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {

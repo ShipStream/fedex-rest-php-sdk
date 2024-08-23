@@ -20,9 +20,8 @@ final class Alert extends Dto
      * @param  ?string  $alertType  Indicates the API alert type.
      */
     public function __construct(
-        public readonly ?string $code = null,
-        public readonly ?string $message = null,
-        public readonly ?string $alertType = null,
-    ) {
-    }
+        public ?string $code = null,
+        public ?string $message = null,
+        public ?string $alertType = null,
+    ) {}
 }

@@ -22,9 +22,8 @@ final class CompletedEtdDetail extends Dto
      * @param  UploadDocumentReferenceDetail[]|null  $uploadDocumentReferenceDetails
      */
     public function __construct(
-        public readonly ?string $folderId = null,
-        public readonly ?string $type = null,
-        public readonly ?array $uploadDocumentReferenceDetails = null,
-    ) {
-    }
+        public ?string $folderId = null,
+        public ?string $type = null,
+        public ?array $uploadDocumentReferenceDetails = null,
+    ) {}
 }

@@ -18,7 +18,6 @@ final class HoldAtLocationDetail extends Dto
      * @param  string  $locationId  Location ID
      */
     public function __construct(
-        public readonly string $locationId,
-    ) {
-    }
+        public string $locationId,
+    ) {}
 }

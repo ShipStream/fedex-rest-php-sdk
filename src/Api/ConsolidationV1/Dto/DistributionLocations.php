@@ -24,13 +24,12 @@ final class DistributionLocations extends Dto
      * @param  ?string[]  $inclusionSpecifications  Specifies which kinds of shipments will be processed by this distribution location.
      */
     public function __construct(
-        public readonly ?string $type = null,
-        public readonly ?int $locationNumber = null,
-        public readonly ?string $id = null,
-        public readonly ?string $locationId = null,
-        public readonly ?ContactAndAddress $locationContactAndAddress = null,
-        public readonly ?string $clearanceNumber = null,
-        public readonly ?array $inclusionSpecifications = null,
-    ) {
-    }
+        public ?string $type = null,
+        public ?int $locationNumber = null,
+        public ?string $id = null,
+        public ?string $locationId = null,
+        public ?ContactAndAddress $locationContactAndAddress = null,
+        public ?string $clearanceNumber = null,
+        public ?array $inclusionSpecifications = null,
+    ) {}
 }

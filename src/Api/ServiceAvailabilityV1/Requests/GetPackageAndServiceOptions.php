@@ -40,8 +40,7 @@ class GetPackageAndServiceOptions extends Request implements HasBody
      */
     public function __construct(
         public FullSchemaPackageAndServiceOptions $fullSchemaPackageAndServiceOptions,
-    ) {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {

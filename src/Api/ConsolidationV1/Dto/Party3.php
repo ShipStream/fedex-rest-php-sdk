@@ -23,10 +23,9 @@ final class Party3 extends Dto
      * @param  TaxpayerIdentification[]|null  $tins  Used for adding the tax id
      */
     public function __construct(
-        public readonly ?PartyAddress2 $address = null,
-        public readonly ?PartyContact $contact = null,
-        public readonly ?PartyAccountNumber $accountNumber = null,
-        public readonly ?array $tins = null,
-    ) {
-    }
+        public ?PartyAddress2 $address = null,
+        public ?PartyContact $contact = null,
+        public ?PartyAccountNumber $accountNumber = null,
+        public ?array $tins = null,
+    ) {}
 }

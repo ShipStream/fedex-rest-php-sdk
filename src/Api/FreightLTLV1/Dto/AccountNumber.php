@@ -18,7 +18,6 @@ final class AccountNumber extends Dto
      * @param  ?string  $value  Specify value of the account number. Maximum length is 9.<br> Example: XXXXX6789
      */
     public function __construct(
-        public readonly ?string $value = null,
-    ) {
-    }
+        public ?string $value = null,
+    ) {}
 }

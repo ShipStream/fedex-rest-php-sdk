@@ -23,12 +23,11 @@ final class TransborderDistributionDetailSpecialServicesRequestedTransborderDist
      * @param  ?string  $suffix  Suffix for the credit card holder
      */
     public function __construct(
-        public readonly ?string $prefix = null,
-        public readonly ?string $title = null,
-        public readonly ?string $firstName = null,
-        public readonly ?string $middleName = null,
-        public readonly ?string $lastName = null,
-        public readonly ?string $suffix = null,
-    ) {
-    }
+        public ?string $prefix = null,
+        public ?string $title = null,
+        public ?string $firstName = null,
+        public ?string $middleName = null,
+        public ?string $lastName = null,
+        public ?string $suffix = null,
+    ) {}
 }

@@ -24,6 +24,5 @@ final class CmdcResponseVo extends Response
         public readonly ?string $transactionId = null,
         public readonly ?string $customerTransactionId = null,
         public readonly ?PackageAndServiceOptionsOutputVo $output = null,
-    ) {
-    }
+    ) {}
 }

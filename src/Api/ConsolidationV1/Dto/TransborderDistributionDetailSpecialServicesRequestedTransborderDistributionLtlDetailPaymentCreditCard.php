@@ -23,12 +23,11 @@ final class TransborderDistributionDetailSpecialServicesRequestedTransborderDist
      * @param  ?TransborderDistributionDetailSpecialServicesRequestedTransborderDistributionLtlDetailPaymentCreditCardCreditCardHolder  $creditCardHolder  Credit card holder's information
      */
     public function __construct(
-        public readonly ?string $number = null,
-        public readonly ?string $creditCardType = null,
-        public readonly ?string $expirationDate = null,
-        public readonly ?string $lastAuthenticationByFedexDate = null,
-        public readonly ?string $verificationCode = null,
-        public readonly ?TransborderDistributionDetailSpecialServicesRequestedTransborderDistributionLtlDetailPaymentCreditCardCreditCardHolder $creditCardHolder = null,
-    ) {
-    }
+        public ?string $number = null,
+        public ?string $creditCardType = null,
+        public ?string $expirationDate = null,
+        public ?string $lastAuthenticationByFedexDate = null,
+        public ?string $verificationCode = null,
+        public ?TransborderDistributionDetailSpecialServicesRequestedTransborderDistributionLtlDetailPaymentCreditCardCreditCardHolder $creditCardHolder = null,
+    ) {}
 }

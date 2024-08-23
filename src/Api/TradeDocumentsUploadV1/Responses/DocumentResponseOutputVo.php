@@ -22,6 +22,5 @@ final class DocumentResponseOutputVo extends Response
     public function __construct(
         public readonly ?DocumentUploadServiceOutputVo $output = null,
         public readonly ?string $customerTransactionId = null,
-    ) {
-    }
+    ) {}
 }

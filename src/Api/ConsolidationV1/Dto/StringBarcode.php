@@ -19,8 +19,7 @@ final class StringBarcode extends Dto
      * @param  ?string  $value  The data content of this instance.
      */
     public function __construct(
-        public readonly ?string $type = null,
-        public readonly ?string $value = null,
-    ) {
-    }
+        public ?string $type = null,
+        public ?string $value = null,
+    ) {}
 }

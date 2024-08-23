@@ -18,7 +18,6 @@ final class ShippingDocumentPrintDetail extends Dto
      * @param  ?string  $printerId  Provides environment specific printer identification.
      */
     public function __construct(
-        public readonly ?string $printerId = null,
-    ) {
-    }
+        public ?string $printerId = null,
+    ) {}
 }

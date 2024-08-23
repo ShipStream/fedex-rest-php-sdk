@@ -23,10 +23,9 @@ final class AdditionalTrackingInfo extends Dto
      * @param  ?string  $shipmentNotes  Field which holds customer assigned notes for a package.<br> Example: shipment notes
      */
     public function __construct(
-        public readonly ?bool $hasAssociatedShipments = null,
-        public readonly ?string $nickname = null,
-        public readonly ?array $packageIdentifiers = null,
-        public readonly ?string $shipmentNotes = null,
-    ) {
-    }
+        public ?bool $hasAssociatedShipments = null,
+        public ?string $nickname = null,
+        public ?array $packageIdentifiers = null,
+        public ?string $shipmentNotes = null,
+    ) {}
 }

@@ -22,9 +22,8 @@ final class Errors extends Dto
      * @param  ErrorsParameterList[]|null  $parameterList  These are parameter details such as paramter with a key.
      */
     public function __construct(
-        public readonly ?string $code = null,
-        public readonly ?string $message = null,
-        public readonly ?array $parameterList = null,
-    ) {
-    }
+        public ?string $code = null,
+        public ?string $message = null,
+        public ?array $parameterList = null,
+    ) {}
 }

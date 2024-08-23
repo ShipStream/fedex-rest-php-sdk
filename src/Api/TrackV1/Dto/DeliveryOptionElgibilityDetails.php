@@ -19,8 +19,7 @@ final class DeliveryOptionElgibilityDetails extends Dto
      * @param  ?string  $eligibility  Eligibility of the customer for the specific delivery options.<br> Example: INELIGIBLE
      */
     public function __construct(
-        public readonly ?string $option = null,
-        public readonly ?string $eligibility = null,
-    ) {
-    }
+        public ?string $option = null,
+        public ?string $eligibility = null,
+    ) {}
 }

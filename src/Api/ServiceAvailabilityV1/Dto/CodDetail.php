@@ -19,8 +19,7 @@ final class CodDetail extends Dto
      * @param  ?string  $codCollectionType  Identifies the type of funds FedEx should collect upon shipment delivery.
      */
     public function __construct(
-        public readonly Money $codCollectionAmount,
-        public readonly ?string $codCollectionType = null,
-    ) {
-    }
+        public Money $codCollectionAmount,
+        public ?string $codCollectionType = null,
+    ) {}
 }

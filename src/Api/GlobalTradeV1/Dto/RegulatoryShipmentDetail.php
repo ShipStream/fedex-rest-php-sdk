@@ -23,12 +23,11 @@ final class RegulatoryShipmentDetail extends Dto
      * @param  ?RegulatoryCountryAdvisory  $regulatoryCountryAdvisories  Specifies the types and parameters of Country's advisory regulations.
      */
     public function __construct(
-        public readonly ?RegulatoryStatement $regulatoryStatements = null,
-        public readonly ?array $requiredCommodityUnitsOfMeasure = null,
-        public readonly ?string $level = null,
-        public readonly ?int $commodityIndex = null,
-        public readonly ?RegulatoryDocument $regulatoryDocuments = null,
-        public readonly ?RegulatoryCountryAdvisory $regulatoryCountryAdvisories = null,
-    ) {
-    }
+        public ?RegulatoryStatement $regulatoryStatements = null,
+        public ?array $requiredCommodityUnitsOfMeasure = null,
+        public ?string $level = null,
+        public ?int $commodityIndex = null,
+        public ?RegulatoryDocument $regulatoryDocuments = null,
+        public ?RegulatoryCountryAdvisory $regulatoryCountryAdvisories = null,
+    ) {}
 }

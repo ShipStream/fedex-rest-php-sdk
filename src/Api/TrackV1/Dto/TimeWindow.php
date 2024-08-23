@@ -20,9 +20,8 @@ final class TimeWindow extends Dto
      * @param  ?string  $type  Field which holds the code representing the description for the time window provided. <br> Example: ESTIMATED_DELIVERY
      */
     public function __construct(
-        public readonly ?string $description = null,
-        public readonly ?TimeRange $window = null,
-        public readonly ?string $type = null,
-    ) {
-    }
+        public ?string $description = null,
+        public ?TimeRange $window = null,
+        public ?string $type = null,
+    ) {}
 }

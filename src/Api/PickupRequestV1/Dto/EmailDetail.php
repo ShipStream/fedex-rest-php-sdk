@@ -19,8 +19,7 @@ final class EmailDetail extends Dto
      * @param  ?string  $locale  Specify the language in which the email needs to be sent.Default value is en_US.<br>Example: en_US. .<br><a onclick='loadDocReference("locales")'>Click here to see Locales</a>
      */
     public function __construct(
-        public readonly ?string $address = null,
-        public readonly ?string $locale = null,
-    ) {
-    }
+        public ?string $address = null,
+        public ?string $locale = null,
+    ) {}
 }

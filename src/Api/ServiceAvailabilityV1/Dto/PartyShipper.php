@@ -23,12 +23,11 @@ final class PartyShipper extends Dto
      * @param  ?ProductInfo  $productInfo  Information about the contents of the shipment.
      */
     public function __construct(
-        public readonly Address $address,
-        public readonly ?Contact $contact = null,
-        public readonly ?AccountNumber $accountNumber = null,
-        public readonly ?ReferenceInfo $referenceInfo = null,
-        public readonly ?string $deliveryInstructions = null,
-        public readonly ?ProductInfo $productInfo = null,
-    ) {
-    }
+        public Address $address,
+        public ?Contact $contact = null,
+        public ?AccountNumber $accountNumber = null,
+        public ?ReferenceInfo $referenceInfo = null,
+        public ?string $deliveryInstructions = null,
+        public ?ProductInfo $productInfo = null,
+    ) {}
 }

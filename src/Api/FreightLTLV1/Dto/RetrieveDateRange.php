@@ -19,8 +19,7 @@ final class RetrieveDateRange extends Dto
      * @param  ?string  $ends  Indicates the end date.<br>Example: 12-01-2020
      */
     public function __construct(
-        public readonly ?string $begins = null,
-        public readonly ?string $ends = null,
-    ) {
-    }
+        public ?string $begins = null,
+        public ?string $ends = null,
+    ) {}
 }

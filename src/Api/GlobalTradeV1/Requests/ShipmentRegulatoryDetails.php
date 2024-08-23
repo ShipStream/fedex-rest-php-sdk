@@ -38,8 +38,7 @@ class ShipmentRegulatoryDetails extends Request implements HasBody
      */
     public function __construct(
         public FullSchema $fullSchema,
-    ) {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {

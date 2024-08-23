@@ -25,13 +25,12 @@ final class FullSchemaCreateConsolidationShipment extends Dto
      * @param  ?string  $labelResponseOptions  This is to specify whether the encoded bytecode or  the Label URL to be returned in the response.<p>Valid values:<ul><li>LABEL &ndash; Indicates request is for encoded bytecode.</li><li>URL_ONLY &ndash; Indicates label URL request.</li></ul>Note: For asynchronous shipment (More than 40 packages) request only the value LABEL is suported.</p><br><i>Note: With URL_ONLY option, the URL once created will be active for 12 hours.</i>
      */
     public function __construct(
-        public readonly array $accountNumber,
-        public readonly ConsolidationKey $consolidationKey,
-        public readonly RequestedConsolidationShipment $requestedShipment,
-        public readonly ?string $processingOptionType = null,
-        public readonly ?string $index = null,
-        public readonly ?string $shipAction = null,
-        public readonly ?string $labelResponseOptions = null,
-    ) {
-    }
+        public array $accountNumber,
+        public ConsolidationKey $consolidationKey,
+        public RequestedConsolidationShipment $requestedShipment,
+        public ?string $processingOptionType = null,
+        public ?string $index = null,
+        public ?string $shipAction = null,
+        public ?string $labelResponseOptions = null,
+    ) {}
 }

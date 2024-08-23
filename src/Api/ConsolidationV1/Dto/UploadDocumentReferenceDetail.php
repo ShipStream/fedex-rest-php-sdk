@@ -18,7 +18,6 @@ final class UploadDocumentReferenceDetail extends Dto
      * @param  ?string  $documentId  Returns the value specified in the ship shipment request for your uploaded documents in addition to other values for FedEx generated documents such as shipping labels.
      */
     public function __construct(
-        public readonly ?string $documentId = null,
-    ) {
-    }
+        public ?string $documentId = null,
+    ) {}
 }

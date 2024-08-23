@@ -21,8 +21,7 @@ final class ReturnDetail extends Dto
      * @param  ReasonDetail[]|null  $reasonDetail  Specifies the return reason details.
      */
     public function __construct(
-        public readonly ?string $authorizationName = null,
-        public readonly ?array $reasonDetail = null,
-    ) {
-    }
+        public ?string $authorizationName = null,
+        public ?array $reasonDetail = null,
+    ) {}
 }

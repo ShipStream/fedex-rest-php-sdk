@@ -47,11 +47,9 @@ final class TrackResult extends Dto
      * @param  ?string  $goodsClassificationCode  Classification codes for the goods in package. Goods classification codes required for clearance purpose. <br> Example: goodsClassificationCode
      * @param  ?LocationDetail  $holdAtLocation  Location details for the fedex facility.
      * @param  CustomDeliveryOption[]|null  $customDeliveryOptions  List of delivery options that can be used to customize the delivery of the package.
-     * @param  ?TimeWindow  $estimatedDeliveryTimeWindow
      * @param  PieceCountDetail[]|null  $pieceCounts  Piece count information at origin and destination.
      * @param  ?LocationDetailOrigin  $originLocation  Location details for the fedex facility.
      * @param  ?ContactAndAddress2  $recipientInformation  Location Contact And Address.
-     * @param  ?TimeWindow  $standardTransitTimeWindow
      * @param  ?TrackShipmentDetail  $shipmentDetails  Shipment level details for the shipment being tracked. Includes overall shipment weight, contents etc.
      * @param  ?ReasonDetail  $reasonDetail  This object contains reason description and type.
      * @param  ?string[]  $availableNotifications  The types of email notifications that are available for the package. <br> Example:ON_DELIVERY
@@ -59,37 +57,36 @@ final class TrackResult extends Dto
      * @param  ?AddressVo2  $lastUpdatedDestinationAddress  Address where the package was actually delivered. Contrast with destinationAddress, which is the location to which the package was intended to be delivered. Addresses may differ due to delivery to a behavior, hold at FedEx location, etc.
      */
     public function __construct(
-        public readonly ?TrackingNumberInfo $trackingNumberInfo = null,
-        public readonly ?AdditionalTrackingInfo $additionalTrackingInfo = null,
-        public readonly ?Distance $distanceToDestination = null,
-        public readonly ?array $consolidationDetail = null,
-        public readonly ?string $meterNumber = null,
-        public readonly ?ReturnDetail $returnDetail = null,
-        public readonly ?ServiceDescriptionDetail $serviceDetail = null,
-        public readonly ?LocationDetail $destinationLocation = null,
-        public readonly ?StatusDetail $latestStatusDetail = null,
-        public readonly ?ServiceCommitMessage $serviceCommitMessage = null,
-        public readonly ?array $informationNotes = null,
-        public readonly ?CxsError $error = null,
-        public readonly ?array $specialHandlings = null,
-        public readonly ?array $availableImages = null,
-        public readonly ?DeliveryDetails $deliveryDetails = null,
-        public readonly ?array $scanEvents = null,
-        public readonly ?array $dateAndTimes = null,
-        public readonly ?PackageDetail $packageDetails = null,
-        public readonly ?string $goodsClassificationCode = null,
-        public readonly ?LocationDetail $holdAtLocation = null,
-        public readonly ?array $customDeliveryOptions = null,
-        public readonly ?TimeWindow $estimatedDeliveryTimeWindow = null,
-        public readonly ?array $pieceCounts = null,
-        public readonly ?LocationDetailOrigin $originLocation = null,
-        public readonly ?ContactAndAddress2 $recipientInformation = null,
-        public readonly ?TimeWindow $standardTransitTimeWindow = null,
-        public readonly ?TrackShipmentDetail $shipmentDetails = null,
-        public readonly ?ReasonDetail $reasonDetail = null,
-        public readonly ?array $availableNotifications = null,
-        public readonly ?ContactAndAddress2 $shipperInformation = null,
-        public readonly ?AddressVo2 $lastUpdatedDestinationAddress = null,
-    ) {
-    }
+        public ?TrackingNumberInfo $trackingNumberInfo = null,
+        public ?AdditionalTrackingInfo $additionalTrackingInfo = null,
+        public ?Distance $distanceToDestination = null,
+        public ?array $consolidationDetail = null,
+        public ?string $meterNumber = null,
+        public ?ReturnDetail $returnDetail = null,
+        public ?ServiceDescriptionDetail $serviceDetail = null,
+        public ?LocationDetail $destinationLocation = null,
+        public ?StatusDetail $latestStatusDetail = null,
+        public ?ServiceCommitMessage $serviceCommitMessage = null,
+        public ?array $informationNotes = null,
+        public ?CxsError $error = null,
+        public ?array $specialHandlings = null,
+        public ?array $availableImages = null,
+        public ?DeliveryDetails $deliveryDetails = null,
+        public ?array $scanEvents = null,
+        public ?array $dateAndTimes = null,
+        public ?PackageDetail $packageDetails = null,
+        public ?string $goodsClassificationCode = null,
+        public ?LocationDetail $holdAtLocation = null,
+        public ?array $customDeliveryOptions = null,
+        public ?TimeWindow $estimatedDeliveryTimeWindow = null,
+        public ?array $pieceCounts = null,
+        public ?LocationDetailOrigin $originLocation = null,
+        public ?ContactAndAddress2 $recipientInformation = null,
+        public ?TimeWindow $standardTransitTimeWindow = null,
+        public ?TrackShipmentDetail $shipmentDetails = null,
+        public ?ReasonDetail $reasonDetail = null,
+        public ?array $availableNotifications = null,
+        public ?ContactAndAddress2 $shipperInformation = null,
+        public ?AddressVo2 $lastUpdatedDestinationAddress = null,
+    ) {}
 }

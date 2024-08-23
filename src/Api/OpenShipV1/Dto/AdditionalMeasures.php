@@ -19,8 +19,7 @@ final class AdditionalMeasures extends Dto
      * @param  ?string  $units  Unit of measure used to express the quantity of this commodity line item.
      */
     public function __construct(
-        public readonly ?float $quantity = null,
-        public readonly ?string $units = null,
-    ) {
-    }
+        public ?float $quantity = null,
+        public ?string $units = null,
+    ) {}
 }

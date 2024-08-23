@@ -18,7 +18,6 @@ final class UsmcaDetail extends Dto
      * @param  ?string  $originCriterion  Specify the origin criterion.
      */
     public function __construct(
-        public readonly ?string $originCriterion = null,
-    ) {
-    }
+        public ?string $originCriterion = null,
+    ) {}
 }

@@ -19,8 +19,7 @@ final class FreightPhoneNumberDetail extends Dto
      * @param  ?string  $phoneNumber  This provides the phone number
      */
     public function __construct(
-        public readonly ?string $phoneNumberType = null,
-        public readonly ?string $phoneNumber = null,
-    ) {
-    }
+        public ?string $phoneNumberType = null,
+        public ?string $phoneNumber = null,
+    ) {}
 }

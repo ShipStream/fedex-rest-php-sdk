@@ -31,15 +31,14 @@ final class TransactionConsolidationShipmentResultsOutputVo extends Dto
      * @param  ?string  $masterTrackingNumber  Indicates the TrackingNumber for the single or multiple-package shipment<br>Example: 794953535000
      */
     public function __construct(
-        public readonly ?string $serviceType = null,
-        public readonly ?string $shipDateStamp = null,
-        public readonly ?string $serviceCategory = null,
-        public readonly ?array $shipmentDocuments = null,
-        public readonly ?array $pieceResponses = null,
-        public readonly ?string $serviceName = null,
-        public readonly ?ConsolidationCompletedShipmentDetail $completedShipmentDetail = null,
-        public readonly ?ShipmentAdvisoryDetails $shipmentAdvisoryDetails = null,
-        public readonly ?string $masterTrackingNumber = null,
-    ) {
-    }
+        public ?string $serviceType = null,
+        public ?string $shipDateStamp = null,
+        public ?string $serviceCategory = null,
+        public ?array $shipmentDocuments = null,
+        public ?array $pieceResponses = null,
+        public ?string $serviceName = null,
+        public ?ConsolidationCompletedShipmentDetail $completedShipmentDetail = null,
+        public ?ShipmentAdvisoryDetails $shipmentAdvisoryDetails = null,
+        public ?string $masterTrackingNumber = null,
+    ) {}
 }

@@ -24,6 +24,5 @@ final class ConfirmConsolidationResultsResponse extends Response
         public readonly ?string $transactionId = null,
         public readonly ?string $customerTransactionId = null,
         public readonly ?BaseProcessOutputVoConfirmConsolidationResults $output = null,
-    ) {
-    }
+    ) {}
 }

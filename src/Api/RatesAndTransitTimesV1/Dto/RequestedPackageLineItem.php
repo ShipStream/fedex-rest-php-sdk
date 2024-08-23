@@ -24,13 +24,12 @@ final class RequestedPackageLineItem extends Dto
      * @param  ?PackageSpecialServicesRequested  $packageSpecialServices  These special services are available at the package level for some or all service types. Needs Indicated, if rate data is being requested for the special services.
      */
     public function __construct(
-        public readonly Weight $weight,
-        public readonly ?string $subPackagingType = null,
-        public readonly ?int $groupPackageCount = null,
-        public readonly ?Money $declaredValue = null,
-        public readonly ?Dimensions $dimensions = null,
-        public readonly ?VariableHandlingChargeDetail $variableHandlingChargeDetail = null,
-        public readonly ?PackageSpecialServicesRequested $packageSpecialServices = null,
-    ) {
-    }
+        public Weight $weight,
+        public ?string $subPackagingType = null,
+        public ?int $groupPackageCount = null,
+        public ?Money $declaredValue = null,
+        public ?Dimensions $dimensions = null,
+        public ?VariableHandlingChargeDetail $variableHandlingChargeDetail = null,
+        public ?PackageSpecialServicesRequested $packageSpecialServices = null,
+    ) {}
 }

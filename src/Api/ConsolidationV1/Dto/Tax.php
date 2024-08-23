@@ -21,10 +21,9 @@ final class Tax extends Dto
      * @param  ?string  $type  Specifies the type of the tax.
      */
     public function __construct(
-        public readonly ?float $amount = null,
-        public readonly ?string $level = null,
-        public readonly ?string $description = null,
-        public readonly ?string $type = null,
-    ) {
-    }
+        public ?float $amount = null,
+        public ?string $level = null,
+        public ?string $description = null,
+        public ?string $type = null,
+    ) {}
 }

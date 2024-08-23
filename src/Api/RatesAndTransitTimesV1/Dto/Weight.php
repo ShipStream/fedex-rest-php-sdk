@@ -19,8 +19,7 @@ final class Weight extends Dto
      * @param  ?float  $value  Specifies the package weight.<br> Example: 68.25
      */
     public function __construct(
-        public readonly ?string $units = null,
-        public readonly ?float $value = null,
-    ) {
-    }
+        public ?string $units = null,
+        public ?float $value = null,
+    ) {}
 }

@@ -19,8 +19,7 @@ final class PackageCodDetail extends Dto
      * @param  ?string  $codCollectionType  Indicate the type of funds FedEx should collect upon shipment delivery. <br> Conditionally required for Ground COD rates
      */
     public function __construct(
-        public readonly ?Money $codCollectionAmount = null,
-        public readonly ?string $codCollectionType = null,
-    ) {
-    }
+        public ?Money $codCollectionAmount = null,
+        public ?string $codCollectionType = null,
+    ) {}
 }

@@ -21,8 +21,7 @@ final class EndOfDayCloseOutputVo extends Dto
      * @param  CloseDocument[]|null  $closeDocuments  The actual document contents for all provided reports.
      */
     public function __construct(
-        public readonly ?array $alerts = null,
-        public readonly ?array $closeDocuments = null,
-    ) {
-    }
+        public ?array $alerts = null,
+        public ?array $closeDocuments = null,
+    ) {}
 }

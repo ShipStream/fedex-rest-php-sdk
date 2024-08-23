@@ -21,10 +21,9 @@ final class Surcharge extends Dto
      * @param  ?string  $description  Specifies the description of the surcharge. Indicates delivery and returns information for FedEx Ground Economy services.<br>Example: Fuel Surcharge
      */
     public function __construct(
-        public readonly ?Money2 $amount = null,
-        public readonly ?string $surchargeType = null,
-        public readonly ?string $level = null,
-        public readonly ?string $description = null,
-    ) {
-    }
+        public ?Money2 $amount = null,
+        public ?string $surchargeType = null,
+        public ?string $level = null,
+        public ?string $description = null,
+    ) {}
 }

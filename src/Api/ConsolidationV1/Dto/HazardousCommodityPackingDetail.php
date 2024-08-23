@@ -19,8 +19,7 @@ final class HazardousCommodityPackingDetail extends Dto
      * @param  ?string  $packingInstructions  Coded specification for how commodity is to be packed.
      */
     public function __construct(
-        public readonly bool $cargoAircraftOnly,
-        public readonly ?string $packingInstructions = null,
-    ) {
-    }
+        public bool $cargoAircraftOnly,
+        public ?string $packingInstructions = null,
+    ) {}
 }

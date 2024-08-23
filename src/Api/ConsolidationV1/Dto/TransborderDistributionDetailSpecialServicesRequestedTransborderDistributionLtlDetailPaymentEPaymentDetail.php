@@ -22,11 +22,10 @@ final class TransborderDistributionDetailSpecialServicesRequestedTransborderDist
      * @param  ?TransborderDistributionDetailSpecialServicesRequestedTransborderDistributionLtlDetailPaymentEPaymentDetailAmount  $amount  E-payment credit card amount
      */
     public function __construct(
-        public readonly ?string $epaymentProcessor = null,
-        public readonly ?string $ePaymentMode = null,
-        public readonly ?string $creditCardType = null,
-        public readonly ?string $creditCardExpirationDate = null,
-        public readonly ?TransborderDistributionDetailSpecialServicesRequestedTransborderDistributionLtlDetailPaymentEPaymentDetailAmount $amount = null,
-    ) {
-    }
+        public ?string $epaymentProcessor = null,
+        public ?string $ePaymentMode = null,
+        public ?string $creditCardType = null,
+        public ?string $creditCardExpirationDate = null,
+        public ?TransborderDistributionDetailSpecialServicesRequestedTransborderDistributionLtlDetailPaymentEPaymentDetailAmount $amount = null,
+    ) {}
 }

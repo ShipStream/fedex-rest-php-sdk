@@ -36,23 +36,22 @@ final class RequestedShipment extends Dto
      * @param  ?SmartPostInfoDetail  $smartPostInfoDetail  Use this object to specify the smartpost shipment details. <br>Required for SMARTPOST service. If SmartPostInfoDetail is indicated, the elements below it are also required.
      */
     public function __construct(
-        public readonly RateParty $shipper,
-        public readonly RateParty $recipient,
-        public readonly string $pickupType,
-        public readonly array $requestedPackageLineItems,
-        public readonly ?string $serviceType = null,
-        public readonly ?string $preferredCurrency = null,
-        public readonly ?array $rateRequestType = null,
-        public readonly ?string $shipDateStamp = null,
-        public readonly ?bool $documentShipment = null,
-        public readonly ?VariableHandlingChargeDetail $variableHandlingChargeDetail = null,
-        public readonly ?string $packagingType = null,
-        public readonly ?int $totalPackageCount = null,
-        public readonly ?float $totalWeight = null,
-        public readonly ?ShipmentSpecialServicesRequested $shipmentSpecialServices = null,
-        public readonly ?CustomsClearanceDetail $customsClearanceDetail = null,
-        public readonly ?ServiceTypeDetailVo $serviceTypeDetail = null,
-        public readonly ?SmartPostInfoDetail $smartPostInfoDetail = null,
-    ) {
-    }
+        public RateParty $shipper,
+        public RateParty $recipient,
+        public string $pickupType,
+        public array $requestedPackageLineItems,
+        public ?string $serviceType = null,
+        public ?string $preferredCurrency = null,
+        public ?array $rateRequestType = null,
+        public ?string $shipDateStamp = null,
+        public ?bool $documentShipment = null,
+        public ?VariableHandlingChargeDetail $variableHandlingChargeDetail = null,
+        public ?string $packagingType = null,
+        public ?int $totalPackageCount = null,
+        public ?float $totalWeight = null,
+        public ?ShipmentSpecialServicesRequested $shipmentSpecialServices = null,
+        public ?CustomsClearanceDetail $customsClearanceDetail = null,
+        public ?ServiceTypeDetailVo $serviceTypeDetail = null,
+        public ?SmartPostInfoDetail $smartPostInfoDetail = null,
+    ) {}
 }

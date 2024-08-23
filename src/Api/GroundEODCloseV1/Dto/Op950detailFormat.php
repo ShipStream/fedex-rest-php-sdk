@@ -21,10 +21,9 @@ final class Op950detailFormat extends Dto
      * @param  ?string  $locale  this is the language and language locale code for the email<br>Example: en_US, fr_CA, es_MX
      */
     public function __construct(
-        public readonly ?Op950detailFormatTopOfPageOffset $topOfPageOffset = null,
-        public readonly ?string $imageType = null,
-        public readonly ?string $stockType = null,
-        public readonly ?string $locale = null,
-    ) {
-    }
+        public ?Op950detailFormatTopOfPageOffset $topOfPageOffset = null,
+        public ?string $imageType = null,
+        public ?string $stockType = null,
+        public ?string $locale = null,
+    ) {}
 }

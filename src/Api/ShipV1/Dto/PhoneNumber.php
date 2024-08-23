@@ -21,10 +21,9 @@ final class PhoneNumber extends Dto
      * @param  ?string  $personalIdentificationNumber  Personal Identification Number<br>Example: 98712345
      */
     public function __construct(
-        public readonly ?string $areaCode = null,
-        public readonly ?string $localNumber = null,
-        public readonly ?string $extension = null,
-        public readonly ?string $personalIdentificationNumber = null,
-    ) {
-    }
+        public ?string $areaCode = null,
+        public ?string $localNumber = null,
+        public ?string $extension = null,
+        public ?string $personalIdentificationNumber = null,
+    ) {}
 }

@@ -20,10 +20,9 @@ final class FullSchemaPackageAndServiceOptions extends Dto
      * @param  ?string  $systemOfMeasureType  This is system measurement type, such as Imperial or Metric.
      */
     public function __construct(
-        public readonly PackageAndOptionsRequestedShipment $requestedShipment,
-        public readonly ?array $carrierCodes = null,
-        public readonly ?AccountNumber $accountNumber = null,
-        public readonly ?string $systemOfMeasureType = null,
-    ) {
-    }
+        public PackageAndOptionsRequestedShipment $requestedShipment,
+        public ?array $carrierCodes = null,
+        public ?AccountNumber $accountNumber = null,
+        public ?string $systemOfMeasureType = null,
+    ) {}
 }

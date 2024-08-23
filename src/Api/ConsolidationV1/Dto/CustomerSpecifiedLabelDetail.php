@@ -22,9 +22,8 @@ final class CustomerSpecifiedLabelDetail extends Dto
      * @param  ?DocTabContent  $docTabContent  Specifies details of doc tab content, If provided, thermal documents will include specified doc tab content. If omitted, document will be produced without doc tab content.
      */
     public function __construct(
-        public readonly ?array $maskedData = null,
-        public readonly ?array $regulatoryLabels = null,
-        public readonly ?DocTabContent $docTabContent = null,
-    ) {
-    }
+        public ?array $maskedData = null,
+        public ?array $regulatoryLabels = null,
+        public ?DocTabContent $docTabContent = null,
+    ) {}
 }

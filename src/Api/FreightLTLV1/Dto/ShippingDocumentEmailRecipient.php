@@ -19,8 +19,7 @@ final class ShippingDocumentEmailRecipient extends Dto
      * @param  ?string  $emailAddress  Specifies the email address.<br> Example: email@fedex.com
      */
     public function __construct(
-        public readonly string $recipientType,
-        public readonly ?string $emailAddress = null,
-    ) {
-    }
+        public string $recipientType,
+        public ?string $emailAddress = null,
+    ) {}
 }

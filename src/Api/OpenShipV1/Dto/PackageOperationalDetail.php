@@ -22,9 +22,8 @@ final class PackageOperationalDetail extends Dto
      * @param  OperationalInstructions[]|null  $operationalInstructions  These are operational instruction such as Ground Information printed on a given area of the label, one-dimensional barcode with only x-axis that contains the details of the shipment in encrypted form, COD Return operational instructions data such as COD amount, SECURED or UNSECURED.
      */
     public function __construct(
-        public readonly ?string $astraHandlingText = null,
-        public readonly ?PackageBarcodes $barcodes = null,
-        public readonly ?array $operationalInstructions = null,
-    ) {
-    }
+        public ?string $astraHandlingText = null,
+        public ?PackageBarcodes $barcodes = null,
+        public ?array $operationalInstructions = null,
+    ) {}
 }

@@ -45,8 +45,7 @@ class ShipmentPackageValidate extends Request implements HasBody
      */
     public function __construct(
         public FullSchemaVerifyShipment $fullSchemaVerifyShipment,
-    ) {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {

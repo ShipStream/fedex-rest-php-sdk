@@ -32,21 +32,20 @@ final class ValidatedHazardousCommodityDescription extends Dto
      * @param  ?string  $hazardClass  Specifies hazard Class.
      */
     public function __construct(
-        public readonly ?int $sequenceNumber = null,
-        public readonly ?string $packingInstructions = null,
-        public readonly ?array $subsidiaryClasses = null,
-        public readonly ?string $labelText = null,
-        public readonly ?string $tunnelRestrictionCode = null,
-        public readonly ?string $specialProvisions = null,
-        public readonly ?string $properShippingNameAndDescription = null,
-        public readonly ?string $technicalName = null,
-        public readonly ?string $symbols = null,
-        public readonly ?string $authorization = null,
-        public readonly ?array $attributes = null,
-        public readonly ?string $id = null,
-        public readonly ?string $packingGroup = null,
-        public readonly ?string $properShippingName = null,
-        public readonly ?string $hazardClass = null,
-    ) {
-    }
+        public ?int $sequenceNumber = null,
+        public ?string $packingInstructions = null,
+        public ?array $subsidiaryClasses = null,
+        public ?string $labelText = null,
+        public ?string $tunnelRestrictionCode = null,
+        public ?string $specialProvisions = null,
+        public ?string $properShippingNameAndDescription = null,
+        public ?string $technicalName = null,
+        public ?string $symbols = null,
+        public ?string $authorization = null,
+        public ?array $attributes = null,
+        public ?string $id = null,
+        public ?string $packingGroup = null,
+        public ?string $properShippingName = null,
+        public ?string $hazardClass = null,
+    ) {}
 }

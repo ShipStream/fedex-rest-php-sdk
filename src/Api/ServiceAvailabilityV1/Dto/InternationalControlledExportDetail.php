@@ -18,7 +18,6 @@ final class InternationalControlledExportDetail extends Dto
      * @param  string  $type  Indicate International Controlled Export Type.
      */
     public function __construct(
-        public readonly string $type,
-    ) {
-    }
+        public string $type,
+    ) {}
 }

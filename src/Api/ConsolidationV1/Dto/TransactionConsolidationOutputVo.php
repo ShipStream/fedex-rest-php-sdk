@@ -25,9 +25,8 @@ final class TransactionConsolidationOutputVo extends Dto
      * @param  LabelResponseVo[]|null  $shipmentDocuments  These are shipping document details.
      */
     public function __construct(
-        public readonly ?TransactionConsolidationOutputVoCompletedConsolidationDetail $completedConsolidationDetail = null,
-        public readonly ?array $pieceResponses = null,
-        public readonly ?array $shipmentDocuments = null,
-    ) {
-    }
+        public ?TransactionConsolidationOutputVoCompletedConsolidationDetail $completedConsolidationDetail = null,
+        public ?array $pieceResponses = null,
+        public ?array $shipmentDocuments = null,
+    ) {}
 }

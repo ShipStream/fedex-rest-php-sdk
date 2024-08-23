@@ -19,8 +19,7 @@ final class OperationalInstructions extends Dto
      * @param  ?string  $content  This is an operational instruction printed or available on the shipping document.<br>Example: SECURED
      */
     public function __construct(
-        public readonly ?int $number = null,
-        public readonly ?string $content = null,
-    ) {
-    }
+        public ?int $number = null,
+        public ?string $content = null,
+    ) {}
 }

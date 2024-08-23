@@ -23,12 +23,11 @@ final class BillingDetails extends Dto
      * @param  ?string  $accountNumberCountryCode  This is the country code of the account number.<br>Example: CA
      */
     public function __construct(
-        public readonly ?string $billingCode = null,
-        public readonly ?string $billingType = null,
-        public readonly ?string $aliasId = null,
-        public readonly ?string $accountNickname = null,
-        public readonly ?string $accountNumber = null,
-        public readonly ?string $accountNumberCountryCode = null,
-    ) {
-    }
+        public ?string $billingCode = null,
+        public ?string $billingType = null,
+        public ?string $aliasId = null,
+        public ?string $accountNickname = null,
+        public ?string $accountNumber = null,
+        public ?string $accountNumberCountryCode = null,
+    ) {}
 }

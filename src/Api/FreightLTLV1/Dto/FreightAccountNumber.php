@@ -19,8 +19,7 @@ final class FreightAccountNumber extends Dto
      * @param  ?string  $key  The account key associated with this account number.
      */
     public function __construct(
-        public readonly ?string $value = null,
-        public readonly ?string $key = null,
-    ) {
-    }
+        public ?string $value = null,
+        public ?string $key = null,
+    ) {}
 }

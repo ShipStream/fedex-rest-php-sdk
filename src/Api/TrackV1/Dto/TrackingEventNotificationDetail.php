@@ -24,9 +24,8 @@ final class TrackingEventNotificationDetail extends Dto
      * @param  ?string  $supportHtml  If value is 'true' then html tags are included in the response date.  If 'false' they are not provided in the response.
      */
     public function __construct(
-        public readonly array $trackingNotifications,
-        public readonly ?string $personalMessage = null,
-        public readonly ?string $supportHtml = null,
-    ) {
-    }
+        public array $trackingNotifications,
+        public ?string $personalMessage = null,
+        public ?string $supportHtml = null,
+    ) {}
 }

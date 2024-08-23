@@ -24,6 +24,5 @@ final class ModifyConsolidationResponse extends Response
         public readonly ?string $customerTransactionId = null,
         public readonly ?string $transactionId = null,
         public readonly ?ModifyConsolidationOutputVo $output = null,
-    ) {
-    }
+    ) {}
 }

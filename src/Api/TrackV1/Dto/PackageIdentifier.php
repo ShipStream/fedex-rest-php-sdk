@@ -20,9 +20,8 @@ final class PackageIdentifier extends Dto
      * @param  ?string  $trackingNumberUniqueId  Unique identifier used to distinguish duplicate FedEx tracking numbers. This value will be set by FedEx systems. <br> Example: 245822\~123456789012\~FDEG
      */
     public function __construct(
-        public readonly ?string $type = null,
-        public readonly ?array $value = null,
-        public readonly ?string $trackingNumberUniqueId = null,
-    ) {
-    }
+        public ?string $type = null,
+        public ?array $value = null,
+        public ?string $trackingNumberUniqueId = null,
+    ) {}
 }

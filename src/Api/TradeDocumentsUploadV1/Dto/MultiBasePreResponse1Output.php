@@ -20,7 +20,6 @@ final class MultiBasePreResponse1Output extends Dto
      * @param  MultiDocumentPreResponse[]|null  $documentResponses
      */
     public function __construct(
-        public readonly ?array $documentResponses = null,
-    ) {
-    }
+        public ?array $documentResponses = null,
+    ) {}
 }

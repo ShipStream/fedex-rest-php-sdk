@@ -19,8 +19,7 @@ final class UsmcaLowValueStatementDetail extends Dto
      * @param  ?bool  $countryOfOriginLowValueDocumentRequested  Specify the country Of Origin of Low Value Document for Customs declaration.<br>Example:true
      */
     public function __construct(
-        public readonly string $customsRole,
-        public readonly ?bool $countryOfOriginLowValueDocumentRequested = null,
-    ) {
-    }
+        public string $customsRole,
+        public ?bool $countryOfOriginLowValueDocumentRequested = null,
+    ) {}
 }

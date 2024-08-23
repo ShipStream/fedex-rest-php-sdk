@@ -20,9 +20,8 @@ final class FullSchemaRetrievePackageInOpenShipment extends Dto
      * @param  TrackingId  $trackingId  Indicates the tracking details for the package.
      */
     public function __construct(
-        public readonly string $index,
-        public readonly PartyAccountNumber $accountNumber,
-        public readonly TrackingId $trackingId,
-    ) {
-    }
+        public string $index,
+        public PartyAccountNumber $accountNumber,
+        public TrackingId $trackingId,
+    ) {}
 }

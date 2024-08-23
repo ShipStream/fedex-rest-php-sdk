@@ -23,8 +23,7 @@ final class TransborderDistributionDetailSpecialServicesRequestedTransborderDist
      * @param  TransborderDistributionDetailSpecialServicesRequestedTransborderDistributionLtlDetailPaymentPayorAssociatedAccounts[]|null  $associatedAccounts  Other associated accounts
      */
     public function __construct(
-        public readonly ?TransborderDistributionDetailSpecialServicesRequestedTransborderDistributionLtlDetailPaymentPayorResponsibleParty $responsibleParty = null,
-        public readonly ?array $associatedAccounts = null,
-    ) {
-    }
+        public ?TransborderDistributionDetailSpecialServicesRequestedTransborderDistributionLtlDetailPaymentPayorResponsibleParty $responsibleParty = null,
+        public ?array $associatedAccounts = null,
+    ) {}
 }

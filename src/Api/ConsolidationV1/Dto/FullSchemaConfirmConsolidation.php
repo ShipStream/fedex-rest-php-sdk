@@ -24,13 +24,12 @@ final class FullSchemaConfirmConsolidation extends Dto
      * @param  ?ConsolidationDocumentSpec  $consolidationDocumentSpecification  Details of consolidation document specification
      */
     public function __construct(
-        public readonly LabelSpecification $labelSpecification,
-        public readonly ConsolidationKey $consolidationKey,
-        public readonly string $processingOptionType,
-        public readonly PartyAccountNumber $accountNumber,
-        public readonly ?string $edtRequestType = null,
-        public readonly ?string $rateRequestType = null,
-        public readonly ?ConsolidationDocumentSpec $consolidationDocumentSpecification = null,
-    ) {
-    }
+        public LabelSpecification $labelSpecification,
+        public ConsolidationKey $consolidationKey,
+        public string $processingOptionType,
+        public PartyAccountNumber $accountNumber,
+        public ?string $edtRequestType = null,
+        public ?string $rateRequestType = null,
+        public ?ConsolidationDocumentSpec $consolidationDocumentSpecification = null,
+    ) {}
 }

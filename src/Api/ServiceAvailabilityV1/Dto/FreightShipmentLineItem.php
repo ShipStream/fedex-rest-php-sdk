@@ -33,16 +33,15 @@ final class FreightShipmentLineItem extends Dto
      * @param  ?Dimensions  $dimensions  Indicate the dimensions of the package.<br> Following conditions will apply: <ul><li>Dimensions are optional but when added, then all three dimensions must be indicated.</li><li>Dimensions are required with YOUR_PACKAGING package type.</li></ul>Note: The maximum/minimum dimension values varies based on the services and the packaging types. Refer <a href="https://www.fedex.com/en-us/service-guide.html" target="_blank">FedEx Service Guide</a> for service details related to DIM Weighting for FedEx Express and oversize conditions for FedEx Express and FedEx Ground.
      */
     public function __construct(
-        public readonly string $freightClass,
-        public readonly Weight $weight,
-        public readonly ?int $pieces = null,
-        public readonly ?Volume $volume = null,
-        public readonly ?int $handlingUnits = null,
-        public readonly ?string $description = null,
-        public readonly ?string $packaging = null,
-        public readonly ?bool $classProvidedByCustomer = null,
-        public readonly ?string $hazardousMaterials = null,
-        public readonly ?Dimensions $dimensions = null,
-    ) {
-    }
+        public string $freightClass,
+        public Weight $weight,
+        public ?int $pieces = null,
+        public ?Volume $volume = null,
+        public ?int $handlingUnits = null,
+        public ?string $description = null,
+        public ?string $packaging = null,
+        public ?bool $classProvidedByCustomer = null,
+        public ?string $hazardousMaterials = null,
+        public ?Dimensions $dimensions = null,
+    ) {}
 }

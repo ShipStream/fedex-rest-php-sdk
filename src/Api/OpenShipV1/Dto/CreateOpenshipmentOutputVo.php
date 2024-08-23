@@ -27,10 +27,9 @@ final class CreateOpenshipmentOutputVo extends Dto
      * @param  Alert[]|null  $alerts  The alerts details received in the response.
      */
     public function __construct(
-        public readonly ?string $asynchronousProcessingResultsDetail = null,
-        public readonly ?string $jobId = null,
-        public readonly ?array $transactionShipments = null,
-        public readonly ?array $alerts = null,
-    ) {
-    }
+        public ?string $asynchronousProcessingResultsDetail = null,
+        public ?string $jobId = null,
+        public ?array $transactionShipments = null,
+        public ?array $alerts = null,
+    ) {}
 }

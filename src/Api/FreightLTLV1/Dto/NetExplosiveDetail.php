@@ -20,9 +20,8 @@ final class NetExplosiveDetail extends Dto
      * @param  ?string  $type  Specifies net explosive  classification type.<br>Example: NET_EXPLOSIVE_WEIGHT
      */
     public function __construct(
-        public readonly ?float $amount = null,
-        public readonly ?string $units = null,
-        public readonly ?string $type = null,
-    ) {
-    }
+        public ?float $amount = null,
+        public ?string $units = null,
+        public ?string $type = null,
+    ) {}
 }

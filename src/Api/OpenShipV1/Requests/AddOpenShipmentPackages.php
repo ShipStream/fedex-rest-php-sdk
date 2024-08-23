@@ -39,8 +39,7 @@ class AddOpenShipmentPackages extends Request implements HasBody
      */
     public function __construct(
         public FullSchemaAddPackagesToOpenShipment $fullSchemaAddPackagesToOpenShipment,
-    ) {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {

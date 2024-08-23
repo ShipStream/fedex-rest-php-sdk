@@ -18,7 +18,6 @@ final class SignatureOptionDetail extends Dto
      * @param  ?string  $signatureReleaseNumber  Signature Release Number is required for signature option NO_SIGNATURE_REQUIRED.
      */
     public function __construct(
-        public readonly ?string $signatureReleaseNumber = null,
-    ) {
-    }
+        public ?string $signatureReleaseNumber = null,
+    ) {}
 }

@@ -33,20 +33,19 @@ final class CustomsClearanceDetail1CommercialInvoice extends Dto
      * @param  ?string  $originatorName  The originatorName that will populate the Commercial Invoice (or Pro Forma).
      */
     public function __construct(
-        public readonly ?string $termsOfSale = null,
-        public readonly ?array $comments = null,
-        public readonly ?string $purpose = null,
-        public readonly ?FreightChargeMoney $freightCharge = null,
-        public readonly ?TaxesOrMiscellaneousCharges $taxesOrMiscellaneousCharge = null,
-        public readonly ?string $taxesOrMiscellaneousChargeType = null,
-        public readonly ?PackingCostCharges $packingCosts = null,
-        public readonly ?HandlingCostCharges $handlingCosts = null,
-        public readonly ?string $specialInstructions = null,
-        public readonly ?string $declarationStatement = null,
-        public readonly ?string $paymentTerms = null,
-        public readonly ?string $purposeOfShipmentDescription = null,
-        public readonly ?array $customerReferences = null,
-        public readonly ?string $originatorName = null,
-    ) {
-    }
+        public ?string $termsOfSale = null,
+        public ?array $comments = null,
+        public ?string $purpose = null,
+        public ?FreightChargeMoney $freightCharge = null,
+        public ?TaxesOrMiscellaneousCharges $taxesOrMiscellaneousCharge = null,
+        public ?string $taxesOrMiscellaneousChargeType = null,
+        public ?PackingCostCharges $packingCosts = null,
+        public ?HandlingCostCharges $handlingCosts = null,
+        public ?string $specialInstructions = null,
+        public ?string $declarationStatement = null,
+        public ?string $paymentTerms = null,
+        public ?string $purposeOfShipmentDescription = null,
+        public ?array $customerReferences = null,
+        public ?string $originatorName = null,
+    ) {}
 }

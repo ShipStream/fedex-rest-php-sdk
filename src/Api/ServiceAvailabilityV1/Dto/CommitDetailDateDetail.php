@@ -20,9 +20,8 @@ final class CommitDetailDateDetail extends Dto
      * @param  ?string  $day  This is the day in format [MM-DD-YYYY]<br>example: Apr-13-2021
      */
     public function __construct(
-        public readonly ?string $dayOfWeek = null,
-        public readonly ?string $time = null,
-        public readonly ?string $day = null,
-    ) {
-    }
+        public ?string $dayOfWeek = null,
+        public ?string $time = null,
+        public ?string $day = null,
+    ) {}
 }

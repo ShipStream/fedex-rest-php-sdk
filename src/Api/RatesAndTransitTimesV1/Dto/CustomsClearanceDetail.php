@@ -24,11 +24,10 @@ final class CustomsClearanceDetail extends Dto
      * @param  ?Payment  $dutiesPayment  These are details about shipment payment. Value payor is optional when paymentType provided as SENDER.
      */
     public function __construct(
-        public readonly array $commodities,
-        public readonly ?array $brokers = null,
-        public readonly ?CommercialInvoice $commercialInvoice = null,
-        public readonly ?string $freightOnValue = null,
-        public readonly ?Payment $dutiesPayment = null,
-    ) {
-    }
+        public array $commodities,
+        public ?array $brokers = null,
+        public ?CommercialInvoice $commercialInvoice = null,
+        public ?string $freightOnValue = null,
+        public ?Payment $dutiesPayment = null,
+    ) {}
 }

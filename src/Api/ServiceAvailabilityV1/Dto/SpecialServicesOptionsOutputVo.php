@@ -21,8 +21,7 @@ final class SpecialServicesOptionsOutputVo extends Dto
      * @param  OptionalServices[]|null  $serviceOptionsList  The list of options applicable when special service option is selected. The options include:<br>-Service types<br>-Signature options</br>-Package Special services list<br>-Return shipment list<br>-Carrier code<br>-Battery option list<br>-Alert list<br>-Shipment special services ist<br>-Cxs alerts
      */
     public function __construct(
-        public readonly ?array $alerts = null,
-        public readonly ?array $serviceOptionsList = null,
-    ) {
-    }
+        public ?array $alerts = null,
+        public ?array $serviceOptionsList = null,
+    ) {}
 }

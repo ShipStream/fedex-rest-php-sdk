@@ -25,12 +25,11 @@ final class PendingShipmentDetail extends Dto
      * @param  ?string  $expirationTimeStamp  Specifies the Email Label expiration date. The maximum expiration date for an Email Return Label must be greater of equal to the day of the label request and not greater than 2 years in the future. Format[YYYY-MM-DD] <br>Example: 2020-01-01
      */
     public function __construct(
-        public readonly string $pendingShipmentType,
-        public readonly EmailLabelDetail $emailLabelDetail,
-        public readonly ?PendingShipmentProcessingOptionsRequested $processingOptions = null,
-        public readonly ?RecommendedDocumentSpecification $recommendedDocumentSpecification = null,
-        public readonly ?array $attachedDocuments = null,
-        public readonly ?string $expirationTimeStamp = null,
-    ) {
-    }
+        public string $pendingShipmentType,
+        public EmailLabelDetail $emailLabelDetail,
+        public ?PendingShipmentProcessingOptionsRequested $processingOptions = null,
+        public ?RecommendedDocumentSpecification $recommendedDocumentSpecification = null,
+        public ?array $attachedDocuments = null,
+        public ?string $expirationTimeStamp = null,
+    ) {}
 }

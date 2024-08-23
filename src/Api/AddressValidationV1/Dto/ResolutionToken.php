@@ -19,8 +19,7 @@ final class ResolutionToken extends Dto
      * @param  ?string  $value  Indicates the changed value.<br> Example: SAN JUAN
      */
     public function __construct(
-        public readonly ?bool $changed = null,
-        public readonly ?string $value = null,
-    ) {
-    }
+        public ?bool $changed = null,
+        public ?string $value = null,
+    ) {}
 }

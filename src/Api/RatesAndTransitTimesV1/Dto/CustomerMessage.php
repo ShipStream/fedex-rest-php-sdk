@@ -19,8 +19,7 @@ final class CustomerMessage extends Dto
      * @param  ?string  $message  This is a message description.<br> Example: Rate does not include duties & taxes, clearance entry fees or other import fees. The payor of duties/taxes/fees will be responsible for any applicable Clearance Entry Fees
      */
     public function __construct(
-        public readonly ?string $code = null,
-        public readonly ?string $message = null,
-    ) {
-    }
+        public ?string $code = null,
+        public ?string $message = null,
+    ) {}
 }

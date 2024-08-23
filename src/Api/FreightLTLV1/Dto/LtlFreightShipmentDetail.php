@@ -33,18 +33,17 @@ final class LtlFreightShipmentDetail extends Dto
      * @param  ?LtlRateParty  $alternateBillingParty  Specify alternate billing party details. <br>Note: These details are required when paymentType selected as THIRD_PARTY.
      */
     public function __construct(
-        public readonly string $role,
-        public readonly array $lineItem,
-        public readonly int $totalHandlingUnits,
-        public readonly ?AccountNumber $accountNumber = null,
-        public readonly ?string $declaredValueUnits = null,
-        public readonly ?Dimensions $shipmentDimensions = null,
-        public readonly ?float $clientDiscountPercent = null,
-        public readonly ?ContactAndAddress $fedExFreightBillingContactAndAddress = null,
-        public readonly ?string $aliasId = null,
-        public readonly ?string $hazardousMaterialsOfferor = null,
-        public readonly ?Money $declaredValuePerUnit = null,
-        public readonly ?LtlRateParty $alternateBillingParty = null,
-    ) {
-    }
+        public string $role,
+        public array $lineItem,
+        public int $totalHandlingUnits,
+        public ?AccountNumber $accountNumber = null,
+        public ?string $declaredValueUnits = null,
+        public ?Dimensions $shipmentDimensions = null,
+        public ?float $clientDiscountPercent = null,
+        public ?ContactAndAddress $fedExFreightBillingContactAndAddress = null,
+        public ?string $aliasId = null,
+        public ?string $hazardousMaterialsOfferor = null,
+        public ?Money $declaredValuePerUnit = null,
+        public ?LtlRateParty $alternateBillingParty = null,
+    ) {}
 }

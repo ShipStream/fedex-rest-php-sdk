@@ -35,8 +35,7 @@ class GroundPerformEndOfDayClose extends Request implements HasBody
 
     public function __construct(
         public FullSchemaGeodPut $fullSchemaGeodPut,
-    ) {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {

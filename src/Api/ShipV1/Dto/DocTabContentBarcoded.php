@@ -19,8 +19,7 @@ final class DocTabContentBarcoded extends Dto
      * @param  ?DocTabZoneSpecification  $specification  Indicates the doc tab zone specification.
      */
     public function __construct(
-        public readonly ?string $symbology = null,
-        public readonly ?DocTabZoneSpecification $specification = null,
-    ) {
-    }
+        public ?string $symbology = null,
+        public ?DocTabZoneSpecification $specification = null,
+    ) {}
 }

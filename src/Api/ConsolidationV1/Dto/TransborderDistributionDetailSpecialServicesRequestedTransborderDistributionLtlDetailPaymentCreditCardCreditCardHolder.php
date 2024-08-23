@@ -19,8 +19,7 @@ final class TransborderDistributionDetailSpecialServicesRequestedTransborderDist
      * @param  ?TransborderDistributionDetailSpecialServicesRequestedTransborderDistributionLtlDetailPaymentPayorResponsiblePartyAddress  $address  Descriptive data for a physical location. May be used as an actual physical address (place to which one could go), or as a container of "address parts" which should be handled as a unit (such as a city-state-ZIP combination within the US).
      */
     public function __construct(
-        public readonly ?TransborderDistributionDetailSpecialServicesRequestedTransborderDistributionLtlDetailPaymentCreditCardCreditCardHolderContact $contact = null,
-        public readonly ?TransborderDistributionDetailSpecialServicesRequestedTransborderDistributionLtlDetailPaymentPayorResponsiblePartyAddress $address = null,
-    ) {
-    }
+        public ?TransborderDistributionDetailSpecialServicesRequestedTransborderDistributionLtlDetailPaymentCreditCardCreditCardHolderContact $contact = null,
+        public ?TransborderDistributionDetailSpecialServicesRequestedTransborderDistributionLtlDetailPaymentPayorResponsiblePartyAddress $address = null,
+    ) {}
 }

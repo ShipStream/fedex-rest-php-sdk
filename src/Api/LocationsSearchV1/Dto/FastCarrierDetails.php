@@ -19,8 +19,7 @@ final class FastCarrierDetails extends Dto
      * @param  ?string  $serviceCategory  The service category for which this capability applies.
      */
     public function __construct(
-        public readonly ?string $serviceType = null,
-        public readonly ?string $serviceCategory = null,
-    ) {
-    }
+        public ?string $serviceType = null,
+        public ?string $serviceCategory = null,
+    ) {}
 }

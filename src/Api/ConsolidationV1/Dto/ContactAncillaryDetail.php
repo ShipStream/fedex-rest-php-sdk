@@ -20,7 +20,6 @@ final class ContactAncillaryDetail extends Dto
      * @param  EMailDetail[]|null  $emailAddresses  Email Addresses
      */
     public function __construct(
-        public readonly ?array $emailAddresses = null,
-    ) {
-    }
+        public ?array $emailAddresses = null,
+    ) {}
 }

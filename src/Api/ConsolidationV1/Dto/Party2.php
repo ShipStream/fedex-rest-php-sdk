@@ -20,9 +20,8 @@ final class Party2 extends Dto
      * @param  ?Contact  $contact  Contact details for the Party such as Name, Email, PhoneNumber.
      */
     public function __construct(
-        public readonly Address $address,
-        public readonly PartyAccountNumber $accountNumber,
-        public readonly ?Contact $contact = null,
-    ) {
-    }
+        public Address $address,
+        public PartyAccountNumber $accountNumber,
+        public ?Contact $contact = null,
+    ) {}
 }

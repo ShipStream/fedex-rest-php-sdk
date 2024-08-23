@@ -19,8 +19,7 @@ final class Weight extends Dto
      * @param  ?string  $value  This is package weight. Max. Length is 99999. <br> Example: 22222.0
      */
     public function __construct(
-        public readonly ?string $unit = null,
-        public readonly ?string $value = null,
-    ) {
-    }
+        public ?string $unit = null,
+        public ?string $value = null,
+    ) {}
 }

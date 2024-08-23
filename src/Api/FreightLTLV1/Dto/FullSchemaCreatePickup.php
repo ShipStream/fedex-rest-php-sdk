@@ -26,20 +26,18 @@ final class FullSchemaCreatePickup extends Dto
      * @param  ?string  $trackingNumber  This is a tracking number for FedEx packages used for tracking a single package or group of packages.<br> Example: XXXX0365XXXX
      * @param  ?string  $commodityDescription  Description of the commodity being shipped. <br>Example:This field contains CommodityDescription
      * @param  ?int  $oversizePackageCount  The number of oversize packages that are tendered to FedEx Ground.
-     * @param  ?PickupNotificationDetail  $pickupNotificationDetail
      */
     public function __construct(
-        public readonly PartyAccountNumber $associatedAccountNumber,
-        public readonly PickupOriginDetailLtl $originDetail,
-        public readonly FreightPickupDetail $freightPickupDetail,
-        public readonly ?array $totalWeight = null,
-        public readonly ?int $packageCount = null,
-        public readonly ?string $remarks = null,
-        public readonly ?string $countryRelationships = null,
-        public readonly ?string $trackingNumber = null,
-        public readonly ?string $commodityDescription = null,
-        public readonly ?int $oversizePackageCount = null,
-        public readonly ?PickupNotificationDetail $pickupNotificationDetail = null,
-    ) {
-    }
+        public PartyAccountNumber $associatedAccountNumber,
+        public PickupOriginDetailLtl $originDetail,
+        public FreightPickupDetail $freightPickupDetail,
+        public ?array $totalWeight = null,
+        public ?int $packageCount = null,
+        public ?string $remarks = null,
+        public ?string $countryRelationships = null,
+        public ?string $trackingNumber = null,
+        public ?string $commodityDescription = null,
+        public ?int $oversizePackageCount = null,
+        public ?PickupNotificationDetail $pickupNotificationDetail = null,
+    ) {}
 }

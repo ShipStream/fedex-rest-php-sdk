@@ -21,10 +21,9 @@ final class ContactCreatePickup extends Dto
      * @param  ?string  $phoneExtension  Specify the contact person's phone extension. Maximum length is 6.
      */
     public function __construct(
-        public readonly ?string $companyName = null,
-        public readonly ?string $personName = null,
-        public readonly ?string $phoneNumber = null,
-        public readonly ?string $phoneExtension = null,
-    ) {
-    }
+        public ?string $companyName = null,
+        public ?string $personName = null,
+        public ?string $phoneNumber = null,
+        public ?string $phoneExtension = null,
+    ) {}
 }

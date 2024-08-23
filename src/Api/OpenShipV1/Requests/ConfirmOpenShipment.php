@@ -36,8 +36,7 @@ class ConfirmOpenShipment extends Request implements HasBody
 
     public function __construct(
         public FullSchemaConfirmOpenShipment $fullSchemaConfirmOpenShipment,
-    ) {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {

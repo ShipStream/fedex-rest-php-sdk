@@ -21,10 +21,9 @@ final class TrackingNotification extends Dto
      * @param  ?bool  $currentResultRequestedFlag  If value is 'true' the current tracking results for the shipment along with notification details will be provided to the client. If 'false' only results for the notification request is provided.<br>Defaults to 'false'<br>Example: true
      */
     public function __construct(
-        public readonly TrackingNotificationDetail $notificationDetail,
-        public readonly array $notificationEventTypes,
-        public readonly ?string $role = null,
-        public readonly ?bool $currentResultRequestedFlag = null,
-    ) {
-    }
+        public TrackingNotificationDetail $notificationDetail,
+        public array $notificationEventTypes,
+        public ?string $role = null,
+        public ?bool $currentResultRequestedFlag = null,
+    ) {}
 }

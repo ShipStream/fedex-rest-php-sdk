@@ -41,8 +41,7 @@ class CheckFreightPickupAvailability extends Request implements HasBody
      */
     public function __construct(
         public FullSchemaFreightPickupAvailability $fullSchemaFreightPickupAvailability,
-    ) {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {

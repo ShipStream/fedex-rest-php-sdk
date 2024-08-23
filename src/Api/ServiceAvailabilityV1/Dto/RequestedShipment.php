@@ -33,18 +33,17 @@ final class RequestedShipment extends Dto
      * @param  ?string  $shippingDocumentSpecification  Shipping Document Specification Details
      */
     public function __construct(
-        public readonly Party $shipper,
-        public readonly Party $recipient,
-        public readonly string $packagingType,
-        public readonly array $requestedPackageLineItems,
-        public readonly ?string $serviceType = null,
-        public readonly ?string $shipDateStamp = null,
-        public readonly ?string $dropoffType = null,
-        public readonly ?VariableHandlingChargeDetail $variableHandlingChargeDetail = null,
-        public readonly ?FreightShipmentDetail $freightShipmentDetail = null,
-        public readonly ?ShipmentSpecialServicesRequested $specialServicesRequested = null,
-        public readonly ?string $pickupType = null,
-        public readonly ?string $shippingDocumentSpecification = null,
-    ) {
-    }
+        public Party $shipper,
+        public Party $recipient,
+        public string $packagingType,
+        public array $requestedPackageLineItems,
+        public ?string $serviceType = null,
+        public ?string $shipDateStamp = null,
+        public ?string $dropoffType = null,
+        public ?VariableHandlingChargeDetail $variableHandlingChargeDetail = null,
+        public ?FreightShipmentDetail $freightShipmentDetail = null,
+        public ?ShipmentSpecialServicesRequested $specialServicesRequested = null,
+        public ?string $pickupType = null,
+        public ?string $shippingDocumentSpecification = null,
+    ) {}
 }

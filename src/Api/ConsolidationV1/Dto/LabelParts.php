@@ -19,8 +19,7 @@ final class LabelParts extends Dto
      * @param  ?string  $image  Specifies the one-origin position of this part within a document.
      */
     public function __construct(
-        public readonly ?int $documentPartSequenceNumber = null,
-        public readonly ?string $image = null,
-    ) {
-    }
+        public ?int $documentPartSequenceNumber = null,
+        public ?string $image = null,
+    ) {}
 }

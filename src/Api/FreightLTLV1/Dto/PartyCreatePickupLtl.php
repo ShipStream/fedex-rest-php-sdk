@@ -21,10 +21,9 @@ final class PartyCreatePickupLtl extends Dto
      * @param  ?string  $deliveryInstructions  Indicates the detailed instructions for delivery.This is used with Ground Home Delivery.
      */
     public function __construct(
-        public readonly ?ContactCreatePickup $contact = null,
-        public readonly ?AddressLtl $address = null,
-        public readonly ?PartyAccountNumber $accountNumber = null,
-        public readonly ?string $deliveryInstructions = null,
-    ) {
-    }
+        public ?ContactCreatePickup $contact = null,
+        public ?AddressLtl $address = null,
+        public ?PartyAccountNumber $accountNumber = null,
+        public ?string $deliveryInstructions = null,
+    ) {}
 }

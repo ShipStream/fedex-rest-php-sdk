@@ -19,8 +19,7 @@ final class TransitTimeRequestedShipmentShipmentSpecialServicesCodDetail extends
      * @param  ?string  $codCollectionType  Indicate the type of funds FedEx should collect upon shipment delivery.
      */
     public function __construct(
-        public readonly ?TransitTimeRequestedShipmentShipmentSpecialServicesCodDetailCodCollectionAmount $codCollectionAmount = null,
-        public readonly ?string $codCollectionType = null,
-    ) {
-    }
+        public ?TransitTimeRequestedShipmentShipmentSpecialServicesCodDetailCodCollectionAmount $codCollectionAmount = null,
+        public ?string $codCollectionType = null,
+    ) {}
 }

@@ -21,10 +21,9 @@ final class StatusAncillaryDetail extends Dto
      * @param  ?string  $actionDescription  Field which holds recommended action description for customer to resolve reason.<br> Example: Customer not Available or Business Closed
      */
     public function __construct(
-        public readonly ?string $reason = null,
-        public readonly ?string $reasonDescription = null,
-        public readonly ?string $action = null,
-        public readonly ?string $actionDescription = null,
-    ) {
-    }
+        public ?string $reason = null,
+        public ?string $reasonDescription = null,
+        public ?string $action = null,
+        public ?string $actionDescription = null,
+    ) {}
 }

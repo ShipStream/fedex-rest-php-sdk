@@ -14,13 +14,8 @@ use ShipStream\FedEx\Dto;
 
 final class ConsolidationShipmentsConsolidationRequestedShipmentsConsolidationDetailInternationalDistribtuionDetailSummaryDetailTotalCustomsValue extends Dto
 {
-    /**
-     * @param  ?string  $currency
-     * @param  ?string  $amount
-     */
     public function __construct(
-        public readonly ?string $currency = null,
-        public readonly ?string $amount = null,
-    ) {
-    }
+        public ?string $currency = null,
+        public ?string $amount = null,
+    ) {}
 }

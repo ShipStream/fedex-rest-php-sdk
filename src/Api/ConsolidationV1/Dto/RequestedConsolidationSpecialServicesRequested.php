@@ -19,8 +19,7 @@ final class RequestedConsolidationSpecialServicesRequested extends Dto
      * @param  ?PriorityAlertDetail  $priorityAlertDetail  specifies the Priority Alert Detail.
      */
     public function __construct(
-        public readonly ?string $specialServiceTypes = null,
-        public readonly ?PriorityAlertDetail $priorityAlertDetail = null,
-    ) {
-    }
+        public ?string $specialServiceTypes = null,
+        public ?PriorityAlertDetail $priorityAlertDetail = null,
+    ) {}
 }

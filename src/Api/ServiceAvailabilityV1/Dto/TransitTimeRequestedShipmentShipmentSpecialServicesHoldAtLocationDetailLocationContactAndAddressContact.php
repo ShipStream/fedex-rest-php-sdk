@@ -23,12 +23,11 @@ final class TransitTimeRequestedShipmentShipmentSpecialServicesHoldAtLocationDet
      * @param  ?string  $companyName  Specify contact company name. Maximum length is 35.
      */
     public function __construct(
-        public readonly ?string $personName = null,
-        public readonly ?string $emailAddress = null,
-        public readonly ?string $phoneNumber = null,
-        public readonly ?string $phoneExtension = null,
-        public readonly ?string $faxNumber = null,
-        public readonly ?string $companyName = null,
-    ) {
-    }
+        public ?string $personName = null,
+        public ?string $emailAddress = null,
+        public ?string $phoneNumber = null,
+        public ?string $phoneExtension = null,
+        public ?string $faxNumber = null,
+        public ?string $companyName = null,
+    ) {}
 }

@@ -20,9 +20,8 @@ final class TrackingNotificationDetail extends Dto
      * @param  string  $notificationType  Identifies the format of the notification. <br>valid values are 'HTML' or 'TEXT'.
      */
     public function __construct(
-        public readonly Localization $localization,
-        public readonly EmailDetail $emailDetail,
-        public readonly string $notificationType,
-    ) {
-    }
+        public Localization $localization,
+        public EmailDetail $emailDetail,
+        public string $notificationType,
+    ) {}
 }

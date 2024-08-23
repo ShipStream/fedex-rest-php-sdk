@@ -14,11 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class Op950detail extends Dto
 {
-    /**
-     * @param  ?Op950detailFormat  $format
-     */
     public function __construct(
-        public readonly ?Op950detailFormat $format = null,
-    ) {
-    }
+        public ?Op950detailFormat $format = null,
+    ) {}
 }

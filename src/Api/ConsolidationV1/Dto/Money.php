@@ -19,8 +19,7 @@ final class Money extends Dto
      * @param  ?string  $currency  Three-character ISO currency code (e.g. USD, CAD, EUR, JPY, etc.)
      */
     public function __construct(
-        public readonly string $value,
-        public readonly ?string $currency = null,
-    ) {
-    }
+        public string $value,
+        public ?string $currency = null,
+    ) {}
 }

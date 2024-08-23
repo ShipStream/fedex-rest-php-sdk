@@ -18,7 +18,6 @@ final class LtlFreightAccountNumber extends Dto
      * @param  ?string  $value  This is the account number. Maximum Length is 9. <br>Example: XXX456XXX
      */
     public function __construct(
-        public readonly ?string $value = null,
-    ) {
-    }
+        public ?string $value = null,
+    ) {}
 }

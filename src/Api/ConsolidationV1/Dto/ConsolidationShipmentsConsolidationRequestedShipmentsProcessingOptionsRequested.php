@@ -14,11 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class ConsolidationShipmentsConsolidationRequestedShipmentsProcessingOptionsRequested extends Dto
 {
-    /**
-     * @param  ?string  $options
-     */
     public function __construct(
-        public readonly ?string $options = null,
-    ) {
-    }
+        public ?string $options = null,
+    ) {}
 }

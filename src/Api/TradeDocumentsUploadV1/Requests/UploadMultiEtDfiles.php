@@ -35,8 +35,7 @@ class UploadMultiEtDfiles extends Request implements HasBody
 
     public function __construct(
         public FullSchemaMultiDocumentRequest $fullSchemaMultiDocumentRequest,
-    ) {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {

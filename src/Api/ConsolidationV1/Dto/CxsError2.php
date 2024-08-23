@@ -17,12 +17,10 @@ final class CxsError2 extends Dto
     /**
      * @param  ?string  $transactionId  It is the unique identifier for the transaction.
      * @param  ?string  $customerTransactionId  It is the same customerTransactionId sent as part of the request's header,by the clients calling this endpoint.
-     * @param  ?CxsError500Errors  $errors
      */
     public function __construct(
-        public readonly ?string $transactionId = null,
-        public readonly ?string $customerTransactionId = null,
-        public readonly ?CxsError500Errors $errors = null,
-    ) {
-    }
+        public ?string $transactionId = null,
+        public ?string $customerTransactionId = null,
+        public ?CxsError500Errors $errors = null,
+    ) {}
 }

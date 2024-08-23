@@ -21,10 +21,9 @@ final class VariableHandlingChargeDetail extends Dto
      * @param  ?string  $rateTypeBasis  Optional <br> RateType Basis <br> Example: ACCOUNT
      */
     public function __construct(
-        public readonly ?float $percentValue = null,
-        public readonly ?Money $fixedValue = null,
-        public readonly ?string $rateElementBasis = null,
-        public readonly ?string $rateTypeBasis = null,
-    ) {
-    }
+        public ?float $percentValue = null,
+        public ?Money $fixedValue = null,
+        public ?string $rateElementBasis = null,
+        public ?string $rateTypeBasis = null,
+    ) {}
 }

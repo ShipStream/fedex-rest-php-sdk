@@ -33,16 +33,15 @@ final class PackageSpecialServicesRequested extends Dto
      * @param  ?Weight  $dryIceWeight  Indicate the shipment total weight in pounds.<br>Example: 10.6<br>Note: <ul><li>This only applies to International shipments and should be used on the first package of a multiple piece shipment.</li><li>This value contains 1 explicit decimal position.</li><li>For one Label at a time shipments, the unit of totalWeight is considered same as the unit of weight provided in requestedPackageLineItem field.</li></ul>
      */
     public function __construct(
-        public readonly ?array $specialServiceTypes = null,
-        public readonly ?PriorityAlertDetail $priorityAlertDetail = null,
-        public readonly ?string $signatureOptionType = null,
-        public readonly ?SignatureOptionDetail $signatureOptionDetail = null,
-        public readonly ?AlcoholDetail $alcoholDetail = null,
-        public readonly ?DangerousGoodsDetail $dangerousGoodsDetail = null,
-        public readonly ?PackageCodDetail $packageCodDetail = null,
-        public readonly ?int $pieceCountVerificationBoxCount = null,
-        public readonly ?array $batteryDetails = null,
-        public readonly ?Weight $dryIceWeight = null,
-    ) {
-    }
+        public ?array $specialServiceTypes = null,
+        public ?PriorityAlertDetail $priorityAlertDetail = null,
+        public ?string $signatureOptionType = null,
+        public ?SignatureOptionDetail $signatureOptionDetail = null,
+        public ?AlcoholDetail $alcoholDetail = null,
+        public ?DangerousGoodsDetail $dangerousGoodsDetail = null,
+        public ?PackageCodDetail $packageCodDetail = null,
+        public ?int $pieceCountVerificationBoxCount = null,
+        public ?array $batteryDetails = null,
+        public ?Weight $dryIceWeight = null,
+    ) {}
 }

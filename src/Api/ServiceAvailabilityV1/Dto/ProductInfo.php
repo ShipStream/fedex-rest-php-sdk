@@ -27,16 +27,15 @@ final class ProductInfo extends Dto
      * @param  ?string  $countryOfManufactureCode  Specify the country code of the product manufacturer.
      */
     public function __construct(
-        public readonly ?bool $customsValueAndWeightSpecifiedAsUnit = null,
-        public readonly ?int $quantity = null,
-        public readonly ?float $customsValue = null,
-        public readonly ?string $weightUnitOfMeasureCode = null,
-        public readonly ?string $description = null,
-        public readonly ?Weight $weight = null,
-        public readonly ?bool $sedRequired = null,
-        public readonly ?string $productType = null,
-        public readonly ?string $unitOfMeasureCode = null,
-        public readonly ?string $countryOfManufactureCode = null,
-    ) {
-    }
+        public ?bool $customsValueAndWeightSpecifiedAsUnit = null,
+        public ?int $quantity = null,
+        public ?float $customsValue = null,
+        public ?string $weightUnitOfMeasureCode = null,
+        public ?string $description = null,
+        public ?Weight $weight = null,
+        public ?bool $sedRequired = null,
+        public ?string $productType = null,
+        public ?string $unitOfMeasureCode = null,
+        public ?string $countryOfManufactureCode = null,
+    ) {}
 }

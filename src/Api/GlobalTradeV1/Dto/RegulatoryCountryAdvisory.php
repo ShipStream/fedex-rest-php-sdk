@@ -21,8 +21,7 @@ final class RegulatoryCountryAdvisory extends Dto
      * @param  Message[]|null  $messages  Specifies code and other parameters.
      */
     public function __construct(
-        public readonly ?string $types = null,
-        public readonly ?array $messages = null,
-    ) {
-    }
+        public ?string $types = null,
+        public ?array $messages = null,
+    ) {}
 }

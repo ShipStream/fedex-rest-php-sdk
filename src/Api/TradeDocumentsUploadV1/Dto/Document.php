@@ -22,11 +22,10 @@ final class Document extends Dto
      * @param  DocumentMeta  $meta  Use this object to specify image meta data such as image type, path and index for the file to be uploaded.
      */
     public function __construct(
-        public readonly string $referenceId,
-        public readonly string $name,
-        public readonly string $contentType,
-        public readonly DocumentRules $rules,
-        public readonly DocumentMeta $meta,
-    ) {
-    }
+        public string $referenceId,
+        public string $name,
+        public string $contentType,
+        public DocumentRules $rules,
+        public DocumentMeta $meta,
+    ) {}
 }

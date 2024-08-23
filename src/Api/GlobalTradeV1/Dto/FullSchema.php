@@ -31,18 +31,17 @@ final class FullSchema extends Dto
      * @param  ?string  $consolidationRole  Specify the role this shipment plays within the consolidation.<br><br>Valid values are:<ul><li>CONSOLIDATION_DOCUMENTS_SHIPMENT &ndash; Shipment contains clearance documents for the corresponding consolidation.</li><li>CRN_SHIPMENT &ndash; Shipment is a Child Reference Number(individual shipment within consolidation).</li><li>MASTER_AIRWAYBILL_SHIPMENT &ndash; Shipment represents entire consolidation, moving as a unit.</li></ul>
      */
     public function __construct(
-        public readonly Address $originAddress,
-        public readonly Address $destinationAddress,
-        public readonly string $carrierCode,
-        public readonly ?string $serviceType = null,
-        public readonly ?Money $totalCommodityValue = null,
-        public readonly ?array $serviceOptionType = null,
-        public readonly ?CustomsClearanceDetailVo $customsClearanceDetail = null,
-        public readonly ?string $shipDate = null,
-        public readonly ?Weight $totalWeight = null,
-        public readonly ?bool $includeUrlReferences = null,
-        public readonly ?string $consolidationType = null,
-        public readonly ?string $consolidationRole = null,
-    ) {
-    }
+        public Address $originAddress,
+        public Address $destinationAddress,
+        public string $carrierCode,
+        public ?string $serviceType = null,
+        public ?Money $totalCommodityValue = null,
+        public ?array $serviceOptionType = null,
+        public ?CustomsClearanceDetailVo $customsClearanceDetail = null,
+        public ?string $shipDate = null,
+        public ?Weight $totalWeight = null,
+        public ?bool $includeUrlReferences = null,
+        public ?string $consolidationType = null,
+        public ?string $consolidationRole = null,
+    ) {}
 }

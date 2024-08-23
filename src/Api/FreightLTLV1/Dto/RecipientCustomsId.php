@@ -19,8 +19,7 @@ final class RecipientCustomsId extends Dto
      * @param  ?string  $value  This is the ID number.
      */
     public function __construct(
-        public readonly ?string $type = null,
-        public readonly ?string $value = null,
-    ) {
-    }
+        public ?string $type = null,
+        public ?string $value = null,
+    ) {}
 }

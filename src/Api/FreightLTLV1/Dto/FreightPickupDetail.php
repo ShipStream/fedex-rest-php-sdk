@@ -26,13 +26,12 @@ final class FreightPickupDetail extends Dto
      * @param  ?string  $userMessage  Specifies the user message that can be sent as part of the pickup confirmation email.<br>Example: This is the user message
      */
     public function __construct(
-        public readonly ?FreightAccountNumber $accountNumber = null,
-        public readonly ?string $role = null,
-        public readonly ?string $payment = null,
-        public readonly ?Contacts $submittedBy = null,
-        public readonly ?array $lineItems = null,
-        public readonly ?Party $alternateBilling = null,
-        public readonly ?string $userMessage = null,
-    ) {
-    }
+        public ?FreightAccountNumber $accountNumber = null,
+        public ?string $role = null,
+        public ?string $payment = null,
+        public ?Contacts $submittedBy = null,
+        public ?array $lineItems = null,
+        public ?Party $alternateBilling = null,
+        public ?string $userMessage = null,
+    ) {}
 }

@@ -19,8 +19,7 @@ final class TaxesOrMiscellaneousCharges extends Dto
      * @param  ?float  $amount  This is commodity value in amount used for Customs declaration.<br>Max limit: 7 digits before decimal.
      */
     public function __construct(
-        public readonly string $currency,
-        public readonly ?float $amount = null,
-    ) {
-    }
+        public string $currency,
+        public ?float $amount = null,
+    ) {}
 }

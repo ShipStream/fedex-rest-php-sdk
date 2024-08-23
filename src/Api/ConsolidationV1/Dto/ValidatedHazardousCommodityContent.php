@@ -22,11 +22,10 @@ final class ValidatedHazardousCommodityContent extends Dto
      * @param  ?float  $massPoints  The mass points are a calculation used by ADR regulations for measuring the risk of a particular hazardous commodity.
      */
     public function __construct(
-        public readonly ?HazardousCommodityQuantityDetail $quantity = null,
-        public readonly ?HazardousCommodityContent $options = null,
-        public readonly ?ValidatedHazardousCommodityDescription $description = null,
-        public readonly ?NetExplosiveDetail $netExplosiveDetail = null,
-        public readonly ?float $massPoints = null,
-    ) {
-    }
+        public ?HazardousCommodityQuantityDetail $quantity = null,
+        public ?HazardousCommodityContent $options = null,
+        public ?ValidatedHazardousCommodityDescription $description = null,
+        public ?NetExplosiveDetail $netExplosiveDetail = null,
+        public ?float $massPoints = null,
+    ) {}
 }

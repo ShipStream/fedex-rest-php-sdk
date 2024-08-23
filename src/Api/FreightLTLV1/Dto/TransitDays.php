@@ -19,8 +19,7 @@ final class TransitDays extends Dto
      * @param  ?string  $minimumTransitTime  This is the code indicating the number of transit days.
      */
     public function __construct(
-        public readonly ?string $description = null,
-        public readonly ?string $minimumTransitTime = null,
-    ) {
-    }
+        public ?string $description = null,
+        public ?string $minimumTransitTime = null,
+    ) {}
 }

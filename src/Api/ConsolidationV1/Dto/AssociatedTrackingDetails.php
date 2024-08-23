@@ -21,8 +21,7 @@ final class AssociatedTrackingDetails extends Dto
      * @param  ?string  $type  Provides the type of associated tracking details.<br> Example: CONSOLIDATION_MASTER
      */
     public function __construct(
-        public readonly ?array $trackingIds = null,
-        public readonly ?string $type = null,
-    ) {
-    }
+        public ?array $trackingIds = null,
+        public ?string $type = null,
+    ) {}
 }

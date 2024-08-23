@@ -21,10 +21,9 @@ final class DocumentGenerationDetail extends Dto
      * @param  ?string  $type  It is an Enterprise Document Type.<br>Example: COMMERCIAL_INVOICE
      */
     public function __construct(
-        public readonly ?string $letterhead = null,
-        public readonly ?string $electronicSignature = null,
-        public readonly ?int $minimumCopiesRequired = null,
-        public readonly ?string $type = null,
-    ) {
-    }
+        public ?string $letterhead = null,
+        public ?string $electronicSignature = null,
+        public ?int $minimumCopiesRequired = null,
+        public ?string $type = null,
+    ) {}
 }

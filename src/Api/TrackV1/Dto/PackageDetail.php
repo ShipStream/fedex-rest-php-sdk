@@ -23,18 +23,16 @@ final class PackageDetail extends Dto
      * @param  ?TrackingWeightAndDimensions  $weightAndDimensions  Field which holds the weight and dimension information.
      * @param  ?string[]  $packageContent  Field which holds information about the package content of the shipment. Populated for secure users only.<br> Example: wire hangers.
      * @param  ?string  $contentPieceCount  Field which holds information about total count of the packages in the shipment.<br> Example: 100
-     * @param  ?Amount  $declaredValue
      */
     public function __construct(
-        public readonly ?string $physicalPackagingType = null,
-        public readonly ?string $sequenceNumber = null,
-        public readonly ?string $undeliveredCount = null,
-        public readonly ?PackagingDescription $packagingDescription = null,
-        public readonly ?string $count = null,
-        public readonly ?TrackingWeightAndDimensions $weightAndDimensions = null,
-        public readonly ?array $packageContent = null,
-        public readonly ?string $contentPieceCount = null,
-        public readonly ?Amount $declaredValue = null,
-    ) {
-    }
+        public ?string $physicalPackagingType = null,
+        public ?string $sequenceNumber = null,
+        public ?string $undeliveredCount = null,
+        public ?PackagingDescription $packagingDescription = null,
+        public ?string $count = null,
+        public ?TrackingWeightAndDimensions $weightAndDimensions = null,
+        public ?array $packageContent = null,
+        public ?string $contentPieceCount = null,
+        public ?Amount $declaredValue = null,
+    ) {}
 }

@@ -19,8 +19,7 @@ final class Sort extends Dto
      * @param  ?string  $order  Specify the sort order of the location search results, either ascending or descending. Defaults to ascending order.
      */
     public function __construct(
-        public readonly ?string $criteria = null,
-        public readonly ?string $order = null,
-    ) {
-    }
+        public ?string $criteria = null,
+        public ?string $order = null,
+    ) {}
 }

@@ -21,10 +21,9 @@ final class SmartPostInfoDetail extends Dto
      * @param  ?string  $specialServices  Specify the special handling associated with Smartpost Shipment.<br><a onclick='loadDocReference("shipmentlevelspecialservicetypes")'>Click here to see Shipment Level Special Service Types</a>
      */
     public function __construct(
-        public readonly ?string $ancillaryEndorsement = null,
-        public readonly ?string $hubId = null,
-        public readonly ?string $indicia = null,
-        public readonly ?string $specialServices = null,
-    ) {
-    }
+        public ?string $ancillaryEndorsement = null,
+        public ?string $hubId = null,
+        public ?string $indicia = null,
+        public ?string $specialServices = null,
+    ) {}
 }

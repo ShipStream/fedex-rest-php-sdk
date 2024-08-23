@@ -18,7 +18,6 @@ final class CompletedHazardousSummaryDetail extends Dto
      * @param  ?int  $smallQuantityExceptionPackageCount  Specifies the total number of packages containing hazardous commodities in small exceptions.
      */
     public function __construct(
-        public readonly ?int $smallQuantityExceptionPackageCount = null,
-    ) {
-    }
+        public ?int $smallQuantityExceptionPackageCount = null,
+    ) {}
 }

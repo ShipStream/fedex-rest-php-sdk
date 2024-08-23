@@ -20,9 +20,8 @@ final class DangerousGoodsDetail extends Dto
      * @param  ?string[]  $options  Indicate type of DG being reported.<br> - SMALL_QUANTITY_EXCEPTION : It is applicable for only One Piece shipment.
      */
     public function __construct(
-        public readonly string $accessibility,
-        public readonly ?bool $cargoAircraftOnly = null,
-        public readonly ?array $options = null,
-    ) {
-    }
+        public string $accessibility,
+        public ?bool $cargoAircraftOnly = null,
+        public ?array $options = null,
+    ) {}
 }

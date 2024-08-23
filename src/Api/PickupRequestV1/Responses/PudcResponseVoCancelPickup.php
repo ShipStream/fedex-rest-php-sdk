@@ -24,6 +24,5 @@ final class PudcResponseVoCancelPickup extends Response
         public readonly ?string $transactionId = null,
         public readonly ?string $customerTransactionId = null,
         public readonly ?CancelPickupOutputVo $output = null,
-    ) {
-    }
+    ) {}
 }

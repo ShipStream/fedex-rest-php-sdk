@@ -26,6 +26,5 @@ final class ErrorResponseVo extends Response
         public readonly ?string $transactionId = null,
         public readonly ?string $customerTransactionId = null,
         public readonly ?array $errors = null,
-    ) {
-    }
+    ) {}
 }

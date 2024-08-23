@@ -19,8 +19,7 @@ final class TrackDocumentDetail extends Dto
      * @param  ?string  $documentFormat  Specifies the format of tracking document. <br>Valid values are PDF or PNG.<br>The values are key sensitive.<br>Note: documentTypes BILL_OF_LADING and FREIGHT_BILLING_DOCUMENT does not support PNG.
      */
     public function __construct(
-        public readonly string $documentType,
-        public readonly ?string $documentFormat = null,
-    ) {
-    }
+        public string $documentType,
+        public ?string $documentFormat = null,
+    ) {}
 }

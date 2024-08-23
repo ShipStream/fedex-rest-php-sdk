@@ -22,9 +22,8 @@ final class EtdDetail extends Dto
      * @param  ?string[]  $requestedDocumentTypes  Indicates the types of shipping documents requested by the shipper.<br>Example: CERTIFICATE_OF_ORIGIN, COMMERCIAL_INVOICE etc.
      */
     public function __construct(
-        public readonly ?array $attributes = null,
-        public readonly ?array $attachedDocuments = null,
-        public readonly ?array $requestedDocumentTypes = null,
-    ) {
-    }
+        public ?array $attributes = null,
+        public ?array $attachedDocuments = null,
+        public ?array $requestedDocumentTypes = null,
+    ) {}
 }

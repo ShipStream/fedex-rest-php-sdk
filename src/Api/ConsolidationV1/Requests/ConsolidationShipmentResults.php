@@ -36,8 +36,7 @@ class ConsolidationShipmentResults extends Request implements HasBody
 
     public function __construct(
         public ConsolidationShipmentResultsInputVo $consolidationShipmentResultsInputVo,
-    ) {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {

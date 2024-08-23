@@ -19,8 +19,7 @@ final class FullSchemaDeleteOpenShipment extends Dto
      * @param  PartyAccountNumber  $accountNumber  This is FedEx Account number details.
      */
     public function __construct(
-        public readonly string $index,
-        public readonly PartyAccountNumber $accountNumber,
-    ) {
-    }
+        public string $index,
+        public PartyAccountNumber $accountNumber,
+    ) {}
 }

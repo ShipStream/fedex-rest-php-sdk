@@ -21,8 +21,7 @@ final class AddressResolutionOutputVov extends Dto
      * @param  Alert[]|null  $alerts  Indicates API Alerts includes alert type, alert code, and alert message that is received when the address is resolved.
      */
     public function __construct(
-        public readonly ?array $resolvedAddresses = null,
-        public readonly ?array $alerts = null,
-    ) {
-    }
+        public ?array $resolvedAddresses = null,
+        public ?array $alerts = null,
+    ) {}
 }

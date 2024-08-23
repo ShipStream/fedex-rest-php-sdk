@@ -18,7 +18,6 @@ final class ConsolidationCustomsDeclarationStatementDetail extends Dto
      * @param  ?string[]  $types  It indicates the different statements, declarations, acts, and/or certifications that apply to this shipment.
      */
     public function __construct(
-        public readonly ?array $types = null,
-    ) {
-    }
+        public ?array $types = null,
+    ) {}
 }

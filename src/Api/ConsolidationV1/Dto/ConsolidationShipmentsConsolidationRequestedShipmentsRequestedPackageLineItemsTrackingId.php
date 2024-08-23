@@ -20,9 +20,8 @@ final class ConsolidationShipmentsConsolidationRequestedShipmentsRequestedPackag
      * @param  ?string  $trackingNumber  This is the number associated with the package that is used to track it. <br>Example: 49XXX0000XXX20032835
      */
     public function __construct(
-        public readonly ?string $trackindIdType = null,
-        public readonly ?string $formId = null,
-        public readonly ?string $trackingNumber = null,
-    ) {
-    }
+        public ?string $trackindIdType = null,
+        public ?string $formId = null,
+        public ?string $trackingNumber = null,
+    ) {}
 }

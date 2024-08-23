@@ -18,7 +18,6 @@ final class RequestedConsolidationShipmentSpecialServicesRequested extends Dto
      * @param  ?HoldAtLocationDetail  $holdAtLocationDetail  Descriptive data required for a FedEx shipment that is to be held at the destination FedEx location for pickup by the recipient.
      */
     public function __construct(
-        public readonly ?HoldAtLocationDetail $holdAtLocationDetail = null,
-    ) {
-    }
+        public ?HoldAtLocationDetail $holdAtLocationDetail = null,
+    ) {}
 }

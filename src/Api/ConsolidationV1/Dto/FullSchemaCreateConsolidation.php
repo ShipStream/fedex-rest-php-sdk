@@ -20,9 +20,8 @@ final class FullSchemaCreateConsolidation extends Dto
      * @param  ?string  $consolidationIndex  Specifies the cosolidation index. <br> Example: Key2710
      */
     public function __construct(
-        public readonly RequestedConsolidation $requestedConsolidation,
-        public readonly PartyAccountNumber $accountNumber,
-        public readonly ?string $consolidationIndex = null,
-    ) {
-    }
+        public RequestedConsolidation $requestedConsolidation,
+        public PartyAccountNumber $accountNumber,
+        public ?string $consolidationIndex = null,
+    ) {}
 }

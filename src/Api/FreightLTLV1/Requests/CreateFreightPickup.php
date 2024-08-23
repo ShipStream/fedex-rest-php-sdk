@@ -37,8 +37,7 @@ class CreateFreightPickup extends Request implements HasBody
      */
     public function __construct(
         public FullSchemaCreatePickup $fullSchemaCreatePickup,
-    ) {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {

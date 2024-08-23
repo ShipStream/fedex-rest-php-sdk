@@ -33,20 +33,19 @@ final class PackageRateDetail2 extends Dto
      * @param  ?string  $currency  This is the currency code. <br>Example: USD<br><a onclick='loadDocReference("currencycodes")'>click here to see Currency codes</a>
      */
     public function __construct(
-        public readonly ?string $ratedWeightMethod = null,
-        public readonly ?float $totalFreightDiscounts = null,
-        public readonly ?float $totalTaxes = null,
-        public readonly ?string $minimumChargeType = null,
-        public readonly ?float $baseCharge = null,
-        public readonly ?float $totalRebates = null,
-        public readonly ?string $rateType = null,
-        public readonly ?Weight $billingWeight = null,
-        public readonly ?float $netFreight = null,
-        public readonly ?array $surcharges = null,
-        public readonly ?float $totalSurcharges = null,
-        public readonly ?float $netFedExCharge = null,
-        public readonly ?float $netCharge = null,
-        public readonly ?string $currency = null,
-    ) {
-    }
+        public ?string $ratedWeightMethod = null,
+        public ?float $totalFreightDiscounts = null,
+        public ?float $totalTaxes = null,
+        public ?string $minimumChargeType = null,
+        public ?float $baseCharge = null,
+        public ?float $totalRebates = null,
+        public ?string $rateType = null,
+        public ?Weight $billingWeight = null,
+        public ?float $netFreight = null,
+        public ?array $surcharges = null,
+        public ?float $totalSurcharges = null,
+        public ?float $netFedExCharge = null,
+        public ?float $netCharge = null,
+        public ?string $currency = null,
+    ) {}
 }

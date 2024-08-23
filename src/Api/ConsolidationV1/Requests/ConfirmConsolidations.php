@@ -35,8 +35,7 @@ class ConfirmConsolidations extends Request implements HasBody
 
     public function __construct(
         public FullSchemaConfirmConsolidation $fullSchemaConfirmConsolidation,
-    ) {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {

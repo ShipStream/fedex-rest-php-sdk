@@ -19,8 +19,7 @@ final class GeoCode extends Dto
      * @param  ?string  $longitude  The geo coordinate value that specifies the East-West position of the address.<br>Example:115.1398° W
      */
     public function __construct(
-        public readonly ?string $latitude = null,
-        public readonly ?string $longitude = null,
-    ) {
-    }
+        public ?string $latitude = null,
+        public ?string $longitude = null,
+    ) {}
 }

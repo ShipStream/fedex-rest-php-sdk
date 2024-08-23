@@ -22,23 +22,21 @@ final class ShipmentSpecialServicesRequested extends Dto
      * @param  ?string[]  $specialServiceTypes  Optional <br> The types of all special services requested for the enclosing shipment.<br> Example: FEDEX_EXPRESS<br><a onclick='loadDocReference("servicetypes")'>Click here to see Special Service Types</a>
      * @param  ?SaturdayDeliveryDetail  $saturdayDeliveryDetail  These are service elements for Saturday Delivery special service.
      * @param  ?HoldAtLocationDetail  $holdAtLocationDetail  Use this object to specify required information of a shipment to be held at FedEx destination location. <br><br><i>Note: This object HoldAtLocationDetail is <b>REQUIRED</b>, when HOLD_AT_LOCATION is chosen in the specialServiceTypes.</i>
-     * @param  ?CodDetail  $codDetail
      * @param  ?ShipmentDryIceDetail  $shipmentDryIceDetail  Number of packages in this shipment which contain dry ice.  The total weight of the dry ice for this shipment
      *
      *  Both are required to indicate dry ice
      * @param  ?FreightDirectDetail  $freightDirectDetail  Specifies the freight Direct Detail.It is used for Fedex Freight Direct.
      */
     public function __construct(
-        public readonly ?InternationalControlledExportDetail $internationalControlledExportDetail = null,
-        public readonly ?ReturnShipmentDetail $returnShipmentDetail = null,
-        public readonly ?HomeDeliveryPremiumDetail $homeDeliveryPremiumDetail = null,
-        public readonly ?ReturnEmailDetail $returnEmailDetail = null,
-        public readonly ?array $specialServiceTypes = null,
-        public readonly ?SaturdayDeliveryDetail $saturdayDeliveryDetail = null,
-        public readonly ?HoldAtLocationDetail $holdAtLocationDetail = null,
-        public readonly ?CodDetail $codDetail = null,
-        public readonly ?ShipmentDryIceDetail $shipmentDryIceDetail = null,
-        public readonly ?FreightDirectDetail $freightDirectDetail = null,
-    ) {
-    }
+        public ?InternationalControlledExportDetail $internationalControlledExportDetail = null,
+        public ?ReturnShipmentDetail $returnShipmentDetail = null,
+        public ?HomeDeliveryPremiumDetail $homeDeliveryPremiumDetail = null,
+        public ?ReturnEmailDetail $returnEmailDetail = null,
+        public ?array $specialServiceTypes = null,
+        public ?SaturdayDeliveryDetail $saturdayDeliveryDetail = null,
+        public ?HoldAtLocationDetail $holdAtLocationDetail = null,
+        public ?CodDetail $codDetail = null,
+        public ?ShipmentDryIceDetail $shipmentDryIceDetail = null,
+        public ?FreightDirectDetail $freightDirectDetail = null,
+    ) {}
 }

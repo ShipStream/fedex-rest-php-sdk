@@ -18,7 +18,6 @@ final class TransitTimeRequestedPackageLineItemPackageSpecialServicesCodDetail e
      * @param  ?TransitTimeRequestedPackageLineItemPackageSpecialServicesCodDetailCodCollectionAmount  $codCollectionAmount  Optional, but if indicated 'amount' and 'currency' must be provided.
      */
     public function __construct(
-        public readonly ?TransitTimeRequestedPackageLineItemPackageSpecialServicesCodDetailCodCollectionAmount $codCollectionAmount = null,
-    ) {
-    }
+        public ?TransitTimeRequestedPackageLineItemPackageSpecialServicesCodDetailCodCollectionAmount $codCollectionAmount = null,
+    ) {}
 }

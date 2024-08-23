@@ -23,12 +23,11 @@ final class InternationalDistributionDetail extends Dto
      * @param  ?string  $unitSystem  Specifies the unit system.
      */
     public function __construct(
-        public readonly Dimensions $totalDimensions,
-        public readonly Money $declaredCurrencies,
-        public readonly string $clearanceFacilityLocationId,
-        public readonly ?string $dropOffType = null,
-        public readonly ?TotalInsuredMoney $totalInsuredValue = null,
-        public readonly ?string $unitSystem = null,
-    ) {
-    }
+        public Dimensions $totalDimensions,
+        public Money $declaredCurrencies,
+        public string $clearanceFacilityLocationId,
+        public ?string $dropOffType = null,
+        public ?TotalInsuredMoney $totalInsuredValue = null,
+        public ?string $unitSystem = null,
+    ) {}
 }

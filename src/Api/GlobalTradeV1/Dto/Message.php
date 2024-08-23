@@ -23,10 +23,9 @@ final class Message extends Dto
      * @param  ?string  $localizedText  This provides the specifics of the regulations.
      */
     public function __construct(
-        public readonly ?string $code = null,
-        public readonly ?string $text = null,
-        public readonly ?array $parameters = null,
-        public readonly ?string $localizedText = null,
-    ) {
-    }
+        public ?string $code = null,
+        public ?string $text = null,
+        public ?array $parameters = null,
+        public ?string $localizedText = null,
+    ) {}
 }

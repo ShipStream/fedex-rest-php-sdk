@@ -19,8 +19,7 @@ final class AdditionalLabelsDetail extends Dto
      * @param  ?int  $count  Specifies the count of label to return.
      */
     public function __construct(
-        public readonly ?string $type = null,
-        public readonly ?int $count = null,
-    ) {
-    }
+        public ?string $type = null,
+        public ?int $count = null,
+    ) {}
 }

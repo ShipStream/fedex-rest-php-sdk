@@ -24,13 +24,12 @@ final class TransitTimeRequestedPackageLineItemPackageSpecialServices extends Dt
      * @param  ?TransitTimeRequestedPackageLineItemPackageSpecialServicesBatteryDetails  $batteryDetails  Describes attributes of a battery or cell that are used for classification purposes. Typically this structure would be used to allow customers to declare batteries or cells for which full dangerous goods documentation and procedures are not required.
      */
     public function __construct(
-        public readonly ?array $specialServiceTypes = null,
-        public readonly ?TransitTimeRequestedPackageLineItemPackageSpecialServicesCodDetail $codDetail = null,
-        public readonly ?TransitTimeRequestedPackageLineItemPackageSpecialServicesDryIceWeight $dryIceWeight = null,
-        public readonly ?TransitTimeRequestedPackageLineItemPackageSpecialServicesDangerousGoodsDetail $dangerousGoodsDetail = null,
-        public readonly ?TransitTimeRequestedPackageLineItemPackageSpecialServicesAlcoholDetail $alcoholDetail = null,
-        public readonly ?int $pieceCountVerificationBoxCount = null,
-        public readonly ?TransitTimeRequestedPackageLineItemPackageSpecialServicesBatteryDetails $batteryDetails = null,
-    ) {
-    }
+        public ?array $specialServiceTypes = null,
+        public ?TransitTimeRequestedPackageLineItemPackageSpecialServicesCodDetail $codDetail = null,
+        public ?TransitTimeRequestedPackageLineItemPackageSpecialServicesDryIceWeight $dryIceWeight = null,
+        public ?TransitTimeRequestedPackageLineItemPackageSpecialServicesDangerousGoodsDetail $dangerousGoodsDetail = null,
+        public ?TransitTimeRequestedPackageLineItemPackageSpecialServicesAlcoholDetail $alcoholDetail = null,
+        public ?int $pieceCountVerificationBoxCount = null,
+        public ?TransitTimeRequestedPackageLineItemPackageSpecialServicesBatteryDetails $batteryDetails = null,
+    ) {}
 }

@@ -19,8 +19,7 @@ final class DocumentMeta extends Dto
      * @param  string  $imageIndex  Specify the index for the uploaded image.<br><br>Valid Values are:<ul><li>IMAGE_1</li><li>IMAGE_2</li><li>IMAGE_3</li><li>IMAGE_4</li><li>IMAGE_5</li></ul>
      */
     public function __construct(
-        public readonly string $imageType,
-        public readonly string $imageIndex,
-    ) {
-    }
+        public string $imageType,
+        public string $imageIndex,
+    ) {}
 }

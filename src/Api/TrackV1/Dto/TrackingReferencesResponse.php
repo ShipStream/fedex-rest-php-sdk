@@ -27,10 +27,9 @@ final class TrackingReferencesResponse extends Dto
      * @param  ?bool  $successful  Indicates whether the tracking is successful.
      */
     public function __construct(
-        public readonly ?array $cxsErrors = null,
-        public readonly ?array $completeTrackResults = null,
-        public readonly ?array $alerts = null,
-        public readonly ?bool $successful = null,
-    ) {
-    }
+        public ?array $cxsErrors = null,
+        public ?array $completeTrackResults = null,
+        public ?array $alerts = null,
+        public ?bool $successful = null,
+    ) {}
 }

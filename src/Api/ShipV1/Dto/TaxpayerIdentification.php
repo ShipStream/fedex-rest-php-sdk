@@ -22,11 +22,10 @@ final class TaxpayerIdentification extends Dto
      * @param  ?string  $expirationDate  Expiration Date. FORMAT[YYYY-MM-DD]<br>Example: 2024-06-13
      */
     public function __construct(
-        public readonly string $number,
-        public readonly string $tinType,
-        public readonly ?string $usage = null,
-        public readonly ?string $effectiveDate = null,
-        public readonly ?string $expirationDate = null,
-    ) {
-    }
+        public string $number,
+        public string $tinType,
+        public ?string $usage = null,
+        public ?string $effectiveDate = null,
+        public ?string $expirationDate = null,
+    ) {}
 }

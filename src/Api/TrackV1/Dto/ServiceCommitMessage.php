@@ -19,8 +19,7 @@ final class ServiceCommitMessage extends Dto
      * @param  ?string  $type  Field which holds the type of service commit message.<br> Example: ESTIMATED_DELIVERY_DATE_UNAVAILABLE
      */
     public function __construct(
-        public readonly ?string $message = null,
-        public readonly ?string $type = null,
-    ) {
-    }
+        public ?string $message = null,
+        public ?string $type = null,
+    ) {}
 }

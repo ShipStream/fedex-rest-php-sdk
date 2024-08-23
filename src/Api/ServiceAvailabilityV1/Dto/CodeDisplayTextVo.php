@@ -19,8 +19,7 @@ final class CodeDisplayTextVo extends Dto
      * @param  ?string  $code  Unique code
      */
     public function __construct(
-        public readonly ?string $displayText = null,
-        public readonly ?string $code = null,
-    ) {
-    }
+        public ?string $displayText = null,
+        public ?string $code = null,
+    ) {}
 }

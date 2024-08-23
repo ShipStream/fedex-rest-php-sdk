@@ -20,9 +20,8 @@ final class SpecialServicesRequested extends Dto
      * @param  ?InternationalControlledExportDetail  $internationalControlledExportDetail  Required FICE details. Used when the requested special service is FICE.
      */
     public function __construct(
-        public readonly ?string $specialServiceTypes = null,
-        public readonly ?PriorityAlertDetail $priorityAlertDetail = null,
-        public readonly ?InternationalControlledExportDetail $internationalControlledExportDetail = null,
-    ) {
-    }
+        public ?string $specialServiceTypes = null,
+        public ?PriorityAlertDetail $priorityAlertDetail = null,
+        public ?InternationalControlledExportDetail $internationalControlledExportDetail = null,
+    ) {}
 }

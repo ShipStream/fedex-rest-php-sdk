@@ -35,8 +35,7 @@ class PerformEndOfDayClose extends Request implements HasBody
 
     public function __construct(
         public FullSchemaReprintPost $fullSchemaReprintPost,
-    ) {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {

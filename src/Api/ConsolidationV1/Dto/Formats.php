@@ -19,8 +19,7 @@ final class Formats extends Dto
      * @param  ?string  $stockType  Specify the label stock type.<br><a onclick='loadDocReference("labelstocktypes")'>click here to see label format types</a>
      */
     public function __construct(
-        public readonly ?string $docType = null,
-        public readonly ?string $stockType = null,
-    ) {
-    }
+        public ?string $docType = null,
+        public ?string $stockType = null,
+    ) {}
 }

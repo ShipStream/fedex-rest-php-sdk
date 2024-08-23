@@ -19,8 +19,7 @@ final class ResolveContactAndAddress extends Dto
      * @param  ?string  $clientReferenceId  Client Reference Id
      */
     public function __construct(
-        public readonly Address $address,
-        public readonly ?string $clientReferenceId = null,
-    ) {
-    }
+        public Address $address,
+        public ?string $clientReferenceId = null,
+    ) {}
 }

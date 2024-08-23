@@ -24,13 +24,12 @@ final class FullSchemaReprintPost extends Dto
      * @param  ?CloseDocumentSpecification  $closeDocumentSpecification  Specifies characteristics of the document to be returned for this request.
      */
     public function __construct(
-        public readonly ?string $closeReqType = null,
-        public readonly ?CloseAccountNumber $accountNumber = null,
-        public readonly ?string $groundServiceCategory = null,
-        public readonly ?string $closeDate = null,
-        public readonly ?string $trackingNumber = null,
-        public readonly ?string $reprintOption = null,
-        public readonly ?CloseDocumentSpecification $closeDocumentSpecification = null,
-    ) {
-    }
+        public ?string $closeReqType = null,
+        public ?CloseAccountNumber $accountNumber = null,
+        public ?string $groundServiceCategory = null,
+        public ?string $closeDate = null,
+        public ?string $trackingNumber = null,
+        public ?string $reprintOption = null,
+        public ?CloseDocumentSpecification $closeDocumentSpecification = null,
+    ) {}
 }

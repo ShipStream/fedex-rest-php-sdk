@@ -19,8 +19,7 @@ final class Weight extends Dto
      * @param  ?float  $value  This is package weight. Max. Length is 99999.
      */
     public function __construct(
-        public readonly ?string $units = null,
-        public readonly ?float $value = null,
-    ) {
-    }
+        public ?string $units = null,
+        public ?float $value = null,
+    ) {}
 }

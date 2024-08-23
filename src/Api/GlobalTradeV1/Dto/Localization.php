@@ -19,8 +19,7 @@ final class Localization extends Dto
      * @param  ?string  $localeCode  Two letter region code. <br> Example: us<br><a onclick='loadDocReference("locales")'>click here to see Locales</a>
      */
     public function __construct(
-        public readonly ?string $localization = null,
-        public readonly ?string $localeCode = null,
-    ) {
-    }
+        public ?string $localization = null,
+        public ?string $localeCode = null,
+    ) {}
 }

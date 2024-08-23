@@ -19,8 +19,7 @@ final class CompletedHoldAtLocationDetailHoldingLocation extends Dto
      * @param  ?Contact2  $contact  Specifies the Contact information.
      */
     public function __construct(
-        public readonly ?Address $address = null,
-        public readonly ?Contact2 $contact = null,
-    ) {
-    }
+        public ?Address $address = null,
+        public ?Contact2 $contact = null,
+    ) {}
 }

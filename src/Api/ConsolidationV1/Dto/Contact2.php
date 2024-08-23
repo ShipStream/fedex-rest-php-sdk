@@ -26,15 +26,14 @@ final class Contact2 extends Dto
      * @param  ?string  $title  Specify the Title of the Contact.
      */
     public function __construct(
-        public readonly ?string $personName = null,
-        public readonly ?string $tollFreePhoneNumber = null,
-        public readonly ?string $emailAddress = null,
-        public readonly ?string $phoneNumber = null,
-        public readonly ?string $phoneExtension = null,
-        public readonly ?string $companyName = null,
-        public readonly ?string $pagerNumber = null,
-        public readonly ?string $faxNumber = null,
-        public readonly ?string $title = null,
-    ) {
-    }
+        public ?string $personName = null,
+        public ?string $tollFreePhoneNumber = null,
+        public ?string $emailAddress = null,
+        public ?string $phoneNumber = null,
+        public ?string $phoneExtension = null,
+        public ?string $companyName = null,
+        public ?string $pagerNumber = null,
+        public ?string $faxNumber = null,
+        public ?string $title = null,
+    ) {}
 }

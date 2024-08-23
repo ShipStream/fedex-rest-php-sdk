@@ -45,23 +45,22 @@ final class Freight2020shipmentDetail extends Dto
      * @param  ?Party2  $alternateBillingParty  Use this object to provide the attributes such as physical address, contact information and account number information.
      */
     public function __construct(
-        public readonly string $role,
-        public readonly array $lineItem,
-        public readonly LtlContactAndAddress $fedExFreightBillingContactAndAddress,
-        public readonly int $totalHandlingUnits,
-        public readonly ?array $specialServicePayments = null,
-        public readonly ?LiabilityCoverageDetail $liabilityCoverageDetail = null,
-        public readonly ?PartyAccountNumber $fedExFreightAccountNumber = null,
-        public readonly ?string $declaredValueUnits = null,
-        public readonly ?array $printedReferences = null,
-        public readonly ?PhoneNumber $hazardousMaterialsEmergencyContactNumber = null,
-        public readonly ?float $clientDiscountPercent = null,
-        public readonly ?array $coupons = null,
-        public readonly ?string $aliasId = null,
-        public readonly ?string $collectTermsType = null,
-        public readonly ?string $hazardousMaterialsOfferor = null,
-        public readonly ?Money $declaredValuePerUnit = null,
-        public readonly ?Party2 $alternateBillingParty = null,
-    ) {
-    }
+        public string $role,
+        public array $lineItem,
+        public LtlContactAndAddress $fedExFreightBillingContactAndAddress,
+        public int $totalHandlingUnits,
+        public ?array $specialServicePayments = null,
+        public ?LiabilityCoverageDetail $liabilityCoverageDetail = null,
+        public ?PartyAccountNumber $fedExFreightAccountNumber = null,
+        public ?string $declaredValueUnits = null,
+        public ?array $printedReferences = null,
+        public ?PhoneNumber $hazardousMaterialsEmergencyContactNumber = null,
+        public ?float $clientDiscountPercent = null,
+        public ?array $coupons = null,
+        public ?string $aliasId = null,
+        public ?string $collectTermsType = null,
+        public ?string $hazardousMaterialsOfferor = null,
+        public ?Money $declaredValuePerUnit = null,
+        public ?Party2 $alternateBillingParty = null,
+    ) {}
 }

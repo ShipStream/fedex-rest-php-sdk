@@ -33,17 +33,16 @@ final class RateReplyDetail extends Dto
      * @param  ?ServiceSubOptionDetail  $serviceSubOptionDetail  These are supporting detail for applied options identified in a rate quote.
      */
     public function __construct(
-        public readonly ?string $serviceType = null,
-        public readonly ?string $serviceName = null,
-        public readonly ?string $packagingType = null,
-        public readonly ?array $customerMessages = null,
-        public readonly ?array $ratedShipmentDetails = null,
-        public readonly ?OperationalDetail $operationalDetail = null,
-        public readonly ?string $signatureOptionType = null,
-        public readonly ?ServiceDescription $serviceDescription = null,
-        public readonly ?BrokerDetailRateReply $brokerDetail = null,
-        public readonly ?CommitDetail $commit = null,
-        public readonly ?ServiceSubOptionDetail $serviceSubOptionDetail = null,
-    ) {
-    }
+        public ?string $serviceType = null,
+        public ?string $serviceName = null,
+        public ?string $packagingType = null,
+        public ?array $customerMessages = null,
+        public ?array $ratedShipmentDetails = null,
+        public ?OperationalDetail $operationalDetail = null,
+        public ?string $signatureOptionType = null,
+        public ?ServiceDescription $serviceDescription = null,
+        public ?BrokerDetailRateReply $brokerDetail = null,
+        public ?CommitDetail $commit = null,
+        public ?ServiceSubOptionDetail $serviceSubOptionDetail = null,
+    ) {}
 }

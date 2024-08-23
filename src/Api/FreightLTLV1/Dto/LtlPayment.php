@@ -19,8 +19,7 @@ final class LtlPayment extends Dto
      * @param  ?string  $paymentType  Indicate the payment Type.
      */
     public function __construct(
-        public readonly ?LtlPayor $payor = null,
-        public readonly ?string $paymentType = null,
-    ) {
-    }
+        public ?LtlPayor $payor = null,
+        public ?string $paymentType = null,
+    ) {}
 }

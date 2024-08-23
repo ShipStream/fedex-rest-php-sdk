@@ -21,10 +21,9 @@ final class FullSchemaQuoteRate extends Dto
      * @param  ?string[]  $carrierCodes  Specify the four letter code of a FedEx operating company that meets your requirements.<br> Example: FDXE<br><ul><li>FDXE - FedEx Express</li><li>FDXG - FedEx Ground</li><li>FXSP - FedEx SmartPost</li><li>FXCC - FedEx Custom Critical.</li></ul>
      */
     public function __construct(
-        public readonly AccountNumber $accountNumber,
-        public readonly RequestedShipment $requestedShipment,
-        public readonly ?RateRequestControlParameters $rateRequestControlParameters = null,
-        public readonly ?array $carrierCodes = null,
-    ) {
-    }
+        public AccountNumber $accountNumber,
+        public RequestedShipment $requestedShipment,
+        public ?RateRequestControlParameters $rateRequestControlParameters = null,
+        public ?array $carrierCodes = null,
+    ) {}
 }

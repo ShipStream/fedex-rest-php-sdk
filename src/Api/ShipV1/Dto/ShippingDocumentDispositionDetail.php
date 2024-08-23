@@ -19,8 +19,7 @@ final class ShippingDocumentDispositionDetail extends Dto
      * @param  ?string  $dispositionType  Values in this field specify how to create and return the document.<br>Example:CONFIRMED
      */
     public function __construct(
-        public readonly ?ShippingDocumentEmailDetail $eMailDetail = null,
-        public readonly ?string $dispositionType = null,
-    ) {
-    }
+        public ?ShippingDocumentEmailDetail $eMailDetail = null,
+        public ?string $dispositionType = null,
+    ) {}
 }

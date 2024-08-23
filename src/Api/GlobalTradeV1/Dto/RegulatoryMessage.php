@@ -24,11 +24,10 @@ final class RegulatoryMessage extends Dto
      * @param  ?string  $localizedText  This is the return message from the service provider in local language.
      */
     public function __construct(
-        public readonly ?string $code = null,
-        public readonly ?array $messageParameters = null,
-        public readonly ?int $index = null,
-        public readonly ?string $text = null,
-        public readonly ?string $localizedText = null,
-    ) {
-    }
+        public ?string $code = null,
+        public ?array $messageParameters = null,
+        public ?int $index = null,
+        public ?string $text = null,
+        public ?string $localizedText = null,
+    ) {}
 }

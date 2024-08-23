@@ -20,9 +20,8 @@ final class TransborderDistributionDetailSpecialServicesRequestedTransborderDist
      * @param  ?string  $devicePrint  The html that a client needs to embed for triggering a call to cyber source for needed information on device identification
      */
     public function __construct(
-        public readonly ?string $ipAddress = null,
-        public readonly ?bool $clientCookiesEnabled = null,
-        public readonly ?string $devicePrint = null,
-    ) {
-    }
+        public ?string $ipAddress = null,
+        public ?bool $clientCookiesEnabled = null,
+        public ?string $devicePrint = null,
+    ) {}
 }

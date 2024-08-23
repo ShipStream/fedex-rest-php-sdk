@@ -19,8 +19,7 @@ final class EmailDetail extends Dto
      * @param  ?string  $name  Specifies the name of the notification recipient.<br>Example: Sam Smith
      */
     public function __construct(
-        public readonly string $emailAddress,
-        public readonly ?string $name = null,
-    ) {
-    }
+        public string $emailAddress,
+        public ?string $name = null,
+    ) {}
 }

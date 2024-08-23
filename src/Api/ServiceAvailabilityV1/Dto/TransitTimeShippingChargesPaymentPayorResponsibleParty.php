@@ -19,8 +19,7 @@ final class TransitTimeShippingChargesPaymentPayorResponsibleParty extends Dto
      * @param  ?TransitTimeShippingChargesPaymentPayorResponsiblePartyAccountNumber  $accountNumber  Specifies the FedEx customer account information of the responsible paty.
      */
     public function __construct(
-        public readonly ?TransitTimeShipper $address = null,
-        public readonly ?TransitTimeShippingChargesPaymentPayorResponsiblePartyAccountNumber $accountNumber = null,
-    ) {
-    }
+        public ?TransitTimeShipper $address = null,
+        public ?TransitTimeShippingChargesPaymentPayorResponsiblePartyAccountNumber $accountNumber = null,
+    ) {}
 }

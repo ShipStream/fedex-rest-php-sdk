@@ -41,24 +41,23 @@ final class PieceResponse extends Dto
      * @param  CustomerReference[]|null  $customerReferences  These are additional customer reference data.<br>Note: The groupPackageCount must be specified to retrieve customer references.
      */
     public function __construct(
-        public readonly ?float $netChargeAmount = null,
-        public readonly ?array $transactionDetails = null,
-        public readonly ?array $packageDocuments = null,
-        public readonly ?string $acceptanceTrackingNumber = null,
-        public readonly ?string $serviceCategory = null,
-        public readonly ?string $listCustomerTotalCharge = null,
-        public readonly ?string $deliveryTimestamp = null,
-        public readonly ?string $trackingIdType = null,
-        public readonly ?float $additionalChargesDiscount = null,
-        public readonly ?float $netListRateAmount = null,
-        public readonly ?float $baseRateAmount = null,
-        public readonly ?int $packageSequenceNumber = null,
-        public readonly ?float $netDiscountAmount = null,
-        public readonly ?string $masterTrackingNumber = null,
-        public readonly ?string $acceptanceType = null,
-        public readonly ?string $trackingNumber = null,
-        public readonly ?bool $successful = null,
-        public readonly ?array $customerReferences = null,
-    ) {
-    }
+        public ?float $netChargeAmount = null,
+        public ?array $transactionDetails = null,
+        public ?array $packageDocuments = null,
+        public ?string $acceptanceTrackingNumber = null,
+        public ?string $serviceCategory = null,
+        public ?string $listCustomerTotalCharge = null,
+        public ?string $deliveryTimestamp = null,
+        public ?string $trackingIdType = null,
+        public ?float $additionalChargesDiscount = null,
+        public ?float $netListRateAmount = null,
+        public ?float $baseRateAmount = null,
+        public ?int $packageSequenceNumber = null,
+        public ?float $netDiscountAmount = null,
+        public ?string $masterTrackingNumber = null,
+        public ?string $acceptanceType = null,
+        public ?string $trackingNumber = null,
+        public ?bool $successful = null,
+        public ?array $customerReferences = null,
+    ) {}
 }

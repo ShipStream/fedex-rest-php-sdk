@@ -40,8 +40,7 @@ class CancelPickup extends Request implements HasBody
      */
     public function __construct(
         public FullSchemaCancelPickup $fullSchemaCancelPickup,
-    ) {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {

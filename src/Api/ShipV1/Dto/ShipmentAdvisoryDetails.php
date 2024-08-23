@@ -18,7 +18,6 @@ final class ShipmentAdvisoryDetails extends Dto
      * @param  ?RegulatoryAdvisoryDetail  $regulatoryAdvisory  Indicates the regulatory advisory details.
      */
     public function __construct(
-        public readonly ?RegulatoryAdvisoryDetail $regulatoryAdvisory = null,
-    ) {
-    }
+        public ?RegulatoryAdvisoryDetail $regulatoryAdvisory = null,
+    ) {}
 }

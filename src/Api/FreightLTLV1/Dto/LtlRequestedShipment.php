@@ -32,18 +32,17 @@ final class LtlRequestedShipment extends Dto
      * @param  ?LtlShipmentSpecialServicesRequested  $freightShipmentSpecialServices  Indicate special services for which the rate data is being requested. Special Services are available at the shipment level for some or all service types.<br>Valid values are:<ul><li>FREIGHT_GUARANTEE</li><li>COD</li><li>BROKER_SELECT_OPTION</li><li>DANGEROUS_GOODS</li><li>FOOD</li><li>POISON</li><li> INSIDE_DELIVERY</li><li>INSIDE_PICKUP</li><li>LIFTGATE_PICKUP</li><li>LIFTGATE_DELIVERY</li><li>LIMITED_ACCESS_PICKUP</li><li> LIMITED_ACCESS_DELIVERY</li><li>DO_NOT_STACK_PALLETS</li><li> DO_NOT_BREAK_DOWN_PALLETS</li><li>CALL_BEFORE_DELIVERY</li><li> TOP_LOAD </li><li>OVER_LENGTH</li><li> EXTREME_LENGTH</li><li> PROTECTION_FROM_FREEZING</li></ul><br><a onclick='loadDocReference("shipmentlevelspecialservicetypes")'>Click here to see Shipment level Special Service Types</a>
      */
     public function __construct(
-        public readonly RateParty $shipper,
-        public readonly RateParty $recipient,
-        public readonly array $requestedPackageLineItems,
-        public readonly LtlFreightShipmentDetail $freightShipmentDetail,
-        public readonly ?string $serviceType = null,
-        public readonly ?string $preferredCurrency = null,
-        public readonly ?LtlPayment $shippingChargesPayment = null,
-        public readonly ?array $rateRequestType = null,
-        public readonly ?string $shipDateStamp = null,
-        public readonly ?int $totalPackageCount = null,
-        public readonly ?int $totalWeight = null,
-        public readonly ?LtlShipmentSpecialServicesRequested $freightShipmentSpecialServices = null,
-    ) {
-    }
+        public RateParty $shipper,
+        public RateParty $recipient,
+        public array $requestedPackageLineItems,
+        public LtlFreightShipmentDetail $freightShipmentDetail,
+        public ?string $serviceType = null,
+        public ?string $preferredCurrency = null,
+        public ?LtlPayment $shippingChargesPayment = null,
+        public ?array $rateRequestType = null,
+        public ?string $shipDateStamp = null,
+        public ?int $totalPackageCount = null,
+        public ?int $totalWeight = null,
+        public ?LtlShipmentSpecialServicesRequested $freightShipmentSpecialServices = null,
+    ) {}
 }

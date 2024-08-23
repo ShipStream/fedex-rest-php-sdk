@@ -21,10 +21,9 @@ final class TcnInfo extends Dto
      * @param  ?string  $shipDateEnd  ShipDateBegin and ShipDateEnd are recommended to narrow the search, reduce lookup time, and avoid duplicates when searching for a specific tracking number within a specific date range. <br>Format: YYYY-MM-DD <br> Example: 2020-04-01
      */
     public function __construct(
-        public readonly string $value,
-        public readonly ?string $carrierCode = null,
-        public readonly ?string $shipDateBegin = null,
-        public readonly ?string $shipDateEnd = null,
-    ) {
-    }
+        public string $value,
+        public ?string $carrierCode = null,
+        public ?string $shipDateBegin = null,
+        public ?string $shipDateEnd = null,
+    ) {}
 }

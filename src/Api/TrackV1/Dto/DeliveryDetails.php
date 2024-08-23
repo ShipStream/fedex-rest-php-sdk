@@ -32,17 +32,16 @@ final class DeliveryDetails extends Dto
      * @param  DeliveryOptionElgibilityDetails[]|null  $deliveryOptionEligibilityDetails  Specifies eligibility type for the different delivery option.
      */
     public function __construct(
-        public readonly ?string $receivedByName = null,
-        public readonly ?string $destinationServiceArea = null,
-        public readonly ?string $destinationServiceAreaDescription = null,
-        public readonly ?string $locationDescription = null,
-        public readonly ?AddressVo2 $actualDeliveryAddress = null,
-        public readonly ?bool $deliveryToday = null,
-        public readonly ?string $locationType = null,
-        public readonly ?string $signedByName = null,
-        public readonly ?string $officeOrderDeliveryMethod = null,
-        public readonly ?string $deliveryAttempts = null,
-        public readonly ?array $deliveryOptionEligibilityDetails = null,
-    ) {
-    }
+        public ?string $receivedByName = null,
+        public ?string $destinationServiceArea = null,
+        public ?string $destinationServiceAreaDescription = null,
+        public ?string $locationDescription = null,
+        public ?AddressVo2 $actualDeliveryAddress = null,
+        public ?bool $deliveryToday = null,
+        public ?string $locationType = null,
+        public ?string $signedByName = null,
+        public ?string $officeOrderDeliveryMethod = null,
+        public ?string $deliveryAttempts = null,
+        public ?array $deliveryOptionEligibilityDetails = null,
+    ) {}
 }

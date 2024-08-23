@@ -18,7 +18,6 @@ final class FreightBillOfLadingDetail extends Dto
      * @param  ?ShippingDocumentFormat  $format  Specify the shipping document format.
      */
     public function __construct(
-        public readonly ?ShippingDocumentFormat $format = null,
-    ) {
-    }
+        public ?ShippingDocumentFormat $format = null,
+    ) {}
 }

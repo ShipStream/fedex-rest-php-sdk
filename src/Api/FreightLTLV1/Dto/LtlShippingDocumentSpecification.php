@@ -28,15 +28,14 @@ final class LtlShippingDocumentSpecification extends Dto
      * @param  ?FreightBillOfLadingDetail  $freightBillOfLadingDetail  Specifies Freight Bill Of Lading as the shipping document
      */
     public function __construct(
-        public readonly ?GeneralAgencyAgreementDetail $generalAgencyAgreementDetail = null,
-        public readonly ?Op900detail $op900detail = null,
-        public readonly ?UsmcaCertificationOfOriginDetail $usmcaCertificationOfOriginDetail = null,
-        public readonly ?UsmcaCommercialInvoiceCertificationOfOriginDetail $usmcaCommercialInvoiceCertificationOfOriginDetail = null,
-        public readonly ?array $shippingDocumentTypes = null,
-        public readonly ?CertificateOfOriginDetail $certificateOfOrigin = null,
-        public readonly ?CommercialInvoiceDetail $commercialInvoiceDetail = null,
-        public readonly ?FreightAddressLabelDetail $freightAddressLabelDetail = null,
-        public readonly ?FreightBillOfLadingDetail $freightBillOfLadingDetail = null,
-    ) {
-    }
+        public ?GeneralAgencyAgreementDetail $generalAgencyAgreementDetail = null,
+        public ?Op900detail $op900detail = null,
+        public ?UsmcaCertificationOfOriginDetail $usmcaCertificationOfOriginDetail = null,
+        public ?UsmcaCommercialInvoiceCertificationOfOriginDetail $usmcaCommercialInvoiceCertificationOfOriginDetail = null,
+        public ?array $shippingDocumentTypes = null,
+        public ?CertificateOfOriginDetail $certificateOfOrigin = null,
+        public ?CommercialInvoiceDetail $commercialInvoiceDetail = null,
+        public ?FreightAddressLabelDetail $freightAddressLabelDetail = null,
+        public ?FreightBillOfLadingDetail $freightBillOfLadingDetail = null,
+    ) {}
 }

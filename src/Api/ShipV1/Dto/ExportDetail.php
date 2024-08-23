@@ -23,10 +23,9 @@ final class ExportDetail extends Dto
      * @param  ?string  $permitNumber  This is a Permit Number. This field is applicable only to Canada export non-document shipments of any value to any destination. No special characters are allowed.<br> Example: 12345
      */
     public function __construct(
-        public readonly ?DestinationControlDetail $destinationControlDetail = null,
-        public readonly ?string $b13aFilingOption = null,
-        public readonly ?string $exportComplianceStatement = null,
-        public readonly ?string $permitNumber = null,
-    ) {
-    }
+        public ?DestinationControlDetail $destinationControlDetail = null,
+        public ?string $b13aFilingOption = null,
+        public ?string $exportComplianceStatement = null,
+        public ?string $permitNumber = null,
+    ) {}
 }

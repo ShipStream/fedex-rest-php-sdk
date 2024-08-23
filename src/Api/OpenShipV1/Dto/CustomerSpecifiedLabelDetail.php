@@ -26,10 +26,9 @@ final class CustomerSpecifiedLabelDetail extends Dto
      * @param  ?DocTabContent  $docTabContent  Specifies details of doc tab content.It is only applicable only with imageType as ZPLII
      */
     public function __construct(
-        public readonly ?array $maskedData = null,
-        public readonly ?array $regulatoryLabels = null,
-        public readonly ?array $additionalLabels = null,
-        public readonly ?DocTabContent $docTabContent = null,
-    ) {
-    }
+        public ?array $maskedData = null,
+        public ?array $regulatoryLabels = null,
+        public ?array $additionalLabels = null,
+        public ?DocTabContent $docTabContent = null,
+    ) {}
 }

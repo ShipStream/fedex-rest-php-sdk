@@ -27,16 +27,15 @@ final class RegulatoryDocument extends Dto
      * @param  ?LocalizedAttributeDetail  $localizedAttributes  Specifies the localized attribute details.
      */
     public function __construct(
-        public readonly ?RegulatoryMessage $userMessage = null,
-        public readonly ?string $supportType = null,
-        public readonly ?string $allowability = null,
-        public readonly ?string $fileName = null,
-        public readonly ?string $documentType = null,
-        public readonly ?string $agencyUrl = null,
-        public readonly ?string $documentUrl = null,
-        public readonly ?string $id = null,
-        public readonly ?string $agencyName = null,
-        public readonly ?LocalizedAttributeDetail $localizedAttributes = null,
-    ) {
-    }
+        public ?RegulatoryMessage $userMessage = null,
+        public ?string $supportType = null,
+        public ?string $allowability = null,
+        public ?string $fileName = null,
+        public ?string $documentType = null,
+        public ?string $agencyUrl = null,
+        public ?string $documentUrl = null,
+        public ?string $id = null,
+        public ?string $agencyName = null,
+        public ?LocalizedAttributeDetail $localizedAttributes = null,
+    ) {}
 }

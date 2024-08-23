@@ -22,11 +22,10 @@ final class Tins extends Dto
      * @param  ?string  $expirationDate  Specifies Expiration Date.
      */
     public function __construct(
-        public readonly ?string $tinType = null,
-        public readonly ?string $number = null,
-        public readonly ?string $usage = null,
-        public readonly ?string $effectiveDate = null,
-        public readonly ?string $expirationDate = null,
-    ) {
-    }
+        public ?string $tinType = null,
+        public ?string $number = null,
+        public ?string $usage = null,
+        public ?string $effectiveDate = null,
+        public ?string $expirationDate = null,
+    ) {}
 }

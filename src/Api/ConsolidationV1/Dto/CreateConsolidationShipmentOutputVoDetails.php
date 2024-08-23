@@ -22,7 +22,6 @@ final class CreateConsolidationShipmentOutputVoDetails extends Dto
      * @param  TransactionConsolidationShipmentResultsOutputVo[]|null  $transactionShipments  a list of consolidation shipments within the open shipment
      */
     public function __construct(
-        public readonly ?array $transactionShipments = null,
-    ) {
-    }
+        public ?array $transactionShipments = null,
+    ) {}
 }

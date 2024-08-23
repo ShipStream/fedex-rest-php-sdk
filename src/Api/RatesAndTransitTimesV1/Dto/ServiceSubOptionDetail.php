@@ -18,7 +18,6 @@ final class ServiceSubOptionDetail extends Dto
      * @param  ?string  $smartPostIndiciaType  This identifies the indicia used during rate quote.
      */
     public function __construct(
-        public readonly ?string $smartPostIndiciaType = null,
-    ) {
-    }
+        public ?string $smartPostIndiciaType = null,
+    ) {}
 }

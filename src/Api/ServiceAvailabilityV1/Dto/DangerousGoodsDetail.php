@@ -19,8 +19,7 @@ final class DangerousGoodsDetail extends Dto
      * @param  ?string[]  $options  Indicate the kind of content being reported.
      */
     public function __construct(
-        public readonly ?string $accessibility = null,
-        public readonly ?array $options = null,
-    ) {
-    }
+        public ?string $accessibility = null,
+        public ?array $options = null,
+    ) {}
 }

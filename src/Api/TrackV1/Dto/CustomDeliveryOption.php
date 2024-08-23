@@ -21,10 +21,9 @@ final class CustomDeliveryOption extends Dto
      * @param  ?string  $status  Field which specifies the status of the custom delivery option requested.<br> Example: HELD
      */
     public function __construct(
-        public readonly ?RequestedAppointmentDetail $requestedAppointmentDetail = null,
-        public readonly ?string $description = null,
-        public readonly ?string $type = null,
-        public readonly ?string $status = null,
-    ) {
-    }
+        public ?RequestedAppointmentDetail $requestedAppointmentDetail = null,
+        public ?string $description = null,
+        public ?string $type = null,
+        public ?string $status = null,
+    ) {}
 }

@@ -19,8 +19,7 @@ final class Weight extends Dto
      * @param  ?float  $value  Specify the value of weight of shipment.<br>Example: 68.25
      */
     public function __construct(
-        public readonly ?string $units = null,
-        public readonly ?float $value = null,
-    ) {
-    }
+        public ?string $units = null,
+        public ?float $value = null,
+    ) {}
 }

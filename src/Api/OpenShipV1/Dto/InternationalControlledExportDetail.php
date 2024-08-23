@@ -22,11 +22,10 @@ final class InternationalControlledExportDetail extends Dto
      * @param  ?string  $foreignTradeZoneCode  Indicate the Foreign Trade Zone Code.<br>Example: US
      */
     public function __construct(
-        public readonly string $type,
-        public readonly ?string $licenseOrPermitExpirationDate = null,
-        public readonly ?string $licenseOrPermitNumber = null,
-        public readonly ?string $entryNumber = null,
-        public readonly ?string $foreignTradeZoneCode = null,
-    ) {
-    }
+        public string $type,
+        public ?string $licenseOrPermitExpirationDate = null,
+        public ?string $licenseOrPermitNumber = null,
+        public ?string $entryNumber = null,
+        public ?string $foreignTradeZoneCode = null,
+    ) {}
 }

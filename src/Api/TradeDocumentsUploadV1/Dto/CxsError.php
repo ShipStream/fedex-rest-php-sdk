@@ -22,9 +22,8 @@ final class CxsError extends Dto
      * @param  ?string  $message  Indicates the description of API error alert message.<br>Example: We encountered an unexpected error and are working to resolve the issue. We apologize for any inconvenience. Please check back at a later time.
      */
     public function __construct(
-        public readonly ?string $code = null,
-        public readonly ?array $parameterList = null,
-        public readonly ?string $message = null,
-    ) {
-    }
+        public ?string $code = null,
+        public ?array $parameterList = null,
+        public ?string $message = null,
+    ) {}
 }

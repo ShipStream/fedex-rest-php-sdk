@@ -19,8 +19,7 @@ final class TransborderDistributionDetailSpecialServicesRequestedTransborderDist
      * @param  ?string  $accountNumber  account number
      */
     public function __construct(
-        public readonly ?string $type = null,
-        public readonly ?string $accountNumber = null,
-    ) {
-    }
+        public ?string $type = null,
+        public ?string $accountNumber = null,
+    ) {}
 }

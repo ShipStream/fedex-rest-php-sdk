@@ -18,7 +18,6 @@ final class EmailOptionsRequested extends Dto
      * @param  ?string[]  $options  These are the processing options.
      */
     public function __construct(
-        public readonly ?array $options = null,
-    ) {
-    }
+        public ?array $options = null,
+    ) {}
 }

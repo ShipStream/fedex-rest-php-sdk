@@ -20,9 +20,8 @@ final class RatedPackageDetail extends Dto
      * @param  ?int  $groupNumber  This is group number, used only with package groups as a unique identifier of each group of identical packages.
      */
     public function __construct(
-        public readonly ?float $effectiveNetDiscount = null,
-        public readonly ?PackageRateDetail $packageRateDetail = null,
-        public readonly ?int $groupNumber = null,
-    ) {
-    }
+        public ?float $effectiveNetDiscount = null,
+        public ?PackageRateDetail $packageRateDetail = null,
+        public ?int $groupNumber = null,
+    ) {}
 }

@@ -19,8 +19,7 @@ final class ReturnAssociationDetail extends Dto
      * @param  ?string  $shipDatestamp  This is the ship date for the outbound shipment associated with a return shipment. The format is YYYY-MM-DD.<br> Example: 2019-10-01
      */
     public function __construct(
-        public readonly string $trackingNumber,
-        public readonly ?string $shipDatestamp = null,
-    ) {
-    }
+        public string $trackingNumber,
+        public ?string $shipDatestamp = null,
+    ) {}
 }

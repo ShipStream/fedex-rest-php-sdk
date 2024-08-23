@@ -38,23 +38,22 @@ final class Commodity extends Dto
      * @param  ?UsmcaDetail  $usmcaDetail  Indicates the USMCA detail
      */
     public function __construct(
-        public readonly Money $unitPrice,
-        public readonly int $quantity,
-        public readonly string $quantityUnits,
-        public readonly string $countryOfManufacture,
-        public readonly string $description,
-        public readonly Weight $weight,
-        public readonly ?array $additionalMeasures = null,
-        public readonly ?int $numberOfPieces = null,
-        public readonly ?Money $customsValue = null,
-        public readonly ?string $cImarksAndNumbers = null,
-        public readonly ?string $harmonizedCode = null,
-        public readonly ?string $name = null,
-        public readonly ?string $exportLicenseNumber = null,
-        public readonly ?\DateTimeInterface $exportLicenseExpirationDate = null,
-        public readonly ?string $partNumber = null,
-        public readonly ?string $purpose = null,
-        public readonly ?UsmcaDetail $usmcaDetail = null,
-    ) {
-    }
+        public Money $unitPrice,
+        public int $quantity,
+        public string $quantityUnits,
+        public string $countryOfManufacture,
+        public string $description,
+        public Weight $weight,
+        public ?array $additionalMeasures = null,
+        public ?int $numberOfPieces = null,
+        public ?Money $customsValue = null,
+        public ?string $cImarksAndNumbers = null,
+        public ?string $harmonizedCode = null,
+        public ?string $name = null,
+        public ?string $exportLicenseNumber = null,
+        public ?\DateTimeInterface $exportLicenseExpirationDate = null,
+        public ?string $partNumber = null,
+        public ?string $purpose = null,
+        public ?UsmcaDetail $usmcaDetail = null,
+    ) {}
 }

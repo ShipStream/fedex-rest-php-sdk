@@ -26,15 +26,14 @@ final class Address extends Dto
      * @param  ?string  $addressClassificationConfidence  The confidence of business residential classification business residential indicators.
      */
     public function __construct(
-        public readonly string $countryCode,
-        public readonly ?array $streetLines = null,
-        public readonly ?string $city = null,
-        public readonly ?string $stateOrProvinceCode = null,
-        public readonly ?string $postalCode = null,
-        public readonly ?bool $residential = null,
-        public readonly ?string $addressVerificationId = null,
-        public readonly ?string $addressClassification = null,
-        public readonly ?string $addressClassificationConfidence = null,
-    ) {
-    }
+        public string $countryCode,
+        public ?array $streetLines = null,
+        public ?string $city = null,
+        public ?string $stateOrProvinceCode = null,
+        public ?string $postalCode = null,
+        public ?bool $residential = null,
+        public ?string $addressVerificationId = null,
+        public ?string $addressClassification = null,
+        public ?string $addressClassificationConfidence = null,
+    ) {}
 }

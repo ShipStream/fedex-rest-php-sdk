@@ -20,9 +20,8 @@ final class FullSchemaSpecialServiceOptions extends Dto
      * @param  ?string[]  $carrierCodes  Optionally supplied to restrict the results to services for a specific carrier. Valid values are: FDXE, FDXG, FXSP. <br> Example: ["FDXG", "FDXE"]
      */
     public function __construct(
-        public readonly RequestedShipment $requestedShipment,
-        public readonly ?AccountNumber $accountNumber = null,
-        public readonly ?array $carrierCodes = null,
-    ) {
-    }
+        public RequestedShipment $requestedShipment,
+        public ?AccountNumber $accountNumber = null,
+        public ?array $carrierCodes = null,
+    ) {}
 }

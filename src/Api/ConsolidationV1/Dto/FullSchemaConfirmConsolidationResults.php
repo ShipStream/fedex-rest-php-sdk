@@ -19,8 +19,7 @@ final class FullSchemaConfirmConsolidationResults extends Dto
      * @param  string  $jobId  When the confirm consolidation is processed asynchronously, job Id is generated which is passed in confirm consolidation results to get complete consolidation results
      */
     public function __construct(
-        public readonly PartyAccountNumber $accountNumber,
-        public readonly string $jobId,
-    ) {
-    }
+        public PartyAccountNumber $accountNumber,
+        public string $jobId,
+    ) {}
 }

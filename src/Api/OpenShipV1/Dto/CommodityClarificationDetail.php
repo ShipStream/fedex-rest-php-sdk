@@ -21,8 +21,7 @@ final class CommodityClarificationDetail extends Dto
      * @param  SuggestedCommodityDetail[]|null  $suggestions  These are suggested commodity details.
      */
     public function __construct(
-        public readonly ?int $commodityIndex = null,
-        public readonly ?array $suggestions = null,
-    ) {
-    }
+        public ?int $commodityIndex = null,
+        public ?array $suggestions = null,
+    ) {}
 }

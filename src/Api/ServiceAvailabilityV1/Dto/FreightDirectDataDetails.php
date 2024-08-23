@@ -23,10 +23,9 @@ final class FreightDirectDataDetails extends Dto
      * @param  FreightPhoneNumberDetail[]|null  $phoneNumberDetails  This field prvides the phone number details associated with freight services
      */
     public function __construct(
-        public readonly ?string $type = null,
-        public readonly ?string $transportationType = null,
-        public readonly ?string $eMailAddress = null,
-        public readonly ?array $phoneNumberDetails = null,
-    ) {
-    }
+        public ?string $type = null,
+        public ?string $transportationType = null,
+        public ?string $eMailAddress = null,
+        public ?array $phoneNumberDetails = null,
+    ) {}
 }

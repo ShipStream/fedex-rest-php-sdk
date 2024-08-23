@@ -22,19 +22,17 @@ final class UsmcaCertificationOfOriginDetail extends Dto
      * @param  ?string  $certifierSpecification  This is certifier specification.
      * @param  ?string  $importerSpecification  This is importer specification.
      * @param  ?string  $producerSpecification  This is producer specification.
-     * @param  ?Party2  $producer
      * @param  ?RetrieveDateRange  $blanketPeriod  Date Range for custom delivery request; only used if type is BETWEEN.
      * @param  ?string  $certifierJobTitle  Specify the job title of the certifier
      */
     public function __construct(
-        public readonly ?array $customerImageUsages = null,
-        public readonly ?ShippingDocumentFormat $documentFormat = null,
-        public readonly ?string $certifierSpecification = null,
-        public readonly ?string $importerSpecification = null,
-        public readonly ?string $producerSpecification = null,
-        public readonly ?Party2 $producer = null,
-        public readonly ?RetrieveDateRange $blanketPeriod = null,
-        public readonly ?string $certifierJobTitle = null,
-    ) {
-    }
+        public ?array $customerImageUsages = null,
+        public ?ShippingDocumentFormat $documentFormat = null,
+        public ?string $certifierSpecification = null,
+        public ?string $importerSpecification = null,
+        public ?string $producerSpecification = null,
+        public ?Party2 $producer = null,
+        public ?RetrieveDateRange $blanketPeriod = null,
+        public ?string $certifierJobTitle = null,
+    ) {}
 }

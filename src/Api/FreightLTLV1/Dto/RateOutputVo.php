@@ -24,11 +24,10 @@ final class RateOutputVo extends Dto
      * @param  Alert[]|null  $alerts  The cxs alert code, alert type, and alert message obtained when a rate quote is requested.
      */
     public function __construct(
-        public readonly ?string $customerTransactionId = null,
-        public readonly ?array $rateReplyDetails = null,
-        public readonly ?string $quoteDate = null,
-        public readonly ?bool $encoded = null,
-        public readonly ?array $alerts = null,
-    ) {
-    }
+        public ?string $customerTransactionId = null,
+        public ?array $rateReplyDetails = null,
+        public ?string $quoteDate = null,
+        public ?bool $encoded = null,
+        public ?array $alerts = null,
+    ) {}
 }

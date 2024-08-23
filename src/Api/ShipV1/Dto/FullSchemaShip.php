@@ -26,13 +26,12 @@ final class FullSchemaShip extends Dto
      * @param  ?bool  $oneLabelAtAtime  This flag is used to specify if the shipment is singleshot mps or one Label at a time, piece by piece shipment. Default is false. If true, one label at a time is processed.
      */
     public function __construct(
-        public readonly RequestedShipment $requestedShipment,
-        public readonly string $labelResponseOptions,
-        public readonly ShipperAccountNumber $accountNumber,
-        public readonly ?string $mergeLabelDocOption = null,
-        public readonly ?string $shipAction = null,
-        public readonly ?string $processingOptionType = null,
-        public readonly ?bool $oneLabelAtAtime = null,
-    ) {
-    }
+        public RequestedShipment $requestedShipment,
+        public string $labelResponseOptions,
+        public ShipperAccountNumber $accountNumber,
+        public ?string $mergeLabelDocOption = null,
+        public ?string $shipAction = null,
+        public ?string $processingOptionType = null,
+        public ?bool $oneLabelAtAtime = null,
+    ) {}
 }

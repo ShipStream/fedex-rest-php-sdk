@@ -22,9 +22,8 @@ final class CreateConsolidationOutputVo extends Dto
      * @param  Alert[]|null  $alerts  The alerts received when processing a shipment request.
      */
     public function __construct(
-        public readonly ?array $trackingIds = null,
-        public readonly ?ConsolidationKey $consolidationKey = null,
-        public readonly ?array $alerts = null,
-    ) {
-    }
+        public ?array $trackingIds = null,
+        public ?ConsolidationKey $consolidationKey = null,
+        public ?array $alerts = null,
+    ) {}
 }

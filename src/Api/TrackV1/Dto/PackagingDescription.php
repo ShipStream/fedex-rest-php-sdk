@@ -19,8 +19,7 @@ final class PackagingDescription extends Dto
      * @param  ?string  $type  Indicate the packaging type.<br><a onclick='loadDocReference("packagetypes")'>Click here to see Package Types</a>
      */
     public function __construct(
-        public readonly ?string $description = null,
-        public readonly ?string $type = null,
-    ) {
-    }
+        public ?string $description = null,
+        public ?string $type = null,
+    ) {}
 }

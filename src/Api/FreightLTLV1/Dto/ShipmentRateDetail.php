@@ -32,19 +32,18 @@ final class ShipmentRateDetail extends Dto
      * @param  Surcharge[]|null  $surCharges  Indicates the surcharges applied to this shipment.
      */
     public function __construct(
-        public readonly ?CurrencyExchangeRate $currencyExchangeRate = null,
-        public readonly ?string $currency = null,
-        public readonly ?string $rateZone = null,
-        public readonly ?string $pricingCode = null,
-        public readonly ?float $totalFreightDiscount = null,
-        public readonly ?array $specialRatingApplied = null,
-        public readonly ?float $totalSurcharges = null,
-        public readonly ?array $freightDiscount = null,
-        public readonly ?float $fuelSurchargePercent = null,
-        public readonly ?Weight $totalBillingWeight = null,
-        public readonly ?Weight $totalDimWeight = null,
-        public readonly ?int $dimDivisor = null,
-        public readonly ?array $surCharges = null,
-    ) {
-    }
+        public ?CurrencyExchangeRate $currencyExchangeRate = null,
+        public ?string $currency = null,
+        public ?string $rateZone = null,
+        public ?string $pricingCode = null,
+        public ?float $totalFreightDiscount = null,
+        public ?array $specialRatingApplied = null,
+        public ?float $totalSurcharges = null,
+        public ?array $freightDiscount = null,
+        public ?float $fuelSurchargePercent = null,
+        public ?Weight $totalBillingWeight = null,
+        public ?Weight $totalDimWeight = null,
+        public ?int $dimDivisor = null,
+        public ?array $surCharges = null,
+    ) {}
 }

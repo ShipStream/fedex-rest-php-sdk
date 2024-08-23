@@ -19,8 +19,7 @@ final class ContactAndAddressVerify extends Dto
      * @param  ?Address  $address  Descriptive data for a physical location. May be used as an actual physical address (place to which one could go), or as a container of "address parts" which should be handled as a unit (such as a city-state-ZIP combination within the US).
      */
     public function __construct(
-        public readonly ?ContactVerify $contact = null,
-        public readonly ?Address $address = null,
-    ) {
-    }
+        public ?ContactVerify $contact = null,
+        public ?Address $address = null,
+    ) {}
 }

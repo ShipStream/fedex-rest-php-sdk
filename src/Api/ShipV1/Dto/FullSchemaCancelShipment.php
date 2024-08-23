@@ -22,11 +22,10 @@ final class FullSchemaCancelShipment extends Dto
      * @param  ?string  $deletionControl  Specifies which packages in a shipment to be canceled<b>DELETE_ALL_PACKAGES</b> which will cancel all tracking numbers associated to the shipment.
      */
     public function __construct(
-        public readonly ShipperAccountNumber $accountNumber,
-        public readonly string $trackingNumber,
-        public readonly ?bool $emailShipment = null,
-        public readonly ?string $senderCountryCode = null,
-        public readonly ?string $deletionControl = null,
-    ) {
-    }
+        public ShipperAccountNumber $accountNumber,
+        public string $trackingNumber,
+        public ?bool $emailShipment = null,
+        public ?string $senderCountryCode = null,
+        public ?string $deletionControl = null,
+    ) {}
 }

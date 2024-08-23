@@ -21,8 +21,7 @@ final class FullSchemaTrackingNumbers extends Dto
      * @param  TrackingInfo[]  $trackingInfo  The tracking information of the shipment to be tracked. At least one occurrence of TrackingInfo is required. Maximum limit is 30.
      */
     public function __construct(
-        public readonly bool $includeDetailedScans,
-        public readonly array $trackingInfo,
-    ) {
-    }
+        public bool $includeDetailedScans,
+        public array $trackingInfo,
+    ) {}
 }

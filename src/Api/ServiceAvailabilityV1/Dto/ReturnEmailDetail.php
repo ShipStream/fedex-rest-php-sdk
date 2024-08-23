@@ -19,8 +19,7 @@ final class ReturnEmailDetail extends Dto
      * @param  ?string[]  $allowedSpecialService  Indicate the allowed (merchant-authorized) special services which may be selected when the subsequent shipment is created.<br>Only services represented in EmailLabelAllowedSpecialServiceType will be controlled by this list.<br>Example :[SATURDAY_DELIVERY]
      */
     public function __construct(
-        public readonly ?string $merchantPhoneNumber = null,
-        public readonly ?array $allowedSpecialService = null,
-    ) {
-    }
+        public ?string $merchantPhoneNumber = null,
+        public ?array $allowedSpecialService = null,
+    ) {}
 }

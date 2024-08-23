@@ -22,11 +22,10 @@ final class PhoneNumber extends Dto
      * @param  ?string  $personalIdentificationNumber  Indicate the Personal Identification Number associated with the phone number.
      */
     public function __construct(
-        public readonly ?string $areaCode = null,
-        public readonly ?string $localNumber = null,
-        public readonly ?string $extension = null,
-        public readonly ?string $countryCode = null,
-        public readonly ?string $personalIdentificationNumber = null,
-    ) {
-    }
+        public ?string $areaCode = null,
+        public ?string $localNumber = null,
+        public ?string $extension = null,
+        public ?string $countryCode = null,
+        public ?string $personalIdentificationNumber = null,
+    ) {}
 }

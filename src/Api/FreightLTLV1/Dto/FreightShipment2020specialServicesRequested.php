@@ -21,10 +21,9 @@ final class FreightShipment2020specialServicesRequested extends Dto
      * @param  ?CustomDeliveryWindowDetail  $customDeliveryWindowDetail  Indicates shipment to be sent at a specific time, on a specific date, or sometime within a specific date range.
      */
     public function __construct(
-        public readonly ?array $specialServiceTypes = null,
-        public readonly ?FreightGuaranteeDetail $freightGuaranteeDetail = null,
-        public readonly ?FreightDirectDetail $freightDirectDetail = null,
-        public readonly ?CustomDeliveryWindowDetail $customDeliveryWindowDetail = null,
-    ) {
-    }
+        public ?array $specialServiceTypes = null,
+        public ?FreightGuaranteeDetail $freightGuaranteeDetail = null,
+        public ?FreightDirectDetail $freightDirectDetail = null,
+        public ?CustomDeliveryWindowDetail $customDeliveryWindowDetail = null,
+    ) {}
 }

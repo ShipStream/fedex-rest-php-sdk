@@ -21,10 +21,9 @@ final class ServiceTypeDetailVo extends Dto
      * @param  ?string  $serviceCategory  Service Category
      */
     public function __construct(
-        public readonly ?string $carrierCode = null,
-        public readonly ?string $description = null,
-        public readonly ?string $serviceName = null,
-        public readonly ?string $serviceCategory = null,
-    ) {
-    }
+        public ?string $carrierCode = null,
+        public ?string $description = null,
+        public ?string $serviceName = null,
+        public ?string $serviceCategory = null,
+    ) {}
 }

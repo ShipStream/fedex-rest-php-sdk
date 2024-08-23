@@ -21,8 +21,7 @@ final class TransitTimeRequestedPackageLineItemPackageSpecialServicesDangerousGo
      * Specify the dangerous goods' detail from the list of available options.
      */
     public function __construct(
-        public readonly ?string $accessibility = null,
-        public readonly ?array $options = null,
-    ) {
-    }
+        public ?string $accessibility = null,
+        public ?array $options = null,
+    ) {}
 }

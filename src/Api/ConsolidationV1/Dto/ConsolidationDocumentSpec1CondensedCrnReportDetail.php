@@ -18,7 +18,6 @@ final class ConsolidationDocumentSpec1CondensedCrnReportDetail extends Dto
      * @param  ?Formats  $format  Specifies the formats.
      */
     public function __construct(
-        public readonly ?Formats $format = null,
-    ) {
-    }
+        public ?Formats $format = null,
+    ) {}
 }

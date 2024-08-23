@@ -17,12 +17,10 @@ final class TransitDays extends Dto
     /**
      * @param  ?string  $description  Specifies the number of days the package/shipment is to be in transit. <br> Example: 2 Business Days
      * @param  ?string  $minimumTransitTime  Code indicating the number of transit days.<br> Example: TW0_DAYS
-     * @param  ?string  $maximumTransitTime
      */
     public function __construct(
-        public readonly ?string $description = null,
-        public readonly ?string $minimumTransitTime = null,
-        public readonly ?string $maximumTransitTime = null,
-    ) {
-    }
+        public ?string $description = null,
+        public ?string $minimumTransitTime = null,
+        public ?string $maximumTransitTime = null,
+    ) {}
 }

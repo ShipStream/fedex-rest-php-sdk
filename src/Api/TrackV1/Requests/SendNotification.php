@@ -38,8 +38,7 @@ class SendNotification extends Request implements HasBody
      */
     public function __construct(
         public FullSchemaNotification $fullSchemaNotification,
-    ) {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {

@@ -19,8 +19,7 @@ final class Origin extends Dto
      * @param  ?PartyContact  $contact  Indicate the contact details for this shipment.
      */
     public function __construct(
-        public readonly ?PartyAddress2 $address = null,
-        public readonly ?PartyContact $contact = null,
-    ) {
-    }
+        public ?PartyAddress2 $address = null,
+        public ?PartyContact $contact = null,
+    ) {}
 }

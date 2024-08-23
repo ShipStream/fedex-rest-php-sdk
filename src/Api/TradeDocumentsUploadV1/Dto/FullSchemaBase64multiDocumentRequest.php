@@ -26,13 +26,12 @@ final class FullSchemaBase64multiDocumentRequest extends Dto
      * @param  ?string  $trackingNumber  Specifies the tracking number of the shipment. This is only required for Post Shipment documentation upload. <br> Example: 782514212510
      */
     public function __construct(
-        public readonly string $workflowName,
-        public readonly string $carrierCode,
-        public readonly string $orginCountryCode,
-        public readonly string $destinationCountryCode,
-        public readonly array $metaData,
-        public readonly ?string $shipmentDate = null,
-        public readonly ?string $trackingNumber = null,
-    ) {
-    }
+        public string $workflowName,
+        public string $carrierCode,
+        public string $orginCountryCode,
+        public string $destinationCountryCode,
+        public array $metaData,
+        public ?string $shipmentDate = null,
+        public ?string $trackingNumber = null,
+    ) {}
 }

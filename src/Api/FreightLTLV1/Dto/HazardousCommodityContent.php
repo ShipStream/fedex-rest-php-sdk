@@ -23,10 +23,9 @@ final class HazardousCommodityContent extends Dto
      * @param  ?HazardousCommodityDescription  $description  Required<br>Details of hazardous commodity description.
      */
     public function __construct(
-        public readonly ?HazardousCommodityQuantityDetail $quantity = null,
-        public readonly ?array $innerReceptacles = null,
-        public readonly ?HazardousCommodityOptionDetail $options = null,
-        public readonly ?HazardousCommodityDescription $description = null,
-    ) {
-    }
+        public ?HazardousCommodityQuantityDetail $quantity = null,
+        public ?array $innerReceptacles = null,
+        public ?HazardousCommodityOptionDetail $options = null,
+        public ?HazardousCommodityDescription $description = null,
+    ) {}
 }

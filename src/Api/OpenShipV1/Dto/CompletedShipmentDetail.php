@@ -33,20 +33,19 @@ final class CompletedShipmentDetail extends Dto
      * @param  ?PendingShipmentAccessDetail  $accessDetail  This information describes how and when a online email return label shipment may be accessed for completion.
      */
     public function __construct(
-        public readonly ?array $completedPackageDetails = null,
-        public readonly ?ShipmentOperationalDetail $operationalDetail = null,
-        public readonly ?string $carrierCode = null,
-        public readonly ?CompletedHoldAtLocationDetail $completedHoldAtLocationDetail = null,
-        public readonly ?CompletedEtdDetail $completedEtdDetail = null,
-        public readonly ?string $packagingDescription = null,
-        public readonly ?TrackingId $masterTrackingId = null,
-        public readonly ?ServiceDescription $serviceDescription = null,
-        public readonly ?bool $usDomestic = null,
-        public readonly ?CompletedHazardousShipmentDetail $hazardousShipmentDetail = null,
-        public readonly ?ShipmentRating $shipmentRating = null,
-        public readonly ?DocumentRequirementsDetail $documentRequirements = null,
-        public readonly ?string $exportComplianceStatement = null,
-        public readonly ?PendingShipmentAccessDetail $accessDetail = null,
-    ) {
-    }
+        public ?array $completedPackageDetails = null,
+        public ?ShipmentOperationalDetail $operationalDetail = null,
+        public ?string $carrierCode = null,
+        public ?CompletedHoldAtLocationDetail $completedHoldAtLocationDetail = null,
+        public ?CompletedEtdDetail $completedEtdDetail = null,
+        public ?string $packagingDescription = null,
+        public ?TrackingId $masterTrackingId = null,
+        public ?ServiceDescription $serviceDescription = null,
+        public ?bool $usDomestic = null,
+        public ?CompletedHazardousShipmentDetail $hazardousShipmentDetail = null,
+        public ?ShipmentRating $shipmentRating = null,
+        public ?DocumentRequirementsDetail $documentRequirements = null,
+        public ?string $exportComplianceStatement = null,
+        public ?PendingShipmentAccessDetail $accessDetail = null,
+    ) {}
 }

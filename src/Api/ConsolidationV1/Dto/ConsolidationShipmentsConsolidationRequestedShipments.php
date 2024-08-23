@@ -16,7 +16,6 @@ final class ConsolidationShipmentsConsolidationRequestedShipments extends Dto
 {
     /**
      * @param  ?string  $shipDatestamp  This is shipment date. Both the date and time portions of the string are expected to be used. The date should not be a past date or a date more than 10 days in the future. The time is the local time of the shipment based on the shipper's time zone.<br>Format: YYYY-MM-DD. <br>Example: 2019-06-26.
-     * @param  ?string  $dropOffType
      * @param  ?string  $recipientLocationNumber  Indicates whether this address is residential (as opposed to commercial).<br>Example: false
      * @param  ?string  $serviceType  Indicate the FedEx service type used for this shipment.<br>Example: STANDARD_OVERNIGHT<br><a onclick='loadDocReference("servicetypes")'>click here to see Service Types</a>
      * @param  ?string  $packagingType  Specify the packaging used.<br>Note: For Express Freight shipments, the packaging will default to YOUR_PACKAGING irrespective of the user provided package type in the request.<br>Example: FEDEX_PAK<br><a onclick='loadDocReference("packagetypes")'>click here to see Package Types</a>
@@ -25,10 +24,8 @@ final class ConsolidationShipmentsConsolidationRequestedShipments extends Dto
      * @param  ?ShipperParty  $shipper  The descriptive information for the customer shipping the package along with the physical location from where the shipment originates.
      * @param  ?Origin  $origin  The descriptive information for the customer origin.
      * @param  ?SoldToParty  $recipient  Will indicate the party responsible for purchasing the goods shipped from the shipper to the recipient. The sold to party is not necessarily the recipient or the importer of record. The sold to party is relevant when the purchaser, rather than the recipient determines when certain customs regulations apply.
-     * @param  ?ConsolidationShipmentsConsolidationRequestedShipmentsProcessingOptionsRequested  $processingOptionsRequested
      * @param  ?ConsolidationShipmentsConsolidationRequestedShipmentsConsolidationDetail  $consolidationDetail  Specify the consolidation details
      * @param  ?CustomsClearanceDetail  $customsClearanceDetail  Required for International and intra-country Shipments. Information about this package that only applies to an international (export) shipment or return.
-     * @param  ?bool  $blockinsightVisibility
      * @param  ?ConsolidationShipmentsConsolidationRequestedShipmentsLabelSpecification  $labelSpecification  Details about the image type, printer format, and label stock for label. Can also specify customer specific details such as doc-tab content, regulatory labels, and mask data on the label.
      * @param  ?string  $rateRequestTypes  Indicate the type of rates to be returned. The account specific rates are returned by default if the account number is specified in the request.<br>Following are values:<ul><li>LIST - Returns FedEx published list rates in addition to account-specific rates (if applicable).</li><li>INCENTIVE - This is one-time discount for incentivising the customer. For more information, contact your FedEx representative.</li><li>ACCOUNT - Returns account specific rates (Default).</li><li>PREFERRED - Returns rates in the preferred currency specified in the element preferredCurrency.</li><li>RETAIL - Returns customer rate from one of retail FedEx service centers.</li></ul>Examples: ["ACCOUNT", "PREFERRED"]
      * @param  ?string  $edtRequestTypes  Specify whether the customer wishes to have Estimated Duties and Taxes provided with the rate quotation on this shipment. Only applies with shipments moving under international services.
@@ -36,25 +33,24 @@ final class ConsolidationShipmentsConsolidationRequestedShipments extends Dto
      * @param  ?ConsolidationShipmentsConsolidationRequestedShipmentsCompletedShipmentDetail  $completedShipmentDetail  Returns the result of processing the desired package as a single-package shipment.
      */
     public function __construct(
-        public readonly ?string $shipDatestamp = null,
-        public readonly ?string $dropOffType = null,
-        public readonly ?string $recipientLocationNumber = null,
-        public readonly ?string $serviceType = null,
-        public readonly ?string $packagingType = null,
-        public readonly ?Weight $totalWeight = null,
-        public readonly ?Dimensions $totalDimensions = null,
-        public readonly ?ShipperParty $shipper = null,
-        public readonly ?Origin $origin = null,
-        public readonly ?SoldToParty $recipient = null,
-        public readonly ?ConsolidationShipmentsConsolidationRequestedShipmentsProcessingOptionsRequested $processingOptionsRequested = null,
-        public readonly ?ConsolidationShipmentsConsolidationRequestedShipmentsConsolidationDetail $consolidationDetail = null,
-        public readonly ?CustomsClearanceDetail $customsClearanceDetail = null,
-        public readonly ?bool $blockinsightVisibility = null,
-        public readonly ?ConsolidationShipmentsConsolidationRequestedShipmentsLabelSpecification $labelSpecification = null,
-        public readonly ?string $rateRequestTypes = null,
-        public readonly ?string $edtRequestTypes = null,
-        public readonly ?ConsolidationShipmentsConsolidationRequestedShipmentsRequestedPackageLineItems $requestedPackageLineItems = null,
-        public readonly ?ConsolidationShipmentsConsolidationRequestedShipmentsCompletedShipmentDetail $completedShipmentDetail = null,
-    ) {
-    }
+        public ?string $shipDatestamp = null,
+        public ?string $dropOffType = null,
+        public ?string $recipientLocationNumber = null,
+        public ?string $serviceType = null,
+        public ?string $packagingType = null,
+        public ?Weight $totalWeight = null,
+        public ?Dimensions $totalDimensions = null,
+        public ?ShipperParty $shipper = null,
+        public ?Origin $origin = null,
+        public ?SoldToParty $recipient = null,
+        public ?ConsolidationShipmentsConsolidationRequestedShipmentsProcessingOptionsRequested $processingOptionsRequested = null,
+        public ?ConsolidationShipmentsConsolidationRequestedShipmentsConsolidationDetail $consolidationDetail = null,
+        public ?CustomsClearanceDetail $customsClearanceDetail = null,
+        public ?bool $blockinsightVisibility = null,
+        public ?ConsolidationShipmentsConsolidationRequestedShipmentsLabelSpecification $labelSpecification = null,
+        public ?string $rateRequestTypes = null,
+        public ?string $edtRequestTypes = null,
+        public ?ConsolidationShipmentsConsolidationRequestedShipmentsRequestedPackageLineItems $requestedPackageLineItems = null,
+        public ?ConsolidationShipmentsConsolidationRequestedShipmentsCompletedShipmentDetail $completedShipmentDetail = null,
+    ) {}
 }

@@ -21,8 +21,7 @@ final class CompleteTrackResult extends Dto
      * @param  TrackResult[]|null  $trackResults  An array of detailed tracking information for the requested packages(s). In case of duplicate shipments, multiple track details will be populated.
      */
     public function __construct(
-        public readonly ?string $trackingNumber = null,
-        public readonly ?array $trackResults = null,
-    ) {
-    }
+        public ?string $trackingNumber = null,
+        public ?array $trackResults = null,
+    ) {}
 }

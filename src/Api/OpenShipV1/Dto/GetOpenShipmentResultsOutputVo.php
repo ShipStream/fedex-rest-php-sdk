@@ -24,8 +24,7 @@ final class GetOpenShipmentResultsOutputVo extends Dto
      * @param  Alert[]|null  $alerts
      */
     public function __construct(
-        public readonly ?array $transactionShipments = null,
-        public readonly ?array $alerts = null,
-    ) {
-    }
+        public ?array $transactionShipments = null,
+        public ?array $alerts = null,
+    ) {}
 }

@@ -36,8 +36,7 @@ class ModifyOpenShipment extends Request implements HasBody
 
     public function __construct(
         public FullSchemaModifyOpenShipment $fullSchemaModifyOpenShipment,
-    ) {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {

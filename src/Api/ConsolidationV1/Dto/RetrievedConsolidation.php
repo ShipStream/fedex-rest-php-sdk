@@ -39,23 +39,22 @@ final class RetrievedConsolidation extends Dto
      * @param  ?SpecialServicesRequested  $specialServicesRequested  These special services are available at the shipment level for some or all service types.
      */
     public function __construct(
-        public readonly ?string $consolidationType = null,
-        public readonly ?string $shipDate = null,
-        public readonly ?array $trackingIds = null,
-        public readonly ?ShipperParty $shipper = null,
-        public readonly ?Origin $origin = null,
-        public readonly ?SoldToParty $soldTo = null,
-        public readonly ?string $bookingNumber = null,
-        public readonly ?ConsolidationDataSources $consolidationDataSources = null,
-        public readonly ?array $customerReferences = null,
-        public readonly ?LabelSpecification $labelSpecification = null,
-        public readonly ?InternationalDistributionDetail $internationalDistributionDetail = null,
-        public readonly ?TransborderDistributionDetail $transborderDistributionDetail = null,
-        public readonly ?CustomsClearanceDetail $customsClearanceDetail = null,
-        public readonly ?ConsolidationDocumentSpec $consolidationDocumentSpecification = null,
-        public readonly ?DistributionLocations $distributionLocations = null,
-        public readonly ?Payment $shippingChargesPayment = null,
-        public readonly ?SpecialServicesRequested $specialServicesRequested = null,
-    ) {
-    }
+        public ?string $consolidationType = null,
+        public ?string $shipDate = null,
+        public ?array $trackingIds = null,
+        public ?ShipperParty $shipper = null,
+        public ?Origin $origin = null,
+        public ?SoldToParty $soldTo = null,
+        public ?string $bookingNumber = null,
+        public ?ConsolidationDataSources $consolidationDataSources = null,
+        public ?array $customerReferences = null,
+        public ?LabelSpecification $labelSpecification = null,
+        public ?InternationalDistributionDetail $internationalDistributionDetail = null,
+        public ?TransborderDistributionDetail $transborderDistributionDetail = null,
+        public ?CustomsClearanceDetail $customsClearanceDetail = null,
+        public ?ConsolidationDocumentSpec $consolidationDocumentSpecification = null,
+        public ?DistributionLocations $distributionLocations = null,
+        public ?Payment $shippingChargesPayment = null,
+        public ?SpecialServicesRequested $specialServicesRequested = null,
+    ) {}
 }

@@ -41,8 +41,7 @@ class FindLocation extends Request implements HasBody
 
     public function __construct(
         public FullSchemaFindLocation $fullSchemaFindLocation,
-    ) {
-    }
+    ) {}
 
     public function resolveEndpoint(): string
     {

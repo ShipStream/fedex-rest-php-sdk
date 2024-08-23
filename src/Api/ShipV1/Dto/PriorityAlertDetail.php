@@ -19,8 +19,7 @@ final class PriorityAlertDetail extends Dto
      * @param  ?string[]  $content  Specifies Content for the Priority Alert Detail.<br>Example:string
      */
     public function __construct(
-        public readonly ?array $enhancementTypes = null,
-        public readonly ?array $content = null,
-    ) {
-    }
+        public ?array $enhancementTypes = null,
+        public ?array $content = null,
+    ) {}
 }

@@ -19,8 +19,7 @@ final class TimeRange extends Dto
      * @param  ?string  $ends  Field which holds the end date/timestamp for a range.<br> Example: '2021-10-15T00:00:00-06:00'
      */
     public function __construct(
-        public readonly ?string $begins = null,
-        public readonly ?string $ends = null,
-    ) {
-    }
+        public ?string $begins = null,
+        public ?string $ends = null,
+    ) {}
 }

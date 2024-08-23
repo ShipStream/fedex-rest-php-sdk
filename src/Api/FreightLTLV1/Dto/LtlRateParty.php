@@ -19,8 +19,7 @@ final class LtlRateParty extends Dto
      * @param  ?LtlFreightAccountNumber  $accountNumber  This is the Account number details.
      */
     public function __construct(
-        public readonly Address $address,
-        public readonly ?LtlFreightAccountNumber $accountNumber = null,
-    ) {
-    }
+        public Address $address,
+        public ?LtlFreightAccountNumber $accountNumber = null,
+    ) {}
 }

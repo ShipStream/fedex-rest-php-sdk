@@ -26,13 +26,12 @@ final class MultiEtdUploadRequest extends Dto
      * @param  ?string  $trackingNumber  Specify the shipment tracking number. This is only required for Post Shipment document upload
      */
     public function __construct(
-        public readonly string $workflowName,
-        public readonly string $carrierCode,
-        public readonly string $orginCountryCode,
-        public readonly string $destinationCountryCode,
-        public readonly array $metaData,
-        public readonly ?string $shipmentDate = null,
-        public readonly ?string $trackingNumber = null,
-    ) {
-    }
+        public string $workflowName,
+        public string $carrierCode,
+        public string $orginCountryCode,
+        public string $destinationCountryCode,
+        public array $metaData,
+        public ?string $shipmentDate = null,
+        public ?string $trackingNumber = null,
+    ) {}
 }

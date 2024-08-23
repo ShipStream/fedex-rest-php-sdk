@@ -23,10 +23,9 @@ final class CxsAlert extends Dto
      * @param  ?string  $message  Specifies the API alert message.
      */
     public function __construct(
-        public readonly ?string $code = null,
-        public readonly ?string $alertType = null,
-        public readonly ?array $parameterList = null,
-        public readonly ?string $message = null,
-    ) {
-    }
+        public ?string $code = null,
+        public ?string $alertType = null,
+        public ?array $parameterList = null,
+        public ?string $message = null,
+    ) {}
 }

@@ -20,8 +20,7 @@ final class LiabilityCoverageDetail extends Dto
      * @param  ?Money  $coverageAmount  Optional, but if indicated 'amount' and 'currency' must be provided.
      */
     public function __construct(
-        public readonly ?string $coverageType = null,
-        public readonly ?Money $coverageAmount = null,
-    ) {
-    }
+        public ?string $coverageType = null,
+        public ?Money $coverageAmount = null,
+    ) {}
 }

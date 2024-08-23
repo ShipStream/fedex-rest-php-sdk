@@ -19,8 +19,7 @@ final class BrokerDetail2 extends Dto
      * @param  ?string  $type  Identifies the type of broker.
      */
     public function __construct(
-        public readonly ?Party2 $broker = null,
-        public readonly ?string $type = null,
-    ) {
-    }
+        public ?Party2 $broker = null,
+        public ?string $type = null,
+    ) {}
 }

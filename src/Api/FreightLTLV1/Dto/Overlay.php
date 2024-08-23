@@ -19,8 +19,7 @@ final class Overlay extends Dto
      * @param  ?string  $type  Specifies the description for the overlay occurrence.
      */
     public function __construct(
-        public readonly ?string $time = null,
-        public readonly ?string $type = null,
-    ) {
-    }
+        public ?string $time = null,
+        public ?string $type = null,
+    ) {}
 }

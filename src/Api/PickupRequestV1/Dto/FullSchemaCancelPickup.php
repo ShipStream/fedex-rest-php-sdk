@@ -24,13 +24,12 @@ final class FullSchemaCancelPickup extends Dto
      * @param  ?string  $location  The FedEx Express location identifier responsible for processing the pickup request. This is returned in the CreatePickup response and is required to cancel a FedEx Express dispatch.Required only for FedEx Express Pickups. Optional for FedEx Ground. Example: LOSA
      */
     public function __construct(
-        public readonly AccountNumber $associatedAccountNumber,
-        public readonly string $pickupConfirmationCode,
-        public readonly string $scheduledDate,
-        public readonly ?string $remarks = null,
-        public readonly ?string $carrierCode = null,
-        public readonly ?Address $accountAddressOfRecord = null,
-        public readonly ?string $location = null,
-    ) {
-    }
+        public AccountNumber $associatedAccountNumber,
+        public string $pickupConfirmationCode,
+        public string $scheduledDate,
+        public ?string $remarks = null,
+        public ?string $carrierCode = null,
+        public ?Address $accountAddressOfRecord = null,
+        public ?string $location = null,
+    ) {}
 }

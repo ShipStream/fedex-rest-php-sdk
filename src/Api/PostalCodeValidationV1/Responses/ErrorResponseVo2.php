@@ -24,6 +24,5 @@ final class ErrorResponseVo2 extends Response
     public function __construct(
         public readonly ?string $transactionId = null,
         public readonly ?array $errors = null,
-    ) {
-    }
+    ) {}
 }

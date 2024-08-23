@@ -22,9 +22,8 @@ final class PickupNotificationDetail extends Dto
      * @param  ?string  $userMessage  Specifies the user message that can be sent as part of the pickup confirmation email.<br>Example: This is the user message
      */
     public function __construct(
-        public readonly ?array $emailDetails = null,
-        public readonly ?string $format = null,
-        public readonly ?string $userMessage = null,
-    ) {
-    }
+        public ?array $emailDetails = null,
+        public ?string $format = null,
+        public ?string $userMessage = null,
+    ) {}
 }

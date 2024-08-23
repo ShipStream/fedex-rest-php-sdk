@@ -20,9 +20,8 @@ final class FullSchema extends Dto
      * @param  ?LtlRateRequestControlParameters  $rateRequestControlParameters  These are various parameters you can provide for filtering and sorting  capability in the response, such as transit time and commit data, rate sort order etc.
      */
     public function __construct(
-        public readonly LtlRootAccountNumber $accountNumber,
-        public readonly LtlRequestedShipment $freightRequestedShipment,
-        public readonly ?LtlRateRequestControlParameters $rateRequestControlParameters = null,
-    ) {
-    }
+        public LtlRootAccountNumber $accountNumber,
+        public LtlRequestedShipment $freightRequestedShipment,
+        public ?LtlRateRequestControlParameters $rateRequestControlParameters = null,
+    ) {}
 }

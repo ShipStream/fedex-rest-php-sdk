@@ -19,8 +19,7 @@ final class Parameter extends Dto
      * @param  ?string  $key  Indicates the value associated with the key.<br> Example: key
      */
     public function __construct(
-        public readonly ?string $value = null,
-        public readonly ?string $key = null,
-    ) {
-    }
+        public ?string $value = null,
+        public ?string $key = null,
+    ) {}
 }
