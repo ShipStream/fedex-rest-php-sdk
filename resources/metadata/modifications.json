@@ -50,6 +50,14 @@
                 "action": "replace",
                 "path": "paths./track/v1/tcn.post.operationId",
                 "value": "Track by TCN"
+            },
+            {
+                "comment": "Remove the locationType attribute from the required list. See https://github.com/ShipStream/fedex-rest-php-sdk/issues/3",
+                "action": "replace",
+                "path": "components.schemas.LocationDetail.required",
+                "value": [
+                    "locationContactAndAddress"
+                ]
             }
         ]
     }
