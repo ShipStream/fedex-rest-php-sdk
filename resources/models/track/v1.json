@@ -3489,8 +3489,7 @@
                 },
                 "description": "Location details for the fedex facility.",
                 "required": [
-                    "locationContactAndAddress",
-                    "locationType"
+                    "locationContactAndAddress"
                 ]
             },
             "ContactAndAddress": {
