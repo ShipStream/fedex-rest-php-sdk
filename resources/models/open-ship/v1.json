@@ -8458,10 +8458,7 @@
                             }
                         ]
                     }
-                },
-                "required": [
-                    "responsibleParty"
-                ]
+                }
             },
             "UploadDocumentReferenceDetail": {
                 "type": "object",

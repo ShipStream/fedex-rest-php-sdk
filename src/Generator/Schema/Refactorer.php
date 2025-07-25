@@ -538,15 +538,17 @@ class Refactorer
             foreach ($groups as $group) {
                 $uuid = Str::uuid();
                 $tempComponentName = "{$baseName}_{$uuid}";
-                $requiredProps = [];
+                $allRequiredArrays = [];
 
                 foreach ($group as $member => $definition) {
                     $tempNames[$baseName][$member] = $tempComponentName;
-                    $requiredProps = array_merge($requiredProps, $definition->required ?? []);
+                    $allRequiredArrays[] = $definition->required ?? [];
                 }
 
+                // Only require fields that ALL schemas require (intersection)
+                $requiredProps = array_intersect(...$allRequiredArrays);
+
                 if ($requiredProps) {
-                    $requiredProps = array_unique($requiredProps);
                     $definition->required = $requiredProps;
                 }
                 $mergedComponents[$tempComponentName] = $definition;

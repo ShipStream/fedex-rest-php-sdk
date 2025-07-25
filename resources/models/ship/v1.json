@@ -7479,10 +7479,7 @@
                             }
                         ]
                     }
-                },
-                "required": [
-                    "responsibleParty"
-                ]
+                }
             },
             "PartyAccountNumber": {
                 "type": "object",
@@ -7593,10 +7590,7 @@
                             "expirationDate": "2000-01-23T04:56:07.000+00:00"
                         }
                     ]
-                },
-                "required": [
-                    "contact"
-                ]
+                }
             },
             "Party_2": {
                 "type": "object",

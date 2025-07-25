@@ -8397,7 +8397,6 @@
             },
             "Address": {
                 "required": [
-                    "city",
                     "countryCode",
                     "streetLines"
                 ],
@@ -8883,7 +8882,6 @@
             },
             "Party_2": {
                 "required": [
-                    "accountNumber",
                     "address"
                 ],
                 "type": "object",
@@ -8985,16 +8983,12 @@
                         "$ref": "#/components/schemas/Party_2"
                     }
                 },
-                "description": "Information about the person who is paying for the shipment.  Not applicable for credit card payment. ",
-                "required": [
-                    "responsibleParty"
-                ]
+                "description": "Information about the person who is paying for the shipment.  Not applicable for credit card payment. "
             },
             "ExportDetail": {
-                "required": {
-                    "0": "b13AFilingOption",
-                    "2": "permitNumber"
-                },
+                "required": [
+                    "b13AFilingOption"
+                ],
                 "type": "object",
                 "properties": {
                     "destinationControlDetail": {
@@ -9061,11 +9055,10 @@
                 "description": "VERY IMPORTANT: Specify appropriate destinationcontrol statement type(s),Valid values: DEPARTMENT_OF_COMMERCE, DEPARTMENT_OF_STATE<br>Be sure to also specify destination country and enduser."
             },
             "Commodity": {
-                "required": {
-                    "0": "description",
-                    "1": "numberOfPieces",
-                    "3": "name"
-                },
+                "required": [
+                    "description",
+                    "numberOfPieces"
+                ],
                 "type": "object",
                 "properties": {
                     "name": {

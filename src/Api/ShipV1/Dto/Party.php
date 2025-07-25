@@ -17,14 +17,14 @@ final class Party extends Dto
     protected static array $complexArrayTypes = ['tins' => TaxpayerIdentification::class];
 
     /**
-     * @param  Contact  $contact  Indicate the contact details of the shipper.
      * @param  ?Address  $address  Descriptive data for a physical location. May be used as an actual physical address (place to which one could go), or as a container of "address parts" which should be handled as a unit (such as a city-state-ZIP combination within the US).
+     * @param  ?Contact  $contact  Indicate the contact details of the shipper.
      * @param  ?PartyAccountNumber  $accountNumber  The account number of the recipient.
      * @param  TaxpayerIdentification[]|null  $tins  This is the tax identification number details.
      */
     public function __construct(
-        public Contact $contact,
         public ?Address $address = null,
+        public ?Contact $contact = null,
         public ?PartyAccountNumber $accountNumber = null,
         public ?array $tins = null,
     ) {}

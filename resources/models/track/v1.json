@@ -3296,10 +3296,7 @@
                         "example": "245822~123456789012~FDEG"
                     }
                 },
-                "description": "Information uniquely identifying a shipment such as Tracking number, ShipDate, and Tracking number uniqueId.",
-                "required": [
-                    "trackingNumber"
-                ]
+                "description": "Information uniquely identifying a shipment such as Tracking number, ShipDate, and Tracking number uniqueId."
             },
             "PagingDetails": {
                 "type": "object",

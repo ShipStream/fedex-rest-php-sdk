@@ -15,9 +15,9 @@ use ShipStream\FedEx\Dto;
 final class Payor extends Dto
 {
     /**
-     * @param  Party2  $responsibleParty  Attributes for a Party to a transaction including the physical address, contact information, and account number information.
+     * @param  ?Party2  $responsibleParty  Attributes for a Party to a transaction including the physical address, contact information, and account number information.
      */
     public function __construct(
-        public Party2 $responsibleParty,
+        public ?Party2 $responsibleParty = null,
     ) {}
 }

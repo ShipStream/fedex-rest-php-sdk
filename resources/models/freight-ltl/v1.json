@@ -7684,11 +7684,7 @@
                             "expirationDate": "2000-01-23T04:56:07.000+00:00"
                         }
                     ]
-                },
-                "required": [
-                    "address",
-                    "contact"
-                ]
+                }
             },
             "Party_3": {
                 "type": "object",
@@ -9867,10 +9863,7 @@
                             }
                         ]
                     }
-                },
-                "required": [
-                    "responsibleParty"
-                ]
+                }
             },
             "Payment": {
                 "type": "object",
