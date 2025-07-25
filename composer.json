@@ -24,15 +24,15 @@
     "autoload": {
         "psr-4": {
             "ShipStream\\FedEx\\": "src/"
-        },
-        "files": [
-            "src/Generator/constants.php"
-        ]
+        }
     },
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/"
-        }
+        },
+        "files": [
+          "src/Generator/constants.php"
+        ]
     },
     "scripts": {
         "lint": [
