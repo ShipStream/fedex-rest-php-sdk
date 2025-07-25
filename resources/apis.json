@@ -1,4 +1,13 @@
 {
+  "account-registration": {
+    "name" : "Account Registration",
+    "versions": [
+      {
+        "version": "1",
+        "url": "https://developer.fedex.com/wirc/json/api_groups/AccountRegistrationAPI/AccountRegistration-Resource.json"
+      }
+    ]
+  },
   "authorization": {
     "name": "Authorization",
     "versions": [

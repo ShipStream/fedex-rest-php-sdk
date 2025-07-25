@@ -1,4 +1,28 @@
 {
+    "account-registration": {
+        "1": [
+            {
+                "comment": "Remove broken example references from 400 response in address validation endpoint",
+                "action": "delete",
+                "path": "paths./registration/v2/address/keysgeneration.post.responses.400.content.application/json.examples"
+            },
+            {
+                "comment": "Remove broken example references from 400 response in PIN validation endpoint", 
+                "action": "delete",
+                "path": "paths./registration/v2/pin/keysgeneration.post.responses.400.content.application/json.examples"
+            },
+            {
+                "comment": "Remove broken example references from 400 response in invoice validation endpoint",
+                "action": "delete", 
+                "path": "paths./registration/v2/invoice/keysgeneration.post.responses.400.content.application/json.examples"
+            },
+            {
+                "comment": "Remove broken example references from 400 response in PIN generation endpoint",
+                "action": "delete",
+                "path": "paths./registration/v2/customerkeys/pingeneration.post.responses.400.content.application/json.examples"
+            }
+        ]
+    },
     "address-validation": {
         "1": [
             {
