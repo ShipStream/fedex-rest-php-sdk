@@ -21,6 +21,6 @@ final class CxsError2 extends Dto
     public function __construct(
         public ?string $transactionId = null,
         public ?string $customerTransactionId = null,
-        public ?CxsError500Errors $errors = null,
+        public ?CxsError401Errors $errors = null,
     ) {}
 }

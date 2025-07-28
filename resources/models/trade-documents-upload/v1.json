@@ -602,7 +602,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_3"
                                 },
                                 "example": {
                                     "customerTransactionId": "5678b975-ev0e-420b-8d7b-aa6ce65ec48n",
@@ -622,7 +622,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_3"
                                 },
                                 "example": {
                                     "customerTransactionId": "5678b975-ev0e-420b-8d7b-aa6ce65ec48n",
@@ -660,7 +660,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_3"
                                 },
                                 "example": {
                                     "customerTransactionId": "5678b975-ev0e-420b-8d7b-aa6ce65ec48n",
@@ -680,7 +680,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_3"
                                 },
                                 "example": {
                                     "customerTransactionId": "5678b975-ev0e-420b-8d7b-aa6ce65ec48n",
@@ -932,7 +932,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/MultiBasePreResponse"
+                                    "$ref": "#/components/schemas/MultiBasePreResponse_2"
                                 }
                             }
                         }
@@ -972,7 +972,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_3"
                                 },
                                 "example": {
                                     "customerTransactionId": "5678b975-ev0e-420b-8d7b-aa6ce65ec48n",
@@ -992,7 +992,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_3"
                                 },
                                 "example": {
                                     "customerTransactionId": "5678b975-ev0e-420b-8d7b-aa6ce65ec48n",
@@ -1030,7 +1030,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_3"
                                 },
                                 "example": {
                                     "customerTransactionId": "5678b975-ev0e-420b-8d7b-aa6ce65ec48n",
@@ -1050,7 +1050,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_3"
                                 },
                                 "example": {
                                     "customerTransactionId": "5678b975-ev0e-420b-8d7b-aa6ce65ec48n",
@@ -1641,6 +1641,35 @@
                 },
                 "description": "Use this object to specify image meta data such as image type, path and index for the file to be uploaded."
             },
+            "MultiBasePreResponse_output": {
+                "type": "object",
+                "properties": {
+                    "documentResponses": {
+                        "type": "array",
+                        "example": [
+                            {
+                                "metaData": {
+                                    "formCode": "USMCA",
+                                    "documentType": "PRO",
+                                    "docId": "kgr9lgjU3juqxyhf"
+                                },
+                                "fileReferenceId": "PI_2"
+                            },
+                            {
+                                "metaData": {
+                                    "formCode": "USMCA",
+                                    "documentType": "CI",
+                                    "docId": "CPK8nMAkD5Ngw0vK"
+                                },
+                                "fileReferenceId": "CI_1"
+                            }
+                        ],
+                        "items": {
+                            "$ref": "#/components/schemas/MultiDocumentPreResponse"
+                        }
+                    }
+                }
+            },
             "MultiBasePreResponse_1_output": {
                 "type": "object",
                 "properties": {
@@ -1694,6 +1723,41 @@
                     }
                 }
             },
+            "Parameter": {
+                "type": "object",
+                "properties": {
+                    "value": {
+                        "type": "string",
+                        "description": "Identifies the error option to be applied.",
+                        "example": "1"
+                    },
+                    "key": {
+                        "type": "string",
+                        "description": "Indicates the value associated with the key.",
+                        "example": "DOC_INDEX"
+                    }
+                }
+            },
+            "CXSError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "description": "Indicates the error code.<br>Example: INTERNAL.SERVER.ERROR"
+                    },
+                    "parameterList": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Parameter"
+                        }
+                    },
+                    "message": {
+                        "description": "Indicates the description of API error alert message.<br>Example: We encountered an unexpected error and are working to resolve the issue. We apologize for any inconvenience. Please check back at a later time.",
+                        "type": "string"
+                    }
+                },
+                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
+            },
             "ErrorResponseVO": {
                 "type": "object",
                 "properties": {
@@ -1720,48 +1784,53 @@
                     },
                     "errors": {
                         "type": "array",
+                        "description": "This is an error object detailing errors received in the reply.",
+                        "items": {
+                            "$ref": "#/components/schemas/errors"
+                        }
+                    }
+                }
+            },
+            "ErrorResponseVO_3": {
+                "type": "object",
+                "properties": {
+                    "customerTransactionId": {
+                        "type": "string",
+                        "description": "This element allows you to assign a unique identifier to your transaction. This element is also returned in the reply and helps you match the request to the reply.",
+                        "example": "5678b975-ev0e-420b-8d7b-aa6ce65ec48n"
+                    },
+                    "transactionId": {
+                        "type": "string",
+                        "description": "The transaction ID is a special set of numbers that defines each transaction.",
+                        "example": "407eb778-eb0e-420b-8d7b-aa6ce65ec38a"
+                    },
+                    "errors": {
+                        "type": "array",
                         "items": {
                             "$ref": "#/components/schemas/CXSError"
                         }
                     }
                 }
             },
-            "CXSError": {
+            "MultiBasePreResponse": {
                 "type": "object",
                 "properties": {
-                    "code": {
+                    "customerTransactionId": {
                         "type": "string",
-                        "description": "Indicates the error code.<br>Example: INTERNAL.SERVER.ERROR"
+                        "description": "This element allows you to assign a unique identifier to your transaction. This element is also returned in the reply and helps you match the request to the reply Example:5678b975-ev0e-420b-8d7b-aa6ce65ec48n",
+                        "example": "5678b975-ev0e-420b-8d7b-aa6ce65ec48n"
                     },
-                    "parameterList": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/Parameter"
-                        }
-                    },
-                    "message": {
-                        "description": "Indicates the description of API error alert message.<br>Example: We encountered an unexpected error and are working to resolve the issue. We apologize for any inconvenience. Please check back at a later time.",
-                        "type": "string"
-                    }
-                },
-                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
-            },
-            "Parameter": {
-                "type": "object",
-                "properties": {
-                    "value": {
+                    "transactionId": {
                         "type": "string",
-                        "description": "Identifies the error option to be applied.",
-                        "example": "1"
+                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br> Example:624deea6-b709-470c-8c39-4b5511281492",
+                        "example": "624deea6-b709-470c-8c39-4b5511281492"
                     },
-                    "key": {
-                        "type": "string",
-                        "description": "Indicates the value associated with the key.",
-                        "example": "DOC_INDEX"
+                    "output": {
+                        "$ref": "#/components/schemas/MultiBasePreResponse_output"
                     }
                 }
             },
-            "MultiBasePreResponse": {
+            "MultiBasePreResponse_2": {
                 "type": "object",
                 "properties": {
                     "customerTransactionId": {

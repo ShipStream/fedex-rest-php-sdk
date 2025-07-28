@@ -1734,6 +1734,47 @@
                     "deliveryInstructions": "Delivery Instructions"
                 }
             },
+            "ResponsiblePartyParty": {
+                "required": [
+                    "accountNumber"
+                ],
+                "type": "object",
+                "properties": {
+                    "address": {
+                        "$ref": "#/components/schemas/PartyAddress"
+                    },
+                    "contact": {
+                        "$ref": "#/components/schemas/PartyContact"
+                    },
+                    "accountNumber": {
+                        "$ref": "#/components/schemas/PartyAccountNumber"
+                    }
+                },
+                "description": "Indicate the payer Information responsible for paying for the shipment. <br>Note: ResponsibleParty accountNumber is required for ACCOUNT based services.",
+                "example": {
+                    "address": {
+                        "streetLines": [
+                            "10 FedEx Parkway",
+                            "Suite 302"
+                        ],
+                        "city": "Beverly Hills",
+                        "stateOrProvinceCode": "CA",
+                        "postalCode": "90210",
+                        "countryCode": "US",
+                        "residential": false
+                    },
+                    "contact": {
+                        "personName": "John Taylor",
+                        "emailAddress": "sample@company.com",
+                        "phoneExtension": "000",
+                        "phoneNumber": "XXXX345671",
+                        "companyName": "FedEx"
+                    },
+                    "accountNumber": {
+                        "value": "Your account number"
+                    }
+                }
+            },
             "ShipmentSpecialServicesRequested": {
                 "type": "object",
                 "properties": {
@@ -3761,7 +3802,7 @@
                         ]
                     },
                     "producer": {
-                        "$ref": "#/components/schemas/Party_2"
+                        "$ref": "#/components/schemas/Party_3"
                     },
                     "blanketPeriod": {
                         "$ref": "#/components/schemas/RetrieveDateRange"
@@ -3833,7 +3874,7 @@
                         ]
                     },
                     "producer": {
-                        "$ref": "#/components/schemas/Party_2"
+                        "$ref": "#/components/schemas/Party_3"
                     },
                     "certifierJobTitle": {
                         "type": "string",
@@ -6953,307 +6994,6 @@
                 },
                 "description": "The output details when a tag is cancelled."
             },
-            "PartyAddress": {
-                "required": [
-                    "city",
-                    "countryCode",
-                    "streetLines"
-                ],
-                "type": "object",
-                "properties": {
-                    "streetLines": {
-                        "type": "array",
-                        "description": "Combination of number, street name, etc. At least one line is required for a valid physical address. Empty lines should not be included. Max Length is 35.<br>Example: [1550 Union Blvd,Suite 302]",
-                        "example": "1550 Union Blvd, Suite 302",
-                        "items": {
-                            "type": "string"
-                        }
-                    },
-                    "city": {
-                        "type": "string",
-                        "maxLength": 35,
-                        "description": "The name of city, town of the recipient.Max length is 35.<br>Example: Beverly Hills",
-                        "example": "Beverly Hills"
-                    },
-                    "stateOrProvinceCode": {
-                        "type": "string",
-                        "description": "The US States,Canada and Puerto Rico Province codes of the recipient. The Format and presence of this field may vary depending on the country.State code is required for US, CA, PR and not required for other countries. Conditional. Max length is 2.<br>Example: CA",
-                        "example": "CA"
-                    },
-                    "postalCode": {
-                        "type": "string",
-                        "description": "This is the postal code.<br>Note: This is Optional for non postal-aware countries. Maximum length is 10.<br>Example: 65247<br><a onclick='loadDocReference(\"postalawarecountries\")'>click here to see Postal aware countries</a>",
-                        "example": "90210"
-                    },
-                    "countryCode": {
-                        "type": "string",
-                        "description": "This is the two-letter country code.<br>Maximum length is 2.<br>Example: US<br><a onclick='loadDocReference(\"countrycodes\")'>click here to see Country codes</a>",
-                        "example": "US"
-                    },
-                    "residential": {
-                        "type": "boolean",
-                        "description": "Indicates whether this address is residential (as opposed to commercial).<br>Example: false",
-                        "example": false
-                    }
-                },
-                "description": "This is detailed information on physical location. May be used as an actual physical address (place to which one could go), or as a container of address parts which should be handled as a unit (such as a city-state-ZIP combination within the US).",
-                "example": {
-                    "streetLines": [
-                        "10 FedEx Parkway",
-                        "Suite 302"
-                    ],
-                    "city": "Beverly Hills",
-                    "stateOrProvinceCode": "CA",
-                    "postalCode": "90210",
-                    "countryCode": "US",
-                    "residential": false
-                }
-            },
-            "PartyAddress_2": {
-                "type": "object",
-                "properties": {
-                    "streetLines": {
-                        "type": "array",
-                        "description": "This is the combination of number, street name, etc. Maximum length per line is 35.<br>Example: 10 FedEx Parkway, Suite 302.<p><i>Note:<ul><li>At least one line is required.</li><li>Streetlines more than 3 will be ignored.</li><li>Empty lines should not be included</li><li>For SmartPost Shipments, only 30 characters from the individual street lines will be printed on the labels.</li></ul></i></p>",
-                        "example": [
-                            "1550 Union Blvd",
-                            "Suite 302"
-                        ],
-                        "items": {
-                            "type": "string"
-                        }
-                    },
-                    "city": {
-                        "type": "string",
-                        "description": "This is a placeholder for City Name. <br>Example: Beverly Hills",
-                        "example": "Beverly Hills"
-                    },
-                    "stateOrProvinceCode": {
-                        "type": "string",
-                        "description": "This is a placeholder for State or Province code.State code is required for US, CA, PR and not required for other countries. Conditional. Max length is 2.<br>Example: CA.<br><a onclick='loadDocReference(\"canadaprovincecodes\")'>click here to see State or Province Code</a>",
-                        "example": "CA"
-                    },
-                    "postalCode": {
-                        "type": "string",
-                        "description": "This is the Postal code.<br>This is Optional for non postal-aware countries.<br>Maximum length is 10.<br>Example: 65247<br><a onclick='loadDocReference(\"postalawarecountries\")'>click here to see Postal aware countries</a>",
-                        "example": "90210"
-                    },
-                    "countryCode": {
-                        "type": "string",
-                        "description": "This is the two-letter country code.<br>Maximum length is 2.<br>Example: US<br><a onclick='loadDocReference(\"countrycodes\")'>click here to see Country codes</a>",
-                        "example": "US"
-                    },
-                    "residential": {
-                        "type": "boolean",
-                        "description": "Indicate whether this address is residential (as opposed to commercial).",
-                        "example": false
-                    },
-                    "geographicCoordinates": {
-                        "type": "string",
-                        "description": "Indicates the geographic coordinates. <br> example: geographicCoordinates",
-                        "example": "geographicCoordinates"
-                    }
-                },
-                "description": "This is detailed information on physical location. May be used as an actual physical address (place to which one could go), or as a container of address parts which should be handled as a unit (such as a city-state-ZIP combination within the US).",
-                "example": {
-                    "streetLines": [
-                        "10 FedEx Parkway",
-                        "Suite 302"
-                    ],
-                    "city": "Beverly Hills",
-                    "stateOrProvinceCode": "CA",
-                    "postalCode": "90210",
-                    "countryCode": "US",
-                    "residential": false
-                }
-            },
-            "PartyContact": {
-                "required": [
-                    "phoneNumber"
-                ],
-                "type": "object",
-                "properties": {
-                    "personName": {
-                        "type": "string",
-                        "description": "Specify contact name. Maximum length is 70. <br>Note: Either the companyName or personName is mandatory.<br> Example: John Taylor",
-                        "example": "John Taylor"
-                    },
-                    "emailAddress": {
-                        "type": "string",
-                        "description": "Specify contact email address. Maximum length is 80. <br> Example: sample@company.com",
-                        "example": "sample@company.com"
-                    },
-                    "phoneExtension": {
-                        "type": "string",
-                        "description": "Specify contact phone extension. Maximum length is 6. <br> Example: 1234",
-                        "example": "91"
-                    },
-                    "phoneNumber": {
-                        "type": "string",
-                        "description": "The shipper's phone number. <br>Minimum length is 10 and supports maximum of 15 for certain countries using longer phone numbers.<br>Note: For US and CA, a phone number must have exactly 10 digits, plus an optional leading country code of '1' or '+1'.<br>Example: 918xxxxx890",
-                        "example": "918xxxxx890"
-                    },
-                    "companyName": {
-                        "type": "string",
-                        "description": "The shipper's company name. Max length is 35.<br>Example: FedEx",
-                        "example": "Fedex"
-                    }
-                },
-                "description": "Indicate the contact details for this shipment.",
-                "example": {
-                    "personName": "John Taylor",
-                    "emailAddress": "sample@company.com",
-                    "phoneExtension": "91",
-                    "phoneNumber": "1234567890",
-                    "companyName": "Fedex"
-                }
-            },
-            "PartyContact_2": {
-                "type": "object",
-                "properties": {
-                    "personName": {
-                        "type": "string",
-                        "description": "Specify contact name. Maximum length is 70. <br> Example: John Taylor",
-                        "example": "John Taylor"
-                    },
-                    "emailAddress": {
-                        "type": "string",
-                        "description": "Specify contact email address. Maximum length is 80. <br> Example: sample@company.com",
-                        "example": "sample@company.com"
-                    },
-                    "phoneExtension": {
-                        "type": "string",
-                        "description": "Specify contact phone extension. Maximum length is 6. <br> Example: 1234",
-                        "example": "91"
-                    },
-                    "phoneNumber": {
-                        "type": "string",
-                        "description": "Specify contact phone number. <br>Minimum length is 10 and supports Maximum as 15 for certain countries using longer phone numbers. <br>Note: Recommended Maximum length is 15 and there's no specific validation will be done for the phone number. <br> Example: 918xxxxx890",
-                        "example": "1234567890"
-                    },
-                    "companyName": {
-                        "type": "string",
-                        "description": "Specify contact company name.<br>Recommended length is 35.<br>Note: There's no specific validation of the company name.",
-                        "example": "Fedex"
-                    },
-                    "faxNumber": {
-                        "type": "string",
-                        "description": "Specify contact person's fax number. Maximum length is 15."
-                    }
-                },
-                "description": "Indicate the contact details for this shipment.",
-                "example": {
-                    "personName": "John Taylor",
-                    "emailAddress": "sample@company.com",
-                    "phoneExtension": "91",
-                    "phoneNumber": "1234567890",
-                    "companyName": "Fedex"
-                }
-            },
-            "ContactAndAddress": {
-                "type": "object",
-                "properties": {
-                    "contact": {
-                        "$ref": "#/components/schemas/Contact"
-                    },
-                    "address": {
-                        "$ref": "#/components/schemas/Address"
-                    }
-                },
-                "description": "Specifies the contact and address details of a location.",
-                "example": {
-                    "address": {
-                        "streetLines": [
-                            "10 FedEx Parkway",
-                            "Suite 302"
-                        ],
-                        "city": "Beverly Hills",
-                        "stateOrProvinceCode": "CA",
-                        "postalCode": "38127",
-                        "countryCode": "US",
-                        "residential": false
-                    },
-                    "contact": {
-                        "personName": "person name",
-                        "emailAddress": "email address",
-                        "phoneNumber": "phone number",
-                        "phoneExtension": "phone extension",
-                        "companyName": "company name",
-                        "faxNumber": "fax number"
-                    }
-                }
-            },
-            "Contact": {
-                "type": "object",
-                "properties": {
-                    "personName": {
-                        "type": "string",
-                        "description": "Specify contact person name.<br>Recommended length is 70. <br>Note: There's no specific validation for the person name.<br> Example: John Taylor",
-                        "example": "John Taylor"
-                    },
-                    "emailAddress": {
-                        "type": "string",
-                        "description": "Specify contact email address. Maximum length is 80. <br> Example: sample@company.com",
-                        "example": "sample@company.com"
-                    },
-                    "phoneNumber": {
-                        "type": "string",
-                        "description": "Contact person's phone number. <br>Minimum length is 10 and supports maximum of 15 for certain countries using longer phone numbers.<br>Note: For US and CA, a phone number must have exactly 10 digits, plus an optional leading country code of '1' or '+1'.<br>Example: 918xxxxx890",
-                        "example": "918xxxxx890"
-                    },
-                    "phoneExtension": {
-                        "type": "string",
-                        "description": "Specify contact phone extension. <br>Note: Recommended length is 6. There's no specific validation for the phone extension. <br> Example: 1234",
-                        "example": "91"
-                    },
-                    "faxNumber": {
-                        "type": "string",
-                        "description": "Specify contact fax number.<br>Note: Recommended length is 15. There's no specific validation for the fax number.<br> Example: 1234567890",
-                        "example": "956123"
-                    },
-                    "companyName": {
-                        "type": "string",
-                        "description": "Contact person's company name.<br>Note: Recommended Length is 35. There's no specific validation for the company name.<br>Example: FedEx",
-                        "example": "Fedex"
-                    }
-                },
-                "description": "Indicate the contact details of the shipper.",
-                "example": {
-                    "personName": "John Taylor",
-                    "emailAddress": "sample@company.com",
-                    "phoneNumber": "1234567890",
-                    "phoneExtension": 1234,
-                    "faxNumber": "1234567890",
-                    "companyName": "Fedex"
-                }
-            },
-            "Contact_2": {
-                "type": "object",
-                "properties": {
-                    "personName": {
-                        "type": "string",
-                        "description": "Specify person name.<br>Example: John Taylor",
-                        "example": "John"
-                    },
-                    "emailAddress": {
-                        "type": "string",
-                        "description": "Specify email address.<br>Example: sample@company.com"
-                    },
-                    "phoneNumber": {
-                        "type": "string",
-                        "description": "The shippers phone number. <br>Minimum length is 10 and supports maximum of 15 for certain countries using longer phone numbers.<br>Note: For US and CA, a phone number must have exactly 10 digits, plus an optional leading country code of 1 or +1.<br>Example: 918xxxxx890"
-                    },
-                    "phoneExtension": {
-                        "type": "string",
-                        "description": "The shipper's phone extension. Max length is 6.<br>Example: 91"
-                    },
-                    "companyName": {
-                        "type": "string",
-                        "description": "Specify company name."
-                    }
-                },
-                "description": "Specify the contact information."
-            },
             "Address": {
                 "required": [
                     "countryCode",
@@ -7300,185 +7040,6 @@
                     "postalCode": "38127",
                     "countryCode": "US",
                     "residential": false
-                }
-            },
-            "Payment": {
-                "required": [
-                    "paymentType"
-                ],
-                "type": "object",
-                "properties": {
-                    "paymentType": {
-                        "type": "string",
-                        "description": "Indicates who and how the shipment will be paid for.Required for Express and Ground.<br>Example: SENDER",
-                        "enum": [
-                            "SENDER",
-                            "RECIPIENT",
-                            "THIRD_PARTY",
-                            "COLLECT"
-                        ],
-                        "example": "SENDER"
-                    },
-                    "payor": {
-                        "$ref": "#/components/schemas/Payor"
-                    }
-                },
-                "description": "Specifies the payment details specifying the method and means of payment to FedEx for providing shipping services.",
-                "example": {
-                    "paymentType": "SENDER",
-                    "payor": {
-                        "responsibleParty": {
-                            "address": {
-                                "streetLines": [
-                                    "10 FedEx Parkway",
-                                    "Suite 302"
-                                ],
-                                "city": "Beverly Hills",
-                                "stateOrProvinceCode": "CA",
-                                "postalCode": "90210",
-                                "countryCode": "US",
-                                "residential": false
-                            },
-                            "contact": {
-                                "personName": "John Taylor",
-                                "emailAddress": "sample@company.com",
-                                "phoneNumber": "XXXX567890",
-                                "phoneExtension": "phone extension",
-                                "companyName": "Fedex",
-                                "faxNumber": "fax number"
-                            },
-                            "accountNumber": {
-                                "value": "Your account number"
-                            }
-                        }
-                    }
-                }
-            },
-            "Payment_2": {
-                "type": "object",
-                "properties": {
-                    "payor": {
-                        "$ref": "#/components/schemas/Payor"
-                    },
-                    "billingDetails": {
-                        "$ref": "#/components/schemas/BillingDetails"
-                    },
-                    "paymentType": {
-                        "type": "string",
-                        "description": "Indicates who and how the shipment will be paid for.Required for Express and Ground.<br>Example: SENDER",
-                        "enum": [
-                            "SENDER",
-                            "RECIPIENT",
-                            "THIRD_PARTY",
-                            "COLLECT"
-                        ],
-                        "example": "SENDER"
-                    }
-                },
-                "description": "This is a payment type, basically indicates who is the payor for the shipment.Conditional required for International Shipments",
-                "example": {
-                    "payor": {
-                        "responsibleParty": {
-                            "address": {
-                                "streetLines": [
-                                    "10 FedEx Parkway",
-                                    "Suite 302"
-                                ],
-                                "city": "Beverly Hills",
-                                "stateOrProvinceCode": "CA",
-                                "postalCode": "38127",
-                                "countryCode": "US",
-                                "residential": false
-                            },
-                            "contact": {
-                                "personName": "John Taylor",
-                                "emailAddress": "sample@company.com",
-                                "phoneNumber": "1234567890",
-                                "phoneExtension": "phone extension",
-                                "companyName": "Fedex",
-                                "faxNumber": "fax number"
-                            },
-                            "accountNumber": {
-                                "value": "Your account number"
-                            },
-                            "tins": [
-                                {
-                                    "number": "number",
-                                    "tinType": "FEDERAL",
-                                    "usage": "usage",
-                                    "effectiveDate": "2024-06-13",
-                                    "expirationDate": "2024-06-13"
-                                },
-                                {
-                                    "number": "number",
-                                    "tinType": "FEDERAL",
-                                    "usage": "usage",
-                                    "effectiveDate": "2024-06-13",
-                                    "expirationDate": "2024-06-13"
-                                }
-                            ]
-                        }
-                    },
-                    "billingDetails": {
-                        "billingCode": "billingCode",
-                        "billingType": "billingType",
-                        "aliasId": "aliasId",
-                        "accountNickname": "accountNickname",
-                        "accountNumber": "Your account number",
-                        "accountNumberCountryCode": "US"
-                    },
-                    "paymentType": "SENDER"
-                }
-            },
-            "Payor": {
-                "type": "object",
-                "properties": {
-                    "responsibleParty": {
-                        "$ref": "#/components/schemas/Party"
-                    }
-                },
-                "description": "Information about the person who is paying for the shipment. Not applicable for credit card payment. ",
-                "example": {
-                    "responsibleParty": {
-                        "address": {
-                            "streetLines": [
-                                "10 FedEx Parkway",
-                                "Suite 302"
-                            ],
-                            "city": "Beverly Hills",
-                            "stateOrProvinceCode": "CA",
-                            "postalCode": "38127",
-                            "countryCode": "US",
-                            "residential": false
-                        },
-                        "contact": {
-                            "personName": "John Taylor",
-                            "emailAddress": "sample@company.com",
-                            "phoneNumber": "1234567890",
-                            "phoneExtension": "phone extension",
-                            "companyName": "Fedex",
-                            "faxNumber": "fax number"
-                        },
-                        "accountNumber": {
-                            "value": "Your account number"
-                        },
-                        "tins": [
-                            {
-                                "number": "number",
-                                "tinType": "FEDERAL",
-                                "usage": "usage",
-                                "effectiveDate": "2000-01-23T04:56:07.000+00:00",
-                                "expirationDate": "2000-01-23T04:56:07.000+00:00"
-                            },
-                            {
-                                "number": "number",
-                                "tinType": "FEDERAL",
-                                "usage": "usage",
-                                "effectiveDate": "2000-01-23T04:56:07.000+00:00",
-                                "expirationDate": "2000-01-23T04:56:07.000+00:00"
-                            }
-                        ]
-                    }
                 }
             },
             "PartyAccountNumber": {
@@ -7529,156 +7090,6 @@
                     }
                 },
                 "description": "Specify the document upload reference details."
-            },
-            "Party": {
-                "type": "object",
-                "properties": {
-                    "address": {
-                        "$ref": "#/components/schemas/Address"
-                    },
-                    "contact": {
-                        "$ref": "#/components/schemas/Contact"
-                    },
-                    "accountNumber": {
-                        "$ref": "#/components/schemas/PartyAccountNumber"
-                    },
-                    "tins": {
-                        "type": "array",
-                        "description": "This is the tax identification number details.",
-                        "items": {
-                            "$ref": "#/components/schemas/TaxpayerIdentification"
-                        }
-                    }
-                },
-                "description": "Use this object to provide the attributes such as physical address, contact information and account number information.",
-                "example": {
-                    "address": {
-                        "streetLines": [
-                            "10 FedEx Parkway",
-                            "Suite 302"
-                        ],
-                        "city": "Beverly Hills",
-                        "stateOrProvinceCode": "CA",
-                        "postalCode": "38127",
-                        "countryCode": "US",
-                        "residential": false
-                    },
-                    "contact": {
-                        "personName": "John Taylor",
-                        "emailAddress": "sample@company.com",
-                        "phoneNumber": "1234567890",
-                        "phoneExtension": "phone extension",
-                        "companyName": "Fedex",
-                        "faxNumber": "fax number"
-                    },
-                    "accountNumber": {
-                        "value": "Your account number"
-                    },
-                    "tins": [
-                        {
-                            "number": "number",
-                            "tinType": "FEDERAL",
-                            "usage": "usage",
-                            "effectiveDate": "2000-01-23T04:56:07.000+00:00",
-                            "expirationDate": "2000-01-23T04:56:07.000+00:00"
-                        },
-                        {
-                            "number": "number",
-                            "tinType": "FEDERAL",
-                            "usage": "usage",
-                            "effectiveDate": "2000-01-23T04:56:07.000+00:00",
-                            "expirationDate": "2000-01-23T04:56:07.000+00:00"
-                        }
-                    ]
-                }
-            },
-            "Party_2": {
-                "type": "object",
-                "properties": {
-                    "address": {
-                        "$ref": "#/components/schemas/PartyAddress_2"
-                    },
-                    "contact": {
-                        "$ref": "#/components/schemas/PartyContact_2"
-                    },
-                    "tins": {
-                        "type": "array",
-                        "description": "This is the tax identification number details.",
-                        "items": {
-                            "$ref": "#/components/schemas/TaxpayerIdentification"
-                        }
-                    }
-                },
-                "example": {
-                    "address": {
-                        "streetLines": [
-                            "10 FedEx Parkway",
-                            "Suite 302"
-                        ],
-                        "city": "Beverly Hills",
-                        "stateOrProvinceCode": "CA",
-                        "postalCode": "90210",
-                        "countryCode": "US",
-                        "residential": false
-                    },
-                    "contact": {
-                        "personName": "John Taylor",
-                        "emailAddress": "sample@company.com",
-                        "phoneExtension": "000",
-                        "phoneNumber": "XXXX345671",
-                        "companyName": "Fedex"
-                    },
-                    "accountNumber": {
-                        "value": "Your account number"
-                    },
-                    "tins": [
-                        {
-                            "number": "123567",
-                            "tinType": "FEDERAL",
-                            "usage": "usage",
-                            "effectiveDate": "2000-01-23T04:56:07.000+00:00",
-                            "expirationDate": "2000-01-23T04:56:07.000+00:00"
-                        }
-                    ]
-                }
-            },
-            "ShipmentDryIceDetail": {
-                "type": "object",
-                "properties": {
-                    "totalWeight": {
-                        "$ref": "#/components/schemas/Weight"
-                    },
-                    "packageCount": {
-                        "type": "integer",
-                        "description": "Indicates the total number of packages in the shipment that contain dry ice.<br>Example: 12",
-                        "format": "int32",
-                        "example": 12
-                    }
-                },
-                "description": "This is the descriptive data required for a FedEx shipment containing dangerous materials. This element is required when SpecialServiceType DRY_ICE is selected.<p><i>Note:<ul><li>Dry Ice is a Package level Special Service for Domestic and International shipments.</li><li>Dry Ice must be declared at both Shipment and Package level for International MPS shipments to print the compliance statement on Airway Bill labels.</li></ul></i></p>"
-            },
-            "ShipmentDryIceDetail_2": {
-                "required": [
-                    "packageCount",
-                    "totalWeight"
-                ],
-                "type": "object",
-                "properties": {
-                    "totalWeight": {
-                        "description": "Specify total dry ice weight for the shipment.",
-                        "$ref": "#/components/schemas/Weight"
-                    },
-                    "packageCount": {
-                        "type": "integer",
-                        "description": "Specifies the package Count for the shipment<br>Example: 10",
-                        "format": "int32",
-                        "example": 10
-                    },
-                    "processingOptions": {
-                        "$ref": "#/components/schemas/ShipmentDryIceProcessingOptionsRequested"
-                    }
-                },
-                "description": "Specifies the shipment level totals of dry ice data across all packages."
             },
             "Weight": {
                 "required": [
@@ -7967,43 +7378,6 @@
                 },
                 "description": "Specifies documentation and limits for validation of an individual packing group/category. DG Data Upload Mode: Required (IATA), Optional (Other), DG Full Validation Mode: Required (IATA), Optional (Other),"
             },
-            "ErrorResponseVO": {
-                "type": "object",
-                "properties": {
-                    "transactionId": {
-                        "type": "string",
-                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
-                        "example": "624deea6-b709-470c-8c39-4b5511281492"
-                    },
-                    "customerTransactionId": {
-                        "type": "string",
-                        "description": "This element allows you to assign a unique identifier to your transaction. This element is also returned in the reply and helps you match the request to the reply. <br> Example: AnyCo_order123456789",
-                        "example": "AnyCo_order123456789"
-                    },
-                    "errors": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/CXSError"
-                        }
-                    }
-                }
-            },
-            "ErrorResponseVO_2": {
-                "type": "object",
-                "properties": {
-                    "transactionId": {
-                        "type": "string",
-                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
-                        "example": "624deea6-b709-470c-8c39-4b5511281492"
-                    },
-                    "errors": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/CXSError"
-                        }
-                    }
-                }
-            },
             "CXSError": {
                 "type": "object",
                 "properties": {
@@ -8046,6 +7420,767 @@
                         "type": "string",
                         "description": "The dispatch date for the FedEx Tag to be cancelled.<br>Example: 2019-08-03",
                         "example": "2019-08-03"
+                    }
+                }
+            },
+            "ContactAndAddress": {
+                "type": "object",
+                "properties": {
+                    "contact": {
+                        "$ref": "#/components/schemas/Contact"
+                    },
+                    "address": {
+                        "$ref": "#/components/schemas/Address"
+                    }
+                },
+                "description": "Specifies the contact and address details of a location.",
+                "example": {
+                    "address": {
+                        "streetLines": [
+                            "10 FedEx Parkway",
+                            "Suite 302"
+                        ],
+                        "city": "Beverly Hills",
+                        "stateOrProvinceCode": "CA",
+                        "postalCode": "38127",
+                        "countryCode": "US",
+                        "residential": false
+                    },
+                    "contact": {
+                        "personName": "person name",
+                        "emailAddress": "email address",
+                        "phoneNumber": "phone number",
+                        "phoneExtension": "phone extension",
+                        "companyName": "company name",
+                        "faxNumber": "fax number"
+                    }
+                }
+            },
+            "PartyAddress": {
+                "required": [
+                    "city",
+                    "countryCode",
+                    "streetLines"
+                ],
+                "type": "object",
+                "properties": {
+                    "streetLines": {
+                        "type": "array",
+                        "description": "Combination of number, street name, etc. At least one line is required for a valid physical address. Empty lines should not be included. Max Length is 35.<br>Example: [1550 Union Blvd,Suite 302]",
+                        "example": "1550 Union Blvd, Suite 302",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "city": {
+                        "type": "string",
+                        "maxLength": 35,
+                        "description": "The name of city, town of the recipient.Max length is 35.<br>Example: Beverly Hills",
+                        "example": "Beverly Hills"
+                    },
+                    "stateOrProvinceCode": {
+                        "type": "string",
+                        "description": "The US States,Canada and Puerto Rico Province codes of the recipient. The Format and presence of this field may vary depending on the country.State code is required for US, CA, PR and not required for other countries. Conditional. Max length is 2.<br>Example: CA",
+                        "example": "CA"
+                    },
+                    "postalCode": {
+                        "type": "string",
+                        "description": "This is the postal code.<br>Note: This is Optional for non postal-aware countries. Maximum length is 10.<br>Example: 65247<br><a onclick='loadDocReference(\"postalawarecountries\")'>click here to see Postal aware countries</a>",
+                        "example": "90210"
+                    },
+                    "countryCode": {
+                        "type": "string",
+                        "description": "This is the two-letter country code.<br>Maximum length is 2.<br>Example: US<br><a onclick='loadDocReference(\"countrycodes\")'>click here to see Country codes</a>",
+                        "example": "US"
+                    },
+                    "residential": {
+                        "type": "boolean",
+                        "description": "Indicates whether this address is residential (as opposed to commercial).<br>Example: false",
+                        "example": false
+                    }
+                },
+                "description": "This is detailed information on physical location. May be used as an actual physical address (place to which one could go), or as a container of address parts which should be handled as a unit (such as a city-state-ZIP combination within the US).",
+                "example": {
+                    "streetLines": [
+                        "10 FedEx Parkway",
+                        "Suite 302"
+                    ],
+                    "city": "Beverly Hills",
+                    "stateOrProvinceCode": "CA",
+                    "postalCode": "90210",
+                    "countryCode": "US",
+                    "residential": false
+                }
+            },
+            "PartyAddress_2": {
+                "type": "object",
+                "properties": {
+                    "streetLines": {
+                        "type": "array",
+                        "description": "This is the combination of number, street name, etc. Maximum length per line is 35.<br>Example: 10 FedEx Parkway, Suite 302.<p><i>Note:<ul><li>At least one line is required.</li><li>Streetlines more than 3 will be ignored.</li><li>Empty lines should not be included</li><li>For SmartPost Shipments, only 30 characters from the individual street lines will be printed on the labels.</li></ul></i></p>",
+                        "example": [
+                            "1550 Union Blvd",
+                            "Suite 302"
+                        ],
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "city": {
+                        "type": "string",
+                        "description": "This is a placeholder for City Name. <br>Example: Beverly Hills",
+                        "example": "Beverly Hills"
+                    },
+                    "stateOrProvinceCode": {
+                        "type": "string",
+                        "description": "This is a placeholder for State or Province code.State code is required for US, CA, PR and not required for other countries. Conditional. Max length is 2.<br>Example: CA.<br><a onclick='loadDocReference(\"canadaprovincecodes\")'>click here to see State or Province Code</a>",
+                        "example": "CA"
+                    },
+                    "postalCode": {
+                        "type": "string",
+                        "description": "This is the Postal code.<br>This is Optional for non postal-aware countries.<br>Maximum length is 10.<br>Example: 65247<br><a onclick='loadDocReference(\"postalawarecountries\")'>click here to see Postal aware countries</a>",
+                        "example": "90210"
+                    },
+                    "countryCode": {
+                        "type": "string",
+                        "description": "This is the two-letter country code.<br>Maximum length is 2.<br>Example: US<br><a onclick='loadDocReference(\"countrycodes\")'>click here to see Country codes</a>",
+                        "example": "US"
+                    },
+                    "residential": {
+                        "type": "boolean",
+                        "description": "Indicate whether this address is residential (as opposed to commercial).",
+                        "example": false
+                    },
+                    "geographicCoordinates": {
+                        "type": "string",
+                        "description": "Indicates the geographic coordinates. <br> example: geographicCoordinates",
+                        "example": "geographicCoordinates"
+                    }
+                },
+                "description": "This is detailed information on physical location. May be used as an actual physical address (place to which one could go), or as a container of address parts which should be handled as a unit (such as a city-state-ZIP combination within the US).",
+                "example": {
+                    "streetLines": [
+                        "10 FedEx Parkway",
+                        "Suite 302"
+                    ],
+                    "city": "Beverly Hills",
+                    "stateOrProvinceCode": "CA",
+                    "postalCode": "90210",
+                    "countryCode": "US",
+                    "residential": false
+                }
+            },
+            "PartyContact": {
+                "required": [
+                    "phoneNumber"
+                ],
+                "type": "object",
+                "properties": {
+                    "personName": {
+                        "type": "string",
+                        "description": "Specify contact name. Maximum length is 70. <br>Note: Either the companyName or personName is mandatory.<br> Example: John Taylor",
+                        "example": "John Taylor"
+                    },
+                    "emailAddress": {
+                        "type": "string",
+                        "description": "Specify contact email address. Maximum length is 80. <br> Example: sample@company.com",
+                        "example": "sample@company.com"
+                    },
+                    "phoneExtension": {
+                        "type": "string",
+                        "description": "Specify contact phone extension. Maximum length is 6. <br> Example: 1234",
+                        "example": "91"
+                    },
+                    "phoneNumber": {
+                        "type": "string",
+                        "description": "The shipper's phone number. <br>Minimum length is 10 and supports maximum of 15 for certain countries using longer phone numbers.<br>Note: For US and CA, a phone number must have exactly 10 digits, plus an optional leading country code of '1' or '+1'.<br>Example: 918xxxxx890",
+                        "example": "918xxxxx890"
+                    },
+                    "companyName": {
+                        "type": "string",
+                        "description": "The shipper's company name. Max length is 35.<br>Example: FedEx",
+                        "example": "Fedex"
+                    }
+                },
+                "description": "Indicate the contact details for this shipment.",
+                "example": {
+                    "personName": "John Taylor",
+                    "emailAddress": "sample@company.com",
+                    "phoneExtension": "91",
+                    "phoneNumber": "1234567890",
+                    "companyName": "Fedex"
+                }
+            },
+            "PartyContact_2": {
+                "type": "object",
+                "properties": {
+                    "personName": {
+                        "type": "string",
+                        "description": "Specify contact name. Maximum length is 70. <br> Example: John Taylor",
+                        "example": "John Taylor"
+                    },
+                    "emailAddress": {
+                        "type": "string",
+                        "description": "Specify contact email address. Maximum length is 80. <br> Example: sample@company.com",
+                        "example": "sample@company.com"
+                    },
+                    "phoneExtension": {
+                        "type": "string",
+                        "description": "Specify contact phone extension. Maximum length is 6. <br> Example: 1234",
+                        "example": "91"
+                    },
+                    "phoneNumber": {
+                        "type": "string",
+                        "description": "Specify contact phone number. <br>Minimum length is 10 and supports Maximum as 15 for certain countries using longer phone numbers. <br>Note: Recommended Maximum length is 15 and there's no specific validation will be done for the phone number. <br> Example: 918xxxxx890",
+                        "example": "1234567890"
+                    },
+                    "companyName": {
+                        "type": "string",
+                        "description": "Specify contact company name.<br>Recommended length is 35.<br>Note: There's no specific validation of the company name.",
+                        "example": "Fedex"
+                    },
+                    "faxNumber": {
+                        "type": "string",
+                        "description": "Specify contact person's fax number. Maximum length is 15."
+                    }
+                },
+                "description": "Indicate the contact details for this shipment.",
+                "example": {
+                    "personName": "John Taylor",
+                    "emailAddress": "sample@company.com",
+                    "phoneExtension": "91",
+                    "phoneNumber": "1234567890",
+                    "companyName": "Fedex"
+                }
+            },
+            "Contact": {
+                "type": "object",
+                "properties": {
+                    "personName": {
+                        "type": "string",
+                        "description": "Specify contact person name.<br>Recommended length is 70. <br>Note: There's no specific validation for the person name.<br> Example: John Taylor",
+                        "example": "John Taylor"
+                    },
+                    "emailAddress": {
+                        "type": "string",
+                        "description": "Specify contact email address. Maximum length is 80. <br> Example: sample@company.com",
+                        "example": "sample@company.com"
+                    },
+                    "phoneNumber": {
+                        "type": "string",
+                        "description": "Contact person's phone number. <br>Minimum length is 10 and supports maximum of 15 for certain countries using longer phone numbers.<br>Note: For US and CA, a phone number must have exactly 10 digits, plus an optional leading country code of '1' or '+1'.<br>Example: 918xxxxx890",
+                        "example": "918xxxxx890"
+                    },
+                    "phoneExtension": {
+                        "type": "string",
+                        "description": "Specify contact phone extension. <br>Note: Recommended length is 6. There's no specific validation for the phone extension. <br> Example: 1234",
+                        "example": "91"
+                    },
+                    "faxNumber": {
+                        "type": "string",
+                        "description": "Specify contact fax number.<br>Note: Recommended length is 15. There's no specific validation for the fax number.<br> Example: 1234567890",
+                        "example": "956123"
+                    },
+                    "companyName": {
+                        "type": "string",
+                        "description": "Contact person's company name.<br>Note: Recommended Length is 35. There's no specific validation for the company name.<br>Example: FedEx",
+                        "example": "Fedex"
+                    }
+                },
+                "description": "Indicate the contact details of the shipper.",
+                "example": {
+                    "personName": "John Taylor",
+                    "emailAddress": "sample@company.com",
+                    "phoneNumber": "1234567890",
+                    "phoneExtension": 1234,
+                    "faxNumber": "1234567890",
+                    "companyName": "Fedex"
+                }
+            },
+            "Contact_2": {
+                "type": "object",
+                "properties": {
+                    "personName": {
+                        "type": "string",
+                        "description": "Specify person name.<br>Example: John Taylor",
+                        "example": "John"
+                    },
+                    "emailAddress": {
+                        "type": "string",
+                        "description": "Specify email address.<br>Example: sample@company.com"
+                    },
+                    "phoneNumber": {
+                        "type": "string",
+                        "description": "The shippers phone number. <br>Minimum length is 10 and supports maximum of 15 for certain countries using longer phone numbers.<br>Note: For US and CA, a phone number must have exactly 10 digits, plus an optional leading country code of 1 or +1.<br>Example: 918xxxxx890"
+                    },
+                    "phoneExtension": {
+                        "type": "string",
+                        "description": "The shipper's phone extension. Max length is 6.<br>Example: 91"
+                    },
+                    "companyName": {
+                        "type": "string",
+                        "description": "Specify company name."
+                    }
+                },
+                "description": "Specify the contact information."
+            },
+            "Payment": {
+                "required": [
+                    "paymentType"
+                ],
+                "type": "object",
+                "properties": {
+                    "paymentType": {
+                        "type": "string",
+                        "description": "Indicates who and how the shipment will be paid for.Required for Express and Ground.<br>Example: SENDER",
+                        "enum": [
+                            "SENDER",
+                            "RECIPIENT",
+                            "THIRD_PARTY",
+                            "COLLECT"
+                        ],
+                        "example": "SENDER"
+                    },
+                    "payor": {
+                        "$ref": "#/components/schemas/Payor"
+                    }
+                },
+                "description": "Specifies the payment details specifying the method and means of payment to FedEx for providing shipping services.",
+                "example": {
+                    "paymentType": "SENDER",
+                    "payor": {
+                        "responsibleParty": {
+                            "address": {
+                                "streetLines": [
+                                    "10 FedEx Parkway",
+                                    "Suite 302"
+                                ],
+                                "city": "Beverly Hills",
+                                "stateOrProvinceCode": "CA",
+                                "postalCode": "90210",
+                                "countryCode": "US",
+                                "residential": false
+                            },
+                            "contact": {
+                                "personName": "John Taylor",
+                                "emailAddress": "sample@company.com",
+                                "phoneNumber": "XXXX567890",
+                                "phoneExtension": "phone extension",
+                                "companyName": "Fedex",
+                                "faxNumber": "fax number"
+                            },
+                            "accountNumber": {
+                                "value": "Your account number"
+                            }
+                        }
+                    }
+                }
+            },
+            "Payment_2": {
+                "type": "object",
+                "properties": {
+                    "payor": {
+                        "$ref": "#/components/schemas/Payor_2"
+                    },
+                    "billingDetails": {
+                        "$ref": "#/components/schemas/BillingDetails"
+                    },
+                    "paymentType": {
+                        "type": "string",
+                        "description": "Indicates who and how the shipment will be paid for.Required for Express and Ground.<br>Example: SENDER",
+                        "enum": [
+                            "SENDER",
+                            "RECIPIENT",
+                            "THIRD_PARTY",
+                            "COLLECT"
+                        ],
+                        "example": "SENDER"
+                    }
+                },
+                "description": "This is a payment type, basically indicates who is the payor for the shipment.Conditional required for International Shipments",
+                "example": {
+                    "payor": {
+                        "responsibleParty": {
+                            "address": {
+                                "streetLines": [
+                                    "10 FedEx Parkway",
+                                    "Suite 302"
+                                ],
+                                "city": "Beverly Hills",
+                                "stateOrProvinceCode": "CA",
+                                "postalCode": "38127",
+                                "countryCode": "US",
+                                "residential": false
+                            },
+                            "contact": {
+                                "personName": "John Taylor",
+                                "emailAddress": "sample@company.com",
+                                "phoneNumber": "1234567890",
+                                "phoneExtension": "phone extension",
+                                "companyName": "Fedex",
+                                "faxNumber": "fax number"
+                            },
+                            "accountNumber": {
+                                "value": "Your account number"
+                            },
+                            "tins": [
+                                {
+                                    "number": "number",
+                                    "tinType": "FEDERAL",
+                                    "usage": "usage",
+                                    "effectiveDate": "2024-06-13",
+                                    "expirationDate": "2024-06-13"
+                                },
+                                {
+                                    "number": "number",
+                                    "tinType": "FEDERAL",
+                                    "usage": "usage",
+                                    "effectiveDate": "2024-06-13",
+                                    "expirationDate": "2024-06-13"
+                                }
+                            ]
+                        }
+                    },
+                    "billingDetails": {
+                        "billingCode": "billingCode",
+                        "billingType": "billingType",
+                        "aliasId": "aliasId",
+                        "accountNickname": "accountNickname",
+                        "accountNumber": "Your account number",
+                        "accountNumberCountryCode": "US"
+                    },
+                    "paymentType": "SENDER"
+                }
+            },
+            "Payor": {
+                "required": [
+                    "responsibleParty"
+                ],
+                "type": "object",
+                "properties": {
+                    "responsibleParty": {
+                        "$ref": "#/components/schemas/ResponsiblePartyParty"
+                    }
+                },
+                "description": "Payor is mandatory when the paymentType is RECIPIENT, THIRD_PARTY or COLLECT.",
+                "example": {
+                    "responsibleParty": {
+                        "address": {
+                            "streetLines": [
+                                "10 FedEx Parkway",
+                                "Suite 302"
+                            ],
+                            "city": "Beverly Hills",
+                            "stateOrProvinceCode": "CA",
+                            "postalCode": "90210",
+                            "countryCode": "US",
+                            "residential": false
+                        },
+                        "contact": {
+                            "personName": "John Taylor",
+                            "emailAddress": "sample@company.com",
+                            "phoneNumber": "XXXX567890",
+                            "phoneExtension": "phone extension",
+                            "companyName": "Fedex",
+                            "faxNumber": "fax number"
+                        },
+                        "accountNumber": {
+                            "value": "Your account number"
+                        }
+                    }
+                }
+            },
+            "Payor_2": {
+                "type": "object",
+                "properties": {
+                    "responsibleParty": {
+                        "$ref": "#/components/schemas/Party_2"
+                    }
+                },
+                "description": "Information about the person who is paying for the shipment. Not applicable for credit card payment. ",
+                "example": {
+                    "responsibleParty": {
+                        "address": {
+                            "streetLines": [
+                                "10 FedEx Parkway",
+                                "Suite 302"
+                            ],
+                            "city": "Beverly Hills",
+                            "stateOrProvinceCode": "CA",
+                            "postalCode": "38127",
+                            "countryCode": "US",
+                            "residential": false
+                        },
+                        "contact": {
+                            "personName": "John Taylor",
+                            "emailAddress": "sample@company.com",
+                            "phoneNumber": "1234567890",
+                            "phoneExtension": "phone extension",
+                            "companyName": "Fedex",
+                            "faxNumber": "fax number"
+                        },
+                        "accountNumber": {
+                            "value": "Your account number"
+                        },
+                        "tins": [
+                            {
+                                "number": "number",
+                                "tinType": "FEDERAL",
+                                "usage": "usage",
+                                "effectiveDate": "2000-01-23T04:56:07.000+00:00",
+                                "expirationDate": "2000-01-23T04:56:07.000+00:00"
+                            },
+                            {
+                                "number": "number",
+                                "tinType": "FEDERAL",
+                                "usage": "usage",
+                                "effectiveDate": "2000-01-23T04:56:07.000+00:00",
+                                "expirationDate": "2000-01-23T04:56:07.000+00:00"
+                            }
+                        ]
+                    }
+                }
+            },
+            "Party": {
+                "type": "object",
+                "required": [
+                    "contact"
+                ],
+                "properties": {
+                    "address": {
+                        "$ref": "#/components/schemas/PartyAddress"
+                    },
+                    "contact": {
+                        "$ref": "#/components/schemas/PartyContact"
+                    },
+                    "accountNumber": {
+                        "$ref": "#/components/schemas/PartyAccountNumber"
+                    },
+                    "tins": {
+                        "type": "array",
+                        "description": "This is the tax identification number details.",
+                        "items": {
+                            "$ref": "#/components/schemas/TaxpayerIdentification"
+                        }
+                    }
+                },
+                "example": {
+                    "address": {
+                        "streetLines": [
+                            "10 FedEx Parkway",
+                            "Suite 302"
+                        ],
+                        "city": "Beverly Hills",
+                        "stateOrProvinceCode": "CA",
+                        "postalCode": "90210",
+                        "countryCode": "US",
+                        "residential": false
+                    },
+                    "contact": {
+                        "personName": "John Taylor",
+                        "emailAddress": "sample@company.com",
+                        "phoneExtension": "000",
+                        "phoneNumber": "XXXX345671",
+                        "companyName": "Fedex"
+                    },
+                    "accountNumber": {
+                        "value": "Your account number"
+                    },
+                    "tins": [
+                        {
+                            "number": "123567",
+                            "tinType": "FEDERAL",
+                            "usage": "usage",
+                            "effectiveDate": "2000-01-23T04:56:07.000+00:00",
+                            "expirationDate": "2000-01-23T04:56:07.000+00:00"
+                        }
+                    ]
+                }
+            },
+            "Party_2": {
+                "type": "object",
+                "properties": {
+                    "address": {
+                        "$ref": "#/components/schemas/Address"
+                    },
+                    "contact": {
+                        "$ref": "#/components/schemas/Contact"
+                    },
+                    "accountNumber": {
+                        "$ref": "#/components/schemas/PartyAccountNumber"
+                    },
+                    "tins": {
+                        "type": "array",
+                        "description": "This is the tax identification number details.",
+                        "items": {
+                            "$ref": "#/components/schemas/TaxpayerIdentification"
+                        }
+                    }
+                },
+                "description": "Use this object to provide the attributes such as physical address, contact information and account number information.",
+                "example": {
+                    "address": {
+                        "streetLines": [
+                            "10 FedEx Parkway",
+                            "Suite 302"
+                        ],
+                        "city": "Beverly Hills",
+                        "stateOrProvinceCode": "CA",
+                        "postalCode": "38127",
+                        "countryCode": "US",
+                        "residential": false
+                    },
+                    "contact": {
+                        "personName": "John Taylor",
+                        "emailAddress": "sample@company.com",
+                        "phoneNumber": "1234567890",
+                        "phoneExtension": "phone extension",
+                        "companyName": "Fedex",
+                        "faxNumber": "fax number"
+                    },
+                    "accountNumber": {
+                        "value": "Your account number"
+                    },
+                    "tins": [
+                        {
+                            "number": "number",
+                            "tinType": "FEDERAL",
+                            "usage": "usage",
+                            "effectiveDate": "2000-01-23T04:56:07.000+00:00",
+                            "expirationDate": "2000-01-23T04:56:07.000+00:00"
+                        },
+                        {
+                            "number": "number",
+                            "tinType": "FEDERAL",
+                            "usage": "usage",
+                            "effectiveDate": "2000-01-23T04:56:07.000+00:00",
+                            "expirationDate": "2000-01-23T04:56:07.000+00:00"
+                        }
+                    ]
+                }
+            },
+            "Party_3": {
+                "type": "object",
+                "properties": {
+                    "address": {
+                        "$ref": "#/components/schemas/PartyAddress_2"
+                    },
+                    "contact": {
+                        "$ref": "#/components/schemas/PartyContact_2"
+                    },
+                    "tins": {
+                        "type": "array",
+                        "description": "This is the tax identification number details.",
+                        "items": {
+                            "$ref": "#/components/schemas/TaxpayerIdentification"
+                        }
+                    }
+                },
+                "example": {
+                    "address": {
+                        "streetLines": [
+                            "10 FedEx Parkway",
+                            "Suite 302"
+                        ],
+                        "city": "Beverly Hills",
+                        "stateOrProvinceCode": "CA",
+                        "postalCode": "90210",
+                        "countryCode": "US",
+                        "residential": false
+                    },
+                    "contact": {
+                        "personName": "John Taylor",
+                        "emailAddress": "sample@company.com",
+                        "phoneExtension": "000",
+                        "phoneNumber": "XXXX345671",
+                        "companyName": "Fedex"
+                    },
+                    "accountNumber": {
+                        "value": "Your account number"
+                    },
+                    "tins": [
+                        {
+                            "number": "123567",
+                            "tinType": "FEDERAL",
+                            "usage": "usage",
+                            "effectiveDate": "2000-01-23T04:56:07.000+00:00",
+                            "expirationDate": "2000-01-23T04:56:07.000+00:00"
+                        }
+                    ]
+                }
+            },
+            "ShipmentDryIceDetail": {
+                "type": "object",
+                "properties": {
+                    "totalWeight": {
+                        "$ref": "#/components/schemas/Weight"
+                    },
+                    "packageCount": {
+                        "type": "integer",
+                        "description": "Indicates the total number of packages in the shipment that contain dry ice.<br>Example: 12",
+                        "format": "int32",
+                        "example": 12
+                    }
+                },
+                "description": "This is the descriptive data required for a FedEx shipment containing dangerous materials. This element is required when SpecialServiceType DRY_ICE is selected.<p><i>Note:<ul><li>Dry Ice is a Package level Special Service for Domestic and International shipments.</li><li>Dry Ice must be declared at both Shipment and Package level for International MPS shipments to print the compliance statement on Airway Bill labels.</li></ul></i></p>"
+            },
+            "ShipmentDryIceDetail_2": {
+                "required": [
+                    "packageCount",
+                    "totalWeight"
+                ],
+                "type": "object",
+                "properties": {
+                    "totalWeight": {
+                        "description": "Specify total dry ice weight for the shipment.",
+                        "$ref": "#/components/schemas/Weight"
+                    },
+                    "packageCount": {
+                        "type": "integer",
+                        "description": "Specifies the package Count for the shipment<br>Example: 10",
+                        "format": "int32",
+                        "example": 10
+                    },
+                    "processingOptions": {
+                        "$ref": "#/components/schemas/ShipmentDryIceProcessingOptionsRequested"
+                    }
+                },
+                "description": "Specifies the shipment level totals of dry ice data across all packages."
+            },
+            "ErrorResponseVO": {
+                "type": "object",
+                "properties": {
+                    "transactionId": {
+                        "type": "string",
+                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
+                        "example": "624deea6-b709-470c-8c39-4b5511281492"
+                    },
+                    "customerTransactionId": {
+                        "type": "string",
+                        "description": "This element allows you to assign a unique identifier to your transaction. This element is also returned in the reply and helps you match the request to the reply. <br> Example: AnyCo_order123456789",
+                        "example": "AnyCo_order123456789"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CXSError"
+                        }
+                    }
+                }
+            },
+            "ErrorResponseVO_2": {
+                "type": "object",
+                "properties": {
+                    "transactionId": {
+                        "type": "string",
+                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
+                        "example": "624deea6-b709-470c-8c39-4b5511281492"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CXSError"
+                        }
                     }
                 }
             }

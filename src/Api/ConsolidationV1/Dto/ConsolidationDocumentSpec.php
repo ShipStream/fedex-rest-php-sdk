@@ -17,27 +17,27 @@ final class ConsolidationDocumentSpec extends Dto
     protected static array $complexArrayTypes = ['customDocumentDetails' => Formats::class];
 
     /**
-     * @param  ?string[]  $consolidationDocumentTypes  Specifies consolidation document types.
-     * @param  ?ConsolidationDocumentSpec1ConsolidatedCommercialInvoiceDetail  $consolidatedCommercialInvoiceDetail  Specifies consolidated commercial invoice detail.
-     * @param  ?ConsolidationDocumentSpec1CustomsPackingListDetail  $customsPackingListDetail  Specifies the customs packing list detail.
-     * @param  ?ConsolidationDocumentSpec1CrnReportDetail  $crnReportDetail  Specifies the child reference number report detail.
-     * @param  ?ConsolidationDocumentSpec1CondensedCrnReportDetail  $condensedCrnReportDetail  Specifies the child reference number report detail for condensed CrnReport Detail.
-     * @param  ?ConsolidationDocumentSpec1ConsolidatedCustomsLinehaulReportDetail  $consolidatedCustomsLinehaulReportDetail  Specifies the child reference number report detail for consolidated customs linehaul report detail.
-     * @param  ?ConsolidationDocumentSpec1ConsolidatedPartyReportDetail  $consolidatedPartyReportDetail  Specifies the child reference number report detail for consolidated party report detail.
-     * @param  ?ConsolidationDocumentSpec1ConsolidatedSoldToSummaryReportDetail  $consolidatedSoldToSummaryReportDetail  Specifies the child reference number report detail for consolidated SoldTo summary report detail.
-     * @param  ?ConsolidationDocumentSpec1ConsolidatedSoldToSummaryReportDetail  $commoditiesByTrackingNumberDetail  Specifies the child reference number report detail for consolidated SoldTo summary report detail.
+     * @param  ?string[]  $consolidationDocumentTypes  Specifies consolidation document types.<br>Example:<ul><li>CONSOLIDATED_COMMERCIAL_INVOICE</li><li>CUSTOMS_PACKING_LIST</li><li>CRN_REPORT</li><li>COMMODITIES_BY_TRACKING_NUMBER_REPORT</li><li>CONDENSED_CRN_REPORT</li><li>CONSOLIDATED_CUSTOMS_LINEHAUL_REPORT</li><li>CONSOLIDATED_PARTY_REPORT</li><li>CONSOLIDATED_SOLD_TO_SUMMARY_REPORT</li><li>CUSTOM_CONSOLIDATION_DOCUMENT</li></ul>
+     * @param  ?ConsolidationDocumentSpecConsolidatedCommercialInvoiceDetail  $consolidatedCommercialInvoiceDetail  Specifies consolidated commercial invoice detail.
+     * @param  ?ConsolidationDocumentSpecCustomsPackingListDetail  $customsPackingListDetail  Specifies the customs packing list detail.
+     * @param  ?ConsolidationDocumentSpecCrnReportDetail  $crnReportDetail  Specifies the child reference number report detail.
+     * @param  ?ConsolidationDocumentSpecCondensedCrnReportDetail  $condensedCrnReportDetail  Specifies the child reference number report detail for condensed CrnReport Detail.
+     * @param  ?ConsolidationDocumentSpecConsolidatedCustomsLinehaulReportDetail  $consolidatedCustomsLinehaulReportDetail  Specifies the child reference number report detail for consolidated customs linehaul report detail.
+     * @param  ?ConsolidationDocumentSpecConsolidatedPartyReportDetail  $consolidatedPartyReportDetail  Specifies the child reference number report detail for consolidated party report detail.
+     * @param  ?ConsolidationDocumentSpecConsolidatedSoldToSummaryReportDetail  $consolidatedSoldToSummaryReportDetail  Specifies the child reference number report detail for consolidated SoldTo summary report detail.
+     * @param  ?ConsolidationDocumentSpecConsolidatedSoldToSummaryReportDetail  $commoditiesByTrackingNumberDetail  Specifies the child reference number report detail for consolidated SoldTo summary report detail.
      * @param  Formats[]|null  $customDocumentDetails  Specifies the child reference number report detail for consolidated SoldTo summary report detail.
      */
     public function __construct(
         public ?array $consolidationDocumentTypes = null,
-        public ?ConsolidationDocumentSpec1ConsolidatedCommercialInvoiceDetail $consolidatedCommercialInvoiceDetail = null,
-        public ?ConsolidationDocumentSpec1CustomsPackingListDetail $customsPackingListDetail = null,
-        public ?ConsolidationDocumentSpec1CrnReportDetail $crnReportDetail = null,
-        public ?ConsolidationDocumentSpec1CondensedCrnReportDetail $condensedCrnReportDetail = null,
-        public ?ConsolidationDocumentSpec1ConsolidatedCustomsLinehaulReportDetail $consolidatedCustomsLinehaulReportDetail = null,
-        public ?ConsolidationDocumentSpec1ConsolidatedPartyReportDetail $consolidatedPartyReportDetail = null,
-        public ?ConsolidationDocumentSpec1ConsolidatedSoldToSummaryReportDetail $consolidatedSoldToSummaryReportDetail = null,
-        public ?ConsolidationDocumentSpec1ConsolidatedSoldToSummaryReportDetail $commoditiesByTrackingNumberDetail = null,
+        public ?ConsolidationDocumentSpecConsolidatedCommercialInvoiceDetail $consolidatedCommercialInvoiceDetail = null,
+        public ?ConsolidationDocumentSpecCustomsPackingListDetail $customsPackingListDetail = null,
+        public ?ConsolidationDocumentSpecCrnReportDetail $crnReportDetail = null,
+        public ?ConsolidationDocumentSpecCondensedCrnReportDetail $condensedCrnReportDetail = null,
+        public ?ConsolidationDocumentSpecConsolidatedCustomsLinehaulReportDetail $consolidatedCustomsLinehaulReportDetail = null,
+        public ?ConsolidationDocumentSpecConsolidatedPartyReportDetail $consolidatedPartyReportDetail = null,
+        public ?ConsolidationDocumentSpecConsolidatedSoldToSummaryReportDetail $consolidatedSoldToSummaryReportDetail = null,
+        public ?ConsolidationDocumentSpecConsolidatedSoldToSummaryReportDetail $commoditiesByTrackingNumberDetail = null,
         public ?array $customDocumentDetails = null,
     ) {}
 }

@@ -313,7 +313,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/IrcpResponseVO"
+                                    "$ref": "#/components/schemas/IrcpResponseVO_2"
                                 }
                             }
                         }
@@ -323,7 +323,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 }
                             }
                         }
@@ -333,7 +333,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -352,7 +352,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -494,7 +494,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/IrcpResponseVO"
+                                    "$ref": "#/components/schemas/IrcpResponseVO_2"
                                 }
                             }
                         }
@@ -504,7 +504,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_3"
                                 }
                             }
                         }
@@ -514,7 +514,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_3"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -533,7 +533,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_3"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -683,7 +683,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_3"
                                 }
                             }
                         }
@@ -693,7 +693,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_3"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -713,7 +713,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_3"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -733,7 +733,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_3"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -753,7 +753,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_3"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -807,6 +807,25 @@
     },
     "components": {
         "schemas": {
+            "BaseProcessOutputVO": {
+                "type": "object",
+                "properties": {
+                    "mfaOptions": {
+                        "$ref": "#/components/schemas/MFAOptions"
+                    },
+                    "child_Key": {
+                        "type": "string",
+                        "description": "Child Key is a JSON Web Token provided for each of your customers. You must use the Child Key along with the Client Key, Client Secret and Customer Secret to get oAuth token, which should be used as credentials with each API transaction.",
+                        "example": "e366a577-3708-47e5-9af8-98004a01c134"
+                    },
+                    "child_secret": {
+                        "type": "string",
+                        "description": "Child secret, also referred to as <i>Customer Secret</i>, is provided for each of your customers. You must use the Customer Secret along with the Client Key, Client Secret and Child Key to get the oAuth token, which should be used as credentials with each API transaction.",
+                        "example": "*******"
+                    }
+                },
+                "description": "This is the response object providing Customer Key and secret key as a output."
+            },
             "Parameter": {
                 "type": "object",
                 "properties": {
@@ -932,6 +951,20 @@
                     }
                 },
                 "description": "This is the response object providing Child Key and secret key as a output."
+            },
+            "ErrorParameter": {
+                "type": "object",
+                "properties": {
+                    "value": {
+                        "type": "string",
+                        "description": "Identifies the error option to be applied."
+                    },
+                    "key": {
+                        "type": "string",
+                        "description": "Indicates the value associated with the key."
+                    }
+                },
+                "description": "List of parameters which indicates the properties of the alert message."
             },
             "ValidatePinInputVO": {
                 "required": [
@@ -1128,6 +1161,20 @@
                         "example": "624deea6-b709-470c-8c39-4b5511281492"
                     },
                     "output": {
+                        "$ref": "#/components/schemas/BaseProcessOutputVO"
+                    }
+                },
+                "description": "This is a wrapper class for outputVO"
+            },
+            "IrcpResponseVO_2": {
+                "type": "object",
+                "properties": {
+                    "transactionId": {
+                        "type": "string",
+                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
+                        "example": "624deea6-b709-470c-8c39-4b5511281492"
+                    },
+                    "output": {
                         "$ref": "#/components/schemas/CustomerKeyOutputVO"
                     }
                 },
@@ -1138,8 +1185,8 @@
                 "properties": {
                     "transactionId": {
                         "type": "string",
-                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: bc95c0e4-b33e-42a2-80d2-334282b5d37a",
-                        "example": "bc95c0e4-b33e-42a2-80d2-334282b5d37a"
+                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
+                        "example": "624deea6-b709-470c-8c39-4b5511281492"
                     },
                     "errors": {
                         "type": "array",
@@ -1147,10 +1194,26 @@
                             "$ref": "#/components/schemas/CXSError"
                         }
                     }
+                }
+            },
+            "ErrorResponseVO_2": {
+                "type": "object",
+                "properties": {
+                    "transactionId": {
+                        "type": "string",
+                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: bc95c0e4-b33e-42a2-80d2-334282b5d37a",
+                        "example": "bc95c0e4-b33e-42a2-80d2-334282b5d37a"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CXSError_2"
+                        }
+                    }
                 },
                 "description": "Error information"
             },
-            "ErrorResponseVO_2": {
+            "ErrorResponseVO_3": {
                 "type": "object",
                 "properties": {
                     "transactionId": {
@@ -1166,7 +1229,7 @@
                     "errors": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/components/schemas/CXSError"
+                            "$ref": "#/components/schemas/CXSError_2"
                         }
                     }
                 },
@@ -1188,6 +1251,26 @@
                     "message": {
                         "description": "Indicates the description of API error alertmessage.<br>Example: We\n  encountered an unexpected error and are working to resolve the\n  issue. We apologize for any inconvenience. Please check back at a\n  later time.",
                         "type": "string"
+                    }
+                },
+                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
+            },
+            "CXSError_2": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "description": "Indicates the error code.<br>Example: LOGIN.REAUTHENTICATE.ERROR,UNAUTHORIZED.USAGE,NOT.FOUND.ERROR,INTERNAL.SERVER.ERROR"
+                    },
+                    "parameterList": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ErrorParameter"
+                        }
+                    },
+                    "message": {
+                        "type": "string",
+                        "description": "Indicates the description of API error alert message.<br>Example: Option is missing."
                     }
                 },
                 "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"

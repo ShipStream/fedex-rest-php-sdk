@@ -10,21 +10,19 @@ declare(strict_types=1);
 
 namespace ShipStream\FedEx\Api\AccountRegistrationV1\Responses;
 
-use ShipStream\FedEx\Api\AccountRegistrationV1\Dto\CxsError;
+use ShipStream\FedEx\Api\AccountRegistrationV1\Dto\CxsError2;
 use ShipStream\FedEx\Response;
 
 final class ErrorResponseVo2 extends Response
 {
-    protected static array $complexArrayTypes = ['errors' => CxsError::class];
+    protected static array $complexArrayTypes = ['errors' => CxsError2::class];
 
     /**
      * @param  ?string  $transactionId  The transaction ID is a special set of numbers that defines each transaction.<br>Example: bc95c0e4-b33e-42a2-80d2-334282b5d37a
-     * @param  ?string  $customerTransactionId  It is the customerTransactionId sent as part of the request header,by the clients calling this endpoint.
-     * @param  CxsError[]|null  $errors
+     * @param  CxsError2[]|null  $errors
      */
     public function __construct(
         public readonly ?string $transactionId = null,
-        public readonly ?string $customerTransactionId = null,
         public readonly ?array $errors = null,
     ) {}
 }

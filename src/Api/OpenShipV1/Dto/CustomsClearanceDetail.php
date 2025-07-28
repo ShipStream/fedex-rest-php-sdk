@@ -26,7 +26,6 @@ final class CustomsClearanceDetail extends Dto
      * @param  ?bool  $isDocumentOnly  Used to specify if a shipment is document shipment or not. Used only for International Express document shipments. Default value is false.
      * @param  ?RecipientCustomsId  $recipientCustomsId  Use this element to provide valid identification details. Used for populating brazil tax id.
      * @param  ?CustomsOptionDetail  $customsOption  These are customs Option Detail, type must be indicated for each occurrence.
-     * @param  ?Party  $importerOfRecord  Use this object to provide the attributes such as physical address, contact information and account number information.
      * @param  ?string  $generatedDocumentLocale  This is the locale for generated document.<br>Example: en_US<br><a onclick='loadDocReference("locales")'>click here to see Locales</a><br>Note: If the locale is left blank or an invalid locale is entered, an error message is returned in response.
      * @param  ?ExportDetail  $exportDetail  These are export Detail used for US or CA exports.
      * @param  ?Money  $totalCustomsValue  Specifies taxes or miscellaneous charge.

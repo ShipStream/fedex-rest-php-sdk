@@ -109,7 +109,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_3"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -128,7 +128,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_4"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -147,7 +147,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_5"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -167,7 +167,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_6"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -325,7 +325,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_3"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -344,7 +344,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_4"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -363,7 +363,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_5"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -383,7 +383,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_6"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -513,7 +513,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_3"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -532,7 +532,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_4"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -551,7 +551,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_5"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -571,7 +571,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_6"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -731,7 +731,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_3"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -750,7 +750,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_4"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -769,7 +769,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_5"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -789,7 +789,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_6"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -949,7 +949,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_3"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -968,7 +968,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_4"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -987,7 +987,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_5"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -1007,7 +1007,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_6"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -1167,7 +1167,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_3"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -1186,7 +1186,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_4"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -1205,7 +1205,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_5"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -1225,7 +1225,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_6"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -1385,7 +1385,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_3"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -1404,7 +1404,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_4"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -1423,7 +1423,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_5"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -1443,7 +1443,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_6"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -1564,7 +1564,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_6"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -1583,7 +1583,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_6"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -1602,7 +1602,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_6"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -1635,7 +1635,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_6"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -1794,7 +1794,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_3"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -1813,7 +1813,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_4"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -1832,7 +1832,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_5"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -1852,7 +1852,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_6"
                                 },
                                 "example": {
                                     "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
@@ -2690,14 +2690,14 @@
                     },
                     "shipper": {
                         "description": "Descriptive data identifying the party responsible for shipping the package. Shipper and Origin should have the same address.",
-                        "$ref": "#/components/schemas/ShipperParty"
+                        "$ref": "#/components/schemas/ShipperParty_2"
                     },
                     "origin": {
                         "description": "Descriptive data identifying the Origin.",
-                        "$ref": "#/components/schemas/Origin"
+                        "$ref": "#/components/schemas/Origin_2"
                     },
                     "soldTo": {
-                        "$ref": "#/components/schemas/SoldToParty"
+                        "$ref": "#/components/schemas/SoldToParty_2"
                     },
                     "bookingNumber": {
                         "type": "string",
@@ -2723,10 +2723,10 @@
                         "$ref": "#/components/schemas/TransborderDistributionDetail"
                     },
                     "customsClearanceDetail": {
-                        "$ref": "#/components/schemas/CustomsClearanceDetail"
+                        "$ref": "#/components/schemas/CustomsClearanceDetail_2"
                     },
                     "consolidationDocumentSpecification": {
-                        "$ref": "#/components/schemas/ConsolidationDocumentSpec"
+                        "$ref": "#/components/schemas/ConsolidationDocumentSpec_2"
                     },
                     "shippingChargesPayment": {
                         "$ref": "#/components/schemas/Payment"
@@ -6605,6 +6605,223 @@
                 },
                 "description": "Adjusted total weight of Ground packages"
             },
+            "CustomsClearanceDetail_commercialInvoice": {
+                "type": "object",
+                "properties": {
+                    "termsOfSale": {
+                        "type": "string",
+                        "description": "Specify terms Of Sale that will be populated on the Commercial Invoice (or Pro Forma). Maximum length is 3.<br>Valid values are:<ul><li>FCA/FOB (Free Carrier/Free On Board): Seller is responsible for all costs of delivering goods to destination. (Default)</li><li>CIP (Costs, Insurance Paid): Seller is responsible for miscellaneous charges to destination.</li><li>CPT (Carriage Paid To): Buyer is responsible for insurance.</li><li>EXW (Ex Works): Seller makes goods available to buyer. Buyer is responsible for delivering goods to destination.</li><li>DDU (Delivered Duty Unpaid): Seller is responsible for delivering goods to destination. Buyer is responsible for clearing goods through Bureau of Customs and Border Protection.</li><li>DDP (Delivered Duty Paid): Seller is responsible for delivering goods to destination, including duties, taxes, and miscellaneous fees.</li><li>DAP (Delivered at Place): Seller pays for carriage to the named place except for costs related to import clearance, and assumes all risks prior to the point that the goods are ready for unloading by the buyer.</li><li>DPU (Deliver at Place of Unloading)</li></ul>",
+                        "example": "DDP"
+                    },
+                    "comments": {
+                        "type": "array",
+                        "description": "The comments that will populate the Commercial Invoice (or Pro Forma).",
+                        "example": [
+                            "optional comments for the commercial invoice"
+                        ],
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "purpose": {
+                        "type": "string",
+                        "description": "This field is used for calculation of duties and taxes.",
+                        "example": "CONSUMER",
+                        "enum": [
+                            "BUSINESS",
+                            "CONSUMER"
+                        ]
+                    },
+                    "freightCharge": {
+                        "$ref": "#/components/schemas/FreightChargeMoney"
+                    },
+                    "taxesOrMiscellaneousCharge": {
+                        "$ref": "#/components/schemas/TaxesOrMiscellaneousCharges"
+                    },
+                    "taxesOrMiscellaneousChargeType": {
+                        "type": "string",
+                        "description": "Specifice the kind of tax or miscellaneous charge being reported on a Commercial Invoice.",
+                        "example": "COMMISSIONS",
+                        "enum": [
+                            "COMMISSIONS",
+                            "DISCOUNTS",
+                            "HANDLING_FEES",
+                            "OTHER",
+                            "ROYALTIES_AND_LICENSE_FEES",
+                            "TAXES"
+                        ]
+                    },
+                    "packingCosts": {
+                        "$ref": "#/components/schemas/PackingCostCharges"
+                    },
+                    "handlingCosts": {
+                        "$ref": "#/components/schemas/HandlingCostCharges"
+                    },
+                    "specialInstructions": {
+                        "type": "string",
+                        "description": "The special instructions that will populate the Commercial Invoice (or Pro Forma).<br>Example: specialInstructions",
+                        "example": "specialInstructions\""
+                    },
+                    "declarationStatement": {
+                        "type": "string",
+                        "description": "The declaration statement that will populate the Commercial Invoice (or Pro Forma).<br> Max length is 554<br>Example: declarationStatement",
+                        "example": "declarationStatement"
+                    },
+                    "paymentTerms": {
+                        "type": "string",
+                        "description": "The payment terms that will populate the Commercial Invoice (or Pro Forma).  This field is being supported for completeness only.<br>Example: payment terms",
+                        "example": "payment terms"
+                    },
+                    "purposeOfShipmentDescription": {
+                        "type": "string",
+                        "description": "This is the reason for the shipment.<br>Note: SOLD is not a valid purpose for a Proforma Invoice.",
+                        "example": "REPAIR_AND_RETURN",
+                        "enum": [
+                            "GIFT",
+                            "NOT_SOLD",
+                            "PERSONAL_EFFECTS",
+                            "REPAIR_AND_RETURN",
+                            "SAMPLE",
+                            "SOLD"
+                        ]
+                    },
+                    "customerReferences": {
+                        "$ref": "#/components/schemas/CustomerReferences"
+                    },
+                    "originatorName": {
+                        "type": "string",
+                        "description": "The originatorName that will populate the Commercial Invoice (or Pro Forma).",
+                        "example": "originator Name"
+                    }
+                },
+                "description": "Use this object to provide Commercial Invoice details.<br>This element is required if a FedEx generated Consolidated Commercial Invoice is requested.<br>To request a FedEx generated Consolidated Commercial Invoice include \"CONSOLIDATED_COMMERCIAL_INVOICE\" value in the \"consolidationDocumentTypes\" array, in the \"consolidationDocumentSpecification\" object.<br>Customers are responsible for printing the Consolidated Commercial Invoice."
+            },
+            "ConsolidationDocumentSpec_consolidatedCommercialInvoiceDetail": {
+                "type": "object",
+                "properties": {
+                    "format": {
+                        "$ref": "#/components/schemas/Formats"
+                    }
+                },
+                "description": "Specifies consolidated commercial invoice detail."
+            },
+            "ConsolidationDocumentSpec_customsPackingListDetail": {
+                "type": "object",
+                "properties": {
+                    "format": {
+                        "$ref": "#/components/schemas/Formats"
+                    }
+                },
+                "description": "Specifies the customs packing list detail."
+            },
+            "ConsolidationDocumentSpec_crnReportDetail": {
+                "type": "object",
+                "properties": {
+                    "format": {
+                        "$ref": "#/components/schemas/Formats"
+                    }
+                },
+                "description": "Specifies the child reference number report detail."
+            },
+            "ConsolidationDocumentSpec_condensedCrnReportDetail": {
+                "type": "object",
+                "properties": {
+                    "format": {
+                        "$ref": "#/components/schemas/Formats"
+                    }
+                },
+                "description": "Specifies the child reference number report detail for condensed CrnReport Detail."
+            },
+            "ConsolidationDocumentSpec_consolidatedCustomsLinehaulReportDetail": {
+                "type": "object",
+                "properties": {
+                    "format": {
+                        "$ref": "#/components/schemas/Formats"
+                    }
+                },
+                "description": "Specifies the child reference number report detail for consolidated customs linehaul report detail."
+            },
+            "ConsolidationDocumentSpec_consolidatedPartyReportDetail": {
+                "type": "object",
+                "properties": {
+                    "format": {
+                        "$ref": "#/components/schemas/Formats"
+                    }
+                },
+                "description": "Specifies the child reference number report detail for consolidated party report detail."
+            },
+            "ConsolidationDocumentSpec_consolidatedSoldToSummaryReportDetail": {
+                "type": "object",
+                "properties": {
+                    "format": {
+                        "$ref": "#/components/schemas/Formats"
+                    }
+                },
+                "description": "Specifies the child reference number report detail for consolidated SoldTo summary report detail."
+            },
+            "CXSError401_errors": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "description": "Indicates the error code.",
+                        "example": "LOGIN.REAUTHENTICATE.ERROR"
+                    },
+                    "message": {
+                        "type": "string",
+                        "description": "Indicates the description of API error alert message.",
+                        "example": "Access token expired. Please modify your request and try again."
+                    },
+                    "parameterList": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Parameter"
+                        }
+                    }
+                }
+            },
+            "CXSError403_errors": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "description": "Indicates the error code.",
+                        "example": "FORBIDDEN.ERROR"
+                    },
+                    "message": {
+                        "type": "string",
+                        "description": "Indicates the description of API error alert message.",
+                        "example": "We could not authorize your credentials. Please check your permissions and try again"
+                    },
+                    "parameterList": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Parameter"
+                        }
+                    }
+                }
+            },
+            "CXSError404_errors": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "description": "Indicates the error code.",
+                        "example": "NOT.FOUND.ERROR"
+                    },
+                    "parameterList": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Parameter"
+                        }
+                    },
+                    "message": {
+                        "type": "string",
+                        "description": "Indicates the description of API error alert message.",
+                        "example": "The resource you requested is no longer available. Please modify your request and try again."
+                    }
+                }
+            },
             "CXSError500_errors": {
                 "type": "object",
                 "properties": {
@@ -7484,7 +7701,1140 @@
                 },
                 "description": "Specifies Complete Consolidation Details when user selected ASYCHRONOUSLY_PROCESSED"
             },
+            "PartyContact": {
+                "required": [
+                    "phoneNumber"
+                ],
+                "type": "object",
+                "properties": {
+                    "personName": {
+                        "type": "string",
+                        "description": "Specify contact name. Maximum length is 70. <br>Note: Either the companyName or personName is mandatory.<br> Example: John Taylor",
+                        "example": "John Taylor"
+                    },
+                    "emailAddress": {
+                        "type": "string",
+                        "description": "Specify contact email address. Maximum length is 80. <br> Example: sample@company.com",
+                        "example": "sample@company.com"
+                    },
+                    "phoneExtension": {
+                        "type": "string",
+                        "description": "The shipper's phone extension. Max length is 6.<br>Example: 91",
+                        "example": "91"
+                    },
+                    "phoneNumber": {
+                        "type": "string",
+                        "description": "The shipper's phone number. <br>Minimum length is 10 and supports maximum of 15 for certain countries using longer phone numbers.<br>Note: For US and CA, a phone number must have exactly 10 digits, plus an optional leading country code of '1' or '+1'.<br>Example: 918xxxxx890",
+                        "example": "918xxxxx890"
+                    },
+                    "companyName": {
+                        "type": "string",
+                        "description": "Specify contact company name. Maximum length is 35. <br>Note: Either the companyName or personName is mandatory.",
+                        "example": "FedEx"
+                    }
+                },
+                "description": "Indicate the contact details for this shipment."
+            },
+            "TaxpayerIdentification": {
+                "required": [
+                    "number"
+                ],
+                "type": "object",
+                "properties": {
+                    "number": {
+                        "type": "string",
+                        "description": "Specify tax ID number. Maximum length is 18.",
+                        "example": "123567"
+                    },
+                    "tinType": {
+                        "type": "string",
+                        "description": "Identifies the type of Tax Identification Number in Shipment processing. This is required when the tins array of objects is supplied.",
+                        "example": "PERSONAL_STATE",
+                        "enum": [
+                            "PERSONAL_NATIONAL",
+                            "PERSONAL_STATE",
+                            "BUSINESS_NATIONAL",
+                            "BUSINESS_STATE",
+                            "BUSINESS_UNION",
+                            "FEDERAL"
+                        ]
+                    },
+                    "usage": {
+                        "type": "string",
+                        "description": "Identifies the usage of Tax Identification Number in Shipment processing.",
+                        "example": "usage"
+                    },
+                    "effectiveDate": {
+                        "type": "string",
+                        "description": "Effective Date.<br>Example: 2000-01-23T04:56:07.000+00:00",
+                        "example": "2000-01-23T04:56:07.000+00:00"
+                    },
+                    "expirationDate": {
+                        "type": "string",
+                        "description": "Expiration Date.<br>Example: 2000-01-23T04:56:07.000+00:00",
+                        "example": "2000-01-23T04:56:07.000+00:00"
+                    }
+                }
+            },
+            "PartyAccountNumber": {
+                "type": "object",
+                "properties": {
+                    "value": {
+                        "type": "string",
+                        "description": "Conditional.<br> The account number value. Max Length is 9.",
+                        "example": "123456789"
+                    }
+                },
+                "description": "Specify the assigned FedEx Account Number. If the transportation charges to be billed to a payor other than the sender or recipient, provide the FedEx account number.",
+                "example": {
+                    "value": "123456789"
+                }
+            },
+            "PartyAddress_soldTo": {
+                "required": [
+                    "city",
+                    "countryCode",
+                    "postalCode",
+                    "stateOrProvinceCode",
+                    "streetLines"
+                ],
+                "type": "object",
+                "properties": {
+                    "streetLines": {
+                        "type": "array",
+                        "description": "This is the combination of number, street name, etc. <br>Note: At least one line is required and streetlines more than 3 will be ignored. Empty lines should not be included. Maximum length per line is 35.<br>Example: [10 FedEx Parkway, Suite 302, .etc.]",
+                        "example": [
+                            "1550 Union Blvd",
+                            "Suite 302"
+                        ],
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "city": {
+                        "type": "string",
+                        "description": "This is a placeholder for City Name.<br>Note: This is conditional and not required in all the requests.<br>Note: It is recommended for Express shipments for the most accurate ODA and OPA surcharges.<br>Example: Beverly Hills",
+                        "example": "Beverly Hills"
+                    },
+                    "stateOrProvinceCode": {
+                        "type": "string",
+                        "description": "This is a placeholder for State or Province code.<br>Example: CA<br><a onclick='loadDocReference(\"canadaprovincecodes\")'>click here to see State or Province Code</a>",
+                        "example": "CA"
+                    },
+                    "postalCode": {
+                        "type": "string",
+                        "description": "Indicate the Postal code. This is Optional for non postal-aware countries. Maximum length is 10.<br> Example: 65247<br><a onclick='loadDocReference(\"postalawarecountries\")'>click here to see Postal aware countries</a>",
+                        "example": "90210"
+                    },
+                    "countryCode": {
+                        "type": "string",
+                        "description": "This is the two-letter country code.<br>Maximum length is 2.<br>Example: US<br><a onclick='loadDocReference(\"countrycodes\")'>click here to see Country codes</a>",
+                        "example": "US"
+                    },
+                    "residential": {
+                        "type": "boolean",
+                        "description": "Indicate whether this address is residential (as opposed to commercial).",
+                        "example": false,
+                        "enum": [
+                            true,
+                            false
+                        ]
+                    }
+                },
+                "description": "This is detailed information on physical location. May be used as an actual physical address (place to which one could go), or as a container of address parts which should be handled as a unit (such as a city-state-ZIP combination within the US)."
+            },
+            "ShippingDocumentEmailDetail": {
+                "required": [
+                    "eMailRecipients"
+                ],
+                "type": "object",
+                "properties": {
+                    "eMailRecipients": {
+                        "type": "array",
+                        "description": "Shipping Document Email Recipients array",
+                        "items": {
+                            "$ref": "#/components/schemas/ShippingDocumentEmailRecipient"
+                        }
+                    },
+                    "locale": {
+                        "$ref": "#/components/schemas/Locale"
+                    },
+                    "grouping": {
+                        "type": "string",
+                        "description": "Shipping Document Email Grouping Type",
+                        "example": "NONE",
+                        "enum": [
+                            "BY_RECIPIENT",
+                            "NONE"
+                        ]
+                    }
+                },
+                "description": "Specifies how to e-mail shipping documents."
+            },
+            "ContactAncillaryDetail": {
+                "type": "object",
+                "properties": {
+                    "emailAddresses": {
+                        "type": "array",
+                        "description": "Email Addresses",
+                        "items": {
+                            "$ref": "#/components/schemas/EMailDetail"
+                        }
+                    }
+                },
+                "description": "Indicates additional contact details for the Party such as email and phone contact information."
+            },
+            "EMailDetail": {
+                "type": "object",
+                "properties": {
+                    "emailNotificationFormatType": {
+                        "type": "string",
+                        "description": "Email Notification Format Type",
+                        "example": "SMS_TEXT_MESSAGE",
+                        "enum": [
+                            "SMS_TEXT_MESSAGE",
+                            "TEXT",
+                            "HTML"
+                        ]
+                    },
+                    "address": {
+                        "type": "string",
+                        "description": "Address"
+                    },
+                    "permissions": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string",
+                            "enum": [
+                                "GRANT",
+                                "DENY"
+                            ]
+                        },
+                        "description": "Email Permission Type"
+                    }
+                },
+                "example": {
+                    "emailNotificationFormatType": "SMS_TEXT_MESSAGE",
+                    "address": "address",
+                    "permissions": {
+                        "key": "GRANT"
+                    }
+                }
+            },
+            "Address": {
+                "required": [
+                    "countryCode",
+                    "streetLines"
+                ],
+                "type": "object",
+                "properties": {
+                    "streetLines": {
+                        "type": "array",
+                        "description": "This is a combination of number, street name, etc. <br>Note: At least one line is required and streetlines more than 3 will be ignored. Empty lines should not be included.",
+                        "example": "[10 FedEx Parkway, Suite 302]",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "city": {
+                        "type": "string",
+                        "description": "This is a placeholder for City Name. <br>Note: This is conditional and not required in all the shipping requests. It is recommended for Express shipments for the most accurate ODA and OPA surcharges and not used for Ground/SmartPost.",
+                        "example": "Beverly Hills"
+                    },
+                    "stateOrProvinceCode": {
+                        "type": "string",
+                        "description": "This is a placeholder for State or Province code. <br>Note: This is conditional and not required in all the shipping requests. It is recommended for Express shipments for the most accurate ODA and OPA surcharges and not used for Ground/SmartPost.",
+                        "example": "CA"
+                    },
+                    "postalCode": {
+                        "type": "string",
+                        "description": "This is placeholder for postal code.<br>Note: The postal code is required for postal-aware countries.",
+                        "example": "38127"
+                    },
+                    "countryCode": {
+                        "type": "string",
+                        "description": "This is the Two-letter country code. <a href=\"/developer-portal/en-us/reference-guide.html#countrycodes\" target=\"_blank\">Click here to see Country Codes</a>",
+                        "example": "US"
+                    },
+                    "residential": {
+                        "type": "boolean",
+                        "description": "Indicate whether this address is Residential as opposed to Commercial.<br>Valid Values: True or False.",
+                        "example": true,
+                        "enum": [
+                            true,
+                            false
+                        ]
+                    }
+                },
+                "description": "Descriptive data for a physical location. May be used as an actual physical address (place to which one could go), or as a container of \"address parts\" which should be handled as a unit (such as a city-state-ZIP combination within the US).",
+                "example": {
+                    "streetLines": [
+                        "10 FedEx Parkway",
+                        "Suite 302"
+                    ],
+                    "city": "Beverly Hills",
+                    "stateOrProvinceCode": "CA",
+                    "postalCode": "38127",
+                    "countryCode": "US",
+                    "residential": false
+                }
+            },
+            "DocTabZoneSpecification": {
+                "type": "object",
+                "properties": {
+                    "zoneNumber": {
+                        "type": "integer",
+                        "description": "is a nonNegativeInteger<br>Example:  1",
+                        "format": "int32",
+                        "example": 0
+                    },
+                    "header": {
+                        "type": "string",
+                        "description": "header of DocTabZoneSpecification<br>Example:  WHT",
+                        "example": "WHT"
+                    },
+                    "dataField": {
+                        "type": "string",
+                        "description": "dataField of DocTabZoneSpecification<br>Example:  REQUEST/PACKAGE/weight/Value",
+                        "example": "REQUEST/PACKAGE/weight/Value"
+                    },
+                    "literalValue": {
+                        "type": "string",
+                        "description": "literalValue of DocTabZoneSpecification<br>",
+                        "example": "mytext"
+                    },
+                    "justification": {
+                        "type": "string",
+                        "description": "Doc Tab Zone Justification Type",
+                        "example": "RIGHT",
+                        "enum": [
+                            "LEFT",
+                            "RIGHT"
+                        ]
+                    }
+                }
+            },
+            "TransborderDistributionDetail": {
+                "type": "object",
+                "properties": {
+                    "specialServicesRequested": {
+                        "$ref": "#/components/schemas/TransborderDistributionDetail_specialServicesRequested"
+                    },
+                    "routing": {
+                        "type": "string",
+                        "description": "Specifies the transborder distribution routing.",
+                        "example": "CUSTOMER_SPECIFIED",
+                        "enum": [
+                            "BY_METER",
+                            "BY_ORIGIN",
+                            "CUSTOMER_SPECIFIED"
+                        ]
+                    },
+                    "summaryDetail": {
+                        "$ref": "#/components/schemas/SummaryDetail"
+                    }
+                },
+                "description": "Specifies attributes of a shipment whithin a transborder distribution."
+            },
+            "CustomsOptionDetail": {
+                "type": "object",
+                "properties": {
+                    "description": {
+                        "type": "string",
+                        "description": "Specify additional description about customs options. This is a required field when the Type is OTHER.",
+                        "example": "Description"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "Specify the reason for a global return, as recognized by Customs. ",
+                        "example": "COURTESY_RETURN_LABEL",
+                        "enum": [
+                            "COURTESY_RETURN_LABEL",
+                            "EXHIBITION_TRADE_SHOW",
+                            "FAULTY_ITEM",
+                            "FOLLOWING_REPAIR",
+                            "FOR_REPAIR",
+                            "ITEM_FOR_LOAN",
+                            "OTHER",
+                            "REJECTED",
+                            "REPLACEMENT",
+                            "TRIAL"
+                        ]
+                    }
+                },
+                "description": "Customs Option Detail, type must be indicated for each occurrence"
+            },
+            "DestinationControlDetail": {
+                "required": [
+                    "statementTypes"
+                ],
+                "type": "object",
+                "properties": {
+                    "endUser": {
+                        "type": "string",
+                        "description": "Specify End User name. Its is required if StatementTypes is entered as DEPARTMENT_OF_STATE.",
+                        "example": "John Wick"
+                    },
+                    "statementTypes": {
+                        "type": "string",
+                        "description": "Specify appropriate destination control statement type(s), Also make sure to specify destination country and end user.",
+                        "example": "DEPARTMENT_OF_COMMERCE",
+                        "enum": [
+                            "DEPARTMENT_OF_COMMERCE",
+                            "DEPARTMENT_OF_STATE",
+                            "DEPARTMENT_OF_COMMERCE_AND_DEPARTMENT_OF_STATE"
+                        ]
+                    },
+                    "destinationCountries": {
+                        "type": "array",
+                        "description": "Specify DCS shipment destination country. You may enter up to four country codes in this element. Up to 11 alphanumeric characters are allowed.",
+                        "example": [
+                            "USA",
+                            "India"
+                        ],
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "description": "VERY IMPORTANT: Specify appropriate destinationcontrol statement type(s),Valid values: DEPARTMENT_OF_COMMERCE, DEPARTMENT_OF_STATE<br>Be sure to also specify destination country and enduser."
+            },
+            "Commodity": {
+                "required": [
+                    "description",
+                    "numberOfPieces"
+                ],
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "Specify the commodity name",
+                        "example": "non-threaded rivets"
+                    },
+                    "numberOfPieces": {
+                        "type": "integer",
+                        "description": "Indicates the number of pieces associated with the commodity. Number of pieces cannot be a negative value or exceed 9,999.",
+                        "format": "int32",
+                        "example": 12
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "This is the commodity description. Maximum allowed 450 characters.",
+                        "example": "AC parts"
+                    },
+                    "countryOfManufacture": {
+                        "type": "string",
+                        "description": "This is commodity country of manufacture. This is required for International shipments. Maximum allowed length is 4.",
+                        "example": "US"
+                    },
+                    "weight": {
+                        "$ref": "#/components/schemas/Weight"
+                    },
+                    "quantity": {
+                        "type": "integer",
+                        "description": "This is the units quantity (using quantityUnits as the unit of measure) per commodity. This is used to estimate duties and taxes.",
+                        "format": "int32",
+                        "example": 125
+                    },
+                    "quantityUnits": {
+                        "type": "string",
+                        "description": "This is the unit of measure for the units quantity. This is used to estimate duties and taxes.",
+                        "example": "EA"
+                    },
+                    "unitPrice": {
+                        "$ref": "#/components/schemas/Money_2"
+                    },
+                    "customsValue": {
+                        "$ref": "#/components/schemas/Money_2"
+                    },
+                    "commodityId": {
+                        "type": "string",
+                        "description": "Value used to identify a commodity description; must be unique within the containing shipment.",
+                        "example": "commodity Id"
+                    }
+                }
+            },
+            "Formats": {
+                "type": "object",
+                "properties": {
+                    "docType": {
+                        "type": "string",
+                        "description": "Specify the image format used for a shipping document.<br><a onclick='loadDocReference(\"labelstocktypes\")'>click here to see label format types</a>",
+                        "example": "PDF",
+                        "enum": [
+                            "ZPLII",
+                            "EPL2",
+                            "PDF",
+                            "PNG",
+                            "DIB",
+                            "DOC",
+                            "DPL",
+                            "GIF",
+                            "RTF",
+                            "TEXT"
+                        ]
+                    },
+                    "stockType": {
+                        "type": "string",
+                        "description": "Specify the label stock type.<br><a onclick='loadDocReference(\"labelstocktypes\")'>click here to see label format types</a>",
+                        "example": "PAPER_LETTER",
+                        "enum": [
+                            "OP_900_LG",
+                            "OP_900_LG_B",
+                            "OP_900_LL",
+                            "OP_900_LL_B",
+                            "OP_950_PAPER_4_PER_PAGE_PORTRAIT",
+                            "PAPER_4X6",
+                            "PAPER_LETTER",
+                            "STOCK_4X6",
+                            "STOCK_4X675_LEADING_DOC_TAB",
+                            "STOCK_4X675_TRAILING_DOC_TAB",
+                            "STOCK_4X8",
+                            "STOCK_4X9_LEADING_DOC_TAB",
+                            "STOCK_4X9_TRAILING_DOC_TAB"
+                        ]
+                    }
+                },
+                "description": "Specifies the formats."
+            },
+            "ImporterOfRecord": {
+                "required": [
+                    "address",
+                    "contact"
+                ],
+                "type": "object",
+                "properties": {
+                    "address": {
+                        "$ref": "#/components/schemas/PartyAddress_2"
+                    },
+                    "contact": {
+                        "$ref": "#/components/schemas/PartyContact"
+                    },
+                    "accountNumber": {
+                        "$ref": "#/components/schemas/PartyAccountNumber"
+                    }
+                },
+                "description": "The descriptive information for the person who is responsible for the shipment."
+            },
+            "PieceResponses": {
+                "type": "object",
+                "properties": {
+                    "masterTrackingNumber": {
+                        "type": "string",
+                        "description": "This is a master tracking number for the shipment (must be unique for stand-alone open shipments, or unique within consolidation if consolidation key is provided).<br>Example: 794953535000",
+                        "example": "794953535000"
+                    },
+                    "trackingNumber": {
+                        "type": "string",
+                        "description": "This is a tracking number associted with this package. <br>Example: 49XXX0000XXX20032835",
+                        "example": "794953535000"
+                    },
+                    "additionalChargesDiscount": {
+                        "type": "number",
+                        "description": "These are additional charges or discounts.<br>Example: 621.45",
+                        "format": "double",
+                        "example": 621.45
+                    },
+                    "netRateAmount": {
+                        "type": "number",
+                        "description": "Returns the net rate amount.<br>Example: 1.45",
+                        "format": "double",
+                        "example": 1.45
+                    },
+                    "netChargeAmount": {
+                        "type": "number",
+                        "description": "Indicates Net charge amount.<br>Example: 21.45",
+                        "format": "double",
+                        "example": 21.45
+                    },
+                    "netDiscountAmount": {
+                        "type": "number",
+                        "description": "Returns the net discount amount.<br>Example: 121.45",
+                        "format": "double",
+                        "example": 121.45
+                    },
+                    "packageDocuments": {
+                        "type": "array",
+                        "description": "These are package documents returned in the response",
+                        "items": {
+                            "$ref": "#/components/schemas/LabelResponseVO"
+                        }
+                    },
+                    "customerReferences": {
+                        "type": "array",
+                        "description": "Additional customer reference data",
+                        "items": {
+                            "$ref": "#/components/schemas/CustomerReference"
+                        }
+                    },
+                    "codcollectionAmount": {
+                        "type": "number",
+                        "description": "Returns the Collect on Delivery charges.<br>Example: 231.45",
+                        "format": "double",
+                        "example": 231.45
+                    },
+                    "baseRateAmount": {
+                        "type": "number",
+                        "description": "Returns the base rate amount.<br>Example: 321.45",
+                        "format": "double",
+                        "example": 321.45
+                    }
+                },
+                "description": "These are shipping document/label specific information."
+            },
+            "HazardousCommodityQuantityDetail": {
+                "required": [
+                    "amount",
+                    "quantityType"
+                ],
+                "type": "object",
+                "properties": {
+                    "quantityType": {
+                        "type": "string",
+                        "description": "Specifies which measure of quantity is to be validated.",
+                        "example": "NET",
+                        "enum": [
+                            "GROSS",
+                            "NET"
+                        ]
+                    },
+                    "amount": {
+                        "type": "number",
+                        "description": "Number of units of the type below.",
+                        "format": "double",
+                        "example": 34.56
+                    },
+                    "units": {
+                        "type": "string",
+                        "description": "specifies the units.",
+                        "example": "Kg"
+                    }
+                },
+                "description": "Provides Hazardous Commodity Quantity Detail"
+            },
+            "HazardousCommodityContent": {
+                "type": "object",
+                "properties": {
+                    "quantity": {
+                        "$ref": "#/components/schemas/HazardousCommodityQuantityDetail"
+                    },
+                    "innerReceptacles": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/HazardousCommodityInnerReceptacleDetail"
+                        }
+                    },
+                    "options": {
+                        "$ref": "#/components/schemas/HazardousCommodityOptionDetail"
+                    },
+                    "description": {
+                        "$ref": "#/components/schemas/HazardousCommodityDescription"
+                    }
+                },
+                "description": "Customer-provided specifications for handling individual commodities."
+            },
+            "HazardousCommodityInnerReceptacleDetail": {
+                "type": "object",
+                "properties": {
+                    "quantity": {
+                        "$ref": "#/components/schemas/HazardousCommodityQuantityDetail"
+                    }
+                }
+            },
+            "HazardousCommodityOptionDetail": {
+                "type": "object",
+                "properties": {
+                    "labelTextOption": {
+                        "type": "string",
+                        "description": "Provides the label text option",
+                        "example": "OVERRIDE",
+                        "enum": [
+                            "APPEND",
+                            "OVERRIDE",
+                            "STANDARD"
+                        ]
+                    },
+                    "customerSuppliedLabelText": {
+                        "type": "string",
+                        "description": "'DG Data Upload Mode:- Optional.,DG Full Validation Mode:- Optional,Text used in labeling the commodity under control of the LabelTextOption field.'\n",
+                        "example": "Customer Supplied Label Text"
+                    }
+                },
+                "description": "Provides details of Hazardous Commodity Option Detail"
+            },
+            "HazardousCommodityDescription": {
+                "required": [
+                    "packingGroup",
+                    "reportableQuantity"
+                ],
+                "type": "object",
+                "properties": {
+                    "sequenceNumber": {
+                        "type": "integer",
+                        "description": "RequiredSpecify the sequence number.",
+                        "format": "int32",
+                        "example": 9812
+                    },
+                    "processingOptions": {
+                        "type": "array",
+                        "description": "Indicates any special processing options to be applied to the description of the dangerous goods commodity",
+                        "items": {
+                            "type": "string",
+                            "example": "INCLUDE_SPECIAL_PROVISIONS",
+                            "enum": [
+                                "INCLUDE_SPECIAL_PROVISIONS"
+                            ]
+                        }
+                    },
+                    "subsidiaryClasses": {
+                        "type": "array",
+                        "description": "Required. Provides list of subsidiary classes",
+                        "example": [
+                            "Subsidiary Classes"
+                        ],
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "labelText": {
+                        "type": "string",
+                        "description": "Specifies the text for the label.\n",
+                        "example": "labelText"
+                    },
+                    "technicalName": {
+                        "type": "string",
+                        "description": "'The element specifies the technical name for the hazardous material.'\n\n",
+                        "example": "technicalName"
+                    },
+                    "packingDetails": {
+                        "$ref": "#/components/schemas/HazardousCommodityPackingDetail"
+                    },
+                    "authorization": {
+                        "type": "string",
+                        "description": "Authorization",
+                        "example": "authorization"
+                    },
+                    "reportableQuantity": {
+                        "type": "boolean",
+                        "description": "Reportable Quantity",
+                        "example": true,
+                        "enum": [
+                            true,
+                            false
+                        ]
+                    },
+                    "percentage": {
+                        "type": "number",
+                        "description": "Percentage",
+                        "format": "double",
+                        "example": 12.45
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "ID",
+                        "example": "UN1234"
+                    },
+                    "packingGroup": {
+                        "type": "string",
+                        "description": "Identifies DOT packing group for a hazardous commodity",
+                        "example": "I",
+                        "enum": [
+                            "DEFAULT",
+                            "I",
+                            "II",
+                            "III"
+                        ]
+                    },
+                    "properShippingName": {
+                        "type": "string",
+                        "description": "The proper shipping name as defined by the regulation. The name can also include qualifying words",
+                        "example": "paint"
+                    },
+                    "hazardClass": {
+                        "type": "string",
+                        "description": "'Specifies the hazard class for the commodity.'\n",
+                        "example": "2.3"
+                    }
+                },
+                "description": "RequiredDetails of HazardousCommodityDescription"
+            },
+            "HazardousCommodityPackingDetail": {
+                "required": [
+                    "cargoAircraftOnly"
+                ],
+                "type": "object",
+                "properties": {
+                    "packingInstructions": {
+                        "type": "string",
+                        "description": "Coded specification for how commodity is to be packed.",
+                        "example": "NonBulk"
+                    },
+                    "cargoAircraftOnly": {
+                        "type": "boolean",
+                        "description": "Shipment is packaged/documented for movement ONLY on cargo aircraft",
+                        "example": true,
+                        "enum": [
+                            true,
+                            false
+                        ]
+                    }
+                },
+                "description": "Specifies documentation and limits for validation of an individual packing group/category. DG Data Upload Mode: Required (IATA), Optional (Other), DG Full Validation Mode: Required (IATA), Optional (Other),"
+            },
+            "ShippingDocumentDispositionDetail": {
+                "type": "object",
+                "properties": {
+                    "eMailDetail": {
+                        "$ref": "#/components/schemas/ShippingDocumentEmailDetail"
+                    },
+                    "dispositionType": {
+                        "type": "string",
+                        "description": "Values in this field specify how to create and return the document.",
+                        "example": "CONFIRMED",
+                        "enum": [
+                            "CONFIRMED",
+                            "DEFERRED_QUEUED",
+                            "DEFERRED_RETURNED",
+                            "DEFERRED_STORED",
+                            "EMAILED",
+                            "QUEUED",
+                            "RETURNED",
+                            "STORED"
+                        ]
+                    },
+                    "grouping": {
+                        "type": "string",
+                        "description": "Identifies the convention by which documents are to be grouped as email attachment.",
+                        "enum": [
+                            "CONSOLIDATED_BY_DOCUMENT_TYPE",
+                            "CONSOLIDATED_BY_IMAGE_TYPE",
+                            "INDIVIDUAL"
+                        ]
+                    },
+                    "storageDetail": {
+                        "$ref": "#/components/schemas/ShippingDocumentStorageDetail"
+                    },
+                    "printDetail": {
+                        "$ref": "#/components/schemas/ShippingDocumentPrintDetail"
+                    }
+                },
+                "description": "Each occurrence of this class specifies a particular way in which a kind of shipping document is to be produced and provided."
+            },
+            "ContactAndAddress": {
+                "type": "object",
+                "properties": {
+                    "contact": {
+                        "$ref": "#/components/schemas/Contact"
+                    },
+                    "contactAncillaryDetail": {
+                        "$ref": "#/components/schemas/ContactAncillaryDetail"
+                    },
+                    "address": {
+                        "$ref": "#/components/schemas/Address"
+                    },
+                    "addressAncillaryDetail": {
+                        "$ref": "#/components/schemas/AddressAncillaryDetail"
+                    }
+                },
+                "description": "Idicates the contact and address details of a location."
+            },
+            "DocTabContentZone": {
+                "type": "object",
+                "properties": {
+                    "docTabZoneSpecifications": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/DocTabZoneSpecification"
+                        }
+                    }
+                }
+            },
+            "DocTabContentBarcoded": {
+                "type": "object",
+                "properties": {
+                    "symbology": {
+                        "type": "string",
+                        "description": "Barcode Symbology Type",
+                        "example": "UCC128",
+                        "enum": [
+                            "CODABAR",
+                            "CODE128",
+                            "CODE128_WIDEBAR",
+                            "CODE128B",
+                            "CODE128C",
+                            "CODE39",
+                            "CODE93",
+                            "I2OF5",
+                            "MANUAL",
+                            "PDF417",
+                            "POSTNET",
+                            "QR_CODE",
+                            "UCC128"
+                        ]
+                    },
+                    "specification": {
+                        "$ref": "#/components/schemas/DocTabZoneSpecification"
+                    }
+                }
+            },
+            "InternationalDistributionDetail": {
+                "required": [
+                    "clearanceFacilityLocationId",
+                    "declaredCurrencies",
+                    "totalDimensions"
+                ],
+                "type": "object",
+                "properties": {
+                    "dropOffType": {
+                        "type": "string",
+                        "description": "Specifies drop off type.",
+                        "example": "DROP_BOX",
+                        "enum": [
+                            "BUSINESS_SERVICE_CENTER",
+                            "DROP_BOX",
+                            "REGULAR_PICKUP",
+                            "REQUEST_PICKUP",
+                            "STATION"
+                        ]
+                    },
+                    "totalDimensions": {
+                        "$ref": "#/components/schemas/Dimensions"
+                    },
+                    "totalInsuredValue": {
+                        "$ref": "#/components/schemas/TotalInsuredMoney"
+                    },
+                    "unitSystem": {
+                        "type": "string",
+                        "description": "Specifies the unit system.",
+                        "example": "ENGLISH",
+                        "enum": [
+                            "ENGLISH",
+                            "METRIC"
+                        ]
+                    },
+                    "declaredCurrencies": {
+                        "$ref": "#/components/schemas/Money"
+                    },
+                    "clearanceFacilityLocationId": {
+                        "type": "string",
+                        "description": "Specifies the clearance facility location id.",
+                        "example": "MEMI"
+                    }
+                },
+                "description": "Specifies the international distribution detail."
+            },
+            "ExportDetail": {
+                "required": [
+                    "b13AFilingOption"
+                ],
+                "type": "object",
+                "properties": {
+                    "destinationControlDetail": {
+                        "$ref": "#/components/schemas/DestinationControlDetail"
+                    },
+                    "b13AFilingOption": {
+                        "type": "string",
+                        "description": "Specify the filing option being exercised. Required for non-document shipments originating in Canada destinated for any country other than Canada, the United States, Puerto Rico, or the U.S. Virgin Islands.",
+                        "example": "NOT_REQUIRED",
+                        "enum": [
+                            "NOT_REQUIRED",
+                            "MANUALLY_ATTACHED",
+                            "FILED_ELECTRONICALLY",
+                            "SUMMARY_REPORTING",
+                            "FEDEX_TO_STAMP"
+                        ]
+                    },
+                    "exportComplianceStatement": {
+                        "type": "string",
+                        "description": "For shipments requiring an EEI, enter the ITN number received from AES when you filed your shipment or the FTR (Foreign Trade Regulations) exemption number.The proper format for an ITN number is AES XYYYYMMDDNNNNNN where YYYYMMDD is date and NNNNNN are numbers generated by the AES.<br>Note: The ITN or FTR exemption number you submit in the Ship request prints on the international shipping label.",
+                        "example": "AESX20220407123456"
+                    },
+                    "permitNumber": {
+                        "type": "string",
+                        "description": "This is a Permit Number. This field is applicable only to Canada export non-document shipments of any value to any destination. No special characters are allowed.",
+                        "example": "12345"
+                    }
+                },
+                "description": "Conditional. Export Detail Used for US or CA exports."
+            },
+            "DocTabContent": {
+                "type": "object",
+                "properties": {
+                    "docTabContentType": {
+                        "type": "string",
+                        "description": "Doc Tab Content Type",
+                        "example": "BARCODED",
+                        "enum": [
+                            "BARCODED",
+                            "CUSTOM",
+                            "MINIMUM",
+                            "STANDARD",
+                            "ZONE001"
+                        ]
+                    },
+                    "zone001": {
+                        "$ref": "#/components/schemas/DocTabContentZone"
+                    },
+                    "barcoded": {
+                        "$ref": "#/components/schemas/DocTabContentBarcoded"
+                    }
+                },
+                "description": "Specifies details of doc tab content, If provided, thermal documents will include specified doc tab content. If omitted, document will be produced without doc tab content."
+            },
+            "Payor": {
+                "type": "object",
+                "properties": {
+                    "responsibleParty": {
+                        "$ref": "#/components/schemas/Party_2"
+                    }
+                },
+                "description": "Information about the person who is paying for the shipment.  Not applicable for credit card payment. "
+            },
+            "DistributionLocations": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "description": "Specifies the type of distribution locations.",
+                        "example": "CUSTOMER_SPECIFIED",
+                        "enum": [
+                            "CUSTOMER_SPECIFIED",
+                            "FEDEX_EXPRESS_FREIGHT_RAMP",
+                            "FEDEX_EXPRESS_STATION",
+                            "FEDEX_GROUND_TERMINAL"
+                        ]
+                    },
+                    "locationNumber": {
+                        "type": "integer",
+                        "description": "Specifies the location number.",
+                        "example": 0
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "This is a customer-specified or system-assigned identifier that uniquely identifies the specific distibution location within a collection of distribution locations. This is not the same as the FedEx locationId or locationNumber..<br> Example: 123",
+                        "example": "123"
+                    },
+                    "locationId": {
+                        "type": "string",
+                        "description": "The unique location identifier <br> Example: YBZA",
+                        "example": "YBZA"
+                    },
+                    "locationContactAndAddress": {
+                        "$ref": "#/components/schemas/ContactAndAddress"
+                    },
+                    "clearanceNumber": {
+                        "type": "string",
+                        "description": "This specifies the clearance number associated with the distribution location.<br> Example: 123",
+                        "example": "123"
+                    },
+                    "inclusionSpecifications": {
+                        "type": "array",
+                        "description": "Specifies which kinds of shipments will be processed by this distribution location.",
+                        "items": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/components/schemas/CarrierCode"
+                                },
+                                {
+                                    "$ref": "#/components/schemas/ServiceCategory"
+                                }
+                            ],
+                            "type": "string"
+                        }
+                    }
+                },
+                "description": "Specifies the distribution locations for consolidation.<br> Mandatory for International Ground Distribution."
+            },
+            "CustomerSpecifiedLabelDetail": {
+                "type": "object",
+                "properties": {
+                    "maskedData": {
+                        "type": "array",
+                        "description": "Specifies the name of data elements/areas which may be suppressed from printing on labels.",
+                        "items": {
+                            "type": "string",
+                            "example": "[\"PACKAGE_SEQUENCE_AND_COUNT\",\"TOTAL_WEIGHT\"]",
+                            "enum": [
+                                "CUSTOMS_VALUE",
+                                "DIMENSIONS",
+                                "DUTIES_AND_TAXES_PAYOR_ACCOUNT_NUMBER",
+                                "FREIGHT_PAYOR_ACCOUNT_NUMBER",
+                                "INSURED_VALUE",
+                                "PACKAGE_SEQUENCE_AND_COUNT",
+                                "SECONDARY_BARCODE",
+                                "SHIPPER_ACCOUNT_NUMBER",
+                                "SHIPPER_INFORMATION",
+                                "SUPPLEMENTAL_LABEL_DOC_TAB",
+                                "TERMS_AND_CONDITIONS",
+                                "TOTAL_WEIGHT",
+                                "TRANSPORTATION_CHARGES_PAYOR_ACCOUNT_NUMBER"
+                            ]
+                        }
+                    },
+                    "regulatoryLabels": {
+                        "type": "array",
+                        "description": "Specifies details needed to generate any label artifacts required due to regulatory requirements",
+                        "items": {
+                            "$ref": "#/components/schemas/RegulatoryLabelContentDetail"
+                        }
+                    },
+                    "docTabContent": {
+                        "$ref": "#/components/schemas/DocTabContent"
+                    }
+                },
+                "description": "Allows customer-specified control of label content"
+            },
+            "Payment": {
+                "type": "object",
+                "properties": {
+                    "payor": {
+                        "$ref": "#/components/schemas/Payor"
+                    },
+                    "paymentType": {
+                        "type": "string",
+                        "description": "Specify the payment Type. <br>Note: This is required for Express, Ground and SmartPost shipments.<br> The payment type COLLECT is applicable only for Ground shipments.",
+                        "example": "THIRD_PARTY",
+                        "enum": [
+                            "SENDER",
+                            "RECIPIENT",
+                            "THIRD_PARTY",
+                            "BILL_ANONYMOUSLY",
+                            "COLLECT",
+                            "CASH",
+                            "ACCOUNT",
+                            "CONSIGNEE"
+                        ]
+                    }
+                },
+                "description": "Details about who and how the shipment will be paid for. 'payor' is optional when 'paymentType' provided is SENDER."
+            },
             "ShipperParty": {
+                "required": [
+                    "address",
+                    "contact"
+                ],
+                "type": "object",
+                "properties": {
+                    "address": {
+                        "$ref": "#/components/schemas/PartyAddress"
+                    },
+                    "contact": {
+                        "$ref": "#/components/schemas/PartyContact"
+                    },
+                    "tins": {
+                        "type": "array",
+                        "description": "This is the tax identification number details.",
+                        "items": {
+                            "$ref": "#/components/schemas/TaxpayerIdentification"
+                        }
+                    },
+                    "accountNumber": {
+                        "$ref": "#/components/schemas/PartyAccountNumber"
+                    }
+                },
+                "description": "The descriptive information for the customer shipping the package along with the physical location from where the shipment originates."
+            },
+            "ShipperParty_2": {
                 "required": [
                     "address",
                     "contact"
@@ -7613,96 +8963,19 @@
                 },
                 "description": "This is detailed information on physical location. May be used as an actual physical address (place to which one could go), or as a container of address parts which should be handled as a unit (such as a city-state-ZIP combination within the US)."
             },
-            "PartyContact": {
-                "required": [
-                    "phoneNumber"
-                ],
-                "type": "object",
-                "properties": {
-                    "personName": {
-                        "type": "string",
-                        "description": "Specify contact name. Maximum length is 70. <br>Note: Either the companyName or personName is mandatory.<br> Example: John Taylor",
-                        "example": "John Taylor"
-                    },
-                    "emailAddress": {
-                        "type": "string",
-                        "description": "Specify contact email address. Maximum length is 80. <br> Example: sample@company.com",
-                        "example": "sample@company.com"
-                    },
-                    "phoneExtension": {
-                        "type": "string",
-                        "description": "The shipper's phone extension. Max length is 6.<br>Example: 91",
-                        "example": "91"
-                    },
-                    "phoneNumber": {
-                        "type": "string",
-                        "description": "The shipper's phone number. <br>Minimum length is 10 and supports maximum of 15 for certain countries using longer phone numbers.<br>Note: For US and CA, a phone number must have exactly 10 digits, plus an optional leading country code of '1' or '+1'.<br>Example: 918xxxxx890",
-                        "example": "918xxxxx890"
-                    },
-                    "companyName": {
-                        "type": "string",
-                        "description": "Specify contact company name. Maximum length is 35. <br>Note: Either the companyName or personName is mandatory.",
-                        "example": "FedEx"
-                    }
-                },
-                "description": "Indicate the contact details for this shipment."
-            },
-            "TaxpayerIdentification": {
-                "required": [
-                    "number"
-                ],
-                "type": "object",
-                "properties": {
-                    "number": {
-                        "type": "string",
-                        "description": "Specify tax ID number. Maximum length is 18.",
-                        "example": "123567"
-                    },
-                    "tinType": {
-                        "type": "string",
-                        "description": "Identifies the type of Tax Identification Number in Shipment processing. This is required when the tins array of objects is supplied.",
-                        "example": "PERSONAL_STATE",
-                        "enum": [
-                            "PERSONAL_NATIONAL",
-                            "PERSONAL_STATE",
-                            "BUSINESS_NATIONAL",
-                            "BUSINESS_STATE",
-                            "BUSINESS_UNION",
-                            "FEDERAL"
-                        ]
-                    },
-                    "usage": {
-                        "type": "string",
-                        "description": "Identifies the usage of Tax Identification Number in Shipment processing.",
-                        "example": "usage"
-                    },
-                    "effectiveDate": {
-                        "type": "string",
-                        "description": "Effective Date.<br>Example: 2000-01-23T04:56:07.000+00:00",
-                        "example": "2000-01-23T04:56:07.000+00:00"
-                    },
-                    "expirationDate": {
-                        "type": "string",
-                        "description": "Expiration Date.<br>Example: 2000-01-23T04:56:07.000+00:00",
-                        "example": "2000-01-23T04:56:07.000+00:00"
-                    }
-                }
-            },
-            "PartyAccountNumber": {
-                "type": "object",
-                "properties": {
-                    "value": {
-                        "type": "string",
-                        "description": "Conditional.<br> The account number value. Max Length is 9.",
-                        "example": "123456789"
-                    }
-                },
-                "description": "Specify the assigned FedEx Account Number. If the transportation charges to be billed to a payor other than the sender or recipient, provide the FedEx account number.",
-                "example": {
-                    "value": "123456789"
-                }
-            },
             "Origin": {
+                "type": "object",
+                "properties": {
+                    "address": {
+                        "$ref": "#/components/schemas/PartyAddress"
+                    },
+                    "contact": {
+                        "$ref": "#/components/schemas/PartyContact"
+                    }
+                },
+                "description": "The descriptive information for the customer origin."
+            },
+            "Origin_2": {
                 "type": "object",
                 "properties": {
                     "address": {
@@ -7715,6 +8988,28 @@
                 "description": "The descriptive information for the customer origin."
             },
             "SoldToParty": {
+                "type": "object",
+                "properties": {
+                    "address": {
+                        "$ref": "#/components/schemas/PartyAddress_soldTo"
+                    },
+                    "contact": {
+                        "$ref": "#/components/schemas/PartyContact_soldTo"
+                    },
+                    "tins": {
+                        "type": "array",
+                        "description": "Used for adding the tax id",
+                        "items": {
+                            "$ref": "#/components/schemas/TaxpayerIdentification"
+                        }
+                    },
+                    "accountNumber": {
+                        "$ref": "#/components/schemas/PartyAccountNumber"
+                    }
+                },
+                "description": "Will indicate the party responsible for purchasing the goods shipped from the shipper to the recipient. The sold to party is not necessarily the recipient or the importer of record. The sold to party is relevant when the purchaser, rather than the recipient determines when certain customs regulations apply."
+            },
+            "SoldToParty_2": {
                 "type": "object",
                 "properties": {
                     "address": {
@@ -7735,59 +9030,6 @@
                     }
                 },
                 "description": "Will indicate the party responsible for purchasing the goods shipped from the shipper to the recipient. The sold to party is not necessarily the recipient or the importer of record. The sold to party is relevant when the purchaser, rather than the recipient determines when certain customs regulations apply."
-            },
-            "PartyAddress_soldTo": {
-                "required": [
-                    "city",
-                    "countryCode",
-                    "postalCode",
-                    "stateOrProvinceCode",
-                    "streetLines"
-                ],
-                "type": "object",
-                "properties": {
-                    "streetLines": {
-                        "type": "array",
-                        "description": "This is the combination of number, street name, etc. <br>Note: At least one line is required and streetlines more than 3 will be ignored. Empty lines should not be included. Maximum length per line is 35.<br>Example: [10 FedEx Parkway, Suite 302, .etc.]",
-                        "example": [
-                            "1550 Union Blvd",
-                            "Suite 302"
-                        ],
-                        "items": {
-                            "type": "string"
-                        }
-                    },
-                    "city": {
-                        "type": "string",
-                        "description": "This is a placeholder for City Name.<br>Note: This is conditional and not required in all the requests.<br>Note: It is recommended for Express shipments for the most accurate ODA and OPA surcharges.<br>Example: Beverly Hills",
-                        "example": "Beverly Hills"
-                    },
-                    "stateOrProvinceCode": {
-                        "type": "string",
-                        "description": "This is a placeholder for State or Province code.<br>Example: CA<br><a onclick='loadDocReference(\"canadaprovincecodes\")'>click here to see State or Province Code</a>",
-                        "example": "CA"
-                    },
-                    "postalCode": {
-                        "type": "string",
-                        "description": "Indicate the Postal code. This is Optional for non postal-aware countries. Maximum length is 10.<br> Example: 65247<br><a onclick='loadDocReference(\"postalawarecountries\")'>click here to see Postal aware countries</a>",
-                        "example": "90210"
-                    },
-                    "countryCode": {
-                        "type": "string",
-                        "description": "This is the two-letter country code.<br>Maximum length is 2.<br>Example: US<br><a onclick='loadDocReference(\"countrycodes\")'>click here to see Country codes</a>",
-                        "example": "US"
-                    },
-                    "residential": {
-                        "type": "boolean",
-                        "description": "Indicate whether this address is residential (as opposed to commercial).",
-                        "example": false,
-                        "enum": [
-                            true,
-                            false
-                        ]
-                    }
-                },
-                "description": "This is detailed information on physical location. May be used as an actual physical address (place to which one could go), or as a container of address parts which should be handled as a unit (such as a city-state-ZIP combination within the US)."
             },
             "PartyContact_soldTo": {
                 "required": [
@@ -8142,91 +9384,6 @@
                 },
                 "description": "These are label specification details includes the image type, printer format, and label stock for label. Can also specify specific details such as doc-tab content, regulatory labels, and masking data on the label.<br> Mandatory as it is needed during confirming consolidation. If it is not passed while creating consolidation it will fail during confirming consolidation."
             },
-            "ShippingDocumentDispositionDetail": {
-                "type": "object",
-                "properties": {
-                    "eMailDetail": {
-                        "$ref": "#/components/schemas/ShippingDocumentEmailDetail"
-                    },
-                    "dispositionType": {
-                        "type": "string",
-                        "description": "Values in this field specify how to create and return the document.",
-                        "example": "CONFIRMED",
-                        "enum": [
-                            "CONFIRMED",
-                            "DEFERRED_QUEUED",
-                            "DEFERRED_RETURNED",
-                            "DEFERRED_STORED",
-                            "EMAILED",
-                            "QUEUED",
-                            "RETURNED",
-                            "STORED"
-                        ]
-                    },
-                    "grouping": {
-                        "type": "string",
-                        "description": "Identifies the convention by which documents are to be grouped as email attachment.",
-                        "enum": [
-                            "CONSOLIDATED_BY_DOCUMENT_TYPE",
-                            "CONSOLIDATED_BY_IMAGE_TYPE",
-                            "INDIVIDUAL"
-                        ]
-                    },
-                    "storageDetail": {
-                        "$ref": "#/components/schemas/ShippingDocumentStorageDetail"
-                    },
-                    "printDetail": {
-                        "$ref": "#/components/schemas/ShippingDocumentPrintDetail"
-                    }
-                },
-                "description": "Each occurrence of this class specifies a particular way in which a kind of shipping document is to be produced and provided."
-            },
-            "ShippingDocumentEmailDetail": {
-                "required": [
-                    "eMailRecipients"
-                ],
-                "type": "object",
-                "properties": {
-                    "eMailRecipients": {
-                        "type": "array",
-                        "description": "Shipping Document Email Recipients array",
-                        "items": {
-                            "$ref": "#/components/schemas/ShippingDocumentEmailRecipient"
-                        }
-                    },
-                    "locale": {
-                        "$ref": "#/components/schemas/Locale"
-                    },
-                    "grouping": {
-                        "type": "string",
-                        "description": "Shipping Document Email Grouping Type",
-                        "example": "NONE",
-                        "enum": [
-                            "BY_RECIPIENT",
-                            "NONE"
-                        ]
-                    }
-                },
-                "description": "Specifies how to e-mail shipping documents."
-            },
-            "ContactAndAddress": {
-                "type": "object",
-                "properties": {
-                    "contact": {
-                        "$ref": "#/components/schemas/Contact"
-                    },
-                    "contactAncillaryDetail": {
-                        "$ref": "#/components/schemas/ContactAncillaryDetail"
-                    },
-                    "address": {
-                        "$ref": "#/components/schemas/Address"
-                    },
-                    "addressAncillaryDetail": {
-                        "$ref": "#/components/schemas/AddressAncillaryDetail"
-                    }
-                },
-                "description": "Idicates the contact and address details of a location."
-            },
             "Contact": {
                 "type": "object",
                 "properties": {
@@ -8345,297 +9502,6 @@
                     "title": "title"
                 }
             },
-            "ContactAncillaryDetail": {
-                "type": "object",
-                "properties": {
-                    "emailAddresses": {
-                        "type": "array",
-                        "description": "Email Addresses",
-                        "items": {
-                            "$ref": "#/components/schemas/EMailDetail"
-                        }
-                    }
-                },
-                "description": "Indicates additional contact details for the Party such as email and phone contact information."
-            },
-            "EMailDetail": {
-                "type": "object",
-                "properties": {
-                    "emailNotificationFormatType": {
-                        "type": "string",
-                        "description": "Email Notification Format Type",
-                        "example": "SMS_TEXT_MESSAGE",
-                        "enum": [
-                            "SMS_TEXT_MESSAGE",
-                            "TEXT",
-                            "HTML"
-                        ]
-                    },
-                    "address": {
-                        "type": "string",
-                        "description": "Address"
-                    },
-                    "permissions": {
-                        "type": "object",
-                        "additionalProperties": {
-                            "type": "string",
-                            "enum": [
-                                "GRANT",
-                                "DENY"
-                            ]
-                        },
-                        "description": "Email Permission Type"
-                    }
-                },
-                "example": {
-                    "emailNotificationFormatType": "SMS_TEXT_MESSAGE",
-                    "address": "address",
-                    "permissions": {
-                        "key": "GRANT"
-                    }
-                }
-            },
-            "Address": {
-                "required": [
-                    "countryCode",
-                    "streetLines"
-                ],
-                "type": "object",
-                "properties": {
-                    "streetLines": {
-                        "type": "array",
-                        "description": "This is a combination of number, street name, etc. <br>Note: At least one line is required and streetlines more than 3 will be ignored. Empty lines should not be included.",
-                        "example": "[10 FedEx Parkway, Suite 302]",
-                        "items": {
-                            "type": "string"
-                        }
-                    },
-                    "city": {
-                        "type": "string",
-                        "description": "This is a placeholder for City Name. <br>Note: This is conditional and not required in all the shipping requests. It is recommended for Express shipments for the most accurate ODA and OPA surcharges and not used for Ground/SmartPost.",
-                        "example": "Beverly Hills"
-                    },
-                    "stateOrProvinceCode": {
-                        "type": "string",
-                        "description": "This is a placeholder for State or Province code. <br>Note: This is conditional and not required in all the shipping requests. It is recommended for Express shipments for the most accurate ODA and OPA surcharges and not used for Ground/SmartPost.",
-                        "example": "CA"
-                    },
-                    "postalCode": {
-                        "type": "string",
-                        "description": "This is placeholder for postal code.<br>Note: The postal code is required for postal-aware countries.",
-                        "example": "38127"
-                    },
-                    "countryCode": {
-                        "type": "string",
-                        "description": "This is the Two-letter country code. <a href=\"/developer-portal/en-us/reference-guide.html#countrycodes\" target=\"_blank\">Click here to see Country Codes</a>",
-                        "example": "US"
-                    },
-                    "residential": {
-                        "type": "boolean",
-                        "description": "Indicate whether this address is Residential as opposed to Commercial.<br>Valid Values: True or False.",
-                        "example": true,
-                        "enum": [
-                            true,
-                            false
-                        ]
-                    }
-                },
-                "description": "Descriptive data for a physical location. May be used as an actual physical address (place to which one could go), or as a container of \"address parts\" which should be handled as a unit (such as a city-state-ZIP combination within the US).",
-                "example": {
-                    "streetLines": [
-                        "10 FedEx Parkway",
-                        "Suite 302"
-                    ],
-                    "city": "Beverly Hills",
-                    "stateOrProvinceCode": "CA",
-                    "postalCode": "38127",
-                    "countryCode": "US",
-                    "residential": false
-                }
-            },
-            "CustomerSpecifiedLabelDetail": {
-                "type": "object",
-                "properties": {
-                    "maskedData": {
-                        "type": "array",
-                        "description": "Specifies the name of data elements/areas which may be suppressed from printing on labels.",
-                        "items": {
-                            "type": "string",
-                            "example": "[\"PACKAGE_SEQUENCE_AND_COUNT\",\"TOTAL_WEIGHT\"]",
-                            "enum": [
-                                "CUSTOMS_VALUE",
-                                "DIMENSIONS",
-                                "DUTIES_AND_TAXES_PAYOR_ACCOUNT_NUMBER",
-                                "FREIGHT_PAYOR_ACCOUNT_NUMBER",
-                                "INSURED_VALUE",
-                                "PACKAGE_SEQUENCE_AND_COUNT",
-                                "SECONDARY_BARCODE",
-                                "SHIPPER_ACCOUNT_NUMBER",
-                                "SHIPPER_INFORMATION",
-                                "SUPPLEMENTAL_LABEL_DOC_TAB",
-                                "TERMS_AND_CONDITIONS",
-                                "TOTAL_WEIGHT",
-                                "TRANSPORTATION_CHARGES_PAYOR_ACCOUNT_NUMBER"
-                            ]
-                        }
-                    },
-                    "regulatoryLabels": {
-                        "type": "array",
-                        "description": "Specifies details needed to generate any label artifacts required due to regulatory requirements",
-                        "items": {
-                            "$ref": "#/components/schemas/RegulatoryLabelContentDetail"
-                        }
-                    },
-                    "docTabContent": {
-                        "$ref": "#/components/schemas/DocTabContent"
-                    }
-                },
-                "description": "Allows customer-specified control of label content"
-            },
-            "DocTabContent": {
-                "type": "object",
-                "properties": {
-                    "docTabContentType": {
-                        "type": "string",
-                        "description": "Doc Tab Content Type",
-                        "example": "BARCODED",
-                        "enum": [
-                            "BARCODED",
-                            "CUSTOM",
-                            "MINIMUM",
-                            "STANDARD",
-                            "ZONE001"
-                        ]
-                    },
-                    "zone001": {
-                        "$ref": "#/components/schemas/DocTabContentZone"
-                    },
-                    "barcoded": {
-                        "$ref": "#/components/schemas/DocTabContentBarcoded"
-                    }
-                },
-                "description": "Specifies details of doc tab content, If provided, thermal documents will include specified doc tab content. If omitted, document will be produced without doc tab content."
-            },
-            "DocTabContentZone": {
-                "type": "object",
-                "properties": {
-                    "docTabZoneSpecifications": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/DocTabZoneSpecification"
-                        }
-                    }
-                }
-            },
-            "DocTabZoneSpecification": {
-                "type": "object",
-                "properties": {
-                    "zoneNumber": {
-                        "type": "integer",
-                        "description": "is a nonNegativeInteger<br>Example:  1",
-                        "format": "int32",
-                        "example": 0
-                    },
-                    "header": {
-                        "type": "string",
-                        "description": "header of DocTabZoneSpecification<br>Example:  WHT",
-                        "example": "WHT"
-                    },
-                    "dataField": {
-                        "type": "string",
-                        "description": "dataField of DocTabZoneSpecification<br>Example:  REQUEST/PACKAGE/weight/Value",
-                        "example": "REQUEST/PACKAGE/weight/Value"
-                    },
-                    "literalValue": {
-                        "type": "string",
-                        "description": "literalValue of DocTabZoneSpecification<br>",
-                        "example": "mytext"
-                    },
-                    "justification": {
-                        "type": "string",
-                        "description": "Doc Tab Zone Justification Type",
-                        "example": "RIGHT",
-                        "enum": [
-                            "LEFT",
-                            "RIGHT"
-                        ]
-                    }
-                }
-            },
-            "DocTabContentBarcoded": {
-                "type": "object",
-                "properties": {
-                    "symbology": {
-                        "type": "string",
-                        "description": "Barcode Symbology Type",
-                        "example": "UCC128",
-                        "enum": [
-                            "CODABAR",
-                            "CODE128",
-                            "CODE128_WIDEBAR",
-                            "CODE128B",
-                            "CODE128C",
-                            "CODE39",
-                            "CODE93",
-                            "I2OF5",
-                            "MANUAL",
-                            "PDF417",
-                            "POSTNET",
-                            "QR_CODE",
-                            "UCC128"
-                        ]
-                    },
-                    "specification": {
-                        "$ref": "#/components/schemas/DocTabZoneSpecification"
-                    }
-                }
-            },
-            "InternationalDistributionDetail": {
-                "required": [
-                    "clearanceFacilityLocationId",
-                    "declaredCurrencies",
-                    "totalDimensions"
-                ],
-                "type": "object",
-                "properties": {
-                    "dropOffType": {
-                        "type": "string",
-                        "description": "Specifies drop off type.",
-                        "example": "DROP_BOX",
-                        "enum": [
-                            "BUSINESS_SERVICE_CENTER",
-                            "DROP_BOX",
-                            "REGULAR_PICKUP",
-                            "REQUEST_PICKUP",
-                            "STATION"
-                        ]
-                    },
-                    "totalDimensions": {
-                        "$ref": "#/components/schemas/Dimensions"
-                    },
-                    "totalInsuredValue": {
-                        "$ref": "#/components/schemas/TotalInsuredMoney"
-                    },
-                    "unitSystem": {
-                        "type": "string",
-                        "description": "Specifies the unit system.",
-                        "example": "ENGLISH",
-                        "enum": [
-                            "ENGLISH",
-                            "METRIC"
-                        ]
-                    },
-                    "declaredCurrencies": {
-                        "$ref": "#/components/schemas/Money"
-                    },
-                    "clearanceFacilityLocationId": {
-                        "type": "string",
-                        "description": "Specifies the clearance facility location id.",
-                        "example": "MEMI"
-                    }
-                },
-                "description": "Specifies the international distribution detail."
-            },
             "Money": {
                 "required": [
                     "value"
@@ -8679,29 +9545,101 @@
                 },
                 "description": "This is commodity value used for Customs declaration."
             },
-            "TransborderDistributionDetail": {
+            "CustomsClearanceDetail": {
                 "type": "object",
                 "properties": {
-                    "specialServicesRequested": {
-                        "$ref": "#/components/schemas/TransborderDistributionDetail_specialServicesRequested"
+                    "customsOption": {
+                        "$ref": "#/components/schemas/CustomsOptionDetail"
                     },
-                    "routing": {
+                    "importerOfRecord": {
+                        "description": "The descriptive data for the importer of Record for the shipment and their physical address, contact and account number information.",
+                        "$ref": "#/components/schemas/Party"
+                    },
+                    "recipientCustomsId": {
+                        "$ref": "#/components/schemas/RecipientCustomsId"
+                    },
+                    "dutiesPayment": {
+                        "$ref": "#/components/schemas/Payment"
+                    },
+                    "documentContent": {
                         "type": "string",
-                        "description": "Specifies the transborder distribution routing.",
-                        "example": "CUSTOMER_SPECIFIED",
+                        "description": "Specifies document content.",
+                        "example": "DOCUMENTS_ONLY",
                         "enum": [
-                            "BY_METER",
-                            "BY_ORIGIN",
-                            "CUSTOMER_SPECIFIED"
+                            "DOCUMENTS_ONLY",
+                            "NON_DOCUMENTS",
+                            "DERIVED"
                         ]
                     },
-                    "summaryDetail": {
-                        "$ref": "#/components/schemas/SummaryDetail"
+                    "totalCustomsValue": {
+                        "$ref": "#/components/schemas/Money_2"
+                    },
+                    "regulatoryControls": {
+                        "type": "array",
+                        "description": "RegulatoryControls",
+                        "example": "NOT_IN_FREE_CIRCULATION",
+                        "items": {
+                            "type": "string",
+                            "enum": [
+                                "FOOD_OR_PERISHABLE",
+                                "USMCA",
+                                "NOT_APPLICABLE_FOR_LOW_VALUE_CUSTOMS_EXCEPTIONS",
+                                "NOT_IN_FREE_CIRCULATION"
+                            ]
+                        }
+                    },
+                    "insuranceCharges": {
+                        "description": "Amount paid to a third party for the purpose of insuring this shipment against damage or loss.  Used to calculate estimated duties and taxes",
+                        "$ref": "#/components/schemas/Money_2"
+                    },
+                    "declarationStatementDetail": {
+                        "$ref": "#/components/schemas/ConsolidationCustomsDeclarationStatementDetail"
+                    },
+                    "commercialInvoice": {
+                        "$ref": "#/components/schemas/CustomsClearanceDetail_commercialInvoice"
+                    },
+                    "exportDetail": {
+                        "$ref": "#/components/schemas/ExportDetail"
+                    },
+                    "commodities": {
+                        "type": "array",
+                        "description": "Indicates the details about the dutiable packages. Maximum upto 999 commodities per shipment.",
+                        "items": {
+                            "$ref": "#/components/schemas/Commodity"
+                        }
+                    },
+                    "brokers": {
+                        "type": "array",
+                        "description": "Specify broker information. Use this option only if you are using Broker Select Option for your shipment. A country code must be specified in addition to one of the following address items: postal code, city, or location id.",
+                        "items": {
+                            "$ref": "#/components/schemas/BrokerDetail"
+                        }
+                    },
+                    "clearanceBrokerage": {
+                        "type": "string",
+                        "description": "Specifies the type of brokerage to be applied to a shipment.",
+                        "example": "BROKER_SELECT",
+                        "enum": [
+                            "BROKER_INCLUSIVE",
+                            "BROKER_INCLUSIVE_NON_RESIDENT_IMPORTER",
+                            "BROKER_SELECT",
+                            "BROKER_SELECT_NON_RESIDENT_IMPORTER",
+                            "BROKER_UNASSIGNED"
+                        ]
+                    },
+                    "freightOnValue": {
+                        "type": "string",
+                        "description": "Specify the risk owner for the Freight shipment.This element is only mandatory or valid for Intra India shipments.",
+                        "example": "OWN_RISK",
+                        "enum": [
+                            "CARRIER_RISK",
+                            "OWN_RISK"
+                        ]
                     }
                 },
-                "description": "Specifies attributes of a shipment whithin a transborder distribution."
+                "description": "Required for International and intra-country Shipments. Information about this package that only applies to an international (export) shipment or return."
             },
-            "CustomsClearanceDetail": {
+            "CustomsClearanceDetail_2": {
                 "type": "object",
                 "properties": {
                     "customsOption": {
@@ -8768,7 +9706,7 @@
                         "type": "array",
                         "description": "Conditional.<br>Specify Broker information only if you are using Broker Select Option for your shipment.To be considered a valid, a country code must be specified in addition to one of the following address items: postal code, city, or location id.",
                         "items": {
-                            "$ref": "#/components/schemas/BrokerDetail"
+                            "$ref": "#/components/schemas/BrokerDetail_2"
                         }
                     },
                     "clearanceBrokerage": {
@@ -8794,34 +9732,6 @@
                     }
                 },
                 "description": "Required for International and intra-country Shipments. Information about this package that only applies to an international (export) shipment or return."
-            },
-            "CustomsOptionDetail": {
-                "type": "object",
-                "properties": {
-                    "description": {
-                        "type": "string",
-                        "description": "Specify additional description about customs options. This is a required field when the Type is OTHER.",
-                        "example": "Description"
-                    },
-                    "type": {
-                        "type": "string",
-                        "description": "Specify the reason for a global return, as recognized by Customs. ",
-                        "example": "COURTESY_RETURN_LABEL",
-                        "enum": [
-                            "COURTESY_RETURN_LABEL",
-                            "EXHIBITION_TRADE_SHOW",
-                            "FAULTY_ITEM",
-                            "FOLLOWING_REPAIR",
-                            "FOR_REPAIR",
-                            "ITEM_FOR_LOAN",
-                            "OTHER",
-                            "REJECTED",
-                            "REPLACEMENT",
-                            "TRIAL"
-                        ]
-                    }
-                },
-                "description": "Customs Option Detail, type must be indicated for each occurrence"
             },
             "Party": {
                 "type": "object",
@@ -8952,164 +9862,21 @@
                     ]
                 }
             },
-            "Payment": {
-                "type": "object",
-                "properties": {
-                    "payor": {
-                        "$ref": "#/components/schemas/Payor"
-                    },
-                    "paymentType": {
-                        "type": "string",
-                        "description": "Specify the payment Type. <br>Note: This is required for Express, Ground and SmartPost shipments.<br> The payment type COLLECT is applicable only for Ground shipments.",
-                        "example": "THIRD_PARTY",
-                        "enum": [
-                            "SENDER",
-                            "RECIPIENT",
-                            "THIRD_PARTY",
-                            "BILL_ANONYMOUSLY",
-                            "COLLECT",
-                            "CASH",
-                            "ACCOUNT",
-                            "CONSIGNEE"
-                        ]
-                    }
-                },
-                "description": "Details about who and how the shipment will be paid for. 'payor' is optional when 'paymentType' provided is SENDER."
-            },
-            "Payor": {
-                "type": "object",
-                "properties": {
-                    "responsibleParty": {
-                        "$ref": "#/components/schemas/Party_2"
-                    }
-                },
-                "description": "Information about the person who is paying for the shipment.  Not applicable for credit card payment. "
-            },
-            "ExportDetail": {
-                "required": [
-                    "b13AFilingOption"
-                ],
-                "type": "object",
-                "properties": {
-                    "destinationControlDetail": {
-                        "$ref": "#/components/schemas/DestinationControlDetail"
-                    },
-                    "b13AFilingOption": {
-                        "type": "string",
-                        "description": "Specify the filing option being exercised. Required for non-document shipments originating in Canada destinated for any country other than Canada, the United States, Puerto Rico, or the U.S. Virgin Islands.",
-                        "example": "NOT_REQUIRED",
-                        "enum": [
-                            "NOT_REQUIRED",
-                            "MANUALLY_ATTACHED",
-                            "FILED_ELECTRONICALLY",
-                            "SUMMARY_REPORTING",
-                            "FEDEX_TO_STAMP"
-                        ]
-                    },
-                    "exportComplianceStatement": {
-                        "type": "string",
-                        "description": "For shipments requiring an EEI, enter the ITN number received from AES when you filed your shipment or the FTR (Foreign Trade Regulations) exemption number.The proper format for an ITN number is AES XYYYYMMDDNNNNNN where YYYYMMDD is date and NNNNNN are numbers generated by the AES.<br>Note: The ITN or FTR exemption number you submit in the Ship request prints on the international shipping label.",
-                        "example": "AESX20220407123456"
-                    },
-                    "permitNumber": {
-                        "type": "string",
-                        "description": "This is a Permit Number. This field is applicable only to Canada export non-document shipments of any value to any destination. No special characters are allowed.",
-                        "example": "12345"
-                    }
-                },
-                "description": "Conditional. Export Detail Used for US or CA exports."
-            },
-            "DestinationControlDetail": {
-                "required": [
-                    "statementTypes"
-                ],
-                "type": "object",
-                "properties": {
-                    "endUser": {
-                        "type": "string",
-                        "description": "Specify End User name. Its is required if StatementTypes is entered as DEPARTMENT_OF_STATE.",
-                        "example": "John Wick"
-                    },
-                    "statementTypes": {
-                        "type": "string",
-                        "description": "Specify appropriate destination control statement type(s), Also make sure to specify destination country and end user.",
-                        "example": "DEPARTMENT_OF_COMMERCE",
-                        "enum": [
-                            "DEPARTMENT_OF_COMMERCE",
-                            "DEPARTMENT_OF_STATE",
-                            "DEPARTMENT_OF_COMMERCE_AND_DEPARTMENT_OF_STATE"
-                        ]
-                    },
-                    "destinationCountries": {
-                        "type": "array",
-                        "description": "Specify DCS shipment destination country. You may enter up to four country codes in this element. Up to 11 alphanumeric characters are allowed.",
-                        "example": [
-                            "USA",
-                            "India"
-                        ],
-                        "items": {
-                            "type": "string"
-                        }
-                    }
-                },
-                "description": "VERY IMPORTANT: Specify appropriate destinationcontrol statement type(s),Valid values: DEPARTMENT_OF_COMMERCE, DEPARTMENT_OF_STATE<br>Be sure to also specify destination country and enduser."
-            },
-            "Commodity": {
-                "required": [
-                    "description",
-                    "numberOfPieces"
-                ],
-                "type": "object",
-                "properties": {
-                    "name": {
-                        "type": "string",
-                        "description": "Specify the commodity name",
-                        "example": "non-threaded rivets"
-                    },
-                    "numberOfPieces": {
-                        "type": "integer",
-                        "description": "Indicates the number of pieces associated with the commodity. Number of pieces cannot be a negative value or exceed 9,999.",
-                        "format": "int32",
-                        "example": 12
-                    },
-                    "description": {
-                        "type": "string",
-                        "description": "This is the commodity description. Maximum allowed 450 characters.",
-                        "example": "AC parts"
-                    },
-                    "countryOfManufacture": {
-                        "type": "string",
-                        "description": "This is commodity country of manufacture. This is required for International shipments. Maximum allowed length is 4.",
-                        "example": "US"
-                    },
-                    "weight": {
-                        "$ref": "#/components/schemas/Weight"
-                    },
-                    "quantity": {
-                        "type": "integer",
-                        "description": "This is the units quantity (using quantityUnits as the unit of measure) per commodity. This is used to estimate duties and taxes.",
-                        "format": "int32",
-                        "example": 125
-                    },
-                    "quantityUnits": {
-                        "type": "string",
-                        "description": "This is the unit of measure for the units quantity. This is used to estimate duties and taxes.",
-                        "example": "EA"
-                    },
-                    "unitPrice": {
-                        "$ref": "#/components/schemas/Money_2"
-                    },
-                    "customsValue": {
-                        "$ref": "#/components/schemas/Money_2"
-                    },
-                    "commodityId": {
-                        "type": "string",
-                        "description": "Value used to identify a commodity description; must be unique within the containing shipment.",
-                        "example": "commodity Id"
-                    }
-                }
-            },
             "BrokerDetail": {
+                "type": "object",
+                "properties": {
+                    "broker": {
+                        "description": "These are broker details for the shipment with physical address, contact and account number information.",
+                        "$ref": "#/components/schemas/Party"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "Identifies the type of Broker."
+                    }
+                },
+                "description": "Broker details for the shipment"
+            },
+            "BrokerDetail_2": {
                 "type": "object",
                 "properties": {
                     "broker": {
@@ -9124,6 +9891,61 @@
                 "description": "Broker details for the shipment"
             },
             "ConsolidationDocumentSpec": {
+                "type": "object",
+                "properties": {
+                    "consolidationDocumentTypes": {
+                        "type": "array",
+                        "description": "Specifies consolidation document types.<br>Example:<ul><li>CONSOLIDATED_COMMERCIAL_INVOICE</li><li>CUSTOMS_PACKING_LIST</li><li>CRN_REPORT</li><li>COMMODITIES_BY_TRACKING_NUMBER_REPORT</li><li>CONDENSED_CRN_REPORT</li><li>CONSOLIDATED_CUSTOMS_LINEHAUL_REPORT</li><li>CONSOLIDATED_PARTY_REPORT</li><li>CONSOLIDATED_SOLD_TO_SUMMARY_REPORT</li><li>CUSTOM_CONSOLIDATION_DOCUMENT</li></ul>",
+                        "example": [
+                            "CONSOLIDATED_COMMERCIAL_INVOICE",
+                            "CUSTOMS_PACKING_LIST",
+                            "CRN_REPORT",
+                            "COMMODITIES_BY_TRACKING_NUMBER_REPORT",
+                            "CONDENSED_CRN_REPORT",
+                            "CONSOLIDATED_CUSTOMS_LINEHAUL_REPORT",
+                            "CONSOLIDATED_PARTY_REPORT",
+                            "CONSOLIDATED_SOLD_TO_SUMMARY_REPORT",
+                            "CUSTOM_CONSOLIDATION_DOCUMENT"
+                        ],
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "consolidatedCommercialInvoiceDetail": {
+                        "$ref": "#/components/schemas/ConsolidationDocumentSpec_consolidatedCommercialInvoiceDetail"
+                    },
+                    "customsPackingListDetail": {
+                        "$ref": "#/components/schemas/ConsolidationDocumentSpec_customsPackingListDetail"
+                    },
+                    "crnReportDetail": {
+                        "$ref": "#/components/schemas/ConsolidationDocumentSpec_crnReportDetail"
+                    },
+                    "condensedCrnReportDetail": {
+                        "$ref": "#/components/schemas/ConsolidationDocumentSpec_condensedCrnReportDetail"
+                    },
+                    "consolidatedCustomsLinehaulReportDetail": {
+                        "$ref": "#/components/schemas/ConsolidationDocumentSpec_consolidatedCustomsLinehaulReportDetail"
+                    },
+                    "consolidatedPartyReportDetail": {
+                        "$ref": "#/components/schemas/ConsolidationDocumentSpec_consolidatedPartyReportDetail"
+                    },
+                    "consolidatedSoldToSummaryReportDetail": {
+                        "$ref": "#/components/schemas/ConsolidationDocumentSpec_consolidatedSoldToSummaryReportDetail"
+                    },
+                    "commoditiesByTrackingNumberDetail": {
+                        "$ref": "#/components/schemas/ConsolidationDocumentSpec_consolidatedSoldToSummaryReportDetail"
+                    },
+                    "customDocumentDetails": {
+                        "type": "array",
+                        "description": "Specifies the child reference number report detail for consolidated SoldTo summary report detail.",
+                        "items": {
+                            "$ref": "#/components/schemas/Formats"
+                        }
+                    }
+                },
+                "description": "Details of consolidation document specification"
+            },
+            "ConsolidationDocumentSpec_2": {
                 "type": "object",
                 "properties": {
                     "consolidationDocumentTypes": {
@@ -9178,104 +10000,6 @@
                 },
                 "description": "Details of consolidation document specification"
             },
-            "Formats": {
-                "type": "object",
-                "properties": {
-                    "docType": {
-                        "type": "string",
-                        "description": "Specify the image format used for a shipping document.<br><a onclick='loadDocReference(\"labelstocktypes\")'>click here to see label format types</a>",
-                        "example": "PDF",
-                        "enum": [
-                            "ZPLII",
-                            "EPL2",
-                            "PDF",
-                            "PNG",
-                            "DIB",
-                            "DOC",
-                            "DPL",
-                            "GIF",
-                            "RTF",
-                            "TEXT"
-                        ]
-                    },
-                    "stockType": {
-                        "type": "string",
-                        "description": "Specify the label stock type.<br><a onclick='loadDocReference(\"labelstocktypes\")'>click here to see label format types</a>",
-                        "example": "PAPER_LETTER",
-                        "enum": [
-                            "OP_900_LG",
-                            "OP_900_LG_B",
-                            "OP_900_LL",
-                            "OP_900_LL_B",
-                            "OP_950_PAPER_4_PER_PAGE_PORTRAIT",
-                            "PAPER_4X6",
-                            "PAPER_LETTER",
-                            "STOCK_4X6",
-                            "STOCK_4X675_LEADING_DOC_TAB",
-                            "STOCK_4X675_TRAILING_DOC_TAB",
-                            "STOCK_4X8",
-                            "STOCK_4X9_LEADING_DOC_TAB",
-                            "STOCK_4X9_TRAILING_DOC_TAB"
-                        ]
-                    }
-                },
-                "description": "Specifies the formats."
-            },
-            "DistributionLocations": {
-                "type": "object",
-                "properties": {
-                    "type": {
-                        "type": "string",
-                        "description": "Specifies the type of distribution locations.",
-                        "example": "CUSTOMER_SPECIFIED",
-                        "enum": [
-                            "CUSTOMER_SPECIFIED",
-                            "FEDEX_EXPRESS_FREIGHT_RAMP",
-                            "FEDEX_EXPRESS_STATION",
-                            "FEDEX_GROUND_TERMINAL"
-                        ]
-                    },
-                    "locationNumber": {
-                        "type": "integer",
-                        "description": "Specifies the location number.",
-                        "example": 0
-                    },
-                    "id": {
-                        "type": "string",
-                        "description": "This is a customer-specified or system-assigned identifier that uniquely identifies the specific distibution location within a collection of distribution locations. This is not the same as the FedEx locationId or locationNumber..<br> Example: 123",
-                        "example": "123"
-                    },
-                    "locationId": {
-                        "type": "string",
-                        "description": "The unique location identifier <br> Example: YBZA",
-                        "example": "YBZA"
-                    },
-                    "locationContactAndAddress": {
-                        "$ref": "#/components/schemas/ContactAndAddress"
-                    },
-                    "clearanceNumber": {
-                        "type": "string",
-                        "description": "This specifies the clearance number associated with the distribution location.<br> Example: 123",
-                        "example": "123"
-                    },
-                    "inclusionSpecifications": {
-                        "type": "array",
-                        "description": "Specifies which kinds of shipments will be processed by this distribution location.",
-                        "items": {
-                            "allOf": [
-                                {
-                                    "$ref": "#/components/schemas/CarrierCode"
-                                },
-                                {
-                                    "$ref": "#/components/schemas/ServiceCategory"
-                                }
-                            ],
-                            "type": "string"
-                        }
-                    }
-                },
-                "description": "Specifies the distribution locations for consolidation.<br> Mandatory for International Ground Distribution."
-            },
             "ErrorResponseVO": {
                 "type": "object",
                 "properties": {
@@ -9292,12 +10016,81 @@
                     "errors": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/components/schemas/CXSError_2"
+                            "$ref": "#/components/schemas/CXSError"
                         }
                     }
                 }
             },
             "ErrorResponseVO_2": {
+                "type": "object",
+                "properties": {
+                    "transactionId": {
+                        "type": "string",
+                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
+                        "example": "624deea6-b709-470c-8c39-4b5511281492"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CXSError_2"
+                        }
+                    }
+                }
+            },
+            "ErrorResponseVO_3": {
+                "type": "object",
+                "properties": {
+                    "transactionId": {
+                        "type": "string",
+                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
+                        "example": "624deea6-b709-470c-8c39-4b5511281492"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CXSError_3"
+                        }
+                    }
+                }
+            },
+            "ErrorResponseVO_4": {
+                "type": "object",
+                "properties": {
+                    "transactionId": {
+                        "type": "string",
+                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
+                        "example": "624deea6-b709-470c-8c39-4b5511281492"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CXSError_4"
+                        }
+                    }
+                }
+            },
+            "ErrorResponseVO_5": {
+                "type": "object",
+                "properties": {
+                    "transactionId": {
+                        "type": "string",
+                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
+                        "example": "624deea6-b709-470c-8c39-4b5511281492"
+                    },
+                    "customerTransactionId": {
+                        "type": "string",
+                        "description": "This element allows you to assign a unique identifier to your transaction. This element is also returned in the reply and helps you match the request to the reply. <br> Example: AnyCo_order123456789",
+                        "example": "AnyCo_order123456789"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CXSError_5"
+                        }
+                    }
+                }
+            },
+            "ErrorResponseVO_6": {
                 "type": "object",
                 "properties": {
                     "transactionId": {
@@ -9349,294 +10142,73 @@
                         "example": "0e671149-016f-1000-941f-ef4dbabadd2e"
                     },
                     "errors": {
+                        "$ref": "#/components/schemas/CXSError401_errors"
+                    }
+                },
+                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
+            },
+            "CXSError_3": {
+                "type": "object",
+                "properties": {
+                    "transactionId": {
+                        "type": "string",
+                        "description": "It is the unique identifier for the transaction.",
+                        "format": "uuid",
+                        "example": "0e671149-016f-1000-941f-ef4dbabadd2e"
+                    },
+                    "customerTransactionId": {
+                        "type": "string",
+                        "description": "It is the same customerTransactionId sent as part of the request's header,by the clients calling this endpoint.",
+                        "format": "uuid",
+                        "example": "0e671149-016f-1000-941f-ef4dbabadd2e"
+                    },
+                    "errors": {
+                        "$ref": "#/components/schemas/CXSError403_errors"
+                    }
+                },
+                "description": "Indicates error when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
+            },
+            "CXSError_4": {
+                "type": "object",
+                "properties": {
+                    "transactionId": {
+                        "type": "string",
+                        "description": "It is the unique identifier for the transaction.",
+                        "format": "uuid",
+                        "example": "0e671149-016f-1000-941f-ef4dbabadd2e"
+                    },
+                    "customerTransactionId": {
+                        "type": "string",
+                        "description": "It is the same customerTransactionId sent as part of the request's header,by the clients calling this endpoint.",
+                        "format": "uuid",
+                        "example": "0e671149-016f-1000-941f-ef4dbabadd2e"
+                    },
+                    "errors": {
+                        "$ref": "#/components/schemas/CXSError404_errors"
+                    }
+                },
+                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
+            },
+            "CXSError_5": {
+                "type": "object",
+                "properties": {
+                    "transactionId": {
+                        "type": "string",
+                        "description": "It is the unique identifier for the transaction.",
+                        "format": "uuid",
+                        "example": "0e671149-016f-1000-941f-ef4dbabadd2e"
+                    },
+                    "customerTransactionId": {
+                        "type": "string",
+                        "description": "It is the same customerTransactionId sent as part of the request's header,by the clients calling this endpoint.",
+                        "format": "uuid",
+                        "example": "0e671149-016f-1000-941f-ef4dbabadd2e"
+                    },
+                    "errors": {
                         "$ref": "#/components/schemas/CXSError500_errors"
                     }
                 },
                 "description": "Indicates exception when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
-            },
-            "ImporterOfRecord": {
-                "required": [
-                    "address",
-                    "contact"
-                ],
-                "type": "object",
-                "properties": {
-                    "address": {
-                        "$ref": "#/components/schemas/PartyAddress_2"
-                    },
-                    "contact": {
-                        "$ref": "#/components/schemas/PartyContact"
-                    },
-                    "accountNumber": {
-                        "$ref": "#/components/schemas/PartyAccountNumber"
-                    }
-                },
-                "description": "The descriptive information for the person who is responsible for the shipment."
-            },
-            "PieceResponses": {
-                "type": "object",
-                "properties": {
-                    "masterTrackingNumber": {
-                        "type": "string",
-                        "description": "This is a master tracking number for the shipment (must be unique for stand-alone open shipments, or unique within consolidation if consolidation key is provided).<br>Example: 794953535000",
-                        "example": "794953535000"
-                    },
-                    "trackingNumber": {
-                        "type": "string",
-                        "description": "This is a tracking number associted with this package. <br>Example: 49XXX0000XXX20032835",
-                        "example": "794953535000"
-                    },
-                    "additionalChargesDiscount": {
-                        "type": "number",
-                        "description": "These are additional charges or discounts.<br>Example: 621.45",
-                        "format": "double",
-                        "example": 621.45
-                    },
-                    "netRateAmount": {
-                        "type": "number",
-                        "description": "Returns the net rate amount.<br>Example: 1.45",
-                        "format": "double",
-                        "example": 1.45
-                    },
-                    "netChargeAmount": {
-                        "type": "number",
-                        "description": "Indicates Net charge amount.<br>Example: 21.45",
-                        "format": "double",
-                        "example": 21.45
-                    },
-                    "netDiscountAmount": {
-                        "type": "number",
-                        "description": "Returns the net discount amount.<br>Example: 121.45",
-                        "format": "double",
-                        "example": 121.45
-                    },
-                    "packageDocuments": {
-                        "type": "array",
-                        "description": "These are package documents returned in the response",
-                        "items": {
-                            "$ref": "#/components/schemas/LabelResponseVO"
-                        }
-                    },
-                    "customerReferences": {
-                        "type": "array",
-                        "description": "Additional customer reference data",
-                        "items": {
-                            "$ref": "#/components/schemas/CustomerReference"
-                        }
-                    },
-                    "codcollectionAmount": {
-                        "type": "number",
-                        "description": "Returns the Collect on Delivery charges.<br>Example: 231.45",
-                        "format": "double",
-                        "example": 231.45
-                    },
-                    "baseRateAmount": {
-                        "type": "number",
-                        "description": "Returns the base rate amount.<br>Example: 321.45",
-                        "format": "double",
-                        "example": 321.45
-                    }
-                },
-                "description": "These are shipping document/label specific information."
-            },
-            "HazardousCommodityQuantityDetail": {
-                "required": [
-                    "amount",
-                    "quantityType"
-                ],
-                "type": "object",
-                "properties": {
-                    "quantityType": {
-                        "type": "string",
-                        "description": "Specifies which measure of quantity is to be validated.",
-                        "example": "NET",
-                        "enum": [
-                            "GROSS",
-                            "NET"
-                        ]
-                    },
-                    "amount": {
-                        "type": "number",
-                        "description": "Number of units of the type below.",
-                        "format": "double",
-                        "example": 34.56
-                    },
-                    "units": {
-                        "type": "string",
-                        "description": "specifies the units.",
-                        "example": "Kg"
-                    }
-                },
-                "description": "Provides Hazardous Commodity Quantity Detail"
-            },
-            "HazardousCommodityContent": {
-                "type": "object",
-                "properties": {
-                    "quantity": {
-                        "$ref": "#/components/schemas/HazardousCommodityQuantityDetail"
-                    },
-                    "innerReceptacles": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/HazardousCommodityInnerReceptacleDetail"
-                        }
-                    },
-                    "options": {
-                        "$ref": "#/components/schemas/HazardousCommodityOptionDetail"
-                    },
-                    "description": {
-                        "$ref": "#/components/schemas/HazardousCommodityDescription"
-                    }
-                },
-                "description": "Customer-provided specifications for handling individual commodities."
-            },
-            "HazardousCommodityInnerReceptacleDetail": {
-                "type": "object",
-                "properties": {
-                    "quantity": {
-                        "$ref": "#/components/schemas/HazardousCommodityQuantityDetail"
-                    }
-                }
-            },
-            "HazardousCommodityOptionDetail": {
-                "type": "object",
-                "properties": {
-                    "labelTextOption": {
-                        "type": "string",
-                        "description": "Provides the label text option",
-                        "example": "OVERRIDE",
-                        "enum": [
-                            "APPEND",
-                            "OVERRIDE",
-                            "STANDARD"
-                        ]
-                    },
-                    "customerSuppliedLabelText": {
-                        "type": "string",
-                        "description": "'DG Data Upload Mode:- Optional.,DG Full Validation Mode:- Optional,Text used in labeling the commodity under control of the LabelTextOption field.'\n",
-                        "example": "Customer Supplied Label Text"
-                    }
-                },
-                "description": "Provides details of Hazardous Commodity Option Detail"
-            },
-            "HazardousCommodityDescription": {
-                "required": [
-                    "packingGroup",
-                    "reportableQuantity"
-                ],
-                "type": "object",
-                "properties": {
-                    "sequenceNumber": {
-                        "type": "integer",
-                        "description": "RequiredSpecify the sequence number.",
-                        "format": "int32",
-                        "example": 9812
-                    },
-                    "processingOptions": {
-                        "type": "array",
-                        "description": "Indicates any special processing options to be applied to the description of the dangerous goods commodity",
-                        "items": {
-                            "type": "string",
-                            "example": "INCLUDE_SPECIAL_PROVISIONS",
-                            "enum": [
-                                "INCLUDE_SPECIAL_PROVISIONS"
-                            ]
-                        }
-                    },
-                    "subsidiaryClasses": {
-                        "type": "array",
-                        "description": "Required. Provides list of subsidiary classes",
-                        "example": [
-                            "Subsidiary Classes"
-                        ],
-                        "items": {
-                            "type": "string"
-                        }
-                    },
-                    "labelText": {
-                        "type": "string",
-                        "description": "Specifies the text for the label.\n",
-                        "example": "labelText"
-                    },
-                    "technicalName": {
-                        "type": "string",
-                        "description": "'The element specifies the technical name for the hazardous material.'\n\n",
-                        "example": "technicalName"
-                    },
-                    "packingDetails": {
-                        "$ref": "#/components/schemas/HazardousCommodityPackingDetail"
-                    },
-                    "authorization": {
-                        "type": "string",
-                        "description": "Authorization",
-                        "example": "authorization"
-                    },
-                    "reportableQuantity": {
-                        "type": "boolean",
-                        "description": "Reportable Quantity",
-                        "example": true,
-                        "enum": [
-                            true,
-                            false
-                        ]
-                    },
-                    "percentage": {
-                        "type": "number",
-                        "description": "Percentage",
-                        "format": "double",
-                        "example": 12.45
-                    },
-                    "id": {
-                        "type": "string",
-                        "description": "ID",
-                        "example": "UN1234"
-                    },
-                    "packingGroup": {
-                        "type": "string",
-                        "description": "Identifies DOT packing group for a hazardous commodity",
-                        "example": "I",
-                        "enum": [
-                            "DEFAULT",
-                            "I",
-                            "II",
-                            "III"
-                        ]
-                    },
-                    "properShippingName": {
-                        "type": "string",
-                        "description": "The proper shipping name as defined by the regulation. The name can also include qualifying words",
-                        "example": "paint"
-                    },
-                    "hazardClass": {
-                        "type": "string",
-                        "description": "'Specifies the hazard class for the commodity.'\n",
-                        "example": "2.3"
-                    }
-                },
-                "description": "RequiredDetails of HazardousCommodityDescription"
-            },
-            "HazardousCommodityPackingDetail": {
-                "required": [
-                    "cargoAircraftOnly"
-                ],
-                "type": "object",
-                "properties": {
-                    "packingInstructions": {
-                        "type": "string",
-                        "description": "Coded specification for how commodity is to be packed.",
-                        "example": "NonBulk"
-                    },
-                    "cargoAircraftOnly": {
-                        "type": "boolean",
-                        "description": "Shipment is packaged/documented for movement ONLY on cargo aircraft",
-                        "example": true,
-                        "enum": [
-                            true,
-                            false
-                        ]
-                    }
-                },
-                "description": "Specifies documentation and limits for validation of an individual packing group/category. DG Data Upload Mode: Required (IATA), Optional (Other), DG Full Validation Mode: Required (IATA), Optional (Other),"
             }
         }
     },

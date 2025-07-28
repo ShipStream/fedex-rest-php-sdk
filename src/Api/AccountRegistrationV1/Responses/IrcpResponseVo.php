@@ -10,17 +10,17 @@ declare(strict_types=1);
 
 namespace ShipStream\FedEx\Api\AccountRegistrationV1\Responses;
 
-use ShipStream\FedEx\Api\AccountRegistrationV1\Dto\CustomerKeyOutputVo;
+use ShipStream\FedEx\Api\AccountRegistrationV1\Dto\BaseProcessOutputVo;
 use ShipStream\FedEx\Response;
 
 final class IrcpResponseVo extends Response
 {
     /**
      * @param  ?string  $transactionId  The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492
-     * @param  ?CustomerKeyOutputVo  $output  This is the response object providing Child Key and secret key as a output.
+     * @param  ?BaseProcessOutputVo  $output  This is the response object providing Customer Key and secret key as a output.
      */
     public function __construct(
         public readonly ?string $transactionId = null,
-        public readonly ?CustomerKeyOutputVo $output = null,
+        public readonly ?BaseProcessOutputVo $output = null,
     ) {}
 }

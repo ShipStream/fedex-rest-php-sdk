@@ -7,19 +7,35 @@
                 "path": "paths./registration/v2/address/keysgeneration.post.responses.400.content.application/json.examples"
             },
             {
-                "comment": "Remove broken example references from 400 response in PIN validation endpoint", 
+                "comment": "Remove broken example references from 400 response in PIN validation endpoint",
                 "action": "delete",
                 "path": "paths./registration/v2/pin/keysgeneration.post.responses.400.content.application/json.examples"
             },
             {
                 "comment": "Remove broken example references from 400 response in invoice validation endpoint",
-                "action": "delete", 
+                "action": "delete",
                 "path": "paths./registration/v2/invoice/keysgeneration.post.responses.400.content.application/json.examples"
             },
             {
                 "comment": "Remove broken example references from 400 response in PIN generation endpoint",
                 "action": "delete",
                 "path": "paths./registration/v2/customerkeys/pingeneration.post.responses.400.content.application/json.examples"
+            },
+            {
+                "comment": "Set correct type of ErrorParameter key",
+                "action": "merge",
+                "path": "components.schemas.ErrorParameter.properties.key",
+                "value": {
+                    "type": "string"
+                }
+            },
+            {
+                "comment": "Set correct type of ErrorParameter value",
+                "action": "merge",
+                "path": "components.schemas.ErrorParameter.properties.value",
+                "value": {
+                    "type": "string"
+                }
             }
         ]
     },

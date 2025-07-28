@@ -16,7 +16,7 @@ use Saloon\Enums\Method;
 use Saloon\Http\Response;
 use Saloon\Traits\Body\HasJsonBody;
 use ShipStream\FedEx\Api\AccountRegistrationV1\Dto\IssuePinInputVo;
-use ShipStream\FedEx\Api\AccountRegistrationV1\Responses\ErrorResponseVo2;
+use ShipStream\FedEx\Api\AccountRegistrationV1\Responses\ErrorResponseVo3;
 use ShipStream\FedEx\Api\AccountRegistrationV1\Responses\PinGenerationOutputVo;
 use ShipStream\FedEx\Request;
 
@@ -49,12 +49,12 @@ class SendPin extends Request implements HasBody
         return '/registration/v2/customerkeys/pingeneration';
     }
 
-    public function createDtoFromResponse(Response $response): PinGenerationOutputVo|ErrorResponseVo2
+    public function createDtoFromResponse(Response $response): PinGenerationOutputVo|ErrorResponseVo3
     {
         $status = $response->status();
         $responseCls = match ($status) {
             200 => PinGenerationOutputVo::class,
-            400, 401, 403, 404, 500 => ErrorResponseVo2::class,
+            400, 401, 403, 404, 500 => ErrorResponseVo3::class,
             default => throw new Exception("Unhandled response status: {$status}")
         };
 

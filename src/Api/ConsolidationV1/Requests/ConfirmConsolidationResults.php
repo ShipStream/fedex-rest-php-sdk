@@ -19,6 +19,10 @@ use ShipStream\FedEx\Api\ConsolidationV1\Dto\FullSchemaConfirmConsolidationResul
 use ShipStream\FedEx\Api\ConsolidationV1\Responses\ConfirmConsolidationResultsResponse;
 use ShipStream\FedEx\Api\ConsolidationV1\Responses\ErrorResponseVo;
 use ShipStream\FedEx\Api\ConsolidationV1\Responses\ErrorResponseVo2;
+use ShipStream\FedEx\Api\ConsolidationV1\Responses\ErrorResponseVo3;
+use ShipStream\FedEx\Api\ConsolidationV1\Responses\ErrorResponseVo4;
+use ShipStream\FedEx\Api\ConsolidationV1\Responses\ErrorResponseVo5;
+use ShipStream\FedEx\Api\ConsolidationV1\Responses\ErrorResponseVo6;
 use ShipStream\FedEx\Request;
 
 /**
@@ -44,12 +48,16 @@ class ConfirmConsolidationResults extends Request implements HasBody
 
     public function createDtoFromResponse(
         Response $response,
-    ): ConfirmConsolidationResultsResponse|ErrorResponseVo|ErrorResponseVo2 {
+    ): ConfirmConsolidationResultsResponse|ErrorResponseVo|ErrorResponseVo2|ErrorResponseVo3|ErrorResponseVo4|ErrorResponseVo5|ErrorResponseVo6 {
         $status = $response->status();
         $responseCls = match ($status) {
             200 => ConfirmConsolidationResultsResponse::class,
-            400, 500 => ErrorResponseVo::class,
-            401, 403, 404, 503 => ErrorResponseVo2::class,
+            400 => ErrorResponseVo::class,
+            401 => ErrorResponseVo2::class,
+            403 => ErrorResponseVo3::class,
+            404 => ErrorResponseVo4::class,
+            500 => ErrorResponseVo5::class,
+            503 => ErrorResponseVo6::class,
             default => throw new Exception("Unhandled response status: {$status}")
         };
 

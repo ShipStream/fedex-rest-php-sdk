@@ -16,7 +16,7 @@ final class Payment extends Dto
 {
     /**
      * @param  string  $paymentType  Indicates who and how the shipment will be paid for.Required for Express and Ground.<br>Example: SENDER
-     * @param  ?Payor  $payor  Information about the person who is paying for the shipment. Not applicable for credit card payment.
+     * @param  ?Payor  $payor  Payor is mandatory when the paymentType is RECIPIENT, THIRD_PARTY or COLLECT.
      */
     public function __construct(
         public string $paymentType,

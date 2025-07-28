@@ -18,7 +18,7 @@ final class ErrorResponseVo extends Response
     protected static array $complexArrayTypes = ['errors' => CxsError::class];
 
     /**
-     * @param  ?string  $transactionId  The transaction ID is a special set of numbers that defines each transaction.<br>Example: bc95c0e4-b33e-42a2-80d2-334282b5d37a
+     * @param  ?string  $transactionId  The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492
      * @param  CxsError[]|null  $errors
      */
     public function __construct(

@@ -17,7 +17,7 @@ final class FreightPayment extends Dto
     /**
      * @param  string  $paymentType  Indicates who and how the shipment will be paid for.
      *                               Required for Express and Ground.
-     * @param  ?Payor  $payor  Information about the person who is paying for the shipment. Not applicable for credit card payment.
+     * @param  ?Payor  $payor  Indicate the payer Information responsible for paying for the shipment. <br>Note: credit card payment is not applicable.<br>Optional when paymentType is SENDER.
      */
     public function __construct(
         public string $paymentType,

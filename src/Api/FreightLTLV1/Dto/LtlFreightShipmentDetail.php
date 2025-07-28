@@ -26,7 +26,7 @@ final class LtlFreightShipmentDetail extends Dto
      * @param  ?string  $declaredValueUnits  This is the declared value per unit. Declared Value represents FedEx Maximum liability in connection with a shipment of that Package, including but not limited to, any loss, damage, delay, misdelivery, any failure to provide information, or misdelivery of information relating to the Shipment.
      * @param  ?Dimensions  $shipmentDimensions  Indicate the dimensions of the package.<br> Following conditions will apply: <ul><li>Dimensions are optional but when added, then all three dimensions must be indicated.</li><li>Dimensions are required with YOUR_PACKAGING package type.</li></ul>Note: The maximum/minimum dimension values varies based on the services and the packaging types. Refer <a href="https://www.fedex.com/en-us/service-guide.html" target="_blank">FedEx Service Guide</a> for service details related to DIM Weighting for FedEx Express and oversize conditions for FedEx Express and FedEx Ground.
      * @param  ?float  $clientDiscountPercent  This is only used for anonymous rate requests.
-     * @param  ?ContactAndAddress  $fedExFreightBillingContactAndAddress  Specifies the contact and address details of a location.
+     * @param  ?ContactAndAddress  $fedExFreightBillingContactAndAddress  Specify the contact and address details of a location.
      * @param  ?string  $aliasId  Alternate unique identifier assigned to this a line item.
      * @param  ?string  $hazardousMaterialsOfferor  Specifies the hazardous materials offeror.
      * @param  ?Money  $declaredValuePerUnit  Specifies taxes or miscellaneous charge.

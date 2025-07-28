@@ -15,12 +15,12 @@ use ShipStream\FedEx\Dto;
 final class Payment2 extends Dto
 {
     /**
-     * @param  ?Payor  $payor  Information about the person who is paying for the shipment. Not applicable for credit card payment.
+     * @param  ?Payor2  $payor  Information about the person who is paying for the shipment. Not applicable for credit card payment.
      * @param  ?BillingDetails  $billingDetails  These are billing details.
      * @param  ?string  $paymentType  Indicates who and how the shipment will be paid for.Required for Express and Ground.<br>Example: SENDER
      */
     public function __construct(
-        public ?Payor $payor = null,
+        public ?Payor2 $payor = null,
         public ?BillingDetails $billingDetails = null,
         public ?string $paymentType = null,
     ) {}

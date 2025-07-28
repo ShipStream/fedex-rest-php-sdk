@@ -42,7 +42,7 @@ final class Freight2020shipmentDetail extends Dto
      * @param  ?string  $collectTermsType  Indicates the terms of the collect payment for a Freight shipment.
      * @param  ?string  $hazardousMaterialsOfferor  Specifies the Hazardous materials offeror
      * @param  ?Money  $declaredValuePerUnit  Specifies taxes or miscellaneous charge.
-     * @param  ?Party2  $alternateBillingParty  Use this object to provide the attributes such as physical address, contact information and account number information.
+     * @param  ?Party2  $alternateBillingParty  Attributes for a Party to a transaction including the physical address, contact information and account number information.
      */
     public function __construct(
         public string $role,

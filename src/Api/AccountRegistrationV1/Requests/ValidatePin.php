@@ -16,8 +16,8 @@ use Saloon\Enums\Method;
 use Saloon\Http\Response;
 use Saloon\Traits\Body\HasJsonBody;
 use ShipStream\FedEx\Api\AccountRegistrationV1\Dto\ValidatePinInputVo;
-use ShipStream\FedEx\Api\AccountRegistrationV1\Responses\ErrorResponseVo;
-use ShipStream\FedEx\Api\AccountRegistrationV1\Responses\IrcpResponseVo;
+use ShipStream\FedEx\Api\AccountRegistrationV1\Responses\ErrorResponseVo2;
+use ShipStream\FedEx\Api\AccountRegistrationV1\Responses\IrcpResponseVo2;
 use ShipStream\FedEx\Request;
 
 /**
@@ -49,12 +49,12 @@ class ValidatePin extends Request implements HasBody
         return '/registration/v2/pin/keysgeneration';
     }
 
-    public function createDtoFromResponse(Response $response): IrcpResponseVo|ErrorResponseVo
+    public function createDtoFromResponse(Response $response): IrcpResponseVo2|ErrorResponseVo2
     {
         $status = $response->status();
         $responseCls = match ($status) {
-            200 => IrcpResponseVo::class,
-            400, 404, 500 => ErrorResponseVo::class,
+            200 => IrcpResponseVo2::class,
+            400, 404, 500 => ErrorResponseVo2::class,
             default => throw new Exception("Unhandled response status: {$status}")
         };
 

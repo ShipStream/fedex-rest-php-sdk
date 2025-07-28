@@ -10,18 +10,18 @@ declare(strict_types=1);
 
 namespace ShipStream\FedEx\Api\TradeDocumentsUploadV1\Responses;
 
-use ShipStream\FedEx\Api\TradeDocumentsUploadV1\Dto\MultiBasePreResponse1Output;
+use ShipStream\FedEx\Api\TradeDocumentsUploadV1\Dto\MultiBasePreResponseOutput;
 use ShipStream\FedEx\Response;
 
 final class MultiBasePreResponse extends Response
 {
     /**
-     * @param  ?string  $customerTransactionId  This element allows you to assign a unique identifier to your transaction. This element is also returned in the reply and helps you match the request to the reply.
-     * @param  ?string  $transactionId  The transaction ID is a special set of numbers that defines each transaction.
+     * @param  ?string  $customerTransactionId  This element allows you to assign a unique identifier to your transaction. This element is also returned in the reply and helps you match the request to the reply Example:5678b975-ev0e-420b-8d7b-aa6ce65ec48n
+     * @param  ?string  $transactionId  The transaction ID is a special set of numbers that defines each transaction.<br> Example:624deea6-b709-470c-8c39-4b5511281492
      */
     public function __construct(
         public readonly ?string $customerTransactionId = null,
         public readonly ?string $transactionId = null,
-        public readonly ?MultiBasePreResponse1Output $output = null,
+        public readonly ?MultiBasePreResponseOutput $output = null,
     ) {}
 }

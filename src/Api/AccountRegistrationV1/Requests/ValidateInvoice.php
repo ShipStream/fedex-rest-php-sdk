@@ -16,8 +16,8 @@ use Saloon\Enums\Method;
 use Saloon\Http\Response;
 use Saloon\Traits\Body\HasJsonBody;
 use ShipStream\FedEx\Api\AccountRegistrationV1\Dto\ValidateInvoiceInputVo;
-use ShipStream\FedEx\Api\AccountRegistrationV1\Responses\ErrorResponseVo2;
-use ShipStream\FedEx\Api\AccountRegistrationV1\Responses\IrcpResponseVo;
+use ShipStream\FedEx\Api\AccountRegistrationV1\Responses\ErrorResponseVo3;
+use ShipStream\FedEx\Api\AccountRegistrationV1\Responses\IrcpResponseVo2;
 use ShipStream\FedEx\Request;
 
 /**
@@ -50,12 +50,12 @@ class ValidateInvoice extends Request implements HasBody
         return '/registration/v2/invoice/keysgeneration';
     }
 
-    public function createDtoFromResponse(Response $response): IrcpResponseVo|ErrorResponseVo2
+    public function createDtoFromResponse(Response $response): IrcpResponseVo2|ErrorResponseVo3
     {
         $status = $response->status();
         $responseCls = match ($status) {
-            200 => IrcpResponseVo::class,
-            400, 404, 500 => ErrorResponseVo2::class,
+            200 => IrcpResponseVo2::class,
+            400, 404, 500 => ErrorResponseVo3::class,
             default => throw new Exception("Unhandled response status: {$status}")
         };
 

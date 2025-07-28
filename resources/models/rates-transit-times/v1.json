@@ -4257,46 +4257,6 @@
                 },
                 "description": "Specifies the Tax surcharge details"
             },
-            "Party": {
-                "type": "object",
-                "properties": {
-                    "address": {
-                        "$ref": "#/components/schemas/Address"
-                    },
-                    "accountNumber": {
-                        "$ref": "#/components/schemas/AccountNumber"
-                    },
-                    "contact": {
-                        "$ref": "#/components/schemas/Contact"
-                    }
-                },
-                "description": "Indicate the party to a transaction including the physical address, contact information and account number information.",
-                "example": {
-                    "accountNumber": {
-                        "value": 123456789
-                    }
-                }
-            },
-            "Party_2": {
-                "type": "object",
-                "properties": {
-                    "address": {
-                        "$ref": "#/components/schemas/Address"
-                    },
-                    "contact": {
-                        "$ref": "#/components/schemas/Contact"
-                    },
-                    "accountNumber": {
-                        "$ref": "#/components/schemas/AccountNumber"
-                    }
-                },
-                "description": "Indicate the party to a transaction including the physical address, contact information and account number information.",
-                "example": {
-                    "accountNumber": {
-                        "value": 123456789
-                    }
-                }
-            },
             "Address": {
                 "type": "object",
                 "properties": {
@@ -4460,43 +4420,6 @@
                 },
                 "description": "The delivery commitment details"
             },
-            "ErrorResponseVO": {
-                "type": "object",
-                "properties": {
-                    "transactionId": {
-                        "type": "string",
-                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
-                        "example": "624deea6-b709-470c-8c39-4b5511281492"
-                    },
-                    "customerTransactionId": {
-                        "type": "string",
-                        "description": "This element allows you to assign a unique identifier to your transaction. This element is also returned in the reply and helps you match the request to the reply. <br> Example: AnyCo_order123456789",
-                        "example": "AnyCo_order123456789"
-                    },
-                    "errors": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/CXSError"
-                        }
-                    }
-                }
-            },
-            "ErrorResponseVO_2": {
-                "type": "object",
-                "properties": {
-                    "transactionId": {
-                        "type": "string",
-                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
-                        "example": "624deea6-b709-470c-8c39-4b5511281492"
-                    },
-                    "errors": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/CXSError"
-                        }
-                    }
-                }
-            },
             "CXSError": {
                 "type": "object",
                 "properties": {
@@ -4572,6 +4495,83 @@
                     "width": 50,
                     "height": 30,
                     "units": "CM"
+                }
+            },
+            "Party": {
+                "type": "object",
+                "properties": {
+                    "address": {
+                        "$ref": "#/components/schemas/Address"
+                    },
+                    "accountNumber": {
+                        "$ref": "#/components/schemas/AccountNumber"
+                    },
+                    "contact": {
+                        "$ref": "#/components/schemas/Contact"
+                    }
+                },
+                "description": "Indicate the party to a transaction including the physical address, contact information and account number information.",
+                "example": {
+                    "accountNumber": {
+                        "value": 123456789
+                    }
+                }
+            },
+            "Party_2": {
+                "type": "object",
+                "properties": {
+                    "address": {
+                        "$ref": "#/components/schemas/Address"
+                    },
+                    "contact": {
+                        "$ref": "#/components/schemas/Contact"
+                    },
+                    "accountNumber": {
+                        "$ref": "#/components/schemas/AccountNumber"
+                    }
+                },
+                "description": "Indicate the party to a transaction including the physical address, contact information and account number information.",
+                "example": {
+                    "accountNumber": {
+                        "value": 123456789
+                    }
+                }
+            },
+            "ErrorResponseVO": {
+                "type": "object",
+                "properties": {
+                    "transactionId": {
+                        "type": "string",
+                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
+                        "example": "624deea6-b709-470c-8c39-4b5511281492"
+                    },
+                    "customerTransactionId": {
+                        "type": "string",
+                        "description": "This element allows you to assign a unique identifier to your transaction. This element is also returned in the reply and helps you match the request to the reply. <br> Example: AnyCo_order123456789",
+                        "example": "AnyCo_order123456789"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CXSError"
+                        }
+                    }
+                }
+            },
+            "ErrorResponseVO_2": {
+                "type": "object",
+                "properties": {
+                    "transactionId": {
+                        "type": "string",
+                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
+                        "example": "624deea6-b709-470c-8c39-4b5511281492"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CXSError"
+                        }
+                    }
                 }
             }
         }

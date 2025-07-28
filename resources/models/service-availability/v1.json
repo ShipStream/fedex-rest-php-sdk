@@ -3976,43 +3976,6 @@
                 },
                 "description": "This field provides the phone Number details for the service.There can be maximum of five types of phoneNumber which can be provided in request."
             },
-            "ErrorResponseVO": {
-                "type": "object",
-                "properties": {
-                    "transactionId": {
-                        "type": "string",
-                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
-                        "example": "624deea6-b709-470c-8c39-4b5511281492"
-                    },
-                    "customerTransactionId": {
-                        "type": "string",
-                        "description": "This element allows you to assign a unique identifier to your transaction. This element is also returned in the reply and helps you match the request to the reply. <br> Example: AnyCo_order123456789",
-                        "example": "AnyCo_order123456789"
-                    },
-                    "errors": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/CXSError"
-                        }
-                    }
-                }
-            },
-            "ErrorResponseVO_2": {
-                "type": "object",
-                "properties": {
-                    "transactionId": {
-                        "type": "string",
-                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
-                        "example": "624deea6-b709-470c-8c39-4b5511281492"
-                    },
-                    "errors": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/CXSError"
-                        }
-                    }
-                }
-            },
             "CXSError": {
                 "type": "object",
                 "properties": {
@@ -4125,79 +4088,6 @@
                     }
                 }
             },
-            "Contact": {
-                "type": "object",
-                "properties": {
-                    "personName": {
-                        "type": "string",
-                        "description": "Specify contact name.Max Length is 70.",
-                        "example": "John Taylor"
-                    },
-                    "emailAddress": {
-                        "type": "string",
-                        "description": "Specify contact email address. Max length is 80.",
-                        "example": "sample@company.com"
-                    },
-                    "phoneNumber": {
-                        "type": "string",
-                        "description": "Specify contact person's phone number. Max length is 15.",
-                        "example": "1234567890"
-                    },
-                    "phoneExtension": {
-                        "type": "string",
-                        "description": "Specify contact person's phone extension. Max length is 6."
-                    },
-                    "faxNumber": {
-                        "type": "string",
-                        "description": "Specify contact person's fax number. Max length is 15."
-                    }
-                },
-                "description": "Indicate the contact details for this shipment."
-            },
-            "Contact_2": {
-                "type": "object",
-                "properties": {
-                    "personName": {
-                        "type": "string",
-                        "description": "Specify the recipient contact person's name. Max Length is 70.<br>Example: John Taylor",
-                        "example": "John Taylor"
-                    },
-                    "emailAddress": {
-                        "type": "string",
-                        "description": "Contact person's email address. Max length is 80.<br>Example: sample@company.com",
-                        "example": "sample@company.com"
-                    },
-                    "phoneNumber": {
-                        "type": "string",
-                        "description": "Contact person's phone number. Max length is 15.<br>Example: 1234567890",
-                        "example": "1234567890"
-                    },
-                    "phoneExtension": {
-                        "type": "string",
-                        "description": "contact person's phone extension. Max length is 6.<br>Example: 91",
-                        "example": "91"
-                    },
-                    "faxNumber": {
-                        "type": "string",
-                        "description": "Contact person's fax number. Max length is 15.<br>Example: 956123",
-                        "example": "956123"
-                    },
-                    "companyName": {
-                        "type": "string",
-                        "description": "Specify contact person's company name. Max length is 35.<br>Example: FedEx",
-                        "example": "Fedex"
-                    }
-                },
-                "description": "Contact details for the Party such as Name, Email, PhoneNumber",
-                "example": {
-                    "personName": "John Taylor",
-                    "emailAddress": "sample@company.com",
-                    "phoneNumber": "1234567890",
-                    "phoneExtension": 1234,
-                    "faxNumber": "1234567890",
-                    "companyName": "Fedex"
-                }
-            },
             "AccountNumber": {
                 "type": "object",
                 "properties": {
@@ -4289,6 +4179,116 @@
                     }
                 },
                 "description": "Number of packages in this shipment which contain dry ice.  The total weight of the dry ice for this shipment\n\n Both are required to indicate dry ice"
+            },
+            "ErrorResponseVO": {
+                "type": "object",
+                "properties": {
+                    "transactionId": {
+                        "type": "string",
+                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
+                        "example": "624deea6-b709-470c-8c39-4b5511281492"
+                    },
+                    "customerTransactionId": {
+                        "type": "string",
+                        "description": "This element allows you to assign a unique identifier to your transaction. This element is also returned in the reply and helps you match the request to the reply. <br> Example: AnyCo_order123456789",
+                        "example": "AnyCo_order123456789"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CXSError"
+                        }
+                    }
+                }
+            },
+            "ErrorResponseVO_2": {
+                "type": "object",
+                "properties": {
+                    "transactionId": {
+                        "type": "string",
+                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
+                        "example": "624deea6-b709-470c-8c39-4b5511281492"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CXSError"
+                        }
+                    }
+                }
+            },
+            "Contact": {
+                "type": "object",
+                "properties": {
+                    "personName": {
+                        "type": "string",
+                        "description": "Specify contact name.Max Length is 70.",
+                        "example": "John Taylor"
+                    },
+                    "emailAddress": {
+                        "type": "string",
+                        "description": "Specify contact email address. Max length is 80.",
+                        "example": "sample@company.com"
+                    },
+                    "phoneNumber": {
+                        "type": "string",
+                        "description": "Specify contact person's phone number. Max length is 15.",
+                        "example": "1234567890"
+                    },
+                    "phoneExtension": {
+                        "type": "string",
+                        "description": "Specify contact person's phone extension. Max length is 6."
+                    },
+                    "faxNumber": {
+                        "type": "string",
+                        "description": "Specify contact person's fax number. Max length is 15."
+                    }
+                },
+                "description": "Indicate the contact details for this shipment."
+            },
+            "Contact_2": {
+                "type": "object",
+                "properties": {
+                    "personName": {
+                        "type": "string",
+                        "description": "Specify the recipient contact person's name. Max Length is 70.<br>Example: John Taylor",
+                        "example": "John Taylor"
+                    },
+                    "emailAddress": {
+                        "type": "string",
+                        "description": "Contact person's email address. Max length is 80.<br>Example: sample@company.com",
+                        "example": "sample@company.com"
+                    },
+                    "phoneNumber": {
+                        "type": "string",
+                        "description": "Contact person's phone number. Max length is 15.<br>Example: 1234567890",
+                        "example": "1234567890"
+                    },
+                    "phoneExtension": {
+                        "type": "string",
+                        "description": "contact person's phone extension. Max length is 6.<br>Example: 91",
+                        "example": "91"
+                    },
+                    "faxNumber": {
+                        "type": "string",
+                        "description": "Contact person's fax number. Max length is 15.<br>Example: 956123",
+                        "example": "956123"
+                    },
+                    "companyName": {
+                        "type": "string",
+                        "description": "Specify contact person's company name. Max length is 35.<br>Example: FedEx",
+                        "example": "Fedex"
+                    }
+                },
+                "description": "Contact details for the Party such as Name, Email, PhoneNumber",
+                "example": {
+                    "personName": "John Taylor",
+                    "emailAddress": "sample@company.com",
+                    "phoneNumber": "1234567890",
+                    "phoneExtension": 1234,
+                    "faxNumber": "1234567890",
+                    "companyName": "Fedex"
+                }
             }
         }
     },

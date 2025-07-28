@@ -15,7 +15,7 @@ use ShipStream\FedEx\Dto;
 final class BrokerDetail2 extends Dto
 {
     /**
-     * @param  ?Party2  $broker  Use this object to provide the attributes such as physical address, contact information and account number information.
+     * @param  ?Party2  $broker  Attributes for a Party to a transaction including the physical address, contact information and account number information.
      * @param  ?string  $type  Identifies the type of broker.
      */
     public function __construct(
