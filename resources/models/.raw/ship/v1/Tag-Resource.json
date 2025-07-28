@@ -513,7 +513,7 @@
                 ],
                 "allOf": [
                     {
-                        "$ref": "#/components/schemas/RequestedShipment"
+                        "$ref": "#/components/schemas/RequestedShipment_tag"
                     },
                     {
                         "properties": {
@@ -540,7 +540,7 @@
                     }
                 ]
             },
-            "RequestedShipment": {
+            "RequestedShipment_tag": {
                 "required": [
                     "labelSpecification",
                     "packagingType",
@@ -674,7 +674,7 @@
                         "$ref": "#/components/schemas/VariableHandlingChargeDetail"
                     },
                     "customsClearanceDetail": {
-                        "$ref": "#/components/schemas/CustomsClearanceDetail"
+                        "$ref": "#/components/schemas/CustomsClearanceDetail_tag"
                     },
                     "smartPostInfoDetail": {
                         "$ref": "#/components/schemas/SmartPostInfoDetail"
@@ -755,7 +755,7 @@
                 "properties": {
                     "amount": {
                         "type": "number",
-                        "description": "This is the amount. Maximum limit is 5 digits before decimal.<br>Example:  1556.25",
+                        "description": "This is commodity value in amount used for Customs declaration.<br>Max limit: 11 digits before decimal.<br>Example: 1,55,6457.25",
                         "format": "double",
                         "example": "1556.25"
                     },
@@ -775,7 +775,7 @@
                 "type": "object",
                 "properties": {
                     "address": {
-                        "$ref": "#/components/schemas/PartyAddress"
+                        "$ref": "#/components/schemas/PartyAddress_2"
                     },
                     "contact": {
                         "$ref": "#/components/schemas/PartyContact"
@@ -866,7 +866,63 @@
                     },
                     "stateOrProvinceCode": {
                         "type": "string",
-                        "description": "The US States,Canada and Puerto Rico Province codes of the recipient. The Format and presence of this field may vary depending on the country.State code is required for US, CA, PR and not required for other countries. Conditional. Max length is 2.<br>Example: CA",
+                        "description": "The US States,Canada and Puerto Rico Province codes of the recipient. The Format and presence of this field may vary depending on the country.State code is required for US, CA, PR and not required for other countries. Conditional.<br>Example: CA",
+                        "example": "CA"
+                    },
+                    "postalCode": {
+                        "type": "string",
+                        "description": "This is the postal code.<br>Note: This is Optional for non postal-aware countries. Maximum length is 10.<br>Example: 65247<br><a onclick='loadDocReference(\"postalawarecountries\")'>click here to see Postal aware countries</a>",
+                        "example": "90210"
+                    },
+                    "countryCode": {
+                        "type": "string",
+                        "description": "This is the two-letter country code.<br>Maximum length is 2.<br>Example: US<br><a onclick='loadDocReference(\"countrycodes\")'>click here to see Country codes</a>",
+                        "example": "US"
+                    },
+                    "residential": {
+                        "type": "boolean",
+                        "description": "Indicates whether this address is residential (as opposed to commercial).<br>Example: false",
+                        "example": false
+                    }
+                },
+                "description": "This is detailed information on physical location. May be used as an actual physical address (place to which one could go), or as a container of address parts which should be handled as a unit (such as a city-state-ZIP combination within the US).",
+                "example": {
+                    "streetLines": [
+                        "10 FedEx Parkway",
+                        "Suite 302"
+                    ],
+                    "city": "Beverly Hills",
+                    "stateOrProvinceCode": "CA",
+                    "postalCode": "90210",
+                    "countryCode": "US",
+                    "residential": false
+                }
+            },
+            "PartyAddress_2": {
+                "required": [
+                    "city",
+                    "countryCode",
+                    "streetLines"
+                ],
+                "type": "object",
+                "properties": {
+                    "streetLines": {
+                        "type": "array",
+                        "description": "Combination of number, street name, etc. At least one line is required for a valid physical address. Empty lines should not be included. Max Length is 35.<br>Example: [1550 Union Blvd,Suite 302]",
+                        "example": "1550 Union Blvd, Suite 302",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "city": {
+                        "type": "string",
+                        "maxLength": 35,
+                        "description": "The name of city, town of the recipient.Max length is 35.<br>Example: Beverly Hills",
+                        "example": "Beverly Hills"
+                    },
+                    "stateOrProvinceCode": {
+                        "type": "string",
+                        "description": "It is used to identify the principal subdivisions (e.g., provinces or states) of countries. The Format and presence of this field may vary depending on the country. Note: For specific countries, such as the United States and Canada, and Puerto Rico, there is a two-character state, province, codes limit . Example: TX",
                         "example": "CA"
                     },
                     "postalCode": {
@@ -998,7 +1054,7 @@
                 "type": "object",
                 "properties": {
                     "address": {
-                        "$ref": "#/components/schemas/PartyAddress"
+                        "$ref": "#/components/schemas/PartyAddress_2"
                     },
                     "contact": {
                         "$ref": "#/components/schemas/PartyContact"
@@ -1303,7 +1359,21 @@
                 "properties": {
                     "value": {
                         "type": "string",
-                        "description": "Conditional.<br> The account number value.<br>Value is required if the paymentType is THIRD_PARTY.<br> Max Length is 9.<br>Example: 12XXXXX89",
+                        "description": "Conditional.<br> The account number value.<br> Max Length is 9.<br>Example: 12XXXXX89",
+                        "example": "12XXXXX89"
+                    }
+                },
+                "description": "This is FedEx Account number details.",
+                "example": {
+                    "value": "Your account number"
+                }
+            },
+            "PartyAccountNumber_tag": {
+                "type": "object",
+                "properties": {
+                    "value": {
+                        "type": "string",
+                        "description": "Conditional.<br> The account number value.<br> Max Length is 9.<br>Example: 12XXXXX89",
                         "example": "12XXXXX89"
                     }
                 },
@@ -1419,6 +1489,7 @@
                         "example": "PRO_FORMA_INVOICE",
                         "enum": [
                             "CERTIFICATE_OF_ORIGIN",
+                            "NET_RATE_SHEET",
                             "COMMERCIAL_INVOICE",
                             "ETD_LABEL",
                             "USMCA_CERTIFICATION_OF_ORIGIN",
@@ -2009,6 +2080,8 @@
                         "description": "Specify the Rate Type used.",
                         "enum": [
                             "ACCOUNT",
+                            "LIST",
+                            "ACTUAL",
                             "CURRENT",
                             "CUSTOM"
                         ],
@@ -2177,7 +2250,10 @@
                             "DSP_73",
                             "DSP_85",
                             "DSP_LICENSE_AGREEMENT",
-                            "WAREHOUSE_WITHDRAWAL"
+                            "WAREHOUSE_WITHDRAWAL",
+                            "FROM_FOREIGN_TRADE_ZONE",
+                            "DEA_486",
+                            "DSP_94"
                         ]
                     }
                 },
@@ -2440,7 +2516,7 @@
                 },
                 "description": "Indicate the details about how to calculate variable handling charges at the shipment level. They can be based on a percentage of the shipping charges or a fixed amount. If indicated, element rateLevelType is required."
             },
-            "CustomsClearanceDetail": {
+            "CustomsClearanceDetail_tag": {
                 "required": [
                     "commercialInvoice",
                     "commodities"
@@ -2484,13 +2560,13 @@
                         ]
                     },
                     "dutiesPayment": {
-                        "$ref": "#/components/schemas/Payment_1"
+                        "$ref": "#/components/schemas/Payment_1_tag"
                     },
                     "commodities": {
                         "type": "array",
                         "description": "Indicates the details about the dutiable packages. Maximum upto 999 commodities per shipment.",
                         "items": {
-                            "$ref": "#/components/schemas/Commodity"
+                            "$ref": "#/components/schemas/Commodity_1"
                         }
                     },
                     "isDocumentOnly": {
@@ -2626,6 +2702,11 @@
                         "type": "string",
                         "description": "The originatorName that will populate the Commercial Invoice (or Pro Forma).<br>Example: originator name",
                         "example": "originator Name"
+                    },
+                    "paymentTerms": {
+                        "description": "The payment terms that will populate the Commercial Invoice (or Pro Forma).  This field is being supported for completeness only.<br>Example: payment terms",
+                        "type": "string",
+                        "example": "payment terms"
                     },
                     "comments": {
                         "type": "array",
@@ -2767,11 +2848,11 @@
                 },
                 "description": "These are email disposition details. Provides the type and email addresses of e-mail recipients. If returnedDispositionDetail in labelSpecification is set as true then email will be send with label and documents copy."
             },
-            "Payment_1": {
+            "Payment_1_tag": {
                 "type": "object",
                 "properties": {
                     "payor": {
-                        "$ref": "#/components/schemas/Payor_1"
+                        "$ref": "#/components/schemas/Payor_1_tag"
                     },
                     "billingDetails": {
                         "$ref": "#/components/schemas/BillingDetails"
@@ -2843,11 +2924,11 @@
                     "paymentType": "SENDER"
                 }
             },
-            "Payor_1": {
+            "Payor_1_tag": {
                 "type": "object",
                 "properties": {
                     "responsibleParty": {
-                        "$ref": "#/components/schemas/Party_2"
+                        "$ref": "#/components/schemas/Party_2_tag"
                     }
                 },
                 "description": "Information about the person who is paying for the shipment. Not applicable for credit card payment. ",
@@ -2894,7 +2975,7 @@
                     }
                 }
             },
-            "Party_2": {
+            "Party_2_tag": {
                 "type": "object",
                 "properties": {
                     "address": {
@@ -2904,7 +2985,7 @@
                         "$ref": "#/components/schemas/Contact_1"
                     },
                     "accountNumber": {
-                        "$ref": "#/components/schemas/PartyAccountNumber"
+                        "$ref": "#/components/schemas/PartyAccountNumber_tag"
                     },
                     "tins": {
                         "type": "array",
@@ -2994,7 +3075,7 @@
                     "accountNumberCountryCode": "CA"
                 }
             },
-            "Commodity": {
+            "Commodity_1": {
                 "required": [
                     "description"
                 ],
@@ -3182,7 +3263,8 @@
                         "description": "Indicate the weight unit type. The package and commodity weight unit should be the same else the request will result in an error.<br>Example:KG",
                         "example": "KG",
                         "enum": [
-                            "KG"
+                            "KG",
+                            "LB"
                         ]
                     },
                     "value": {
@@ -3316,8 +3398,7 @@
                         "example": "DEPARTMENT_OF_COMMERCE",
                         "enum": [
                             "DEPARTMENT_OF_COMMERCE",
-                            "DEPARTMENT_OF_STATE",
-                            "DEPARTMENT_OF_COMMERCE_AND_DEPARTMENT_OF_STATE"
+                            "DEPARTMENT_OF_STATE"
                         ]
                     },
                     "destinationCountries": {
@@ -3453,6 +3534,7 @@
                         "example": "PAPER_7X475",
                         "enum": [
                             "PAPER_4X6",
+                            "STOCK_4X675",
                             "PAPER_4X675",
                             "PAPER_4X8",
                             "PAPER_4X9",
@@ -3509,7 +3591,7 @@
                     },
                     "resolution": {
                         "type": "integer",
-                        "description": "Specifies the image resolution in DPI (Dots Per Inch). Valid values are 203 & 300. If not provided or for any other value, system will default it to 203.",
+                        "description": "Specifies the image resolution in DPI (Dots Per Inch). Valid values are 203 & 300. If not provided or for any other value, system will default it to 203.Note: 300 DPI resolution is only allowed for ZPLII image type.",
                         "example": 300
                     }
                 },
@@ -3530,6 +3612,7 @@
                             "default": "SHIPPER_INFORMATION",
                             "enum": [
                                 "CUSTOMS_VALUE",
+                                "SHIPPER_ACCOUNT_NUMBER",
                                 "DIMENSIONS",
                                 "DUTIES_AND_TAXES_PAYOR_ACCOUNT_NUMBER",
                                 "INSURED_VALUE",
@@ -4654,9 +4737,6 @@
                 "description": "These are detcontentails for the package containing alcohol. This is required for alcohol special service. The alcoholRecipientType is required."
             },
             "DangerousGoodsDetail": {
-                "required": [
-                    "accessibility"
-                ],
                 "type": "object",
                 "properties": {
                     "cargoAircraftOnly": {
@@ -4664,9 +4744,20 @@
                         "type": "boolean",
                         "example": false
                     },
+                    "regulation": {
+                        "type": "string",
+                        "description": "It is a HazardousCommodityRegulationType(The regulation under which the DG data has been validated).",
+                        "example": "ADR",
+                        "enum": [
+                            "ADR",
+                            "DOT",
+                            "IATA",
+                            "ORMD"
+                        ]
+                    },
                     "accessibility": {
                         "type": "string",
-                        "description": "Specify Dangerous Goods Accessibility Type. <ul><li>Inaccessible &ndash; it does not have to be accessable on the aircraft.</li><li>Accessible &ndash; it must be fully accessible on the aircraft, and is more strictly controlled.</li></ul>",
+                        "description": "Specify Dangerous Goods Accessibility Type. <ul><li>Inaccessible &ndash; it does not have to be accessable on the aircraft.</li><li>Accessible &ndash; it must be fully accessible on the aircraft, and is more strictly controlled.</li></ul><i>Note: Accessibility is only required for IATA controlled DG shipments.</i>",
                         "example": "INACCESSIBLE",
                         "enum": [
                             "ACCESSIBLE",

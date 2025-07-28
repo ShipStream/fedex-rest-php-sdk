@@ -16,7 +16,7 @@ final class FreightShipmentLineItem extends Dto
 {
     /**
      * @param  string  $freightClass  Specify the freight class based on the item to be shipped and its weight measured per unit volume(Example: Kilograms per Cubic Meter) the shipment is categorized accordingly.<a href='http://www.fedex.com/en-us/shipping/freight/class-calculator.html' target='_blank'>Click here</a> to use Freight class calculator
-     * @param  Weight  $weight  Specify the total weight of the shipment. <br>This is only applies to International shipments and should be used on the first package of a multiple piece shipment. This value contains 1 explicit decimal position.
+     * @param  WeightWithoutLink  $weight  These are the package weight details.
      * @param  ?int  $pieces  Optional <br> Total number of pieces <br> Example: 1
      * @param  ?Volume  $volume  Optional
      *
@@ -34,7 +34,7 @@ final class FreightShipmentLineItem extends Dto
      */
     public function __construct(
         public string $freightClass,
-        public Weight $weight,
+        public WeightWithoutLink $weight,
         public ?int $pieces = null,
         public ?Volume $volume = null,
         public ?int $handlingUnits = null,

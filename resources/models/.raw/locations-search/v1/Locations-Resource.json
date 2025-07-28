@@ -556,17 +556,17 @@
                     },
                     "countryCode": {
                         "type": "string",
-                        "description": "This is the Two-letter country code.<br>Example: US<br><a onclick='loadDocReference(\"countrycodes\")'>Click here to see Country Codes</a>",
+                        "description": "The ISO Alpha2, Alpha3, Numeric3 code for the country or name (5 character max) for the country.<br>Example: US",
                         "example": "US"
                     },
                     "residential": {
                         "type": "boolean",
-                        "description": "Indicate whether this address is Residential as opposed to Commercial.<br>Valid Values: True or False.",
+                        "description": "Indicates whether the address returned is residential as opposed to commercial.<br>Valid values: True, False.",
                         "example": false
                     },
                     "addressVerificationId": {
                         "type": "string",
-                        "description": "This is the address verification identifier. <br> Example: MARKET_LAUNCH",
+                        "description": "Address verification Identifier",
                         "example": "MARKET_LAUNCH"
                     },
                     "addressClassification": {
@@ -577,7 +577,8 @@
                             "UNKNOWN",
                             "BUSINESS",
                             "RESIDENTIAL"
-                        ]
+                        ],
+                        "example": "MIXED"
                     },
                     "addressClassificationConfidence": {
                         "type": "string",
@@ -585,10 +586,11 @@
                         "enum": [
                             "POTENTIAL",
                             "PERMANENT"
-                        ]
+                        ],
+                        "example": "PERMANENT"
                     }
                 },
-                "description": "Descriptive data for a physical location. May be used as an actual physical address (place to which one could go), or as a container of \\\"address parts\\\" which should be handled as a unit (such as a city-state-ZIP combination within the US).",
+                "description": "Specifies the Address Details for a location.",
                 "example": {
                     "streetLines": [
                         "10 FedEx Parkway",
@@ -606,11 +608,13 @@
                 "properties": {
                     "latitude": {
                         "type": "string",
-                        "description": "The geo coordinate value that specifies the north-south position of the address.<br>Example: 36.1699\u00b0 N"
+                        "description": "The geo coordinate value that specifies the north-south position of the address.<br>Example: 36.1699\u00b0 N",
+                        "example": "5.637376"
                     },
                     "longitude": {
                         "type": "string",
-                        "description": "The geo coordinate value that specifies the East-West position of the address.<br>Example:115.1398\u00b0 W"
+                        "description": "The geo coordinate value that specifies the East-West position of the address.<br>Example:115.1398\u00b0 W",
+                        "example": "3.61607"
                     }
                 },
                 "description": "The ISO6709 geographic coordinates for a specific geographic location, specifically latitude and longitude.",
@@ -696,7 +700,7 @@
                     "serviceCategory": {
                         "type": "string",
                         "description": "The service category applicable for the capability.",
-                        "example": "EXPRESS_PARCEL ",
+                        "example": "EXPRESS_PARCEL",
                         "enum": [
                             "EXPRESS_FREIGHT",
                             "EXPRESS_PARCEL",
@@ -706,7 +710,10 @@
                     "daysOfWeek": {
                         "type": "array",
                         "description": "The days of the week for which this capability applies.<br>Valid values:<ul><li>MON</li><li>TUE</li><li>WED</li><li>THU</li><li>FRI</li><li>SAT</li><li>SUN</li></ul>",
-                        "example": "[MON, TUE ]",
+                        "example": [
+                            "MON",
+                            "TUE"
+                        ],
                         "items": {
                             "type": "string"
                         }
@@ -717,7 +724,7 @@
                     "carrierCode": "FDXE",
                     "serviceType": "PRIORITY_OVERNIGHT",
                     "transferOfPossessionType": "DROPOFF",
-                    "serviceCategory": "EXPRESS_PARCEL",
+                    "serviceCategory": "EXPRESS_FREIGHT",
                     "daysOfWeek": [
                         "MON",
                         "TUE"
@@ -1276,19 +1283,17 @@
                     "latitude": {
                         "type": "number",
                         "description": "The geo coordinate value that specifies the north-south position of the address.<br>Example: 36.1699\u00b0 N",
-                        "format": "double"
+                        "format": "double",
+                        "example": 5.637376
                     },
                     "longitude": {
                         "type": "number",
                         "description": "The geo coordinate value that specifies the East-West position of the address.<br>Example: 115.1398\u00b0 W",
-                        "format": "double"
+                        "format": "double",
+                        "example": 3.616076
                     }
                 },
-                "description": "The ISO6709GeographicCoordinates for a specific geographic location",
-                "example": {
-                    "latitude": 5.637376,
-                    "longitude": 3.616076
-                }
+                "description": "The ISO6709GeographicCoordinates for a specific geographic location"
             },
             "LocationDetail": {
                 "type": "object",
@@ -1347,6 +1352,9 @@
                     "locationAttributeTypes": {
                         "type": "array",
                         "description": "Attributes for the location.",
+                        "example": [
+                            "ALREADY_OPEN"
+                        ],
                         "items": {
                             "type": "string",
                             "enum": [
@@ -1433,17 +1441,19 @@
                         "displayName": "John Taylor",
                         "contact": {
                             "personName": "John Taylor",
-                            "emailAddress": "sample@company.com",
-                            "phoneNumber": "9013575012",
-                            "phoneExtension": 5000,
+                            "emailAddress": "xxxxlor@fedex.com",
+                            "phoneNumber": "xxxxxxxx12",
+                            "phoneExtension": "91",
                             "companyName": "Fedex",
                             "faxNumber": "fax number",
+                            "displayName": "jhon",
                             "stateTaxId": "state tax identifier",
                             "fedralTaxId": "federal tax identifier"
                         },
                         "addressAncillaryDetail": {
                             "locationInCity": "Mill Heights",
                             "suite": "suite",
+                            "displayName": "jhon",
                             "adderssVerificationOverrideReason": "MANUAL_OVERRIDE",
                             "locationInProperty": "back building north",
                             "addtionalDescriptions": "thru south guard gate",
@@ -1500,6 +1510,10 @@
                             "latestDropoffDetails": [
                                 {
                                     "dayOfWeek": "MONDAY",
+                                    "operationalOverlay": {
+                                        "time": "time",
+                                        "type": "WEST_COAST"
+                                    },
                                     "exceptionalTime": "08:30:00",
                                     "exceptionalOverlay": {
                                         "time": "09:00:00",
@@ -1508,22 +1522,28 @@
                                     "operationTime": "08:30:00"
                                 }
                             ],
-                            "serviceCategory": "EXPRESS_PARCEL"
+                            "serviceCategory": "EXPRESS_FREIGHT"
                         },
                         {
                             "serviceType": "STANDARD_OVERNIGHT",
                             "countryRelationshipType": "DOMESTIC",
                             "carrierCodeType": "FDXE",
-                            "latestDropoffDetails": {
-                                "dayOfWeek": "TUESDAY",
-                                "exceptionalTime": "07:00:00",
-                                "exceptionalOverlay": {
-                                    "time": "02:00:00",
-                                    "type": "WEST_COAST"
-                                },
-                                "operationTime": "06:00:00"
-                            },
-                            "serviceCategory": "EXPRESS_PARCEL"
+                            "latestDropoffDetails": [
+                                {
+                                    "dayOfWeek": "TUESDAY",
+                                    "operationalOverlay": {
+                                        "time": "09:00:00",
+                                        "type": "WEST_COAST"
+                                    },
+                                    "exceptionalTime": "07:00:00",
+                                    "exceptionalOverlay": {
+                                        "time": "02:00:00",
+                                        "type": "WEST_COAST"
+                                    },
+                                    "operationTime": "06:00:00"
+                                }
+                            ],
+                            "serviceCategory": "EXPRESS_FREIGHT"
                         }
                     ],
                     "geoPositionalCoordinates": {
@@ -1562,7 +1582,7 @@
                                 "THURSDAY",
                                 "FRIDAY"
                             ],
-                            "serviceCategory": "GROUND"
+                            "serviceCategory": "GROUND_HOME_DELIVERY"
                         },
                         {
                             "serviceType": "FEDEX_GROUND",
@@ -1667,7 +1687,7 @@
                     "personName": "John Taylor",
                     "emailAddress": "sample@company.com",
                     "phoneNumber": "1234567890",
-                    "phoneExtension": 1234,
+                    "phoneExtension": "1234",
                     "faxNumber": "1234567890",
                     "companyName": "Fedex",
                     "stateTaxId": "11-N-1745",
@@ -1846,7 +1866,8 @@
                             "SMARTPOST",
                             "EXPRESS_PARCEL",
                             "NULL"
-                        ]
+                        ],
+                        "example": "EXPRESS_PARCEL"
                     }
                 },
                 "description": "This is a subset of the transportation carrier's products or services which may have unique characteristics at the location i.e. latest drop-off times for FDXE vs FDXG.",

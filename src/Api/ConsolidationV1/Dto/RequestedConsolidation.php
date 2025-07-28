@@ -31,8 +31,8 @@ final class RequestedConsolidation extends Dto
      * @param  ?DistributionLocations  $distributionLocation  Specifies the distribution locations for consolidation.<br> Mandatory for International Ground Distribution.
      * @param  ConsolidationDataSources1Inner[]|null  $consolidationDataSources  Specifies how selected values in the consolidation are to be determined.
      * @param  CustomerReferences1Inner[]|null  $customerReferences  These are additional customer reference data for commercial invoice.
-     * @param  ?LabelSpecification2  $labelSpecification  These are label specification details includes the image type, printer format, and label stock for label. Can also specify specific details such as doc-tab content, regulatory labels, and masking data on the label.<br> Mandatory as it is needed during confirming consolidation. If it is not passed while creating consolidation it will fail during confirming consolidation.
-     * @param  ?TransborderDistributionDetail  $transborderDistributionDetail  Specifies attributes of a shipment whithin a transborder distribution.
+     * @param  ?LabelSpecification  $labelSpecification  These are label specification details includes the image type, printer format, and label stock for label. Can also specify specific details such as doc-tab content, regulatory labels, and masking data on the label.<br> Mandatory as it is needed during confirming consolidation. If it is not passed while creating consolidation it will fail during confirming consolidation.
+     * @param  ?TransborderDistributionDetail2  $transborderDistributionDetail  Specifies attributes of a shipment whithin a transborder distribution.
      * @param  ?ConsolidationDocumentSpec2  $consolidationDocumentSpecification  Details of consolidation document specification
      * @param  ?Payment  $shippingChargesPayment  Details about who and how the shipment will be paid for. 'payor' is optional when 'paymentType' provided is SENDER.
      * @param  ?string  $description  Description of the package item.
@@ -52,8 +52,8 @@ final class RequestedConsolidation extends Dto
         public ?DistributionLocations $distributionLocation = null,
         public ?array $consolidationDataSources = null,
         public ?array $customerReferences = null,
-        public ?LabelSpecification2 $labelSpecification = null,
-        public ?TransborderDistributionDetail $transborderDistributionDetail = null,
+        public ?LabelSpecification $labelSpecification = null,
+        public ?TransborderDistributionDetail2 $transborderDistributionDetail = null,
         public ?ConsolidationDocumentSpec2 $consolidationDocumentSpecification = null,
         public ?Payment $shippingChargesPayment = null,
         public ?string $description = null,

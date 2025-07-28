@@ -19,7 +19,7 @@ final class CustomsClearanceDetail extends Dto
     /**
      * @param  CommercialInvoice  $commercialInvoice  Use this object to provide Commercial Invoice details. This element is required for electronic upload of CI data. It will serve to create/transmit an electronic Commercial Invoice through the FedEx system.<br>Customers are responsible for printing their own Commercial Invoice.<br>If you would like FedEx to generate a Commercial Invoice and transmit it to Customs for clearance purposes, you need to specify that in the ETDDetail/RequestedDocumentCopies element.<br>Supports maximum of 99 commodity line items.
      * @param  Commodity[]  $commodities  Indicates the details about the dutiable packages. Maximum upto 999 commodities per shipment.
-     * @param  ?string[]  $regulatoryControls  These are the regulatory controls applicable to the shipment.<br> Example:USMCA,FOOD_OR_PERISHABLE
+     * @param  ?string[]  $regulatoryControls  These are the regulatory controls applicable to the shipment.<br> Example:[USMCA,FOOD_OR_PERISHABLE]
      * @param  BrokerDetail[]|null  $brokers  Specify broker information. Use this option only if you are using Broker Select Option for your shipment. A country code must be specified in addition to one of the following address items: postal code, city, or location id.
      * @param  ?string  $freightOnValue  Specify the risk owner for the Freight shipment.This element is only mandatory or valid for Intra India shipments.<br>Example: OWN_RISK
      * @param  ?Payment2  $dutiesPayment  This is a payment type, basically indicates who is the payor for the shipment.Conditional required for International Shipments

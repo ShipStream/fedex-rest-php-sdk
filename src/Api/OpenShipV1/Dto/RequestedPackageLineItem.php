@@ -20,7 +20,7 @@ final class RequestedPackageLineItem extends Dto
     ];
 
     /**
-     * @param  Weight  $weight  These are the package weight details.<br>Note: Weight is not required for One rate shipments
+     * @param  WeightWithLink  $weight  These are the package weight details.
      * @param  ?string  $sequenceNumber  Optional. <br>Used only with individual packages as a unique identifier of each requested package. Will be adjusted at the shipment level as pieces are added.
      * @param  ?string  $subPackagingType  Indicate the subPackagingType, if you are using your own packaging for the shipment. Use it for all shipments inbound to Canada (CA) and inbound shipments to the U.S. and Puerto Rico (PR) from Canada and Mexico (MX).subPackagingType is mandatory for shipments to Canada.<br>Example: TUBE, CARTON, CONTAINER. etc.<br>Note: If the value is TUBE, a non-machinable surcharge will be applicable for SmartPost shipments.<br><a onclick='loadDocReference("subpackagetypes")'>click here to see Sub-Packaging Types</a><br>For more information on physical packaging or packaging regulatory requirements, contact your FedEx representative.
      * @param  CustomerReference[]|null  $customerReferences  These are additional customer reference data.<br>Note: The groupPackageCount must be specified to retrieve customer references.
@@ -34,7 +34,7 @@ final class RequestedPackageLineItem extends Dto
      * @param  ?PackageSpecialServicesRequested  $packageSpecialServices  These are special services that are available at the package level for some or all service types.
      */
     public function __construct(
-        public Weight $weight,
+        public WeightWithLink $weight,
         public ?string $sequenceNumber = null,
         public ?string $subPackagingType = null,
         public ?array $customerReferences = null,

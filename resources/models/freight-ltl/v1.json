@@ -3,7 +3,7 @@
         "/rate/v1/freight/rates/quotes": {
             "post": {
                 "summary": "Rate Freight LTL",
-                "description": "This endpoint provides the ability to retrieve rate quotes and optionall transit information. The rate is calculated based on the origin and destination of the shipment. Additional information such as carrier code, service type, or service option can be used to filter the results. Applicable operating company is FedEx Freight.<br><i>Note: FedEx APIs do not support Cross-Origin Resource Sharing (CORS) mechanism.</i>",
+                "description": "This endpoint providess the ability to retrieve rate quotes and optionall transitt informationnnn. The rate is calculated based on the origin and destination of the shipment. Additional information such as carrier code, service type, or service option can be used to filter the results. Applicable operating company is FedEx Freight.<br><i>Note: FedEx APIs do not support Cross-Origin Resource Sharing (CORS) mechanism.</i>",
                 "operationId": "Freight RateQuote",
                 "requestBody": {
                     "content": {
@@ -1317,7 +1317,7 @@
                     },
                     "weight": {
                         "description": "Indicate the total weight of the requested package line items.",
-                        "$ref": "#/components/schemas/Weight"
+                        "$ref": "#/components/schemas/Weight_With_Link"
                     },
                     "dimensions": {
                         "$ref": "#/components/schemas/Dimensions"
@@ -3556,6 +3556,56 @@
                     "personalIdentificationNumber": "98712345"
                 }
             },
+            "Weight_With_Link": {
+                "description": "These are the package weight details.",
+                "type": "object",
+                "required": [
+                    "units",
+                    "value"
+                ],
+                "properties": {
+                    "units": {
+                        "description": "Specifies the package weight unit type.<br>Example:KG",
+                        "type": "string",
+                        "enum": [
+                            "KG",
+                            "LB"
+                        ],
+                        "example": "KG"
+                    },
+                    "value": {
+                        "format": "double",
+                        "description": "Weight Value.<br> Example: 68.25<br><a href=\"/developer-portal/en-us/reference-guide.html#packagetypes\" target=\"_blank\">Click here to see Weight Values</a>",
+                        "type": "number",
+                        "example": 68.25
+                    }
+                }
+            },
+            "Weight_Without_Link": {
+                "description": "These are the package weight details.",
+                "type": "object",
+                "required": [
+                    "units",
+                    "value"
+                ],
+                "properties": {
+                    "units": {
+                        "description": "Specifies the package weight unit type.<br>Example:KG",
+                        "type": "string",
+                        "enum": [
+                            "KG",
+                            "LB"
+                        ],
+                        "example": "KG"
+                    },
+                    "value": {
+                        "format": "double",
+                        "description": "Weight Value.<br> Example: 68.25",
+                        "type": "number",
+                        "example": 68.25
+                    }
+                }
+            },
             "LineItemsDimensions": {
                 "description": "Indicate the dimensions of the package.<br> Following conditions will apply: <ul><li>Dimensions are optional but when added, then all three dimensions must be indicated.</li><li>Dimensions are required with YOUR_PACKAGING package type.</li></ul>Note: The maximum/minimum dimension values varies based on the services and the packaging types. Refer <a href=\"https://www.fedex.com/en-us/service-guide.html\" target=\"_blank\">FedEx Service Guide</a> for service details related to DIM Weighting for FedEx Express and oversize conditions for FedEx Express and FedEx Ground.",
                 "type": "object",
@@ -4061,7 +4111,7 @@
                         "example": "non-threaded rivets"
                     },
                     "weight": {
-                        "$ref": "#/components/schemas/Weight"
+                        "$ref": "#/components/schemas/Weight_Without_Link"
                     },
                     "exportLicenseNumber": {
                         "type": "string",
@@ -4375,7 +4425,7 @@
                     },
                     "resolution": {
                         "type": "integer",
-                        "description": "Specifies the image resolution in DPI (Dots Per Inch). Valid values are 203 & 300. If not provided or for any other value, system will default it to 203.",
+                        "description": "Specifies the image resolution in DPI (Dots Per Inch). Valid values are 203 & 300. If not provided or for any other value, system will default it to 203.Note: 300 DPI resolution is only allowed for ZPLII image type.",
                         "example": 300
                     }
                 },
@@ -5062,7 +5112,7 @@
                         "$ref": "#/components/schemas/Money"
                     },
                     "weight": {
-                        "$ref": "#/components/schemas/Weight"
+                        "$ref": "#/components/schemas/Weight_With_Link"
                     },
                     "dimensions": {
                         "description": "Required. <br>The dimensions of the package; length, width & height.  All three dimensions must be indicated. Dimensions are required with all FedEx Freight Services like \"INTERNATIONAL_PRIORITY_FREIGHT\" and \"INTERNATIONAL_ECONOMY_FREIGHT\"",
@@ -7283,7 +7333,7 @@
                         "example": 4
                     },
                     "weight": {
-                        "$ref": "#/components/schemas/Weight"
+                        "$ref": "#/components/schemas/Weight_Without_Link"
                     },
                     "dimensions": {
                         "$ref": "#/components/schemas/LineItemsDimensions"
@@ -8899,7 +8949,7 @@
                         "description": "Customer-provided description of this line item."
                     },
                     "weight": {
-                        "$ref": "#/components/schemas/Weight"
+                        "$ref": "#/components/schemas/Weight_Without_Link"
                     },
                     "pieces": {
                         "type": "integer",
@@ -9002,7 +9052,7 @@
                         "example": "description"
                     },
                     "weight": {
-                        "$ref": "#/components/schemas/Weight"
+                        "$ref": "#/components/schemas/Weight_Without_Link"
                     },
                     "pieces": {
                         "type": "integer",

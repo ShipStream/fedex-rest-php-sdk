@@ -24,7 +24,7 @@ final class Commodity extends Dto
      * @param  string  $quantityUnits  This is the unit of measure for the units quantity. This is used to estimate duties and taxes.<br>Example: EA<br><a onclick='loadDocReference("harmonizedsystemcodeunitofmeasure-table1")'>click here to see Commodity Unit Measures</a>
      * @param  string  $countryOfManufacture  This is commodity country of manufacture. This is required for International shipments. Maximum allowed length is 4.<br>Example: US<br><a onclick='loadDocReference("countrycodes")'>click here to see Country codes</a>
      * @param  string  $description  This is the commodity description. Maximum allowed 450 characters.<br><a onclick='loadDocReference("vaguecommoditydescriptions")'>click here to see Vague commodity descriptions</a>
-     * @param  Weight  $weight  These are the package weight details.<br>Note: Weight is not required for One rate shipments
+     * @param  WeightWithoutLink  $weight  These are the package weight details.
      * @param  AdditionalMeasures[]|null  $additionalMeasures  This object contains additional quantitative information other than weight and quantity to calculate duties and taxes.
      * @param  ?int  $numberOfPieces  Indicate the number of pieces associated with the commodity. The value can neither be negative nor exceed 9,999.<br>Example: 12
      * @param  ?Money  $customsValue  Specifies taxes or miscellaneous charge.
@@ -43,7 +43,7 @@ final class Commodity extends Dto
         public string $quantityUnits,
         public string $countryOfManufacture,
         public string $description,
-        public Weight $weight,
+        public WeightWithoutLink $weight,
         public ?array $additionalMeasures = null,
         public ?int $numberOfPieces = null,
         public ?Money $customsValue = null,

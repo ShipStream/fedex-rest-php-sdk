@@ -15,8 +15,8 @@ use ShipStream\FedEx\Dto;
 final class HazardousCommodityOptionDetail extends Dto
 {
     /**
-     * @param  ?string  $labelTextOption  Indicates the label text option.
-     * @param  ?string  $customerSuppliedLabelText  'DG Data Upload Mode:- Optional.,DG Full Validation Mode:- Optional,Text used in labeling the commodity under control of the LabelTextOption field<br>Example:Customer Supplied Label Text'
+     * @param  ?string  $labelTextOption  Provides the label text option
+     * @param  ?string  $customerSuppliedLabelText  DG Data Upload Mode:- Optional<br>DG Full Validation Mode: Optional<br>Text used in labeling the commodity under control of the LabelTextOption field
      */
     public function __construct(
         public ?string $labelTextOption = null,

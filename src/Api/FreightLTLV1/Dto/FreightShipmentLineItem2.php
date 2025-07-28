@@ -17,7 +17,7 @@ final class FreightShipmentLineItem2 extends Dto
     /**
      * @param  string  $subPackagingType  This is a sub package type for the package.<br><a onclick='loadDocReference("subpackagetypes")'>Click here to see Sub-Packaging Types</a>
      * @param  string  $description  Customer-provided description of this line item.<br>Example: description
-     * @param  Weight  $weight  These are the package weight details.<br>Note: Weight is not required for One rate shipments
+     * @param  WeightWithoutLink  $weight  These are the package weight details.
      * @param  int  $pieces  Total number of pieces.<br> Example: 12
      * @param  string  $freightClass  Required.<br>Freight class for this line item.
      * @param  string  $id  Indicates the ID for the box.<br> Example: 123
@@ -38,7 +38,7 @@ final class FreightShipmentLineItem2 extends Dto
     public function __construct(
         public string $subPackagingType,
         public string $description,
-        public Weight $weight,
+        public WeightWithoutLink $weight,
         public int $pieces,
         public string $freightClass,
         public string $id,

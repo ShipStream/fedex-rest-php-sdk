@@ -21,7 +21,7 @@ final class LtlRequestedPackageLineItem extends Dto
 
     /**
      * @param  string  $subPackagingType  This is a physical packaging type used for the package. <br>Example: TUBE, CARTON, CONTAINER. etc.<br><a onclick='loadDocReference("subpackagetypes")'>Click here to see Sub-Packaging Types</a><br>For more information on physical packaging or packaging regulatory requirements, visit FedEx.com or contact your FedEx representative.<br>Note: Sub packaging CAGE is not applicable for LTL Freight shipment.
-     * @param  Weight  $weight  These are the package weight details.<br>Note: Weight is not required for One rate shipments
+     * @param  WeightWithLink  $weight  These are the package weight details.
      * @param  AssociatedFreightLineItemDetail[]  $associatedFreightLineItems  Specifies associated freight line items.
      * @param  ?int  $groupPackageCount  Indicate the grouped package count. These are number of identical package(s) each with one or more commodities. <br> Example: 2
      * @param  ContentRecord[]|null  $contentRecord  Specifies the details of contents of the package.
@@ -30,7 +30,7 @@ final class LtlRequestedPackageLineItem extends Dto
      */
     public function __construct(
         public string $subPackagingType,
-        public Weight $weight,
+        public WeightWithLink $weight,
         public array $associatedFreightLineItems,
         public ?int $groupPackageCount = null,
         public ?array $contentRecord = null,

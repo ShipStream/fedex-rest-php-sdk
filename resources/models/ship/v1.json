@@ -3,7 +3,7 @@
         "/ship/v1/shipments": {
             "post": {
                 "summary": "Create Shipment",
-                "description": "This endpoint helpsss you to create shipment requests thereby validating all the shipping input information and either generates the labels (if the responses is synchronous) or a job ID if transaction is processed using asynchronous method.<br><i>Note: FedEx APIs do not support Cross-Origin Resource Sharing (CORS) mechanism.</i>",
+                "description": "This endpoint helps you to create shipment requests thereby validating all the shipping input information and either generates the labels (if the responses is synchronous) or a job ID if transaction is processed using asynchronous method.<br><i>Note: FedEx APIs do not support Cross-Origin Resource Sharing (CORS) mechanism.</i>",
                 "operationId": "Create Shipment",
                 "requestBody": {
                     "content": {
@@ -1339,183 +1339,6 @@
                 },
                 "description": "The request elements required to create a shipment."
             },
-            "RequestedShipment": {
-                "required": [
-                    "labelSpecification",
-                    "packagingType",
-                    "pickupType",
-                    "recipients",
-                    "requestedPackageLineItems",
-                    "serviceType",
-                    "shipper",
-                    "shippingChargesPayment",
-                    "totalWeight"
-                ],
-                "type": "object",
-                "properties": {
-                    "shipDatestamp": {
-                        "type": "string",
-                        "description": "This is the shipment date. Default value is current date in case the date is not provided or a past date is provided.<br>Format [YYYY-MM-DD].<br>Example: 2019-10-14",
-                        "example": "2019-10-14"
-                    },
-                    "totalDeclaredValue": {
-                        "description": "It is the sum of all declared values of all packages in a shipment. The amount of totalDeclaredValue must be equal to the sum of all the individual declaredValues in the shipment. The declaredValue and totalDeclaredValue must match in all currencies in one shipment. This value represents FedEx maximum liability associated with a shipment. This is including, but not limited to any loss, damage, delay, misdelivery, any failure to provide information, or misdelivery of information related to the Shipment.<br><i>Note: The totalDeclaredValue should not exceed customsValue.</i>",
-                        "$ref": "#/components/schemas/Money"
-                    },
-                    "shipper": {
-                        "description": "Indicate the Shipper contact details for this shipment.",
-                        "example": {
-                            "address": {
-                                "streetLines": [
-                                    "10 FedEx Parkway",
-                                    "Suite 302"
-                                ],
-                                "city": "Beverly Hills",
-                                "stateOrProvinceCode": "CA",
-                                "postalCode": "90210",
-                                "countryCode": "US",
-                                "residential": false
-                            },
-                            "contact": {
-                                "personName": "John Taylor",
-                                "emailAddress": "sample@company.com",
-                                "phoneExtension": "91",
-                                "phoneNumber": "XXXX567890",
-                                "companyName": "Fedex"
-                            },
-                            "tins": [
-                                {
-                                    "number": "XXX567",
-                                    "tinType": "FEDERAL",
-                                    "usage": "usage",
-                                    "effectiveDate": "2024-06-13",
-                                    "expirationDate": "2024-06-13"
-                                }
-                            ]
-                        },
-                        "$ref": "#/components/schemas/ShipperParty"
-                    },
-                    "soldTo": {
-                        "description": "Will indicate the party responsible for purchasing the goods shipped from the shipper to the recipient. The sold to party is not necessarily the recipient or the importer of record. The sold to party is relevant when the purchaser, rather than the recipient determines when certain customs regulations apply.",
-                        "$ref": "#/components/schemas/SoldToParty"
-                    },
-                    "recipients": {
-                        "type": "array",
-                        "description": "Indicate the descriptive data for the recipient location to which the shipment is to be received.",
-                        "items": {
-                            "$ref": "#/components/schemas/RecipientsParty"
-                        }
-                    },
-                    "recipientLocationNumber": {
-                        "type": "string",
-                        "description": "A unique identifier for a recipient location.<br>Example:1234567",
-                        "example": "1234567"
-                    },
-                    "pickupType": {
-                        "type": "string",
-                        "description": "Indicates if shipment is being dropped off at a FedEx location or being picked up by FedEx or if it's a regularly scheduled pickup for this shipment. Required for FedEx Express and Ground Shipment.<br>Example: USE_SCHEDULED_PICKUP",
-                        "example": "USE_SCHEDULED_PICKUP",
-                        "enum": [
-                            "CONTACT_FEDEX_TO_SCHEDULE",
-                            "DROPOFF_AT_FEDEX_LOCATION",
-                            "USE_SCHEDULED_PICKUP"
-                        ]
-                    },
-                    "serviceType": {
-                        "type": "string",
-                        "description": "Indicate the FedEx service type used for this shipment.<br>Example: STANDARD_OVERNIGHT<br><a onclick='loadDocReference(\"servicetypes\")'>click here to see Service Types</a>",
-                        "example": "PRIORITY_OVERNIGHT"
-                    },
-                    "packagingType": {
-                        "type": "string",
-                        "description": "Specify the packaging used.<br>Note: For Express Freight shipments, the packaging will default to YOUR_PACKAGING irrespective of the user provided package type in the request.<br>Example: FEDEX_PAK<br><a onclick='loadDocReference(\"packagetypes\")'>click here to see Package Types</a>",
-                        "example": "YOUR_PACKAGING"
-                    },
-                    "totalWeight": {
-                        "type": "number",
-                        "description": "Indicate the shipment total weight in pounds.<br>Example: 10.6<br>Note: <ul><li>This only applies to International shipments and should be used on the first package of a multiple piece shipment.</li><li>This value contains 1 explicit decimal position.</li><li>For one Label at a time shipments, the unit of totalWeight is considered same as the unit of weight provided in requestedPackageLineItem field.</li></ul>",
-                        "format": "double",
-                        "example": 20.6
-                    },
-                    "origin": {
-                        "description": "Indicate shipment origin address information, if it is different from the shipper address.",
-                        "$ref": "#/components/schemas/ContactAndAddress"
-                    },
-                    "shippingChargesPayment": {
-                        "$ref": "#/components/schemas/Payment"
-                    },
-                    "shipmentSpecialServices": {
-                        "$ref": "#/components/schemas/ShipmentSpecialServicesRequested"
-                    },
-                    "emailNotificationDetail": {
-                        "$ref": "#/components/schemas/ShipShipmentEMailNotificationDetail"
-                    },
-                    "expressFreightDetail": {
-                        "$ref": "#/components/schemas/ExpressFreightDetail"
-                    },
-                    "variableHandlingChargeDetail": {
-                        "$ref": "#/components/schemas/VariableHandlingChargeDetail"
-                    },
-                    "customsClearanceDetail": {
-                        "$ref": "#/components/schemas/CustomsClearanceDetail"
-                    },
-                    "smartPostInfoDetail": {
-                        "$ref": "#/components/schemas/SmartPostInfoDetail"
-                    },
-                    "blockInsightVisibility": {
-                        "type": "boolean",
-                        "description": "If true, only the shipper/payer will have visibility of this shipment.<br>Valid Value : true, false.<br> Default:false<br>Example: true",
-                        "example": true
-                    },
-                    "labelSpecification": {
-                        "$ref": "#/components/schemas/LabelSpecification"
-                    },
-                    "shippingDocumentSpecification": {
-                        "$ref": "#/components/schemas/ShippingDocumentSpecification"
-                    },
-                    "rateRequestType": {
-                        "type": "array",
-                        "description": "Indicate the type of rates to be returned. The account specific rates are returned by default if the account number is specified in the request.<br>Following are values:<ul><li>LIST - Returns FedEx published list rates in addition to account-specific rates (if applicable).</li><li>INCENTIVE - This is one-time discount for incentivising the customer. For more information, contact your FedEx representative.</li><li>ACCOUNT - Returns account specific rates (Default).</li><li>PREFERRED - Returns rates in the preferred currency specified in the element preferredCurrency.</li><li>RETAIL - Returns customer rate from one of retail FedEx service centers.</li></ul>Examples: [\"ACCOUNT\", \"PREFERRED\"]",
-                        "example": [
-                            "LIST",
-                            "PREFERRED"
-                        ],
-                        "items": {
-                            "type": "string",
-                            "enum": [
-                                "LIST",
-                                "NONE",
-                                "PREFERRED",
-                                "ACCOUNT",
-                                "INCENTIVE",
-                                "RETAIL"
-                            ]
-                        }
-                    },
-                    "preferredCurrency": {
-                        "type": "string",
-                        "description": "Indicate the currency the caller requests to have used in all returned monetary values. Should be Used in conjunction with the element RateRequestType.<br>Example: USD<br><a onclick='loadDocReference(\"currencycodes\")'>click here to see available Currency codes</a><br>Note: Incorrect currency codes should not be supplied. The system ignores the incorrect currency code.",
-                        "example": "USD"
-                    },
-                    "totalPackageCount": {
-                        "type": "integer",
-                        "description": "For an MPS, this is the total number of packages in the shipment.Applicable for parent shipment for one label at a time shipments. <br>Example: 25",
-                        "format": "int32",
-                        "example": 25
-                    },
-                    "masterTrackingId": {
-                        "$ref": "#/components/schemas/MasterTrackingId"
-                    },
-                    "requestedPackageLineItems": {
-                        "type": "array",
-                        "description": "These are one or more package-attribute descriptions, each of which describes an individual package, a group of identical packages, or (for the total-piece-total-weight case) common characteristics of all packages in the shipment.<ul><li>At least one instance containing the weight for at least one package is required for EXPRESS and GROUND shipments.</li><li>Single piece requests will have one RequestedPackageLineItem.</li><li>Multiple piece requests will have multiple RequestedPackageLineItems.</li><li>Maximum occurrences is 30.</li></ul>",
-                        "items": {
-                            "$ref": "#/components/schemas/RequestedPackageLineItem"
-                        }
-                    }
-                },
-                "description": "The descriptive data of the requested shipment."
-            },
             "Money": {
                 "type": "object",
                 "properties": {
@@ -1538,7 +1361,7 @@
                 "properties": {
                     "amount": {
                         "type": "number",
-                        "description": "This is the amount. Maximum limit is 5 digits before decimal.<br>Example:  1556.25",
+                        "description": "This is commodity value in amount used for Customs declaration.<br>Max limit: 11 digits before decimal.<br>Example: 1,55,6457.25",
                         "format": "double",
                         "example": "1556.25"
                     },
@@ -2253,6 +2076,8 @@
                         "description": "Specify the Rate Type used.",
                         "enum": [
                             "ACCOUNT",
+                            "LIST",
+                            "ACTUAL",
                             "CURRENT",
                             "CUSTOM"
                         ],
@@ -2325,7 +2150,10 @@
                             "DSP_73",
                             "DSP_85",
                             "DSP_LICENSE_AGREEMENT",
-                            "WAREHOUSE_WITHDRAWAL"
+                            "WAREHOUSE_WITHDRAWAL",
+                            "FROM_FOREIGN_TRADE_ZONE",
+                            "DEA_486",
+                            "DSP_94"
                         ]
                     }
                 },
@@ -2541,7 +2369,7 @@
                 "properties": {
                     "regulatoryControls": {
                         "type": "array",
-                        "description": "These are the regulatory controls applicable to the shipment.<br> Example:USMCA,FOOD_OR_PERISHABLE",
+                        "description": "These are the regulatory controls applicable to the shipment.<br> Example:[USMCA,FOOD_OR_PERISHABLE]",
                         "example": [
                             "NOT_IN_FREE_CIRCULATION",
                             "USMCA"
@@ -2588,7 +2416,7 @@
                     "isDocumentOnly": {
                         "type": "boolean",
                         "description": "Defaults to false. Only used for international Express requests to indicate if just documents are being shipped or not. A valude of DERIVED will cause the value to be determined by PMIS based on the specified commodities information<br>Example: false",
-                        "example": false
+                        "example": true
                     },
                     "recipientCustomsId": {
                         "$ref": "#/components/schemas/RecipientCustomsId"
@@ -2688,6 +2516,11 @@
                         "type": "string",
                         "description": "The originatorName that will populate the Commercial Invoice (or Pro Forma).<br>Example: originator name",
                         "example": "originator Name"
+                    },
+                    "paymentTerms": {
+                        "description": "The payment terms that will populate the Commercial Invoice (or Pro Forma).  This field is being supported for completeness only.<br>Example: payment terms",
+                        "type": "string",
+                        "example": "payment terms"
                     },
                     "comments": {
                         "type": "array",
@@ -2828,101 +2661,6 @@
                     "accountNumberCountryCode": "CA"
                 }
             },
-            "Commodity": {
-                "required": [
-                    "description"
-                ],
-                "type": "object",
-                "properties": {
-                    "unitPrice": {
-                        "description": "This is the unit price.",
-                        "$ref": "#/components/schemas/Money"
-                    },
-                    "additionalMeasures": {
-                        "type": "array",
-                        "description": "This object contains additional quantitative information other than weight and quantity to calculate duties and taxes.",
-                        "items": {
-                            "$ref": "#/components/schemas/AdditionalMeasures"
-                        }
-                    },
-                    "numberOfPieces": {
-                        "type": "integer",
-                        "description": "Indicate the number of pieces associated with the commodity. The value can neither be negative nor exceed 9,999.<br>Example: 12",
-                        "format": "int32",
-                        "example": 12
-                    },
-                    "quantity": {
-                        "type": "integer",
-                        "description": "This is the units quantity (using quantityUnits as the unit of measure) per commodity. This is used to estimate duties and taxes.<br> Example: 125",
-                        "format": "int32",
-                        "example": 125
-                    },
-                    "quantityUnits": {
-                        "type": "string",
-                        "description": "This is the unit of measure for the units quantity. This is used to estimate duties and taxes.<br>Example: EA<br><a onclick='loadDocReference(\"harmonizedsystemcodeunitofmeasure-table1\")'>click here to see Commodity Unit Measures</a>",
-                        "example": "Ea"
-                    },
-                    "customsValue": {
-                        "description": "This customs value is applicable for all items(or units) under the specified commodity.",
-                        "$ref": "#/components/schemas/Customs_Money"
-                    },
-                    "countryOfManufacture": {
-                        "type": "string",
-                        "description": "This is commodity country of manufacture. This is required for International shipments. Maximum allowed length is 4.<br>Example: US<br><a onclick='loadDocReference(\"countrycodes\")'>click here to see Country codes</a>",
-                        "example": "US"
-                    },
-                    "cIMarksAndNumbers": {
-                        "type": "string",
-                        "description": "This is an identifying mark or number used on the packaging of a shipment to help customers identify a particular shipment<br>Example: 87123",
-                        "example": "87123"
-                    },
-                    "harmonizedCode": {
-                        "type": "string",
-                        "description": "This is to specify the Harmonized Tariff System (HTS) code to meet U.S. and foreign governments' customs requirements. These are mainly used to estimate the duties and taxes.<br>Example: 0613<br>To research the classification for your commodity, use the FedEx Global Trade Manager online at <a href='http://www.fedex.com/gtm' target='_blank'>fedex.com/gtm</a>. You will find country-specific information to determine whether your commodity is considered to be a document or non-document for your destination.",
-                        "example": "0613"
-                    },
-                    "description": {
-                        "type": "string",
-                        "description": "Required<br>ScrewsMaximum allowed 450 characters.<br>Example: description",
-                        "example": "description"
-                    },
-                    "name": {
-                        "type": "string",
-                        "description": "This is Commodity name.<br>Example: Non-Threaded Rivets",
-                        "example": "non-threaded rivets"
-                    },
-                    "weight": {
-                        "$ref": "#/components/schemas/Weight"
-                    },
-                    "exportLicenseNumber": {
-                        "type": "string",
-                        "description": "This is the export license number for the shipment.<br>Example: 26456",
-                        "example": "26456"
-                    },
-                    "exportLicenseExpirationDate": {
-                        "type": "string",
-                        "description": "Specify the export license expiration date for the shipment.<br>Format YYYY-MM-DD<br>Example : 2009-04-12",
-                        "format": "date-time"
-                    },
-                    "partNumber": {
-                        "type": "string",
-                        "description": "This is a part number.<br>Example: 167",
-                        "example": "167"
-                    },
-                    "purpose": {
-                        "type": "string",
-                        "description": "This field is used for calculation of duties and taxes.<br><br> Valid values are : BUSINESS and CONSUMER. <br>Example:BUSINESS",
-                        "example": "BUSINESS",
-                        "enum": [
-                            "BUSINESS",
-                            "CONSUMER"
-                        ]
-                    },
-                    "usmcaDetail": {
-                        "$ref": "#/components/schemas/UsmcaDetail"
-                    }
-                }
-            },
             "AdditionalMeasures": {
                 "type": "object",
                 "properties": {
@@ -3057,8 +2795,7 @@
                         "example": "DEPARTMENT_OF_COMMERCE",
                         "enum": [
                             "DEPARTMENT_OF_COMMERCE",
-                            "DEPARTMENT_OF_STATE",
-                            "DEPARTMENT_OF_COMMERCE_AND_DEPARTMENT_OF_STATE"
+                            "DEPARTMENT_OF_STATE"
                         ]
                     },
                     "destinationCountries": {
@@ -3194,6 +2931,7 @@
                         "example": "PAPER_7X475",
                         "enum": [
                             "PAPER_4X6",
+                            "STOCK_4X675",
                             "PAPER_4X675",
                             "PAPER_4X8",
                             "PAPER_4X9",
@@ -3250,7 +2988,7 @@
                     },
                     "resolution": {
                         "type": "integer",
-                        "description": "Specifies the image resolution in DPI (Dots Per Inch). Valid values are 203 & 300. If not provided or for any other value, system will default it to 203.",
+                        "description": "Specifies the image resolution in DPI (Dots Per Inch). Valid values are 203 & 300. If not provided or for any other value, system will default it to 203.Note: 300 DPI resolution is only allowed for ZPLII image type.",
                         "example": 300
                     }
                 },
@@ -3271,6 +3009,7 @@
                             "default": "SHIPPER_INFORMATION",
                             "enum": [
                                 "CUSTOMS_VALUE",
+                                "SHIPPER_ACCOUNT_NUMBER",
                                 "DIMENSIONS",
                                 "DUTIES_AND_TAXES_PAYOR_ACCOUNT_NUMBER",
                                 "INSURED_VALUE",
@@ -4201,9 +3940,6 @@
                 "description": "These are detcontentails for the package containing alcohol. This is required for alcohol special service. The alcoholRecipientType is required."
             },
             "DangerousGoodsDetail": {
-                "required": [
-                    "accessibility"
-                ],
                 "type": "object",
                 "properties": {
                     "cargoAircraftOnly": {
@@ -4211,9 +3947,20 @@
                         "type": "boolean",
                         "example": false
                     },
+                    "regulation": {
+                        "type": "string",
+                        "description": "It is a HazardousCommodityRegulationType(The regulation under which the DG data has been validated).",
+                        "example": "ADR",
+                        "enum": [
+                            "ADR",
+                            "DOT",
+                            "IATA",
+                            "ORMD"
+                        ]
+                    },
                     "accessibility": {
                         "type": "string",
-                        "description": "Specify Dangerous Goods Accessibility Type. <ul><li>Inaccessible &ndash; it does not have to be accessable on the aircraft.</li><li>Accessible &ndash; it must be fully accessible on the aircraft, and is more strictly controlled.</li></ul>",
+                        "description": "Specify Dangerous Goods Accessibility Type. <ul><li>Inaccessible &ndash; it does not have to be accessable on the aircraft.</li><li>Accessible &ndash; it must be fully accessible on the aircraft, and is more strictly controlled.</li></ul><i>Note: Accessibility is only required for IATA controlled DG shipments.</i>",
                         "example": "INACCESSIBLE",
                         "enum": [
                             "ACCESSIBLE",
@@ -4299,7 +4046,7 @@
             },
             "LABELRESPONSEOPTIONS": {
                 "type": "string",
-                "description": "LabelResponseOptions specifies the label generation format.<br>Example:URL_ONLY",
+                "description": "Note- Label will be returned as Base64 ONLY when openShipmentAction is PROVIDE_DOCUMENTS_INCREMENTALLY.<br>LabelResponseOptions specifies the label generation format.<br>Example:URL_ONLY",
                 "example": "URL_ONLY",
                 "enum": [
                     "URL_ONLY",
@@ -4476,7 +4223,8 @@
                             "PROFORMA_INVOICE",
                             "USMCA_CERTIFICATION_OF_ORIGIN",
                             "CERTIFICATE_OF_ORIGIN",
-                            "MERGED_LABELS_ONLY"
+                            "MERGED_LABELS_ONLY",
+                            "USMCA_COMMERCIAL_INVOICE_CERTIFICATION_OF_ORIGIN"
                         ]
                     },
                     "trackingNumber": {
@@ -4559,13 +4307,6 @@
                         "format": "double",
                         "example": 21.45
                     },
-                    "transactionDetails": {
-                        "type": "array",
-                        "description": "Indicates data received that governs data payload language/translations. The TransactionDetail from the request is echoed back to the caller in the corresponding reply.",
-                        "items": {
-                            "$ref": "#/components/schemas/TransactionDetailVO"
-                        }
-                    },
                     "packageDocuments": {
                         "type": "array",
                         "description": "These are package documents returned in the response.",
@@ -4613,7 +4354,7 @@
                         "format": "double",
                         "example": 621.45
                     },
-                    "netListRateAmount": {
+                    "listRateAmount": {
                         "type": "number",
                         "description": "Indicates the net List rate amount.<br>Example: 1.45",
                         "format": "double",
@@ -4658,11 +4399,6 @@
                         "description": "This is the tracking number associated with this package. <br>Example: 49XXX0000XXX20032835",
                         "example": "794953535000"
                     },
-                    "successful": {
-                        "type": "boolean",
-                        "description": "Returns true if the responses are successful otherwise false.",
-                        "example": true
-                    },
                     "customerReferences": {
                         "type": "array",
                         "description": "These are additional customer reference data.<br>Note: The groupPackageCount must be specified to retrieve customer references.",
@@ -4672,21 +4408,6 @@
                     }
                 },
                 "description": "Piece Response information."
-            },
-            "TransactionDetailVO": {
-                "type": "object",
-                "properties": {
-                    "transactionDetails": {
-                        "type": "string",
-                        "description": "Includes data returned which governs data payload language/translations. The TransactionDetail from the request is echoed back to the caller in the corresponding reply.<br>Example: transactionDetails",
-                        "example": "transactionDetails"
-                    },
-                    "transactionId": {
-                        "type": "string",
-                        "description": "This element has a unique identifier added in your request, helps you match the request to the reply. Maximum of 40 characters allowed.<br>Example: XXXX_XXX123XXXXX.",
-                        "example": "12345"
-                    }
-                }
             },
             "CompletedShipmentDetail": {
                 "type": "object",
@@ -5116,7 +4837,7 @@
                         "$ref": "#/components/schemas/HazardousCommodityQuantityDetail"
                     },
                     "options": {
-                        "$ref": "#/components/schemas/HazardousCommodityContent"
+                        "$ref": "#/components/schemas/HazardousCommodityOptionDetail"
                     },
                     "description": {
                         "$ref": "#/components/schemas/ValidatedHazardousCommodityDescription"
@@ -5132,6 +4853,36 @@
                     }
                 },
                 "description": "These the details on the kind and quantity of an individual hazardous commodity in a package."
+            },
+            "HazardousCommodityQuantityDetail": {
+                "required": [
+                    "amount",
+                    "quantityType"
+                ],
+                "type": "object",
+                "properties": {
+                    "quantityType": {
+                        "type": "string",
+                        "description": "Specifies which measure of quantity is to be validated.<br>Example:GROSS",
+                        "example": "GROSS",
+                        "enum": [
+                            "GROSS",
+                            "NET"
+                        ]
+                    },
+                    "amount": {
+                        "type": "number",
+                        "description": "Indicate the amount of the commodity in alternate units.<br>Example: 24.56",
+                        "format": "double",
+                        "example": 24.56
+                    },
+                    "units": {
+                        "type": "string",
+                        "description": "Indicate the unit of measure.<br>Example: KG",
+                        "example": "Kg"
+                    }
+                },
+                "description": "Specify the Hazardous commodity quantity details."
             },
             "ValidatedHazardousCommodityDescription": {
                 "type": "object",
@@ -6324,10 +6075,10 @@
                         "description": "Indicates whether the shipment has been deleted from history or not. If the value is True, then it indicates that the shipment has been deleted.<br>Example: true",
                         "example": true
                     },
-                    "successMessage": {
+                    "message": {
                         "type": "string",
-                        "description": "The success message generated during cancellation request for Shipment.<br>Example: Success",
-                        "example": "Success"
+                        "description": "The success message generated during cancellation request for Shipment.<br>Example:Shipment is successfully cancelled",
+                        "example": "Shipment is successfully cancelled"
                     },
                     "alerts": {
                         "type": "array",
@@ -6819,6 +6570,27 @@
                 },
                 "description": "Indicate the shipment special service or handling required for this shipment. <br>Note: <ul><li>If the shipper is requesting a special service, the special service type must be indicated in the object specialServiceTypes, and all supporting detail must be provided in the appropriate sub-object below.</li><li>For returns it is required to provide value RETURN_SHIPMENT in the specialServiceTypes.</li></ul>"
             },
+            "HazardousCommodityOptionDetail": {
+                "description": "Provides details of Hazardous Commodity Option Detail",
+                "type": "object",
+                "properties": {
+                    "labelTextOption": {
+                        "description": "Provides the label text option",
+                        "type": "string",
+                        "enum": [
+                            "APPEND",
+                            "OVERRIDE",
+                            "STANDARD"
+                        ],
+                        "example": "STANDARD"
+                    },
+                    "customerSuppliedLabelText": {
+                        "description": "DG Data Upload Mode:- Optional<br>DG Full Validation Mode: Optional<br>Text used in labeling the commodity under control of the LabelTextOption field",
+                        "type": "string",
+                        "example": "Customer Supplied Label Text"
+                    }
+                }
+            },
             "Full_Schema_Create_Tag": {
                 "required": [
                     "accountNumber",
@@ -6851,7 +6623,7 @@
                 ],
                 "allOf": [
                     {
-                        "$ref": "#/components/schemas/RequestedShipment"
+                        "$ref": "#/components/schemas/RequestedShipment_tag"
                     },
                     {
                         "properties": {
@@ -6879,6 +6651,480 @@
                         "type": "object"
                     }
                 ]
+            },
+            "RequestedShipment_tag": {
+                "required": [
+                    "labelSpecification",
+                    "packagingType",
+                    "pickupType",
+                    "recipients",
+                    "requestedPackageLineItems",
+                    "serviceType",
+                    "shipper",
+                    "shippingChargesPayment",
+                    "totalWeight"
+                ],
+                "type": "object",
+                "properties": {
+                    "shipDatestamp": {
+                        "type": "string",
+                        "description": "This is the shipment date. Default value is current date in case the date is not provided or a past date is provided.<br>Format [YYYY-MM-DD].<br>Example: 2019-10-14",
+                        "example": "2019-10-14"
+                    },
+                    "totalDeclaredValue": {
+                        "description": "It is the sum of all declared values of all packages in a shipment. The amount of totalDeclaredValue must be equal to the sum of all the individual declaredValues in the shipment. The declaredValue and totalDeclaredValue must match in all currencies in one shipment. This value represents FedEx maximum liability associated with a shipment. This is including, but not limited to any loss, damage, delay, misdelivery, any failure to provide information, or misdelivery of information related to the Shipment.<br><i>Note: The totalDeclaredValue should not exceed customsValue.</i>",
+                        "$ref": "#/components/schemas/Money"
+                    },
+                    "shipper": {
+                        "description": "Indicate the Shipper contact details for this shipment.",
+                        "example": {
+                            "address": {
+                                "streetLines": [
+                                    "10 FedEx Parkway",
+                                    "Suite 302"
+                                ],
+                                "city": "Beverly Hills",
+                                "stateOrProvinceCode": "CA",
+                                "postalCode": "90210",
+                                "countryCode": "US",
+                                "residential": false
+                            },
+                            "contact": {
+                                "personName": "John Taylor",
+                                "emailAddress": "sample@company.com",
+                                "phoneExtension": "91",
+                                "phoneNumber": "XXXX567890",
+                                "companyName": "Fedex"
+                            },
+                            "tins": [
+                                {
+                                    "number": "XXX567",
+                                    "tinType": "FEDERAL",
+                                    "usage": "usage",
+                                    "effectiveDate": "2024-06-13",
+                                    "expirationDate": "2024-06-13"
+                                }
+                            ]
+                        },
+                        "$ref": "#/components/schemas/ShipperParty"
+                    },
+                    "soldTo": {
+                        "description": "Will indicate the party responsible for purchasing the goods shipped from the shipper to the recipient. The sold to party is not necessarily the recipient or the importer of record. The sold to party is relevant when the purchaser, rather than the recipient determines when certain customs regulations apply.",
+                        "$ref": "#/components/schemas/SoldToParty"
+                    },
+                    "recipients": {
+                        "type": "array",
+                        "description": "Indicate the descriptive data for the recipient location to which the shipment is to be received.",
+                        "items": {
+                            "$ref": "#/components/schemas/RecipientsParty"
+                        }
+                    },
+                    "recipientLocationNumber": {
+                        "type": "string",
+                        "description": "A unique identifier for a recipient location.<br>Example:1234567",
+                        "example": "1234567"
+                    },
+                    "pickupType": {
+                        "type": "string",
+                        "description": "Indicates if shipment is being dropped off at a FedEx location or being picked up by FedEx or if it's a regularly scheduled pickup for this shipment. Required for FedEx Express and Ground Shipment.<br>Example: USE_SCHEDULED_PICKUP",
+                        "example": "USE_SCHEDULED_PICKUP",
+                        "enum": [
+                            "CONTACT_FEDEX_TO_SCHEDULE",
+                            "DROPOFF_AT_FEDEX_LOCATION",
+                            "USE_SCHEDULED_PICKUP"
+                        ]
+                    },
+                    "serviceType": {
+                        "type": "string",
+                        "description": "Indicate the FedEx service type used for this shipment.<br>Example: STANDARD_OVERNIGHT<br><a onclick='loadDocReference(\"servicetypes\")'>click here to see Service Types</a>",
+                        "example": "PRIORITY_OVERNIGHT"
+                    },
+                    "packagingType": {
+                        "type": "string",
+                        "description": "Specify the packaging used.<br>Note: For Express Freight shipments, the packaging will default to YOUR_PACKAGING irrespective of the user provided package type in the request.<br>Example: FEDEX_PAK<br><a onclick='loadDocReference(\"packagetypes\")'>click here to see Package Types</a>",
+                        "example": "YOUR_PACKAGING"
+                    },
+                    "totalWeight": {
+                        "type": "number",
+                        "description": "Indicate the shipment total weight in pounds.<br>Example: 10.6<br>Note: <ul><li>This only applies to International shipments and should be used on the first package of a multiple piece shipment.</li><li>This value contains 1 explicit decimal position.</li><li>For one Label at a time shipments, the unit of totalWeight is considered same as the unit of weight provided in requestedPackageLineItem field.</li></ul>",
+                        "format": "double",
+                        "example": 20.6
+                    },
+                    "origin": {
+                        "description": "Indicate shipment origin address information, if it is different from the shipper address.",
+                        "$ref": "#/components/schemas/ContactAndAddress"
+                    },
+                    "shippingChargesPayment": {
+                        "$ref": "#/components/schemas/Payment"
+                    },
+                    "shipmentSpecialServices": {
+                        "$ref": "#/components/schemas/ShipmentSpecialServicesRequested"
+                    },
+                    "emailNotificationDetail": {
+                        "$ref": "#/components/schemas/ShipShipmentEMailNotificationDetail"
+                    },
+                    "expressFreightDetail": {
+                        "$ref": "#/components/schemas/ExpressFreightDetail"
+                    },
+                    "variableHandlingChargeDetail": {
+                        "$ref": "#/components/schemas/VariableHandlingChargeDetail"
+                    },
+                    "customsClearanceDetail": {
+                        "$ref": "#/components/schemas/CustomsClearanceDetail_tag"
+                    },
+                    "smartPostInfoDetail": {
+                        "$ref": "#/components/schemas/SmartPostInfoDetail"
+                    },
+                    "blockInsightVisibility": {
+                        "type": "boolean",
+                        "description": "If true, only the shipper/payer will have visibility of this shipment.<br>Valid Value : true, false.<br> Default:false<br>Example: true",
+                        "example": true
+                    },
+                    "labelSpecification": {
+                        "$ref": "#/components/schemas/LabelSpecification"
+                    },
+                    "shippingDocumentSpecification": {
+                        "$ref": "#/components/schemas/ShippingDocumentSpecification"
+                    },
+                    "rateRequestType": {
+                        "type": "array",
+                        "description": "Indicate the type of rates to be returned. The account specific rates are returned by default if the account number is specified in the request.<br>Following are values:<ul><li>LIST - Returns FedEx published list rates in addition to account-specific rates (if applicable).</li><li>INCENTIVE - This is one-time discount for incentivising the customer. For more information, contact your FedEx representative.</li><li>ACCOUNT - Returns account specific rates (Default).</li><li>PREFERRED - Returns rates in the preferred currency specified in the element preferredCurrency.</li><li>RETAIL - Returns customer rate from one of retail FedEx service centers.</li></ul>Examples: [\"ACCOUNT\", \"PREFERRED\"]",
+                        "example": [
+                            "LIST",
+                            "PREFERRED"
+                        ],
+                        "items": {
+                            "type": "string",
+                            "enum": [
+                                "LIST",
+                                "NONE",
+                                "PREFERRED",
+                                "ACCOUNT",
+                                "INCENTIVE",
+                                "RETAIL"
+                            ]
+                        }
+                    },
+                    "preferredCurrency": {
+                        "type": "string",
+                        "description": "Indicate the currency the caller requests to have used in all returned monetary values. Should be Used in conjunction with the element RateRequestType.<br>Example: USD<br><a onclick='loadDocReference(\"currencycodes\")'>click here to see available Currency codes</a><br>Note: Incorrect currency codes should not be supplied. The system ignores the incorrect currency code.",
+                        "example": "USD"
+                    },
+                    "totalPackageCount": {
+                        "type": "integer",
+                        "description": "For an MPS, this is the total number of packages in the shipment.Applicable for parent shipment for one label at a time shipments. <br>Example: 25",
+                        "format": "int32",
+                        "example": 25
+                    },
+                    "masterTrackingId": {
+                        "$ref": "#/components/schemas/MasterTrackingId"
+                    },
+                    "requestedPackageLineItems": {
+                        "type": "array",
+                        "description": "These are one or more package-attribute descriptions, each of which describes an individual package, a group of identical packages, or (for the total-piece-total-weight case) common characteristics of all packages in the shipment.<ul><li>At least one instance containing the weight for at least one package is required for EXPRESS and GROUND shipments.</li><li>Single piece requests will have one RequestedPackageLineItem.</li><li>Multiple piece requests will have multiple RequestedPackageLineItems.</li><li>Maximum occurrences is 30.</li></ul>",
+                        "items": {
+                            "$ref": "#/components/schemas/RequestedPackageLineItem"
+                        }
+                    }
+                },
+                "description": "The descriptive data of the requested shipment."
+            },
+            "PartyAccountNumber_tag": {
+                "type": "object",
+                "properties": {
+                    "value": {
+                        "type": "string",
+                        "description": "Conditional.<br> The account number value.<br> Max Length is 9.<br>Example: 12XXXXX89",
+                        "example": "12XXXXX89"
+                    }
+                },
+                "description": "This is FedEx Account number details.",
+                "example": {
+                    "value": "Your account number"
+                }
+            },
+            "CustomsClearanceDetail_tag": {
+                "required": [
+                    "commercialInvoice",
+                    "commodities"
+                ],
+                "type": "object",
+                "properties": {
+                    "regulatoryControls": {
+                        "type": "array",
+                        "description": "These are the regulatory controls applicable to the shipment.<br> Example:USMCA,FOOD_OR_PERISHABLE",
+                        "example": [
+                            "NOT_IN_FREE_CIRCULATION",
+                            "USMCA"
+                        ],
+                        "items": {
+                            "type": "string",
+                            "enum": [
+                                "FOOD_OR_PERISHABLE",
+                                "USMCA",
+                                "NOT_APPLICABLE_FOR_LOW_VALUE_CUSTOMS_EXCEPTIONS",
+                                "NOT_IN_FREE_CIRCULATION"
+                            ]
+                        }
+                    },
+                    "brokers": {
+                        "type": "array",
+                        "description": "Specify broker information. Use this option only if you are using Broker Select Option for your shipment. A country code must be specified in addition to one of the following address items: postal code, city, or location id.",
+                        "items": {
+                            "$ref": "#/components/schemas/BrokerDetail"
+                        }
+                    },
+                    "commercialInvoice": {
+                        "$ref": "#/components/schemas/CommercialInvoice"
+                    },
+                    "freightOnValue": {
+                        "type": "string",
+                        "description": "Specify the risk owner for the Freight shipment.This element is only mandatory or valid for Intra India shipments.<br>Example: OWN_RISK",
+                        "example": "OWN_RISK",
+                        "enum": [
+                            "CARRIER_RISK",
+                            "OWN_RISK"
+                        ]
+                    },
+                    "dutiesPayment": {
+                        "$ref": "#/components/schemas/Payment_1_tag"
+                    },
+                    "commodities": {
+                        "type": "array",
+                        "description": "Indicates the details about the dutiable packages. Maximum upto 999 commodities per shipment.",
+                        "items": {
+                            "$ref": "#/components/schemas/Commodity"
+                        }
+                    },
+                    "isDocumentOnly": {
+                        "type": "boolean",
+                        "description": "Defaults to false. Only used for international Express requests to indicate if just documents are being shipped or not. A valude of DERIVED will cause the value to be determined by PMIS based on the specified commodities information<br>Example: false",
+                        "example": false
+                    },
+                    "recipientCustomsId": {
+                        "$ref": "#/components/schemas/RecipientCustomsId"
+                    },
+                    "customsOption": {
+                        "$ref": "#/components/schemas/CustomsOptionDetail"
+                    },
+                    "importerOfRecord": {
+                        "description": "The descriptive data for the importer of Record for the shipment and their physical address, contact and account number information.",
+                        "$ref": "#/components/schemas/Party"
+                    },
+                    "generatedDocumentLocale": {
+                        "type": "string",
+                        "description": "This is the locale for generated document.<br>Example: en_US<br><a onclick='loadDocReference(\"locales\")'>click here to see Locales</a><br>Note: If the locale is left blank or an invalid locale is entered, an error message is returned in response.",
+                        "example": "en_US"
+                    },
+                    "exportDetail": {
+                        "$ref": "#/components/schemas/ExportDetail"
+                    },
+                    "totalCustomsValue": {
+                        "description": "This is the total customs value.",
+                        "$ref": "#/components/schemas/Money"
+                    },
+                    "partiesToTransactionAreRelated": {
+                        "type": "boolean",
+                        "description": "Specify if the transacting parties are related."
+                    },
+                    "declarationStatementDetail": {
+                        "$ref": "#/components/schemas/CustomsDeclarationStatementDetail"
+                    },
+                    "insuranceCharge": {
+                        "description": "Specify insurance charges if applicable. <br><i>Note: FedEx does not provide insurance of any kind.</i>",
+                        "$ref": "#/components/schemas/Money"
+                    }
+                },
+                "description": "These are customs clearance details. Required for International and intra-country Shipments."
+            },
+            "Payment_1_tag": {
+                "type": "object",
+                "properties": {
+                    "payor": {
+                        "$ref": "#/components/schemas/Payor_1_tag"
+                    },
+                    "billingDetails": {
+                        "$ref": "#/components/schemas/BillingDetails"
+                    },
+                    "paymentType": {
+                        "type": "string",
+                        "description": "Indicates who and how the shipment will be paid for.Required for Express and Ground.<br>Example: SENDER",
+                        "enum": [
+                            "SENDER",
+                            "RECIPIENT",
+                            "THIRD_PARTY",
+                            "COLLECT"
+                        ],
+                        "example": "SENDER"
+                    }
+                },
+                "description": "This is a payment type, basically indicates who is the payor for the shipment.Conditional required for International Shipments",
+                "example": {
+                    "payor": {
+                        "responsibleParty": {
+                            "address": {
+                                "streetLines": [
+                                    "10 FedEx Parkway",
+                                    "Suite 302"
+                                ],
+                                "city": "Beverly Hills",
+                                "stateOrProvinceCode": "CA",
+                                "postalCode": "38127",
+                                "countryCode": "US",
+                                "residential": false
+                            },
+                            "contact": {
+                                "personName": "John Taylor",
+                                "emailAddress": "sample@company.com",
+                                "phoneNumber": "1234567890",
+                                "phoneExtension": "phone extension",
+                                "companyName": "Fedex",
+                                "faxNumber": "fax number"
+                            },
+                            "accountNumber": {
+                                "value": "Your account number"
+                            },
+                            "tins": [
+                                {
+                                    "number": "number",
+                                    "tinType": "FEDERAL",
+                                    "usage": "usage",
+                                    "effectiveDate": "2024-06-13",
+                                    "expirationDate": "2024-06-13"
+                                },
+                                {
+                                    "number": "number",
+                                    "tinType": "FEDERAL",
+                                    "usage": "usage",
+                                    "effectiveDate": "2024-06-13",
+                                    "expirationDate": "2024-06-13"
+                                }
+                            ]
+                        }
+                    },
+                    "billingDetails": {
+                        "billingCode": "billingCode",
+                        "billingType": "billingType",
+                        "aliasId": "aliasId",
+                        "accountNickname": "accountNickname",
+                        "accountNumber": "Your account number",
+                        "accountNumberCountryCode": "US"
+                    },
+                    "paymentType": "SENDER"
+                }
+            },
+            "Payor_1_tag": {
+                "type": "object",
+                "properties": {
+                    "responsibleParty": {
+                        "$ref": "#/components/schemas/Party_2_tag"
+                    }
+                },
+                "description": "Information about the person who is paying for the shipment. Not applicable for credit card payment. ",
+                "example": {
+                    "responsibleParty": {
+                        "address": {
+                            "streetLines": [
+                                "10 FedEx Parkway",
+                                "Suite 302"
+                            ],
+                            "city": "Beverly Hills",
+                            "stateOrProvinceCode": "CA",
+                            "postalCode": "38127",
+                            "countryCode": "US",
+                            "residential": false
+                        },
+                        "contact": {
+                            "personName": "John Taylor",
+                            "emailAddress": "sample@company.com",
+                            "phoneNumber": "1234567890",
+                            "phoneExtension": "phone extension",
+                            "companyName": "Fedex",
+                            "faxNumber": "fax number"
+                        },
+                        "accountNumber": {
+                            "value": "Your account number"
+                        },
+                        "tins": [
+                            {
+                                "number": "number",
+                                "tinType": "FEDERAL",
+                                "usage": "usage",
+                                "effectiveDate": "2000-01-23T04:56:07.000+00:00",
+                                "expirationDate": "2000-01-23T04:56:07.000+00:00"
+                            },
+                            {
+                                "number": "number",
+                                "tinType": "FEDERAL",
+                                "usage": "usage",
+                                "effectiveDate": "2000-01-23T04:56:07.000+00:00",
+                                "expirationDate": "2000-01-23T04:56:07.000+00:00"
+                            }
+                        ]
+                    }
+                }
+            },
+            "Party_2_tag": {
+                "type": "object",
+                "properties": {
+                    "address": {
+                        "$ref": "#/components/schemas/Address"
+                    },
+                    "contact": {
+                        "$ref": "#/components/schemas/Contact"
+                    },
+                    "accountNumber": {
+                        "$ref": "#/components/schemas/PartyAccountNumber_tag"
+                    },
+                    "tins": {
+                        "type": "array",
+                        "description": "This is the tax identification number details.",
+                        "items": {
+                            "$ref": "#/components/schemas/TaxpayerIdentification"
+                        }
+                    }
+                },
+                "description": "Use this object to provide the attributes such as physical address, contact information and account number information.",
+                "example": {
+                    "address": {
+                        "streetLines": [
+                            "10 FedEx Parkway",
+                            "Suite 302"
+                        ],
+                        "city": "Beverly Hills",
+                        "stateOrProvinceCode": "CA",
+                        "postalCode": "38127",
+                        "countryCode": "US",
+                        "residential": false
+                    },
+                    "contact": {
+                        "personName": "John Taylor",
+                        "emailAddress": "sample@company.com",
+                        "phoneNumber": "1234567890",
+                        "phoneExtension": "phone extension",
+                        "companyName": "Fedex",
+                        "faxNumber": "fax number"
+                    },
+                    "accountNumber": {
+                        "value": "Your account number"
+                    },
+                    "tins": [
+                        {
+                            "number": "number",
+                            "tinType": "FEDERAL",
+                            "usage": "usage",
+                            "effectiveDate": "2000-01-23T04:56:07.000+00:00",
+                            "expirationDate": "2000-01-23T04:56:07.000+00:00"
+                        },
+                        {
+                            "number": "number",
+                            "tinType": "FEDERAL",
+                            "usage": "usage",
+                            "effectiveDate": "2000-01-23T04:56:07.000+00:00",
+                            "expirationDate": "2000-01-23T04:56:07.000+00:00"
+                        }
+                    ]
+                }
             },
             "SHPCResponseVO_CreateTag": {
                 "type": "object",
@@ -6994,11 +7240,184 @@
                 },
                 "description": "The output details when a tag is cancelled."
             },
-            "Address": {
+            "RequestedShipment": {
                 "required": [
-                    "countryCode",
-                    "streetLines"
+                    "labelSpecification",
+                    "packagingType",
+                    "pickupType",
+                    "recipients",
+                    "requestedPackageLineItems",
+                    "serviceType",
+                    "shipper",
+                    "shippingChargesPayment",
+                    "totalWeight"
                 ],
+                "type": "object",
+                "properties": {
+                    "shipDatestamp": {
+                        "type": "string",
+                        "description": "This is the shipment date. Default value is current date in case the date is not provided or a past date is provided.<br>Format [YYYY-MM-DD].<br>Example: 2019-10-14",
+                        "example": "2019-10-14"
+                    },
+                    "totalDeclaredValue": {
+                        "description": "It is the sum of all declared values of all packages in a shipment. The amount of totalDeclaredValue must be equal to the sum of all the individual declaredValues in the shipment. The declaredValue and totalDeclaredValue must match in all currencies in one shipment. This value represents FedEx maximum liability associated with a shipment. This is including, but not limited to any loss, damage, delay, misdelivery, any failure to provide information, or misdelivery of information related to the Shipment.<br><i>Note: The totalDeclaredValue should not exceed customsValue.</i>",
+                        "$ref": "#/components/schemas/Money"
+                    },
+                    "shipper": {
+                        "description": "Indicate the Shipper contact details for this shipment.",
+                        "example": {
+                            "address": {
+                                "streetLines": [
+                                    "10 FedEx Parkway",
+                                    "Suite 302"
+                                ],
+                                "city": "Beverly Hills",
+                                "stateOrProvinceCode": "CA",
+                                "postalCode": "90210",
+                                "countryCode": "US",
+                                "residential": false
+                            },
+                            "contact": {
+                                "personName": "John Taylor",
+                                "emailAddress": "sample@company.com",
+                                "phoneExtension": "91",
+                                "phoneNumber": "XXXX567890",
+                                "companyName": "Fedex"
+                            },
+                            "tins": [
+                                {
+                                    "number": "XXX567",
+                                    "tinType": "FEDERAL",
+                                    "usage": "usage",
+                                    "effectiveDate": "2024-06-13",
+                                    "expirationDate": "2024-06-13"
+                                }
+                            ]
+                        },
+                        "$ref": "#/components/schemas/ShipperParty"
+                    },
+                    "recipients": {
+                        "type": "array",
+                        "description": "Indicate the descriptive data for the recipient location to which the shipment is to be received.",
+                        "items": {
+                            "$ref": "#/components/schemas/RecipientsParty"
+                        }
+                    },
+                    "soldTo": {
+                        "description": "Will indicate the party responsible for purchasing the goods shipped from the shipper to the recipient. The sold to party is not necessarily the recipient or the importer of record. The sold to party is relevant when the purchaser, rather than the recipient determines when certain customs regulations apply.",
+                        "$ref": "#/components/schemas/SoldToParty"
+                    },
+                    "recipientLocationNumber": {
+                        "type": "string",
+                        "description": "A unique identifier for a recipient location.<br>Example:1234567",
+                        "example": "1234567"
+                    },
+                    "pickupType": {
+                        "type": "string",
+                        "description": "Indicates if shipment is being dropped off at a FedEx location or being picked up by FedEx or if it's a regularly scheduled pickup for this shipment. Required for FedEx Express and Ground Shipment.<br>Example: USE_SCHEDULED_PICKUP",
+                        "example": "USE_SCHEDULED_PICKUP",
+                        "enum": [
+                            "CONTACT_FEDEX_TO_SCHEDULE",
+                            "DROPOFF_AT_FEDEX_LOCATION",
+                            "USE_SCHEDULED_PICKUP"
+                        ]
+                    },
+                    "serviceType": {
+                        "type": "string",
+                        "description": "Indicate the FedEx service type used for this shipment.<br>Example: STANDARD_OVERNIGHT<br><a onclick='loadDocReference(\"servicetypes\")'>click here to see Service Types</a>",
+                        "example": "PRIORITY_OVERNIGHT"
+                    },
+                    "packagingType": {
+                        "type": "string",
+                        "description": "Specify the packaging used.<br>Note: For Express Freight shipments, the packaging will default to YOUR_PACKAGING irrespective of the user provided package type in the request.<br>Example: FEDEX_PAK<br><a onclick='loadDocReference(\"packagetypes\")'>click here to see Package Types</a>",
+                        "example": "YOUR_PACKAGING"
+                    },
+                    "totalWeight": {
+                        "type": "number",
+                        "description": "Indicate the shipment total weight in pounds.<br>Example: 10.6<br>Note: <ul><li>This only applies to International shipments and should be used on the first package of a multiple piece shipment.</li><li>This value contains 1 explicit decimal position.</li><li>For one Label at a time shipments, the unit of totalWeight is considered same as the unit of weight provided in requestedPackageLineItem field.</li></ul>",
+                        "format": "double",
+                        "example": 20.6
+                    },
+                    "origin": {
+                        "description": "Indicate shipment origin address information, if it is different from the shipper address.",
+                        "$ref": "#/components/schemas/ContactAndAddress"
+                    },
+                    "shippingChargesPayment": {
+                        "$ref": "#/components/schemas/Payment"
+                    },
+                    "shipmentSpecialServices": {
+                        "$ref": "#/components/schemas/ShipmentSpecialServicesRequested"
+                    },
+                    "emailNotificationDetail": {
+                        "$ref": "#/components/schemas/ShipShipmentEMailNotificationDetail"
+                    },
+                    "expressFreightDetail": {
+                        "$ref": "#/components/schemas/ExpressFreightDetail"
+                    },
+                    "variableHandlingChargeDetail": {
+                        "$ref": "#/components/schemas/VariableHandlingChargeDetail"
+                    },
+                    "customsClearanceDetail": {
+                        "$ref": "#/components/schemas/CustomsClearanceDetail"
+                    },
+                    "smartPostInfoDetail": {
+                        "$ref": "#/components/schemas/SmartPostInfoDetail"
+                    },
+                    "blockInsightVisibility": {
+                        "type": "boolean",
+                        "description": "If true, only the shipper/payer will have visibility of this shipment.<br>Valid Value : true, false.<br> Default:false<br>Example: true",
+                        "example": true
+                    },
+                    "labelSpecification": {
+                        "$ref": "#/components/schemas/LabelSpecification"
+                    },
+                    "shippingDocumentSpecification": {
+                        "$ref": "#/components/schemas/ShippingDocumentSpecification"
+                    },
+                    "rateRequestType": {
+                        "type": "array",
+                        "description": "Indicate the type of rates to be returned. The account specific rates are returned by default if the account number is specified in the request.<br>Following are values:<ul><li>LIST - Returns FedEx published list rates in addition to account-specific rates (if applicable).</li><li>INCENTIVE - This is one-time discount for incentivising the customer. For more information, contact your FedEx representative.</li><li>ACCOUNT - Returns account specific rates (Default).</li><li>PREFERRED - Returns rates in the preferred currency specified in the element preferredCurrency.</li><li>RETAIL - Returns customer rate from one of retail FedEx service centers.</li></ul>Examples: [\"ACCOUNT\", \"PREFERRED\"]",
+                        "example": [
+                            "LIST",
+                            "PREFERRED"
+                        ],
+                        "items": {
+                            "type": "string",
+                            "enum": [
+                                "LIST",
+                                "NONE",
+                                "PREFERRED",
+                                "ACCOUNT",
+                                "INCENTIVE",
+                                "RETAIL"
+                            ]
+                        }
+                    },
+                    "preferredCurrency": {
+                        "type": "string",
+                        "description": "Indicate the currency the caller requests to have used in all returned monetary values. Should be Used in conjunction with the element RateRequestType.<br>Example: USD<br><a onclick='loadDocReference(\"currencycodes\")'>click here to see available Currency codes</a><br>Note: Incorrect currency codes should not be supplied. The system ignores the incorrect currency code.",
+                        "example": "USD"
+                    },
+                    "totalPackageCount": {
+                        "type": "integer",
+                        "description": "For an MPS, this is the total number of packages in the shipment.Applicable for parent shipment for one label at a time shipments. <br>Example: 25",
+                        "format": "int32",
+                        "example": 25
+                    },
+                    "masterTrackingId": {
+                        "$ref": "#/components/schemas/MasterTrackingId"
+                    },
+                    "requestedPackageLineItems": {
+                        "type": "array",
+                        "description": "These are one or more package-attribute descriptions, each of which describes an individual package, a group of identical packages, or (for the total-piece-total-weight case) common characteristics of all packages in the shipment.<ul><li>At least one instance containing the weight for at least one package is required for EXPRESS and GROUND shipments.</li><li>Single piece requests will have one RequestedPackageLineItem.</li><li>Multiple piece requests will have multiple RequestedPackageLineItems.</li><li>Maximum occurrences is 30.</li></ul>",
+                        "items": {
+                            "$ref": "#/components/schemas/RequestedPackageLineItem"
+                        }
+                    }
+                },
+                "description": "The descriptive data of the requested shipment."
+            },
+            "Address": {
                 "type": "object",
                 "properties": {
                     "streetLines": {
@@ -7103,7 +7522,8 @@
                         "description": "Indicate the weight unit type. The package and commodity weight unit should be the same else the request will result in an error.<br>Example:KG",
                         "example": "KG",
                         "enum": [
-                            "KG"
+                            "KG",
+                            "LB"
                         ]
                     },
                     "value": {
@@ -7174,6 +7594,101 @@
                     }
                 }
             },
+            "Commodity": {
+                "required": [
+                    "description"
+                ],
+                "type": "object",
+                "properties": {
+                    "unitPrice": {
+                        "description": "This is the unit price.",
+                        "$ref": "#/components/schemas/Money"
+                    },
+                    "additionalMeasures": {
+                        "type": "array",
+                        "description": "This object contains additional quantitative information other than weight and quantity to calculate duties and taxes.",
+                        "items": {
+                            "$ref": "#/components/schemas/AdditionalMeasures"
+                        }
+                    },
+                    "numberOfPieces": {
+                        "type": "integer",
+                        "description": "Indicate the number of pieces associated with the commodity. The value can neither be negative nor exceed 9,999.<br>Example: 12",
+                        "format": "int32",
+                        "example": 12
+                    },
+                    "quantity": {
+                        "type": "integer",
+                        "description": "This is the units quantity (using quantityUnits as the unit of measure) per commodity. This is used to estimate duties and taxes.<br> Example: 125",
+                        "format": "int32",
+                        "example": 125
+                    },
+                    "quantityUnits": {
+                        "type": "string",
+                        "description": "This is the unit of measure for the units quantity. This is used to estimate duties and taxes.<br>Example: EA<br><a onclick='loadDocReference(\"harmonizedsystemcodeunitofmeasure-table1\")'>click here to see Commodity Unit Measures</a>",
+                        "example": "Ea"
+                    },
+                    "customsValue": {
+                        "description": "This customs value is applicable for all items(or units) under the specified commodity.",
+                        "$ref": "#/components/schemas/Customs_Money"
+                    },
+                    "countryOfManufacture": {
+                        "type": "string",
+                        "description": "This is commodity country of manufacture. This is required for International shipments. Maximum allowed length is 4.<br>Example: US<br><a onclick='loadDocReference(\"countrycodes\")'>click here to see Country codes</a>",
+                        "example": "US"
+                    },
+                    "cIMarksAndNumbers": {
+                        "type": "string",
+                        "description": "This is an identifying mark or number used on the packaging of a shipment to help customers identify a particular shipment<br>Example: 87123",
+                        "example": "87123"
+                    },
+                    "harmonizedCode": {
+                        "type": "string",
+                        "description": "This is to specify the Harmonized Tariff System (HTS) code to meet U.S. and foreign governments' customs requirements. These are mainly used to estimate the duties and taxes.<br>Example: 0613<br>To research the classification for your commodity, use the FedEx Global Trade Manager online at <a href='http://www.fedex.com/gtm' target='_blank'>fedex.com/gtm</a>. You will find country-specific information to determine whether your commodity is considered to be a document or non-document for your destination.",
+                        "example": "0613"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "Required<br>ScrewsMaximum allowed 450 characters.<br>Example: description",
+                        "example": "description"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "This is Commodity name.<br>Example: Non-Threaded Rivets",
+                        "example": "non-threaded rivets"
+                    },
+                    "weight": {
+                        "$ref": "#/components/schemas/Weight"
+                    },
+                    "exportLicenseNumber": {
+                        "type": "string",
+                        "description": "This is the export license number for the shipment.<br>Example: 26456",
+                        "example": "26456"
+                    },
+                    "exportLicenseExpirationDate": {
+                        "type": "string",
+                        "description": "Specify the export license expiration date for the shipment.<br>Format YYYY-MM-DD<br>Example : 2009-04-12",
+                        "format": "date-time"
+                    },
+                    "partNumber": {
+                        "type": "string",
+                        "description": "This is a part number.<br>Example: 167",
+                        "example": "167"
+                    },
+                    "purpose": {
+                        "type": "string",
+                        "description": "This field is used for calculation of duties and taxes.<br><br> Valid values are : BUSINESS and CONSUMER. <br>Example:BUSINESS",
+                        "example": "BUSINESS",
+                        "enum": [
+                            "BUSINESS",
+                            "CONSUMER"
+                        ]
+                    },
+                    "usmcaDetail": {
+                        "$ref": "#/components/schemas/UsmcaDetail"
+                    }
+                }
+            },
             "DocTabContentZone": {
                 "type": "object",
                 "properties": {
@@ -7186,197 +7701,6 @@
                     }
                 },
                 "description": "Indicate the doc tab specification for different zones on the label. The specification includes zone number, header and data field to be displayed on the label."
-            },
-            "HazardousCommodityQuantityDetail": {
-                "required": [
-                    "amount",
-                    "quantityType"
-                ],
-                "type": "object",
-                "properties": {
-                    "quantityType": {
-                        "type": "string",
-                        "description": "Specifies which measure of quantity is to be validated.",
-                        "example": "NET",
-                        "enum": [
-                            "GROSS",
-                            "NET"
-                        ]
-                    },
-                    "amount": {
-                        "type": "number",
-                        "description": "Number of units of the type below.<br>Example: 34.56",
-                        "format": "double",
-                        "example": 34.56
-                    },
-                    "units": {
-                        "type": "string",
-                        "description": "Specifies the units.<br>Example: KG",
-                        "example": "Kg"
-                    }
-                },
-                "description": "Indicates the Hazardous Commodity Quantity Detail."
-            },
-            "HazardousCommodityContent": {
-                "type": "object",
-                "properties": {
-                    "quantity": {
-                        "$ref": "#/components/schemas/HazardousCommodityQuantityDetail"
-                    },
-                    "innerReceptacles": {
-                        "type": "array",
-                        "description": "Specifies the inner receptacles within the container.",
-                        "items": {
-                            "$ref": "#/components/schemas/HazardousCommodityInnerReceptacleDetail"
-                        }
-                    },
-                    "options": {
-                        "$ref": "#/components/schemas/HazardousCommodityOptionDetail"
-                    },
-                    "description": {
-                        "$ref": "#/components/schemas/HazardousCommodityDescription"
-                    }
-                },
-                "description": "Customer-provided specifications for handling individual commodities."
-            },
-            "HazardousCommodityInnerReceptacleDetail": {
-                "type": "object",
-                "properties": {
-                    "quantity": {
-                        "$ref": "#/components/schemas/HazardousCommodityQuantityDetail"
-                    }
-                }
-            },
-            "HazardousCommodityOptionDetail": {
-                "type": "object",
-                "properties": {
-                    "labelTextOption": {
-                        "type": "string",
-                        "description": "Indicates the label text option.",
-                        "enum": [
-                            "APPEND",
-                            "OVERRIDE",
-                            "STANDARD"
-                        ]
-                    },
-                    "customerSuppliedLabelText": {
-                        "type": "string",
-                        "description": "'DG Data Upload Mode:- Optional.,DG Full Validation Mode:- Optional,Text used in labeling the commodity under control of the LabelTextOption field<br>Example:Customer Supplied Label Text' \n\n",
-                        "example": "Customer Supplied Label Text."
-                    }
-                },
-                "description": "Indicates details of hazardous commodity option detail."
-            },
-            "HazardousCommodityDescription": {
-                "required": [
-                    "packingGroup",
-                    "reportableQuantity"
-                ],
-                "type": "object",
-                "properties": {
-                    "sequenceNumber": {
-                        "type": "integer",
-                        "description": "Required<br>Specify the sequence number.<br>Example: 9812",
-                        "format": "int32",
-                        "example": 9812
-                    },
-                    "processingOptions": {
-                        "type": "array",
-                        "description": "Indicates any special processing options to be applied to the description of the dangerous goods commodity <br> Example: [\"INCLUDE_SPECIAL_PROVISIONS\"]",
-                        "items": {
-                            "type": "string",
-                            "example": "INCLUDE_SPECIAL_PROVISIONS",
-                            "enum": [
-                                "INCLUDE_SPECIAL_PROVISIONS"
-                            ]
-                        }
-                    },
-                    "subsidiaryClasses": {
-                        "type": "array",
-                        "description": "Required\n\nIndicates list of subsidiary classes<br>Example: [\"Subsidiary Classes\"]",
-                        "example": [
-                            "Subsidiary Classes"
-                        ],
-                        "items": {
-                            "type": "string"
-                        }
-                    },
-                    "labelText": {
-                        "type": "string",
-                        "description": "Specifies the text for the label.",
-                        "example": "labelText"
-                    },
-                    "technicalName": {
-                        "type": "string",
-                        "description": "Specifies the technical name for the hazardous material.",
-                        "example": "technicalName"
-                    },
-                    "packingDetails": {
-                        "$ref": "#/components/schemas/HazardousCommodityPackingDetail"
-                    },
-                    "authorization": {
-                        "type": "string",
-                        "description": "Information related to quantity limitations and operator or state variations as may be applicable to the dangerous goods commodity.",
-                        "example": "authorization"
-                    },
-                    "reportableQuantity": {
-                        "type": "boolean",
-                        "description": "Reportable Quantity",
-                        "example": true
-                    },
-                    "percentage": {
-                        "type": "number",
-                        "description": "Percentage<br>Example: 12.45",
-                        "format": "double",
-                        "example": 12.45
-                    },
-                    "id": {
-                        "type": "string",
-                        "description": "ID<br>Example: 123",
-                        "example": "123"
-                    },
-                    "packingGroup": {
-                        "type": "string",
-                        "description": "Identifies DOT packing group for a hazardous commodity",
-                        "example": "I",
-                        "enum": [
-                            "DEFAULT",
-                            "I",
-                            "II",
-                            "III"
-                        ]
-                    },
-                    "properShippingName": {
-                        "type": "string",
-                        "description": "The proper shipping name as defined by the regulation. The name can also include qualifying words<br>Example: properShippingName",
-                        "example": "properShippingName"
-                    },
-                    "hazardClass": {
-                        "type": "string",
-                        "description": "Specifies the hazard class for the commodity<br>Example: hazard Class\n",
-                        "example": "hazard Class"
-                    }
-                },
-                "description": "Required<br>Details of hazardous commodity description."
-            },
-            "HazardousCommodityPackingDetail": {
-                "required": [
-                    "cargoAircraftOnly"
-                ],
-                "type": "object",
-                "properties": {
-                    "packingInstructions": {
-                        "type": "string",
-                        "description": "Coded specification for how commodity is to be packed.<br>Example: packing Instructions",
-                        "example": "packing Instructions"
-                    },
-                    "cargoAircraftOnly": {
-                        "type": "boolean",
-                        "description": "A Boolean value that, when True, specifies the mode of shipment transportation should be Cargo Aircraft for Dangerous Goods. <br>Note: An identifier DGD-CAO is added in AWB for cargo aircraft shipments.Example: true",
-                        "example": true
-                    }
-                },
-                "description": "Specifies documentation and limits for validation of an individual packing group/category. DG Data Upload Mode: Required (IATA), Optional (Other), DG Full Validation Mode: Required (IATA), Optional (Other),"
             },
             "CXSError": {
                 "type": "object",
@@ -7480,7 +7804,7 @@
                     },
                     "stateOrProvinceCode": {
                         "type": "string",
-                        "description": "The US States,Canada and Puerto Rico Province codes of the recipient. The Format and presence of this field may vary depending on the country.State code is required for US, CA, PR and not required for other countries. Conditional. Max length is 2.<br>Example: CA",
+                        "description": "It is used to identify the principal subdivisions (e.g., provinces or states) of countries. The Format and presence of this field may vary depending on the country. Note: For specific countries, such as the United States and Canada, and Puerto Rico, there is a two-character state, province, codes limit . Example: TX",
                         "example": "CA"
                     },
                     "postalCode": {
@@ -8126,8 +8450,7 @@
             },
             "ShipmentDryIceDetail_2": {
                 "required": [
-                    "packageCount",
-                    "totalWeight"
+                    "packageCount"
                 ],
                 "type": "object",
                 "properties": {

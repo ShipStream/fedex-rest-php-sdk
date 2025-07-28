@@ -23,7 +23,7 @@ use ShipStream\FedEx\Request;
 /**
  * Upload ETD files
  *
- * Use this endpoint to upload the trade documentss electronicallyy before (pre-shipment) and after
+ * Use this endpoint to upload the trade documents electronically before (pre-shipment) and after
  * (post-shipment) the shipment is created.<br><i>Note&#58; FedEx APIs do not support Cross-Origin
  * Resource Sharing (CORS) mechanism.</i>
  */

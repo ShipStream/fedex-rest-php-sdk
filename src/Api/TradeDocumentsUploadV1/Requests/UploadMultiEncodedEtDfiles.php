@@ -14,7 +14,7 @@ use Exception;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Response;
-use Saloon\Traits\Body\HasMultipartBody;
+use Saloon\Traits\Body\HasJsonBody;
 use ShipStream\FedEx\Api\TradeDocumentsUploadV1\Dto\FullSchemaBase64multiDocumentRequest;
 use ShipStream\FedEx\Api\TradeDocumentsUploadV1\Responses\ErrorResponseVo;
 use ShipStream\FedEx\Api\TradeDocumentsUploadV1\Responses\ErrorResponseVo2;
@@ -30,7 +30,7 @@ use ShipStream\FedEx\Request;
  */
 class UploadMultiEncodedEtDfiles extends Request implements HasBody
 {
-    use HasMultipartBody;
+    use HasJsonBody;
 
     protected Method $method = Method::POST;
 

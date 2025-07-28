@@ -1314,6 +1314,56 @@
                     }
                 }
             },
+            "Weight_With_Link": {
+                "description": "These are the package weight details.",
+                "type": "object",
+                "required": [
+                    "units",
+                    "value"
+                ],
+                "properties": {
+                    "units": {
+                        "description": "Specifies the package weight unit type.<br>Example:KG",
+                        "type": "string",
+                        "enum": [
+                            "KG",
+                            "LB"
+                        ],
+                        "example": "KG"
+                    },
+                    "value": {
+                        "format": "double",
+                        "description": "Weight Value.<br> Example: 68.25<br><a href=\"/developer-portal/en-us/reference-guide.html#packagetypes\" target=\"_blank\">Click here to see Weight Values</a>",
+                        "type": "number",
+                        "example": 68.25
+                    }
+                }
+            },
+            "Weight_Without_Link": {
+                "description": "These are the package weight details.",
+                "type": "object",
+                "required": [
+                    "units",
+                    "value"
+                ],
+                "properties": {
+                    "units": {
+                        "description": "Specifies the package weight unit type.<br>Example:KG",
+                        "type": "string",
+                        "enum": [
+                            "KG",
+                            "LB"
+                        ],
+                        "example": "KG"
+                    },
+                    "value": {
+                        "format": "double",
+                        "description": "Weight Value.<br> Example: 68.25",
+                        "type": "number",
+                        "example": 68.25
+                    }
+                }
+            },
             "StandaloneBatteryDetails": {
                 "type": "object",
                 "properties": {
@@ -1718,7 +1768,7 @@
                         "$ref": "#/components/schemas/Money"
                     },
                     "weight": {
-                        "$ref": "#/components/schemas/Weight"
+                        "$ref": "#/components/schemas/Weight_With_Link"
                     },
                     "dimensions": {
                         "$ref": "#/components/schemas/Dimensions"
@@ -1839,7 +1889,7 @@
                     },
                     "dryIceWeight": {
                         "description": "These are the weight details.",
-                        "$ref": "#/components/schemas/Weight"
+                        "$ref": "#/components/schemas/Weight_Without_Link"
                     },
                     "standaloneBatteryDetails": {
                         "type": "array",
@@ -2087,7 +2137,7 @@
                     },
                     "weight": {
                         "description": "Total weight of items for this line item",
-                        "$ref": "#/components/schemas/Weight"
+                        "$ref": "#/components/schemas/Weight_Without_Link"
                     },
                     "packaging": {
                         "type": "string",

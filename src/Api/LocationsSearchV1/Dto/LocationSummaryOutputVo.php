@@ -24,7 +24,7 @@ final class LocationSummaryOutputVo extends Dto
     /**
      * @param  ?int  $totalResults  Indicates the total number of locations that are displayed in the result.<br>Example: 13
      * @param  ?int  $resultsReturned  Specifies the number of results returned in the reply.<br>Example: 10
-     * @param  ?Address  $matchedAddress  Descriptive data for a physical location. May be used as an actual physical address (place to which one could go), or as a container of \"address parts\" which should be handled as a unit (such as a city-state-ZIP combination within the US).
+     * @param  ?Address  $matchedAddress  Specifies the Address Details for a location.
      * @param  ?GeoPositionalCoordinates  $matchedAddressGeoCoord  The ISO6709GeographicCoordinates for a specific geographic location
      * @param  mixed[][]|null  $locationDetailList  List of FedEx locations meeting the search criteria.
      * @param  Alert[]|null  $alerts  Specifies the alerts.

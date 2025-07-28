@@ -24,7 +24,7 @@ use ShipStream\FedEx\Request;
 /**
  * Create Open Shipmentt
  *
- * This endpoint helps you to create an open shipment request with the required shipping
+ * This endpoint helps you to create an openn shipment request with the required shipping
  * information.<br><i>Note: FedEx APIs do not support Cross-Origin Resource Sharing (CORS)
  * mechanism.</i>
  */

@@ -2249,26 +2249,6 @@
                     "units": "CM"
                 }
             },
-            "TotalInsuredMoney": {
-                "required": [
-                    "currency"
-                ],
-                "type": "object",
-                "properties": {
-                    "amount": {
-                        "type": "number",
-                        "description": "This is commodity value in amount used for Customs declaration.<br>Max limit: 7 digits before decimal.",
-                        "format": "double",
-                        "example": 12.45
-                    },
-                    "currency": {
-                        "type": "string",
-                        "description": "This is the currency of the commodity value used for Customs declaration.<br><a href=\"/developer-portal/en-us/reference-guide.html#currencycodes\" target=\"_blank\">Click here to see Currency Codes</a>",
-                        "example": "USD"
-                    }
-                },
-                "description": "This is commodity value used for Customs declaration."
-            },
             "Tins": {
                 "properties": {
                     "tinType": {
@@ -2385,86 +2365,6 @@
                     }
                 },
                 "description": "This provides the information necessary to identify the different statements,declarations, acts, and/or certifications that apply to this shipment."
-            },
-            "FreightChargeMoney": {
-                "required": [
-                    "currency"
-                ],
-                "type": "object",
-                "properties": {
-                    "amount": {
-                        "type": "number",
-                        "description": "This is commodity value in amount used for Customs declaration.<br>Max limit: 7 digits before decimal.",
-                        "format": "double",
-                        "example": 12.45
-                    },
-                    "currency": {
-                        "type": "string",
-                        "description": "This is the currency of the commodity value used for Customs declaration.<a href=\"/developer-portal/en-us/reference-guide.html#currencycodes\" target=\"_blank\">Click here to see Currency Codes</a>",
-                        "example": "USD"
-                    }
-                },
-                "description": "Any freight charges that are associated with this shipment."
-            },
-            "TaxesOrMiscellaneousCharges": {
-                "required": [
-                    "currency"
-                ],
-                "type": "object",
-                "properties": {
-                    "amount": {
-                        "type": "number",
-                        "description": "This is commodity value in amount used for Customs declaration.<br>Max limit: 7 digits before decimal.",
-                        "format": "double",
-                        "example": 12.45
-                    },
-                    "currency": {
-                        "type": "string",
-                        "description": "This is the currency of the commodity value used for Customs declaration.<a href=\"/developer-portal/en-us/reference-guide.html#currencycodes\" target=\"_blank\">Click here to see Currency Codes</a>",
-                        "example": "USD"
-                    }
-                },
-                "description": "Any taxes or miscellaneous charges other than Freight charges or Insurance charges, that are associated with this shipment."
-            },
-            "PackingCostCharges": {
-                "required": [
-                    "currency"
-                ],
-                "type": "object",
-                "properties": {
-                    "amount": {
-                        "type": "number",
-                        "description": "This is commodity value in amount used for Customs declaration.<br>Max limit: 7 digits before decimal.",
-                        "format": "double",
-                        "example": 12.45
-                    },
-                    "currency": {
-                        "type": "string",
-                        "description": "This is the currency of the commodity value used for Customs declaration.<a href=\"/developer-portal/en-us/reference-guide.html#currencycodes\" target=\"_blank\">Click here to see Currency Codes</a>",
-                        "example": "USD"
-                    }
-                },
-                "description": "Any packing costs that are associated with this shipment."
-            },
-            "HandlingCostCharges": {
-                "required": [
-                    "currency"
-                ],
-                "type": "object",
-                "properties": {
-                    "amount": {
-                        "type": "number",
-                        "description": "This is commodity value in amount used for Customs declaration.<br>Max limit: 7 digits before decimal.",
-                        "format": "double",
-                        "example": 12.45
-                    },
-                    "currency": {
-                        "type": "string",
-                        "description": "This is the currency of the commodity value used for Customs declaration.<a href=\"/developer-portal/en-us/reference-guide.html#currencycodes\" target=\"_blank\">Click here to see Currency Codes</a>",
-                        "example": "USD"
-                    }
-                },
-                "description": " Any handling costs that are associated with this shipment."
             },
             "Weight": {
                 "required": [
@@ -2714,13 +2614,13 @@
                         "$ref": "#/components/schemas/CustomerReferences_1"
                     },
                     "labelSpecification": {
-                        "$ref": "#/components/schemas/LabelSpecification_2"
+                        "$ref": "#/components/schemas/LabelSpecification"
                     },
                     "internationalDistributionDetail": {
                         "$ref": "#/components/schemas/InternationalDistributionDetail"
                     },
                     "transborderDistributionDetail": {
-                        "$ref": "#/components/schemas/TransborderDistributionDetail"
+                        "$ref": "#/components/schemas/TransborderDistributionDetail_2"
                     },
                     "customsClearanceDetail": {
                         "$ref": "#/components/schemas/CustomsClearanceDetail_2"
@@ -6884,6 +6784,239 @@
                     }
                 }
             },
+            "TransborderDistributionDetail_1_specialServicesRequested_transborderDistributionLtlDetail_payment_payor_responsibleParty_address": {
+                "type": "object",
+                "properties": {
+                    "streetLines": {
+                        "type": "array",
+                        "description": "This is a combination of number, street name, etc. <br>Note: At least one line is required and streetlines more than 3 will be ignored. Empty lines should not be included.",
+                        "example": "[10 FedEx Parkway, Suite 302]",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "city": {
+                        "type": "string",
+                        "description": "This is a placeholder for City Name. <br>Note: This is conditional and not required in all the shipping requests. It is recommended for Express shipments for the most accurate ODA and OPA surcharges and not used for Ground/SmartPost.",
+                        "example": "Beverly Hills"
+                    },
+                    "stateOrProvinceCode": {
+                        "type": "string",
+                        "description": "This is a placeholder for State or Province code. <br>Note: This is conditional and not required in all the shipping requests. It is recommended for Express shipments for the most accurate ODA and OPA surcharges and not used for Ground/SmartPost.",
+                        "example": "CA"
+                    },
+                    "postalCode": {
+                        "type": "string",
+                        "description": "This is placeholder for postal code.<br>Note: The postal code is required for postal-aware countries.",
+                        "example": "38127"
+                    },
+                    "countryCode": {
+                        "type": "string",
+                        "description": "This is the Two-letter country code. <a onclick='loadDocReference(\"countrycodes\")'>click here to see Country Codes</a>",
+                        "example": "US"
+                    },
+                    "residential": {
+                        "type": "boolean",
+                        "description": "Indicate whether this address is Residential as opposed to Commercial.<br>Valid Values: True or False.",
+                        "example": true,
+                        "enum": [
+                            true,
+                            false
+                        ]
+                    },
+                    "urbanizationCode": {
+                        "type": "string",
+                        "description": "Relevant only to addresses in Puerto Rico.",
+                        "example": "CO"
+                    },
+                    "countryName": {
+                        "type": "string",
+                        "description": "The fully spelt out name of a country.",
+                        "example": "Canada"
+                    },
+                    "geographicCoordinates": {
+                        "type": "string",
+                        "description": "The geographic coordinates cooresponding to this address.",
+                        "example": "+40.75-074.00"
+                    },
+                    "classification": {
+                        "type": "string",
+                        "description": "Specifies that FedEx courier has confirmed that the address is a confirmed business location.",
+                        "example": "BUSINESS",
+                        "enum": [
+                            "BUSINESS",
+                            "MIXED",
+                            "RESIDENTIAL",
+                            "UNCONFIRMED_BUSINESS",
+                            "UNCONFIRMED_RESIDENCE",
+                            "UNKOWN"
+                        ]
+                    }
+                },
+                "description": "Descriptive data for a physical location. May be used as an actual physical address (place to which one could go), or as a container of \"address parts\" which should be handled as a unit (such as a city-state-ZIP combination within the US)."
+            },
+            "TransborderDistributionDetail_1_specialServicesRequested_transborderDistributionLtlDetail_payment_payor_responsibleParty": {
+                "type": "object",
+                "properties": {
+                    "accountNumber": {
+                        "type": "string",
+                        "description": "Account number of the payor",
+                        "example": "123456789"
+                    },
+                    "tins": {
+                        "type": "array",
+                        "description": "Used for adding the tax id",
+                        "items": {
+                            "$ref": "#/components/schemas/Tins"
+                        }
+                    },
+                    "contact": {
+                        "$ref": "#/components/schemas/TransborderDistributionDetail_specialServicesRequested_transborderDistributionLtlDetail_payment_payor_responsibleParty_contact"
+                    },
+                    "address": {
+                        "$ref": "#/components/schemas/TransborderDistributionDetail_1_specialServicesRequested_transborderDistributionLtlDetail_payment_payor_responsibleParty_address"
+                    }
+                },
+                "description": "The descriptive information for the person who is responsible for the shipment."
+            },
+            "TransborderDistributionDetail_1_specialServicesRequested_transborderDistributionLtlDetail_payment_payor": {
+                "type": "object",
+                "properties": {
+                    "responsibleParty": {
+                        "$ref": "#/components/schemas/TransborderDistributionDetail_1_specialServicesRequested_transborderDistributionLtlDetail_payment_payor_responsibleParty"
+                    },
+                    "associatedAccounts": {
+                        "type": "array",
+                        "description": "Other associated accounts",
+                        "items": {
+                            "$ref": "#/components/schemas/TransborderDistributionDetail_specialServicesRequested_transborderDistributionLtlDetail_payment_payor_associatedAccounts"
+                        }
+                    }
+                },
+                "description": "Information about the person who is paying for the shipment. <br>Payor is mandatory when the paymentType is RECIPIENT, THIRD_PARTY or COLLECT."
+            },
+            "TransborderDistributionDetail_1_specialServicesRequested_transborderDistributionLtlDetail_payment_creditCard_creditCardHolder": {
+                "type": "object",
+                "properties": {
+                    "contact": {
+                        "$ref": "#/components/schemas/TransborderDistributionDetail_specialServicesRequested_transborderDistributionLtlDetail_payment_creditCard_creditCardHolder_contact"
+                    },
+                    "address": {
+                        "$ref": "#/components/schemas/TransborderDistributionDetail_1_specialServicesRequested_transborderDistributionLtlDetail_payment_payor_responsibleParty_address"
+                    }
+                },
+                "description": "Credit card holder's information"
+            },
+            "TransborderDistributionDetail_1_specialServicesRequested_transborderDistributionLtlDetail_payment_creditCard": {
+                "type": "object",
+                "properties": {
+                    "number": {
+                        "type": "string",
+                        "description": "Credit card number",
+                        "example": "1111222233334444"
+                    },
+                    "creditCardType": {
+                        "type": "string",
+                        "description": "Credit card used for payment",
+                        "example": "DISCOVER",
+                        "enum": [
+                            "AMEX",
+                            "DANKORT",
+                            "DINERS",
+                            "DISCOVER",
+                            "JCB",
+                            "MASTERCARD",
+                            "VISA"
+                        ]
+                    },
+                    "expirationDate": {
+                        "type": "string",
+                        "description": "Credit card expiration date",
+                        "example": "2022-23-01"
+                    },
+                    "lastAuthenticationByFedexDate": {
+                        "type": "string",
+                        "description": "Use date format (MM-dd-yyyy).  It is the last time the user has updated their credit card information",
+                        "example": "12-05-2001"
+                    },
+                    "verificationCode": {
+                        "type": "string",
+                        "description": "Verification code",
+                        "example": "123"
+                    },
+                    "creditCardHolder": {
+                        "$ref": "#/components/schemas/TransborderDistributionDetail_1_specialServicesRequested_transborderDistributionLtlDetail_payment_creditCard_creditCardHolder"
+                    }
+                },
+                "description": "Credit card details"
+            },
+            "TransborderDistributionDetail_1_specialServicesRequested_transborderDistributionLtlDetail_payment": {
+                "type": "object",
+                "properties": {
+                    "paymentType": {
+                        "type": "string",
+                        "description": "Payment type for LTL transportation",
+                        "example": "CREDIT_CARD",
+                        "enum": [
+                            "ACCOUNT",
+                            "CASH",
+                            "COLLECT",
+                            "CREDIT_CARD",
+                            "EPAYMENT",
+                            "RECIPIENT",
+                            "SENDER",
+                            "THIRD_PARTY"
+                        ]
+                    },
+                    "payor": {
+                        "$ref": "#/components/schemas/TransborderDistributionDetail_1_specialServicesRequested_transborderDistributionLtlDetail_payment_payor"
+                    },
+                    "ePaymentDetail": {
+                        "$ref": "#/components/schemas/TransborderDistributionDetail_specialServicesRequested_transborderDistributionLtlDetail_payment_ePaymentDetail"
+                    },
+                    "creditCard": {
+                        "$ref": "#/components/schemas/TransborderDistributionDetail_1_specialServicesRequested_transborderDistributionLtlDetail_payment_creditCard"
+                    },
+                    "creditCardTransactionDetail": {
+                        "$ref": "#/components/schemas/TransborderDistributionDetail_specialServicesRequested_transborderDistributionLtlDetail_payment_creditCardTransactionDetail"
+                    },
+                    "amount": {
+                        "$ref": "#/components/schemas/TransborderDistributionDetail_specialServicesRequested_transborderDistributionLtlDetail_payment_amount"
+                    }
+                },
+                "description": "Payment for LTL transportation"
+            },
+            "TransborderDistributionDetail_1_specialServicesRequested_transborderDistributionLtlDetail": {
+                "type": "object",
+                "properties": {
+                    "payment": {
+                        "$ref": "#/components/schemas/TransborderDistributionDetail_1_specialServicesRequested_transborderDistributionLtlDetail_payment"
+                    },
+                    "ltlScacCode": {
+                        "type": "string",
+                        "description": "Standard Carrier Alpha Code for origin-country LTL services.",
+                        "example": "SAIA"
+                    }
+                },
+                "description": "Specifies details for the origin-country LTL services performed by FedEx."
+            },
+            "TransborderDistributionDetail_1_specialServicesRequested": {
+                "type": "object",
+                "properties": {
+                    "specialServiceTypes": {
+                        "type": "string",
+                        "description": "Identifies features of service requested for the current Transborder Distribution. shipment.",
+                        "example": "FEDEX_LTL",
+                        "enum": [
+                            "FEDEX_LTL"
+                        ]
+                    },
+                    "transborderDistributionLtlDetail": {
+                        "$ref": "#/components/schemas/TransborderDistributionDetail_1_specialServicesRequested_transborderDistributionLtlDetail"
+                    }
+                },
+                "description": "Specifies special services to be performed on this shipment as part of a transborder distribution."
+            },
             "CustomsClearanceDetail_1_commercialInvoice": {
                 "type": "object",
                 "properties": {
@@ -8014,27 +8147,25 @@
                     }
                 }
             },
-            "TransborderDistributionDetail": {
+            "TotalInsuredMoney": {
+                "required": [
+                    "currency"
+                ],
                 "type": "object",
                 "properties": {
-                    "specialServicesRequested": {
-                        "$ref": "#/components/schemas/TransborderDistributionDetail_specialServicesRequested"
+                    "amount": {
+                        "type": "number",
+                        "description": "This is commodity value in amount used for Customs declaration.<br>Max limit: 7 digits before decimal.",
+                        "format": "double",
+                        "example": 12.45
                     },
-                    "routing": {
+                    "currency": {
                         "type": "string",
-                        "description": "Specifies the transborder distribution routing.",
-                        "example": "CUSTOMER_SPECIFIED",
-                        "enum": [
-                            "BY_METER",
-                            "BY_ORIGIN",
-                            "CUSTOMER_SPECIFIED"
-                        ]
-                    },
-                    "summaryDetail": {
-                        "$ref": "#/components/schemas/SummaryDetail"
+                        "description": "This is the currency of the commodity value used for Customs declaration.<br><a onclick='loadDocReference(\"currencycodes\")'>click here to see Currency Codes</a>",
+                        "example": "USD"
                     }
                 },
-                "description": "Specifies attributes of a shipment whithin a transborder distribution."
+                "description": "This is commodity value used for Customs declaration."
             },
             "CustomsOptionDetail": {
                 "type": "object",
@@ -8063,6 +8194,86 @@
                     }
                 },
                 "description": "Customs Option Detail, type must be indicated for each occurrence"
+            },
+            "FreightChargeMoney": {
+                "required": [
+                    "currency"
+                ],
+                "type": "object",
+                "properties": {
+                    "amount": {
+                        "type": "number",
+                        "description": "This is commodity value in amount used for Customs declaration.<br>Max limit: 7 digits before decimal.",
+                        "format": "double",
+                        "example": 12.45
+                    },
+                    "currency": {
+                        "type": "string",
+                        "description": "This is the currency of the commodity value used for Customs declaration.<a onclick='loadDocReference(\"currencycodes\")'>click here to see Currency Codes</a>",
+                        "example": "USD"
+                    }
+                },
+                "description": "Any freight charges that are associated with this shipment."
+            },
+            "TaxesOrMiscellaneousCharges": {
+                "required": [
+                    "currency"
+                ],
+                "type": "object",
+                "properties": {
+                    "amount": {
+                        "type": "number",
+                        "description": "This is commodity value in amount used for Customs declaration.<br>Max limit: 7 digits before decimal.",
+                        "format": "double",
+                        "example": 12.45
+                    },
+                    "currency": {
+                        "type": "string",
+                        "description": "This is the currency of the commodity value used for Customs declaration.<a onclick='loadDocReference(\"currencycodes\")'>click here to see Currency Codes</a>",
+                        "example": "USD"
+                    }
+                },
+                "description": "Any taxes or miscellaneous charges other than Freight charges or Insurance charges, that are associated with this shipment."
+            },
+            "PackingCostCharges": {
+                "required": [
+                    "currency"
+                ],
+                "type": "object",
+                "properties": {
+                    "amount": {
+                        "type": "number",
+                        "description": "This is commodity value in amount used for Customs declaration.<br>Max limit: 7 digits before decimal.",
+                        "format": "double",
+                        "example": 12.45
+                    },
+                    "currency": {
+                        "type": "string",
+                        "description": "This is the currency of the commodity value used for Customs declaration.<a onclick='loadDocReference(\"currencycodes\")'>click here to see Currency Codes</a>",
+                        "example": "USD"
+                    }
+                },
+                "description": "Any packing costs that are associated with this shipment."
+            },
+            "HandlingCostCharges": {
+                "required": [
+                    "currency"
+                ],
+                "type": "object",
+                "properties": {
+                    "amount": {
+                        "type": "number",
+                        "description": "This is commodity value in amount used for Customs declaration.<br>Max limit: 7 digits before decimal.",
+                        "format": "double",
+                        "example": 12.45
+                    },
+                    "currency": {
+                        "type": "string",
+                        "description": "This is the currency of the commodity value used for Customs declaration.<br><a onclick='loadDocReference(\"currencycodes\")'>click here to see Currency Codes</a>",
+                        "example": "USD"
+                    }
+                },
+                "description": " Any handling costs that are associated with this shipment."
             },
             "DestinationControlDetail": {
                 "required": [
@@ -8098,61 +8309,6 @@
                     }
                 },
                 "description": "VERY IMPORTANT: Specify appropriate destinationcontrol statement type(s),Valid values: DEPARTMENT_OF_COMMERCE, DEPARTMENT_OF_STATE<br>Be sure to also specify destination country and enduser."
-            },
-            "Commodity": {
-                "required": [
-                    "description",
-                    "numberOfPieces"
-                ],
-                "type": "object",
-                "properties": {
-                    "name": {
-                        "type": "string",
-                        "description": "Specify the commodity name",
-                        "example": "non-threaded rivets"
-                    },
-                    "numberOfPieces": {
-                        "type": "integer",
-                        "description": "Indicates the number of pieces associated with the commodity. Number of pieces cannot be a negative value or exceed 9,999.",
-                        "format": "int32",
-                        "example": 12
-                    },
-                    "description": {
-                        "type": "string",
-                        "description": "This is the commodity description. Maximum allowed 450 characters.",
-                        "example": "AC parts"
-                    },
-                    "countryOfManufacture": {
-                        "type": "string",
-                        "description": "This is commodity country of manufacture. This is required for International shipments. Maximum allowed length is 4.",
-                        "example": "US"
-                    },
-                    "weight": {
-                        "$ref": "#/components/schemas/Weight"
-                    },
-                    "quantity": {
-                        "type": "integer",
-                        "description": "This is the units quantity (using quantityUnits as the unit of measure) per commodity. This is used to estimate duties and taxes.",
-                        "format": "int32",
-                        "example": 125
-                    },
-                    "quantityUnits": {
-                        "type": "string",
-                        "description": "This is the unit of measure for the units quantity. This is used to estimate duties and taxes.",
-                        "example": "EA"
-                    },
-                    "unitPrice": {
-                        "$ref": "#/components/schemas/Money_2"
-                    },
-                    "customsValue": {
-                        "$ref": "#/components/schemas/Money_2"
-                    },
-                    "commodityId": {
-                        "type": "string",
-                        "description": "Value used to identify a commodity description; must be unique within the containing shipment.",
-                        "example": "commodity Id"
-                    }
-                }
             },
             "Formats": {
                 "type": "object",
@@ -8657,6 +8813,61 @@
                 },
                 "description": "Conditional. Export Detail Used for US or CA exports."
             },
+            "Commodity": {
+                "required": [
+                    "description",
+                    "numberOfPieces"
+                ],
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "Specify the commodity name",
+                        "example": "non-threaded rivets"
+                    },
+                    "numberOfPieces": {
+                        "type": "integer",
+                        "description": "Indicates the number of pieces associated with the commodity. Number of pieces cannot be a negative value or exceed 9,999.",
+                        "format": "int32",
+                        "example": 12
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "This is the commodity description. Maximum allowed 450 characters.",
+                        "example": "AC parts"
+                    },
+                    "countryOfManufacture": {
+                        "type": "string",
+                        "description": "This is commodity country of manufacture. This is required for International shipments. Maximum allowed length is 4.",
+                        "example": "US"
+                    },
+                    "weight": {
+                        "$ref": "#/components/schemas/Weight"
+                    },
+                    "quantity": {
+                        "type": "integer",
+                        "description": "This is the units quantity (using quantityUnits as the unit of measure) per commodity. This is used to estimate duties and taxes.",
+                        "format": "int32",
+                        "example": 125
+                    },
+                    "quantityUnits": {
+                        "type": "string",
+                        "description": "This is the unit of measure for the units quantity. This is used to estimate duties and taxes.",
+                        "example": "EA"
+                    },
+                    "unitPrice": {
+                        "$ref": "#/components/schemas/Money_2"
+                    },
+                    "customsValue": {
+                        "$ref": "#/components/schemas/Money_2"
+                    },
+                    "commodityId": {
+                        "type": "string",
+                        "description": "Value used to identify a commodity description; must be unique within the containing shipment.",
+                        "example": "commodity Id"
+                    }
+                }
+            },
             "DocTabContent": {
                 "type": "object",
                 "properties": {
@@ -8807,6 +9018,122 @@
                     }
                 },
                 "description": "Details about who and how the shipment will be paid for. 'payor' is optional when 'paymentType' provided is SENDER."
+            },
+            "LabelSpecification": {
+                "required": [
+                    "printedLabelOrigin"
+                ],
+                "type": "object",
+                "properties": {
+                    "labelFormatType": {
+                        "type": "string",
+                        "description": "Specify the label Format Type.<br><a onclick='loadDocReference(\"labelstocktypes\")'>click here to see label format types</a>",
+                        "example": "COMMON2D",
+                        "enum": [
+                            "COMMON2D",
+                            "ERROR",
+                            "LABEL_DATA_ONLY",
+                            "MAILROOM",
+                            "NO_LABEL",
+                            "OPERATIONAL_LABEL",
+                            "PRE_COMMON2D"
+                        ]
+                    },
+                    "labelStockType": {
+                        "type": "string",
+                        "description": "Indicate the label stock type used. <br><a onclick='loadDocReference(\"labelstocktypes\")'>click here to see label format types</a>",
+                        "example": "PAPER_7X475",
+                        "enum": [
+                            "PAPER_4X6",
+                            "PAPER_4X675",
+                            "PAPER_4X8",
+                            "PAPER_4X9",
+                            "PAPER_7X475",
+                            "PAPER_85X11_BOTTOM_HALF_LABEL",
+                            "PAPER_85X11_TOP_HALF_LABEL",
+                            "PAPER_LETTER",
+                            "STOCK_4X675_LEADING_DOC_TAB",
+                            "STOCK_4X8",
+                            "STOCK_4X9_LEADING_DOC_TAB",
+                            "STOCK_4X6",
+                            "STOCK_4X675_TRAILING_DOC_TAB",
+                            "STOCK_4X9_TRAILING_DOC_TAB",
+                            "STOCK_4X675",
+                            "STOCK_4X9",
+                            "STOCK_4X8.5_TRAILING_DOC_TAB",
+                            "STOCK_4X10.5_TRAILING_DOC_TAB"
+                        ]
+                    },
+                    "imageType": {
+                        "type": "string",
+                        "description": "Specify the image format used for a shipping document.<br><a onclick='loadDocReference(\"labelstocktypes\")'>click here to see label format types</a>",
+                        "example": "PDF",
+                        "enum": [
+                            "ZPLII",
+                            "EPL2",
+                            "PDF",
+                            "PNG",
+                            "DIB",
+                            "DOC",
+                            "DPL",
+                            "GIF",
+                            "RTF",
+                            "TEXT"
+                        ]
+                    },
+                    "processingOptionsRequested": {
+                        "$ref": "#/components/schemas/LabelSpecification_processingOptionsRequested"
+                    },
+                    "dispositions": {
+                        "type": "array",
+                        "description": "Specifies how to create, organize, and return the document",
+                        "items": {
+                            "$ref": "#/components/schemas/ShippingDocumentDispositionDetail"
+                        }
+                    },
+                    "resolution": {
+                        "description": "Specifies the image resolution in DPI (Dots Per Inch). Valid values are 203 & 300. If not provided or for any other value, system will default it to 203. 300 DPI is only allowed for imageType is ZPLII.",
+                        "example": 300,
+                        "type": "integer"
+                    },
+                    "labelPrintingOrientation": {
+                        "type": "string",
+                        "description": "This is applicable only to documents produced on thermal printers with roll stock.",
+                        "example": "TOP_EDGE_OF_TEXT_FIRST",
+                        "default": "TOP_EDGE_OF_TEXT_FIRST",
+                        "enum": [
+                            "BOTTOM_EDGE_OF_TEXT_FIRST",
+                            "TOP_EDGE_OF_TEXT_FIRST"
+                        ]
+                    },
+                    "labelRotation": {
+                        "type": "string",
+                        "description": "This is applicable only to documents produced on thermal printers with roll stock.",
+                        "example": "UPSIDE_DOWN",
+                        "enum": [
+                            "LEFT",
+                            "RIGHT",
+                            "UPSIDE_DOWN",
+                            "NONE"
+                        ]
+                    },
+                    "labelOrder": {
+                        "type": "string",
+                        "description": "This is the order of the Shipping label/documents to be generated.",
+                        "example": "SHIPPING_LABEL_FIRST",
+                        "enum": [
+                            "SHIPPING_LABEL_FIRST",
+                            "SHIPPING_LABEL_LAST"
+                        ]
+                    },
+                    "printedLabelOrigin": {
+                        "$ref": "#/components/schemas/ContactAndAddress"
+                    },
+                    "customerSpecifiedDetail": {
+                        "$ref": "#/components/schemas/CustomerSpecifiedLabelDetail"
+                    }
+                },
+                "description": "These are label specification details includes the image type, printer format, and label stock for label. Can also specify specific details such as doc-tab content, regulatory labels, and masking data on the label.<br> Mandatory as it is needed during confirming consolidation. If it is not passed while creating consolidation it will fail during confirming consolidation."
             },
             "ShipperParty": {
                 "required": [
@@ -9163,227 +9490,6 @@
                 },
                 "description": "These are additional customer reference data for commercial invoice."
             },
-            "LabelSpecification": {
-                "required": [
-                    "printedLabelOrigin"
-                ],
-                "type": "object",
-                "properties": {
-                    "labelFormatType": {
-                        "type": "string",
-                        "description": "Specify the label Format Type.<br><a onclick='loadDocReference(\"labelstocktypes\")'>click here to see label format types</a>",
-                        "example": "COMMON2D",
-                        "enum": [
-                            "COMMON2D",
-                            "ERROR",
-                            "LABEL_DATA_ONLY",
-                            "MAILROOM",
-                            "NO_LABEL",
-                            "OPERATIONAL_LABEL",
-                            "PRE_COMMON2D"
-                        ]
-                    },
-                    "labelStockType": {
-                        "type": "string",
-                        "description": "Indicate the label stock type used. <br><a onclick='loadDocReference(\"labelstocktypes\")'>click here to see label format types</a>",
-                        "example": "PAPER_7X475",
-                        "enum": [
-                            "PAPER_4X6",
-                            "PAPER_4X675",
-                            "PAPER_4X8",
-                            "PAPER_4X9",
-                            "PAPER_7X475",
-                            "PAPER_85X11_BOTTOM_HALF_LABEL",
-                            "PAPER_85X11_TOP_HALF_LABEL",
-                            "PAPER_LETTER",
-                            "STOCK_4X675_LEADING_DOC_TAB",
-                            "STOCK_4X8",
-                            "STOCK_4X9_LEADING_DOC_TAB",
-                            "STOCK_4X6",
-                            "STOCK_4X675_TRAILING_DOC_TAB",
-                            "STOCK_4X9_TRAILING_DOC_TAB",
-                            "STOCK_4X675",
-                            "STOCK_4X9",
-                            "STOCK_4X8.5_TRAILING_DOC_TAB",
-                            "STOCK_4X10.5_TRAILING_DOC_TAB"
-                        ]
-                    },
-                    "imageType": {
-                        "type": "string",
-                        "description": "Specify the image format used for a shipping document.<br><a onclick='loadDocReference(\"labelstocktypes\")'>click here to see label format types</a>",
-                        "example": "PDF",
-                        "enum": [
-                            "ZPLII",
-                            "EPL2",
-                            "PDF",
-                            "PNG"
-                        ]
-                    },
-                    "processingOptionsRequested": {
-                        "$ref": "#/components/schemas/LabelSpecification_processingOptionsRequested"
-                    },
-                    "dispositions": {
-                        "type": "array",
-                        "description": "Specifies how to create, organize, and return the document.",
-                        "items": {
-                            "$ref": "#/components/schemas/ShippingDocumentDispositionDetail"
-                        }
-                    },
-                    "labelPrintingOrientation": {
-                        "type": "string",
-                        "description": "This is applicable only to documents produced on thermal printers with roll stock.",
-                        "example": "TOP_EDGE_OF_TEXT_FIRST",
-                        "default": "TOP_EDGE_OF_TEXT_FIRST",
-                        "enum": [
-                            "BOTTOM_EDGE_OF_TEXT_FIRST",
-                            "TOP_EDGE_OF_TEXT_FIRST"
-                        ]
-                    },
-                    "labelRotation": {
-                        "type": "string",
-                        "description": "This is applicable only to documents produced on thermal printers with roll stock.",
-                        "example": "UPSIDE_DOWN",
-                        "enum": [
-                            "LEFT",
-                            "RIGHT",
-                            "UPSIDE_DOWN",
-                            "NONE"
-                        ]
-                    },
-                    "labelOrder": {
-                        "type": "string",
-                        "description": "This is the order of the Shipping labels to be generated.",
-                        "example": "SHIPPING_LABEL_FIRST",
-                        "enum": [
-                            "SHIPPING_LABEL_FIRST",
-                            "SHIPPING_LABEL_LAST"
-                        ]
-                    },
-                    "printedLabelOrigin": {
-                        "$ref": "#/components/schemas/ContactAndAddress"
-                    },
-                    "customerSpecifiedDetail": {
-                        "$ref": "#/components/schemas/CustomerSpecifiedLabelDetail"
-                    },
-                    "resolution": {
-                        "type": "integer",
-                        "description": "Specifies the image resolution in DPI (Dots Per Inch). Valid values are 203 & 300. If not provided or for any other value, system will default it to 203.",
-                        "example": 300
-                    }
-                },
-                "description": "These are label specification details includes the image type, printer format, and label stock for label. Can also specify specific details such as doc-tab content, regulatory labels, and masking data on the label.<br> Mandatory as it is needed during confirming consolidation. If it is not passed while creating consolidation it will fail during confirming consolidation."
-            },
-            "LabelSpecification_2": {
-                "required": [
-                    "printedLabelOrigin"
-                ],
-                "type": "object",
-                "properties": {
-                    "labelFormatType": {
-                        "type": "string",
-                        "description": "Specify the label Format Type.<br><a onclick='loadDocReference(\"labelstocktypes\")'>click here to see label format types</a>",
-                        "example": "COMMON2D",
-                        "enum": [
-                            "COMMON2D",
-                            "ERROR",
-                            "LABEL_DATA_ONLY",
-                            "MAILROOM",
-                            "NO_LABEL",
-                            "OPERATIONAL_LABEL",
-                            "PRE_COMMON2D"
-                        ]
-                    },
-                    "labelStockType": {
-                        "type": "string",
-                        "description": "Indicate the label stock type used. <br><a onclick='loadDocReference(\"labelstocktypes\")'>click here to see label format types</a>",
-                        "example": "PAPER_7X475",
-                        "enum": [
-                            "PAPER_4X6",
-                            "PAPER_4X675",
-                            "PAPER_4X8",
-                            "PAPER_4X9",
-                            "PAPER_7X475",
-                            "PAPER_85X11_BOTTOM_HALF_LABEL",
-                            "PAPER_85X11_TOP_HALF_LABEL",
-                            "PAPER_LETTER",
-                            "STOCK_4X675_LEADING_DOC_TAB",
-                            "STOCK_4X8",
-                            "STOCK_4X9_LEADING_DOC_TAB",
-                            "STOCK_4X6",
-                            "STOCK_4X675_TRAILING_DOC_TAB",
-                            "STOCK_4X9_TRAILING_DOC_TAB",
-                            "STOCK_4X675",
-                            "STOCK_4X9",
-                            "STOCK_4X8.5_TRAILING_DOC_TAB",
-                            "STOCK_4X10.5_TRAILING_DOC_TAB"
-                        ]
-                    },
-                    "imageType": {
-                        "type": "string",
-                        "description": "Specify the image format used for a shipping document.<br><a onclick='loadDocReference(\"labelstocktypes\")'>click here to see label format types</a>",
-                        "example": "PDF",
-                        "enum": [
-                            "ZPLII",
-                            "EPL2",
-                            "PDF",
-                            "PNG",
-                            "DIB",
-                            "DOC",
-                            "DPL",
-                            "GIF",
-                            "RTF",
-                            "TEXT"
-                        ]
-                    },
-                    "processingOptionsRequested": {
-                        "$ref": "#/components/schemas/LabelSpecification_processingOptionsRequested"
-                    },
-                    "dispositions": {
-                        "type": "array",
-                        "description": "Specifies how to create, organize, and return the document",
-                        "items": {
-                            "$ref": "#/components/schemas/ShippingDocumentDispositionDetail"
-                        }
-                    },
-                    "labelPrintingOrientation": {
-                        "type": "string",
-                        "description": "This is applicable only to documents produced on thermal printers with roll stock.",
-                        "example": "TOP_EDGE_OF_TEXT_FIRST",
-                        "default": "TOP_EDGE_OF_TEXT_FIRST",
-                        "enum": [
-                            "BOTTOM_EDGE_OF_TEXT_FIRST",
-                            "TOP_EDGE_OF_TEXT_FIRST"
-                        ]
-                    },
-                    "labelRotation": {
-                        "type": "string",
-                        "description": "This is applicable only to documents produced on thermal printers with roll stock.",
-                        "example": "UPSIDE_DOWN",
-                        "enum": [
-                            "LEFT",
-                            "RIGHT",
-                            "UPSIDE_DOWN",
-                            "NONE"
-                        ]
-                    },
-                    "labelOrder": {
-                        "type": "string",
-                        "description": "This is the order of the Shipping label/documents to be generated.",
-                        "example": "SHIPPING_LABEL_FIRST",
-                        "enum": [
-                            "SHIPPING_LABEL_FIRST",
-                            "SHIPPING_LABEL_LAST"
-                        ]
-                    },
-                    "printedLabelOrigin": {
-                        "$ref": "#/components/schemas/ContactAndAddress"
-                    },
-                    "customerSpecifiedDetail": {
-                        "$ref": "#/components/schemas/CustomerSpecifiedLabelDetail"
-                    }
-                },
-                "description": "These are label specification details includes the image type, printer format, and label stock for label. Can also specify specific details such as doc-tab content, regulatory labels, and masking data on the label.<br> Mandatory as it is needed during confirming consolidation. If it is not passed while creating consolidation it will fail during confirming consolidation."
-            },
             "Contact": {
                 "type": "object",
                 "properties": {
@@ -9539,11 +9645,55 @@
                     },
                     "currency": {
                         "type": "string",
-                        "description": "This is the currency of the commodity value used for Customs declaration.<a href=\"/developer-portal/en-us/reference-guide.html#currencycodes\" target=\"_blank\">Click here to see Currency Codes</a>",
+                        "description": "This is the currency of the commodity value used for Customs declaration.<br><a onclick='loadDocReference(\"currencycodes\")'>click here to see Currency Codes</a>",
                         "example": "USD"
                     }
                 },
                 "description": "This is commodity value used for Customs declaration."
+            },
+            "TransborderDistributionDetail": {
+                "type": "object",
+                "properties": {
+                    "specialServicesRequested": {
+                        "$ref": "#/components/schemas/TransborderDistributionDetail_specialServicesRequested"
+                    },
+                    "routing": {
+                        "type": "string",
+                        "description": "Specifies the transborder distribution routing.",
+                        "example": "CUSTOMER_SPECIFIED",
+                        "enum": [
+                            "BY_METER",
+                            "BY_ORIGIN",
+                            "CUSTOMER_SPECIFIED"
+                        ]
+                    },
+                    "summaryDetail": {
+                        "$ref": "#/components/schemas/SummaryDetail"
+                    }
+                },
+                "description": "Specifies attributes of a shipment whithin a transborder distribution."
+            },
+            "TransborderDistributionDetail_2": {
+                "type": "object",
+                "properties": {
+                    "specialServicesRequested": {
+                        "$ref": "#/components/schemas/TransborderDistributionDetail_1_specialServicesRequested"
+                    },
+                    "routing": {
+                        "type": "string",
+                        "description": "Specifies the transborder distribution routing.",
+                        "example": "CUSTOMER_SPECIFIED",
+                        "enum": [
+                            "BY_METER",
+                            "BY_ORIGIN",
+                            "CUSTOMER_SPECIFIED"
+                        ]
+                    },
+                    "summaryDetail": {
+                        "$ref": "#/components/schemas/SummaryDetail"
+                    }
+                },
+                "description": "Specifies attributes of a shipment whithin a transborder distribution."
             },
             "CustomsClearanceDetail": {
                 "type": "object",

@@ -15,7 +15,7 @@ use ShipStream\FedEx\Dto;
 final class CustomsMoney extends Dto
 {
     /**
-     * @param  ?float  $amount  This is the amount. Maximum limit is 5 digits before decimal.<br>Example:  1556.25
+     * @param  ?float  $amount  This is commodity value in amount used for Customs declaration.<br>Max limit: 11 digits before decimal.<br>Example: 1,55,6457.25
      * @param  ?string  $currency  This is the currency code for the amount.<br>Example: USD<br><a onclick='loadDocReference("currencycodes")'>Click here to see Currency codes</a>
      */
     public function __construct(

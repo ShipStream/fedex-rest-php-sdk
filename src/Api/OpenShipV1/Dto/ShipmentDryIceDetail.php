@@ -15,11 +15,11 @@ use ShipStream\FedEx\Dto;
 final class ShipmentDryIceDetail extends Dto
 {
     /**
-     * @param  ?Weight  $totalWeight  These are the package weight details.<br>Note: Weight is not required for One rate shipments
+     * @param  ?WeightWithoutLink  $totalWeight  These are the package weight details.
      * @param  ?int  $packageCount  Indicates the total number of packages in the shipment that contain dry ice.<br>Example: 12
      */
     public function __construct(
-        public ?Weight $totalWeight = null,
+        public ?WeightWithoutLink $totalWeight = null,
         public ?int $packageCount = null,
     ) {}
 }

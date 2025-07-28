@@ -3,7 +3,7 @@
         "/documents/v1/etds/upload": {
             "post": {
                 "summary": "Upload Document",
-                "description": "Use this endpoint to upload the trade documentss electronicallyy before (pre-shipment) and after (post-shipment) the shipment is created.<br><i>Note&#58; FedEx APIs do not support Cross-Origin Resource Sharing (CORS) mechanism.</i>",
+                "description": "Use this endpoint to upload the trade documents electronically before (pre-shipment) and after (post-shipment) the shipment is created.<br><i>Note&#58; FedEx APIs do not support Cross-Origin Resource Sharing (CORS) mechanism.</i>",
                 "operationId": "Upload ETD files",
                 "parameters": [
                     {
@@ -469,6 +469,16 @@
                         }
                     }
                 ],
+                "servers": [
+                    {
+                        "url": "https://documentapitest.prod.fedex.com/sandbox",
+                        "description": "EDU Sandbox Server"
+                    },
+                    {
+                        "url": "https://documentapi.prod.fedex.com",
+                        "description": "EDU Production Server"
+                    }
+                ],
                 "requestBody": {
                     "content": {
                         "multipart/form-data": {
@@ -477,80 +487,13 @@
                             },
                             "examples": {
                                 "FullSchema-MultiDocumentRequest": {
-                                    "value": {
-                                        "workflowName": "ETDPreshipment",
-                                        "carrierCode": "FDXE",
-                                        "originCountryCode": "US",
-                                        "destinationCountryCode": "CA",
-                                        "shipmentDate": "2024-05-21T00:00:00",
-                                        "trackingNumber": "1122334455",
-                                        "metaData": [
-                                            {
-                                                "fileName": "Penguin.png",
-                                                "fileReferenceId": "CI_1",
-                                                "contentType": "image/png",
-                                                "formCode": "USMCA",
-                                                "shipDocumentType": "COMMERCIAL_INVOICE"
-                                            },
-                                            {
-                                                "fileName": "file1.txt",
-                                                "fileReferenceId": "PI_2",
-                                                "contentType": "text/plain",
-                                                "formCode": "USMCA",
-                                                "shipDocumentType": "PRO_FORMA_INVOICE"
-                                            }
-                                        ]
-                                    }
+                                    "value": "documentInformation: {\"workflowName\": \"ETDPreshipment\",\"carrierCode\": \"FDXE\",\"originCountryCode\": \"US\",\"destinationCountryCode\": \"CA\",\"shipmentDate\": \"2021-10-21T00:00:00\",\"trackingNumber\": \"782514212510\",\"metaData\": [{\"fileName\":\"file1.png\",\"fileReferenceId\":\"inv_file1_ctx_02132021_5\",\"contentType\": \"image/png\",\"formCode\": \"USMCA\",\"shipDocumentType\":\"COMMERCIAL_INVOICE\"},{\"fileName\":\"file2.txt\", \"fileReferenceId\":\"PI_2\", \"contentType\":\"text/plain\", \"formCode\": \"USMCA\", \"shipDocumentType\":\"PRO_FORMA_INVOICE\"},{\"fileName\":\"file3.txt\", \"fileReferenceId\":\"PI_2\", \"contentType\":\"text/plain\", \"formCode\": \"USMCA\", \"shipDocumentType\":\"PRO_FORMA_INVOICE\"},{\"fileName\":\"file4.txt\", \"fileReferenceId\":\"PI_2\", \"contentType\":\"text/plain\", \"formCode\": \"USMCA\", \"shipDocumentType\":\"PRO_FORMA_INVOICE\"},{\"file5.txt\", \"fileReferenceId\":\"PI_2\", \"contentType\":\"text/plain\", \"formCode\": \"USMCA\", \"shipDocumentType\":\"PRO_FORMA_INVOICE\"}]\nfileAttachments: 'file1.png'\nfileAttachments: 'file2.txt'\nfileAttachments: 'file3.txt'\nfileAttachments: 'file4.txt'\nfileAttachments: 'file5.txt'"
                                 },
                                 "MinimumSamplePayload-MultiPreShipment": {
-                                    "value": {
-                                        "workflowName": "ETDPreshipment",
-                                        "carrierCode": "FDXE",
-                                        "originCountryCode": "US",
-                                        "destinationCountryCode": "CA",
-                                        "metaData": [
-                                            {
-                                                "fileName": "Penguin.png",
-                                                "fileReferenceId": "CI_1",
-                                                "contentType": "image/png",
-                                                "formCode": "USMCA",
-                                                "shipDocumentType": "COMMERCIAL_INVOICE"
-                                            },
-                                            {
-                                                "fileName": "file1.txt",
-                                                "fileReferenceId": "PI_2",
-                                                "contentType": "text/plain",
-                                                "formCode": "USMCA",
-                                                "shipDocumentType": "PRO_FORMA_INVOICE"
-                                            }
-                                        ]
-                                    }
+                                    "value": "documentInformation: {\"workflowName\": \"ETDPreshipment\",\"carrierCode\": \"FDXE\",\"originCountryCode\": \"US\",\"destinationCountryCode\": \"CA\",\"shipmentDate\": \"2023-05-21T00:00:00\",\"trackingNumber\": \"782514212510\",\"metaData\": [{\"fileName\":\"file1.png\",\"fileReferenceId\":\"inv_file1_ctx_02132021_5\",\"contentType\": \"image/png\",\"formCode\": \"USMCA\",\"shipDocumentType\":\"COMMERCIAL_INVOICE\"}]\nfileAttachments: 'file.png'"
                                 },
                                 "MinimumSamplePayload-MultiPostShipment": {
-                                    "value": {
-                                        "workflowName": "ETDPostshipment",
-                                        "carrierCode": "FDXE",
-                                        "originCountryCode": "US",
-                                        "destinationCountryCode": "CA",
-                                        "shipmentDate": "2024-05-21T00:00:00",
-                                        "trackingNumber": "1122334455",
-                                        "metaData": [
-                                            {
-                                                "fileName": "Penguin.png",
-                                                "fileReferenceId": "CI_1",
-                                                "contentType": "image/png",
-                                                "formCode": "USMCA",
-                                                "shipDocumentType": "COMMERCIAL_INVOICE"
-                                            },
-                                            {
-                                                "fileName": "file1.txt",
-                                                "fileReferenceId": "PI_2",
-                                                "contentType": "text/plain",
-                                                "formCode": "USMCA",
-                                                "shipDocumentType": "PRO_FORMA_INVOICE"
-                                            }
-                                        ]
-                                    }
+                                    "value": "documentInformation: {\"workflowName\": \"ETDPostshipment\",\"carrierCode\": \"FDXE\",\"originCountryCode\": \"US\",\"destinationCountryCode\": \"CA\",\"shipmentDate\": \"2023-10-21T00:00:00\",\"trackingNumber\": \"782514212510\",\"metaData\": [{\"fileName\":\"file1.png\",\"fileReferenceId\":\"inv_file1_ctx_02132021_5\",\"contentType\": \"image/png\",\"formCode\": \"USMCA\",\"shipDocumentType\":\"COMMERCIAL_INVOICE\"}]\nfileAttachments: 'file.png'"
                                 }
                             }
                         }
@@ -776,9 +719,19 @@
                         }
                     }
                 ],
+                "servers": [
+                    {
+                        "url": "https://documentapitest.prod.fedex.com/sandbox",
+                        "description": "EDU Sandbox Server"
+                    },
+                    {
+                        "url": "https://documentapi.prod.fedex.com",
+                        "description": "EDU Production Server"
+                    }
+                ],
                 "requestBody": {
                     "content": {
-                        "multipart/form-data": {
+                        "application/json": {
                             "schema": {
                                 "$ref": "#/components/schemas/FullSchema-Base64MultiDocumentRequest"
                             },
@@ -836,6 +789,8 @@
                                         "carrierCode": "FDXE",
                                         "originCountryCode": "US",
                                         "destinationCountryCode": "CA",
+                                        "shipmentDate": "2024-01-06T00:00:00",
+                                        "trackingNumber": "782514212510",
                                         "metaData": [
                                             {
                                                 "fileReferenceId": "inv_file1_ctx_02132021_1",

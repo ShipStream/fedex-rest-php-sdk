@@ -1510,7 +1510,7 @@
                     },
                     "bookingNumber": {
                         "type": "string",
-                        "description": "Specify a freight shipment booking number from FedEx. This number is mandatory for freight dispatch requests.<br> Example: 1234AGTT  ",
+                        "description": "Express Freight shipments (refer below) may require booking number. This booking number may also be required for freight dispatch requests.<br>FedEx 1Day Freight - booking number is optional.<br>FedEx International Priority Freight - booking number is required<br>NOTE: <br>a. For Intra EU (EU-to-EU) and EU outbound (EU-to-NON_EU) Express Freight shipments, bookingNumber is optional.<br> b. For Express Freight shipments not originating in EU, Customers need to call FedEx to book freight shipment and receive a booking number. This booking number is included in the Ship request and prints on the shipping label.<br>example:1234AGTT",
                         "example": "1234AGTT"
                     },
                     "dimensions": {
@@ -2112,8 +2112,8 @@
             "Check_Pickup_Availability_Domestic_Express": {
                 "example": {
                     "pickupAddress": {
-                        "postalCode": "38116",
-                        "countryCode": "US"
+                        "postalCode": "75008",
+                        "countryCode": "FR"
                     },
                     "pickupRequestType": [
                         "SAME_DAY"
@@ -2121,7 +2121,12 @@
                     "carriers": [
                         "FDXE"
                     ],
-                    "countryRelationship": "DOMESTIC"
+                    "countryRelationship": "DOMESTIC",
+                    "shipmentAttributes": [
+                        {
+                            "serviceType": "FEDEX_FIRST"
+                        }
+                    ]
                 }
             },
             "Check_Pickup_Availability_Domestic_Ground": {
@@ -2151,7 +2156,12 @@
                     "carriers": [
                         "FDXE"
                     ],
-                    "countryRelationship": "INTERNATIONAL"
+                    "countryRelationship": "INTERNATIONAL",
+                    "shipmentAttributes": [
+                        {
+                            "serviceType": "INTERNATIONAL_PRIORITY_FREIGHT"
+                        }
+                    ]
                 }
             },
             "PudcResponseVO_CancelPickup": {

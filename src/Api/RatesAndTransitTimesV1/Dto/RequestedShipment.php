@@ -32,7 +32,6 @@ final class RequestedShipment extends Dto
      * @param  ?float  $totalWeight  Specify the total weight of the shipment. <br>This is only applies to International shipments and should be used on the first package of a multiple piece shipment. This value contains 1 explicit decimal position.
      * @param  ?ShipmentSpecialServicesRequested  $shipmentSpecialServices  Indicate special services for which the rate data is being requested. Special Services are available at the shipment level for some or all service types.<br>Example: [BROKER_SELECT_OPTION]<br><a onclick='loadDocReference("shipmentlevelspecialservicetypes")'>Click here to see Shipment level Special Service Types</a>
      * @param  ?CustomsClearanceDetail  $customsClearanceDetail  This is Customs clearance data, used for both international and intra-country shipping and rating. Customs commodity data is required for international and intra-country rating.
-     * @param  ?ServiceTypeDetailVo  $serviceTypeDetail  service type information details
      * @param  ?SmartPostInfoDetail  $smartPostInfoDetail  Use this object to specify the smartpost shipment details. <br>Required for SMARTPOST service. If SmartPostInfoDetail is indicated, the elements below it are also required.
      */
     public function __construct(
@@ -51,7 +50,6 @@ final class RequestedShipment extends Dto
         public ?float $totalWeight = null,
         public ?ShipmentSpecialServicesRequested $shipmentSpecialServices = null,
         public ?CustomsClearanceDetail $customsClearanceDetail = null,
-        public ?ServiceTypeDetailVo $serviceTypeDetail = null,
         public ?SmartPostInfoDetail $smartPostInfoDetail = null,
     ) {}
 }

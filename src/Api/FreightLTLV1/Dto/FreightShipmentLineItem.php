@@ -17,7 +17,7 @@ final class FreightShipmentLineItem extends Dto
     /**
      * @param  int  $handlingUnits  Number of individual handling units to which this line applies.<br> (The total of line-item-level handling units may not balance to shipment-level total handling units.)
      * @param  string  $subPackagingType  This is a sub package type for the package.<br>a onclick='loadDocReference("subpackagetypes")'>Click here to see Sub-Packaging Types</a>
-     * @param  Weight  $weight  These are the package weight details.<br>Note: Weight is not required for One rate shipments
+     * @param  WeightWithoutLink  $weight  These are the package weight details.
      * @param  int  $pieces  Specifies Total number of pieces.
      * @param  string  $freightClass  Specifies Freight class for this line item.
      * @param  string  $id  Specifies Identification for content in this line item.
@@ -37,7 +37,7 @@ final class FreightShipmentLineItem extends Dto
     public function __construct(
         public int $handlingUnits,
         public string $subPackagingType,
-        public Weight $weight,
+        public WeightWithoutLink $weight,
         public int $pieces,
         public string $freightClass,
         public string $id,

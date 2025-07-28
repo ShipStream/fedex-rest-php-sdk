@@ -13,7 +13,7 @@
         "/ship/v1/shipments": {
             "post": {
                 "summary": "Create Shipment",
-                "description": "This endpoint helpsss you to create shipment requests thereby validating all the shipping input information and either generates the labels (if the responses is synchronous) or a job ID if transaction is processed using asynchronous method.<br><i>Note: FedEx APIs do not support Cross-Origin Resource Sharing (CORS) mechanism.</i>",
+                "description": "This endpoint helps you to create shipment requests thereby validating all the shipping input information and either generates the labels (if the responses is synchronous) or a job ID if transaction is processed using asynchronous method.<br><i>Note: FedEx APIs do not support Cross-Origin Resource Sharing (CORS) mechanism.</i>",
                 "operationId": "Create Shipment",
                 "requestBody": {
                     "content": {
@@ -22,6 +22,15 @@
                                 "oneOf": [
                                     {
                                         "$ref": "#/components/schemas/Full_Schema_Ship"
+                                    },
+                                    {
+                                        "$ref": "#/components/schemas/MinimumSamplePayload-ShipShipment"
+                                    },
+                                    {
+                                        "$ref": "#/components/schemas/MinimumSamplePayload-DomesticShipmentMPS"
+                                    },
+                                    {
+                                        "$ref": "#/components/schemas/SamplePayload-InternationalShipmentMPS"
                                     },
                                     {
                                         "$ref": "#/components/schemas/FDGSamplePayload-ShipShipment-intraEurope"
@@ -987,7 +996,7 @@
                         ]
                     },
                     "requestedShipment": {
-                        "$ref": "#/components/schemas/RequestedShipment"
+                        "$ref": "#/components/schemas/RequestedShipment_1"
                     },
                     "labelResponseOptions": {
                         "$ref": "#/components/schemas/LABELRESPONSEOPTIONS"
@@ -1014,32 +1023,36 @@
                     "labelResponseOptions": "URL_ONLY",
                     "requestedShipment": {
                         "shipper": {
-                            "companyName": "SENDER COMPANY NAME",
-                            "phoneNumber": 9018328595,
+                            "contact": {
+                                "companyName": "Shipper Company Name",
+                                "personName": "SENDER PERSON NAME",
+                                "phoneNumber": 1234567890
+                            },
                             "address": {
                                 "streetLines": [
                                     "SENDER ADDRESS 1"
-                                ]
-                            },
-                            "city": "TRAFFORD PARK",
-                            "stateOrProvinceCode": "LA",
-                            "postalCode": "M17 2SW",
-                            "countryCode": "GB"
+                                ],
+                                "city": "TRAFFORD PARK",
+                                "stateOrProvinceCode": "LA",
+                                "postalCode": "M17 2SW",
+                                "countryCode": "GB"
+                            }
                         },
                         "recipients": [
                             {
                                 "contact": {
+                                    "personName": "Recipient PERSON NAME",
                                     "companyName": "RECIPIENT COMPANY NAME",
-                                    "phoneNumber": 9018328595,
-                                    "address": {
-                                        "streetLines": [
-                                            "SENDER ADDRESS 1"
-                                        ],
-                                        "city": "LONDON",
-                                        "stateOrProvinceCode": "LO",
-                                        "postalCode": "E14 4DA",
-                                        "countryCode": "GB"
-                                    }
+                                    "phoneNumber": 9018328595
+                                },
+                                "address": {
+                                    "streetLines": [
+                                        "SENDER ADDRESS 1"
+                                    ],
+                                    "city": "LONDON",
+                                    "stateOrProvinceCode": "LO",
+                                    "postalCode": "E14 4DA",
+                                    "countryCode": "GB"
                                 }
                             }
                         ],
@@ -1051,49 +1064,36 @@
                         "shippingChargesPayment": {
                             "paymentType": "SENDER"
                         },
-                        "totalCustomsValue": {
-                            "amount": 100,
-                            "currency": "UKL"
+                        "labelSpecification": {
+                            "docType": "PDF",
+                            "stockType": "PAPER_LETTER"
                         },
-                        "isDocumentOnly": false,
-                        "dutiesPayment": {
-                            "paymentType": "SENDER"
-                        },
-                        "docType": "PDF",
-                        "stockType": "PAPER_LETTER",
-                        "requestedPackageLineItems": {
-                            "-groupPackageCount": 1,
-                            "physicalPackaging": "YOUR_PACKAGING",
-                            "currency": "UKL",
-                            "amount": 0,
-                            "weight": {
-                                "units": "LB",
-                                "value": 35
-                            },
-                            "dimensions": {
-                                "length": 20,
-                                "width": 20,
-                                "units": "IN",
-                                "height": 20
-                            },
-                            "packageSpecialServices": {
-                                "specialServiceTypes": [
-                                    "DANGEROUS_GOODS"
-                                ],
-                                "regulation": "ADR",
-                                "cargoAircraftOnly": false,
-                                "options": [
-                                    "HAZARDOUS_MATERIALS"
-                                ]
+                        "requestedPackageLineItems": [
+                            {
+                                "weight": {
+                                    "units": "LB",
+                                    "value": 35
+                                },
+                                "packageSpecialServices": {
+                                    "specialServiceTypes": [
+                                        "DANGEROUS_GOODS"
+                                    ],
+                                    "dangerousGoodsDetail": {
+                                        "regulation": "ADR",
+                                        "options": [
+                                            "HAZARDOUS_MATERIALS"
+                                        ]
+                                    }
+                                }
                             }
-                        }
+                        ]
                     },
                     "accountNumber": {
-                        "key": "xxxxxxxxxxxxxxxxx722e31f"
+                        "value": "XXXXX1073"
                     }
                 }
             },
-            "RequestedShipment": {
+            "RequestedShipment_1": {
                 "required": [
                     "labelSpecification",
                     "packagingType",
@@ -1308,7 +1308,7 @@
                 "properties": {
                     "amount": {
                         "type": "number",
-                        "description": "This is the amount. Maximum limit is 5 digits before decimal.<br>Example:  1556.25",
+                        "description": "This is commodity value in amount used for Customs declaration.<br>Max limit: 11 digits before decimal.<br>Example: 1,55,6457.25",
                         "format": "double",
                         "example": "1556.25"
                     },
@@ -1328,7 +1328,7 @@
                 "type": "object",
                 "properties": {
                     "address": {
-                        "$ref": "#/components/schemas/PartyAddress"
+                        "$ref": "#/components/schemas/PartyAddress_2"
                     },
                     "contact": {
                         "$ref": "#/components/schemas/PartyContact"
@@ -1419,7 +1419,63 @@
                     },
                     "stateOrProvinceCode": {
                         "type": "string",
-                        "description": "The US States,Canada and Puerto Rico Province codes of the recipient. The Format and presence of this field may vary depending on the country.State code is required for US, CA, PR and not required for other countries. Conditional. Max length is 2.<br>Example: CA",
+                        "description": "The US States,Canada and Puerto Rico Province codes of the recipient. The Format and presence of this field may vary depending on the country.State code is required for US, CA, PR and not required for other countries. Conditional.<br>Example: CA",
+                        "example": "CA"
+                    },
+                    "postalCode": {
+                        "type": "string",
+                        "description": "This is the postal code.<br>Note: This is Optional for non postal-aware countries. Maximum length is 10.<br>Example: 65247<br><a onclick='loadDocReference(\"postalawarecountries\")'>click here to see Postal aware countries</a>",
+                        "example": "90210"
+                    },
+                    "countryCode": {
+                        "type": "string",
+                        "description": "This is the two-letter country code.<br>Maximum length is 2.<br>Example: US<br><a onclick='loadDocReference(\"countrycodes\")'>click here to see Country codes</a>",
+                        "example": "US"
+                    },
+                    "residential": {
+                        "type": "boolean",
+                        "description": "Indicates whether this address is residential (as opposed to commercial).<br>Example: false",
+                        "example": false
+                    }
+                },
+                "description": "This is detailed information on physical location. May be used as an actual physical address (place to which one could go), or as a container of address parts which should be handled as a unit (such as a city-state-ZIP combination within the US).",
+                "example": {
+                    "streetLines": [
+                        "10 FedEx Parkway",
+                        "Suite 302"
+                    ],
+                    "city": "Beverly Hills",
+                    "stateOrProvinceCode": "CA",
+                    "postalCode": "90210",
+                    "countryCode": "US",
+                    "residential": false
+                }
+            },
+            "PartyAddress_2": {
+                "required": [
+                    "city",
+                    "countryCode",
+                    "streetLines"
+                ],
+                "type": "object",
+                "properties": {
+                    "streetLines": {
+                        "type": "array",
+                        "description": "Combination of number, street name, etc. At least one line is required for a valid physical address. Empty lines should not be included. Max Length is 35.<br>Example: [1550 Union Blvd,Suite 302]",
+                        "example": "1550 Union Blvd, Suite 302",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "city": {
+                        "type": "string",
+                        "maxLength": 35,
+                        "description": "The name of city, town of the recipient.Max length is 35.<br>Example: Beverly Hills",
+                        "example": "Beverly Hills"
+                    },
+                    "stateOrProvinceCode": {
+                        "type": "string",
+                        "description": "It is used to identify the principal subdivisions (e.g., provinces or states) of countries. The Format and presence of this field may vary depending on the country. Note: For specific countries, such as the United States and Canada, and Puerto Rico, there is a two-character state, province, codes limit . Example: TX",
                         "example": "CA"
                     },
                     "postalCode": {
@@ -1549,7 +1605,7 @@
                 "type": "object",
                 "properties": {
                     "address": {
-                        "$ref": "#/components/schemas/PartyAddress"
+                        "$ref": "#/components/schemas/PartyAddress_2"
                     },
                     "contact": {
                         "$ref": "#/components/schemas/PartyContact"
@@ -1697,7 +1753,7 @@
                     },
                     "stateOrProvinceCode": {
                         "type": "string",
-                        "description": "This is a placeholder for State or Province code.State code is required for US, CA, PR and not required for other countries. Conditional. Max length is 2.<br>Example: CA<br><a onclick='loadDocReference(\"canadaprovincecodes\")'>click here to see State or Province Code</a>",
+                        "description": "This is a placeholder for State or Province code.State code is required for US, CA, PR and not required for other countries. Conditional.<br>Example: CA<br><a onclick='loadDocReference(\"canadaprovincecodes\")'>click here to see State or Province Code</a>",
                         "example": "CA"
                     },
                     "postalCode": {
@@ -1854,7 +1910,21 @@
                 "properties": {
                     "value": {
                         "type": "string",
-                        "description": "Conditional.<br> The account number value.<br>Value is required if the paymentType is THIRD_PARTY.<br> Max Length is 9.<br>Example: 12XXXXX89",
+                        "description": "Conditional.<br> The account number value.<br> Max Length is 9.<br>Example: 12XXXXX89",
+                        "example": "12XXXXX89"
+                    }
+                },
+                "description": "This is FedEx Account number details.",
+                "example": {
+                    "value": "Your account number"
+                }
+            },
+            "PartyAccountNumber_1": {
+                "type": "object",
+                "properties": {
+                    "value": {
+                        "type": "string",
+                        "description": "Conditional.<br> The account number value.<br> Max Length is 9.<br>Example: 12XXXXX89 <br> NOTE-FedEx Account Number is required for FedEx International Connect Plus (FICP)  service shipments from APAC to US or PR with duty & tax Bill-to recipient:<BR> 1. If any of the shipment Commodities' Country of Manufacture is CN/HK",
                         "example": "12XXXXX89"
                     }
                 },
@@ -1970,6 +2040,7 @@
                         "example": "PRO_FORMA_INVOICE",
                         "enum": [
                             "CERTIFICATE_OF_ORIGIN",
+                            "NET_RATE_SHEET",
                             "COMMERCIAL_INVOICE",
                             "ETD_LABEL",
                             "USMCA_CERTIFICATION_OF_ORIGIN",
@@ -2561,6 +2632,8 @@
                         "example": "ACCOUNT",
                         "enum": [
                             "ACCOUNT",
+                            "ACTUAL",
+                            "LIST",
                             "CURRENT",
                             "CUSTOM"
                         ]
@@ -2728,7 +2801,10 @@
                             "DSP_73",
                             "DSP_85",
                             "DSP_LICENSE_AGREEMENT",
-                            "WAREHOUSE_WITHDRAWAL"
+                            "WAREHOUSE_WITHDRAWAL",
+                            "FROM_FOREIGN_TRADE_ZONE",
+                            "DEA_486",
+                            "DSP_94"
                         ]
                     }
                 },
@@ -3179,6 +3255,11 @@
                         "description": "The originatorName that will populate the Commercial Invoice (or Pro Forma).<br>Example: originator name",
                         "example": "originator Name"
                     },
+                    "paymentTerms": {
+                        "description": "The payment terms that will populate the Commercial Invoice (or Pro Forma).  This field is being supported for completeness only.<br>Example: payment terms",
+                        "type": "string",
+                        "example": "payment terms"
+                    },
                     "comments": {
                         "type": "array",
                         "description": "The comments that will populate the Commercial Invoice (or Pro Forma). Only the comments specified in the first two indexes of the array will be printed on the invoice and other comments would be ignored as the limitation is set for only two indexes. It considers the comment which is in the first index as a Special Instructions, Hence the comment at first index will be printed under special instructions and the other will be printed at comments section in the Commercial Invoice Document. <br>Example: comments",
@@ -3456,7 +3537,7 @@
                         "$ref": "#/components/schemas/Contact_1"
                     },
                     "accountNumber": {
-                        "$ref": "#/components/schemas/PartyAccountNumber"
+                        "$ref": "#/components/schemas/PartyAccountNumber_1"
                     },
                     "tins": {
                         "type": "array",
@@ -3734,7 +3815,8 @@
                         "description": "Indicate the weight unit type. The package and commodity weight unit should be the same else the request will result in an error.<br>Example:KG",
                         "example": "KG",
                         "enum": [
-                            "KG"
+                            "KG",
+                            "LB"
                         ]
                     },
                     "value": {
@@ -3868,8 +3950,7 @@
                         "example": "DEPARTMENT_OF_COMMERCE",
                         "enum": [
                             "DEPARTMENT_OF_COMMERCE",
-                            "DEPARTMENT_OF_STATE",
-                            "DEPARTMENT_OF_COMMERCE_AND_DEPARTMENT_OF_STATE"
+                            "DEPARTMENT_OF_STATE"
                         ]
                     },
                     "destinationCountries": {
@@ -4005,6 +4086,7 @@
                         "example": "PAPER_7X475",
                         "enum": [
                             "PAPER_4X6",
+                            "STOCK_4X675",
                             "PAPER_4X675",
                             "PAPER_4X8",
                             "PAPER_4X9",
@@ -4061,7 +4143,7 @@
                     },
                     "resolution": {
                         "type": "integer",
-                        "description": "Specifies the image resolution in DPI (Dots Per Inch). Valid values are 203 & 300. If not provided or for any other value, system will default it to 203.",
+                        "description": "Specifies the image resolution in DPI (Dots Per Inch). Valid values are 203 & 300. If not provided or for any other value, system will default it to 203.Note: 300 DPI resolution is only allowed for ZPLII image type.",
                         "example": 300
                     }
                 },
@@ -4082,6 +4164,7 @@
                             "default": "SHIPPER_INFORMATION",
                             "enum": [
                                 "CUSTOMS_VALUE",
+                                "SHIPPER_ACCOUNT_NUMBER",
                                 "DIMENSIONS",
                                 "DUTIES_AND_TAXES_PAYOR_ACCOUNT_NUMBER",
                                 "INSURED_VALUE",
@@ -4710,7 +4793,7 @@
                     },
                     "stateOrProvinceCode": {
                         "type": "string",
-                        "description": "This is a placeholder for State or Province code.State code is required for US, CA, PR and not required for other countries. Conditional. Max length is 2.<br>Example: CA.<br><a onclick='loadDocReference(\"canadaprovincecodes\")'>click here to see State or Province Code</a>",
+                        "description": "This is a placeholder for State or Province code.State code is required for US, CA, PR and not required for other countries. Conditional.<br>Example: CA.<br><a onclick='loadDocReference(\"canadaprovincecodes\")'>click here to see State or Province Code</a>",
                         "example": "CA"
                     },
                     "postalCode": {
@@ -5207,9 +5290,6 @@
                 "description": "These are detcontentails for the package containing alcohol. This is required for alcohol special service. The alcoholRecipientType is required."
             },
             "DangerousGoodsDetail": {
-                "required": [
-                    "accessibility"
-                ],
                 "type": "object",
                 "properties": {
                     "cargoAircraftOnly": {
@@ -5219,8 +5299,8 @@
                     },
                     "regulation": {
                         "type": "string",
-                        "description": "The hazardous package shipment regulation type. Note- regulation as ADR only for FULLY_REGULATED_DANGEROUS_GOODS(FDG) & LIMITED_QUANTITIES_DANGEROUS_GOODS(LDG) special service type.",
-                        "example": "DOT",
+                        "description": "It is a HazardousCommodityRegulationType(The regulation under which the DG data has been validated).",
+                        "example": "ADR",
                         "enum": [
                             "ADR",
                             "DOT",
@@ -5230,7 +5310,7 @@
                     },
                     "accessibility": {
                         "type": "string",
-                        "description": "Specify Dangerous Goods Accessibility Type. <ul><li>Inaccessible &ndash; it does not have to be accessable on the aircraft.</li><li>Accessible &ndash; it must be fully accessible on the aircraft, and is more strictly controlled.</li></ul>",
+                        "description": "Specify Dangerous Goods Accessibility Type. <ul><li>Inaccessible &ndash; it does not have to be accessable on the aircraft.</li><li>Accessible &ndash; it must be fully accessible on the aircraft, and is more strictly controlled.</li></ul><i>Note: Accessibility is only required for IATA controlled DG shipments.</i>",
                         "example": "INACCESSIBLE",
                         "enum": [
                             "ACCESSIBLE",
@@ -5320,7 +5400,7 @@
             },
             "LABELRESPONSEOPTIONS": {
                 "type": "string",
-                "description": "LabelResponseOptions specifies the label generation format.<br>Example:URL_ONLY",
+                "description": "Note- Label will be returned as Base64 ONLY when openShipmentAction is PROVIDE_DOCUMENTS_INCREMENTALLY.<br>LabelResponseOptions specifies the label generation format.<br>Example:URL_ONLY",
                 "example": "URL_ONLY",
                 "enum": [
                     "URL_ONLY",
@@ -8495,7 +8575,8 @@
                             "PROFORMA_INVOICE",
                             "USMCA_CERTIFICATION_OF_ORIGIN",
                             "CERTIFICATE_OF_ORIGIN",
-                            "MERGED_LABELS_ONLY"
+                            "MERGED_LABELS_ONLY",
+                            "USMCA_COMMERCIAL_INVOICE_CERTIFICATION_OF_ORIGIN"
                         ]
                     },
                     "trackingNumber": {
@@ -8594,13 +8675,6 @@
                         "format": "double",
                         "example": 21.45
                     },
-                    "transactionDetails": {
-                        "type": "array",
-                        "description": "Indicates data received that governs data payload language/translations. The TransactionDetail from the request is echoed back to the caller in the corresponding reply.",
-                        "items": {
-                            "$ref": "#/components/schemas/TransactionDetailVO"
-                        }
-                    },
                     "packageDocuments": {
                         "type": "array",
                         "description": "These are package documents returned in the response.",
@@ -8648,7 +8722,7 @@
                         "format": "double",
                         "example": 621.45
                     },
-                    "netListRateAmount": {
+                    "listRateAmount": {
                         "type": "number",
                         "description": "Indicates the net List rate amount.<br>Example: 1.45",
                         "format": "double",
@@ -8692,11 +8766,6 @@
                         "type": "string",
                         "description": "This is the tracking number associated with this package. <br>Example: 49XXX0000XXX20032835",
                         "example": "794953535000"
-                    },
-                    "successful": {
-                        "type": "boolean",
-                        "description": "Returns true if the responses are successful otherwise false.",
-                        "example": true
                     },
                     "customerReferences": {
                         "type": "array",
@@ -9159,7 +9228,7 @@
                         ]
                     },
                     "options": {
-                        "$ref": "#/components/schemas/HazardousCommodityContent001"
+                        "$ref": "#/components/schemas/HazardousCommodityOptionDetail"
                     },
                     "description": {
                         "$ref": "#/components/schemas/ValidatedHazardousCommodityDescription"
@@ -9695,10 +9764,6 @@
                 }
             },
             "Address": {
-                "required": [
-                    "countryCode",
-                    "streetLines"
-                ],
                 "type": "object",
                 "properties": {
                     "streetLines": {
@@ -9925,8 +9990,7 @@
             },
             "ShipmentDryIceDetail": {
                 "required": [
-                    "packageCount",
-                    "totalWeight"
+                    "packageCount"
                 ],
                 "type": "object",
                 "properties": {
@@ -10968,10 +11032,10 @@
                         "description": "Indicates whether the shipment has been deleted from history or not. If the value is True, then it indicates that the shipment has been deleted.<br>Example: true",
                         "example": true
                     },
-                    "successMessage": {
+                    "message": {
                         "type": "string",
-                        "description": "The success message generated during cancellation request for Shipment.<br>Example: Success",
-                        "example": "Success"
+                        "description": "The success message generated during cancellation request for Shipment.<br>Example:Shipment is successfully cancelled",
+                        "example": "Shipment is successfully cancelled"
                     },
                     "alerts": {
                         "type": "array",
@@ -11799,6 +11863,420 @@
                     }
                 },
                 "description": "Indicate the shipment special service or handling required for this shipment. <br>Note: <ul><li>If the shipper is requesting a special service, the special service type must be indicated in the object specialServiceTypes, and all supporting detail must be provided in the appropriate sub-object below.</li><li>For returns it is required to provide value RETURN_SHIPMENT in the specialServiceTypes.</li></ul>"
+            },
+            "HazardousCommodityOptionDetail": {
+                "description": "Provides details of Hazardous Commodity Option Detail",
+                "type": "object",
+                "properties": {
+                    "labelTextOption": {
+                        "description": "Provides the label text option",
+                        "type": "string",
+                        "enum": [
+                            "APPEND",
+                            "OVERRIDE",
+                            "STANDARD"
+                        ],
+                        "example": "STANDARD"
+                    },
+                    "customerSuppliedLabelText": {
+                        "description": "DG Data Upload Mode:- Optional<br>DG Full Validation Mode: Optional<br>Text used in labeling the commodity under control of the LabelTextOption field",
+                        "type": "string",
+                        "example": "Customer Supplied Label Text"
+                    }
+                }
+            },
+            "SamplePayload-InternationalShipmentMPS": {
+                "example": {
+                    "includeBase64document": false,
+                    "requestedShipment": {
+                        "serviceType": "INTERNATIONAL_ECONOMY",
+                        "emailNotificationDetail": {
+                            "recipients": [
+                                {
+                                    "notificationEventType": [
+                                        "ON_DELIVERY",
+                                        "ON_EXCEPTION"
+                                    ],
+                                    "emailAddress": "neena_sebastian@syntelinc.com",
+                                    "notificationFormatType": "HTML",
+                                    "emailNotificationRecipientType": "SHIPPER",
+                                    "notificationType": "EMAIL",
+                                    "locale": "en"
+                                }
+                            ]
+                        },
+                        "shipper": {
+                            "address": {
+                                "residential": false,
+                                "city": "CAMPINUS",
+                                "countryCode": "BR",
+                                "postalCode": "04776",
+                                "streetLines": [
+                                    "SENDER ADDRESS 1",
+                                    "SENDER ADDRESS 2"
+                                ],
+                                "stateOrProvinceCode": "SP"
+                            },
+                            "contact": {
+                                "personName": "MAMU",
+                                "emailAddress": "SENDER@fedex.com",
+                                "phoneNumber": "9012635448",
+                                "phoneExtension": "1234",
+                                "companyName": "SENDER COMPANY"
+                            },
+                            "tins": [
+                                {
+                                    "number": "",
+                                    "tinType": "BUSINESS_UNION",
+                                    "usage": ""
+                                }
+                            ]
+                        },
+                        "shipmentSpecialServices": {
+                            "specialServiceTypes": []
+                        },
+                        "labelSpecification": {
+                            "paperType": "PAPER_LETTER",
+                            "printerType": "PDF",
+                            "returnedDispositionDetail": true,
+                            "autoPrint": true
+                        },
+                        "customsClearanceDetail": {
+                            "insuranceCharges": "0.0",
+                            "commercialInvoice": {
+                                "shipmentPurpose": "REPAIR_AND_RETURN"
+                            },
+                            "dutiesPayment": {
+                                "payor": {
+                                    "responsibleParty": {
+                                        "address": {
+                                            "countryCode": "US"
+                                        },
+                                        "accountNumber": {
+                                            "value": "XXXXX2842",
+                                            "key": ""
+                                        }
+                                    }
+                                },
+                                "paymentType": "SENDER"
+                            },
+                            "commodities": [
+                                {
+                                    "unitPrice": {
+                                        "amount": "67",
+                                        "currency": "INR"
+                                    },
+                                    "numberOfPieces": "1",
+                                    "quantity": "1",
+                                    "customsValue": {
+                                        "amount": "134",
+                                        "currency": "INR"
+                                    },
+                                    "countryOfManufacture": "US",
+                                    "name": "INTEROFFICE_DOCUMENT",
+                                    "description": "INTEROFFICE_DOCUMENT",
+                                    "weight": {
+                                        "units": "KG",
+                                        "value": "12"
+                                    },
+                                    "quantityUnits": "PCS"
+                                },
+                                {
+                                    "unitPrice": {
+                                        "amount": "1",
+                                        "currency": "INR"
+                                    },
+                                    "numberOfPieces": "1",
+                                    "quantity": "1",
+                                    "customsValue": {
+                                        "amount": "5",
+                                        "currency": "INR"
+                                    },
+                                    "countryOfManufacture": "US",
+                                    "name": "INTEROFFICE_DOCUMENT",
+                                    "description": "INTEROFFICE_DOCUMENT",
+                                    "weight": {
+                                        "units": "KG",
+                                        "value": "2"
+                                    },
+                                    "quantityUnits": "PCS"
+                                }
+                            ],
+                            "documentContent": "DOCUMENT",
+                            "partiesToTransactionAreRelated": false,
+                            "commercialInvoiceSpecification": {
+                                "returnedDispositionDetail": true
+                            }
+                        },
+                        "blockInsightVisibility": true,
+                        "shippingDocumentSpecification": {
+                            "shippingDocumentTypes": [
+                                "COMMERCIAL_INVOICE"
+                            ],
+                            "commercialInvoiceDetail": {
+                                "documentFormat": {
+                                    "stockType": "PAPER_LETTER",
+                                    "dispositions": [
+                                        {
+                                            "dispositionType": "RETURNED"
+                                        }
+                                    ],
+                                    "locale": "en_US",
+                                    "docType": "PDF"
+                                }
+                            }
+                        },
+                        "shipDatestamp": "2019-10-03",
+                        "pickupType": "USE_SCHEDULED_PICKUP",
+                        "recipients": [
+                            {
+                                "address": {
+                                    "residential": false,
+                                    "city": "Ontario",
+                                    "countryCode": "CA",
+                                    "postalCode": "m1m1m1",
+                                    "streetLines": [
+                                        "RECIPIENT ADDRESS 1",
+                                        "RECIPIENT ADDRESS 2"
+                                    ],
+                                    "stateOrProvinceCode": "ON"
+                                },
+                                "contact": {
+                                    "personName": "BHARAT",
+                                    "emailAddress": "RECIPIENT@fedex.com",
+                                    "phoneNumber": "9018328595",
+                                    "phoneExtension": "2222",
+                                    "companyName": "RECIPIENT COMPANY"
+                                },
+                                "tins": [
+                                    {
+                                        "number": "1223334444",
+                                        "tinType": "BUSINESS_UNION",
+                                        "usage": ""
+                                    }
+                                ],
+                                "deliveryInstructions": ""
+                            }
+                        ],
+                        "shippingChargesPayment": {
+                            "payor": {
+                                "responsibleParty": {
+                                    "address": {
+                                        "city": "SHENZHEN",
+                                        "countryCode": "CN",
+                                        "streetLines": [
+                                            "SENDER ADDRESS 1",
+                                            "SENDER ADDRESS 2"
+                                        ],
+                                        "postalCode": "518001",
+                                        "stateOrProvinceCode": ""
+                                    },
+                                    "contact": {
+                                        "personName": "MAMU",
+                                        "emailAddress": "725479@fedex.com",
+                                        "phoneNumber": "1234567890",
+                                        "phoneExtension": "1111",
+                                        "companyName": "SENDER COMPANY"
+                                    },
+                                    "accountNumber": {
+                                        "value": "XXXXX2842"
+                                    }
+                                }
+                            },
+                            "paymentType": "SENDER"
+                        },
+                        "requestedPackageLineItems": [
+                            {
+                                "subPackagingType": "OTHER",
+                                "groupPackageCount": "2",
+                                "itemDescriptionForClearance": "SELFPACKAGE_BASKET",
+                                "declaredValue": {
+                                    "amount": "67",
+                                    "currency": "INR"
+                                },
+                                "weight": {
+                                    "units": "KG",
+                                    "value": "12"
+                                },
+                                "dimensions": {
+                                    "length": "7",
+                                    "width": "7",
+                                    "units": "CM",
+                                    "height": "7"
+                                },
+                                "packageSpecialServices": {
+                                    "signatureOptionType": "ADULT",
+                                    "specialServiceTypes": [
+                                        "SIGNATURE_OPTION"
+                                    ]
+                                }
+                            }
+                        ],
+                        "packagingType": "YOUR_PACKAGING"
+                    },
+                    "openShipmentAction": "CONFIRM",
+                    "customerTransactionId": "This is a custom ID!",
+                    "accountNumber": {
+                        "value": "XXXXX2842"
+                    }
+                }
+            },
+            "MinimumSamplePayload-DomesticShipmentMPS": {
+                "example": {
+                    "requestedShipment": {
+                        "serviceType": "PRIORITY_OVERNIGHT",
+                        "shipper": {
+                            "address": {
+                                "city": "Mem",
+                                "countryCode": "US",
+                                "postalCode": "38127",
+                                "streetLines": [
+                                    "1335 Ashville Dr"
+                                ],
+                                "stateOrProvinceCode": "TN"
+                            },
+                            "contact": {
+                                "personName": "SENDER NAME",
+                                "phoneNumber": "9018328595"
+                            }
+                        },
+                        "labelSpecification": {},
+                        "pickupType": "CONTACT_FEDEX_TO_SCHEDULE",
+                        "recipients": [
+                            {
+                                "address": {
+                                    "residential": false,
+                                    "city": "IRVING",
+                                    "countryCode": "US",
+                                    "postalCode": "75038",
+                                    "streetLines": [
+                                        "RECIPIENT ADDRESS 1"
+                                    ],
+                                    "stateOrProvinceCode": "TX"
+                                }
+                            },
+                            {
+                                "contact": {
+                                    "personName": "RECIPIENT NAME",
+                                    "phoneNumber": "1234567890"
+                                }
+                            }
+                        ],
+                        "shippingChargesPayment": {
+                            "paymentType": "SENDER",
+                            "payor": {
+                                "responsibleParty": {
+                                    "accountNumber": {
+                                        "value": "XXXX",
+                                        "key": ""
+                                    }
+                                },
+                                "address": {
+                                    "streetLines": [
+                                        "SENDER ADDRESS 1"
+                                    ],
+                                    "city": "MEMPHIS",
+                                    "stateOrProvinceCode": "TN",
+                                    "postalCode": "38116",
+                                    "countryCode": "US"
+                                }
+                            }
+                        },
+                        "requestedPackageLineItems": [
+                            {
+                                "weight": {
+                                    "units": "LB",
+                                    "value": "10"
+                                }
+                            },
+                            {
+                                "weight": {
+                                    "units": "LB",
+                                    "value": "20"
+                                }
+                            }
+                        ],
+                        "packagingType": "YOUR_PACKAGING"
+                    },
+                    "accountNumber": {
+                        "value": "XXXXX2842"
+                    }
+                }
+            },
+            "MinimumSamplePayload-ShipShipment": {
+                "example": {
+                    "requestedShipment": {
+                        "shipper": {
+                            "contact": {
+                                "personName": "SENDER NAME",
+                                "phoneNumber": "9018328595"
+                            },
+                            "address": {
+                                "streetLines": [
+                                    "SENDER ADDRESS 1"
+                                ],
+                                "city": "MEMPHIS",
+                                "stateOrProvinceCode": "TN",
+                                "postalCode": "38116",
+                                "countryCode": "US"
+                            }
+                        },
+                        "recipients": [
+                            {
+                                "contact": {
+                                    "personName": "RECIPIENT NAME",
+                                    "phoneNumber": "9018328595"
+                                }
+                            },
+                            {
+                                "address": {
+                                    "streetLines": [
+                                        "RECIPIENT ADDRESS 1"
+                                    ],
+                                    "city": "MEMPHIS",
+                                    "stateOrProvinceCode": "TN",
+                                    "postalCode": "38116",
+                                    "countryCode": "US"
+                                }
+                            }
+                        ],
+                        "serviceType": "STANDARD_OVERNIGHT",
+                        "packagingType": "YOUR_PACKAGING",
+                        "pickupType": "DROPOFF_AT_FEDEX_LOCATION",
+                        "shippingChargesPayment": {
+                            "paymentType": "SENDER",
+                            "payor": {
+                                "responsibleParty": {
+                                    "accountNumber": {
+                                        "value": "XXXX",
+                                        "key": ""
+                                    }
+                                },
+                                "address": {
+                                    "streetLines": [
+                                        "SENDER ADDRESS 1"
+                                    ],
+                                    "city": "MEMPHIS",
+                                    "stateOrProvinceCode": "TN",
+                                    "postalCode": "38116",
+                                    "countryCode": "US"
+                                }
+                            }
+                        },
+                        "labelSpecification": {},
+                        "requestedPackageLineItems": [
+                            {
+                                "weight": {
+                                    "units": "LB",
+                                    "value": "20"
+                                }
+                            }
+                        ]
+                    },
+                    "accountNumber": {
+                        "value": "XXXXX2842"
+                    }
+                }
             }
         }
     }
