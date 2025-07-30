@@ -12,14 +12,14 @@ namespace ShipStream\FedEx\Api\TradeDocumentsUploadV1\Dto;
 
 use ShipStream\FedEx\Dto;
 
-final class FullSchemaImageUploadServiceInputVo extends Dto
+final class DocumentContainer extends Dto
 {
     /**
-     * @param  DocumentContainer  $document  A container for the document and rules.
-     * @param  string  $attachment  Input the actual image file to be uploaded.
+     * @param  Document  $document  Indicate the image reference metadata details.
+     * @param  DocumentRules  $rules  Specify the rules.
      */
     public function __construct(
-        public DocumentContainer $document,
-        public string $attachment,
+        public Document $document,
+        public DocumentRules $rules,
     ) {}
 }

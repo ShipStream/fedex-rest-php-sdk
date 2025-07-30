@@ -1285,13 +1285,13 @@
                 ],
                 "type": "object",
                 "properties": {
+                    "document": {
+                        "$ref": "#/components/schemas/DocumentContainer"
+                    },
                     "attachment": {
                         "type": "string",
                         "description": "Input the actual image file to be uploaded.",
                         "format": "file"
-                    },
-                    "document": {
-                        "$ref": "#/components/schemas/Document"
                     }
                 },
                 "description": "The request elements to upload image files."
@@ -1301,8 +1301,7 @@
                     "contentType",
                     "meta",
                     "name",
-                    "referenceId",
-                    "rules"
+                    "referenceId"
                 ],
                 "type": "object",
                 "properties": {
@@ -1320,9 +1319,6 @@
                         "type": "string",
                         "description": "Specify the file type or image type of the to be uploaded.<br><br>Valid Values are: <ul><li>image/png</li><li>image/gif</li></ul>",
                         "example": "image/png"
-                    },
-                    "rules": {
-                        "$ref": "#/components/schemas/Document_rules"
                     },
                     "meta": {
                         "$ref": "#/components/schemas/Document_meta"
@@ -1929,6 +1925,22 @@
                         "example": "dGVzdGluZyBmb3IgbXVsdGlmaWxlIHVwbG9hZCB0ZXN0LWExDQp0ZXN0aW5nIGZvciBtdWx0a        WZpbGUgdXBsb2FkIHRlc3QtYTENCkphbmFyZGhhbiBTaGluZ2FkZQ"
                     }
                 }
+            },
+            "DocumentContainer": {
+                "required": [
+                    "document",
+                    "rules"
+                ],
+                "type": "object",
+                "properties": {
+                    "document": {
+                        "$ref": "#/components/schemas/Document"
+                    },
+                    "rules": {
+                        "$ref": "#/components/schemas/Document_rules"
+                    }
+                },
+                "description": "A container for the document and rules."
             }
         }
     },

@@ -100,5 +100,63 @@
                 ]
             }
         ]
+    },
+    "trade-documents-upload": {
+        "1": [
+            {
+                "comment": "Define a container for FullSchema-ImageUploadServiceInputVO.properties.document. Move rules property up one level. See https://stackoverflow.com/questions/78593938/restful-fedex-trade-document-upload-api-cant-upload-signature-or-letterhead-i",
+                "action": "merge",
+                "path": "components.schemas",
+                "value": {
+                    "DocumentContainer": {
+                        "required": [
+                            "document",
+                            "rules"
+                        ],
+                        "type": "object",
+                        "properties": {
+                            "document": {
+                                "$ref": "#/components/schemas/Document"
+                            },
+                            "rules": {
+                                "$ref": "#/components/schemas/Document_rules"
+                            }
+                        },
+                        "description": "A container for the document and rules."
+                    }
+                }
+            },
+            {
+                "comment": "Wrap FullSchema-ImageUploadServiceInputVO.properties.document in DocumentContainer. Define document before attachment else error 1001 is thrown.",
+                "action": "replace",
+                "path": "components.schemas.FullSchema-ImageUploadServiceInputVO.properties",
+                "value": {
+                    "document": {
+                        "$ref": "#/components/schemas/DocumentContainer"
+                    },
+                    "attachment": {
+                        "type": "string",
+                        "description": "Input the actual image file to be uploaded.",
+                        "format": "file"
+                    }
+                }
+            },
+            {
+                "comment": "Delete moved `FullSchema-ImageUploadServiceInputVO.properties.rules` property.",
+                "action": "delete",
+                "path": "components.schemas.Document.properties.rules"
+            },
+            {
+                "comment": "Delete moved `FullSchema-ImageUploadServiceInputVO.properties.rules` from required properties.",
+                "action": "replace",
+                "path": "components.schemas.Document.required",
+                "value": [
+                    "contentType",
+                    "meta",
+                    "name",
+                    "referenceId"
+                ]
+            }
+        ]
     }
 }
