@@ -12,6 +12,7 @@ namespace ShipStream\FedEx\Api\TradeDocumentsUploadV1\Requests;
 
 use Exception;
 use Saloon\Contracts\Body\HasBody;
+use Saloon\Data\MultipartValue;
 use Saloon\Enums\Method;
 use Saloon\Http\Response;
 use Saloon\Traits\Body\HasMultipartBody;
@@ -59,6 +60,16 @@ class UploadEtdFiles extends Request implements HasBody
 
     public function defaultBody(): array
     {
-        return $this->fullSchemaDocumentUploadInputVo->toArray();
+        $data = $this->fullSchemaDocumentUploadInputVo->toArray();
+        $multipart = [];
+        foreach ($data as $key => $value) {
+            if (is_string($value) || is_numeric($value)) {
+                $multipart[] = new MultipartValue($key, (string) $value);
+            } else {
+                $multipart[] = new MultipartValue($key, json_encode($value));
+            }
+        }
+
+        return $multipart;
     }
 }
