@@ -131,6 +131,17 @@
       }
     ]
   },
+  "ship-dg-hazmat": {
+    "name": "Ship DG Hazmat",
+    "versions": [
+      {
+        "version": "1",
+        "url": [
+          "https://developer.fedex.com/wirc/json/api_groups/ShipDGHazmatAPI/ShipDGHazmatAPI-Resource.json"
+        ]
+      }
+    ]
+  },
   "track": {
     "name": "Track",
     "versions": [
