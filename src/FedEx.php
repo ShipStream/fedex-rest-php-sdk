@@ -12,6 +12,7 @@ use Saloon\Http\PendingRequest;
 use Saloon\Http\Request;
 use Saloon\Traits\OAuth2\ClientCredentialsGrant;
 use Saloon\Traits\Plugins\AlwaysThrowOnErrors;
+use ShipStream\FedEx\Api\AccountRegistrationV1;
 use ShipStream\FedEx\Api\AddressValidationV1;
 use ShipStream\FedEx\Api\AuthorizationV1;
 use ShipStream\FedEx\Api\AuthorizationV1\Dto\FullSchema;
@@ -25,6 +26,7 @@ use ShipStream\FedEx\Api\PickupRequestV1;
 use ShipStream\FedEx\Api\PostalCodeValidationV1;
 use ShipStream\FedEx\Api\RatesAndTransitTimesV1;
 use ShipStream\FedEx\Api\ShipV1;
+use ShipStream\FedEx\Api\ShipDGHazmatV1;
 use ShipStream\FedEx\Api\TrackV1;
 use ShipStream\FedEx\Api\TradeDocumentsUploadV1;
 use ShipStream\FedEx\Auth\MemoryCache;
@@ -87,6 +89,11 @@ class FedEx extends Connector
         }
     }
 
+    public function accountRegistrationV1(): AccountRegistrationV1\Api
+    {
+        return new AccountRegistrationV1\Api($this);
+    }
+
     public function addressValidationV1(): AddressValidationV1\Api
     {
         return new AddressValidationV1\Api($this);
@@ -142,6 +149,11 @@ class FedEx extends Connector
     public function shipV1(): ShipV1\Api
     {
         return new ShipV1\Api($this);
+    }
+
+    public function shipDGHazmatV1(): ShipDGHazmatV1\Api
+    {
+        return new ShipDGHazmatV1\Api($this);
     }
 
     public function trackV1(): TrackV1\Api
