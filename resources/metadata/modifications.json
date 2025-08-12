@@ -100,6 +100,10 @@
             "description": "The data content of this instance.<br> Example: \"value\"",
             "example": "value"
           }
+        }, {
+          "comment": "DangerousGoodsContainer.packingType is not actually required.",
+          "action": "delete",
+          "path": "components.schemas.DangerousGoodsContainer.required"
         }
       ]
     },

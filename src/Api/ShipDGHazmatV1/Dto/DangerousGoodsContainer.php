@@ -17,23 +17,23 @@ final class DangerousGoodsContainer extends Dto
     protected static array $complexArrayTypes = ['hazardousCommodities' => HazardousCommodityContent::class];
 
     /**
-     * @param  string  $packingType  This is Hazardous Container Packing Type.
      * @param  ?string  $offeror  Indicate the offerror name or contract number.
      * @param  HazardousCommodityContent[]|null  $hazardousCommodities  These are hazardous commodities content.
      * @param  ?int  $numberOfContainers  Indicates the number of container with identical dangerous goods configuration.
      * @param  ?string  $containerType  Indicate the type of this dangerous goods container, as specified by the IATA packing instructions. <br>Example: steel cylinder, fiberboard box, plastic jerrican and steel drum. etc.
      * @param  ?PhoneNumber  $emergencyContactNumber  A phone number for a party. Numeric only
      * @param  ?HazardousCommodityPackagingDetail  $packaging  Provides information about Hazardous Commodity Packaging Detail
+     * @param  ?string  $packingType  This is Hazardous Container Packing Type.
      * @param  ?string  $radioactiveContainerClass  Indicate the packaging type of the container to pack the radioactive materials.
      */
     public function __construct(
-        public string $packingType,
         public ?string $offeror = null,
         public ?array $hazardousCommodities = null,
         public ?int $numberOfContainers = null,
         public ?string $containerType = null,
         public ?PhoneNumber $emergencyContactNumber = null,
         public ?HazardousCommodityPackagingDetail $packaging = null,
+        public ?string $packingType = null,
         public ?string $radioactiveContainerClass = null,
     ) {}
 }

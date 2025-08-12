@@ -6302,9 +6302,6 @@
                 "description": " Shipping Document Format, allow ImageType of PDF and StockType of OP_900_LL or ImageType of Text and StockType of OP_900_LL_B.  Other elements are optional"
             },
             "DangerousGoodsContainer": {
-                "required": [
-                    "packingType"
-                ],
                 "type": "object",
                 "properties": {
                     "offeror": {
