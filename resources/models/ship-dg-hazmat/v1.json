@@ -6030,8 +6030,7 @@
             },
             "HazardousCommodityDescription": {
                 "required": [
-                    "packingGroup",
-                    "reportableQuantity"
+                    "packingGroup"
                 ],
                 "type": "object",
                 "properties": {

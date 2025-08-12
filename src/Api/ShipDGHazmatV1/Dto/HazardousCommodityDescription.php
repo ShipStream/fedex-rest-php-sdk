@@ -15,7 +15,6 @@ use ShipStream\FedEx\Dto;
 final class HazardousCommodityDescription extends Dto
 {
     /**
-     * @param  bool  $reportableQuantity  Reportable Quantity
      * @param  string  $packingGroup  Identifies DOT packing group for a hazardous commodity
      * @param  ?int  $sequenceNumber  RequiredSpecify the sequence number<br>Example: 9812
      * @param  ?string[]  $processingOptions  Indicates any special processing options to be applied to the description of the dangerous goods commodity
@@ -26,13 +25,13 @@ final class HazardousCommodityDescription extends Dto
      * @param  ?string  $technicalName  'The element specifies the technical name for the hazardous material<br>Example: technicalName'
      * @param  ?HazardousCommodityPackingDetail  $packingDetails  Specifies documentation and limits for validation of an individual packing group/category. DG Data Upload Mode: Required (IATA), Optional (Other), DG Full Validation Mode: Required (IATA), Optional (Other),
      * @param  ?string  $authorization  Authorization<br>Example: authorization
+     * @param  ?bool  $reportableQuantity  Reportable Quantity
      * @param  ?float  $percentage  Percentage<br>Example: 12.45
      * @param  ?string  $id  ID<br>Example: 123
      * @param  ?string  $properShippingName  The proper shipping name as defined by the regulation. The name can also include qualifying words<br>Example: properShippingName
      * @param  ?string  $hazardClass  'Specifies the hazard class for the commodity<br>Example: hazard Class'
      */
     public function __construct(
-        public bool $reportableQuantity,
         public string $packingGroup,
         public ?int $sequenceNumber = null,
         public ?array $processingOptions = null,
@@ -41,6 +40,7 @@ final class HazardousCommodityDescription extends Dto
         public ?string $technicalName = null,
         public ?HazardousCommodityPackingDetail $packingDetails = null,
         public ?string $authorization = null,
+        public ?bool $reportableQuantity = null,
         public ?float $percentage = null,
         public ?string $id = null,
         public ?string $properShippingName = null,

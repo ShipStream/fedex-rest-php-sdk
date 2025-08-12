@@ -104,6 +104,13 @@
           "comment": "DangerousGoodsContainer.packingType is not actually required.",
           "action": "delete",
           "path": "components.schemas.DangerousGoodsContainer.required"
+        }, {
+          "comment": "HazardousCommodityDescription.reportableQuantity is not actually required.",
+          "action": "replace",
+          "path": "components.schemas.HazardousCommodityDescription.required",
+          "value": [
+            "packingGroup"
+          ]
         }
       ]
     },
