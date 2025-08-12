@@ -45,6 +45,8 @@ $json = $response->json();
 $dto = $response->dto();
 ```
 
+It is recommended to use named parameters with DTOs, as the order of parameters could change when the SDK is updated.
+
 To figure out which DTO(s) need(s) to be passed to a particular endpoint method, use your editor to inspect the method's arguments:
 
 ![](img/dto-hint.png)
