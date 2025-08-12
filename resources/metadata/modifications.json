@@ -79,6 +79,20 @@
             }
         ]
     },
+    "ship-dg-hazmat": {
+      "1": [
+        {
+          "comment": "The type of the surcharge amount is float, not Money",
+          "action": "replace",
+          "path": "components.schemas.Surcharge.properties.amount",
+          "value": {
+            "description": "Specifies the Surcharge Amount.",
+            "type": "number",
+            "format": "double"
+          }
+        }
+      ]
+    },
     "track": {
         "1": [
             {

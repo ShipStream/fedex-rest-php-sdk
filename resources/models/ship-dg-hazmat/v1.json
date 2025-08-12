@@ -3225,7 +3225,8 @@
                 "properties": {
                     "amount": {
                         "description": "Specifies the Surcharge Amount.",
-                        "$ref": "#/components/schemas/Money"
+                        "type": "number",
+                        "format": "double"
                     },
                     "surchargeType": {
                         "type": "string",

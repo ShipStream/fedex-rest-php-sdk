@@ -15,13 +15,13 @@ use ShipStream\FedEx\Dto;
 final class Surcharge extends Dto
 {
     /**
-     * @param  ?Money  $amount  This is commodity value used for Customs declaration.
+     * @param  ?float  $amount  Specifies the Surcharge Amount.
      * @param  ?string  $surchargeType  Specifies the Surcharge Type.<br>Example: APPOINTMENT_DELIVERY
      * @param  ?string  $level  Specifies if the surcharge applies to the whole shipment, or to an individual package.<br>Example: PACKAGE
      * @param  ?string  $description  Specifies the description for the surcharge.<br>Example: description
      */
     public function __construct(
-        public ?Money $amount = null,
+        public ?float $amount = null,
         public ?string $surchargeType = null,
         public ?string $level = null,
         public ?string $description = null,
