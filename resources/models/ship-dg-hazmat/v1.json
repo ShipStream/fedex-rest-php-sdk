@@ -6029,9 +6029,6 @@
                 }
             },
             "HazardousCommodityDescription": {
-                "required": [
-                    "packingGroup"
-                ],
                 "type": "object",
                 "properties": {
                     "sequenceNumber": {

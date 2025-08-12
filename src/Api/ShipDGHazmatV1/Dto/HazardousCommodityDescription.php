@@ -15,7 +15,6 @@ use ShipStream\FedEx\Dto;
 final class HazardousCommodityDescription extends Dto
 {
     /**
-     * @param  string  $packingGroup  Identifies DOT packing group for a hazardous commodity
      * @param  ?int  $sequenceNumber  RequiredSpecify the sequence number<br>Example: 9812
      * @param  ?string[]  $processingOptions  Indicates any special processing options to be applied to the description of the dangerous goods commodity
      * @param  ?string[]  $subsidiaryClasses  Required
@@ -28,11 +27,11 @@ final class HazardousCommodityDescription extends Dto
      * @param  ?bool  $reportableQuantity  Reportable Quantity
      * @param  ?float  $percentage  Percentage<br>Example: 12.45
      * @param  ?string  $id  ID<br>Example: 123
+     * @param  ?string  $packingGroup  Identifies DOT packing group for a hazardous commodity
      * @param  ?string  $properShippingName  The proper shipping name as defined by the regulation. The name can also include qualifying words<br>Example: properShippingName
      * @param  ?string  $hazardClass  'Specifies the hazard class for the commodity<br>Example: hazard Class'
      */
     public function __construct(
-        public string $packingGroup,
         public ?int $sequenceNumber = null,
         public ?array $processingOptions = null,
         public ?array $subsidiaryClasses = null,
@@ -43,6 +42,7 @@ final class HazardousCommodityDescription extends Dto
         public ?bool $reportableQuantity = null,
         public ?float $percentage = null,
         public ?string $id = null,
+        public ?string $packingGroup = null,
         public ?string $properShippingName = null,
         public ?string $hazardClass = null,
     ) {}
