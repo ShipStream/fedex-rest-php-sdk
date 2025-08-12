@@ -3059,16 +3059,10 @@
                         "example": "COMMON-2D"
                     },
                     "value": {
-                        "type": "array",
-                        "description": "The data content of this instance.<br> Example: [\"value\"]",
-                        "example": [
-                            "value",
-                            "value"
-                        ],
-                        "items": {
-                            "type": "string",
-                            "format": "byte"
-                        }
+                        "type": "string",
+                        "format": "byte",
+                        "description": "The data content of this instance.<br> Example: \"value\"",
+                        "example": "value"
                     }
                 },
                 "description": "Each instance of this data type represents a barcode whose content must be represented as binary data (i.e. not ASCII text)."

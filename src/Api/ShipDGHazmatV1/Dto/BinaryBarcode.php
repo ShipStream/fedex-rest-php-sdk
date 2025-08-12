@@ -16,10 +16,10 @@ final class BinaryBarcode extends Dto
 {
     /**
      * @param  ?string  $type  The kind of barcode data in this instance.<br> Example: COMMON-2D
-     * @param  ?string[]  $value  The data content of this instance.<br> Example: ["value"]
+     * @param  ?string  $value  The data content of this instance.<br> Example: "value"
      */
     public function __construct(
         public ?string $type = null,
-        public ?array $value = null,
+        public ?string $value = null,
     ) {}
 }

@@ -82,13 +82,23 @@
     "ship-dg-hazmat": {
       "1": [
         {
-          "comment": "The type of the surcharge amount is float, not Money",
+          "comment": "The type of Surcharge.amount is float, not Money",
           "action": "replace",
           "path": "components.schemas.Surcharge.properties.amount",
           "value": {
             "description": "Specifies the Surcharge Amount.",
             "type": "number",
             "format": "double"
+          }
+        }, {
+          "comment": "The type of the BinaryBarcode.value is string, not array of strings",
+          "action": "replace",
+          "path": "components.schemas.BinaryBarcode.properties.value",
+          "value": {
+            "type": "string",
+            "format": "byte",
+            "description": "The data content of this instance.<br> Example: \"value\"",
+            "example": "value"
           }
         }
       ]
