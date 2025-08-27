@@ -108,6 +108,10 @@
           "comment": "HazardousCommodityDescription.reportableQuantity and packingGroup are not actually required.",
           "action": "delete",
           "path": "components.schemas.HazardousCommodityDescription.required"
+        }, {
+          "comment": "ResponsiblePartyParty address and contact are not actually required.",
+          "action": "delete",
+          "path": "components.schemas.ResponsiblePartyParty.required"
         }
       ]
     },

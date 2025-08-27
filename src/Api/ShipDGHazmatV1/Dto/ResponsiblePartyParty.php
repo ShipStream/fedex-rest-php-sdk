@@ -15,13 +15,13 @@ use ShipStream\FedEx\Dto;
 final class ResponsiblePartyParty extends Dto
 {
     /**
-     * @param  PartyAddress  $address  This is detailed information on physical location. May be used as an actual physical address (place to which one could go), or as a container of address parts which should be handled as a unit (such as a city-state-ZIP combination within the US).
-     * @param  PartyContact  $contact  Indicate the contact details for this shipment.
+     * @param  ?PartyAddress  $address  This is detailed information on physical location. May be used as an actual physical address (place to which one could go), or as a container of address parts which should be handled as a unit (such as a city-state-ZIP combination within the US).
+     * @param  ?PartyContact  $contact  Indicate the contact details for this shipment.
      * @param  ?PartyAccountNumber  $accountNumber  The account number of the recipient.
      */
     public function __construct(
-        public PartyAddress $address,
-        public PartyContact $contact,
+        public ?PartyAddress $address = null,
+        public ?PartyContact $contact = null,
         public ?PartyAccountNumber $accountNumber = null,
     ) {}
 }

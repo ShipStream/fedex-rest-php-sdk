@@ -5006,10 +5006,6 @@
                 }
             },
             "ResponsiblePartyParty": {
-                "required": [
-                    "address",
-                    "contact"
-                ],
                 "type": "object",
                 "properties": {
                     "address": {
