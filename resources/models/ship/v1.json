@@ -7781,11 +7781,6 @@
                 }
             },
             "PartyAddress": {
-                "required": [
-                    "city",
-                    "countryCode",
-                    "streetLines"
-                ],
                 "type": "object",
                 "properties": {
                     "streetLines": {
@@ -7895,9 +7890,6 @@
                 }
             },
             "PartyContact": {
-                "required": [
-                    "phoneNumber"
-                ],
                 "type": "object",
                 "properties": {
                     "personName": {

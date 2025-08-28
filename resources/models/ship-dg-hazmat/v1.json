@@ -949,13 +949,6 @@
                 "description": "Will indicate the party responsible for purchasing the goods shipped from the shipper to the recipient. The sold to party is not necessarily the recipient or the importer of record. The sold to party is relevant when the purchaser, rather than the recipient determines when certain customs regulations apply."
             },
             "PartyAddress": {
-                "required": [
-                    "city",
-                    "countryCode",
-                    "postalCode",
-                    "stateOrProvinceCode",
-                    "streetLines"
-                ],
                 "type": "object",
                 "properties": {
                     "streetLines": {
@@ -1010,9 +1003,6 @@
                 }
             },
             "PartyContact": {
-                "required": [
-                    "phoneNumber"
-                ],
                 "type": "object",
                 "properties": {
                     "personName": {

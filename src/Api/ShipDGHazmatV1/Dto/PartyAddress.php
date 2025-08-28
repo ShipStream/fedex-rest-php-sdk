@@ -15,19 +15,19 @@ use ShipStream\FedEx\Dto;
 final class PartyAddress extends Dto
 {
     /**
-     * @param  string[]  $streetLines  Combination of number, street name, etc. At least one line is required for a valid physical address. Empty lines should not be included. Max Length is 35.<br>Example: [1550 Union Blvd,Suite 302]
-     * @param  string  $city  The name of city, town of the recipient.Max length is 35.<br>Example: Beverly Hills
-     * @param  string  $stateOrProvinceCode  The US State and Canada Province codes of the recipient. The Format and presence of this field may vary depending on the country.<br>Example: CA
-     * @param  string  $postalCode  The US State and Canada Province codes. The Format and presence of this field may vary depending on the country.<br>Example: 90210
-     * @param  string  $countryCode  The two-letter code used to identify a country. Max length is 2.<br>Example: US
+     * @param  ?string[]  $streetLines  Combination of number, street name, etc. At least one line is required for a valid physical address. Empty lines should not be included. Max Length is 35.<br>Example: [1550 Union Blvd,Suite 302]
+     * @param  ?string  $city  The name of city, town of the recipient.Max length is 35.<br>Example: Beverly Hills
+     * @param  ?string  $stateOrProvinceCode  The US State and Canada Province codes of the recipient. The Format and presence of this field may vary depending on the country.<br>Example: CA
+     * @param  ?string  $postalCode  The US State and Canada Province codes. The Format and presence of this field may vary depending on the country.<br>Example: 90210
+     * @param  ?string  $countryCode  The two-letter code used to identify a country. Max length is 2.<br>Example: US
      * @param  ?bool  $residential  Indicates whether this address is residential (as opposed to commercial).<br>Example: false
      */
     public function __construct(
-        public array $streetLines,
-        public string $city,
-        public string $stateOrProvinceCode,
-        public string $postalCode,
-        public string $countryCode,
+        public ?array $streetLines = null,
+        public ?string $city = null,
+        public ?string $stateOrProvinceCode = null,
+        public ?string $postalCode = null,
+        public ?string $countryCode = null,
         public ?bool $residential = null,
     ) {}
 }
