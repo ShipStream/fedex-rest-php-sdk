@@ -4294,6 +4294,15 @@
                         "type": "string",
                         "description": "Specifies the api alert message.<br>Example: Recipient\u2019s phone number format is not matching with recipient's country code; hence, recipient will not receive Convenient Delivery Options. Moving forward, please provide valid mobile phone number.",
                         "example": "Recipient\u2019s phone number format is not matching with recipient's country code; hence, recipient will not receive Convenient Delivery Options. Moving forward, please provide valid mobile phone number."
+                    },
+                    "alertType": {
+                        "type": "string",
+                        "description": "Specifies the api alert type.",
+                        "example": "NOTE",
+                        "enum": [
+                            "NOTE",
+                            "WARNING"
+                        ]
                     }
                 },
                 "description": "Specifies the api alerts."

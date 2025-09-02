@@ -77,6 +77,21 @@
                     "$ref": "#/components/schemas/Alert_3P"
                 }
             }, {
+                "comment": "Add missing alertType property to Alert_3P",
+                "action": "merge",
+                "path": "components.schemas.Alert_3P.properties",
+                "value": {
+                    "alertType": {
+                        "type": "string",
+                        "description": "Specifies the api alert type.",
+                        "example": "NOTE",
+                        "enum": [
+                            "NOTE",
+                            "WARNING"
+                        ]
+                    }
+                }
+            }, {
                 " comment": "Remove required fields from PartyAddress",
                 "action": "delete",
                 "path": "components.schemas.PartyAddress.required"

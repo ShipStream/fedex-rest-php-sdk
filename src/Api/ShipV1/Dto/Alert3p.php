@@ -17,9 +17,11 @@ final class Alert3p extends Dto
     /**
      * @param  ?string  $code  Specifies the api alert code.<br>Example: RECIPIENTCONTACT.PHONENUMBER.INVALID
      * @param  ?string  $message  Specifies the api alert message.<br>Example: Recipient’s phone number format is not matching with recipient's country code; hence, recipient will not receive Convenient Delivery Options. Moving forward, please provide valid mobile phone number.
+     * @param  ?string  $alertType  Specifies the api alert type.
      */
     public function __construct(
         public ?string $code = null,
         public ?string $message = null,
+        public ?string $alertType = null,
     ) {}
 }
