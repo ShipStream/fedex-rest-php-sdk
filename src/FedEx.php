@@ -52,6 +52,7 @@ class FedEx extends Connector
         public ?bool $proprietaryChild = false,
         public ?TokenCache $tokenCache = new MemoryCache(),
         public ?Closure $transactionIdGenerator = null,
+        public ?string $locale = null,
     ) {
         if (($this->childKey && ! $this->childSecret) || ($this->childSecret && ! $this->childKey)) {
             throw new InvalidArgumentException('Both childKey and childSecret must be provided.');
@@ -86,6 +87,10 @@ class FedEx extends Connector
             }
 
             $pendingRequest->headers()->add('x-customer-transaction-id', $transactionId);
+        }
+
+        if ($this->locale) {
+            $pendingRequest->headers()->add('x-locale', $this->locale);
         }
     }
 
