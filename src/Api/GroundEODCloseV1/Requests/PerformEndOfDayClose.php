@@ -39,7 +39,7 @@ class PerformEndOfDayClose extends Request implements HasBody
 
     public function resolveEndpoint(): string
     {
-        return '/ship/v1/endofday';
+        return '/ship/v1/endofday/';
     }
 
     public function createDtoFromResponse(Response $response): ShpcResponseVo|ErrorResponseVo|ErrorResponseVo2
