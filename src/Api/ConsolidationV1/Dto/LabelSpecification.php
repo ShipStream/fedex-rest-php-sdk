@@ -21,12 +21,12 @@ final class LabelSpecification extends Dto
      * @param  ?string  $labelFormatType  Specify the label Format Type.<br><a onclick='loadDocReference("labelstocktypes")'>click here to see label format types</a>
      * @param  ?string  $labelStockType  Indicate the label stock type used. <br><a onclick='loadDocReference("labelstocktypes")'>click here to see label format types</a>
      * @param  ?string  $imageType  Specify the image format used for a shipping document.<br><a onclick='loadDocReference("labelstocktypes")'>click here to see label format types</a>
-     * @param  ShippingDocumentDispositionDetail[]|null  $dispositions  Specifies how to create, organize, and return the document.
+     * @param  ShippingDocumentDispositionDetail[]|null  $dispositions  Specifies how to create, organize, and return the document
+     * @param  ?int  $resolution  Specifies the image resolution in DPI (Dots Per Inch). Valid values are 203 & 300. If not provided or for any other value, system will default it to 203. 300 DPI is only allowed for imageType is ZPLII.
      * @param  ?string  $labelPrintingOrientation  This is applicable only to documents produced on thermal printers with roll stock.
      * @param  ?string  $labelRotation  This is applicable only to documents produced on thermal printers with roll stock.
-     * @param  ?string  $labelOrder  This is the order of the Shipping labels to be generated.
+     * @param  ?string  $labelOrder  This is the order of the Shipping label/documents to be generated.
      * @param  ?CustomerSpecifiedLabelDetail  $customerSpecifiedDetail  Allows customer-specified control of label content
-     * @param  ?int  $resolution  Specifies the image resolution in DPI (Dots Per Inch). Valid values are 203 & 300. If not provided or for any other value, system will default it to 203.
      */
     public function __construct(
         public ContactAndAddress $printedLabelOrigin,
@@ -35,10 +35,10 @@ final class LabelSpecification extends Dto
         public ?string $imageType = null,
         public ?LabelSpecificationProcessingOptionsRequested $processingOptionsRequested = null,
         public ?array $dispositions = null,
+        public ?int $resolution = null,
         public ?string $labelPrintingOrientation = null,
         public ?string $labelRotation = null,
         public ?string $labelOrder = null,
         public ?CustomerSpecifiedLabelDetail $customerSpecifiedDetail = null,
-        public ?int $resolution = null,
     ) {}
 }

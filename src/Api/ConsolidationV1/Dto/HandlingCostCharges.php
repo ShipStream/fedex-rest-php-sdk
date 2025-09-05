@@ -15,7 +15,7 @@ use ShipStream\FedEx\Dto;
 final class HandlingCostCharges extends Dto
 {
     /**
-     * @param  string  $currency  This is the currency of the commodity value used for Customs declaration.<a href="/developer-portal/en-us/reference-guide.html#currencycodes" target="_blank">Click here to see Currency Codes</a>
+     * @param  string  $currency  This is the currency of the commodity value used for Customs declaration.<br><a onclick='loadDocReference("currencycodes")'>click here to see Currency Codes</a>
      * @param  ?float  $amount  This is commodity value in amount used for Customs declaration.<br>Max limit: 7 digits before decimal.
      */
     public function __construct(

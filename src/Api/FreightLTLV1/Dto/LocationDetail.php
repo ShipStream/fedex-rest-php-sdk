@@ -29,7 +29,7 @@ final class LocationDetail extends Dto
      * @param  ?string[]  $locationAttributeTypes  Specifies the location attribute type list.
      * @param  ?string  $mapUrl  Specifies the map URL.
      * @param  ?string  $locationType  Specifies the location type.
-     * @param  ?ContactAndAddress  $contactAndAddress  Specifies the contact and address details of a location.
+     * @param  ?ContactAndAddress  $contactAndAddress  Specify the contact and address details of a location.
      * @param  CarrierDetails[]|null  $carrierDetails  Specifies the carrierDetails.
      */
     public function __construct(

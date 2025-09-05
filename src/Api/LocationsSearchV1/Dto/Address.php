@@ -15,13 +15,13 @@ use ShipStream\FedEx\Dto;
 final class Address extends Dto
 {
     /**
-     * @param  string  $countryCode  This is the Two-letter country code.<br>Example: US<br><a onclick='loadDocReference("countrycodes")'>Click here to see Country Codes</a>
+     * @param  string  $countryCode  The ISO Alpha2, Alpha3, Numeric3 code for the country or name (5 character max) for the country.<br>Example: US
      * @param  ?string[]  $streetLines  This is a combination of number, street name, etc. <br><i>Note: Streetlines more than 3 will be ignored. Empty lines should not be included.</i><br>Example: [\"10 FedEx Parkway\", \"Suite 302\"]
      * @param  ?string  $city  This is a placeholder for City Name. <br> City or PostalCode is mandatory when search criteria is ADDRESS or PHONE_NUMBER<br> Example: Beverly Hills
      * @param  ?string  $stateOrProvinceCode  This is a placeholder for State or Province code. <br>Example: CA<br><a onclick='loadDocReference("canadaprovincecodes")'>Click here to see State/Province Code</a>
      * @param  ?string  $postalCode  This is placeholder for postal code.<br><i>Note: <ul><li>Postal code is required for postal-aware countries.</li>City or PostalCode is mandatory when search criteria is ADDRESS or PHONE_NUMBER</li></ul></i>Example: 38127<br><br><a onclick='loadDocReference("postalawarecountries")'>Click here to see Postal aware countries</a>
-     * @param  ?bool  $residential  Indicate whether this address is Residential as opposed to Commercial.<br>Valid Values: True or False.
-     * @param  ?string  $addressVerificationId  This is the address verification identifier. <br> Example: MARKET_LAUNCH
+     * @param  ?bool  $residential  Indicates whether the address returned is residential as opposed to commercial.<br>Valid values: True, False.
+     * @param  ?string  $addressVerificationId  Address verification Identifier
      * @param  ?string  $addressClassification  The business residential indicators.
      * @param  ?string  $addressClassificationConfidence  The confidence of business residential classification business residential indicators.
      */

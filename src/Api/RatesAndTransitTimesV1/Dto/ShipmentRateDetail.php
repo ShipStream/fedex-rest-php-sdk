@@ -14,7 +14,11 @@ use ShipStream\FedEx\Dto;
 
 final class ShipmentRateDetail extends Dto
 {
-    protected static array $complexArrayTypes = ['freightDiscount' => RateDiscount::class, 'surCharges' => Surcharge::class];
+    protected static array $complexArrayTypes = [
+        'freightDiscount' => RateDiscount::class,
+        'surCharges' => Surcharge::class,
+        'taxes' => Tax::class,
+    ];
 
     /**
      * @param  ?CurrencyExchangeRate  $currencyExchangeRate  Specifies the currency exchange performed on financial amounts for this rate.
@@ -31,6 +35,7 @@ final class ShipmentRateDetail extends Dto
      * @param  ?Weight  $totalDimWeight  These are the weight details.
      * @param  ?int  $dimDivisor  Identifies the type of divisor that was applied.<br> Example: 10
      * @param  Surcharge[]|null  $surCharges  Indicates the surcharges applied to this shipment.
+     * @param  Tax[]|null  $taxes  List of taxes.
      */
     public function __construct(
         public ?CurrencyExchangeRate $currencyExchangeRate = null,
@@ -47,5 +52,6 @@ final class ShipmentRateDetail extends Dto
         public ?Weight $totalDimWeight = null,
         public ?int $dimDivisor = null,
         public ?array $surCharges = null,
+        public ?array $taxes = null,
     ) {}
 }

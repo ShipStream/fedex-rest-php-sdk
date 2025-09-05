@@ -17,7 +17,7 @@ use Saloon\Http\Response;
 use Saloon\Traits\Body\HasJsonBody;
 use ShipStream\FedEx\Api\ConsolidationV1\Dto\FullSchemaDeleteShipment;
 use ShipStream\FedEx\Api\ConsolidationV1\Responses\ErrorResponseVo;
-use ShipStream\FedEx\Api\ConsolidationV1\Responses\ErrorResponseVo2;
+use ShipStream\FedEx\Api\ConsolidationV1\Responses\ErrorResponseVo6;
 use ShipStream\FedEx\Api\ConsolidationV1\Responses\ShpcResponseVo;
 use ShipStream\FedEx\Request;
 
@@ -45,12 +45,12 @@ class DeleteConsolidationShipments extends Request implements HasBody
         return '/ship/v1/consolidations/shipments/delete';
     }
 
-    public function createDtoFromResponse(Response $response): ShpcResponseVo|ErrorResponseVo2|ErrorResponseVo
+    public function createDtoFromResponse(Response $response): ShpcResponseVo|ErrorResponseVo6|ErrorResponseVo
     {
         $status = $response->status();
         $responseCls = match ($status) {
             200 => ShpcResponseVo::class,
-            400, 401, 403, 500 => ErrorResponseVo2::class,
+            400, 401, 403, 500 => ErrorResponseVo6::class,
             404 => ErrorResponseVo::class,
             default => throw new Exception("Unhandled response status: {$status}")
         };

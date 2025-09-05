@@ -19,6 +19,10 @@ use ShipStream\FedEx\Api\ConsolidationV1\Dto\FullSchemaDeleteConsolidation;
 use ShipStream\FedEx\Api\ConsolidationV1\Responses\DeleteConsolidationResponse;
 use ShipStream\FedEx\Api\ConsolidationV1\Responses\ErrorResponseVo;
 use ShipStream\FedEx\Api\ConsolidationV1\Responses\ErrorResponseVo2;
+use ShipStream\FedEx\Api\ConsolidationV1\Responses\ErrorResponseVo3;
+use ShipStream\FedEx\Api\ConsolidationV1\Responses\ErrorResponseVo4;
+use ShipStream\FedEx\Api\ConsolidationV1\Responses\ErrorResponseVo5;
+use ShipStream\FedEx\Api\ConsolidationV1\Responses\ErrorResponseVo6;
 use ShipStream\FedEx\Request;
 
 /**
@@ -48,12 +52,16 @@ class DeleteConsolidation extends Request implements HasBody
 
     public function createDtoFromResponse(
         Response $response,
-    ): DeleteConsolidationResponse|ErrorResponseVo|ErrorResponseVo2 {
+    ): DeleteConsolidationResponse|ErrorResponseVo|ErrorResponseVo2|ErrorResponseVo3|ErrorResponseVo4|ErrorResponseVo5|ErrorResponseVo6 {
         $status = $response->status();
         $responseCls = match ($status) {
             200 => DeleteConsolidationResponse::class,
-            400, 500 => ErrorResponseVo::class,
-            401, 403, 404, 503 => ErrorResponseVo2::class,
+            400 => ErrorResponseVo::class,
+            401 => ErrorResponseVo2::class,
+            403 => ErrorResponseVo3::class,
+            404 => ErrorResponseVo4::class,
+            500 => ErrorResponseVo5::class,
+            503 => ErrorResponseVo6::class,
             default => throw new Exception("Unhandled response status: {$status}")
         };
 

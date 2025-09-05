@@ -43,7 +43,7 @@ class CancelFreightPickup extends Request implements HasBody
 
     public function resolveEndpoint(): string
     {
-        return '/pickup/v1/freight/pickups/cancel';
+        return '/pickup/v1/freight/pickups/cancel/';
     }
 
     public function createDtoFromResponse(Response $response): PudcResponseVoCancelPickup|ErrorResponseVo

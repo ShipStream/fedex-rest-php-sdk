@@ -2493,6 +2493,13 @@
                         "items": {
                             "$ref": "#/components/schemas/Surcharge"
                         }
+                    },
+                    "taxes": {
+                        "description": "List of taxes.",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Tax"
+                        }
                     }
                 },
                 "description": "This is shipment level rate data."
@@ -2762,15 +2769,11 @@
                     },
                     "type": {
                         "type": "string",
-                        "description": "This is Broker Type.",
-                        "example": "EXPORT",
+                        "description": "This is Broker Type.Example:IMPORT",
+                        "example": "IMPORT",
                         "enum": [
-                            "EXPORT",
                             "IMPORT"
                         ]
-                    },
-                    "brokerAddress": {
-                        "$ref": "#/components/schemas/Brokeraddress"
                     }
                 },
                 "description": "These are Broker Detail for the rate quote."
@@ -2982,7 +2985,7 @@
                         "example": "Your account number"
                     }
                 },
-                "description": "This is the Account number details.<br><i>Note:<ul><li>If the paymentType is Sender, then the account number is optional in shippingChargesPayment.</li><li>In case if this is shipping account number, do use the account number used for creating Auth Token.</li></ul>",
+                "description": "This is the Account number details.<br><i>Note:<ul><li>If the paymentType is Sender, then the account number is optional in shippingChargesPayment.</li></ul>",
                 "example": {
                     "value": "Your account number"
                 }
@@ -3583,8 +3586,8 @@
                                 "streetLines": [
                                     "SENDER ADDRESS"
                                 ],
-                                "city": "",
-                                "stateOrProvinceCode": "",
+                                "city": "SENDER CITY",
+                                "stateOrProvinceCode": "SENDER PROVINCE CODE",
                                 "postalCode": "5003",
                                 "countryCode": "NO"
                             }
@@ -3594,8 +3597,8 @@
                                 "streetLines": [
                                     "RECIPIENT ADDRESS 1"
                                 ],
-                                "city": "",
-                                "stateOrProvinceCode": "",
+                                "city": "RECIPIENT city",
+                                "stateOrProvinceCode": "RECIPIENT PROVINCE CODE",
                                 "postalCode": "5003",
                                 "countryCode": "NO"
                             }
@@ -3659,6 +3662,180 @@
                     },
                     "returnLocalizedDateTime": true,
                     "webSiteCountryCode": "US"
+                }
+            },
+            "MinimumSamplePayload_1": {
+                "example": {
+                    "accountNumber": {
+                        "value": "XXXXX7354"
+                    },
+                    "requestedShipment": {
+                        "shipper": {
+                            "address": {
+                                "postalCode": "65247",
+                                "countryCode": "US"
+                            }
+                        },
+                        "recipient": {
+                            "address": {
+                                "postalCode": "72348",
+                                "countryCode": "US"
+                            }
+                        },
+                        "pickupType": "DROPOFF_AT_FEDEX_LOCATION",
+                        "rateRequestType": [
+                            "ACCOUNT",
+                            "LIST"
+                        ],
+                        "requestedPackageLineItems": [
+                            {
+                                "weight": {
+                                    "units": "LB",
+                                    "value": "10"
+                                }
+                            }
+                        ]
+                    }
+                }
+            },
+            "FreightSamplePayload-RateResourceDetails_1": {
+                "example": {
+                    "accountNumber": {
+                        "value": "XXXXX9837"
+                    },
+                    "requestedShipment": {
+                        "freightShipmentDetail": {
+                            "role": "SHIPPER",
+                            "lineItem": [
+                                {
+                                    "pieces": "1",
+                                    "handlingUnits": "1",
+                                    "freightClass": "CLASS_060",
+                                    "subPackagingType": "PALLET",
+                                    "description": "books autograph",
+                                    "weight": {
+                                        "units": "LB",
+                                        "value": "1000.00"
+                                    },
+                                    "id": "books",
+                                    "dimensions": {
+                                        "length": "15",
+                                        "width": "15",
+                                        "units": "IN",
+                                        "height": "15"
+                                    }
+                                }
+                            ],
+                            "fedExFreightBillingContactAndAddress": {
+                                "address": {
+                                    "residential": false,
+                                    "city": "COLLIERVILLE",
+                                    "countryCode": "US",
+                                    "streetLines": [
+                                        "20 FEDEX PKWY"
+                                    ],
+                                    "postalCode": "380178711",
+                                    "stateOrProvinceCode": "TN"
+                                },
+                                "contact": {
+                                    "personName": "BRON TAPES",
+                                    "emailAddress": "neena_sebastian@syntelinc.com",
+                                    "phoneNumber": "9012635448",
+                                    "phoneExtension": "001",
+                                    "companyName": "SYNT"
+                                }
+                            },
+                            "collectTermsType": "STANDARD",
+                            "fedExFreightAccountNumber": {
+                                "value": "XXXXX9837",
+                                "key": "ba9b4726f7fac6ca7515492d2a4e369e"
+                            },
+                            "declaredValueUnits": "USD",
+                            "totalHandlingUnits": "2"
+                        },
+                        "shipper": {
+                            "address": {
+                                "residential": false,
+                                "city": "Collierville",
+                                "countryCode": "US",
+                                "streetLines": [
+                                    "20 Fedex Parkway"
+                                ],
+                                "postalCode": "380178711",
+                                "stateOrProvinceCode": "TN"
+                            },
+                            "contact": {
+                                "personName": "Abhay_shipper",
+                                "phoneNumber": "9822280721",
+                                "companyName": "Syntel"
+                            },
+                            "accountNumber": {
+                                "value": "XXXXX9837",
+                                "key": "ba9b4726f7fac6ca7515492d2a4e369e"
+                            }
+                        },
+                        "rateRequestType": [
+                            "LIST"
+                        ],
+                        "shipmentSpecialServices": {
+                            "specialServiceTypes": []
+                        },
+                        "recipient": {
+                            "address": {
+                                "residential": false,
+                                "city": "Memphis",
+                                "countryCode": "US",
+                                "postalCode": "38116",
+                                "stateOrProvinceCode": "ON"
+                            }
+                        },
+                        "shippingChargesPayment": {
+                            "payor": {
+                                "responsibleParty": {
+                                    "address": {
+                                        "residential": false,
+                                        "city": "Collierville",
+                                        "countryCode": "US",
+                                        "streetLines": [
+                                            "10 Fedex Parkway"
+                                        ],
+                                        "postalCode": "38017",
+                                        "stateOrProvinceCode": "TN"
+                                    }
+                                }
+                            },
+                            "paymentType": "SENDER"
+                        },
+                        "shipDateStamp": "2020-02-19",
+                        "requestedPackageLineItems": [
+                            {
+                                "subPackagingType": "OTHER",
+                                "groupPackageCount": "1",
+                                "itemDescriptionForClearance": "",
+                                "weight": {
+                                    "units": "LB",
+                                    "value": "1000.00"
+                                },
+                                "associatedFreightLineItems": [
+                                    {
+                                        "id": "books"
+                                    }
+                                ]
+                            }
+                        ],
+                        "pickupType": "CONTACT_FEDEX_TO_SCHEDULE",
+                        "packagingType": "YOUR_PACKAGING"
+                    },
+                    "rateRequestControlParameters": {
+                        "returnTransitTimes": true,
+                        "servicesNeededOnRateFailure": false,
+                        "rateSortOrder": "SERVICENAMETRADITIONAL",
+                        "returnLocalizedDateTime": true
+                    },
+                    "carrierCodes": [
+                        "FXFR"
+                    ],
+                    "customerTransactionId": "User defined Transaction Id"
                 }
             },
             "RateRequestControlParameters": {
@@ -3808,9 +3985,6 @@
                     },
                     "customsClearanceDetail": {
                         "$ref": "#/components/schemas/RequestedShipmentCustomsClearanceDetail"
-                    },
-                    "serviceTypeDetail": {
-                        "$ref": "#/components/schemas/ServiceTypeDetailVO"
                     },
                     "smartPostInfoDetail": {
                         "$ref": "#/components/schemas/RequestedShipmentSmartPostInfoDetail"
@@ -4036,10 +4210,6 @@
                         "$ref": "#/components/schemas/Money_1"
                     },
                     {
-                        "required": [
-                            "amount",
-                            "currency"
-                        ],
                         "properties": {
                             "amount": {
                                 "type": "number",
@@ -5359,7 +5529,7 @@
                     },
                     "commodities": {
                         "type": "array",
-                        "description": "Specify the commodity details.",
+                        "description": "Indicates the details about the dutiable packages. Maximum upto 999 commodities per shipment.",
                         "items": {
                             "$ref": "#/components/schemas/Commodity"
                         }
@@ -5524,7 +5694,7 @@
                     },
                     "countryOfManufacture": {
                         "type": "string",
-                        "description": "This is a manufacturing country. Maximum field Length is 4<br> Example: IN",
+                        "description": "This is commodity country of manufacture. This is required. Maximum allowed length is 4. <br>Example: US<br><a onclick='loadDocReference(\"countrycodes\")'>Click here to see Country Codes</a>",
                         "example": "US"
                     },
                     "quantityUnits": {
@@ -6599,6 +6769,12 @@
                         "$ref": "#/components/schemas/Full_Schema_Quote_Rate"
                     },
                     {
+                        "$ref": "#/components/schemas/MinimumSamplePayload_1"
+                    },
+                    {
+                        "$ref": "#/components/schemas/FreightSamplePayload-RateResourceDetails_1"
+                    },
+                    {
                         "$ref": "#/components/schemas/US_Domestic_Rate_shop"
                     },
                     {
@@ -6722,6 +6898,33 @@
                         "type": "string",
                         "description": "The two-letter country code. <br>Maximum length is 2.<br>Example: US<br><a onclick='loadDocReference(\"countrycodes\")'>Click here to see Country Codes</a>",
                         "example": "US"
+                    }
+                }
+            },
+            "Tax": {
+                "description": "Tax surcharge details",
+                "type": "object",
+                "properties": {
+                    "amount": {
+                        "description": "Tax amount. <br> Example: 408.97",
+                        "format": "double",
+                        "type": "number",
+                        "example": 408.97
+                    },
+                    "name": {
+                        "description": "The localized name of the tax. <br> Example: Denmark VAT",
+                        "type": "string",
+                        "example": "Denmark VAT"
+                    },
+                    "description": {
+                        "description": "The description of the Surcharge/Tax. <br> Example: Denmark VAT",
+                        "type": "string",
+                        "example": "Denmark VAT"
+                    },
+                    "type": {
+                        "description": "The type of Surcharge/Tax. <br> Example: VAT",
+                        "type": "string",
+                        "example": "VAT"
                     }
                 }
             },

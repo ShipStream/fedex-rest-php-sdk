@@ -22,7 +22,7 @@ final class FreightRequestedPackageLineItem extends Dto
 
     /**
      * @param  string  $subPackagingType  This is a sub package type for the package. <br><a onclick='loadDocReference("subpackagetypes")'>Click here to see Sub-Packaging Types</a>
-     * @param  Weight  $weight  These are the package weight details.<br>Note: Weight is not required for One rate shipments
+     * @param  WeightWithLink  $weight  These are the package weight details.
      * @param  AssociatedFreightLineItemDetail[]  $associatedFreightLineItems  Indicates the associated freight line item detail.
      * @param  ?string  $sequenceNumber  Optional. Used only with individual packages as a unique identifier of each requested package. Will be adjusted at the shipment level as pieces are added.
      * @param  CustomerReference[]|null  $customerReferences  These are additional customer reference data.<br>Note: The groupPackageCount must be specified to retrieve customer references.
@@ -37,7 +37,7 @@ final class FreightRequestedPackageLineItem extends Dto
      */
     public function __construct(
         public string $subPackagingType,
-        public Weight $weight,
+        public WeightWithLink $weight,
         public array $associatedFreightLineItems,
         public ?string $sequenceNumber = null,
         public ?array $customerReferences = null,

@@ -2506,7 +2506,7 @@
                     },
                     "resolution": {
                         "type": "integer",
-                        "description": "Specifies the image resolution in DPI (Dots Per Inch). Valid values are 203 & 300. If not provided or for any other value, system will default it to 203.",
+                        "description": "Specifies the image resolution in DPI (Dots Per Inch). Valid values are 203 & 300. If not provided or for any other value, system will default it to 203.Note: 300 DPI resolution is only allowed for ZPLII image type.",
                         "example": 300
                     }
                 },
@@ -3769,8 +3769,7 @@
                         "example": "DEPARTMENT_OF_COMMERCE",
                         "enum": [
                             "DEPARTMENT_OF_COMMERCE",
-                            "DEPARTMENT_OF_STATE",
-                            "DEPARTMENT_OF_COMMERCE_AND_DEPARTMENT_OF_STATE"
+                            "DEPARTMENT_OF_STATE"
                         ]
                     },
                     "destinationCountries": {
@@ -5033,7 +5032,7 @@
                     },
                     "countryCode": {
                         "type": "string",
-                        "description": "The two-letter code used to identify a country. Max length is 2.<br><a href=\"/developer-portal/en-us/reference-guide.html#countrycodes\" target=\"_blank\">Click here to see Country Codes</a>",
+                        "description": "The two-letter code used to identify a country. Max length is 2.<br><a onclick='loadDocReference(\"countrycodes\")'>click here to see Country Codes</a>",
                         "example": "US"
                     },
                     "residential": {
@@ -5175,6 +5174,11 @@
                         "items": {
                             "$ref": "#/components/schemas/ShippingDocumentDispositionDetail_1"
                         }
+                    },
+                    "resolution": {
+                        "description": "Specifies the image resolution in DPI (Dots Per Inch). Valid values are 203 & 300. If not provided or for any other value, system will default it to 203. 300 DPI is only allowed for imageType is ZPLII.",
+                        "example": 300,
+                        "type": "integer"
                     },
                     "labelPrintingOrientation": {
                         "type": "string",
@@ -5443,7 +5447,7 @@
                         "$ref": "#/components/schemas/Dimensions"
                     },
                     "totalInsuredValue": {
-                        "$ref": "#/components/schemas/TotalInsuredMoney"
+                        "$ref": "#/components/schemas/TotalInsuredMoney_1"
                     },
                     "unitSystem": {
                         "type": "string",
@@ -5464,6 +5468,26 @@
                     }
                 },
                 "description": "Specifies the international distribution detail."
+            },
+            "TotalInsuredMoney_1": {
+                "required": [
+                    "currency"
+                ],
+                "type": "object",
+                "properties": {
+                    "amount": {
+                        "type": "number",
+                        "description": "This is commodity value in amount used for Customs declaration.<br>Max limit: 7 digits before decimal.",
+                        "format": "double",
+                        "example": 12.45
+                    },
+                    "currency": {
+                        "type": "string",
+                        "description": "This is the currency of the commodity value used for Customs declaration.<br><a onclick='loadDocReference(\"currencycodes\")'>click here to see Currency Codes</a>",
+                        "example": "USD"
+                    }
+                },
+                "description": "This is commodity value used for Customs declaration."
             },
             "Money_1_1": {
                 "required": [
@@ -5492,7 +5516,7 @@
                 "type": "object",
                 "properties": {
                     "specialServicesRequested": {
-                        "$ref": "#/components/schemas/TransborderDistributionDetail_specialServicesRequested"
+                        "$ref": "#/components/schemas/TransborderDistributionDetail_1_specialServicesRequested"
                     },
                     "routing": {
                         "type": "string",
@@ -5541,7 +5565,7 @@
                         ]
                     },
                     "totalCustomsValue": {
-                        "$ref": "#/components/schemas/Money"
+                        "$ref": "#/components/schemas/Money_2"
                     },
                     "regulatoryControls": {
                         "type": "array",
@@ -5561,7 +5585,7 @@
                         "description": "Amount paid to a third party for the purpose of insuring this shipment against damage or loss.  Used to calculate estimated duties and taxes",
                         "allOf": [
                             {
-                                "$ref": "#/components/schemas/Money"
+                                "$ref": "#/components/schemas/Money_2"
                             }
                         ]
                     },
@@ -5710,6 +5734,106 @@
                 },
                 "description": "Attributes for a Party to a transaction including the physical address, contact information, and account number information."
             },
+            "Money_2": {
+                "required": [
+                    "currency"
+                ],
+                "type": "object",
+                "properties": {
+                    "amount": {
+                        "type": "number",
+                        "description": "This is commodity value in amount used for Customs declaration.<br>Max limit: 7 digits before decimal.",
+                        "format": "double",
+                        "example": 12.45
+                    },
+                    "currency": {
+                        "type": "string",
+                        "description": "This is the currency of the commodity value used for Customs declaration.<br><a onclick='loadDocReference(\"currencycodes\")'>click here to see Currency Codes</a>",
+                        "example": "USD"
+                    }
+                },
+                "description": "This is commodity value used for Customs declaration."
+            },
+            "FreightChargeMoney_1": {
+                "required": [
+                    "currency"
+                ],
+                "type": "object",
+                "properties": {
+                    "amount": {
+                        "type": "number",
+                        "description": "This is commodity value in amount used for Customs declaration.<br>Max limit: 7 digits before decimal.",
+                        "format": "double",
+                        "example": 12.45
+                    },
+                    "currency": {
+                        "type": "string",
+                        "description": "This is the currency of the commodity value used for Customs declaration.<a onclick='loadDocReference(\"currencycodes\")'>click here to see Currency Codes</a>",
+                        "example": "USD"
+                    }
+                },
+                "description": "Any freight charges that are associated with this shipment."
+            },
+            "TaxesOrMiscellaneousCharges_1": {
+                "required": [
+                    "currency"
+                ],
+                "type": "object",
+                "properties": {
+                    "amount": {
+                        "type": "number",
+                        "description": "This is commodity value in amount used for Customs declaration.<br>Max limit: 7 digits before decimal.",
+                        "format": "double",
+                        "example": 12.45
+                    },
+                    "currency": {
+                        "type": "string",
+                        "description": "This is the currency of the commodity value used for Customs declaration.<a onclick='loadDocReference(\"currencycodes\")'>click here to see Currency Codes</a>",
+                        "example": "USD"
+                    }
+                },
+                "description": "Any taxes or miscellaneous charges other than Freight charges or Insurance charges, that are associated with this shipment."
+            },
+            "PackingCostCharges_1": {
+                "required": [
+                    "currency"
+                ],
+                "type": "object",
+                "properties": {
+                    "amount": {
+                        "type": "number",
+                        "description": "This is commodity value in amount used for Customs declaration.<br>Max limit: 7 digits before decimal.",
+                        "format": "double",
+                        "example": 12.45
+                    },
+                    "currency": {
+                        "type": "string",
+                        "description": "This is the currency of the commodity value used for Customs declaration.<a onclick='loadDocReference(\"currencycodes\")'>click here to see Currency Codes</a>",
+                        "example": "USD"
+                    }
+                },
+                "description": "Any packing costs that are associated with this shipment."
+            },
+            "HandlingCostCharges_1": {
+                "required": [
+                    "currency"
+                ],
+                "type": "object",
+                "properties": {
+                    "amount": {
+                        "type": "number",
+                        "description": "This is commodity value in amount used for Customs declaration.<br>Max limit: 7 digits before decimal.",
+                        "format": "double",
+                        "example": 12.45
+                    },
+                    "currency": {
+                        "type": "string",
+                        "description": "This is the currency of the commodity value used for Customs declaration.<br><a onclick='loadDocReference(\"currencycodes\")'>click here to see Currency Codes</a>",
+                        "example": "USD"
+                    }
+                },
+                "description": " Any handling costs that are associated with this shipment."
+            },
             "ExportDetail_1": {
                 "required": [
                     "b13AFilingOption",
@@ -5824,10 +5948,10 @@
                         "example": "EA"
                     },
                     "unitPrice": {
-                        "$ref": "#/components/schemas/Money"
+                        "$ref": "#/components/schemas/Money_2"
                     },
                     "customsValue": {
-                        "$ref": "#/components/schemas/Money"
+                        "$ref": "#/components/schemas/Money_2"
                     },
                     "commodityId": {
                         "type": "string",
@@ -12402,6 +12526,239 @@
                     }
                 }
             },
+            "TransborderDistributionDetail_1_specialServicesRequested_transborderDistributionLtlDetail_payment_payor_responsibleParty_address": {
+                "type": "object",
+                "properties": {
+                    "streetLines": {
+                        "type": "array",
+                        "description": "This is a combination of number, street name, etc. <br>Note: At least one line is required and streetlines more than 3 will be ignored. Empty lines should not be included.",
+                        "example": "[10 FedEx Parkway, Suite 302]",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "city": {
+                        "type": "string",
+                        "description": "This is a placeholder for City Name. <br>Note: This is conditional and not required in all the shipping requests. It is recommended for Express shipments for the most accurate ODA and OPA surcharges and not used for Ground/SmartPost.",
+                        "example": "Beverly Hills"
+                    },
+                    "stateOrProvinceCode": {
+                        "type": "string",
+                        "description": "This is a placeholder for State or Province code. <br>Note: This is conditional and not required in all the shipping requests. It is recommended for Express shipments for the most accurate ODA and OPA surcharges and not used for Ground/SmartPost.",
+                        "example": "CA"
+                    },
+                    "postalCode": {
+                        "type": "string",
+                        "description": "This is placeholder for postal code.<br>Note: The postal code is required for postal-aware countries.",
+                        "example": "38127"
+                    },
+                    "countryCode": {
+                        "type": "string",
+                        "description": "This is the Two-letter country code. <a onclick='loadDocReference(\"countrycodes\")'>click here to see Country Codes</a>",
+                        "example": "US"
+                    },
+                    "residential": {
+                        "type": "boolean",
+                        "description": "Indicate whether this address is Residential as opposed to Commercial.<br>Valid Values: True or False.",
+                        "example": true,
+                        "enum": [
+                            true,
+                            false
+                        ]
+                    },
+                    "urbanizationCode": {
+                        "type": "string",
+                        "description": "Relevant only to addresses in Puerto Rico.",
+                        "example": "CO"
+                    },
+                    "countryName": {
+                        "type": "string",
+                        "description": "The fully spelt out name of a country.",
+                        "example": "Canada"
+                    },
+                    "geographicCoordinates": {
+                        "type": "string",
+                        "description": "The geographic coordinates cooresponding to this address.",
+                        "example": "+40.75-074.00"
+                    },
+                    "classification": {
+                        "type": "string",
+                        "description": "Specifies that FedEx courier has confirmed that the address is a confirmed business location.",
+                        "example": "BUSINESS",
+                        "enum": [
+                            "BUSINESS",
+                            "MIXED",
+                            "RESIDENTIAL",
+                            "UNCONFIRMED_BUSINESS",
+                            "UNCONFIRMED_RESIDENCE",
+                            "UNKOWN"
+                        ]
+                    }
+                },
+                "description": "Descriptive data for a physical location. May be used as an actual physical address (place to which one could go), or as a container of \"address parts\" which should be handled as a unit (such as a city-state-ZIP combination within the US)."
+            },
+            "TransborderDistributionDetail_1_specialServicesRequested_transborderDistributionLtlDetail_payment_payor_responsibleParty": {
+                "type": "object",
+                "properties": {
+                    "accountNumber": {
+                        "type": "string",
+                        "description": "Account number of the payor",
+                        "example": "123456789"
+                    },
+                    "tins": {
+                        "type": "array",
+                        "description": "Used for adding the tax id",
+                        "items": {
+                            "$ref": "#/components/schemas/Tins"
+                        }
+                    },
+                    "contact": {
+                        "$ref": "#/components/schemas/TransborderDistributionDetail_specialServicesRequested_transborderDistributionLtlDetail_payment_payor_responsibleParty_contact"
+                    },
+                    "address": {
+                        "$ref": "#/components/schemas/TransborderDistributionDetail_1_specialServicesRequested_transborderDistributionLtlDetail_payment_payor_responsibleParty_address"
+                    }
+                },
+                "description": "The descriptive information for the person who is responsible for the shipment."
+            },
+            "TransborderDistributionDetail_1_specialServicesRequested_transborderDistributionLtlDetail_payment_payor": {
+                "type": "object",
+                "properties": {
+                    "responsibleParty": {
+                        "$ref": "#/components/schemas/TransborderDistributionDetail_1_specialServicesRequested_transborderDistributionLtlDetail_payment_payor_responsibleParty"
+                    },
+                    "associatedAccounts": {
+                        "type": "array",
+                        "description": "Other associated accounts",
+                        "items": {
+                            "$ref": "#/components/schemas/TransborderDistributionDetail_specialServicesRequested_transborderDistributionLtlDetail_payment_payor_associatedAccounts"
+                        }
+                    }
+                },
+                "description": "Information about the person who is paying for the shipment. <br>Payor is mandatory when the paymentType is RECIPIENT, THIRD_PARTY or COLLECT."
+            },
+            "TransborderDistributionDetail_1_specialServicesRequested_transborderDistributionLtlDetail_payment_creditCard_creditCardHolder": {
+                "type": "object",
+                "properties": {
+                    "contact": {
+                        "$ref": "#/components/schemas/TransborderDistributionDetail_specialServicesRequested_transborderDistributionLtlDetail_payment_creditCard_creditCardHolder_contact"
+                    },
+                    "address": {
+                        "$ref": "#/components/schemas/TransborderDistributionDetail_1_specialServicesRequested_transborderDistributionLtlDetail_payment_payor_responsibleParty_address"
+                    }
+                },
+                "description": "Credit card holder's information"
+            },
+            "TransborderDistributionDetail_1_specialServicesRequested_transborderDistributionLtlDetail_payment_creditCard": {
+                "type": "object",
+                "properties": {
+                    "number": {
+                        "type": "string",
+                        "description": "Credit card number",
+                        "example": "1111222233334444"
+                    },
+                    "creditCardType": {
+                        "type": "string",
+                        "description": "Credit card used for payment",
+                        "example": "DISCOVER",
+                        "enum": [
+                            "AMEX",
+                            "DANKORT",
+                            "DINERS",
+                            "DISCOVER",
+                            "JCB",
+                            "MASTERCARD",
+                            "VISA"
+                        ]
+                    },
+                    "expirationDate": {
+                        "type": "string",
+                        "description": "Credit card expiration date",
+                        "example": "2022-23-01"
+                    },
+                    "lastAuthenticationByFedexDate": {
+                        "type": "string",
+                        "description": "Use date format (MM-dd-yyyy).  It is the last time the user has updated their credit card information",
+                        "example": "12-05-2001"
+                    },
+                    "verificationCode": {
+                        "type": "string",
+                        "description": "Verification code",
+                        "example": "123"
+                    },
+                    "creditCardHolder": {
+                        "$ref": "#/components/schemas/TransborderDistributionDetail_1_specialServicesRequested_transborderDistributionLtlDetail_payment_creditCard_creditCardHolder"
+                    }
+                },
+                "description": "Credit card details"
+            },
+            "TransborderDistributionDetail_1_specialServicesRequested_transborderDistributionLtlDetail_payment": {
+                "type": "object",
+                "properties": {
+                    "paymentType": {
+                        "type": "string",
+                        "description": "Payment type for LTL transportation",
+                        "example": "CREDIT_CARD",
+                        "enum": [
+                            "ACCOUNT",
+                            "CASH",
+                            "COLLECT",
+                            "CREDIT_CARD",
+                            "EPAYMENT",
+                            "RECIPIENT",
+                            "SENDER",
+                            "THIRD_PARTY"
+                        ]
+                    },
+                    "payor": {
+                        "$ref": "#/components/schemas/TransborderDistributionDetail_1_specialServicesRequested_transborderDistributionLtlDetail_payment_payor"
+                    },
+                    "ePaymentDetail": {
+                        "$ref": "#/components/schemas/TransborderDistributionDetail_specialServicesRequested_transborderDistributionLtlDetail_payment_ePaymentDetail"
+                    },
+                    "creditCard": {
+                        "$ref": "#/components/schemas/TransborderDistributionDetail_1_specialServicesRequested_transborderDistributionLtlDetail_payment_creditCard"
+                    },
+                    "creditCardTransactionDetail": {
+                        "$ref": "#/components/schemas/TransborderDistributionDetail_specialServicesRequested_transborderDistributionLtlDetail_payment_creditCardTransactionDetail"
+                    },
+                    "amount": {
+                        "$ref": "#/components/schemas/TransborderDistributionDetail_specialServicesRequested_transborderDistributionLtlDetail_payment_amount"
+                    }
+                },
+                "description": "Payment for LTL transportation"
+            },
+            "TransborderDistributionDetail_1_specialServicesRequested_transborderDistributionLtlDetail": {
+                "type": "object",
+                "properties": {
+                    "payment": {
+                        "$ref": "#/components/schemas/TransborderDistributionDetail_1_specialServicesRequested_transborderDistributionLtlDetail_payment"
+                    },
+                    "ltlScacCode": {
+                        "type": "string",
+                        "description": "Standard Carrier Alpha Code for origin-country LTL services.",
+                        "example": "SAIA"
+                    }
+                },
+                "description": "Specifies details for the origin-country LTL services performed by FedEx."
+            },
+            "TransborderDistributionDetail_1_specialServicesRequested": {
+                "type": "object",
+                "properties": {
+                    "specialServiceTypes": {
+                        "type": "string",
+                        "description": "Identifies features of service requested for the current Transborder Distribution. shipment.",
+                        "example": "FEDEX_LTL",
+                        "enum": [
+                            "FEDEX_LTL"
+                        ]
+                    },
+                    "transborderDistributionLtlDetail": {
+                        "$ref": "#/components/schemas/TransborderDistributionDetail_1_specialServicesRequested_transborderDistributionLtlDetail"
+                    }
+                },
+                "description": "Specifies special services to be performed on this shipment as part of a transborder distribution."
+            },
             "CustomsClearanceDetail_1_commercialInvoice": {
                 "type": "object",
                 "properties": {
@@ -12430,10 +12787,10 @@
                         ]
                     },
                     "freightCharge": {
-                        "$ref": "#/components/schemas/FreightChargeMoney"
+                        "$ref": "#/components/schemas/FreightChargeMoney_1"
                     },
                     "taxesOrMiscellaneousCharge": {
-                        "$ref": "#/components/schemas/TaxesOrMiscellaneousCharges"
+                        "$ref": "#/components/schemas/TaxesOrMiscellaneousCharges_1"
                     },
                     "taxesOrMiscellaneousChargeType": {
                         "type": "string",
@@ -12449,10 +12806,10 @@
                         ]
                     },
                     "packingCosts": {
-                        "$ref": "#/components/schemas/PackingCostCharges"
+                        "$ref": "#/components/schemas/PackingCostCharges_1"
                     },
                     "handlingCosts": {
-                        "$ref": "#/components/schemas/HandlingCostCharges"
+                        "$ref": "#/components/schemas/HandlingCostCharges_1"
                     },
                     "specialInstructions": {
                         "type": "string",

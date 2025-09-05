@@ -15,12 +15,12 @@ use ShipStream\FedEx\Dto;
 final class LocationDetail extends Dto
 {
     /**
-     * @param  ContactAndAddress2  $locationContactAndAddress  Location Contact And Address.
+     * @param  ContactAndAddress  $locationContactAndAddress  Location Contact And Address.
      * @param  ?string  $locationId  Location Identification for facilities identified by an alpha numeric location code. Passing Location Id of the Hold at Location (HAL) address is strongly recommended to ensure packages are delivered to the correct address.<br> Example: SEA
-     * @param  ?string  $locationType  This field holds FedEx Location Type. If  Location Type not available we will get empty value.
+     * @param  ?string  $locationType  The FedEx Location Type.<br> Example: PICKUP_LOCTION
      */
     public function __construct(
-        public ContactAndAddress2 $locationContactAndAddress,
+        public ContactAndAddress $locationContactAndAddress,
         public ?string $locationId = null,
         public ?string $locationType = null,
     ) {}

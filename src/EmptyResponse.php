@@ -6,4 +6,5 @@ namespace ShipStream\FedEx;
 
 class EmptyResponse extends Response
 {
+    public function __construct() {}
 }

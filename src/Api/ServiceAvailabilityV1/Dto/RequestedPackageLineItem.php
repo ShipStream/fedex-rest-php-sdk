@@ -17,7 +17,7 @@ final class RequestedPackageLineItem extends Dto
     protected static array $complexArrayTypes = ['customerReferences' => CustomerReference::class];
 
     /**
-     * @param  Weight  $weight  Specify the total weight of the shipment. <br>This is only applies to International shipments and should be used on the first package of a multiple piece shipment. This value contains 1 explicit decimal position.
+     * @param  WeightWithLink  $weight  These are the package weight details.
      * @param  ?string  $physicalPackaging  Specify the packaging used.<br>Example: FEDEX_PAK<br><a onclick='loadDocReference("packagetypes")'>Click here to see Package Types</a>
      * @param  ?int  $groupPackageCount  Indicate the grouped package count. These are number of identical package(s) each with one or more commodities. <br> Example: 2
      * @param  ?string  $itemDescriptionForClearance  Describe the content of the package for customs clearance purposes. This applies to intra-UAE, intra-Columbia and intra-Brazil shipments.
@@ -28,7 +28,7 @@ final class RequestedPackageLineItem extends Dto
      * @param  ?PackageSpecialServicesRequested  $packageSpecialServices  These are special services that are available at the package level for some or all service types.
      */
     public function __construct(
-        public Weight $weight,
+        public WeightWithLink $weight,
         public ?string $physicalPackaging = null,
         public ?int $groupPackageCount = null,
         public ?string $itemDescriptionForClearance = null,

@@ -1066,7 +1066,7 @@
                     },
                     "bookingNumber": {
                         "type": "string",
-                        "description": "Specify a freight shipment booking number from FedEx. This number is mandatory for freight dispatch requests.<br> Example: 1234AGTT  ",
+                        "description": "Express Freight shipments (refer below) may require booking number. This booking number may also be required for freight dispatch requests.<br>FedEx 1Day Freight - booking number is optional.<br>FedEx International Priority Freight - booking number is required<br>NOTE: <br>a. For Intra EU (EU-to-EU) and EU outbound (EU-to-NON_EU) Express Freight shipments, bookingNumber is optional.<br> b. For Express Freight shipments not originating in EU, Customers need to call FedEx to book freight shipment and receive a booking number. This booking number is included in the Ship request and prints on the shipping label.<br>example:1234AGTT",
                         "example": "1234AGTT"
                     },
                     "dimensions": {
@@ -1530,6 +1530,65 @@
                 },
                 "description": "This is a placeholder for cancelled pickup request elements."
             },
+            "CXSError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "description": "Indicates the error code.<br>Example: PICKUP.POSTALCODE.MISSING"
+                    },
+                    "parameterList": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Parameter"
+                        }
+                    },
+                    "message": {
+                        "type": "string",
+                        "description": "Indicates the description of API error alert message.<br>Example: PostalCode is missing."
+                    }
+                },
+                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
+            },
+            "Dimensions": {
+                "type": "object",
+                "properties": {
+                    "length": {
+                        "type": "integer",
+                        "description": "Indicate the length of the package. No implied decimal places. Maximum value is 999. <br> Example: 20",
+                        "format": "int32",
+                        "example": 7
+                    },
+                    "width": {
+                        "type": "integer",
+                        "description": "Indicate the width of the package. No implied decimal places. Maximum value is 999. <br> Example: 10",
+                        "format": "int32",
+                        "example": 8
+                    },
+                    "height": {
+                        "type": "integer",
+                        "description": "Indicate the height of the package. No implied decimal places. Maximum value is 999. <br> Example: 10",
+                        "format": "int32",
+                        "example": 10
+                    },
+                    "units": {
+                        "type": "string",
+                        "description": "Unit of measure for the provided dimensions.<br><i>Note: Any value other than CM including blank/null will default to IN.</i>",
+                        "example": "CM",
+                        "enum": [
+                            "CM",
+                            "IN"
+                        ]
+                    }
+                },
+                "description": "Indicate the dimensions of the package.<br> Following conditions will apply: <ul><li>Dimensions are optional but when added, then all three dimensions must be indicated.</li><li>Dimensions are required with YOUR_PACKAGING package type.</li></ul>Note: The maximum/minimum dimension values varies based on the services and the packaging types. Refer <a href=\" https://www.fedex.com/en-us/service-guide.html# \" target=\"_blank\">FedEx Service Guide</a> for service details related to DIM Weighting for FedEx Express and oversize conditions for FedEx Express and FedEx Ground.",
+                "example": {
+                    "length": 7,
+                    "width": 8,
+                    "height": 9,
+                    "units": "CM"
+                }
+            },
             "ErrorResponseVO": {
                 "type": "object",
                 "properties": {
@@ -1566,26 +1625,6 @@
                         }
                     }
                 }
-            },
-            "CXSError": {
-                "type": "object",
-                "properties": {
-                    "code": {
-                        "type": "string",
-                        "description": "Indicates the error code.<br>Example: PICKUP.POSTALCODE.MISSING"
-                    },
-                    "parameterList": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/Parameter"
-                        }
-                    },
-                    "message": {
-                        "type": "string",
-                        "description": "Indicates the description of API error alert message.<br>Example: PostalCode is missing."
-                    }
-                },
-                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
             },
             "Address": {
                 "type": "object",
@@ -1713,45 +1752,6 @@
                     "countryCode": "US",
                     "residential": false,
                     "addressClassification": "MIXED"
-                }
-            },
-            "Dimensions": {
-                "type": "object",
-                "properties": {
-                    "length": {
-                        "type": "integer",
-                        "description": "Indicate the length of the package. No implied decimal places. Maximum value is 999. <br> Example: 20",
-                        "format": "int32",
-                        "example": 7
-                    },
-                    "width": {
-                        "type": "integer",
-                        "description": "Indicate the width of the package. No implied decimal places. Maximum value is 999. <br> Example: 10",
-                        "format": "int32",
-                        "example": 8
-                    },
-                    "height": {
-                        "type": "integer",
-                        "description": "Indicate the height of the package. No implied decimal places. Maximum value is 999. <br> Example: 10",
-                        "format": "int32",
-                        "example": 10
-                    },
-                    "units": {
-                        "type": "string",
-                        "description": "Unit of measure for the provided dimensions.<br><i>Note: Any value other than CM including blank/null will default to IN.</i>",
-                        "example": "CM",
-                        "enum": [
-                            "CM",
-                            "IN"
-                        ]
-                    }
-                },
-                "description": "Indicate the dimensions of the package.<br> Following conditions will apply: <ul><li>Dimensions are optional but when added, then all three dimensions must be indicated.</li><li>Dimensions are required with YOUR_PACKAGING package type.</li></ul>Note: The maximum/minimum dimension values varies based on the services and the packaging types. Refer <a href=\" https://www.fedex.com/en-us/service-guide.html# \" target=\"_blank\">FedEx Service Guide</a> for service details related to DIM Weighting for FedEx Express and oversize conditions for FedEx Express and FedEx Ground.",
-                "example": {
-                    "length": 7,
-                    "width": 8,
-                    "height": 9,
-                    "units": "CM"
                 }
             }
         }

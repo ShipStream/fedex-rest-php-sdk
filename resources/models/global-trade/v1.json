@@ -868,6 +868,26 @@
                 },
                 "description": "List of parameters which indicates the properties of the alert message."
             },
+            "CXSError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "description": "Indicates the error code.<br>Example: INTERNAL.SERVER.ERROR"
+                    },
+                    "parameterList": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Parameter"
+                        }
+                    },
+                    "message": {
+                        "description": "Indicates the description of API error alert message.<br>Example: We encountered an unexpected error and are working to resolve the issue. We apologize for any inconvenience. Please check back at a later time.",
+                        "type": "string"
+                    }
+                },
+                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
+            },
             "ErrorResponseVO": {
                 "type": "object",
                 "properties": {
@@ -906,26 +926,6 @@
                     }
                 },
                 "description": "This holds the error responses."
-            },
-            "CXSError": {
-                "type": "object",
-                "properties": {
-                    "code": {
-                        "type": "string",
-                        "description": "Indicates the error code.<br>Example: INTERNAL.SERVER.ERROR"
-                    },
-                    "parameterList": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/Parameter"
-                        }
-                    },
-                    "message": {
-                        "description": "Indicates the description of API error alert message.<br>Example: We encountered an unexpected error and are working to resolve the issue. We apologize for any inconvenience. Please check back at a later time.",
-                        "type": "string"
-                    }
-                },
-                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
             }
         }
     },

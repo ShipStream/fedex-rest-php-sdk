@@ -33,7 +33,7 @@ final class TrackResult extends Dto
      * @param  ?string  $meterNumber  The associated meter number for your FedEx account number. Maximum of 9 characters. <br> Example: 8468376
      * @param  ?ReturnDetail  $returnDetail  Specifies return information related to a return shipment.
      * @param  ?ServiceDescriptionDetail  $serviceDetail  This object contains service description details for the package.
-     * @param  ?LocationDetail  $destinationLocation  Location details for the fedex facility.
+     * @param  ?LocationDetail2  $destinationLocation  Location details for the fedex facility.
      * @param  ?StatusDetail  $latestStatusDetail  Specifies details about the status of the track information for the shipment being tracked.  AncilliaryDetails may also be available which describe the cause of exception along with any action that needs to taken by customer.
      * @param  ?ServiceCommitMessage  $serviceCommitMessage  Commitment message for this package. Informative messages related to the package. Used to convey information such as FedEx has received information about a package but has not yet taken possession of it. FedEx has handed the package off to a third party for final delivery. The package delivery has been cancelled.
      * @param  InformationNoteDetail[]|null  $informationNotes  Notifications to the end user that provide additional information relevant to the tracked shipment. For example, a notification may indicate that a change in behavior has occurred.
@@ -45,7 +45,7 @@ final class TrackResult extends Dto
      * @param  TrackingDateAndTime[]|null  $dateAndTimes  Date and time information for the tracked shipment. Date and time information for the tracked shipment includes various type of date time including when the package was shipped, when it is expected to deliver, when it is actually delivered etc.
      * @param  ?PackageDetail  $packageDetails  Details of the packages in the shipment being tracked. Includes details like package type, weight, dimensions, declared value, etc.
      * @param  ?string  $goodsClassificationCode  Classification codes for the goods in package. Goods classification codes required for clearance purpose. <br> Example: goodsClassificationCode
-     * @param  ?LocationDetail  $holdAtLocation  Location details for the fedex facility.
+     * @param  ?LocationDetail2  $holdAtLocation  Location details for the fedex facility.
      * @param  CustomDeliveryOption[]|null  $customDeliveryOptions  List of delivery options that can be used to customize the delivery of the package.
      * @param  PieceCountDetail[]|null  $pieceCounts  Piece count information at origin and destination.
      * @param  ?LocationDetailOrigin  $originLocation  Location details for the fedex facility.
@@ -64,7 +64,7 @@ final class TrackResult extends Dto
         public ?string $meterNumber = null,
         public ?ReturnDetail $returnDetail = null,
         public ?ServiceDescriptionDetail $serviceDetail = null,
-        public ?LocationDetail $destinationLocation = null,
+        public ?LocationDetail2 $destinationLocation = null,
         public ?StatusDetail $latestStatusDetail = null,
         public ?ServiceCommitMessage $serviceCommitMessage = null,
         public ?array $informationNotes = null,
@@ -76,7 +76,7 @@ final class TrackResult extends Dto
         public ?array $dateAndTimes = null,
         public ?PackageDetail $packageDetails = null,
         public ?string $goodsClassificationCode = null,
-        public ?LocationDetail $holdAtLocation = null,
+        public ?LocationDetail2 $holdAtLocation = null,
         public ?array $customDeliveryOptions = null,
         public ?TimeWindow $estimatedDeliveryTimeWindow = null,
         public ?array $pieceCounts = null,

@@ -31,7 +31,7 @@ final class UsmcaCertificationOfOriginDetail extends Dto
         public ?string $certifierSpecification = null,
         public ?string $importerSpecification = null,
         public ?string $producerSpecification = null,
-        public ?Party3 $producer = null,
+        public ?Party4 $producer = null,
         public ?RetrieveDateRange $blanketPeriod = null,
         public ?string $certifierJobTitle = null,
     ) {}

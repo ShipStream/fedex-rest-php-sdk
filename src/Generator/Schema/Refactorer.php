@@ -446,9 +446,45 @@ class Refactorer
             }
         }
 
+        // Run in a loop to handle nested schema dependencies
+        $maxIterations = 100; // Prevent infinite loops
+        $iteration = 0;
+        $hasChanges = true;
+        while ($hasChanges && $iteration < $maxIterations) {
+            $hasChanges = false;
+            $iteration++;
+            $originalComponentCount = count((array) $schema->components->schemas);
+
+            $schema = $this->_deduplicateComponents($schema);
+
+            // Check if we made any changes in this iteration
+            $newComponentCount = count((array) $schema->components->schemas);
+            if ($newComponentCount !== $originalComponentCount || ! empty($mergedComponents)) {
+                $hasChanges = true;
+            }
+        }
+
+        return $schema;
+    }
+
+    protected function _deduplicateComponents(stdClass $schema): stdClass
+    {
         $buildPropTypesMap = function (stdClass $prop, string $propName) use ($schema): array {
             if (isset($prop->{'$ref'})) {
                 $propType = $this->componentByRef($prop->{'$ref'}, $schema)->type;
+                if ($propType === 'object') {
+                    $propType .= ':'.$prop->{'$ref'};
+                }
+            } elseif ($prop->type === 'array') {
+                if (isset($prop->items->{'$ref'})) {
+                    $propType = $this->componentByRef($prop->items->{'$ref'}, $schema)->type;
+                    if ($propType === 'object') {
+                        $propType .= ':'.$prop->items->{'$ref'};
+                    }
+                } else {
+                    $propType = $prop->items->type;
+                }
+                $propType = "array[$propType]";
             } else {
                 $propType = $prop->type;
             }
@@ -538,16 +574,18 @@ class Refactorer
             foreach ($groups as $group) {
                 $uuid = Str::uuid();
                 $tempComponentName = "{$baseName}_{$uuid}";
-                $requiredProps = [];
+                $allRequiredArrays = [];
 
                 foreach ($group as $member => $definition) {
                     $tempNames[$baseName][$member] = $tempComponentName;
-                    $requiredProps = array_merge($requiredProps, $definition->required ?? []);
+                    $allRequiredArrays[] = $definition->required ?? [];
                 }
 
+                // Only require fields that ALL schemas require (intersection)
+                $requiredProps = array_intersect(...$allRequiredArrays);
+
                 if ($requiredProps) {
-                    $requiredProps = array_unique($requiredProps);
-                    $definition->required = $requiredProps;
+                    $definition->required = array_values($requiredProps);
                 }
                 $mergedComponents[$tempComponentName] = $definition;
             }

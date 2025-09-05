@@ -40,7 +40,7 @@ class ModifyOpenShipment extends Request implements HasBody
 
     public function resolveEndpoint(): string
     {
-        return '/ship/v1/openshipments';
+        return '/ship/v1/openshipments/';
     }
 
     public function createDtoFromResponse(

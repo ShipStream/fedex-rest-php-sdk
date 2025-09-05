@@ -41,7 +41,7 @@ class CreateFreightPickup extends Request implements HasBody
 
     public function resolveEndpoint(): string
     {
-        return '/pickup/v1/freight/pickups';
+        return '/pickup/v1/freight/pickups/';
     }
 
     public function createDtoFromResponse(Response $response): PudcResponseVo|ErrorResponseVo

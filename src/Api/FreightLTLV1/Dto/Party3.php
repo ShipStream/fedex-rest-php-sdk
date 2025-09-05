@@ -17,13 +17,15 @@ final class Party3 extends Dto
     protected static array $complexArrayTypes = ['tins' => TaxpayerIdentification::class];
 
     /**
-     * @param  ?PartyAddress2  $address  This is detailed information on physical location. May be used as an actual physical address (place to which one could go), or as a container of address parts which should be handled as a unit (such as a city-state-ZIP combination within the US).
-     * @param  ?PartyContact2  $contact  Indicate the contact details for this shipment.
+     * @param  ?Address2  $address  Descriptive data for a physical location. May be used as an actual physical address (place to which one could go), or as a container of "address parts" which should be handled as a unit (such as a city-state-ZIP combination within the US).
+     * @param  ?Contact  $contact  Indicate the contact details of the shipper.
+     * @param  ?PartyAccountNumber  $accountNumber  Specify the assigned FedEx Account Number. If the transportation charges to be billed to a payor other than the sender or recipient, provide the FedEx Account Number. Specify this field when payment type is selected as SENDER.
      * @param  TaxpayerIdentification[]|null  $tins  This is the tax identification number details.
      */
     public function __construct(
-        public ?PartyAddress2 $address = null,
-        public ?PartyContact2 $contact = null,
+        public ?Address2 $address = null,
+        public ?Contact $contact = null,
+        public ?PartyAccountNumber $accountNumber = null,
         public ?array $tins = null,
     ) {}
 }

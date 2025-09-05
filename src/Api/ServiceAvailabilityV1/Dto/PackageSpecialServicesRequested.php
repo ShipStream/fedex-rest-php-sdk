@@ -27,7 +27,7 @@ final class PackageSpecialServicesRequested extends Dto
      * @param  ?int  $pieceCountVerificationBoxCount  Provide the pieceCount or VerificationBoxCount for batteries or cells that are contained within this specific package.
      * @param  BatteryDetail[]|null  $batteryDetails  Indicates the battery details.
      * @param  ?string[]  $specialServiceTypes  Special services requested for the shipment.<br>Example: <ul><li>RETURN_SHIPMENT</li><li>BROKER_SELECT_OPTION</li><li>CALL_BEFORE_DELIVERY</li><li>COD</li><li>CUSTOM_DELIVERY_WINDOW</li></ul><a onclick='loadDocReference("shipmentlevelspecialservicetypes")'>Click here to see Shipment level Special Service Types</a>
-     * @param  ?Weight  $dryIceWeight  Specify the total weight of the shipment. <br>This is only applies to International shipments and should be used on the first package of a multiple piece shipment. This value contains 1 explicit decimal position.
+     * @param  ?WeightWithoutLink  $dryIceWeight  These are the package weight details.
      * @param  StandaloneBatteryDetails[]|null  $standaloneBatteryDetails  Provide details about the batteries or cells that are contained within this specific package.
      */
     public function __construct(
@@ -39,7 +39,7 @@ final class PackageSpecialServicesRequested extends Dto
         public ?int $pieceCountVerificationBoxCount = null,
         public ?array $batteryDetails = null,
         public ?array $specialServiceTypes = null,
-        public ?Weight $dryIceWeight = null,
+        public ?WeightWithoutLink $dryIceWeight = null,
         public ?array $standaloneBatteryDetails = null,
     ) {}
 }

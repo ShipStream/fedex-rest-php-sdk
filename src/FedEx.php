@@ -12,6 +12,7 @@ use Saloon\Http\PendingRequest;
 use Saloon\Http\Request;
 use Saloon\Traits\OAuth2\ClientCredentialsGrant;
 use Saloon\Traits\Plugins\AlwaysThrowOnErrors;
+use ShipStream\FedEx\Api\AccountRegistrationV1;
 use ShipStream\FedEx\Api\AddressValidationV1;
 use ShipStream\FedEx\Api\AuthorizationV1;
 use ShipStream\FedEx\Api\AuthorizationV1\Dto\FullSchema;
@@ -25,6 +26,7 @@ use ShipStream\FedEx\Api\PickupRequestV1;
 use ShipStream\FedEx\Api\PostalCodeValidationV1;
 use ShipStream\FedEx\Api\RatesAndTransitTimesV1;
 use ShipStream\FedEx\Api\ShipV1;
+use ShipStream\FedEx\Api\ShipDGHazmatV1;
 use ShipStream\FedEx\Api\TrackV1;
 use ShipStream\FedEx\Api\TradeDocumentsUploadV1;
 use ShipStream\FedEx\Auth\MemoryCache;
@@ -50,6 +52,7 @@ class FedEx extends Connector
         public ?bool $proprietaryChild = false,
         public ?TokenCache $tokenCache = new MemoryCache(),
         public ?Closure $transactionIdGenerator = null,
+        public ?string $locale = null,
     ) {
         if (($this->childKey && ! $this->childSecret) || ($this->childSecret && ! $this->childKey)) {
             throw new InvalidArgumentException('Both childKey and childSecret must be provided.');
@@ -85,6 +88,15 @@ class FedEx extends Connector
 
             $pendingRequest->headers()->add('x-customer-transaction-id', $transactionId);
         }
+
+        if ($this->locale) {
+            $pendingRequest->headers()->add('x-locale', $this->locale);
+        }
+    }
+
+    public function accountRegistrationV1(): AccountRegistrationV1\Api
+    {
+        return new AccountRegistrationV1\Api($this);
     }
 
     public function addressValidationV1(): AddressValidationV1\Api
@@ -142,6 +154,11 @@ class FedEx extends Connector
     public function shipV1(): ShipV1\Api
     {
         return new ShipV1\Api($this);
+    }
+
+    public function shipDGHazmatV1(): ShipDGHazmatV1\Api
+    {
+        return new ShipDGHazmatV1\Api($this);
     }
 
     public function trackV1(): TrackV1\Api

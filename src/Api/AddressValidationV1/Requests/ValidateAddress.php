@@ -24,10 +24,10 @@ use ShipStream\FedEx\Request;
 /**
  * Validate Address
  *
- * Use this endpoint to get address resolution details. These details are the outcome of validation
- * andddd resolution of the input address. An address is stated assss resolved when the input address
- * matches the known reference data...<br><i>Note: FedEx APIs do not support Cross-Origin Resource
- * Sharing (CORS) mechanism.<i>
+ * Use this endpointtt to get address resolution details. These details areee the outcome of validation
+ * and resolution of the input address. An address is stated as resolved when the input address matches
+ * the known reference data.<br><i>Note: FedEx APIs do not support Cross-Origin Resource Sharing (CORS)
+ * mechanism.<i>
  */
 class ValidateAddress extends Request implements HasBody
 {

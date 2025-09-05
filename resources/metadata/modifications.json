@@ -1,4 +1,44 @@
 {
+    "account-registration": {
+        "1": [
+            {
+                "comment": "Remove broken example references from 400 response in address validation endpoint",
+                "action": "delete",
+                "path": "paths./registration/v2/address/keysgeneration.post.responses.400.content.application/json.examples"
+            },
+            {
+                "comment": "Remove broken example references from 400 response in PIN validation endpoint",
+                "action": "delete",
+                "path": "paths./registration/v2/pin/keysgeneration.post.responses.400.content.application/json.examples"
+            },
+            {
+                "comment": "Remove broken example references from 400 response in invoice validation endpoint",
+                "action": "delete",
+                "path": "paths./registration/v2/invoice/keysgeneration.post.responses.400.content.application/json.examples"
+            },
+            {
+                "comment": "Remove broken example references from 400 response in PIN generation endpoint",
+                "action": "delete",
+                "path": "paths./registration/v2/customerkeys/pingeneration.post.responses.400.content.application/json.examples"
+            },
+            {
+                "comment": "Set correct type of ErrorParameter key",
+                "action": "merge",
+                "path": "components.schemas.ErrorParameter.properties.key",
+                "value": {
+                    "type": "string"
+                }
+            },
+            {
+                "comment": "Set correct type of ErrorParameter value",
+                "action": "merge",
+                "path": "components.schemas.ErrorParameter.properties.value",
+                "value": {
+                    "type": "string"
+                }
+            }
+        ]
+    },
     "address-validation": {
         "1": [
             {
@@ -36,6 +76,77 @@
                 "value": {
                     "$ref": "#/components/schemas/Alert_3P"
                 }
+            }, {
+                "comment": "Add missing alertType property to Alert_3P",
+                "action": "merge",
+                "path": "components.schemas.Alert_3P.properties",
+                "value": {
+                    "alertType": {
+                        "type": "string",
+                        "description": "Specifies the api alert type.",
+                        "example": "NOTE",
+                        "enum": [
+                            "NOTE",
+                            "WARNING"
+                        ]
+                    }
+                }
+            }, {
+                " comment": "Remove required fields from PartyAddress",
+                "action": "delete",
+                "path": "components.schemas.PartyAddress.required"
+            }, {
+                "comment": "Remove required fields from PartyContact",
+                "action": "delete",
+                "path": "components.schemas.PartyContact.required"
+            }
+        ]
+    },
+    "ship-dg-hazmat": {
+        "1": [
+            {
+                "comment": "The type of Surcharge.amount is float, not Money",
+                "action": "replace",
+                "path": "components.schemas.Surcharge.properties.amount",
+                "value": {
+                    "description": "Specifies the Surcharge Amount.",
+                    "type": "number",
+                    "format": "double"
+                }
+            }, {
+                "comment": "The type of the BinaryBarcode.value is string, not array of strings",
+                "action": "replace",
+                "path": "components.schemas.BinaryBarcode.properties.value",
+                "value": {
+                    "type": "string",
+                    "format": "byte",
+                    "description": "The data content of this instance.<br> Example: \"value\"",
+                    "example": "value"
+                }
+            }, {
+                "comment": "DangerousGoodsContainer.packingType is not actually required.",
+                "action": "delete",
+                "path": "components.schemas.DangerousGoodsContainer.required"
+            }, {
+                "comment": "HazardousCommodityDescription.reportableQuantity and packingGroup are not actually required.",
+                "action": "delete",
+                "path": "components.schemas.HazardousCommodityDescription.required"
+            }, {
+                "comment": "ResponsiblePartyParty address and contact are not actually required.",
+                "action": "delete",
+                "path": "components.schemas.ResponsiblePartyParty.required"
+            }, {
+                "comment": "Remove required fields from PartyAddress",
+                "action": "delete",
+                "path": "components.schemas.PartyAddress.required"
+            }, {
+                "comment": "Remove required fields from PartyAddress",
+                "action": "delete",
+                "path": "components.schemas.PartyAddress.required"
+            }, {
+                "comment": "Remove required fields from PartyContact",
+                "action": "delete",
+                "path": "components.schemas.PartyContact.required"
             }
         ]
     },
@@ -57,6 +168,64 @@
                 "path": "components.schemas.LocationDetail.required",
                 "value": [
                     "locationContactAndAddress"
+                ]
+            }
+        ]
+    },
+    "trade-documents-upload": {
+        "1": [
+            {
+                "comment": "Define a container for FullSchema-ImageUploadServiceInputVO.properties.document. Move rules property up one level. See https://stackoverflow.com/questions/78593938/restful-fedex-trade-document-upload-api-cant-upload-signature-or-letterhead-i",
+                "action": "merge",
+                "path": "components.schemas",
+                "value": {
+                    "DocumentContainer": {
+                        "required": [
+                            "document",
+                            "rules"
+                        ],
+                        "type": "object",
+                        "properties": {
+                            "document": {
+                                "$ref": "#/components/schemas/Document"
+                            },
+                            "rules": {
+                                "$ref": "#/components/schemas/Document_rules"
+                            }
+                        },
+                        "description": "A container for the document and rules."
+                    }
+                }
+            },
+            {
+                "comment": "Wrap FullSchema-ImageUploadServiceInputVO.properties.document in DocumentContainer. Define document before attachment else error 1001 is thrown.",
+                "action": "replace",
+                "path": "components.schemas.FullSchema-ImageUploadServiceInputVO.properties",
+                "value": {
+                    "document": {
+                        "$ref": "#/components/schemas/DocumentContainer"
+                    },
+                    "attachment": {
+                        "type": "string",
+                        "description": "Input the actual image file to be uploaded.",
+                        "format": "file"
+                    }
+                }
+            },
+            {
+                "comment": "Delete moved `FullSchema-ImageUploadServiceInputVO.properties.rules` property.",
+                "action": "delete",
+                "path": "components.schemas.Document.properties.rules"
+            },
+            {
+                "comment": "Delete moved `FullSchema-ImageUploadServiceInputVO.properties.rules` from required properties.",
+                "action": "replace",
+                "path": "components.schemas.Document.required",
+                "value": [
+                    "contentType",
+                    "meta",
+                    "name",
+                    "referenceId"
                 ]
             }
         ]

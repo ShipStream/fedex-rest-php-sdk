@@ -3,7 +3,7 @@
         "/documents/v1/etds/upload": {
             "post": {
                 "summary": "Upload Document",
-                "description": "Use this endpoint to upload the trade documentss electronicallyy before (pre-shipment) and after (post-shipment) the shipment is created.<br><i>Note&#58; FedEx APIs do not support Cross-Origin Resource Sharing (CORS) mechanism.</i>",
+                "description": "Use this endpoint to upload the trade documents electronically before (pre-shipment) and after (post-shipment) the shipment is created.<br><i>Note&#58; FedEx APIs do not support Cross-Origin Resource Sharing (CORS) mechanism.</i>",
                 "operationId": "Upload ETD files",
                 "parameters": [
                     {
@@ -469,6 +469,16 @@
                         }
                     }
                 ],
+                "servers": [
+                    {
+                        "url": "https://documentapitest.prod.fedex.com/sandbox",
+                        "description": "EDU Sandbox Server"
+                    },
+                    {
+                        "url": "https://documentapi.prod.fedex.com",
+                        "description": "EDU Production Server"
+                    }
+                ],
                 "requestBody": {
                     "content": {
                         "multipart/form-data": {
@@ -477,80 +487,13 @@
                             },
                             "examples": {
                                 "FullSchema-MultiDocumentRequest": {
-                                    "value": {
-                                        "workflowName": "ETDPreshipment",
-                                        "carrierCode": "FDXE",
-                                        "originCountryCode": "US",
-                                        "destinationCountryCode": "CA",
-                                        "shipmentDate": "2024-05-21T00:00:00",
-                                        "trackingNumber": "1122334455",
-                                        "metaData": [
-                                            {
-                                                "fileName": "Penguin.png",
-                                                "fileReferenceId": "CI_1",
-                                                "contentType": "image/png",
-                                                "formCode": "USMCA",
-                                                "shipDocumentType": "COMMERCIAL_INVOICE"
-                                            },
-                                            {
-                                                "fileName": "file1.txt",
-                                                "fileReferenceId": "PI_2",
-                                                "contentType": "text/plain",
-                                                "formCode": "USMCA",
-                                                "shipDocumentType": "PRO_FORMA_INVOICE"
-                                            }
-                                        ]
-                                    }
+                                    "value": "documentInformation: {\"workflowName\": \"ETDPreshipment\",\"carrierCode\": \"FDXE\",\"originCountryCode\": \"US\",\"destinationCountryCode\": \"CA\",\"shipmentDate\": \"2021-10-21T00:00:00\",\"trackingNumber\": \"782514212510\",\"metaData\": [{\"fileName\":\"file1.png\",\"fileReferenceId\":\"inv_file1_ctx_02132021_5\",\"contentType\": \"image/png\",\"formCode\": \"USMCA\",\"shipDocumentType\":\"COMMERCIAL_INVOICE\"},{\"fileName\":\"file2.txt\", \"fileReferenceId\":\"PI_2\", \"contentType\":\"text/plain\", \"formCode\": \"USMCA\", \"shipDocumentType\":\"PRO_FORMA_INVOICE\"},{\"fileName\":\"file3.txt\", \"fileReferenceId\":\"PI_2\", \"contentType\":\"text/plain\", \"formCode\": \"USMCA\", \"shipDocumentType\":\"PRO_FORMA_INVOICE\"},{\"fileName\":\"file4.txt\", \"fileReferenceId\":\"PI_2\", \"contentType\":\"text/plain\", \"formCode\": \"USMCA\", \"shipDocumentType\":\"PRO_FORMA_INVOICE\"},{\"file5.txt\", \"fileReferenceId\":\"PI_2\", \"contentType\":\"text/plain\", \"formCode\": \"USMCA\", \"shipDocumentType\":\"PRO_FORMA_INVOICE\"}]\nfileAttachments: 'file1.png'\nfileAttachments: 'file2.txt'\nfileAttachments: 'file3.txt'\nfileAttachments: 'file4.txt'\nfileAttachments: 'file5.txt'"
                                 },
                                 "MinimumSamplePayload-MultiPreShipment": {
-                                    "value": {
-                                        "workflowName": "ETDPreshipment",
-                                        "carrierCode": "FDXE",
-                                        "originCountryCode": "US",
-                                        "destinationCountryCode": "CA",
-                                        "metaData": [
-                                            {
-                                                "fileName": "Penguin.png",
-                                                "fileReferenceId": "CI_1",
-                                                "contentType": "image/png",
-                                                "formCode": "USMCA",
-                                                "shipDocumentType": "COMMERCIAL_INVOICE"
-                                            },
-                                            {
-                                                "fileName": "file1.txt",
-                                                "fileReferenceId": "PI_2",
-                                                "contentType": "text/plain",
-                                                "formCode": "USMCA",
-                                                "shipDocumentType": "PRO_FORMA_INVOICE"
-                                            }
-                                        ]
-                                    }
+                                    "value": "documentInformation: {\"workflowName\": \"ETDPreshipment\",\"carrierCode\": \"FDXE\",\"originCountryCode\": \"US\",\"destinationCountryCode\": \"CA\",\"shipmentDate\": \"2023-05-21T00:00:00\",\"trackingNumber\": \"782514212510\",\"metaData\": [{\"fileName\":\"file1.png\",\"fileReferenceId\":\"inv_file1_ctx_02132021_5\",\"contentType\": \"image/png\",\"formCode\": \"USMCA\",\"shipDocumentType\":\"COMMERCIAL_INVOICE\"}]\nfileAttachments: 'file.png'"
                                 },
                                 "MinimumSamplePayload-MultiPostShipment": {
-                                    "value": {
-                                        "workflowName": "ETDPostshipment",
-                                        "carrierCode": "FDXE",
-                                        "originCountryCode": "US",
-                                        "destinationCountryCode": "CA",
-                                        "shipmentDate": "2024-05-21T00:00:00",
-                                        "trackingNumber": "1122334455",
-                                        "metaData": [
-                                            {
-                                                "fileName": "Penguin.png",
-                                                "fileReferenceId": "CI_1",
-                                                "contentType": "image/png",
-                                                "formCode": "USMCA",
-                                                "shipDocumentType": "COMMERCIAL_INVOICE"
-                                            },
-                                            {
-                                                "fileName": "file1.txt",
-                                                "fileReferenceId": "PI_2",
-                                                "contentType": "text/plain",
-                                                "formCode": "USMCA",
-                                                "shipDocumentType": "PRO_FORMA_INVOICE"
-                                            }
-                                        ]
-                                    }
+                                    "value": "documentInformation: {\"workflowName\": \"ETDPostshipment\",\"carrierCode\": \"FDXE\",\"originCountryCode\": \"US\",\"destinationCountryCode\": \"CA\",\"shipmentDate\": \"2023-10-21T00:00:00\",\"trackingNumber\": \"782514212510\",\"metaData\": [{\"fileName\":\"file1.png\",\"fileReferenceId\":\"inv_file1_ctx_02132021_5\",\"contentType\": \"image/png\",\"formCode\": \"USMCA\",\"shipDocumentType\":\"COMMERCIAL_INVOICE\"}]\nfileAttachments: 'file.png'"
                                 }
                             }
                         }
@@ -602,7 +545,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_3"
                                 },
                                 "example": {
                                     "customerTransactionId": "5678b975-ev0e-420b-8d7b-aa6ce65ec48n",
@@ -622,7 +565,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_3"
                                 },
                                 "example": {
                                     "customerTransactionId": "5678b975-ev0e-420b-8d7b-aa6ce65ec48n",
@@ -660,7 +603,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_3"
                                 },
                                 "example": {
                                     "customerTransactionId": "5678b975-ev0e-420b-8d7b-aa6ce65ec48n",
@@ -680,7 +623,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_3"
                                 },
                                 "example": {
                                     "customerTransactionId": "5678b975-ev0e-420b-8d7b-aa6ce65ec48n",
@@ -776,9 +719,19 @@
                         }
                     }
                 ],
+                "servers": [
+                    {
+                        "url": "https://documentapitest.prod.fedex.com/sandbox",
+                        "description": "EDU Sandbox Server"
+                    },
+                    {
+                        "url": "https://documentapi.prod.fedex.com",
+                        "description": "EDU Production Server"
+                    }
+                ],
                 "requestBody": {
                     "content": {
-                        "multipart/form-data": {
+                        "application/json": {
                             "schema": {
                                 "$ref": "#/components/schemas/FullSchema-Base64MultiDocumentRequest"
                             },
@@ -836,6 +789,8 @@
                                         "carrierCode": "FDXE",
                                         "originCountryCode": "US",
                                         "destinationCountryCode": "CA",
+                                        "shipmentDate": "2024-01-06T00:00:00",
+                                        "trackingNumber": "782514212510",
                                         "metaData": [
                                             {
                                                 "fileReferenceId": "inv_file1_ctx_02132021_1",
@@ -932,7 +887,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/MultiBasePreResponse"
+                                    "$ref": "#/components/schemas/MultiBasePreResponse_2"
                                 }
                             }
                         }
@@ -972,7 +927,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_3"
                                 },
                                 "example": {
                                     "customerTransactionId": "5678b975-ev0e-420b-8d7b-aa6ce65ec48n",
@@ -992,7 +947,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_3"
                                 },
                                 "example": {
                                     "customerTransactionId": "5678b975-ev0e-420b-8d7b-aa6ce65ec48n",
@@ -1030,7 +985,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_3"
                                 },
                                 "example": {
                                     "customerTransactionId": "5678b975-ev0e-420b-8d7b-aa6ce65ec48n",
@@ -1050,7 +1005,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
+                                    "$ref": "#/components/schemas/ErrorResponseVO_3"
                                 },
                                 "example": {
                                     "customerTransactionId": "5678b975-ev0e-420b-8d7b-aa6ce65ec48n",
@@ -1330,13 +1285,13 @@
                 ],
                 "type": "object",
                 "properties": {
+                    "document": {
+                        "$ref": "#/components/schemas/DocumentContainer"
+                    },
                     "attachment": {
                         "type": "string",
                         "description": "Input the actual image file to be uploaded.",
                         "format": "file"
-                    },
-                    "document": {
-                        "$ref": "#/components/schemas/Document"
                     }
                 },
                 "description": "The request elements to upload image files."
@@ -1346,8 +1301,7 @@
                     "contentType",
                     "meta",
                     "name",
-                    "referenceId",
-                    "rules"
+                    "referenceId"
                 ],
                 "type": "object",
                 "properties": {
@@ -1365,9 +1319,6 @@
                         "type": "string",
                         "description": "Specify the file type or image type of the to be uploaded.<br><br>Valid Values are: <ul><li>image/png</li><li>image/gif</li></ul>",
                         "example": "image/png"
-                    },
-                    "rules": {
-                        "$ref": "#/components/schemas/Document_rules"
                     },
                     "meta": {
                         "$ref": "#/components/schemas/Document_meta"
@@ -1641,6 +1592,35 @@
                 },
                 "description": "Use this object to specify image meta data such as image type, path and index for the file to be uploaded."
             },
+            "MultiBasePreResponse_output": {
+                "type": "object",
+                "properties": {
+                    "documentResponses": {
+                        "type": "array",
+                        "example": [
+                            {
+                                "metaData": {
+                                    "formCode": "USMCA",
+                                    "documentType": "PRO",
+                                    "docId": "kgr9lgjU3juqxyhf"
+                                },
+                                "fileReferenceId": "PI_2"
+                            },
+                            {
+                                "metaData": {
+                                    "formCode": "USMCA",
+                                    "documentType": "CI",
+                                    "docId": "CPK8nMAkD5Ngw0vK"
+                                },
+                                "fileReferenceId": "CI_1"
+                            }
+                        ],
+                        "items": {
+                            "$ref": "#/components/schemas/MultiDocumentPreResponse"
+                        }
+                    }
+                }
+            },
             "MultiBasePreResponse_1_output": {
                 "type": "object",
                 "properties": {
@@ -1694,6 +1674,41 @@
                     }
                 }
             },
+            "Parameter": {
+                "type": "object",
+                "properties": {
+                    "value": {
+                        "type": "string",
+                        "description": "Identifies the error option to be applied.",
+                        "example": "1"
+                    },
+                    "key": {
+                        "type": "string",
+                        "description": "Indicates the value associated with the key.",
+                        "example": "DOC_INDEX"
+                    }
+                }
+            },
+            "CXSError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "description": "Indicates the error code.<br>Example: INTERNAL.SERVER.ERROR"
+                    },
+                    "parameterList": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Parameter"
+                        }
+                    },
+                    "message": {
+                        "description": "Indicates the description of API error alert message.<br>Example: We encountered an unexpected error and are working to resolve the issue. We apologize for any inconvenience. Please check back at a later time.",
+                        "type": "string"
+                    }
+                },
+                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
+            },
             "ErrorResponseVO": {
                 "type": "object",
                 "properties": {
@@ -1720,48 +1735,53 @@
                     },
                     "errors": {
                         "type": "array",
+                        "description": "This is an error object detailing errors received in the reply.",
+                        "items": {
+                            "$ref": "#/components/schemas/errors"
+                        }
+                    }
+                }
+            },
+            "ErrorResponseVO_3": {
+                "type": "object",
+                "properties": {
+                    "customerTransactionId": {
+                        "type": "string",
+                        "description": "This element allows you to assign a unique identifier to your transaction. This element is also returned in the reply and helps you match the request to the reply.",
+                        "example": "5678b975-ev0e-420b-8d7b-aa6ce65ec48n"
+                    },
+                    "transactionId": {
+                        "type": "string",
+                        "description": "The transaction ID is a special set of numbers that defines each transaction.",
+                        "example": "407eb778-eb0e-420b-8d7b-aa6ce65ec38a"
+                    },
+                    "errors": {
+                        "type": "array",
                         "items": {
                             "$ref": "#/components/schemas/CXSError"
                         }
                     }
                 }
             },
-            "CXSError": {
+            "MultiBasePreResponse": {
                 "type": "object",
                 "properties": {
-                    "code": {
+                    "customerTransactionId": {
                         "type": "string",
-                        "description": "Indicates the error code.<br>Example: INTERNAL.SERVER.ERROR"
+                        "description": "This element allows you to assign a unique identifier to your transaction. This element is also returned in the reply and helps you match the request to the reply Example:5678b975-ev0e-420b-8d7b-aa6ce65ec48n",
+                        "example": "5678b975-ev0e-420b-8d7b-aa6ce65ec48n"
                     },
-                    "parameterList": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/Parameter"
-                        }
-                    },
-                    "message": {
-                        "description": "Indicates the description of API error alert message.<br>Example: We encountered an unexpected error and are working to resolve the issue. We apologize for any inconvenience. Please check back at a later time.",
-                        "type": "string"
-                    }
-                },
-                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
-            },
-            "Parameter": {
-                "type": "object",
-                "properties": {
-                    "value": {
+                    "transactionId": {
                         "type": "string",
-                        "description": "Identifies the error option to be applied.",
-                        "example": "1"
+                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br> Example:624deea6-b709-470c-8c39-4b5511281492",
+                        "example": "624deea6-b709-470c-8c39-4b5511281492"
                     },
-                    "key": {
-                        "type": "string",
-                        "description": "Indicates the value associated with the key.",
-                        "example": "DOC_INDEX"
+                    "output": {
+                        "$ref": "#/components/schemas/MultiBasePreResponse_output"
                     }
                 }
             },
-            "MultiBasePreResponse": {
+            "MultiBasePreResponse_2": {
                 "type": "object",
                 "properties": {
                     "customerTransactionId": {
@@ -1905,6 +1925,22 @@
                         "example": "dGVzdGluZyBmb3IgbXVsdGlmaWxlIHVwbG9hZCB0ZXN0LWExDQp0ZXN0aW5nIGZvciBtdWx0a        WZpbGUgdXBsb2FkIHRlc3QtYTENCkphbmFyZGhhbiBTaGluZ2FkZQ"
                     }
                 }
+            },
+            "DocumentContainer": {
+                "required": [
+                    "document",
+                    "rules"
+                ],
+                "type": "object",
+                "properties": {
+                    "document": {
+                        "$ref": "#/components/schemas/Document"
+                    },
+                    "rules": {
+                        "$ref": "#/components/schemas/Document_rules"
+                    }
+                },
+                "description": "A container for the document and rules."
             }
         }
     },

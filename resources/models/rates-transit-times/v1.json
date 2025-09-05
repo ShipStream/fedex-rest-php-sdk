@@ -2198,6 +2198,13 @@
                         "items": {
                             "$ref": "#/components/schemas/Surcharge"
                         }
+                    },
+                    "taxes": {
+                        "description": "List of taxes.",
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Tax"
+                        }
                     }
                 },
                 "description": "This is shipment level rate data."
@@ -2467,15 +2474,11 @@
                     },
                     "type": {
                         "type": "string",
-                        "description": "This is Broker Type.",
-                        "example": "EXPORT",
+                        "description": "This is Broker Type.Example:IMPORT",
+                        "example": "IMPORT",
                         "enum": [
-                            "EXPORT",
                             "IMPORT"
                         ]
-                    },
-                    "brokerAddress": {
-                        "$ref": "#/components/schemas/Brokeraddress"
                     }
                 },
                 "description": "These are Broker Detail for the rate quote."
@@ -2538,7 +2541,7 @@
                         "example": "Your account number"
                     }
                 },
-                "description": "This is the Account number details.<br><i>Note:<ul><li>If the paymentType is Sender, then the account number is optional in shippingChargesPayment.</li><li>In case if this is shipping account number, do use the account number used for creating Auth Token.</li></ul>",
+                "description": "This is the Account number details.<br><i>Note:<ul><li>If the paymentType is Sender, then the account number is optional in shippingChargesPayment.</li></ul>",
                 "example": {
                     "value": "Your account number"
                 }
@@ -2934,9 +2937,6 @@
                     },
                     "customsClearanceDetail": {
                         "$ref": "#/components/schemas/CustomsClearanceDetail"
-                    },
-                    "serviceTypeDetail": {
-                        "$ref": "#/components/schemas/ServiceTypeDetailVO"
                     },
                     "smartPostInfoDetail": {
                         "$ref": "#/components/schemas/SmartPostInfoDetail"
@@ -3824,7 +3824,7 @@
                     },
                     "commodities": {
                         "type": "array",
-                        "description": "Specify the commodity details.",
+                        "description": "Indicates the details about the dutiable packages. Maximum upto 999 commodities per shipment.",
                         "items": {
                             "$ref": "#/components/schemas/Commodity"
                         }
@@ -3960,7 +3960,7 @@
                     },
                     "countryOfManufacture": {
                         "type": "string",
-                        "description": "This is a manufacturing country. Maximum field Length is 4<br> Example: IN",
+                        "description": "This is commodity country of manufacture. This is required. Maximum allowed length is 4. <br>Example: US<br><a onclick='loadDocReference(\"countrycodes\")'>Click here to see Country Codes</a>",
                         "example": "US"
                     },
                     "quantityUnits": {
@@ -3984,36 +3984,6 @@
                         "example": "P1"
                     }
                 }
-            },
-            "ServiceTypeDetailVO": {
-                "type": "object",
-                "properties": {
-                    "carrierCode": {
-                        "type": "string",
-                        "description": "Identifies which carrier is being described.",
-                        "enum": [
-                            "FDXE",
-                            "FDXG",
-                            "FXSP",
-                            "FXFR",
-                            "FDXC",
-                            "FXCC"
-                        ]
-                    },
-                    "description": {
-                        "type": "string",
-                        "description": "Description"
-                    },
-                    "serviceName": {
-                        "type": "string",
-                        "description": "Service Name"
-                    },
-                    "serviceCategory": {
-                        "type": "string",
-                        "description": "Service Category"
-                    }
-                },
-                "description": "service type information details"
             },
             "SmartPostInfoDetail": {
                 "type": "object",
@@ -4234,66 +4204,29 @@
                 }
             },
             "Tax": {
+                "description": "Tax surcharge details",
                 "type": "object",
                 "properties": {
                     "amount": {
-                        "type": "number",
-                        "description": "Specifies the list of tax amounts. <br> Example : 87.5",
+                        "description": "Tax amount. <br> Example: 408.97",
                         "format": "double",
-                        "example": 87.5
+                        "type": "number",
+                        "example": 408.97
                     },
                     "name": {
+                        "description": "The localized name of the tax. <br> Example: Denmark VAT",
                         "type": "string",
-                        "description": "Specifies the localized name of the tax.<br> Example: Name"
+                        "example": "Denmark VAT"
                     },
                     "description": {
+                        "description": "The description of the Surcharge/Tax. <br> Example: Denmark VAT",
                         "type": "string",
-                        "description": "Specifies the description of the Surcharge/Tax. <br> Example: description"
+                        "example": "Denmark VAT"
                     },
                     "type": {
+                        "description": "The type of Surcharge/Tax. <br> Example: VAT",
                         "type": "string",
-                        "description": "Specifies the type of Surcharge/Tax.<br> Example: type"
-                    }
-                },
-                "description": "Specifies the Tax surcharge details"
-            },
-            "Party": {
-                "type": "object",
-                "properties": {
-                    "address": {
-                        "$ref": "#/components/schemas/Address"
-                    },
-                    "accountNumber": {
-                        "$ref": "#/components/schemas/AccountNumber"
-                    },
-                    "contact": {
-                        "$ref": "#/components/schemas/Contact"
-                    }
-                },
-                "description": "Indicate the party to a transaction including the physical address, contact information and account number information.",
-                "example": {
-                    "accountNumber": {
-                        "value": 123456789
-                    }
-                }
-            },
-            "Party_2": {
-                "type": "object",
-                "properties": {
-                    "address": {
-                        "$ref": "#/components/schemas/Address"
-                    },
-                    "contact": {
-                        "$ref": "#/components/schemas/Contact"
-                    },
-                    "accountNumber": {
-                        "$ref": "#/components/schemas/AccountNumber"
-                    }
-                },
-                "description": "Indicate the party to a transaction including the physical address, contact information and account number information.",
-                "example": {
-                    "accountNumber": {
-                        "value": 123456789
+                        "example": "VAT"
                     }
                 }
             },
@@ -4460,43 +4393,6 @@
                 },
                 "description": "The delivery commitment details"
             },
-            "ErrorResponseVO": {
-                "type": "object",
-                "properties": {
-                    "transactionId": {
-                        "type": "string",
-                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
-                        "example": "624deea6-b709-470c-8c39-4b5511281492"
-                    },
-                    "customerTransactionId": {
-                        "type": "string",
-                        "description": "This element allows you to assign a unique identifier to your transaction. This element is also returned in the reply and helps you match the request to the reply. <br> Example: AnyCo_order123456789",
-                        "example": "AnyCo_order123456789"
-                    },
-                    "errors": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/CXSError"
-                        }
-                    }
-                }
-            },
-            "ErrorResponseVO_2": {
-                "type": "object",
-                "properties": {
-                    "transactionId": {
-                        "type": "string",
-                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
-                        "example": "624deea6-b709-470c-8c39-4b5511281492"
-                    },
-                    "errors": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/CXSError"
-                        }
-                    }
-                }
-            },
             "CXSError": {
                 "type": "object",
                 "properties": {
@@ -4572,6 +4468,83 @@
                     "width": 50,
                     "height": 30,
                     "units": "CM"
+                }
+            },
+            "Party": {
+                "type": "object",
+                "properties": {
+                    "address": {
+                        "$ref": "#/components/schemas/Address"
+                    },
+                    "accountNumber": {
+                        "$ref": "#/components/schemas/AccountNumber"
+                    },
+                    "contact": {
+                        "$ref": "#/components/schemas/Contact"
+                    }
+                },
+                "description": "Indicate the party to a transaction including the physical address, contact information and account number information.",
+                "example": {
+                    "accountNumber": {
+                        "value": 123456789
+                    }
+                }
+            },
+            "Party_2": {
+                "type": "object",
+                "properties": {
+                    "address": {
+                        "$ref": "#/components/schemas/Address"
+                    },
+                    "contact": {
+                        "$ref": "#/components/schemas/Contact"
+                    },
+                    "accountNumber": {
+                        "$ref": "#/components/schemas/AccountNumber"
+                    }
+                },
+                "description": "Indicate the party to a transaction including the physical address, contact information and account number information.",
+                "example": {
+                    "accountNumber": {
+                        "value": 123456789
+                    }
+                }
+            },
+            "ErrorResponseVO": {
+                "type": "object",
+                "properties": {
+                    "transactionId": {
+                        "type": "string",
+                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
+                        "example": "624deea6-b709-470c-8c39-4b5511281492"
+                    },
+                    "customerTransactionId": {
+                        "type": "string",
+                        "description": "This element allows you to assign a unique identifier to your transaction. This element is also returned in the reply and helps you match the request to the reply. <br> Example: AnyCo_order123456789",
+                        "example": "AnyCo_order123456789"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CXSError"
+                        }
+                    }
+                }
+            },
+            "ErrorResponseVO_2": {
+                "type": "object",
+                "properties": {
+                    "transactionId": {
+                        "type": "string",
+                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
+                        "example": "624deea6-b709-470c-8c39-4b5511281492"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CXSError"
+                        }
+                    }
                 }
             }
         }

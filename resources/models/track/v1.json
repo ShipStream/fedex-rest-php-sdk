@@ -1488,7 +1488,7 @@
                     },
                     "destinationLocation": {
                         "description": "Location details for the recipient where the package will be or has been delivered.",
-                        "$ref": "#/components/schemas/LocationDetail"
+                        "$ref": "#/components/schemas/LocationDetail_2"
                     },
                     "latestStatusDetail": {
                         "$ref": "#/components/schemas/StatusDetail"
@@ -1547,7 +1547,7 @@
                     },
                     "holdAtLocation": {
                         "description": "Location details for the FedEx facility holding package for delivery. Populated only when REDIRECT_TO_HOLD_AT_LOCATION is available as custom delivery options.",
-                        "$ref": "#/components/schemas/LocationDetail"
+                        "$ref": "#/components/schemas/LocationDetail_2"
                     },
                     "customDeliveryOptions": {
                         "type": "array",
@@ -3296,10 +3296,7 @@
                         "example": "245822~123456789012~FDEG"
                     }
                 },
-                "description": "Information uniquely identifying a shipment such as Tracking number, ShipDate, and Tracking number uniqueId.",
-                "required": [
-                    "trackingNumber"
-                ]
+                "description": "Information uniquely identifying a shipment such as Tracking number, ShipDate, and Tracking number uniqueId."
             },
             "PagingDetails": {
                 "type": "object",
@@ -3317,6 +3314,53 @@
                     }
                 },
                 "description": "Specify the details about how to retrieve the subsequent pages when there is more than one page in the TrackReply."
+            },
+            "CXSError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "description": "Indicates the error code.<br>Example: SERVICE.UNAVAILABLE.ERROR"
+                    },
+                    "parameterList": {
+                        "type": "array",
+                        "description": "List of parameters.",
+                        "items": {
+                            "$ref": "#/components/schemas/Parameter"
+                        }
+                    },
+                    "message": {
+                        "description": "Indicates the description of API error alert message.<br>Example: The service is currently unavailable and we are working to resolve the issue. We apologize for any inconvenience. Please check back at a later time.",
+                        "type": "string"
+                    }
+                },
+                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
+            },
+            "TrackingEventNotificationDetail": {
+                "required": [
+                    "trackingNotifications"
+                ],
+                "type": "object",
+                "properties": {
+                    "trackingNotifications": {
+                        "type": "array",
+                        "description": "List of Tracking notifications requested for events like ON_DELIVERY, ON_ESTIMATED_DELIVERY, ON_EXCEPTION, ON_TENDER.",
+                        "items": {
+                            "$ref": "#/components/schemas/TrackingNotification"
+                        }
+                    },
+                    "personalMessage": {
+                        "type": "string",
+                        "description": "An optional message which will be included in the body of the email.",
+                        "example": "Personal message content"
+                    },
+                    "supportHTML": {
+                        "title": "@Ignore4TPP",
+                        "description": "If value is 'true' then html tags are included in the response date.  If 'false' they are not provided in the response.",
+                        "type": "string"
+                    }
+                },
+                "description": "Tracking Event Notification details."
             },
             "AddressVO": {
                 "required": [
@@ -3435,28 +3479,38 @@
                 },
                 "description": "Address where the package was actually delivered. Contrast with destinationAddress, which is the location to which the package was intended to be delivered. Addresses may differ due to delivery to a behavior, hold at FedEx location, etc."
             },
-            "CXSError": {
+            "LocationDetail": {
+                "required": [
+                    "locationContactAndAddress"
+                ],
                 "type": "object",
                 "properties": {
-                    "code": {
+                    "locationId": {
                         "type": "string",
-                        "description": "Indicates the error code.<br>Example: SERVICE.UNAVAILABLE.ERROR"
+                        "description": "Location Identification for facilities identified by an alpha numeric location code. Passing Location Id of the Hold at Location (HAL) address is strongly recommended to ensure packages are delivered to the correct address.<br> Example: SEA",
+                        "example": "SEA"
                     },
-                    "parameterList": {
-                        "type": "array",
-                        "description": "List of parameters.",
-                        "items": {
-                            "$ref": "#/components/schemas/Parameter"
-                        }
+                    "locationContactAndAddress": {
+                        "$ref": "#/components/schemas/ContactAndAddress"
                     },
-                    "message": {
-                        "description": "Indicates the description of API error alert message.<br>Example: The service is currently unavailable and we are working to resolve the issue. We apologize for any inconvenience. Please check back at a later time.",
-                        "type": "string"
+                    "locationType": {
+                        "type": "string",
+                        "description": "The FedEx Location Type.<br> Example: PICKUP_LOCTION",
+                        "example": "PICKUP_LOCATION",
+                        "enum": [
+                            "FEDEX_AUTHORIZED_SHIP_CENTER",
+                            "FEDEX_OFFICE",
+                            "FEDEX_SELF_SERVICE_LOCATION",
+                            "FEDEX_STAFFED",
+                            "RETAIL_ALLICANCE_LOCATION",
+                            "FEDEX_GROUND_TERMINAL",
+                            "FEDEX_ONSITE"
+                        ]
                     }
                 },
-                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
+                "description": "Location details for the fedex facility."
             },
-            "LocationDetail": {
+            "LocationDetail_2": {
                 "type": "object",
                 "properties": {
                     "locationId": {
@@ -3487,10 +3541,7 @@
                         ]
                     }
                 },
-                "description": "Location details for the fedex facility.",
-                "required": [
-                    "locationContactAndAddress"
-                ]
+                "description": "Location details for the fedex facility."
             },
             "ContactAndAddress": {
                 "required": [
@@ -3555,38 +3606,12 @@
                         }
                     }
                 }
-            },
-            "TrackingEventNotificationDetail": {
-                "required": [
-                    "trackingNotifications"
-                ],
-                "type": "object",
-                "properties": {
-                    "trackingNotifications": {
-                        "type": "array",
-                        "description": "List of Tracking notifications requested for events like ON_DELIVERY, ON_ESTIMATED_DELIVERY, ON_EXCEPTION, ON_TENDER.",
-                        "items": {
-                            "$ref": "#/components/schemas/TrackingNotification"
-                        }
-                    },
-                    "personalMessage": {
-                        "type": "string",
-                        "description": "An optional message which will be included in the body of the email.",
-                        "example": "Personal message content"
-                    },
-                    "supportHTML": {
-                        "title": "@Ignore4TPP",
-                        "description": "If value is 'true' then html tags are included in the response date.  If 'false' they are not provided in the response.",
-                        "type": "string"
-                    }
-                },
-                "description": "Tracking Event Notification details."
             }
         }
     },
     "openapi": "3.0.0",
     "info": {
-        "title": "Track API",
+        "title": "Basic Integrated Visibility ",
         "version": "1.0.0"
     }
 }

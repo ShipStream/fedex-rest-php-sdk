@@ -17,7 +17,6 @@ final class ShipmentCodDetail extends Dto
     /**
      * @param  string  $codCollectionType  Identifies the type of funds FedEx should collect upon shipment delivery<br>Example: CASH
      * @param  ?CodTransportationChargesDetail  $addTransportationChargesDetail  Use this object to specify C.O.D. transportation charges.
-     * @param  ?Party  $codRecipient  Use this object to provide the attributes such as physical address, contact information and account number information.
      * @param  ?string  $remitToName  Specify the name of the person or company receiving the secured/unsecured funds payment<br>Example: remitToName
      * @param  ?ContactAndAddress  $financialInstitutionContactAndAddress  Specifies the contact and address details of a location.
      * @param  ?Money  $codCollectionAmount  This customs value is applicable for all items(or units) under the specified commodity

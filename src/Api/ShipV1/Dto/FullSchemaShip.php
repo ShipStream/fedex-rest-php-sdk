@@ -18,7 +18,7 @@ final class FullSchemaShip extends Dto
 
     /**
      * @param  RequestedShipment  $requestedShipment  The descriptive data of the requested shipment.
-     * @param  string  $labelResponseOptions  LabelResponseOptions specifies the label generation format.<br>Example:URL_ONLY
+     * @param  string  $labelResponseOptions  Note- Label will be returned as Base64 ONLY when openShipmentAction is PROVIDE_DOCUMENTS_INCREMENTALLY.<br>LabelResponseOptions specifies the label generation format.<br>Example:URL_ONLY
      * @param  ShipperAccountNumber  $accountNumber  The account number associated with the shipment.
      * @param  ?string  $mergeLabelDocOption  It specifies the content of the merged pdf URL in the response. The merged pdf URL is generated only if the labelResponseOption is indicated as URL_ONLY.<ul><li>If the value is 'LABELS_AND_DOCS', then merged (all shipping labels and shipping documents) pdf URL will be returned.</li><li>If the value is 'LABELS_ONLY', merged (all shipping labels only) pdf URL will be returned.</li><li>If the value is 'NONE', then no merged pdf URL will be returned.</li></ul><br>This is optional field and will default to LABELS_AND_DOCS.<br>Note: If the value is 'LABELS_ONLY', then the returned merged pdf label will not be in the Base64 encoded format.
      * @param  ?string  $shipAction  Indicate shipment action for the Shipment. <ul><li>CONFIRM &ndash; used in case of shipment submission</li><li>TRANSFER &ndash; used in case of Email Label Shipment or Pending Shipment submission.

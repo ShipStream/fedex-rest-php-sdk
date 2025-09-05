@@ -30,7 +30,7 @@ final class Commodity extends Dto
      * @param  ?string  $cImarksAndNumbers  This is an identifying mark or number used on the packaging of a shipment to help customers identify a particular shipment<br>Example: 87123
      * @param  ?string  $harmonizedCode  This is to specify the Harmonized Tariff System (HTS) code to meet U.S. and foreign governments' customs requirements. These are mainly used to estimate the duties and taxes.<br>Example: 0613<br>To research the classification for your commodity, use the FedEx Global Trade Manager online at <a href='http://www.fedex.com/gtm' target='_blank'>fedex.com/gtm</a>. You will find country-specific information to determine whether your commodity is considered to be a document or non-document for your destination.
      * @param  ?string  $name  This is Commodity name.<br>Example: Non-Threaded Rivets
-     * @param  ?Weight  $weight  These are the package weight details.<br>Note: Weight is not required for One rate shipments
+     * @param  ?WeightWithoutLink  $weight  These are the package weight details.
      * @param  ?string  $exportLicenseNumber  This is the export license number for the shipment.<br>Example: 26456
      * @param  ?\DateTimeInterface  $exportLicenseExpirationDate  Specify the export license expiration date for the shipment.<br>Format YYYY-MM-DD<br>Example : 2009-04-12
      * @param  ?string  $partNumber  This is a part number.<br>Example: 167
@@ -49,7 +49,7 @@ final class Commodity extends Dto
         public ?string $cImarksAndNumbers = null,
         public ?string $harmonizedCode = null,
         public ?string $name = null,
-        public ?Weight $weight = null,
+        public ?WeightWithoutLink $weight = null,
         public ?string $exportLicenseNumber = null,
         public ?\DateTimeInterface $exportLicenseExpirationDate = null,
         public ?string $partNumber = null,

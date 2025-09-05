@@ -1,7 +1,7 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "Track API",
+        "title": "Basic Integrated Visibility",
         "version": "1.0.0-oas3"
     },
     "servers": [

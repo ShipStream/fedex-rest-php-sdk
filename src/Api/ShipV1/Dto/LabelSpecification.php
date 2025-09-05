@@ -24,7 +24,7 @@ final class LabelSpecification extends Dto
      * @param  ?string  $labelRotation  This is applicable only to documents produced on thermal printers with roll stock.
      * @param  ?string  $labelPrintingOrientation  This is applicable only to documents produced on thermal printers with roll stock.
      * @param  ?string  $returnedDispositionDetail  Specifies a particular way in which a kind of shipping document is to be produced and provided<br>Example:RETURNED
-     * @param  ?int  $resolution  Specifies the image resolution in DPI (Dots Per Inch). Valid values are 203 & 300. If not provided or for any other value, system will default it to 203.
+     * @param  ?int  $resolution  Specifies the image resolution in DPI (Dots Per Inch). Valid values are 203 & 300. If not provided or for any other value, system will default it to 203.Note: 300 DPI resolution is only allowed for ZPLII image type.
      */
     public function __construct(
         public string $labelStockType,

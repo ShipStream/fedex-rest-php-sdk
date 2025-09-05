@@ -30,7 +30,7 @@ final class UsmcaCommercialInvoiceCertificationOfOriginDetail extends Dto
         public ?string $certifierSpecification = null,
         public ?string $importerSpecification = null,
         public ?string $producerSpecification = null,
-        public ?Party3 $producer = null,
+        public ?Party4 $producer = null,
         public ?string $certifierJobTitle = null,
     ) {}
 }

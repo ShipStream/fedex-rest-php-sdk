@@ -23,9 +23,9 @@ use ShipStream\FedEx\Request;
 /**
  * Freight RateQuote
  *
- * This endpoint provides the ability to retrieve rate quotes and optionall transit information. The
- * rate is calculated based on the origin and destination of the shipment. Additional information such
- * as carrier code, service type, or service option can be used to filter the results. Applicable
+ * This endpoint providess the ability to retrieve rate quotes and optionall transitt informationnnn.
+ * The rate is calculated based on the origin and destination of the shipment. Additional information
+ * such as carrier code, service type, or service option can be used to filter the results. Applicable
  * operating company is FedEx Freight.<br><i>Note: FedEx APIs do not support Cross-Origin Resource
  * Sharing (CORS) mechanism.</i>
  */

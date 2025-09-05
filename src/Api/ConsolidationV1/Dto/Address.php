@@ -16,16 +16,16 @@ final class Address extends Dto
 {
     /**
      * @param  string[]  $streetLines  This is a combination of number, street name, etc. <br>Note: At least one line is required and streetlines more than 3 will be ignored. Empty lines should not be included.
-     * @param  string  $city  This is a placeholder for City Name. <br>Note: This is conditional and not required in all the shipping requests. It is recommended for Express shipments for the most accurate ODA and OPA surcharges and not used for Ground/SmartPost.
      * @param  string  $countryCode  This is the Two-letter country code. <a href="/developer-portal/en-us/reference-guide.html#countrycodes" target="_blank">Click here to see Country Codes</a>
+     * @param  ?string  $city  This is a placeholder for City Name. <br>Note: This is conditional and not required in all the shipping requests. It is recommended for Express shipments for the most accurate ODA and OPA surcharges and not used for Ground/SmartPost.
      * @param  ?string  $stateOrProvinceCode  This is a placeholder for State or Province code. <br>Note: This is conditional and not required in all the shipping requests. It is recommended for Express shipments for the most accurate ODA and OPA surcharges and not used for Ground/SmartPost.
      * @param  ?string  $postalCode  This is placeholder for postal code.<br>Note: The postal code is required for postal-aware countries.
      * @param  ?bool  $residential  Indicate whether this address is Residential as opposed to Commercial.<br>Valid Values: True or False.
      */
     public function __construct(
         public array $streetLines,
-        public string $city,
         public string $countryCode,
+        public ?string $city = null,
         public ?string $stateOrProvinceCode = null,
         public ?string $postalCode = null,
         public ?bool $residential = null,

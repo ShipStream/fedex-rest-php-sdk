@@ -15,12 +15,10 @@ use ShipStream\FedEx\Dto;
 final class BrokerDetail extends Dto
 {
     /**
-     * @param  string  $type  This is Broker Type.
-     * @param  ?Brokeraddress  $brokerAddress  This is the broker address used for this shipment.
+     * @param  string  $type  This is Broker Type.Example:IMPORT
      */
     public function __construct(
         public BrokerDetailBroker $broker,
         public string $type,
-        public ?Brokeraddress $brokerAddress = null,
     ) {}
 }

@@ -19,13 +19,13 @@ final class CancelShipmentOutputVo extends Dto
     /**
      * @param  ?bool  $cancelledShipment  Indicates whether the shipment has been cancelled or not. If the value is True, then it indicates that the shipment has been cancelled.<br>Example: true
      * @param  ?bool  $cancelledHistory  Indicates whether the shipment has been deleted from history or not. If the value is True, then it indicates that the shipment has been deleted.<br>Example: true
-     * @param  ?string  $successMessage  The success message generated during cancellation request for Shipment.<br>Example: Success
+     * @param  ?string  $message  The success message generated during cancellation request for Shipment.<br>Example:Shipment is successfully cancelled
      * @param  Alert[]|null  $alerts  This is a cancellation request alert. This alert includes information such as alert code, alert type, and alert message.
      */
     public function __construct(
         public ?bool $cancelledShipment = null,
         public ?bool $cancelledHistory = null,
-        public ?string $successMessage = null,
+        public ?string $message = null,
         public ?array $alerts = null,
     ) {}
 }

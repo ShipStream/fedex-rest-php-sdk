@@ -30,7 +30,7 @@ final class FreightRequestedShipmentFreight extends Dto
      * @param  ?int  $totalWeight  Indicate the shipment total weight in pounds.<br><br>Example: 10.6
      * @param  ?string  $preferredCurrency  Indicate the currency the caller requests to have used in all returned monetary values. Should be Used in conjunction with the element RateRequestType.<br>Example: USD<br><br><a onclick='loadDocReference("currencycodes")'>click here to see available Currency codes</a><br><br>Note: Incorrect currency codes should not be supplied. The system ignores the incorrect currency code.
      * @param  ?SoldToParty  $soldTo  Will indicate the party responsible for purchasing the goods shipped from the shipper to the recipient. The sold to party is not necessarily the recipient or the importer of record. The sold to party is relevant when the purchaser, rather than the recipient determines when certain customs regulations apply.
-     * @param  ?ContactAndAddress  $origin  Specifies the contact and address details of a location.
+     * @param  ?ContactAndAddress2  $origin  Specifies the contact and address details of a location.
      * @param  ?FreightShipment2020specialServicesRequested  $freightShipmentSpecialServices  These special services are available at the shipment level for some or all service types. If the shipper is requesting a special service which requires additional data (such as DO_NOT_STACK_PALLETS), the shipment special service type must be present in the specialServiceTypes collection, and the supporting detail must be provided in the appropriate sub-object below.
      * @param  ?EMailNotificationDetail  $emailNotificationDetail  These are email disposition details. Provides the type and email addresses of e-mail recipients. If returnedDispositionDetail in labelSpecification is set as true then email will be send with label and documents copy.
      * @param  ?VariableHandlingChargeDetail  $variableHandlingChargeDetail  Indicate the details about how to calculate variable handling charges at the shipment level. They can be based on a percentage of the shipping charges or a fixed amount. If indicated, element rateLevelType is required.
@@ -54,7 +54,7 @@ final class FreightRequestedShipmentFreight extends Dto
         public ?int $totalWeight = null,
         public ?string $preferredCurrency = null,
         public ?SoldToParty $soldTo = null,
-        public ?ContactAndAddress $origin = null,
+        public ?ContactAndAddress2 $origin = null,
         public ?FreightShipment2020specialServicesRequested $freightShipmentSpecialServices = null,
         public ?EMailNotificationDetail $emailNotificationDetail = null,
         public ?VariableHandlingChargeDetail $variableHandlingChargeDetail = null,

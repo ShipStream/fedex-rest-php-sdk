@@ -18,6 +18,7 @@ final class CommercialInvoice extends Dto
 
     /**
      * @param  ?string  $originatorName  The originatorName that will populate the Commercial Invoice (or Pro Forma).<br>Example: originator name
+     * @param  ?string  $paymentTerms  The payment terms that will populate the Commercial Invoice (or Pro Forma).  This field is being supported for completeness only.<br>Example: payment terms
      * @param  ?string[]  $comments  The comments that will populate the Commercial Invoice (or Pro Forma). Only the comments specified in the first two indexes of the array will be printed on the invoice and other comments would be ignored as the limitation is set for only two indexes. It considers the comment which is in the first index as a Special Instructions, Hence the comment at first index will be printed under special instructions and the other will be printed at comments section in the Commercial Invoice Document. <br>Example: comments
      * @param  CustomerReference[]|null  $customerReferences  These are additional customer reference data for commercial invoice.
      * @param  ?Money  $taxesOrMiscellaneousCharge  This customs value is applicable for all items(or units) under the specified commodity
@@ -33,6 +34,7 @@ final class CommercialInvoice extends Dto
      */
     public function __construct(
         public ?string $originatorName = null,
+        public ?string $paymentTerms = null,
         public ?array $comments = null,
         public ?array $customerReferences = null,
         public ?Money $taxesOrMiscellaneousCharge = null,

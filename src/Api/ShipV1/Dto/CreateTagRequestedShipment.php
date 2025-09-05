@@ -38,7 +38,7 @@ final class CreateTagRequestedShipment extends Dto
      * @param  ?ShipShipmentEmailNotificationDetail  $emailNotificationDetail  This is used to provide eMail notification information..
      * @param  ?ExpressFreightDetail  $expressFreightDetail  Indicates the advance booking number, shipper load /count and packing list details. This details must be provided by the user during freight shipment.
      * @param  ?VariableHandlingChargeDetail  $variableHandlingChargeDetail  Indicate the details about how to calculate variable handling charges at the shipment level. They can be based on a percentage of the shipping charges or a fixed amount. If indicated, element rateLevelType is required.
-     * @param  ?CustomsClearanceDetail  $customsClearanceDetail  These are customs clearance details. Required for International and intra-country Shipments.
+     * @param  ?CustomsClearanceDetailTag  $customsClearanceDetail  These are customs clearance details. Required for International and intra-country Shipments.
      * @param  ?SmartPostInfoDetail  $smartPostInfoDetail  Use this object to specify the smartpost shipment details. <br>Required for SMARTPOST service. If SmartPostInfoDetail is indicated, the elements below it are also required.
      * @param  ?bool  $blockInsightVisibility  If true, only the shipper/payer will have visibility of this shipment.<br>Valid Value : true, false.<br> Default:false<br>Example: true
      * @param  ?ShippingDocumentSpecification  $shippingDocumentSpecification  Use this object to provide all data required for additional (non-label) shipping documents to be produced.
@@ -67,7 +67,7 @@ final class CreateTagRequestedShipment extends Dto
         public ?ShipShipmentEmailNotificationDetail $emailNotificationDetail = null,
         public ?ExpressFreightDetail $expressFreightDetail = null,
         public ?VariableHandlingChargeDetail $variableHandlingChargeDetail = null,
-        public ?CustomsClearanceDetail $customsClearanceDetail = null,
+        public ?CustomsClearanceDetailTag $customsClearanceDetail = null,
         public ?SmartPostInfoDetail $smartPostInfoDetail = null,
         public ?bool $blockInsightVisibility = null,
         public ?ShippingDocumentSpecification $shippingDocumentSpecification = null,

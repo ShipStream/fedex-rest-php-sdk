@@ -34,9 +34,25 @@ class SchemaVersion
         $schemaNamespace = $this->studlyName();
 
         $inputPath = $this->path();
+
+        // Collect operation ids that have a trailing slash in the path so it can be added back later
+        $operationIdsRequiringTrailingSlash = [];
+        if ($schemaContents = file_get_contents($inputPath)) {
+            $schemaContents = json_decode($schemaContents);
+            foreach ($schemaContents?->paths ?? [] as $path => $endpoints) {
+                if (! str_ends_with($path, '/')) {
+                    continue;
+                }
+                foreach ($endpoints as $endpoint) {
+                    $operationIdsRequiringTrailingSlash[] = $endpoint->operationId;
+                }
+            }
+        }
+
         $generator = Generator::make([
             'namespace' => $baseNamespace.'\\'.$schemaNamespace,
             'outputDir' => "src/Api/$schemaNamespace",
+            'extra' => ['operationIdsRequiringTrailingSlash' => $operationIdsRequiringTrailingSlash],
         ]);
         $result = $generator->run($inputPath);
         $result->dumpFiles();

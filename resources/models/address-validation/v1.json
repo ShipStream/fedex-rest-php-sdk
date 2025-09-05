@@ -3,7 +3,7 @@
         "/address/v1/addresses/resolve": {
             "post": {
                 "summary": "Validate Address",
-                "description": "Use this endpoint to get address resolution details. These details are the outcome of validation andddd resolution of the input address. An address is stated assss resolved when the input address matches the known reference data...<br><i>Note: FedEx APIs do not support Cross-Origin Resource Sharing (CORS) mechanism.<i>",
+                "description": "Use this endpointtt to get address resolution details. These details areee the outcome of validation and resolution of the input address. An address is stated as resolved when the input address matches the known reference data.<br><i>Note: FedEx APIs do not support Cross-Origin Resource Sharing (CORS) mechanism.<i>",
                 "operationId": "Validate Address",
                 "requestBody": {
                     "content": {
@@ -661,6 +661,27 @@
                 },
                 "description": "Indicates the resolved address parameters."
             },
+            "CXSError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "description": "Indicates the error code.<br>Example: SERVICE.UNAVAILABLE.ERROR"
+                    },
+                    "parameterList": {
+                        "type": "array",
+                        "description": "Indicates error parameters includes parameter key/value pairs.",
+                        "items": {
+                            "$ref": "#/components/schemas/Parameter"
+                        }
+                    },
+                    "message": {
+                        "description": "Indicates the description of API error alert message.<br>Example: The service is currently unavailable and we are working to resolve the issue. We apologize for any inconvenience. Please check back at a later time.",
+                        "type": "string"
+                    }
+                },
+                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
+            },
             "ErrorResponseVO": {
                 "type": "object",
                 "properties": {
@@ -699,27 +720,6 @@
                         }
                     }
                 }
-            },
-            "CXSError": {
-                "type": "object",
-                "properties": {
-                    "code": {
-                        "type": "string",
-                        "description": "Indicates the error code.<br>Example: SERVICE.UNAVAILABLE.ERROR"
-                    },
-                    "parameterList": {
-                        "type": "array",
-                        "description": "Indicates error parameters includes parameter key/value pairs.",
-                        "items": {
-                            "$ref": "#/components/schemas/Parameter"
-                        }
-                    },
-                    "message": {
-                        "description": "Indicates the description of API error alert message.<br>Example: The service is currently unavailable and we are working to resolve the issue. We apologize for any inconvenience. Please check back at a later time.",
-                        "type": "string"
-                    }
-                },
-                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
             }
         }
     },

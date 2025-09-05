@@ -15,11 +15,11 @@ use ShipStream\FedEx\Dto;
 final class Origin extends Dto
 {
     /**
-     * @param  ?PartyAddress2  $address  This is detailed information on physical location. May be used as an actual physical address (place to which one could go), or as a container of address parts which should be handled as a unit (such as a city-state-ZIP combination within the US).
+     * @param  ?PartyAddress  $address  This is detailed information on physical location. May be used as an actual physical address (place to which one could go), or as a container of address parts which should be handled as a unit (such as a city-state-ZIP combination within the US).
      * @param  ?PartyContact  $contact  Indicate the contact details for this shipment.
      */
     public function __construct(
-        public ?PartyAddress2 $address = null,
+        public ?PartyAddress $address = null,
         public ?PartyContact $contact = null,
     ) {}
 }

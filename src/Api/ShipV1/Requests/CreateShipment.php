@@ -24,7 +24,7 @@ use ShipStream\FedEx\Request;
 /**
  * Create Shipment
  *
- * This endpoint helpsss you to create shipment requests thereby validating all the shipping input
+ * This endpoint helps you to create shipment requests thereby validating all the shipping input
  * information and either generates the labels (if the responses is synchronous) or a job ID if
  * transaction is processed using asynchronous method.<br><i>Note: FedEx APIs do not support
  * Cross-Origin Resource Sharing (CORS) mechanism.</i>

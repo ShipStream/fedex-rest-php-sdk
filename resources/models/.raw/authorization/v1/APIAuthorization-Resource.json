@@ -180,7 +180,7 @@
                 "properties": {
                     "grant_type": {
                         "type": "string",
-                        "description": "Specify Type of customer requesting the Oauth token.<br>Valid Values: client_credentials, csp_credentials, client_pc_credentials<br>Note:<br>client_credentials - should be used for customers and brand new Compatible Provider customers who are yet to unboard child accounts.<br>csp_credentials - should be used for Compatible Provider customers with existing child accounts.<br>client_pc_credentials \u2013 should be used for Proprietary Parent Child customers."
+                        "description": "Specify Type of customer requesting the Oauth token.<br>Valid Values: client_credentials, csp_credentials, client_pc_credentials<br>Note:<br>client_credentials - should be used for customers, Integrators, and brand new Compatible Provider customers who are yet to unboard child accounts.<br>csp_credentials - should be used for Integrators, and Compatible Provider customers with existing child accounts.<br>client_pc_credentials \u2013 should be used for Proprietary Parent Child customers."
                     },
                     "client_id": {
                         "type": "string",
@@ -192,11 +192,11 @@
                     },
                     "child_Key": {
                         "type": "string",
-                        "description": "Specify the Client ID also known as Customer Key. This element is used as a login credential for a Compatible customer or a Proprietary Parent Child customer to access the application on behalf of their customer.<br>Example: XXXX-XXX-XXXX-XXX<br>Note: This element should be used by Compatible and Proprietary Parent Child customers."
+                        "description": "Specify the Client ID also known as Customer Key. This element is used as a login credential for an Integrator customer, Compatible customer or a Proprietary Parent Child customer to access the application on behalf of their customer.<br>Example: XXXX-XXX-XXXX-XXX<br>Note: This element should be used by Integrator, Compatible and Proprietary Parent Child customers."
                     },
                     "child_secret": {
                         "type": "string",
-                        "description": "Specify the Client secret also known as Customer Secret. This element is used as a login credential for a Compatible customer or a Proprietary Parent Child customer to access the application on behalf of their customer.<br>Example: XXXX-XXX-XXXX-XXX<br>Note: This element should be used by Compatible and Proprietary Parent Child customers."
+                        "description": "Specify the Client secret also known as Customer Secret. This element is used as a login credential for an Integrator customer, Compatible customer or a Proprietary Parent Child customer to access the application on behalf of their customer.<br>Example: XXXX-XXX-XXXX-XXX<br>Note: This element should be used by Integrator, Compatible and Proprietary Parent Child customers."
                     }
                 },
                 "description": "The request elements for OAuth API."

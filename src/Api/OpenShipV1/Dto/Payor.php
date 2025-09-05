@@ -15,9 +15,9 @@ use ShipStream\FedEx\Dto;
 final class Payor extends Dto
 {
     /**
-     * @param  Party  $responsibleParty  Use this object to provide the attributes such as physical address, contact information and account number information.
+     * @param  ResponsiblePartyParty  $responsibleParty  Indicate the payer Information responsible for paying for the shipment. <br>Note: ResponsibleParty accountNumber is required for ACCOUNT based services.
      */
     public function __construct(
-        public Party $responsibleParty,
+        public ResponsiblePartyParty $responsibleParty,
     ) {}
 }

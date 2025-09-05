@@ -14,11 +14,12 @@ use Exception;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Response;
-use Saloon\Traits\Body\HasMultipartBody;
+use Saloon\Traits\Body\HasJsonBody;
 use ShipStream\FedEx\Api\TradeDocumentsUploadV1\Dto\FullSchemaBase64multiDocumentRequest;
 use ShipStream\FedEx\Api\TradeDocumentsUploadV1\Responses\ErrorResponseVo;
 use ShipStream\FedEx\Api\TradeDocumentsUploadV1\Responses\ErrorResponseVo2;
-use ShipStream\FedEx\Api\TradeDocumentsUploadV1\Responses\MultiBasePreResponse;
+use ShipStream\FedEx\Api\TradeDocumentsUploadV1\Responses\ErrorResponseVo3;
+use ShipStream\FedEx\Api\TradeDocumentsUploadV1\Responses\MultiBasePreResponse2;
 use ShipStream\FedEx\Request;
 
 /**
@@ -29,7 +30,7 @@ use ShipStream\FedEx\Request;
  */
 class UploadMultiEncodedEtDfiles extends Request implements HasBody
 {
-    use HasMultipartBody;
+    use HasJsonBody;
 
     protected Method $method = Method::POST;
 
@@ -45,12 +46,14 @@ class UploadMultiEncodedEtDfiles extends Request implements HasBody
         return '/documents/v1/etds/encodedmultiupload';
     }
 
-    public function createDtoFromResponse(Response $response): MultiBasePreResponse|ErrorResponseVo2|ErrorResponseVo
-    {
+    public function createDtoFromResponse(
+        Response $response,
+    ): MultiBasePreResponse2|ErrorResponseVo2|ErrorResponseVo3|ErrorResponseVo {
         $status = $response->status();
         $responseCls = match ($status) {
-            201 => MultiBasePreResponse::class,
-            400, 401, 403, 500, 503 => ErrorResponseVo2::class,
+            201 => MultiBasePreResponse2::class,
+            400 => ErrorResponseVo2::class,
+            401, 403, 500, 503 => ErrorResponseVo3::class,
             404 => ErrorResponseVo::class,
             default => throw new Exception("Unhandled response status: {$status}")
         };

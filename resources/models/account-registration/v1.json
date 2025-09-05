@@ -1,0 +1,1285 @@
+{
+    "paths": {
+        "/registration/v2/address/keysgeneration": {
+            "post": {
+                "summary": "Address Validation",
+                "description": "API End point being used to perform address validation during the credentials registration process of csp consumers. This endpoint validates the address and generates the keys.<br><i>Note: FedEx APIs do not support Cross-Origin Resource Sharing (CORS) mechanism.<i>",
+                "operationId": "Create Customer Key",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CustomerKeyInputVO"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/IrcpResponseVO"
+                                },
+                                "examples": {
+                                    "mfaOptions": {
+                                        "summary": "Address Validation Results",
+                                        "value": {
+                                            "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
+                                            "output": {
+                                                "mfaOptions": {
+                                                    "accountAuthToken": "eyJhbGciOiJIUzI1NiJ9.eyJUeXBlT2ZKV1QiOiJBZGRyZXNzVmFsaWRhdGVkIiwiQWNjb3VudE51bWJlciI6IjE3Mzk5NjE0NCIsIkRhdGVUaW1lIjoxODAwMDAwLCJleHAiOjE2NjcyMTk3MDF9.N6IscMuoewdxKvEIZh8023GFM_mRgoIU2kYQ0STxF7c",
+                                                    "mfaRequired": true,
+                                                    "email": "PU***@S***.COM",
+                                                    "phoneNumber": "***-***-4222",
+                                                    "options": {
+                                                        "invoice": "INVOICE",
+                                                        "secureCode": [
+                                                            "SMS"
+                                                        ]
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "credentials": {
+                                        "summary": "Key Generation",
+                                        "value": {
+                                            "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
+                                            "output": {
+                                                "child_Key": "d63a0af2-efbf-4086-8333-a0f1a2f69dfa",
+                                                "child_secret": "6jJvpNAY7NQTrDM56un9qCwtI"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponseVO"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponseVO"
+                                },
+                                "example": {
+                                    "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
+                                    "errors": [
+                                        {
+                                            "code": "NOT.AUTHORIZED.ERROR",
+                                            "message": "Access token expired. Please modify your request and try again."
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponseVO"
+                                },
+                                "example": {
+                                    "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
+                                    "errors": [
+                                        {
+                                            "code": "FORBIDDEN.ERROR",
+                                            "message": "We could not authorize your credentials. Please check your permissions and try again."
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponseVO"
+                                },
+                                "example": {
+                                    "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
+                                    "errors": [
+                                        {
+                                            "code": "NOT.FOUND.ERROR",
+                                            "message": "The resource you requested is no longer available. Please modify your request and try again."
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Failure",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponseVO"
+                                },
+                                "example": {
+                                    "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
+                                    "errors": [
+                                        {
+                                            "code": "INTERNAL.SERVER.ERROR",
+                                            "message": "We encountered an unexpected error and are working to resolve the issue. We apologize for any inconvenience. Please check back at a later time."
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "x-customer-transaction-id",
+                        "description": "This element allows you to assign a unique identifier to your transaction. This element is also returned in the reply and helps you match the request to the reply.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "624deea6-b709-470c-8c39-4b5511281492"
+                        }
+                    },
+                    {
+                        "in": "header",
+                        "name": "content-type",
+                        "description": "This is used to indicate the media type of the resource. The media type is a string sent along with the file indicating format of the file.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "application/json"
+                        }
+                    },
+                    {
+                        "in": "header",
+                        "name": "x-locale",
+                        "description": "This indicates the combination of language code and country code.  <a onclick='loadDocReference(\"locales\")'>Click here to see Locales</a>",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "en_US"
+                        }
+                    },
+                    {
+                        "in": "header",
+                        "name": "authorization",
+                        "description": "This indicates the authorization token for the input request.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "Bearer XXX"
+                        }
+                    }
+                ],
+                "x-code-samples": [
+                    {
+                        "lang": "C#",
+                        "source": "var client = new RestClient(\"https://apis-sandbox.fedex.com/registration/v2/address/keysgeneration\");\nvar request = new RestRequest(Method.POST);\nrequest.AddHeader(\"Authorization\", \"Bearer \");\nrequest.AddHeader(\"X-locale\", \"en_US\");\nrequest.AddHeader(\"Content-Type\", \"application/json\");\n// 'input' refers to JSON Payload\nrequest.AddParameter(\"application/x-www-form-urlencoded\", input, ParameterType.RequestBody);\nIRestResponse response = client.Execute(request);\n\n\n\n\n"
+                    },
+                    {
+                        "lang": "JAVA",
+                        "source": "OkHttpClient client = new OkHttpClient();\n\nMediaType mediaType = MediaType.parse(\"application/json\");\n// 'input' refers to JSON Payload\nRequestBody body = RequestBody.create(mediaType, input);\nRequest request = new Request.Builder()\n    .url(\"https://apis-sandbox.fedex.com/registration/v2/address/keysgeneration\")\n    .post(body)\n    .addHeader(\"Content-Type\", \"application/json\")\n    .addHeader(\"X-locale\", \"en_US\")\n    .addHeader(\"Authorization\", \"Bearer \")\n    .build();\n            \nResponse response = client.newCall(request).execute();"
+                    },
+                    {
+                        "lang": "JAVASCRIPT",
+                        "source": "// 'input' refers to JSON Payload\nvar data = JSON.stringify(input);\n  \n  var xhr = new XMLHttpRequest();\n  xhr.withCredentials = true;\n  \n  xhr.addEventListener(\"readystatechange\", function () {\n    if (this.readyState === 4) {\n      console.log(this.responseText);\n    }\n  });\n  \n  xhr.open(\"POST\", \"https://apis-sandbox.fedex.com/registration/v2/address/keysgeneration\");\n  xhr.setRequestHeader(\"Content-Type\", \"application/json\");\n  xhr.setRequestHeader(\"X-locale\", \"en_US\");\n  xhr.setRequestHeader(\"Authorization\", \"Bearer \");\n  \n  xhr.send(data);"
+                    },
+                    {
+                        "lang": "PHP",
+                        "source": "<?php\n\n$request = new HttpRequest();\n$request->setUrl('https://apis-sandbox.fedex.com/registration/v2/address/keysgeneration');\n$request->setMethod(HTTP_METH_POST);\n\n$request->setHeaders(array(\n  'Authorization' => 'Bearer ',\n  'X-locale' => 'en_US',\n  'Content-Type' => 'application/json'\n));\n\n$request->setBody(input); // 'input' refers to JSON Payload\n\ntry {\n  $response = $request->send();\n\n  echo $response->getBody();\n} catch (HttpException $ex) {\n  echo $ex;\n}"
+                    },
+                    {
+                        "lang": "PYTHON",
+                        "source": "import requests\n\nurl = \"https://apis-sandbox.fedex.com/registration/v2/address/keysgeneration\"\n\npayload = input # 'input' refers to JSON Payload\nheaders = {\n    'Content-Type': \"application/json\",\n    'X-locale': \"en_US\",\n    'Authorization': \"Bearer \"\n    }\n\nresponse = requests.post(url, data=payload, headers=headers)\n\nprint(response.text)"
+                    },
+                    {
+                        "lang": "RUST",
+                        "source": "extern crate reqwest;\n\nuse std::io::Read;\n\nfn construct_headers() -> HeaderMap {\n    let mut headers = HeaderMap::new();\n    headers.insert(\"Content-Type\", \"application/json\");\n    headers.insert(\"X-locale\", \"en_US\");\n    headers.insert(\"Authorization\", \"Bearer \");\n    headers\n}\n\nfn run() -> Result<()> {\n    let client = reqwest::Client::new();\n    let mut res = client.post(\"https://apis-sandbox.fedex.com/registration/v2/address/keysgeneration\")\n        .body(input) // 'input' refers to JSON Payload\n        .headers(construct_headers())\n        .send()?;\n    let mut body = String::new();\n    res.read_to_string(&mut body)?;\n\n    println!(\"Status: {}\", res.status());\n    println!(\"Headers:\\n{:#?}\", res.headers());\n    println!(\"Body:\\n{}\", body);\n\n    Ok(())\n}"
+                    },
+                    {
+                        "lang": "SWIFT",
+                        "source": "import Foundation\n\nlet headers = [\n  \"Content-Type\": \"application/json\",\n  \"X-locale\": \"en_US\",\n  \"Authorization\": \"Bearer \"\n]\nlet parameters = [\n  input // 'input' refers to JSON Payload\n] as [String : Any]\n\nlet postData = JSONSerialization.data(withJSONObject: parameters, options: [])\n\nlet request = NSMutableURLRequest(url: NSURL(string: \"https://apis-sandbox.fedex.com/registration/v2/address/keysgeneration\")! as URL,\n                                        cachePolicy: .useProtocolCachePolicy,\n                                    timeoutInterval: 10.0)\nrequest.httpMethod = \"POST\"\nrequest.allHTTPHeaderFields = headers\nrequest.httpBody = postData as Data\n\nlet session = URLSession.shared\nlet dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in\n  if (error != nil) {\n    print(error)\n  } else {\n    let httpResponse = response as? HTTPURLResponse\n    print(httpResponse)\n  }\n})\n\ndataTask.resume()"
+                    }
+                ],
+                "tags": [
+                    "AccountRegistrationV1"
+                ]
+            }
+        },
+        "/registration/v2/pin/keysgeneration": {
+            "post": {
+                "summary": "PIN Validation",
+                "description": "API End point being used to perform PIN validation during the credentials registration process of csp consumers. This endpoint validates the PIN keyed in by the consumer. Then creates customer keys.<br><i>Note: FedEx APIs do not support Cross-Origin Resource Sharing (CORS) mechanism.<i>",
+                "operationId": "validatePin",
+                "parameters": [
+                    {
+                        "name": "x-customer-transaction-id",
+                        "in": "header",
+                        "description": "This element allows you to assign a unique identifier to your transaction. This element is also returned in the reply and helps you match the request to the reply.",
+                        "required": false,
+                        "style": "simple",
+                        "explode": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "624deea6-b709-470c-8c39-4b5511281492"
+                        }
+                    },
+                    {
+                        "name": "x-locale",
+                        "in": "header",
+                        "description": "This indicates the combination of language code and country code.<br><a onclick='loadDocReference(\"locales\")'>Click here to see Locales</a>",
+                        "required": false,
+                        "style": "simple",
+                        "explode": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "en_US"
+                        }
+                    },
+                    {
+                        "name": "x-clientid",
+                        "in": "header",
+                        "description": "This indicates the Client who is consuming this endpoint",
+                        "required": false,
+                        "style": "simple",
+                        "explode": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "WSXI"
+                        }
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Bearer token from oauth/token",
+                        "required": true,
+                        "style": "simple",
+                        "explode": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZSI6WyJDWFMiXSwiUGF5bG9hZCI6eyJjbGllbnRJZGVudGl0eSI6eyJjbGllbnRLZXkiOiJsNzYzZWU2YzE3NWQxYjRlNTZiZTBkY2JmY2U0NWE3ZjZmIn0sImF1dGhlbnRpY2F0aW9uUmVhbG0iOiJXU1NPIiwiYWRkaXRpb25hbElkZW50aXR5Ijp7InRpbWVTdGFtcCI6IjI4LVNlcC0yMDIyIDA0OjI2OjQ0IEVTVCIsImdyYW50X3R5cGUiOiJjbGllbnRfY3JlZGVudGlhbHMiLCJhcGltb2RlIjoiTGl2ZSIsImN4c0lzcyI6Imh0dHBzOi8vY3hzYXV0aHNlcnZlci1pbnRlZ3JhdGlvbi5hcHAud3RjZGV2Mi5wYWFzLmZlZGV4LmNvbS90b2tlbi9vYXV0aDIifSwicGVyc29uYVR5cGUiOiJFbXBsb3llZSIsImNvbnN1bWVySWRlbnRpdHkiOnsiaWRlbnRpdHkiOiIzNzQ2MDM1IiwicmF3SWRlbnRpdHkiOiIzNzQ2MDM1IiwibG9nZ2VkSW4iOmZhbHNlfX0sImV4cCI6MTY2NDM2MDgwNCwianRpIjoiZWE5NmQyNzktNTU5Yy00NmRlLTgxODctM2UzYTQxNjg0NmRjIn0.e40-levPzQ-WkmICiCHBR5upr-rDaD9gl3HY59uJ9qR_VdkLQkjIhY_DrQEKeJwrsz8vV9Kuy1Aw7IPIse9zFPPOGBYOAlrSd6eg_iEZSSmmAw10OJGHbsfsyuuNVLOx_NzjlBCne7LvsgthNeP74fcy1jtVLCy2WmzlGoA6d-ZW_kKQQWXzWC3qPDKKppvAewuX8uGsPrT-IerzY_XMsdUaiavYZLP1ijkia8LRP4puqpOAzXbxvJDY3DQYb9UQi7QTZgbh2zUoIkHyZSn4ZFCDTAFBlYqn3ialMoHHk7nKXE22Zi12JEFmZpxi61R_5EgTWUS30ljOyiy8P6--NV2HzNpJvk8f9v2AsAm6brEzPmm_l0uS5mBiaCAN_m_V-gi0NxRNd2r1qC24jJyJqWTO2jZfPbPj-Y0LGWKFSEWhVvHVjkyFQ380wYuNh2953jRGcgpZAQ4q449uWDmqT--zto8UJIwRAx1mLGbW1sqhtRFOP_d89oirwtfzfahXtVs7F2G7obWayEyFjxd-SGBkSIxAufNAq73Nbgflw_LqyCAnjJ3nUo8BrBVu44f5OMabZvnEKdaNyOqGd0qYskOkXYHa2AL2Que1t2qLkrmS4I3n3p7b1wPZL54e1CjhJngi4fcOiX-4E4yXQ5YxG6pM3B4xqa0V9NV9YwpgsWk"
+                        }
+                    },
+                    {
+                        "name": "accountAuthToken",
+                        "in": "header",
+                        "description": "Address validation jwt",
+                        "required": true,
+                        "style": "simple",
+                        "explode": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI3MzJiMDgzZi0zZTc0LTRhMjYtOGI0ZS1jY2NmYTA1ZTY1MTQiLCJpYXQiOjE2NjIwMzY0MjQsImlzcyI6IjVmMTA2ZDlmMTM5MTk0MTc5ZjY0NjJkZCIsIk9yZ1VuaXRJZCI6IjU2MDk5Y2ViZjcyM2FhM2UyNGQ4MTlkOSIsIlBheWxvYWQiOnsib3JkZXJOdW1iZXIiOiJkNjVhZTUzMC1iNzA1LTRiYWUtYjJmMy03Y2I1ZjgwNzBiMzQiLCJhbW91bnQiOiIxMDAwMC4wIiwiY3VycmVuY3lDb2RlIjoiRVVSIn0sIlJlZmVyZW5jZUlkIjoiN2YzMzNhOWYtN2JhZi00ZGNhLWJjMjAtYmY2MTU0ZDU2MTdiIiwiZXhwIjoxNjYyMDM3MzI0fQ.9-LVXKCfAJ7xmh3Hp6U7hXGT9z-14_5tPWu3reQRTbo"
+                        }
+                    },
+                    {
+                        "in": "header",
+                        "name": "content-type",
+                        "description": "This is used to indicate the media type of the resource. The media type is a string sent along with the file indicating format of the file.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "application/json"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ValidatePinInputVO"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/IrcpResponseVO_2"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
+                                },
+                                "example": {
+                                    "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
+                                    "errors": [
+                                        {
+                                            "code": "NOT.FOUND.ERROR",
+                                            "message": "The resource you requested is no longer available. Please modify your request and try again."
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Failure",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
+                                },
+                                "example": {
+                                    "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
+                                    "errors": [
+                                        {
+                                            "code": "INTERNAL.SERVER.ERROR",
+                                            "message": "We encountered an unexpected error and are working to resolve the issue. We apologize for any inconvenience. Please check back at a later time."
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-code-samples": [
+                    {
+                        "lang": "C#",
+                        "source": "var client = new RestClient(\"https://apis-sandbox.fedex.com/registration/v2/pin/keysgeneration\");\nvar request = new RestRequest(Method.POST);\nrequest.AddHeader(\"Authorization\", \"Bearer \");\nrequest.AddHeader(\"X-locale\", \"en_US\");\nrequest.AddHeader(\"Content-Type\", \"application/json\");\n// 'input' refers to JSON Payload\nrequest.AddParameter(\"application/x-www-form-urlencoded\", input, ParameterType.RequestBody);\nIRestResponse response = client.Execute(request);\n\n\n\n\n"
+                    },
+                    {
+                        "lang": "JAVA",
+                        "source": "OkHttpClient client = new OkHttpClient();\n\nMediaType mediaType = MediaType.parse(\"application/json\");\n// 'input' refers to JSON Payload\nRequestBody body = RequestBody.create(mediaType, input);\nRequest request = new Request.Builder()\n    .url(\"https://apis-sandbox.fedex.com/registration/v2/pin/keysgeneration\")\n    .post(body)\n    .addHeader(\"Content-Type\", \"application/json\")\n    .addHeader(\"X-locale\", \"en_US\")\n    .addHeader(\"Authorization\", \"Bearer \")\n    .build();\n            \nResponse response = client.newCall(request).execute();"
+                    },
+                    {
+                        "lang": "JAVASCRIPT",
+                        "source": "// 'input' refers to JSON Payload\nvar data = JSON.stringify(input);\n  \n  var xhr = new XMLHttpRequest();\n  xhr.withCredentials = true;\n  \n  xhr.addEventListener(\"readystatechange\", function () {\n    if (this.readyState === 4) {\n      console.log(this.responseText);\n    }\n  });\n  \n  xhr.open(\"POST\", \"https://apis-sandbox.fedex.com/registration/v2/pin/keysgeneration\");\n  xhr.setRequestHeader(\"Content-Type\", \"application/json\");\n  xhr.setRequestHeader(\"X-locale\", \"en_US\");\n  xhr.setRequestHeader(\"Authorization\", \"Bearer \");\n  \n  xhr.send(data);"
+                    },
+                    {
+                        "lang": "PHP",
+                        "source": "<?php\n\n$request = new HttpRequest();\n$request->setUrl('https://apis-sandbox.fedex.com/registration/v2/pin/keysgeneration');\n$request->setMethod(HTTP_METH_POST);\n\n$request->setHeaders(array(\n  'Authorization' => 'Bearer ',\n  'X-locale' => 'en_US',\n  'Content-Type' => 'application/json'\n));\n\n$request->setBody(input); // 'input' refers to JSON Payload\n\ntry {\n  $response = $request->send();\n\n  echo $response->getBody();\n} catch (HttpException $ex) {\n  echo $ex;\n}"
+                    },
+                    {
+                        "lang": "PYTHON",
+                        "source": "import requests\n\nurl = \"https://apis-sandbox.fedex.com/registration/v2/pin/keysgeneration\"\n\npayload = input # 'input' refers to JSON Payload\nheaders = {\n    'Content-Type': \"application/json\",\n    'X-locale': \"en_US\",\n    'Authorization': \"Bearer \"\n    }\n\nresponse = requests.post(url, data=payload, headers=headers)\n\nprint(response.text)"
+                    },
+                    {
+                        "lang": "RUST",
+                        "source": "extern crate reqwest;\n\nuse std::io::Read;\n\nfn construct_headers() -> HeaderMap {\n    let mut headers = HeaderMap::new();\n    headers.insert(\"Content-Type\", \"application/json\");\n    headers.insert(\"X-locale\", \"en_US\");\n    headers.insert(\"Authorization\", \"Bearer \");\n    headers\n}\n\nfn run() -> Result<()> {\n    let client = reqwest::Client::new();\n    let mut res = client.post(\"https://apis-sandbox.fedex.com/registration/v2/pin/keysgeneration\")\n        .body(input) // 'input' refers to JSON Payload\n        .headers(construct_headers())\n        .send()?;\n    let mut body = String::new();\n    res.read_to_string(&mut body)?;\n\n    println!(\"Status: {}\", res.status());\n    println!(\"Headers:\\n{:#?}\", res.headers());\n    println!(\"Body:\\n{}\", body);\n\n    Ok(())\n}"
+                    },
+                    {
+                        "lang": "SWIFT",
+                        "source": "import Foundation\n\nlet headers = [\n  \"Content-Type\": \"application/json\",\n  \"X-locale\": \"en_US\",\n  \"Authorization\": \"Bearer \"\n]\nlet parameters = [\n  input // 'input' refers to JSON Payload\n] as [String : Any]\n\nlet postData = JSONSerialization.data(withJSONObject: parameters, options: [])\n\nlet request = NSMutableURLRequest(url: NSURL(string: \"https://apis-sandbox.fedex.com/registration/v2/pin/keysgeneration\")! as URL,\n                                        cachePolicy: .useProtocolCachePolicy,\n                                    timeoutInterval: 10.0)\nrequest.httpMethod = \"POST\"\nrequest.allHTTPHeaderFields = headers\nrequest.httpBody = postData as Data\n\nlet session = URLSession.shared\nlet dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in\n  if (error != nil) {\n    print(error)\n  } else {\n    let httpResponse = response as? HTTPURLResponse\n    print(httpResponse)\n  }\n})\n\ndataTask.resume()"
+                    }
+                ],
+                "tags": [
+                    "AccountRegistrationV1"
+                ]
+            }
+        },
+        "/registration/v2/invoice/keysgeneration": {
+            "post": {
+                "summary": "Invoice Validation",
+                "description": "API End point being used to perform invoice validation during the credentials registration process of csp consumers. This endpoint validates the invoice detail associated with the FedEx EAN account number & creates customer keys<i>Note: FedEx APIs do not support Cross-Origin Resource Sharing (CORS) mechanism.<i>",
+                "operationId": "validateInvoice",
+                "parameters": [
+                    {
+                        "name": "x-customer-transaction-id",
+                        "in": "header",
+                        "description": "\"This element allows you to assign a unique identifier to your transaction. This element is also returned in the reply and helps you match the request to the reply.\"",
+                        "required": false,
+                        "style": "simple",
+                        "explode": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "624deea6-b709-470c-8c39-4b5511281492"
+                        }
+                    },
+                    {
+                        "name": "x-locale",
+                        "in": "header",
+                        "description": "This indicates the combination of language code and country code.",
+                        "required": false,
+                        "style": "simple",
+                        "explode": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "en_US"
+                        }
+                    },
+                    {
+                        "name": "x-clientid",
+                        "in": "header",
+                        "description": "This indicates the Client who is consuming this endpoint",
+                        "required": false,
+                        "style": "simple",
+                        "explode": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "WSXI"
+                        }
+                    },
+                    {
+                        "name": "authorization",
+                        "in": "header",
+                        "description": "Bearer token from oauth/token",
+                        "required": true,
+                        "style": "simple",
+                        "explode": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZSI6WyJDWFMiXSwiUGF5bG9hZCI6eyJjbGllbnRJZGVudGl0eSI6eyJjbGllbnRLZXkiOiJsNzYzZWU2YzE3NWQxYjRlNTZiZTBkY2JmY2U0NWE3ZjZmIn0sImF1dGhlbnRpY2F0aW9uUmVhbG0iOiJXU1NPIiwiYWRkaXRpb25hbElkZW50aXR5Ijp7InRpbWVTdGFtcCI6IjI4LVNlcC0yMDIyIDA0OjI2OjQ0IEVTVCIsImdyYW50X3R5cGUiOiJjbGllbnRfY3JlZGVudGlhbHMiLCJhcGltb2RlIjoiTGl2ZSIsImN4c0lzcyI6Imh0dHBzOi8vY3hzYXV0aHNlcnZlci1pbnRlZ3JhdGlvbi5hcHAud3RjZGV2Mi5wYWFzLmZlZGV4LmNvbS90b2tlbi9vYXV0aDIifSwicGVyc29uYVR5cGUiOiJFbXBsb3llZSIsImNvbnN1bWVySWRlbnRpdHkiOnsiaWRlbnRpdHkiOiIzNzQ2MDM1IiwicmF3SWRlbnRpdHkiOiIzNzQ2MDM1IiwibG9nZ2VkSW4iOmZhbHNlfX0sImV4cCI6MTY2NDM2MDgwNCwianRpIjoiZWE5NmQyNzktNTU5Yy00NmRlLTgxODctM2UzYTQxNjg0NmRjIn0.e40-levPzQ-WkmICiCHBR5upr-rDaD9gl3HY59uJ9qR_VdkLQkjIhY_DrQEKeJwrsz8vV9Kuy1Aw7IPIse9zFPPOGBYOAlrSd6eg_iEZSSmmAw10OJGHbsfsyuuNVLOx_NzjlBCne7LvsgthNeP74fcy1jtVLCy2WmzlGoA6d-ZW_kKQQWXzWC3qPDKKppvAewuX8uGsPrT-IerzY_XMsdUaiavYZLP1ijkia8LRP4puqpOAzXbxvJDY3DQYb9UQi7QTZgbh2zUoIkHyZSn4ZFCDTAFBlYqn3ialMoHHk7nKXE22Zi12JEFmZpxi61R_5EgTWUS30ljOyiy8P6--NV2HzNpJvk8f9v2AsAm6brEzPmm_l0uS5mBiaCAN_m_V-gi0NxRNd2r1qC24jJyJqWTO2jZfPbPj-Y0LGWKFSEWhVvHVjkyFQ380wYuNh2953jRGcgpZAQ4q449uWDmqT--zto8UJIwRAx1mLGbW1sqhtRFOP_d89oirwtfzfahXtVs7F2G7obWayEyFjxd-SGBkSIxAufNAq73Nbgflw_LqyCAnjJ3nUo8BrBVu44f5OMabZvnEKdaNyOqGd0qYskOkXYHa2AL2Que1t2qLkrmS4I3n3p7b1wPZL54e1CjhJngi4fcOiX-4E4yXQ5YxG6pM3B4xqa0V9NV9YwpgsWk"
+                        }
+                    },
+                    {
+                        "name": "accountAuthToken",
+                        "in": "header",
+                        "description": "Address validation jwt",
+                        "required": true,
+                        "style": "simple",
+                        "explode": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI3MzJiMDgzZi0zZTc0LTRhMjYtOGI0ZS1jY2NmYTA1ZTY1MTQiLCJpYXQiOjE2NjIwMzY0MjQsImlzcyI6IjVmMTA2ZDlmMTM5MTk0MTc5ZjY0NjJkZCIsIk9yZ1VuaXRJZCI6IjU2MDk5Y2ViZjcyM2FhM2UyNGQ4MTlkOSIsIlBheWxvYWQiOnsib3JkZXJOdW1iZXIiOiJkNjVhZTUzMC1iNzA1LTRiYWUtYjJmMy03Y2I1ZjgwNzBiMzQiLCJhbW91bnQiOiIxMDAwMC4wIiwiY3VycmVuY3lDb2RlIjoiRVVSIn0sIlJlZmVyZW5jZUlkIjoiN2YzMzNhOWYtN2JhZi00ZGNhLWJjMjAtYmY2MTU0ZDU2MTdiIiwiZXhwIjoxNjYyMDM3MzI0fQ.9-LVXKCfAJ7xmh3Hp6U7hXGT9z-14_5tPWu3reQRTbo"
+                        }
+                    },
+                    {
+                        "in": "header",
+                        "name": "content-type",
+                        "description": "This is used to indicate the media type of the resource. The media type is a string sent along with the file indicating format of the file.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "application/json"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ValidateInvoiceInputVO"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/IrcpResponseVO_2"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponseVO_3"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponseVO_3"
+                                },
+                                "example": {
+                                    "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
+                                    "errors": [
+                                        {
+                                            "code": "INVOICEDETAILS.NUMBER.NOTEXIST",
+                                            "message": "Invoice does not exist for the provided invoice number."
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Failure",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponseVO_3"
+                                },
+                                "example": {
+                                    "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
+                                    "errors": [
+                                        {
+                                            "code": "INTERNAL.SERVER.ERROR",
+                                            "message": "We encountered an unexpected error and are working to resolve the issue. We apologize for any inconvenience. Please check back at a later time."
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-code-samples": [
+                    {
+                        "lang": "C#",
+                        "source": "var client = new RestClient(\"https://apis-sandbox.fedex.com/registration/v2/invoice/keysgeneration\");\nvar request = new RestRequest(Method.POST);\nrequest.AddHeader(\"Authorization\", \"Bearer \");\nrequest.AddHeader(\"X-locale\", \"en_US\");\nrequest.AddHeader(\"Content-Type\", \"application/json\");\n// 'input' refers to JSON Payload\nrequest.AddParameter(\"application/x-www-form-urlencoded\", input, ParameterType.RequestBody);\nIRestResponse response = client.Execute(request);\n\n\n\n\n"
+                    },
+                    {
+                        "lang": "JAVA",
+                        "source": "OkHttpClient client = new OkHttpClient();\n\nMediaType mediaType = MediaType.parse(\"application/json\");\n// 'input' refers to JSON Payload\nRequestBody body = RequestBody.create(mediaType, input);\nRequest request = new Request.Builder()\n    .url(\"https://apis-sandbox.fedex.com/registration/v2/invoice/keysgeneration\")\n    .post(body)\n    .addHeader(\"Content-Type\", \"application/json\")\n    .addHeader(\"X-locale\", \"en_US\")\n    .addHeader(\"Authorization\", \"Bearer \")\n    .build();\n            \nResponse response = client.newCall(request).execute();"
+                    },
+                    {
+                        "lang": "JAVASCRIPT",
+                        "source": "// 'input' refers to JSON Payload\nvar data = JSON.stringify(input);\n  \n  var xhr = new XMLHttpRequest();\n  xhr.withCredentials = true;\n  \n  xhr.addEventListener(\"readystatechange\", function () {\n    if (this.readyState === 4) {\n      console.log(this.responseText);\n    }\n  });\n  \n  xhr.open(\"POST\", \"https://apis-sandbox.fedex.com/registration/v2/invoice/keysgeneration\");\n  xhr.setRequestHeader(\"Content-Type\", \"application/json\");\n  xhr.setRequestHeader(\"X-locale\", \"en_US\");\n  xhr.setRequestHeader(\"Authorization\", \"Bearer \");\n  \n  xhr.send(data);"
+                    },
+                    {
+                        "lang": "PHP",
+                        "source": "<?php\n\n$request = new HttpRequest();\n$request->setUrl('https://apis-sandbox.fedex.com/registration/v2/invoice/keysgeneration');\n$request->setMethod(HTTP_METH_POST);\n\n$request->setHeaders(array(\n  'Authorization' => 'Bearer ',\n  'X-locale' => 'en_US',\n  'Content-Type' => 'application/json'\n));\n\n$request->setBody(input); // 'input' refers to JSON Payload\n\ntry {\n  $response = $request->send();\n\n  echo $response->getBody();\n} catch (HttpException $ex) {\n  echo $ex;\n}"
+                    },
+                    {
+                        "lang": "PYTHON",
+                        "source": "import requests\n\nurl = \"https://apis-sandbox.fedex.com/registration/v2/invoice/keysgeneration\"\n\npayload = input # 'input' refers to JSON Payload\nheaders = {\n    'Content-Type': \"application/json\",\n    'X-locale': \"en_US\",\n    'Authorization': \"Bearer \"\n    }\n\nresponse = requests.post(url, data=payload, headers=headers)\n\nprint(response.text)"
+                    },
+                    {
+                        "lang": "RUST",
+                        "source": "extern crate reqwest;\n\nuse std::io::Read;\n\nfn construct_headers() -> HeaderMap {\n    let mut headers = HeaderMap::new();\n    headers.insert(\"Content-Type\", \"application/json\");\n    headers.insert(\"X-locale\", \"en_US\");\n    headers.insert(\"Authorization\", \"Bearer \");\n    headers\n}\n\nfn run() -> Result<()> {\n    let client = reqwest::Client::new();\n    let mut res = client.post(\"https://apis-sandbox.fedex.com/registration/v2/invoice/keysgeneration\")\n        .body(input) // 'input' refers to JSON Payload\n        .headers(construct_headers())\n        .send()?;\n    let mut body = String::new();\n    res.read_to_string(&mut body)?;\n\n    println!(\"Status: {}\", res.status());\n    println!(\"Headers:\\n{:#?}\", res.headers());\n    println!(\"Body:\\n{}\", body);\n\n    Ok(())\n}"
+                    },
+                    {
+                        "lang": "SWIFT",
+                        "source": "import Foundation\n\nlet headers = [\n  \"Content-Type\": \"application/json\",\n  \"X-locale\": \"en_US\",\n  \"Authorization\": \"Bearer \"\n]\nlet parameters = [\n  input // 'input' refers to JSON Payload\n] as [String : Any]\n\nlet postData = JSONSerialization.data(withJSONObject: parameters, options: [])\n\nlet request = NSMutableURLRequest(url: NSURL(string: \"https://apis-sandbox.fedex.com/registration/v2/invoice/keysgeneration\")! as URL,\n                                        cachePolicy: .useProtocolCachePolicy,\n                                    timeoutInterval: 10.0)\nrequest.httpMethod = \"POST\"\nrequest.allHTTPHeaderFields = headers\nrequest.httpBody = postData as Data\n\nlet session = URLSession.shared\nlet dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in\n  if (error != nil) {\n    print(error)\n  } else {\n    let httpResponse = response as? HTTPURLResponse\n    print(httpResponse)\n  }\n})\n\ndataTask.resume()"
+                    }
+                ],
+                "tags": [
+                    "AccountRegistrationV1"
+                ]
+            }
+        },
+        "/registration/v2/customerkeys/pingeneration": {
+            "post": {
+                "summary": "PIN Generation",
+                "description": "Use this API endpoint to generate the PIN as part of the PIN validation during the credentials registration process of csp consumers. This endpoint generates the 6 digit PIN & sends to the consumer through the PIN delivery option chosen by the consumer.",
+                "operationId": "sendPin",
+                "parameters": [
+                    {
+                        "name": "x-locale",
+                        "in": "header",
+                        "description": "This indicates the combination of language code and country code.<br><a onclick='loadDocReference(\"locales\")'>click here to see locales</a>",
+                        "required": false,
+                        "style": "simple",
+                        "explode": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "en_US"
+                        }
+                    },
+                    {
+                        "name": "x-clientid",
+                        "in": "header",
+                        "description": "This indicates the client who is using this endpoint.",
+                        "required": false,
+                        "style": "simple",
+                        "explode": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "WADM"
+                        }
+                    },
+                    {
+                        "name": "accountAuthToken",
+                        "in": "header",
+                        "description": "Address validation jwt",
+                        "required": true,
+                        "style": "simple",
+                        "explode": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI3MzJiMDgzZi0zZTc0LTRhMjYtOGI0ZS1jY2NmYTA1ZTY1MTQiLCJpYXQiOjE2NjIwMzY0MjQsImlzcyI6IjVmMTA2ZDlmMTM5MTk0MTc5ZjY0NjJkZCIsIk9yZ1VuaXRJZCI6IjU2MDk5Y2ViZjcyM2FhM2UyNGQ4MTlkOSIsIlBheWxvYWQiOnsib3JkZXJOdW1iZXIiOiJkNjVhZTUzMC1iNzA1LTRiYWUtYjJmMy03Y2I1ZjgwNzBiMzQiLCJhbW91bnQiOiIxMDAwMC4wIiwiY3VycmVuY3lDb2RlIjoiRVVSIn0sIlJlZmVyZW5jZUlkIjoiN2YzMzNhOWYtN2JhZi00ZGNhLWJjMjAtYmY2MTU0ZDU2MTdiIiwiZXhwIjoxNjYyMDM3MzI0fQ.9-LVXKCfAJ7xmh3Hp6U7hXGT9z-14_5tPWu3reQRTbo"
+                        }
+                    },
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Bearer token generated with child id and secret",
+                        "required": true,
+                        "style": "simple",
+                        "explode": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZSI6WyJDWFMiXSwiUGF5bG9hZCI6eyJjbGllbnRJZGVudGl0eSI6eyJjbGllbnRLZXkiOiJsNzQzMzk4OTdhYzMzNjQ2NDI4N2Y5ZjZhOWZhZDBmNjFlIn0sImF1dGhlbnRpY2F0aW9uUmVhbG0iOiJXU1NPIiwiYWRkaXRpb25hbElkZW50aXR5Ijp7InRpbWVTdGFtcCI6IjE4LU5vdi0yMDIyIDA5OjI0OjM5IEVTVCIsImdyYW50X3R5cGUiOiJjbGllbnRfY3JlZGVudGlhbHMiLCJhcGltb2RlIjoiTGl2ZSIsImN4c0lzcyI6Imh0dHBzOi8vY3hzYXV0aHNlcnZlci1zeXN0ZW0uZGV2YXBwLnBhYXMuZmVkZXguY29tL3Rva2VuL29hdXRoMiJ9LCJwZXJzb25hVHlwZSI6IkVtcGxveWVlIiwiY29uc3VtZXJJZGVudGl0eSI6eyJpZGVudGl0eSI6IjM3NDYwMzUiLCJyYXdJZGVudGl0eSI6IjM3NDYwMzUiLCJsb2dnZWRJbiI6ZmFsc2V9fSwiZXhwIjoxNjY4Nzg1MDc5LCJqdGkiOiJiOGU0OTU4Mi03ODBhLTQ2NDgtYjI1Yy00MGRkN2RhZmVkMGIifQ.IWK_gycY2G9vmY5DqeUtKuBbAOL4H6_HUW7nkJ2wa6htt__FKDovhj6iEeJ_nla9LFQx2kJG_9Y70fn8Y0ebo5TSFI0tKBqYJF3YopW08Z8YKKDQGxtCzsw3_z43FYrf-FJ5EVFsW1AZm0Z013Y_zn7YM9W6k-TtMTF2OkQ8SiwdwG226kNdHkyDKZ2VR77ft795WZFz7tFLfckwDurcUY7dslLrta4YYXqjFakCpFWWyRY2rHWvpjT_xeMsnYyo1zoO3IWTbg1dy-cjX-A6s02d_OZI_jYDz_faLxnIj29rHdnGEwVt07ZmKPM9NypWsug3hi9OYbiECzDIFBgcxZf8KOvMEwt0rHZWHW3OR4iGEZpPmdAXiv_Li8bmhM1qWI9hZAiPXq-jKTw5ieuIRpfdujSmXGiwnZKmA1WCRZ09nP9rWsUvgPf9PJlCbFo84_lHcyzcKss8lUZHBhINBPeyferV347GoplvLGhtyUpVbJc40oKDDDqgKXWVP5GPvC5IqgNbwTx83NeWSOMXlig69k2C9mdELNwhrAN1lSRhbbKNf0oydKE6uRcey9_U3Rb-gfW5aB0RmvsmIOEWcG8kKvhflxj-m3Sb4qZaTCqZmwSEfYj8a5GesS3t54v7XHkNcOXDZg4D5_710uVqWx2KbqKksyL5RlJMPePhTIs"
+                        }
+                    },
+                    {
+                        "in": "header",
+                        "name": "x-customer-transaction-id",
+                        "description": "This element allows you to assign a unique identifier to your transaction. This element is also returned in the reply and helps you match the request to the reply.",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "example": "624deea6-b709-470c-8c39-4b5511281492"
+                        }
+                    },
+                    {
+                        "in": "header",
+                        "name": "content-type",
+                        "description": "This is used to indicate the media type of the resource. The media type is a string sent along with the file indicating format of the file.",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "example": "application/json"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/IssuePinInputVO"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PinGenerationOutputVO"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponseVO_3"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponseVO_3"
+                                },
+                                "example": {
+                                    "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
+                                    "customerTransactionId": "0e671149-016f-1000-941f-ef4dbabadd2e",
+                                    "errors": [
+                                        {
+                                            "code": "LOGIN.REAUTHENTICATE.ERROR",
+                                            "message": "Your session is expired. Please enter your user ID and password to log in again."
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Forbidden",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponseVO_3"
+                                },
+                                "example": {
+                                    "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
+                                    "customerTransactionId": "0e671149-016f-1000-941f-ef4dbabadd2e",
+                                    "errors": [
+                                        {
+                                            "code": "FORBIDDEN.ERROR",
+                                            "message": "We could not authorize your credentials. Please check your permissions and try again."
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponseVO_3"
+                                },
+                                "example": {
+                                    "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
+                                    "customerTransactionId": "0e671149-016f-1000-941f-ef4dbabadd2e",
+                                    "errors": [
+                                        {
+                                            "code": "NOT.FOUND.ERROR",
+                                            "message": "The resource you requested is no longer available. Please modify your request and try again."
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Failure",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponseVO_3"
+                                },
+                                "example": {
+                                    "transactionId": "624deea6-b709-470c-8c39-4b5511281492",
+                                    "customerTransactionId": "0e671149-016f-1000-941f-ef4dbabadd2e",
+                                    "errors": [
+                                        {
+                                            "code": "INTERNAL.SERVER.ERROR",
+                                            "message": "We encountered an unexpected error and are working to resolve the issue. We apologize for any inconvenience. Please check back at a later time."
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                },
+                "x-code-samples": [
+                    {
+                        "lang": "C#",
+                        "source": "var client = new RestClient(\"https://apis-sandbox.fedex.com/registration/v2/customerkeys/pingeneration\");\nvar request = new RestRequest(Method.POST);\nrequest.AddHeader(\"Authorization\", \"Bearer \");\nrequest.AddHeader(\"X-locale\", \"en_US\");\nrequest.AddHeader(\"Content-Type\", \"application/json\");\n// 'input' refers to JSON Payload\nrequest.AddParameter(\"application/x-www-form-urlencoded\", input, ParameterType.RequestBody);\nIRestResponse response = client.Execute(request);\n\n\n\n\n"
+                    },
+                    {
+                        "lang": "JAVA",
+                        "source": "OkHttpClient client = new OkHttpClient();\n\nMediaType mediaType = MediaType.parse(\"application/json\");\n// 'input' refers to JSON Payload\nRequestBody body = RequestBody.create(mediaType, input);\nRequest request = new Request.Builder()\n    .url(\"https://apis-sandbox.fedex.com/registration/v2/customerkeys/pingeneration\")\n    .post(body)\n    .addHeader(\"Content-Type\", \"application/json\")\n    .addHeader(\"X-locale\", \"en_US\")\n    .addHeader(\"Authorization\", \"Bearer \")\n    .build();\n            \nResponse response = client.newCall(request).execute();"
+                    },
+                    {
+                        "lang": "JAVASCRIPT",
+                        "source": "// 'input' refers to JSON Payload\nvar data = JSON.stringify(input);\n  \n  var xhr = new XMLHttpRequest();\n  xhr.withCredentials = true;\n  \n  xhr.addEventListener(\"readystatechange\", function () {\n    if (this.readyState === 4) {\n      console.log(this.responseText);\n    }\n  });\n  \n  xhr.open(\"POST\", \"https://apis-sandbox.fedex.com/registration/v2/customerkeys/pingeneration\");\n  xhr.setRequestHeader(\"Content-Type\", \"application/json\");\n  xhr.setRequestHeader(\"X-locale\", \"en_US\");\n  xhr.setRequestHeader(\"Authorization\", \"Bearer \");\n  \n  xhr.send(data);"
+                    },
+                    {
+                        "lang": "PHP",
+                        "source": "<?php\n\n$request = new HttpRequest();\n$request->setUrl('https://apis-sandbox.fedex.com/registration/v2/customerkeys/pingeneration');\n$request->setMethod(HTTP_METH_POST);\n\n$request->setHeaders(array(\n  'Authorization' => 'Bearer ',\n  'X-locale' => 'en_US',\n  'Content-Type' => 'application/json'\n));\n\n$request->setBody(input); // 'input' refers to JSON Payload\n\ntry {\n  $response = $request->send();\n\n  echo $response->getBody();\n} catch (HttpException $ex) {\n  echo $ex;\n}"
+                    },
+                    {
+                        "lang": "PYTHON",
+                        "source": "import requests\n\nurl = \"https://apis-sandbox.fedex.com/registration/v2/customerkeys/pingeneration\"\n\npayload = input # 'input' refers to JSON Payload\nheaders = {\n    'Content-Type': \"application/json\",\n    'X-locale': \"en_US\",\n    'Authorization': \"Bearer \"\n    }\n\nresponse = requests.post(url, data=payload, headers=headers)\n\nprint(response.text)"
+                    },
+                    {
+                        "lang": "RUST",
+                        "source": "extern crate reqwest;\n\nuse std::io::Read;\n\nfn construct_headers() -> HeaderMap {\n    let mut headers = HeaderMap::new();\n    headers.insert(\"Content-Type\", \"application/json\");\n    headers.insert(\"X-locale\", \"en_US\");\n    headers.insert(\"Authorization\", \"Bearer \");\n    headers\n}\n\nfn run() -> Result<()> {\n    let client = reqwest::Client::new();\n    let mut res = client.post(\"https://apis-sandbox.fedex.com/registration/v2/customerkeys/pingeneration\")\n        .body(input) // 'input' refers to JSON Payload\n        .headers(construct_headers())\n        .send()?;\n    let mut body = String::new();\n    res.read_to_string(&mut body)?;\n\n    println!(\"Status: {}\", res.status());\n    println!(\"Headers:\\n{:#?}\", res.headers());\n    println!(\"Body:\\n{}\", body);\n\n    Ok(())\n}"
+                    },
+                    {
+                        "lang": "SWIFT",
+                        "source": "import Foundation\n\nlet headers = [\n  \"Content-Type\": \"application/json\",\n  \"X-locale\": \"en_US\",\n  \"Authorization\": \"Bearer \"\n]\nlet parameters = [\n  input // 'input' refers to JSON Payload\n] as [String : Any]\n\nlet postData = JSONSerialization.data(withJSONObject: parameters, options: [])\n\nlet request = NSMutableURLRequest(url: NSURL(string: \"https://apis-sandbox.fedex.com/registration/v2/customerkeys/pingeneration\")! as URL,\n                                        cachePolicy: .useProtocolCachePolicy,\n                                    timeoutInterval: 10.0)\nrequest.httpMethod = \"POST\"\nrequest.allHTTPHeaderFields = headers\nrequest.httpBody = postData as Data\n\nlet session = URLSession.shared\nlet dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in\n  if (error != nil) {\n    print(error)\n  } else {\n    let httpResponse = response as? HTTPURLResponse\n    print(httpResponse)\n  }\n})\n\ndataTask.resume()"
+                    }
+                ],
+                "tags": [
+                    "AccountRegistrationV1"
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "BaseProcessOutputVO": {
+                "type": "object",
+                "properties": {
+                    "mfaOptions": {
+                        "$ref": "#/components/schemas/MFAOptions"
+                    },
+                    "child_Key": {
+                        "type": "string",
+                        "description": "Child Key is a JSON Web Token provided for each of your customers. You must use the Child Key along with the Client Key, Client Secret and Customer Secret to get oAuth token, which should be used as credentials with each API transaction.",
+                        "example": "e366a577-3708-47e5-9af8-98004a01c134"
+                    },
+                    "child_secret": {
+                        "type": "string",
+                        "description": "Child secret, also referred to as <i>Customer Secret</i>, is provided for each of your customers. You must use the Customer Secret along with the Client Key, Client Secret and Child Key to get the oAuth token, which should be used as credentials with each API transaction.",
+                        "example": "*******"
+                    }
+                },
+                "description": "This is the response object providing Customer Key and secret key as a output."
+            },
+            "Parameter": {
+                "type": "object",
+                "properties": {
+                    "value": {
+                        "type": "string",
+                        "description": "This is a placeholder for parameter value."
+                    },
+                    "key": {
+                        "type": "string",
+                        "description": "This is a placeholder for parameter key."
+                    }
+                },
+                "description": "This object provides additional paramter details resulted in the alert."
+            },
+            "CustomerKeyInputVO": {
+                "required": [
+                    "accountNumber",
+                    "address",
+                    "customerName"
+                ],
+                "type": "object",
+                "properties": {
+                    "address": {
+                        "$ref": "#/components/schemas/AddressVO"
+                    },
+                    "accountNumber": {
+                        "$ref": "#/components/schemas/AccountNumber"
+                    },
+                    "customerName": {
+                        "type": "string",
+                        "description": "Name of the customer or company requesting authentication details. It accepts upto 50 characters of customerName.",
+                        "example": "George"
+                    }
+                },
+                "description": "This is a request object for requesting customer key and secret key."
+            },
+            "AddressVO": {
+                "required": [
+                    "city",
+                    "countryCode",
+                    "postalCode",
+                    "residential",
+                    "stateOrProvinceCode",
+                    "streetLines"
+                ],
+                "type": "object",
+                "properties": {
+                    "residential": {
+                        "type": "boolean",
+                        "description": "Indicates whether this address is residential (as opposed to commercial).",
+                        "example": true
+                    },
+                    "city": {
+                        "type": "string",
+                        "description": "Specify name of city or town.",
+                        "example": "COLLIERVILLE"
+                    },
+                    "countryCode": {
+                        "type": "string",
+                        "description": "The two-letter code used to identify a country. Max length is 2.<br><a onclick='loadDocReference(\"countrycodes\")'>Click here to see Country Codes</a>",
+                        "example": "US"
+                    },
+                    "postalCode": {
+                        "type": "string",
+                        "description": "Use this element to input postal code. Postal code is mandatory for postal-aware countries. The Max length is 10.<br><a onclick='loadDocReference(\"postalawarecountries\")'>Click here to see Postal Codes</a>",
+                        "example": "38017"
+                    },
+                    "streetLines": {
+                        "type": "array",
+                        "description": "Provide street address which is a combination of number, street name, etc. At least one line is required. For a valid physical address, empty lines should not be included. Max Length is 35.",
+                        "example": [
+                            "20 FED EX PKWY"
+                        ],
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "stateOrProvinceCode": {
+                        "type": "string",
+                        "description": "Provide 2 letter state or province code. Not used for Ground/SmartPost. Max length is 2.<br><a onclick='loadDocReference(\"canadaprovincecodes\")'>Click here to see State or Province Codes</a>",
+                        "example": "TN"
+                    }
+                },
+                "description": "Indicates the customer's address you are attempting to get the Customer Key and Customer Secret for. Note that address information needs to match the shipping or billing address as loaded in FedEx systems. Contact FedEx support team for any address-related issues or questions."
+            },
+            "AccountNumber": {
+                "required": [
+                    "key",
+                    "value"
+                ],
+                "type": "object",
+                "properties": {
+                    "key": {
+                        "type": "string",
+                        "description": "Indicates key to decode account number set in the value field.",
+                        "example": ""
+                    },
+                    "value": {
+                        "type": "string",
+                        "description": "Indicates Account Number in encoded form.",
+                        "example": "451134221"
+                    }
+                },
+                "description": "This field indicates Account Number object with encoded key and value."
+            },
+            "CustomerKeyOutputVO": {
+                "required": [
+                    "apiKey",
+                    "child_Key",
+                    "child_secret"
+                ],
+                "type": "object",
+                "properties": {
+                    "child_Key": {
+                        "type": "string",
+                        "description": "Child Key is a JSON Web Token provided for each of your customers. You must use the Child Key along with the Client Key, Client Secret and Customer Secret to get oAuth token, which should be used as credentials with each API transaction..",
+                        "example": "e366a577-3708-47e5-9af8-98004a01c134"
+                    },
+                    "child_secret": {
+                        "type": "string",
+                        "description": "Child secret, also referred to as Customer Secret, is provided for each of your customers. You must use the Customer Secret along with the Client Key, Client Secret and Child Key to get the oAuth token, which should be used as credentials with each API transaction.",
+                        "example": "e366a577-3708-47e5-9af8-98004a01c135"
+                    }
+                },
+                "description": "This is the response object providing Child Key and secret key as a output."
+            },
+            "ErrorParameter": {
+                "type": "object",
+                "properties": {
+                    "value": {
+                        "type": "string",
+                        "description": "Identifies the error option to be applied."
+                    },
+                    "key": {
+                        "type": "string",
+                        "description": "Indicates the value associated with the key."
+                    }
+                },
+                "description": "List of parameters which indicates the properties of the alert message."
+            },
+            "ValidatePinInputVO": {
+                "required": [
+                    "secureCodePin"
+                ],
+                "type": "object",
+                "properties": {
+                    "locale": {
+                        "type": "string",
+                        "description": "Indicates the user locale.<br><a onclick='loadDocReference(\"locales\")'>Click here to see Locales</a>",
+                        "example": "en_US"
+                    },
+                    "secureCodePin": {
+                        "type": "string",
+                        "description": "Indicates Pin which user want to validate as part of secure code pin validation.",
+                        "example": "234567"
+                    }
+                },
+                "description": "This field indicates INPUT model"
+            },
+            "ValidateInvoiceInputVO": {
+                "required": [
+                    "invoiceDetail"
+                ],
+                "type": "object",
+                "properties": {
+                    "invoiceDetail": {
+                        "$ref": "#/components/schemas/InvoiceDetails"
+                    },
+                    "locale": {
+                        "type": "string",
+                        "description": "Indicates locale and will be used for locale if x-locale is missed from header.<br><a onclick='loadDocReference(\"locales\")'>Click here to see Locales</a>",
+                        "example": "en_US"
+                    }
+                },
+                "description": "This field indicates Invoice Information ( Invoice number, Date, currency and amount) and locale."
+            },
+            "PinGenerationOutputVO": {
+                "required": [
+                    "output",
+                    "transactionId"
+                ],
+                "type": "object",
+                "properties": {
+                    "transactionId": {
+                        "type": "string",
+                        "description": "This field contains unique transactionId for this API transaction",
+                        "example": "2edc3fbc-4b39-4790-97eb-74c8849fb432"
+                    },
+                    "customerTransactionId": {
+                        "type": "string",
+                        "description": "It is the customerTransactionId sent as part of the request header,by the clients calling this endpoint.",
+                        "example": "0e671149-016f-1000-941f-ef4dbabadd2e"
+                    },
+                    "output": {
+                        "$ref": "#/components/schemas/PinGenerationOutputVO_output"
+                    }
+                }
+            },
+            "IssuePinInputVO": {
+                "required": [
+                    "option"
+                ],
+                "type": "object",
+                "properties": {
+                    "locale": {
+                        "type": "string",
+                        "description": "Indicates the user locale.<br><a onclick='loadDocReference(\"locales\")'>click here to see locales</a>",
+                        "example": "en_US"
+                    },
+                    "option": {
+                        "type": "string",
+                        "description": "Indicates option selected by the user to send generated pin.",
+                        "example": "SMS",
+                        "enum": [
+                            "SMS",
+                            "CALL",
+                            "EMAIL"
+                        ]
+                    }
+                },
+                "description": "This field indicates INPUT model"
+            },
+            "MFAOptions": {
+                "type": "array",
+                "description": "It provide options to generate the secure pin or validate invoice ",
+                "items": {
+                    "$ref": "#/components/schemas/MFAOptions_inner",
+                    "type": "string"
+                }
+            },
+            "Options": {
+                "type": "object",
+                "properties": {
+                    "invoice": {
+                        "type": "string",
+                        "example": "INVOICE"
+                    },
+                    "secureCode": {
+                        "type": "array",
+                        "description": "Indicates option selected by the user to send generated pin.",
+                        "example": [
+                            "SMS",
+                            "CALL",
+                            "EMAIL"
+                        ],
+                        "items": {
+                            "type": "string",
+                            "enum": [
+                                "SMS",
+                                "CALL",
+                                "EMAIL"
+                            ]
+                        }
+                    }
+                }
+            },
+            "InvoiceDetails": {
+                "required": [
+                    "amount",
+                    "currency",
+                    "date",
+                    "number"
+                ],
+                "type": "object",
+                "properties": {
+                    "number": {
+                        "type": "integer",
+                        "description": "Used to  validate invoice details .It accepts no decimal.",
+                        "example": 293235673
+                    },
+                    "currency": {
+                        "type": "string",
+                        "description": "Used to validate Invoice details whether invoice is related to user or not.It accepts upto 4 digits currency.<br><a onclick='loadDocReference(\"currencycodes\")'>Click here to see Currency Codes</a>",
+                        "example": "USD"
+                    },
+                    "date": {
+                        "type": "string",
+                        "description": "Used to validate Invoice details whether invoice is related to user or not. Date format is YYYY-MM-DD.",
+                        "example": "2022-10-09"
+                    },
+                    "amount": {
+                        "type": "number",
+                        "description": "Used to validate Invoice details whether invoice is related to user or not. It accepts upto 2 digit of decimal.",
+                        "example": 2323.22
+                    }
+                },
+                "description": "This field indicates and Object holds Invoice Details."
+            },
+            "PinGenerationOutputVO_output": {
+                "required": [
+                    "status"
+                ],
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "description": "Send the confirmation that pin has sent.",
+                        "example": "sent secured Pin",
+                        "type": "string"
+                    }
+                }
+            },
+            "MFAOptions_inner": {
+                "properties": {
+                    "accountAuthToken": {
+                        "type": "string",
+                        "example": "eyJhbGciOiJIUzI1NiJ9.eyJUeXBlT2ZKV1QiOiJBZGRyZXNzVmFsaWRhdGVkIiwiQWNjb3VudE51bWJlciI6IjE3Mzk5NjE0NCIsIkRhdGVUaW1lIjoxODAwMDAwLCJleHAiOjE2NjcyMTk3MDF9.N6IscMuoewdxKvEIZh8023GFM_mRgoIU2kYQ0STxF7c"
+                    },
+                    "mfaRequired": {
+                        "type": "boolean",
+                        "example": true
+                    },
+                    "email": {
+                        "type": "string",
+                        "example": "PU***@S***.COM"
+                    },
+                    "phoneNumber": {
+                        "type": "string",
+                        "example": "***-***-4222"
+                    },
+                    "options": {
+                        "$ref": "#/components/schemas/Options"
+                    }
+                },
+                "example": "{\n[ {\n\"accountAuthToken\": \"eyJhbGciOiJIUzI1NiJ9.eyJUeXBlT2ZKV1QiOiJBZGRyZXNzVmFsaWRhdGVkIiwiQWNjb3VudE51bWJlciI6IjE3Mzk5NjE0NCIsIkRhdGVUaW1lIjoxODAwMDAwLCJleHAiOjE2NjcyMTk3MDF9.N6IscMuoewdxKvEIZh8023GFM_mRgoIU2kYQ0STxF7c\", \"mfaRequired\": true, \"email\": \"PU***@S***.COM\", \"phoneNumber\": \"***-***-4222\", \"options\": { \"invoice\": \"INVOICE\", \"secureCode\": [ \"SMS\" ] } } ] }",
+                "type": "object"
+            },
+            "IrcpResponseVO": {
+                "type": "object",
+                "properties": {
+                    "transactionId": {
+                        "type": "string",
+                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
+                        "example": "624deea6-b709-470c-8c39-4b5511281492"
+                    },
+                    "output": {
+                        "$ref": "#/components/schemas/BaseProcessOutputVO"
+                    }
+                },
+                "description": "This is a wrapper class for outputVO"
+            },
+            "IrcpResponseVO_2": {
+                "type": "object",
+                "properties": {
+                    "transactionId": {
+                        "type": "string",
+                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
+                        "example": "624deea6-b709-470c-8c39-4b5511281492"
+                    },
+                    "output": {
+                        "$ref": "#/components/schemas/CustomerKeyOutputVO"
+                    }
+                },
+                "description": "This is a wrapper class for outputVO"
+            },
+            "ErrorResponseVO": {
+                "type": "object",
+                "properties": {
+                    "transactionId": {
+                        "type": "string",
+                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
+                        "example": "624deea6-b709-470c-8c39-4b5511281492"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CXSError"
+                        }
+                    }
+                }
+            },
+            "ErrorResponseVO_2": {
+                "type": "object",
+                "properties": {
+                    "transactionId": {
+                        "type": "string",
+                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: bc95c0e4-b33e-42a2-80d2-334282b5d37a",
+                        "example": "bc95c0e4-b33e-42a2-80d2-334282b5d37a"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CXSError_2"
+                        }
+                    }
+                },
+                "description": "Error information"
+            },
+            "ErrorResponseVO_3": {
+                "type": "object",
+                "properties": {
+                    "transactionId": {
+                        "type": "string",
+                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: bc95c0e4-b33e-42a2-80d2-334282b5d37a",
+                        "example": "bc95c0e4-b33e-42a2-80d2-334282b5d37a"
+                    },
+                    "customerTransactionId": {
+                        "type": "string",
+                        "description": "It is the customerTransactionId sent as part of the request header,by the clients calling this endpoint.",
+                        "example": "0e671149-016f-1000-941f-ef4dbabadd2e"
+                    },
+                    "errors": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CXSError_2"
+                        }
+                    }
+                },
+                "description": "Error information"
+            },
+            "CXSError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "description": "Indicates the error code.<br>Example: INTERNAL.SERVER.ERROR"
+                    },
+                    "parameterList": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Parameter"
+                        }
+                    },
+                    "message": {
+                        "description": "Indicates the description of API error alertmessage.<br>Example: We\n  encountered an unexpected error and are working to resolve the\n  issue. We apologize for any inconvenience. Please check back at a\n  later time.",
+                        "type": "string"
+                    }
+                },
+                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
+            },
+            "CXSError_2": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "description": "Indicates the error code.<br>Example: LOGIN.REAUTHENTICATE.ERROR,UNAUTHORIZED.USAGE,NOT.FOUND.ERROR,INTERNAL.SERVER.ERROR"
+                    },
+                    "parameterList": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/ErrorParameter"
+                        }
+                    },
+                    "message": {
+                        "type": "string",
+                        "description": "Indicates the description of API error alert message.<br>Example: Option is missing."
+                    }
+                },
+                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
+            }
+        }
+    },
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Account Registration Resource",
+        "version": "API"
+    }
+}
