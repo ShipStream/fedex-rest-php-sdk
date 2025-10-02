@@ -36,6 +36,14 @@
                 "value": {
                     "type": "string"
                 }
+            },
+            {
+                "comment": "Set type of InvoiceDetails.amount to a string as it requires trailing zeros",
+                "action": "merge",
+                "path": "components.schemas.InvoiceDetails.properties.amount",
+                "value": {
+                    "type": "string"
+                }
             }
         ]
     },

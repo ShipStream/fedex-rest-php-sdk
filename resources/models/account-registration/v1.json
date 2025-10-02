@@ -1107,7 +1107,7 @@
                         "example": "2022-10-09"
                     },
                     "amount": {
-                        "type": "number",
+                        "type": "string",
                         "description": "Used to validate Invoice details whether invoice is related to user or not. It accepts upto 2 digit of decimal.",
                         "example": 2323.22
                     }
