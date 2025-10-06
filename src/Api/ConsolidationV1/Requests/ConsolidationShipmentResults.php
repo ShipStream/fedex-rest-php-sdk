@@ -53,7 +53,7 @@ class ConsolidationShipmentResults extends Request implements HasBody
         $status = $response->status();
         $responseCls = match ($status) {
             200 => ConsolidationShipmentResultsResponse::class,
-            400 => ErrorResponseVo::class,
+            400, 429 => ErrorResponseVo::class,
             401 => ErrorResponseVo2::class,
             403 => ErrorResponseVo3::class,
             404 => ErrorResponseVo4::class,

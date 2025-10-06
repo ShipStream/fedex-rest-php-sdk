@@ -50,7 +50,7 @@ class DeleteConsolidationShipments extends Request implements HasBody
         $status = $response->status();
         $responseCls = match ($status) {
             200 => ShpcResponseVo::class,
-            400, 401, 403, 500 => ErrorResponseVo6::class,
+            400, 401, 403, 500, 429 => ErrorResponseVo6::class,
             404 => ErrorResponseVo::class,
             default => throw new Exception("Unhandled response status: {$status}")
         };

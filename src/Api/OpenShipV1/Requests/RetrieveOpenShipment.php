@@ -49,7 +49,7 @@ class RetrieveOpenShipment extends Request implements HasBody
         $status = $response->status();
         $responseCls = match ($status) {
             200 => ShpcResponseVoRetrieveOpenShipment::class,
-            400, 500 => ErrorResponseVo::class,
+            400, 500, 429 => ErrorResponseVo::class,
             401, 403, 404 => ErrorResponseVo2::class,
             default => throw new Exception("Unhandled response status: {$status}")
         };

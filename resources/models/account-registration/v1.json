@@ -142,6 +142,16 @@
                                 }
                             }
                         }
+                    },
+                    "429": {
+                        "description": "Too many requests.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponseVO"
+                                }
+                            }
+                        }
                     }
                 },
                 "parameters": [
@@ -365,6 +375,16 @@
                                 }
                             }
                         }
+                    },
+                    "429": {
+                        "description": "Too many requests.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
+                                }
+                            }
+                        }
                     }
                 },
                 "x-code-samples": [
@@ -543,6 +563,16 @@
                                             "message": "We encountered an unexpected error and are working to resolve the issue. We apologize for any inconvenience. Please check back at a later time."
                                         }
                                     ]
+                                }
+                            }
+                        }
+                    },
+                    "429": {
+                        "description": "Too many requests.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponseVO_3"
                                 }
                             }
                         }
@@ -764,6 +794,16 @@
                                             "message": "We encountered an unexpected error and are working to resolve the issue. We apologize for any inconvenience. Please check back at a later time."
                                         }
                                     ]
+                                }
+                            }
+                        }
+                    },
+                    "429": {
+                        "description": "Too many requests.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponseVO_3"
                                 }
                             }
                         }

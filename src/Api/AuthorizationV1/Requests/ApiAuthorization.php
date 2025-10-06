@@ -50,7 +50,7 @@ class ApiAuthorization extends Request implements HasBody
         $status = $response->status();
         $responseCls = match ($status) {
             200 => Response::class,
-            401, 500, 503 => ErrorResponseVo::class,
+            401, 500, 503, 429 => ErrorResponseVo::class,
             default => throw new Exception("Unhandled response status: {$status}")
         };
 

@@ -50,7 +50,7 @@ class RetrieveServicesAndTransitTimes extends Request implements HasBody
         $status = $response->status();
         $responseCls = match ($status) {
             200 => TransitTimeOutputVo::class,
-            400, 401, 404 => ErrorResponseVo::class,
+            400, 401, 404, 429 => ErrorResponseVo::class,
             403, 500 => ErrorResponseVo2::class,
             default => throw new Exception("Unhandled response status: {$status}")
         };

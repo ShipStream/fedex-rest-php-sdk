@@ -54,7 +54,7 @@ class ValidatePin extends Request implements HasBody
         $status = $response->status();
         $responseCls = match ($status) {
             200 => IrcpResponseVo2::class,
-            400, 404, 500 => ErrorResponseVo2::class,
+            400, 404, 500, 429 => ErrorResponseVo2::class,
             default => throw new Exception("Unhandled response status: {$status}")
         };
 

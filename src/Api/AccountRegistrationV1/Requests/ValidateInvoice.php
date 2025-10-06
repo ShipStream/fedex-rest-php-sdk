@@ -55,7 +55,7 @@ class ValidateInvoice extends Request implements HasBody
         $status = $response->status();
         $responseCls = match ($status) {
             200 => IrcpResponseVo2::class,
-            400, 404, 500 => ErrorResponseVo3::class,
+            400, 404, 500, 429 => ErrorResponseVo3::class,
             default => throw new Exception("Unhandled response status: {$status}")
         };
 

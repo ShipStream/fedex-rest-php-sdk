@@ -26,8 +26,7 @@ class Refactorer
     public function __construct(
         private SchemaVersion $schemaVersion,
         private array $schemas
-    ) {
-    }
+    ) {}
 
     public function combine(): void
     {
@@ -105,6 +104,16 @@ class Refactorer
                     $mediaTypeSchema->{'$ref'} = '#/components/schemas/ErrorResponseVO';
                     $mediaType->schema = $mediaTypeSchema;
                     $operation->responses->{'404'}->content->{'application/json'} = $mediaType;
+                }
+
+                // All FedEx endpoints are missing responses schemas for 429 responses
+                if (! isset($operation->responses->{'429'})) {
+                    $operation->responses->{'429'} = new stdClass;
+                    $operation->responses->{'429'}->description = 'Too many requests.';
+                    $operation->responses->{'429'}->content = new stdClass;
+                    $operation->responses->{'429'}->content->{'application/json'} = new stdClass;
+                    $operation->responses->{'429'}->content->{'application/json'}->schema = new stdClass;
+                    $operation->responses->{'429'}->content->{'application/json'}->schema->{'$ref'} = $operation->responses->{'400'}->content->{'application/json'}->schema->{'$ref'} ?? '#/components/schemas/ErrorResponseVO';
                 }
 
                 if (isset($operation->requestBody)) {
