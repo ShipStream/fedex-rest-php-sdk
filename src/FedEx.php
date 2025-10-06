@@ -32,6 +32,7 @@ use ShipStream\FedEx\Api\TradeDocumentsUploadV1;
 use ShipStream\FedEx\Auth\MemoryCache;
 use ShipStream\FedEx\Auth\NullAuthenticator;
 use ShipStream\FedEx\Contracts\TokenCache;
+use ShipStream\FedEx\Contracts\TokenLock;
 use ShipStream\FedEx\Enums\Endpoint;
 use ShipStream\FedEx\Enums\GrantType;
 
@@ -51,6 +52,7 @@ class FedEx extends Connector
         public ?string $childSecret = null,
         public ?bool $proprietaryChild = false,
         public ?TokenCache $tokenCache = new MemoryCache(),
+        public ?TokenLock $tokenLock = null,
         public ?Closure $transactionIdGenerator = null,
         public ?string $locale = null,
     ) {
@@ -85,11 +87,20 @@ class FedEx extends Connector
         ) {
             $cacheKey = $this->tokenCacheKey();
             $authenticator = $this->tokenCache::get($cacheKey);
-            if ( ! $authenticator) {
-                $authenticator = $this->getAccessToken();
-                $this->tokenCache::set($cacheKey, $authenticator);
+            if (! $authenticator) {
+                try {
+                    $this->tokenLock?->lock($cacheKey);
+                    // Re-check cache after acquiring lock in case another process already fetched the token
+                    $authenticator = $this->tokenCache::get($cacheKey);
+                    if (! $authenticator) {
+                        $authenticator = $this->getAccessToken();
+                        $this->tokenCache::set($cacheKey, $authenticator);
+                    }
+                } finally {
+                    $this->tokenLock?->unlock($cacheKey);
+                }
+                $this->authenticate($authenticator);
             }
-            $this->authenticate($authenticator);
         }
 
         if ($this->transactionIdGenerator) {
