@@ -78,6 +78,20 @@ class FedEx extends Connector
 
     public function boot(PendingRequest $pendingRequest): void
     {
+        // Check auth token before each request
+        $request = $pendingRequest->getRequest();
+        if (! $request instanceof AuthorizationV1\Requests\ApiAuthorization
+            && ! $this->getAuthenticator()?->hasNotExpired()
+        ) {
+            $cacheKey = $this->tokenCacheKey();
+            $authenticator = $this->tokenCache::get($cacheKey);
+            if ( ! $authenticator) {
+                $authenticator = $this->getAccessToken();
+                $this->tokenCache::set($cacheKey, $authenticator);
+            }
+            $this->authenticate($authenticator);
+        }
+
         if ($this->transactionIdGenerator) {
             $transactionId = ($this->transactionIdGenerator)($pendingRequest);
             if (! is_string($transactionId)) {
