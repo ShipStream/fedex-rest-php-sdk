@@ -14,6 +14,10 @@ use Exception;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
 use Saloon\Http\Response as Response1;
+use Saloon\RateLimitPlugin\Contracts\RateLimitStore;
+use Saloon\RateLimitPlugin\Limit;
+use Saloon\RateLimitPlugin\Stores\MemoryStore;
+use Saloon\RateLimitPlugin\Traits\HasRateLimits;
 use Saloon\Traits\Body\HasFormBody;
 use ShipStream\FedEx\Api\AuthorizationV1\Dto\FullSchema;
 use ShipStream\FedEx\Api\AuthorizationV1\Responses\ErrorResponseVo;
@@ -30,6 +34,7 @@ use ShipStream\FedEx\Request;
 class ApiAuthorization extends Request implements HasBody
 {
     use HasFormBody;
+    use HasRateLimits;
 
     protected Method $method = Method::POST;
 
@@ -38,7 +43,10 @@ class ApiAuthorization extends Request implements HasBody
      */
     public function __construct(
         public FullSchema $fullSchema,
-    ) {}
+        ?RateLimitStore $rateLimitStore = null,
+    ) {
+        $this->rateLimitStore = $rateLimitStore;
+    }
 
     public function resolveEndpoint(): string
     {
@@ -60,5 +68,18 @@ class ApiAuthorization extends Request implements HasBody
     public function defaultBody(): array
     {
         return $this->fullSchema->toArray();
+    }
+
+    public function resolveLimits(): array
+    {
+        return [
+            Limit::allow(requests: 14)->everySeconds(5)->name('burst-threshold'),
+            Limit::allow(requests: 119)->everySeconds(120)->name('average-threshold'),
+        ];
+    }
+
+    public function resolveRateLimitStore(): RateLimitStore
+    {
+        return new MemoryStore;
     }
 }

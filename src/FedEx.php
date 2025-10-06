@@ -10,6 +10,8 @@ use RuntimeException;
 use Saloon\Http\Connector;
 use Saloon\Http\PendingRequest;
 use Saloon\Http\Request;
+use Saloon\RateLimitPlugin\Contracts\RateLimitStore;
+use Saloon\RateLimitPlugin\Stores\MemoryStore;
 use Saloon\Traits\OAuth2\ClientCredentialsGrant;
 use Saloon\Traits\Plugins\AlwaysThrowOnErrors;
 use ShipStream\FedEx\Api\AccountRegistrationV1;
@@ -25,8 +27,8 @@ use ShipStream\FedEx\Api\OpenShipV1;
 use ShipStream\FedEx\Api\PickupRequestV1;
 use ShipStream\FedEx\Api\PostalCodeValidationV1;
 use ShipStream\FedEx\Api\RatesAndTransitTimesV1;
-use ShipStream\FedEx\Api\ShipV1;
 use ShipStream\FedEx\Api\ShipDGHazmatV1;
+use ShipStream\FedEx\Api\ShipV1;
 use ShipStream\FedEx\Api\TrackV1;
 use ShipStream\FedEx\Api\TradeDocumentsUploadV1;
 use ShipStream\FedEx\Auth\MemoryCache;
@@ -53,6 +55,7 @@ class FedEx extends Connector
         public ?bool $proprietaryChild = false,
         public ?TokenCache $tokenCache = new MemoryCache(),
         public ?TokenLock $tokenLock = null,
+        public ?RateLimitStore $rateLimitStore = new MemoryStore(),
         public ?Closure $transactionIdGenerator = null,
         public ?string $locale = null,
     ) {
@@ -221,6 +224,6 @@ class FedEx extends Connector
 
         $args['grantType'] = $args['grantType']->value;
 
-        return new ApiAuthorization(new FullSchema(...$args));
+        return new ApiAuthorization(new FullSchema(...$args), $this->rateLimitStore);
     }
 }

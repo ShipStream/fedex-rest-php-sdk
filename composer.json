@@ -9,7 +9,8 @@
     ],
     "license": "Apache-2.0",
     "require": {
-        "saloonphp/saloon": "^3.8"
+        "saloonphp/saloon": "^3.8",
+        "saloonphp/rate-limit-plugin": "^2.1"
     },
     "require-dev": {
         "highsidelabs/saloon-sdk-generator": "^2.1",

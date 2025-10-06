@@ -10,6 +10,10 @@ use Crescat\SaloonSdkGenerator\Helpers\NameHelper;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use Nette\PhpGenerator\PhpFile;
+use Saloon\RateLimitPlugin\Contracts\RateLimitStore;
+use Saloon\RateLimitPlugin\Limit;
+use Saloon\RateLimitPlugin\Stores\MemoryStore;
+use Saloon\RateLimitPlugin\Traits\HasRateLimits;
 
 class RequestGenerator extends SDKRequestGenerator
 {
@@ -38,6 +42,37 @@ class RequestGenerator extends SDKRequestGenerator
                     )
                     ->pipe(fn (Collection $segments) => sprintf('return "/%s/";', $segments->implode('/')))
             );
+        }
+
+        // Add rate limit to authorization API to avoid triggering a 10min lockout
+        if ($endpoint->name === 'API Authorization') {
+            $namespaces = $classFile->getNamespaces();
+            $namespace = reset($namespaces);
+            $namespace->addUse(HasRateLimits::class);
+            $namespace->addUse(Limit::class);
+            $namespace->addUse(RateLimitStore::class);
+            $namespace->addUse(MemoryStore::class);
+            $classes = $classFile->getClasses();
+            $class = reset($classes);
+            $class->addTrait(HasRateLimits::class);
+            $class->addMethod('resolveLimits')
+                ->setPublic()
+                ->setReturnType('array')
+                ->addBody('return [')
+                ->addBody("    Limit::allow(requests: 14)->everySeconds(5)->name('burst-threshold'),")
+                ->addBody("    Limit::allow(requests: 119)->everySeconds(120)->name('average-threshold'),")
+                ->addBody('];');
+            $class->addMethod('resolveRateLimitStore')
+                ->setPublic()
+                ->setReturnType(RateLimitStore::class)
+                ->addBody('return new MemoryStore();');
+
+            $constructor = $class->getMethod('__construct');
+            $constructor->addParameter('rateLimitStore')
+                ->setDefaultValue(null)
+                ->setNullable(true)
+                ->setType(RateLimitStore::class);
+            $constructor->addBody('$this->rateLimitStore = $rateLimitStore;');
         }
 
         return $classFile;
