@@ -65,15 +65,6 @@ class FedEx extends Connector
 
         $this->oauthConfig()->setClientId($clientId);
         $this->oauthConfig()->setClientSecret($clientSecret);
-
-        $cacheKey = $this->tokenCacheKey();
-        $authenticator = $tokenCache::get($cacheKey);
-        if (! $authenticator) {
-            $authenticator = $this->getAccessToken();
-            $tokenCache::set($cacheKey, $authenticator);
-        }
-
-        $this->authenticate($authenticator);
     }
 
     public function resolveBaseUrl(): string
