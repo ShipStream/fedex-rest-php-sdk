@@ -7,6 +7,7 @@ namespace ShipStream\FedEx;
 use Closure;
 use InvalidArgumentException;
 use RuntimeException;
+use Saloon\Contracts\Authenticator;
 use Saloon\Http\Connector;
 use Saloon\Http\PendingRequest;
 use Saloon\Http\Request;
@@ -72,30 +73,31 @@ class FedEx extends Connector
         return $this->endpoint->value;
     }
 
-    public function boot(PendingRequest $pendingRequest): void
+    protected function defaultAuth(): Authenticator
     {
-        // Check auth token before each request
-        $request = $pendingRequest->getRequest();
-        if (! $request instanceof AuthorizationV1\Requests\ApiAuthorization
-            && ! $this->getAuthenticator()?->hasNotExpired()
-        ) {
-            $cacheKey = $this->tokenCacheKey();
-            $authenticator = $this->tokenCache::get($cacheKey);
-            if (! $authenticator) {
-                try {
-                    $this->tokenLock?->lock($cacheKey);
-                    // Re-check cache after acquiring lock in case another process already fetched the token
-                    $authenticator = $this->tokenCache::get($cacheKey);
-                    if (! $authenticator) {
-                        $authenticator = $this->getAccessToken();
-                        $this->tokenCache::set($cacheKey, $authenticator);
-                    }
-                } finally {
-                    $this->tokenLock?->unlock($cacheKey);
+        $cacheKey = $this->tokenCacheKey();
+        $authenticator = $this->tokenCache::get($cacheKey);
+        if (! $authenticator) {
+            try {
+                $this->tokenLock?->lock($cacheKey);
+                // Re-check cache after acquiring lock in case another process already fetched the token
+                $authenticator = $this->tokenCache::get($cacheKey);
+                if (! $authenticator) {
+                    $authenticator = $this->getAccessToken();
+                    $this->tokenCache::set($cacheKey, $authenticator);
                 }
-                $this->authenticate($authenticator);
+            } finally {
+                $this->tokenLock?->unlock($cacheKey);
             }
         }
+
+        return $authenticator;
+    }
+
+    public function boot(PendingRequest $pendingRequest): void
+    {
+        // Clear cached authenticator to force token to be rechecked before the next request
+        $this->authenticator = null;
 
         if ($this->transactionIdGenerator) {
             $transactionId = ($this->transactionIdGenerator)($pendingRequest);
