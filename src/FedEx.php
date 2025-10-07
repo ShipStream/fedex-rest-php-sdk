@@ -203,7 +203,13 @@ class FedEx extends Connector
     {
         $childKeyStr = $this->childKey ? '.'.$this->childKey : '';
 
-        return $this->clientId.$childKeyStr;
+        $key = $this->clientId.$childKeyStr;
+
+        if ($this->endpoint->isSandbox()) {
+            $key .= '.sandbox';
+        }
+
+        return $key;
     }
 
     protected function resolveAccessTokenRequest(): Request
