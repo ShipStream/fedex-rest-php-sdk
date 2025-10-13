@@ -110,6 +110,18 @@ class FedExConnectorTest extends TestCase
         $this->assertNotEquals($accessToken, $newAccessToken);
     }
 
+    public function testEndpointIsOverriddenForAuthorization(): void
+    {
+        $connector = new FedEx(
+            clientId: $this->clientId,
+            clientSecret: $this->clientSecret,
+            endpoint: Endpoint::SANDBOX_DOCUMENTS_UPLOAD, // Incorrect for authorization
+        );
+
+        $authenticator = $connector->getAccessToken();
+        $this->assertInstanceOf(AccessTokenAuthenticator::class, $authenticator);
+    }
+
     public function testGeneratesTransactionIds(): void
     {
         $mockClient = new MockClient([

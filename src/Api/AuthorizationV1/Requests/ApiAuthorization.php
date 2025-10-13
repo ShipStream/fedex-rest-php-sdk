@@ -14,7 +14,9 @@ use Exception;
 use Saloon\Contracts\Authenticator;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
+use Saloon\Helpers\URLHelper;
 use Saloon\Http\Auth\NullAuthenticator;
+use Saloon\Http\PendingRequest;
 use Saloon\Http\Response as Response1;
 use Saloon\RateLimitPlugin\Contracts\RateLimitStore;
 use Saloon\RateLimitPlugin\Limit;
@@ -24,6 +26,7 @@ use Saloon\Traits\Body\HasFormBody;
 use ShipStream\FedEx\Api\AuthorizationV1\Dto\FullSchema;
 use ShipStream\FedEx\Api\AuthorizationV1\Responses\ErrorResponseVo;
 use ShipStream\FedEx\Api\AuthorizationV1\Responses\Response;
+use ShipStream\FedEx\Enums\Endpoint;
 use ShipStream\FedEx\Request;
 
 /**
@@ -48,6 +51,20 @@ class ApiAuthorization extends Request implements HasBody
         ?RateLimitStore $rateLimitStore = null,
     ) {
         $this->rateLimitStore = $rateLimitStore;
+    }
+
+    public function boot(PendingRequest $pendingRequest): void
+    {
+        // Ensure that authorization always uses the correct base url so that connectors with a different base url can still authenticate
+        /** @var Endpoint $endpoint */
+        if ($endpoint = ($pendingRequest->getConnector()->endpoint ?? null)) {
+            $pendingRequest->setUrl(
+                URLHelper::join(
+                    $endpoint->isProduction() ? Endpoint::PROD->value : Endpoint::SANDBOX->value,
+                    $pendingRequest->getRequest()->resolveEndpoint()
+                )
+            );
+        }
     }
 
     public function resolveEndpoint(): string
