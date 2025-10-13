@@ -33,7 +33,6 @@ use ShipStream\FedEx\Api\ShipV1;
 use ShipStream\FedEx\Api\TrackV1;
 use ShipStream\FedEx\Api\TradeDocumentsUploadV1;
 use ShipStream\FedEx\Auth\MemoryCache;
-use ShipStream\FedEx\Auth\NullAuthenticator;
 use ShipStream\FedEx\Contracts\TokenCache;
 use ShipStream\FedEx\Contracts\TokenLock;
 use ShipStream\FedEx\Enums\Endpoint;
@@ -96,9 +95,6 @@ class FedEx extends Connector
 
     public function boot(PendingRequest $pendingRequest): void
     {
-        // Clear cached authenticator to force token to be rechecked before the next request
-        $this->authenticator = null;
-
         if ($this->transactionIdGenerator) {
             $transactionId = ($this->transactionIdGenerator)($pendingRequest);
             if (! is_string($transactionId)) {
@@ -127,8 +123,6 @@ class FedEx extends Connector
 
     public function authorizationV1(): AuthorizationV1\Api
     {
-        $this->authenticate(new NullAuthenticator());
-
         return new AuthorizationV1\Api($this);
     }
 

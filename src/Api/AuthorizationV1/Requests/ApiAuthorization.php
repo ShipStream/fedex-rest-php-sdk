@@ -11,8 +11,10 @@ declare(strict_types=1);
 namespace ShipStream\FedEx\Api\AuthorizationV1\Requests;
 
 use Exception;
+use Saloon\Contracts\Authenticator;
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Enums\Method;
+use Saloon\Http\Auth\NullAuthenticator;
 use Saloon\Http\Response as Response1;
 use Saloon\RateLimitPlugin\Contracts\RateLimitStore;
 use Saloon\RateLimitPlugin\Limit;
@@ -81,5 +83,10 @@ class ApiAuthorization extends Request implements HasBody
     public function resolveRateLimitStore(): RateLimitStore
     {
         return new MemoryStore;
+    }
+
+    public function defaultAuth(): Authenticator
+    {
+        return new NullAuthenticator;
     }
 }

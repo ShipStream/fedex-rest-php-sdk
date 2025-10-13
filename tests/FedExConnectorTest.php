@@ -48,11 +48,13 @@ class FedExConnectorTest extends TestCase
     {
         $this->expectException(UnauthorizedException::class);
 
-        new FedEx(
+        $connector = new FedEx(
             clientId: 'invalidId',
             clientSecret: 'invalidSecret',
             endpoint: Endpoint::SANDBOX,
         );
+
+        $connector->getAccessToken();
     }
 
     public function testFetchesNewAccessToken(): void
@@ -102,12 +104,6 @@ class FedExConnectorTest extends TestCase
         $accessToken = $connector->getAuthenticator()->accessToken;
         $expiredAuthenticator = new AccessTokenAuthenticator($accessToken, expiresAt: new DateTimeImmutable('-10 seconds'));
         MemoryCache::set($connector->tokenCacheKey(), $expiredAuthenticator);
-
-        $connector = new FedEx(
-            clientId: $this->clientId,
-            clientSecret: $this->clientSecret,
-            endpoint: Endpoint::SANDBOX,
-        );
 
         $newAccessToken = $connector->getAuthenticator()->accessToken;
 

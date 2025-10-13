@@ -10,6 +10,8 @@ use Crescat\SaloonSdkGenerator\Helpers\NameHelper;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use Nette\PhpGenerator\PhpFile;
+use Saloon\Contracts\Authenticator;
+use Saloon\Http\Auth\NullAuthenticator;
 use Saloon\RateLimitPlugin\Contracts\RateLimitStore;
 use Saloon\RateLimitPlugin\Limit;
 use Saloon\RateLimitPlugin\Stores\MemoryStore;
@@ -44,8 +46,8 @@ class RequestGenerator extends SDKRequestGenerator
             );
         }
 
-        // Add rate limit to authorization API to avoid triggering a 10min lockout
         if ($endpoint->name === 'API Authorization') {
+            // Add rate limit to authorization API to avoid triggering a 10min lockout
             $namespaces = $classFile->getNamespaces();
             $namespace = reset($namespaces);
             $namespace->addUse(HasRateLimits::class);
@@ -73,6 +75,14 @@ class RequestGenerator extends SDKRequestGenerator
                 ->setNullable(true)
                 ->setType(RateLimitStore::class);
             $constructor->addBody('$this->rateLimitStore = $rateLimitStore;');
+
+            // Disable authorization for authorization API
+            $namespace->addUse(Authenticator::class);
+            $namespace->addUse(NullAuthenticator::class);
+            $class->addMethod('defaultAuth')
+                ->setPublic()
+                ->setReturnType(Authenticator::class)
+                ->addBody('return new NullAuthenticator();');
         }
 
         return $classFile;
