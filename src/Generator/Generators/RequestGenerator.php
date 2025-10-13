@@ -11,7 +11,9 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use Nette\PhpGenerator\PhpFile;
 use Saloon\Contracts\Authenticator;
+use Saloon\Helpers\URLHelper;
 use Saloon\Http\Auth\NullAuthenticator;
+use Saloon\Http\PendingRequest;
 use Saloon\RateLimitPlugin\Contracts\RateLimitStore;
 use Saloon\RateLimitPlugin\Limit;
 use Saloon\RateLimitPlugin\Stores\MemoryStore;
@@ -83,6 +85,21 @@ class RequestGenerator extends SDKRequestGenerator
                 ->setPublic()
                 ->setReturnType(Authenticator::class)
                 ->addBody('return new NullAuthenticator();');
+
+            // Ensure correct base url is used for authorization
+            $namespace->addUse(URLHelper::class);
+            $namespace->addUse(PendingRequest::class);
+            $namespace->addUse(\ShipStream\FedEx\Enums\Endpoint::class);
+            $class->addMethod('boot')
+                ->setPublic()
+                ->setReturnType('void')
+                ->addBody('// Ensure that authorization always uses the correct base url so that connectors with a different base url can still authenticate')
+                ->addBody('/** @var Endpoint $endpoint */')
+                ->addBody('if ($endpoint = ($pendingRequest->getConnector()->endpoint ?? null)) {')
+                ->addBody('    $pendingRequest->setUrl(URLHelper::join($endpoint->isProduction() ? Endpoint::PROD->value : Endpoint::SANDBOX->value, $pendingRequest->getRequest()->resolveEndpoint()));')
+                ->addBody('}')
+                ->addParameter('pendingRequest')
+                ->setType(PendingRequest::class);
         }
 
         return $classFile;

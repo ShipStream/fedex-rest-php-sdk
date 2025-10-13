@@ -53,20 +53,6 @@ class ApiAuthorization extends Request implements HasBody
         $this->rateLimitStore = $rateLimitStore;
     }
 
-    public function boot(PendingRequest $pendingRequest): void
-    {
-        // Ensure that authorization always uses the correct base url so that connectors with a different base url can still authenticate
-        /** @var Endpoint $endpoint */
-        if ($endpoint = ($pendingRequest->getConnector()->endpoint ?? null)) {
-            $pendingRequest->setUrl(
-                URLHelper::join(
-                    $endpoint->isProduction() ? Endpoint::PROD->value : Endpoint::SANDBOX->value,
-                    $pendingRequest->getRequest()->resolveEndpoint()
-                )
-            );
-        }
-    }
-
     public function resolveEndpoint(): string
     {
         return '/oauth/token';
@@ -105,5 +91,14 @@ class ApiAuthorization extends Request implements HasBody
     public function defaultAuth(): Authenticator
     {
         return new NullAuthenticator;
+    }
+
+    public function boot(PendingRequest $pendingRequest): void
+    {
+        // Ensure that authorization always uses the correct base url so that connectors with a different base url can still authenticate
+        /** @var Endpoint $endpoint */
+        if ($endpoint = ($pendingRequest->getConnector()->endpoint ?? null)) {
+            $pendingRequest->setUrl(URLHelper::join($endpoint->isProduction() ? Endpoint::PROD->value : Endpoint::SANDBOX->value, $pendingRequest->getRequest()->resolveEndpoint()));
+        }
     }
 }
