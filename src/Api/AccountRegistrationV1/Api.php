@@ -33,25 +33,40 @@ class Api extends BaseResource
 
     /**
      * @param  ValidatePinInputVo  $validatePinInputVo  This field indicates INPUT model
+     * @param  string  $accountAuthToken  Address validation jwt
+     * @param  ?string  $xClientid  This indicates the Client who is consuming this endpoint
      */
-    public function validatePin(ValidatePinInputVo $validatePinInputVo): Response
-    {
-        return $this->connector->send(new ValidatePin($validatePinInputVo));
+    public function validatePin(
+        ValidatePinInputVo $validatePinInputVo,
+        string $accountAuthToken,
+        ?string $xClientid = null,
+    ): Response {
+        return $this->connector->send(new ValidatePin($validatePinInputVo, $accountAuthToken, $xClientid));
     }
 
     /**
      * @param  ValidateInvoiceInputVo  $validateInvoiceInputVo  This field indicates Invoice Information ( Invoice number, Date, currency and amount) and locale.
+     * @param  string  $accountAuthToken  Address validation jwt
+     * @param  ?string  $xClientid  This indicates the Client who is consuming this endpoint
      */
-    public function validateInvoice(ValidateInvoiceInputVo $validateInvoiceInputVo): Response
-    {
-        return $this->connector->send(new ValidateInvoice($validateInvoiceInputVo));
+    public function validateInvoice(
+        ValidateInvoiceInputVo $validateInvoiceInputVo,
+        string $accountAuthToken,
+        ?string $xClientid = null,
+    ): Response {
+        return $this->connector->send(new ValidateInvoice($validateInvoiceInputVo, $accountAuthToken, $xClientid));
     }
 
     /**
      * @param  IssuePinInputVo  $issuePinInputVo  This field indicates INPUT model
+     * @param  string  $accountAuthToken  Address validation jwt
+     * @param  ?string  $xClientid  This indicates the client who is using this endpoint.
      */
-    public function sendPin(IssuePinInputVo $issuePinInputVo): Response
-    {
-        return $this->connector->send(new SendPin($issuePinInputVo));
+    public function sendPin(
+        IssuePinInputVo $issuePinInputVo,
+        string $accountAuthToken,
+        ?string $xClientid = null,
+    ): Response {
+        return $this->connector->send(new SendPin($issuePinInputVo, $accountAuthToken, $xClientid));
     }
 }
