@@ -52,7 +52,7 @@ class UploadMultiEncodedEtDfiles extends Request implements HasBody
         $status = $response->status();
         $responseCls = match ($status) {
             201 => MultiBasePreResponse2::class,
-            400 => ErrorResponseVo2::class,
+            400, 429 => ErrorResponseVo2::class,
             401, 403, 500, 503 => ErrorResponseVo3::class,
             404 => ErrorResponseVo::class,
             default => throw new Exception("Unhandled response status: {$status}")

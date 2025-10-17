@@ -19,4 +19,33 @@ enum Endpoint: string
     {
         return parse_url($endpoint->value, PHP_URL_HOST) ?: '';
     }
+
+    public function getProductionEndpoint(): self
+    {
+        return $this->_getEndpointPair($this, false);
+    }
+
+    public function getSandboxEndpoint(): self
+    {
+        return $this->_getEndpointPair($this, true);
+    }
+
+    public function isProduction(): bool
+    {
+        return $this->_getEndpointPair($this, false) === $this;
+    }
+
+    public function isSandbox(): bool
+    {
+        return $this->_getEndpointPair($this, true) === $this;
+    }
+
+    private function _getEndpointPair(Endpoint $endpoint, bool $sandbox): Endpoint
+    {
+        return match ($endpoint) {
+            Endpoint::PROD, Endpoint::SANDBOX => $sandbox ? Endpoint::SANDBOX : Endpoint::PROD,
+            Endpoint::PROD_DOCUMENTS_UPLOAD, Endpoint::SANDBOX_DOCUMENTS_UPLOAD => $sandbox ? Endpoint::SANDBOX_DOCUMENTS_UPLOAD : Endpoint::PROD_DOCUMENTS_UPLOAD,
+            default => throw new \Exception('Unknown FedEx endpoint.')
+        };
+    }
 }

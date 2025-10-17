@@ -50,7 +50,7 @@ class CreateCustomerKey extends Request implements HasBody
         $status = $response->status();
         $responseCls = match ($status) {
             200 => IrcpResponseVo::class,
-            400, 401, 403, 404, 500 => ErrorResponseVo::class,
+            400, 401, 403, 404, 500, 429 => ErrorResponseVo::class,
             default => throw new Exception("Unhandled response status: {$status}")
         };
 

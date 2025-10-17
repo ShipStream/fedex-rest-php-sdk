@@ -53,7 +53,7 @@ class CheckFreightPickupAvailability extends Request implements HasBody
         $status = $response->status();
         $responseCls = match ($status) {
             200 => PudcResponseVoPickupAvailaibility::class,
-            400, 401, 403, 404, 500, 503 => ErrorResponseVo::class,
+            400, 401, 403, 404, 500, 503, 429 => ErrorResponseVo::class,
             default => throw new Exception("Unhandled response status: {$status}")
         };
 

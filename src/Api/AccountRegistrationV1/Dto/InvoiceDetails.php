@@ -18,12 +18,12 @@ final class InvoiceDetails extends Dto
      * @param  int  $number  Used to  validate invoice details .It accepts no decimal.
      * @param  string  $currency  Used to validate Invoice details whether invoice is related to user or not.It accepts upto 4 digits currency.<br><a onclick='loadDocReference("currencycodes")'>Click here to see Currency Codes</a>
      * @param  string  $date  Used to validate Invoice details whether invoice is related to user or not. Date format is YYYY-MM-DD.
-     * @param  float  $amount  Used to validate Invoice details whether invoice is related to user or not. It accepts upto 2 digit of decimal.
+     * @param  string  $amount  Used to validate Invoice details whether invoice is related to user or not. It accepts upto 2 digit of decimal.
      */
     public function __construct(
         public int $number,
         public string $currency,
         public string $date,
-        public float $amount,
+        public string $amount,
     ) {}
 }

@@ -80,7 +80,15 @@ class ResourceGenerator extends SDKResourceGenerator
             }
 
             foreach ($endpoint->queryParameters as $parameter) {
-                if (in_array($parameter->name, $this->config->ignoredQueryParams)) {
+                if (in_array(strtolower($parameter->rawName), $this->config->ignoredParams['query'])) {
+                    continue;
+                }
+                MethodGeneratorHelper::addParameterToMethod($method, $parameter);
+                $args[] = new Literal(sprintf('$%s', NameHelper::safeVariableName($parameter->name)));
+            }
+
+            foreach ($endpoint->headerParameters as $parameter) {
+                if (in_array(strtolower($parameter->rawName), $this->config->ignoredParams['header'])) {
                     continue;
                 }
                 MethodGeneratorHelper::addParameterToMethod($method, $parameter);

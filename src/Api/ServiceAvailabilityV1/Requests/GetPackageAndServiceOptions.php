@@ -52,7 +52,7 @@ class GetPackageAndServiceOptions extends Request implements HasBody
         $status = $response->status();
         $responseCls = match ($status) {
             200 => CmdcResponseVo::class,
-            400, 401, 403, 404, 503 => ErrorResponseVo2::class,
+            400, 401, 403, 404, 503, 429 => ErrorResponseVo2::class,
             500 => ErrorResponseVo::class,
             default => throw new Exception("Unhandled response status: {$status}")
         };

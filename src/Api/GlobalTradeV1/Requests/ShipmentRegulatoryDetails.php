@@ -50,7 +50,7 @@ class ShipmentRegulatoryDetails extends Request implements HasBody
         $status = $response->status();
         $responseCls = match ($status) {
             200 => GticResponseVo::class,
-            400, 401, 404, 422 => ErrorResponseVo::class,
+            400, 401, 404, 422, 429 => ErrorResponseVo::class,
             500 => ErrorResponseVo2::class,
             default => throw new Exception("Unhandled response status: {$status}")
         };

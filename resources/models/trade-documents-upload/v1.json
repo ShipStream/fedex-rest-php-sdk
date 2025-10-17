@@ -175,6 +175,16 @@
                                 }
                             }
                         }
+                    },
+                    "429": {
+                        "description": "Too many requests.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponseVO"
+                                }
+                            }
+                        }
                     }
                 },
                 "servers": [
@@ -374,6 +384,16 @@
                                             "message": null
                                         }
                                     ]
+                                }
+                            }
+                        }
+                    },
+                    "429": {
+                        "description": "Too many requests.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponseVO"
                                 }
                             }
                         }
@@ -634,6 +654,16 @@
                                             "message": "The service is currently unavailable and we are working to resolve the issue. We apologize for any inconvenience. Please check back at a later time."
                                         }
                                     ]
+                                }
+                            }
+                        }
+                    },
+                    "429": {
+                        "description": "Too many requests.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 }
                             }
                         }
@@ -1016,6 +1046,16 @@
                                             "message": "The service is currently unavailable and we are working to resolve the issue. We apologize for any inconvenience. Please check back at a later time."
                                         }
                                     ]
+                                }
+                            }
+                        }
+                    },
+                    "429": {
+                        "description": "Too many requests.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponseVO_2"
                                 }
                             }
                         }

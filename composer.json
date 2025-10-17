@@ -9,13 +9,14 @@
     ],
     "license": "Apache-2.0",
     "require": {
-        "saloonphp/saloon": "^3.8"
+        "saloonphp/saloon": "^3.8",
+        "saloonphp/rate-limit-plugin": "^2.1"
     },
     "require-dev": {
         "highsidelabs/saloon-sdk-generator": "^2.1",
         "psy/psysh": "^0.12.3",
         "symfony/console": "^7.0",
-        "phpcompatibility/php-compatibility": "^9.3",
+        "phpcompatibility/php-compatibility": "dev-develop",
         "laravel/pint": "^1.15",
         "composer/semver": "^3.4",
         "ramsey/uuid": "^4.7",

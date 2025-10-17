@@ -141,6 +141,16 @@
                                 }
                             }
                         }
+                    },
+                    "429": {
+                        "description": "Too many requests.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponseVO"
+                                }
+                            }
+                        }
                     }
                 },
                 "parameters": [

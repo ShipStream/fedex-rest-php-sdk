@@ -138,7 +138,7 @@ A wide variety of refactoring processes are run on the raw schemas to get them r
 
 * **Combine raw schemas:** If a given API segment has multiple OpenAPI model files, they are combined into a single file. Routes, methods, and component schemas are aggregated across original OpenAPI files, and combined into a single model object. So far, we have not found any OpenAPI model files from the same API segment with overlapping routes, nor conflicting component schemas, so we're not handling those cases.
 * **Clean combined schema:** There are often inconsistencies, missing elements, and duplicated or unnecessary component schemas in the OpenAPI models, so this step takes care of those issues. Some specific current steps that are taken:
-    * Filling in missing `404` response schemas
+    * Filling in missing `404` and `429` response schemas
     * Removing unnecessary `allOf` and `oneOf` definitions in requests, responses, and component schemas
     * Setting the types of schemas and properties that are missing explicit types
     * Flattening multi-level `$ref`s, where a component or property is a `$ref` to another `$ref`.

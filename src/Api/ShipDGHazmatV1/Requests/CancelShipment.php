@@ -56,7 +56,7 @@ class CancelShipment extends Request implements HasBody
         $status = $response->status();
         $responseCls = match ($status) {
             200 => ShpcResponseVoCancelShipment::class,
-            400 => ErrorResponseVo2::class,
+            400, 429 => ErrorResponseVo2::class,
             401 => ErrorResponseVo3::class,
             403 => ErrorResponseVo4::class,
             404 => ErrorResponseVo5::class,

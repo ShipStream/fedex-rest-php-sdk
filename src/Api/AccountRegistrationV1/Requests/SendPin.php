@@ -54,7 +54,7 @@ class SendPin extends Request implements HasBody
         $status = $response->status();
         $responseCls = match ($status) {
             200 => PinGenerationOutputVo::class,
-            400, 401, 403, 404, 500 => ErrorResponseVo3::class,
+            400, 401, 403, 404, 500, 429 => ErrorResponseVo3::class,
             default => throw new Exception("Unhandled response status: {$status}")
         };
 

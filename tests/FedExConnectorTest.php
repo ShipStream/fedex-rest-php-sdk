@@ -48,11 +48,13 @@ class FedExConnectorTest extends TestCase
     {
         $this->expectException(UnauthorizedException::class);
 
-        new FedEx(
+        $connector = new FedEx(
             clientId: 'invalidId',
             clientSecret: 'invalidSecret',
             endpoint: Endpoint::SANDBOX,
         );
+
+        $connector->getAccessToken();
     }
 
     public function testFetchesNewAccessToken(): void
@@ -103,15 +105,21 @@ class FedExConnectorTest extends TestCase
         $expiredAuthenticator = new AccessTokenAuthenticator($accessToken, expiresAt: new DateTimeImmutable('-10 seconds'));
         MemoryCache::set($connector->tokenCacheKey(), $expiredAuthenticator);
 
-        $connector = new FedEx(
-            clientId: $this->clientId,
-            clientSecret: $this->clientSecret,
-            endpoint: Endpoint::SANDBOX,
-        );
-
         $newAccessToken = $connector->getAuthenticator()->accessToken;
 
         $this->assertNotEquals($accessToken, $newAccessToken);
+    }
+
+    public function testEndpointIsOverriddenForAuthorization(): void
+    {
+        $connector = new FedEx(
+            clientId: $this->clientId,
+            clientSecret: $this->clientSecret,
+            endpoint: Endpoint::SANDBOX_DOCUMENTS_UPLOAD, // Incorrect for authorization
+        );
+
+        $authenticator = $connector->getAccessToken();
+        $this->assertInstanceOf(AccessTokenAuthenticator::class, $authenticator);
     }
 
     public function testGeneratesTransactionIds(): void

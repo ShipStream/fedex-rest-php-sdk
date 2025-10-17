@@ -7,9 +7,12 @@ namespace ShipStream\FedEx;
 use Closure;
 use InvalidArgumentException;
 use RuntimeException;
+use Saloon\Contracts\Authenticator;
 use Saloon\Http\Connector;
 use Saloon\Http\PendingRequest;
 use Saloon\Http\Request;
+use Saloon\RateLimitPlugin\Contracts\RateLimitStore;
+use Saloon\RateLimitPlugin\Stores\MemoryStore;
 use Saloon\Traits\OAuth2\ClientCredentialsGrant;
 use Saloon\Traits\Plugins\AlwaysThrowOnErrors;
 use ShipStream\FedEx\Api\AccountRegistrationV1;
@@ -25,13 +28,13 @@ use ShipStream\FedEx\Api\OpenShipV1;
 use ShipStream\FedEx\Api\PickupRequestV1;
 use ShipStream\FedEx\Api\PostalCodeValidationV1;
 use ShipStream\FedEx\Api\RatesAndTransitTimesV1;
-use ShipStream\FedEx\Api\ShipV1;
 use ShipStream\FedEx\Api\ShipDGHazmatV1;
+use ShipStream\FedEx\Api\ShipV1;
 use ShipStream\FedEx\Api\TrackV1;
 use ShipStream\FedEx\Api\TradeDocumentsUploadV1;
 use ShipStream\FedEx\Auth\MemoryCache;
-use ShipStream\FedEx\Auth\NullAuthenticator;
 use ShipStream\FedEx\Contracts\TokenCache;
+use ShipStream\FedEx\Contracts\TokenLock;
 use ShipStream\FedEx\Enums\Endpoint;
 use ShipStream\FedEx\Enums\GrantType;
 
@@ -51,6 +54,8 @@ class FedEx extends Connector
         public ?string $childSecret = null,
         public ?bool $proprietaryChild = false,
         public ?TokenCache $tokenCache = new MemoryCache(),
+        public ?TokenLock $tokenLock = null,
+        public ?RateLimitStore $rateLimitStore = new MemoryStore(),
         public ?Closure $transactionIdGenerator = null,
         public ?string $locale = null,
     ) {
@@ -60,20 +65,32 @@ class FedEx extends Connector
 
         $this->oauthConfig()->setClientId($clientId);
         $this->oauthConfig()->setClientSecret($clientSecret);
-
-        $cacheKey = $this->tokenCacheKey();
-        $authenticator = $tokenCache::get($cacheKey);
-        if (! $authenticator) {
-            $authenticator = $this->getAccessToken();
-            $tokenCache::set($cacheKey, $authenticator);
-        }
-
-        $this->authenticate($authenticator);
     }
 
     public function resolveBaseUrl(): string
     {
         return $this->endpoint->value;
+    }
+
+    protected function defaultAuth(): Authenticator
+    {
+        $cacheKey = $this->tokenCacheKey();
+        $authenticator = $this->tokenCache::get($cacheKey);
+        if (! $authenticator) {
+            try {
+                $this->tokenLock?->lock($cacheKey);
+                // Re-check cache after acquiring lock in case another process already fetched the token
+                $authenticator = $this->tokenCache::get($cacheKey);
+                if (! $authenticator) {
+                    $authenticator = $this->getAccessToken();
+                    $this->tokenCache::set($cacheKey, $authenticator);
+                }
+            } finally {
+                $this->tokenLock?->unlock($cacheKey);
+            }
+        }
+
+        return $authenticator;
     }
 
     public function boot(PendingRequest $pendingRequest): void
@@ -106,8 +123,6 @@ class FedEx extends Connector
 
     public function authorizationV1(): AuthorizationV1\Api
     {
-        $this->authenticate(new NullAuthenticator());
-
         return new AuthorizationV1\Api($this);
     }
 
@@ -175,7 +190,13 @@ class FedEx extends Connector
     {
         $childKeyStr = $this->childKey ? '.'.$this->childKey : '';
 
-        return $this->clientId.$childKeyStr;
+        $key = $this->clientId.$childKeyStr;
+
+        if ($this->endpoint->isSandbox()) {
+            $key .= '.sandbox';
+        }
+
+        return $key;
     }
 
     protected function resolveAccessTokenRequest(): Request
@@ -196,6 +217,6 @@ class FedEx extends Connector
 
         $args['grantType'] = $args['grantType']->value;
 
-        return new ApiAuthorization(new FullSchema(...$args));
+        return new ApiAuthorization(new FullSchema(...$args), $this->rateLimitStore);
     }
 }
