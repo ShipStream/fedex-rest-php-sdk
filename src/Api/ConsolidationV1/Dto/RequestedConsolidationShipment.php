@@ -47,6 +47,7 @@ final class RequestedConsolidationShipment extends Dto
         public ?string $dropOffType = null,
         public ?Weight $totalWeight = null,
         public ?array $recipients = null,
+        public ?PickupDetail $pickupDetail = null,
         public ?RequestedConsolidationShipmentProcessingOption $processingOption = null,
         public ?CustomsClearanceDetail $customsClearanceDetail = null,
         public ?string $rateRequestTypes = null,

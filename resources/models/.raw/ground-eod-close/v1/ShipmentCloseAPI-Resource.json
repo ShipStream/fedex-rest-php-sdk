@@ -809,6 +809,9 @@
                     },
                     "closeDocumentSpecification": {
                         "$ref": "#/components/schemas/CloseDocumentSpecification"
+                    },
+                    "version": {
+                        "$ref": "#/components/schemas/Version"
                     }
                 }
             },
@@ -855,6 +858,26 @@
                     }
                 },
                 "description": "Specifies characteristics of the document to be returned for this request."
+            },
+            "Version": {
+                "type": "object",
+                "properties": {
+                    "major": {
+                        "description": "This version is incremented when significant changes are made to the API functionality. These could be breaking changes and might require code-adjustments from clients. Accepts only numbers",
+                        "example": "1",
+                        "type": "integer"
+                    },
+                    "minor": {
+                        "description": "This represents a backward-compatible bug fix or minor adjustment to an existing API functionality. This is the second number in API versioning scheme. Accepts only numbers",
+                        "example": "1",
+                        "type": "integer"
+                    },
+                    "patch": {
+                        "description": "This represents a backward-compatible bug fix or minor adjustment to an existing API functionality. This is the third number in API versioning scheme. Accepts only numbers",
+                        "example": "1",
+                        "type": "integer"
+                    }
+                }
             },
             "Op950Detail": {
                 "type": "object",
@@ -918,6 +941,9 @@
                     },
                     "closeDocumentSpecification": {
                         "$ref": "#/components/schemas/CloseDocumentSpecification"
+                    },
+                    "version": {
+                        "$ref": "#/components/schemas/Version"
                     }
                 }
             },

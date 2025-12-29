@@ -16,7 +16,7 @@ final class PartyContactSoldTo2 extends Dto
 {
     /**
      * @param  string  $personName  Specify contact person name.<br>Recommended length is 70. <br>Note: There's no specific validation for the person name.<br> Example: John Taylor
-     * @param  string  $phoneNumber  Specify contact phone number. <br>Minimum length is 10 and supports maximum of 15 for certain countries using longer phone numbers. <br>Note: Recommended Maximum length is 15 and there's no specific validation will be done for the phone number. <br> Example: 918xxxxx890
+     * @param  string  $phoneNumber  Specify contact phone number. <br>Minimum length is 1 and supports maximum of 15 for certain countries using longer phone numbers. <br>Note: Recommended Maximum length is 15 and there's no specific validation will be done for the phone number. <br> Example: 918xxxxx890
      * @param  string  $companyName  Specify contact company name.<br>Recommended length is 35.<br>Note: There's no specific validation for the company name.
      * @param  ?string  $emailAddress  Specify contact email address. Maximum length is 80. <br> Example: sample@company.com
      */

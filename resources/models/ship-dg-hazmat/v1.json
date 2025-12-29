@@ -1709,6 +1709,80 @@
                     "accountNumberCountryCode": "CA"
                 }
             },
+            "ClearanceItemDetail": {
+                "type": "object",
+                "properties": {
+                    "role": {
+                        "type": "string",
+                        "description": "Role in producing or supplying the item/commodity",
+                        "example": "MANUFACTURER",
+                        "enum": [
+                            "MANUFACTURER"
+                        ]
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "Unique identifier of the manufacturer of the commodity.<br/> For shipments to United States, refer to U.S. Customs and Border Protection website.<br/>Example: USGRE98BIR",
+                        "example": "USGRE98BIR"
+                    },
+                    "contact": {
+                        "$ref": "#/components/schemas/ClearanceItemDetail_contact"
+                    },
+                    "address": {
+                        "$ref": "#/components/schemas/ClearanceItemDetail_address"
+                    }
+                }
+            },
+            "ClearanceItemDetail_contact": {
+                "type": "object",
+                "properties": {
+                    "companyName": {
+                        "type": "string",
+                        "description": "Legal name of the manufacturer of the commodity.<br/>Example: THE GREENHOUSE",
+                        "example": "THE GREENHOUSE"
+                    }
+                },
+                "description": "Contact details of the manufacturer."
+            },
+            "ClearanceItemDetail_address": {
+                "type": "object",
+                "properties": {
+                    "streetLines": {
+                        "type": "array",
+                        "description": "Combination of number, street name, etc. At least one line is required for a valid physical address. Empty lines should not be included.<br>Example: 98 Royal Crescent",
+                        "items": {
+                            "type": "string",
+                            "example": "[\"98 Royal Crescent\"]"
+                        }
+                    },
+                    "city": {
+                        "type": "string",
+                        "description": "The name of city, town of the recipient.<br> Example: Birmingham",
+                        "example": "Birmingham"
+                    },
+                    "stateOrProvinceCode": {
+                        "type": "string",
+                        "description": "It is used to identify the principal subdivisions (e.g., provinces or states) of countries. The Format and presence of this field may vary depending on the country. <br> Example: CA",
+                        "example": "CA"
+                    },
+                    "postalCode": {
+                        "type": "string",
+                        "description": "The US State and Canada Province codes. The Format and presence of this field may vary depending on the country. <br> Example: 35209",
+                        "example": "35209"
+                    },
+                    "countryCode": {
+                        "type": "string",
+                        "description": "The two-letter code used to identify a country.<br>Example: US",
+                        "example": "US"
+                    },
+                    "residential": {
+                        "type": "boolean",
+                        "description": "Indicate whether this address is Residential (as opposed to Commercial).<br>Valid Values: True or False.",
+                        "example": false
+                    }
+                },
+                "description": "Address of the manufacturer"
+            },
             "AdditionalMeasures": {
                 "type": "object",
                 "properties": {
@@ -2075,7 +2149,7 @@
                 "type": "object",
                 "properties": {
                     "formId": {
-                        "type": "integer",
+                        "type": "string",
                         "description": "This is FedEx tracking Identifier associated with the package.<br>Example: 0201",
                         "example": 201
                     },
@@ -2085,7 +2159,7 @@
                         "example": "EXPRESS"
                     },
                     "uspsApplicationId": {
-                        "type": "integer",
+                        "type": "string",
                         "description": "Specify the USPS tracking Identifier associated with FedEx SmartPost shipment.<br>Example: 92",
                         "example": 92
                     },
@@ -2565,7 +2639,7 @@
                         "$ref": "#/components/schemas/VariableHandlingChargeDetail"
                     },
                     "customsClearanceDetail": {
-                        "$ref": "#/components/schemas/CustomsClearanceDetail"
+                        "$ref": "#/components/schemas/CustomsClearanceDetail_2"
                     },
                     "smartPostInfoDetail": {
                         "$ref": "#/components/schemas/SmartPostInfoDetail"
@@ -3056,7 +3130,7 @@
                 "type": "object",
                 "properties": {
                     "binaryBarcodes": {
-                        "type": "array",
+                        "type": "string",
                         "items": {
                             "$ref": "#/components/schemas/BinaryBarcode"
                         }
@@ -5388,99 +5462,6 @@
                 },
                 "description": "Use this object to provide Commercial Invoice details. This element is required for electronic upload of CI data. It will serve to create/transmit an electronic Commercial Invoice through the FedEx system.<br>Customers are responsible for printing their own Commercial Invoice.<br>If you would like FedEx to generate a Commercial Invoice and transmit it to Customs for clearance purposes, you need to specify that in the 'ETDDetail/RequesteDocumentCopies' element.<br> Support consists of a maximum of 99 commodity line items."
             },
-            "Commodity": {
-                "required": [
-                    "name"
-                ],
-                "type": "object",
-                "properties": {
-                    "unitPrice": {
-                        "$ref": "#/components/schemas/Money"
-                    },
-                    "additionalMeasures": {
-                        "type": "array",
-                        "description": "Optional <br>Contains only additional quantitative information other than weight and quantity to calculate duties and taxes.",
-                        "items": {
-                            "$ref": "#/components/schemas/AdditionalMeasures"
-                        }
-                    },
-                    "numberOfPieces": {
-                        "type": "integer",
-                        "description": "Required. <br>Indicate the number of pieces associated with the commodity. Number of pieces cannot be a negative value or exceed 9,999.<br>Example: 12",
-                        "format": "int32",
-                        "example": 12
-                    },
-                    "quantity": {
-                        "type": "integer",
-                        "description": "Required<br>Total number of units (using quantityUnits as the unit of measure) of this commodity present in the shipment.  Used to estimate duties and taxes.<br> Example: 125",
-                        "format": "int32",
-                        "example": 125
-                    },
-                    "quantityUnits": {
-                        "type": "string",
-                        "description": "Required<br>Unit of measure for the above quantity.  Used to estimate duties and taxes<br>Example: Ea",
-                        "example": "Ea"
-                    },
-                    "customsValue": {
-                        "$ref": "#/components/schemas/Customs_Money"
-                    },
-                    "countryOfManufacture": {
-                        "type": "string",
-                        "description": "Required<br>Maximum allowed length is 4.<br>Example: US",
-                        "example": "US"
-                    },
-                    "cIMarksAndNumbers": {
-                        "type": "string",
-                        "description": "An identifying mark or number used on the packagingof a shipment to help customers identify a particularshipment<br>Example: 87123",
-                        "example": "87123"
-                    },
-                    "harmonizedCode": {
-                        "type": "string",
-                        "description": "This is to specify the Harmonized Tariff System (HTS) code to meet U.S. and foreign governments' customs requirements. These are mainly used to estimate the duties and taxes.<br>Example: 0613<br>To research the classification for your commodity, use the FedEx Global Trade Manager online at <a href='http://www.fedex.com/gtm' target='_blank'>fedex.com/gtm</a>. You will find country-specific information to determine whether your commodity is considered to be a document or non-document for your destination.",
-                        "example": "0613"
-                    },
-                    "description": {
-                        "type": "string",
-                        "description": "Required<br>ScrewsMaximum allowed 450 characters.<br>Example: description",
-                        "example": "description"
-                    },
-                    "name": {
-                        "type": "string",
-                        "description": "Required<br>Commodity name<br>Example: non-threaded rivets",
-                        "example": "non-threaded rivets"
-                    },
-                    "weight": {
-                        "$ref": "#/components/schemas/Weight"
-                    },
-                    "exportLicenseNumber": {
-                        "type": "string",
-                        "description": "Specifies the export license number for the shipment<br>Example: 26456",
-                        "example": "26456"
-                    },
-                    "exportLicenseExpirationDate": {
-                        "type": "string",
-                        "description": "Specifies the export license expiration date for the shipment<br>Format YYYY-MM-DD<br>Example : 2009-04-12",
-                        "format": "date-time"
-                    },
-                    "partNumber": {
-                        "type": "string",
-                        "description": "a part number for the item<br>Example: 167",
-                        "example": "167"
-                    },
-                    "purpose": {
-                        "type": "string",
-                        "description": "This field is used for calculation of duties and taxes.<br><br> Valid values are : BUSINESS and CONSUMER",
-                        "example": "BUSINESS",
-                        "enum": [
-                            "BUSINESS",
-                            "CONSUMER"
-                        ]
-                    },
-                    "usmcaDetail": {
-                        "$ref": "#/components/schemas/UsmcaCommodityDetail"
-                    }
-                }
-            },
             "ExportDetail": {
                 "type": "object",
                 "properties": {
@@ -6388,96 +6369,6 @@
                     }
                 },
                 "description": "Customer-provided specifications for handling individual commodities."
-            },
-            "CustomsClearanceDetail": {
-                "required": [
-                    "commercialInvoice",
-                    "commodities"
-                ],
-                "type": "object",
-                "properties": {
-                    "regulatoryControls": {
-                        "type": "array",
-                        "description": "These are the regulatory controls applicable to the shipment.",
-                        "example": "NOT_IN_FREE_CIRCULATION",
-                        "items": {
-                            "type": "string",
-                            "enum": [
-                                "FOOD_OR_PERISHABLE",
-                                "USMCA",
-                                "NOT_APPLICABLE_FOR_LOW_VALUE_CUSTOMS_EXCEPTIONS",
-                                "NOT_IN_FREE_CIRCULATION"
-                            ]
-                        }
-                    },
-                    "brokers": {
-                        "type": "array",
-                        "description": "Conditional.<br>Specify Broker information only if you are using Broker Select Option for your shipment.To be considered a valid, a country code must be specified in addition to one of the following address items: postal code, city, or location id.",
-                        "items": {
-                            "$ref": "#/components/schemas/BrokerDetail"
-                        }
-                    },
-                    "commercialInvoice": {
-                        "$ref": "#/components/schemas/CommercialInvoice"
-                    },
-                    "freightOnValue": {
-                        "type": "string",
-                        "description": "Specify the risk owner for the Freight shipment.This element is only mandatory or valid for Intra India shipments. ",
-                        "example": "OWN_RISK",
-                        "enum": [
-                            "CARRIER_RISK",
-                            "OWN_RISK"
-                        ]
-                    },
-                    "dutiesPayment": {
-                        "$ref": "#/components/schemas/Payment_2"
-                    },
-                    "commodities": {
-                        "type": "array",
-                        "description": "Indicates the details about the dutiable packages. Maximum upto 999 commodities per shipment",
-                        "items": {
-                            "$ref": "#/components/schemas/Commodity"
-                        }
-                    },
-                    "recipientCustomsId": {
-                        "$ref": "#/components/schemas/RecipientCustomsId"
-                    },
-                    "customsOption": {
-                        "$ref": "#/components/schemas/CustomsOptionDetail"
-                    },
-                    "importerOfRecord": {
-                        "description": "The descriptive data for the importer of Record for the shipment and their physical address, contact and account number information.",
-                        "$ref": "#/components/schemas/Party"
-                    },
-                    "generatedDocumentLocale": {
-                        "type": "string",
-                        "description": "This is the locale for generated document.<br>Example: en_US<br><a onclick='loadDocReference(\"locales\")'>click here to see Locales</a><br>Note: If the locale is left blank or an invalid locale is entered, an error message is returned in response.",
-                        "example": "US"
-                    },
-                    "exportDetail": {
-                        "$ref": "#/components/schemas/ExportDetail"
-                    },
-                    "totalCustomsValue": {
-                        "description": "This is the total customs value.",
-                        "$ref": "#/components/schemas/Money"
-                    },
-                    "partiesToTransactionAreRelated": {
-                        "type": "boolean",
-                        "description": "Parties To Transaction Are Related"
-                    },
-                    "declarationStatementDetail": {
-                        "$ref": "#/components/schemas/CustomsDeclarationStatementDetail"
-                    },
-                    "isDocumentOnly": {
-                        "type": "boolean",
-                        "description": "Used to specify if a shipment is document shipment or not. Used only for International Express document shipments. Default value is false."
-                    },
-                    "insuranceCharge": {
-                        "description": "Amount paid to a third party for the purpose of insuring this shipment against damage or loss.  Used to calculate estimated duties and taxes",
-                        "$ref": "#/components/schemas/Money"
-                    }
-                },
-                "description": "Required for International and intra-country Shipments. Information about this package that only applies to an international (export) shipment or return."
             },
             "LabelSpecification": {
                 "type": "object",
@@ -7456,7 +7347,7 @@
                         "$ref": "#/components/schemas/ResponsiblePartyParty"
                     }
                 },
-                "description": "Information about the person who is paying for the shipment. <br>Payor is mandatory when the paymentType is RECIPIENT, THIRD_PARTY or COLLECT.",
+                "description": "Information about the person who is paying for the shipment. <br>Payor is mandatory when the paymentType is RECIPIENT and THIRD_PARTY.",
                 "example": {
                     "responsibleParty": {
                         "address": {
@@ -7721,6 +7612,379 @@
                         }
                     ],
                     "deliveryInstructions": "deliveryInstructions"
+                }
+            },
+            "CustomsClearanceDetail": {
+                "required": [
+                    "commercialInvoice",
+                    "commodities"
+                ],
+                "type": "object",
+                "properties": {
+                    "regulatoryControls": {
+                        "type": "array",
+                        "description": "These are the regulatory controls applicable to the shipment.",
+                        "example": "NOT_IN_FREE_CIRCULATION",
+                        "items": {
+                            "type": "string",
+                            "enum": [
+                                "FOOD_OR_PERISHABLE",
+                                "USMCA",
+                                "NOT_APPLICABLE_FOR_LOW_VALUE_CUSTOMS_EXCEPTIONS",
+                                "NOT_IN_FREE_CIRCULATION"
+                            ]
+                        }
+                    },
+                    "brokers": {
+                        "type": "array",
+                        "description": "Conditional.<br>Specify Broker information only if you are using Broker Select Option for your shipment.To be considered a valid, a country code must be specified in addition to one of the following address items: postal code, city, or location id.",
+                        "items": {
+                            "$ref": "#/components/schemas/BrokerDetail"
+                        }
+                    },
+                    "commercialInvoice": {
+                        "$ref": "#/components/schemas/CommercialInvoice"
+                    },
+                    "freightOnValue": {
+                        "type": "string",
+                        "description": "Specify the risk owner for the Freight shipment.This element is only mandatory or valid for Intra India shipments. ",
+                        "example": "OWN_RISK",
+                        "enum": [
+                            "CARRIER_RISK",
+                            "OWN_RISK"
+                        ]
+                    },
+                    "dutiesPayment": {
+                        "$ref": "#/components/schemas/Payment_2"
+                    },
+                    "commodities": {
+                        "type": "array",
+                        "description": "Indicates the details about the dutiable packages. Maximum upto 999 commodities per shipment",
+                        "items": {
+                            "$ref": "#/components/schemas/Commodity"
+                        }
+                    },
+                    "recipientCustomsId": {
+                        "$ref": "#/components/schemas/RecipientCustomsId"
+                    },
+                    "customsOption": {
+                        "$ref": "#/components/schemas/CustomsOptionDetail"
+                    },
+                    "importerOfRecord": {
+                        "description": "The descriptive data for the importer of Record for the shipment and their physical address, contact and account number information.",
+                        "$ref": "#/components/schemas/Party"
+                    },
+                    "generatedDocumentLocale": {
+                        "type": "string",
+                        "description": "This is the locale for generated document.<br>Example: en_US<br><a onclick='loadDocReference(\"locales\")'>click here to see Locales</a><br>Note: If the locale is left blank or an invalid locale is entered, an error message is returned in response.",
+                        "example": "US"
+                    },
+                    "exportDetail": {
+                        "$ref": "#/components/schemas/ExportDetail"
+                    },
+                    "totalCustomsValue": {
+                        "description": "This is the total customs value.",
+                        "$ref": "#/components/schemas/Money"
+                    },
+                    "partiesToTransactionAreRelated": {
+                        "type": "boolean",
+                        "description": "Parties To Transaction Are Related"
+                    },
+                    "declarationStatementDetail": {
+                        "$ref": "#/components/schemas/CustomsDeclarationStatementDetail"
+                    },
+                    "isDocumentOnly": {
+                        "type": "boolean",
+                        "description": "Used to specify if a shipment is document shipment or not. Used only for International Express document shipments. Default value is false."
+                    },
+                    "insuranceCharge": {
+                        "description": "Amount paid to a third party for the purpose of insuring this shipment against damage or loss.  Used to calculate estimated duties and taxes",
+                        "$ref": "#/components/schemas/Money"
+                    }
+                },
+                "description": "Required for International and intra-country Shipments. Information about this package that only applies to an international (export) shipment or return."
+            },
+            "CustomsClearanceDetail_2": {
+                "required": [
+                    "commercialInvoice",
+                    "commodities"
+                ],
+                "type": "object",
+                "properties": {
+                    "regulatoryControls": {
+                        "type": "array",
+                        "description": "These are the regulatory controls applicable to the shipment.",
+                        "example": "NOT_IN_FREE_CIRCULATION",
+                        "items": {
+                            "type": "string",
+                            "enum": [
+                                "FOOD_OR_PERISHABLE",
+                                "USMCA",
+                                "NOT_APPLICABLE_FOR_LOW_VALUE_CUSTOMS_EXCEPTIONS",
+                                "NOT_IN_FREE_CIRCULATION"
+                            ]
+                        }
+                    },
+                    "brokers": {
+                        "type": "array",
+                        "description": "Conditional.<br>Specify Broker information only if you are using Broker Select Option for your shipment.To be considered a valid, a country code must be specified in addition to one of the following address items: postal code, city, or location id.",
+                        "items": {
+                            "$ref": "#/components/schemas/BrokerDetail"
+                        }
+                    },
+                    "commercialInvoice": {
+                        "$ref": "#/components/schemas/CommercialInvoice"
+                    },
+                    "freightOnValue": {
+                        "type": "string",
+                        "description": "Specify the risk owner for the Freight shipment.This element is only mandatory or valid for Intra India shipments. ",
+                        "example": "OWN_RISK",
+                        "enum": [
+                            "CARRIER_RISK",
+                            "OWN_RISK"
+                        ]
+                    },
+                    "dutiesPayment": {
+                        "$ref": "#/components/schemas/Payment_2"
+                    },
+                    "commodities": {
+                        "type": "array",
+                        "description": "Indicates the details about the dutiable packages. Maximum upto 999 commodities per shipment",
+                        "items": {
+                            "$ref": "#/components/schemas/Commodity_2"
+                        }
+                    },
+                    "recipientCustomsId": {
+                        "$ref": "#/components/schemas/RecipientCustomsId"
+                    },
+                    "customsOption": {
+                        "$ref": "#/components/schemas/CustomsOptionDetail"
+                    },
+                    "importerOfRecord": {
+                        "description": "The descriptive data for the importer of Record for the shipment and their physical address, contact and account number information.",
+                        "$ref": "#/components/schemas/Party"
+                    },
+                    "generatedDocumentLocale": {
+                        "type": "string",
+                        "description": "This is the locale for generated document.<br>Example: en_US<br><a onclick='loadDocReference(\"locales\")'>click here to see Locales</a><br>Note: If the locale is left blank or an invalid locale is entered, an error message is returned in response.",
+                        "example": "US"
+                    },
+                    "exportDetail": {
+                        "$ref": "#/components/schemas/ExportDetail"
+                    },
+                    "totalCustomsValue": {
+                        "description": "This is the total customs value.",
+                        "$ref": "#/components/schemas/Money"
+                    },
+                    "partiesToTransactionAreRelated": {
+                        "type": "boolean",
+                        "description": "Parties To Transaction Are Related"
+                    },
+                    "declarationStatementDetail": {
+                        "$ref": "#/components/schemas/CustomsDeclarationStatementDetail"
+                    },
+                    "isDocumentOnly": {
+                        "type": "boolean",
+                        "description": "Used to specify if a shipment is document shipment or not. Used only for International Express document shipments. Default value is false."
+                    },
+                    "insuranceCharge": {
+                        "description": "Amount paid to a third party for the purpose of insuring this shipment against damage or loss.  Used to calculate estimated duties and taxes",
+                        "$ref": "#/components/schemas/Money"
+                    }
+                },
+                "description": "Required for International and intra-country Shipments. Information about this package that only applies to an international (export) shipment or return."
+            },
+            "Commodity": {
+                "required": [
+                    "name"
+                ],
+                "type": "object",
+                "properties": {
+                    "unitPrice": {
+                        "$ref": "#/components/schemas/Money"
+                    },
+                    "additionalMeasures": {
+                        "type": "array",
+                        "description": "Optional <br>Contains only additional quantitative information other than weight and quantity to calculate duties and taxes.",
+                        "items": {
+                            "$ref": "#/components/schemas/AdditionalMeasures"
+                        }
+                    },
+                    "numberOfPieces": {
+                        "type": "integer",
+                        "description": "Required. <br>Indicate the number of pieces associated with the commodity. Number of pieces cannot be a negative value or exceed 9,999.<br>Example: 12",
+                        "format": "int32",
+                        "example": 12
+                    },
+                    "quantity": {
+                        "type": "integer",
+                        "description": "Required<br>Total number of units (using quantityUnits as the unit of measure) of this commodity present in the shipment.  Used to estimate duties and taxes.<br> Example: 125",
+                        "format": "int32",
+                        "example": 125
+                    },
+                    "quantityUnits": {
+                        "type": "string",
+                        "description": "Required<br>Unit of measure for the above quantity.  Used to estimate duties and taxes<br>Example: Ea",
+                        "example": "Ea"
+                    },
+                    "customsValue": {
+                        "$ref": "#/components/schemas/Customs_Money"
+                    },
+                    "countryOfManufacture": {
+                        "type": "string",
+                        "description": "Required<br>Maximum allowed length is 4.<br>Example: US",
+                        "example": "US"
+                    },
+                    "cIMarksAndNumbers": {
+                        "type": "string",
+                        "description": "An identifying mark or number used on the packagingof a shipment to help customers identify a particularshipment<br>Example: 87123",
+                        "example": "87123"
+                    },
+                    "harmonizedCode": {
+                        "type": "string",
+                        "description": "This is to specify the Harmonized Tariff System (HTS) code to meet U.S. and foreign governments' customs requirements. These are mainly used to estimate the duties and taxes.<br>Example: 0613<br>To research the classification for your commodity, use the FedEx Global Trade Manager online at <a href='http://www.fedex.com/gtm' target='_blank'>fedex.com/gtm</a>. You will find country-specific information to determine whether your commodity is considered to be a document or non-document for your destination.",
+                        "example": "0613"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "Required<br>ScrewsMaximum allowed 450 characters.<br>Example: description",
+                        "example": "description"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Required<br>Commodity name<br>Example: non-threaded rivets",
+                        "example": "non-threaded rivets"
+                    },
+                    "weight": {
+                        "$ref": "#/components/schemas/Weight"
+                    },
+                    "exportLicenseNumber": {
+                        "type": "string",
+                        "description": "Specifies the export license number for the shipment<br>Example: 26456",
+                        "example": "26456"
+                    },
+                    "exportLicenseExpirationDate": {
+                        "type": "string",
+                        "description": "Specifies the export license expiration date for the shipment<br>Format YYYY-MM-DD<br>Example : 2009-04-12",
+                        "format": "date-time"
+                    },
+                    "partNumber": {
+                        "type": "string",
+                        "description": "a part number for the item<br>Example: 167",
+                        "example": "167"
+                    },
+                    "purpose": {
+                        "type": "string",
+                        "description": "This field is used for calculation of duties and taxes.<br><br> Valid values are : BUSINESS and CONSUMER",
+                        "example": "BUSINESS",
+                        "enum": [
+                            "BUSINESS",
+                            "CONSUMER"
+                        ]
+                    },
+                    "usmcaDetail": {
+                        "$ref": "#/components/schemas/UsmcaCommodityDetail"
+                    },
+                    "clearanceItemDetail": {
+                        "type": "array",
+                        "description": "Array of clearance item details including manufacturer info for customs clearance.",
+                        "items": {
+                            "$ref": "#/components/schemas/ClearanceItemDetail"
+                        }
+                    }
+                }
+            },
+            "Commodity_2": {
+                "required": [
+                    "name"
+                ],
+                "type": "object",
+                "properties": {
+                    "unitPrice": {
+                        "$ref": "#/components/schemas/Money"
+                    },
+                    "additionalMeasures": {
+                        "type": "array",
+                        "description": "Optional <br>Contains only additional quantitative information other than weight and quantity to calculate duties and taxes.",
+                        "items": {
+                            "$ref": "#/components/schemas/AdditionalMeasures"
+                        }
+                    },
+                    "numberOfPieces": {
+                        "type": "integer",
+                        "description": "Required. <br>Indicate the number of pieces associated with the commodity. Number of pieces cannot be a negative value or exceed 9,999.<br>Example: 12",
+                        "format": "int32",
+                        "example": 12
+                    },
+                    "quantity": {
+                        "type": "integer",
+                        "description": "Required<br>Total number of units (using quantityUnits as the unit of measure) of this commodity present in the shipment.  Used to estimate duties and taxes.<br> Example: 125",
+                        "format": "int32",
+                        "example": 125
+                    },
+                    "quantityUnits": {
+                        "type": "string",
+                        "description": "Required<br>Unit of measure for the above quantity.  Used to estimate duties and taxes<br>Example: Ea",
+                        "example": "Ea"
+                    },
+                    "customsValue": {
+                        "$ref": "#/components/schemas/Customs_Money"
+                    },
+                    "countryOfManufacture": {
+                        "type": "string",
+                        "description": "Required<br>Maximum allowed length is 4.<br>Example: US",
+                        "example": "US"
+                    },
+                    "cIMarksAndNumbers": {
+                        "type": "string",
+                        "description": "An identifying mark or number used on the packagingof a shipment to help customers identify a particularshipment<br>Example: 87123",
+                        "example": "87123"
+                    },
+                    "harmonizedCode": {
+                        "type": "string",
+                        "description": "This is to specify the Harmonized Tariff System (HTS) code to meet U.S. and foreign governments' customs requirements. These are mainly used to estimate the duties and taxes.<br>Example: 0613<br>To research the classification for your commodity, use the FedEx Global Trade Manager online at <a href='http://www.fedex.com/gtm' target='_blank'>fedex.com/gtm</a>. You will find country-specific information to determine whether your commodity is considered to be a document or non-document for your destination.",
+                        "example": "0613"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "Required<br>ScrewsMaximum allowed 450 characters.<br>Example: description",
+                        "example": "description"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Required<br>Commodity name<br>Example: non-threaded rivets",
+                        "example": "non-threaded rivets"
+                    },
+                    "weight": {
+                        "$ref": "#/components/schemas/Weight"
+                    },
+                    "exportLicenseNumber": {
+                        "type": "string",
+                        "description": "Specifies the export license number for the shipment<br>Example: 26456",
+                        "example": "26456"
+                    },
+                    "exportLicenseExpirationDate": {
+                        "type": "string",
+                        "description": "Specifies the export license expiration date for the shipment<br>Format YYYY-MM-DD<br>Example : 2009-04-12",
+                        "format": "date-time"
+                    },
+                    "partNumber": {
+                        "type": "string",
+                        "description": "a part number for the item<br>Example: 167",
+                        "example": "167"
+                    },
+                    "purpose": {
+                        "type": "string",
+                        "description": "This field is used for calculation of duties and taxes.<br><br> Valid values are : BUSINESS and CONSUMER",
+                        "example": "BUSINESS",
+                        "enum": [
+                            "BUSINESS",
+                            "CONSUMER"
+                        ]
+                    },
+                    "usmcaDetail": {
+                        "$ref": "#/components/schemas/UsmcaCommodityDetail"
+                    }
                 }
             },
             "ShippingDocumentSpecification": {

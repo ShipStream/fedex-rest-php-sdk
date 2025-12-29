@@ -15,15 +15,15 @@ use ShipStream\FedEx\Dto;
 final class ShipmentLegRateDetail extends Dto
 {
     protected static array $complexArrayTypes = [
-        'taxes' => Tax::class,
+        'taxes' => Tax2::class,
         'surcharges' => Surcharge::class,
-        'freightDiscounts' => RateDiscount::class,
+        'freightDiscounts' => RateDiscount2::class,
     ];
 
     /**
      * @param  ?string  $rateZone  Indicates the rate zone used (based on origin and destination).<br>Example: rateZone
      * @param  ?string  $pricingCode  Specifies the Pricing Code.<br>Example: pricingCode
-     * @param  Tax[]|null  $taxes  Specifies the taxes.
+     * @param  Tax2[]|null  $taxes  Specifies the taxes.
      * @param  ?Weight  $totalDimWeight  These are the package weight details.<br>Note: Weight is not required for One rate shipments
      * @param  ?float  $totalRebates  Specifies the total rebate.<br>Example: 2.0
      * @param  ?float  $fuelSurchargePercent  Specifies a fuel surcharge percentage.<br>Example: 6.0
@@ -43,7 +43,7 @@ final class ShipmentLegRateDetail extends Dto
      * @param  Surcharge[]|null  $surcharges  All surcharges that apply to this shipment.<br><a onclick='loadDocReference("surcharges")'>click here to see surcharges</a>
      * @param  ?float  $totalSurcharges  The total of all surcharges.<br>Example: 5.0
      * @param  ?Weight  $totalBillingWeight  These are the package weight details.<br>Note: Weight is not required for One rate shipments
-     * @param  RateDiscount[]|null  $freightDiscounts
+     * @param  RateDiscount2[]|null  $freightDiscounts
      * @param  ?string  $rateScale  Indicates the rate scale used.<br>Example: 6702
      * @param  ?float  $totalNetCharge  The net charge after applying all discounts and surcharges.<br>Example: 253
      * @param  ?float  $totalNetChargeWithDutiesAndTaxes  Sum of total net charge, total duties and taxes; only provided if estimated duties and taxes were calculated for this shipment and duties, taxes and transportation charges are all paid by the same sender account.<br>Example: 25.67

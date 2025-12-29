@@ -34,7 +34,7 @@ final class RequestedShipmentVerify extends Dto
      * @param  ?RequestedShipmentVerifyShipmentSpecialServices  $shipmentSpecialServices  These special services are available at the shipment level for some or all service types.<br>If the shipper is requesting a special service which requires additional data (such as the COD amount), the shipment special service type must be present in the specialServiceTypes collection, and the supporting detail must be provided in the appropriate sub-object below.<br>RETURN_SHIPMENT is required for creating return shipments.
      * @param  ?EMailNotificationDetail  $emailNotificationDetail  These are email disposition details. Provides the type and email addresses of e-mail recipients. If returnedDispositionDetail in labelSpecification is set as true then email will be send with label and documents copy.
      * @param  ?VariableHandlingChargeDetail  $variableHandlingChargeDetail  Specifies details about how to calculate variable handling charges at the shipment level. They can be based on a percentage of the shipping charges or a fixed amount.   If indicated, 'rateLevelType' is required.
-     * @param  ?CustomsClearanceDetail  $customsClearanceDetail  Required for International and intra-country Shipments. Information about this package that only applies to an international (export) shipment or return.
+     * @param  ?CustomsClearanceDetail2  $customsClearanceDetail  Required for International and intra-country Shipments. Information about this package that only applies to an international (export) shipment or return.
      * @param  ?SmartPostInfoDetail  $smartPostInfoDetail  Use this object to specify the smartpost shipment details. Required for SMARTPOST service. If SmartPostInfoDetail is indicated, the elements below it are also required.
      * @param  ?bool  $blockInsightVisibility  Indicate if the shipment be available to be visible/tracked using FedEx InSight® tool. If value indicated as true, only the shipper/payer will have visibility of this shipment in the said tool.
      * @param  ?ShippingDocumentSpecification2  $shippingDocumentSpecification  This field contains all data required for additional (non-label) shipping documents to be produced with a specific shipment.
@@ -56,7 +56,7 @@ final class RequestedShipmentVerify extends Dto
         public ?RequestedShipmentVerifyShipmentSpecialServices $shipmentSpecialServices = null,
         public ?EMailNotificationDetail $emailNotificationDetail = null,
         public ?VariableHandlingChargeDetail $variableHandlingChargeDetail = null,
-        public ?CustomsClearanceDetail $customsClearanceDetail = null,
+        public ?CustomsClearanceDetail2 $customsClearanceDetail = null,
         public ?SmartPostInfoDetail $smartPostInfoDetail = null,
         public ?bool $blockInsightVisibility = null,
         public ?ShippingDocumentSpecification2 $shippingDocumentSpecification = null,

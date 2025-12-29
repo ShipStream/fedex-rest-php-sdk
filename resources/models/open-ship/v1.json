@@ -2233,7 +2233,8 @@
                     "requestedPackageLineItems",
                     "serviceType",
                     "shipper",
-                    "shippingChargesPayment"
+                    "shippingChargesPayment",
+                    "labelSpecification"
                 ],
                 "type": "object",
                 "properties": {
@@ -2372,6 +2373,9 @@
                         "items": {
                             "$ref": "#/components/schemas/RequestedPackageLineItem"
                         }
+                    },
+                    "labelSpecification": {
+                        "$ref": "#/components/schemas/LabelSpecification"
                     }
                 },
                 "description": "The detailed transaction data for the requested Open Shipment."
@@ -3481,8 +3485,89 @@
                     },
                     "usmcaDetail": {
                         "$ref": "#/components/schemas/UsmcaDetail"
+                    },
+                    "clearanceItemDetail": {
+                        "type": "array",
+                        "description": "Array of clearance item details including manufacturer info for customs clearance.",
+                        "items": {
+                            "$ref": "#/components/schemas/ClearanceItemDetail"
+                        }
                     }
                 }
+            },
+            "ClearanceItemDetail": {
+                "type": "object",
+                "properties": {
+                    "role": {
+                        "type": "string",
+                        "description": "Role in producing or supplying the item/commodity",
+                        "example": "MANUFACTURER",
+                        "enum": [
+                            "MANUFACTURER"
+                        ]
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "Unique identifier of the manufacturer of the commodity.<br/> For shipments to United States, refer to U.S. Customs and Border Protection website.<br/>Example: USGRE98BIR",
+                        "example": "USGRE98BIR"
+                    },
+                    "contact": {
+                        "$ref": "#/components/schemas/ClearanceItemDetail_contact"
+                    },
+                    "address": {
+                        "$ref": "#/components/schemas/ClearanceItemDetail_address"
+                    }
+                }
+            },
+            "ClearanceItemDetail_contact": {
+                "type": "object",
+                "properties": {
+                    "companyName": {
+                        "type": "string",
+                        "description": "Legal name of the manufacturer of the commodity.<br/>Example: THE GREENHOUSE",
+                        "example": "THE GREENHOUSE"
+                    }
+                },
+                "description": "Contact details of the manufacturer."
+            },
+            "ClearanceItemDetail_address": {
+                "type": "object",
+                "properties": {
+                    "streetLines": {
+                        "type": "array",
+                        "description": "Combination of number, street name, etc. At least one line is required for a valid physical address. Empty lines should not be included.<br>Example: 98 Royal Crescent",
+                        "items": {
+                            "type": "string",
+                            "example": "[\"98 Royal Crescent\"]"
+                        }
+                    },
+                    "city": {
+                        "type": "string",
+                        "description": "The name of city, town of the recipient.<br> Example: Birmingham",
+                        "example": "Birmingham"
+                    },
+                    "stateOrProvinceCode": {
+                        "type": "string",
+                        "description": "It is used to identify the principal subdivisions (e.g., provinces or states) of countries. The Format and presence of this field may vary depending on the country. <br> Example: CA",
+                        "example": "CA"
+                    },
+                    "postalCode": {
+                        "type": "string",
+                        "description": "The US State and Canada Province codes. The Format and presence of this field may vary depending on the country. <br> Example: 35209",
+                        "example": "35209"
+                    },
+                    "countryCode": {
+                        "type": "string",
+                        "description": "The two-letter code used to identify a country.<br>Example: US",
+                        "example": "US"
+                    },
+                    "residential": {
+                        "type": "boolean",
+                        "description": "Indicate whether this address is Residential (as opposed to Commercial).<br>Valid Values: True or False.",
+                        "example": false
+                    }
+                },
+                "description": "Address of the manufacturer"
             },
             "AdditionalMeasures": {
                 "type": "object",
@@ -4158,6 +4243,17 @@
             },
             "OpenShipAction": {
                 "type": "string",
+                "description": "Indicates the optional actions that can be performed during the modification of packages in  Open Shipment.<p>Here are the values:<ul><li>CREATE_PACKAGE - Use CREATE_PACKAGE option to create Open Shipment.</li><li>STRONG_VALIDATION \u2013 Full shipment edits: any edit that fails will cause the transaction to fail. If the transaction is successful, a tracking number may be returned and the transaction will be saved to the database (committed).</li><li>WEAK_VALIDATION - Full shipment edits: any edit that fails will return errors but the transaction does not fail. The tracking number is returned and the transaction is saved in the database if the core edits are passed. Fix errors with the ModifyRequests transaction using the Index and returned tracking number.</li><li><a onclick=\"FDX.APIDOCS.loadsubMenus('multiple-pieceopenshipping(mps)')\">PROVIDE_DOCUMENTS_INCREMENTALLY</a> - Used in the Print as You Go (PASGO) flow to print labels incrementally as packages are added to an open shipment.</li></ul></p>",
+                "example": "CREATE_PACKAGE",
+                "enum": [
+                    "STRONG_VALIDATION",
+                    "WEAK_VALIDATION",
+                    "CREATE_PACKAGE",
+                    "PROVIDE_DOCUMENTS_INCREMENTALLY"
+                ]
+            },
+            "OpenShipmentAction_1": {
+                "type": "string",
                 "description": "Indicates the optional actions that can be performed during the modification of packages in  Open Shipment.<p>Here are the values:<ul><li>CREATE_PACKAGE - Use CREATE_PACKAGE option to create Open Shipment.</li><li>STRONG_VALIDATION \u2013 Full shipment edits: any edit that fails will cause the transaction to fail. If the transaction is successful, a tracking number may be returned and the transaction will be saved to the database (committed).</li><li>WEAK_VALIDATION - Full shipment edits: any edit that fails will return errors but the transaction does not fail. The tracking number is returned and the transaction is saved in the database if the core edits are passed. Fix errors with the ModifyRequests transaction using the Index and returned tracking number.</li></ul></p>",
                 "example": "CREATE_PACKAGE",
                 "enum": [
@@ -4214,50 +4310,6 @@
                     }
                 },
                 "description": "The response elements received when a shipment is created."
-            },
-            "TransactionOpenShipmentOutputVO": {
-                "type": "object",
-                "properties": {
-                    "serviceType": {
-                        "type": "string",
-                        "description": "Indicate the FedEx serviceType used for this shipment. The results will be filtered by the serviceType value indicated.<br>Example: STANDARD_OVERNIGHT<br><a onclick='loadDocReference(\"servicetypes\")'>click here to see Service Types</a>",
-                        "example": "FEDEX_2_DAY_FREIGHT"
-                    },
-                    "shipDatestamp": {
-                        "type": "string",
-                        "description": "This is the shipment date. Default value is current date in case the date is not provided or a past date is provided.<br>Format [YYYY-MM-DD].<br>Example: 2019-10-14",
-                        "example": "2010-03-04"
-                    },
-                    "serviceCategory": {
-                        "type": "string",
-                        "description": "Indicates service category.<br>Example: EXPRESS",
-                        "example": "EXPRESS"
-                    },
-                    "serviceName": {
-                        "type": "string",
-                        "description": "Describes the service name for the shipment. <br> Example: FedEx Ground",
-                        "example": "FedEx 2 Day Freight"
-                    },
-                    "alerts": {
-                        "type": "array",
-                        "description": "These are alert details received in the response.",
-                        "items": {
-                            "$ref": "#/components/schemas/Alert"
-                        }
-                    },
-                    "completedShipmentDetail": {
-                        "$ref": "#/components/schemas/CompletedShipmentDetail"
-                    },
-                    "shipmentAdvisoryDetails": {
-                        "$ref": "#/components/schemas/ShipmentAdvisoryDetails"
-                    },
-                    "masterTrackingNumber": {
-                        "type": "string",
-                        "description": "This is a master tracking number for the shipment (must be unique for stand-alone open shipments, or unique within consolidation if consolidation key is provided).<br>Example: 794953535000",
-                        "example": "794953535000"
-                    }
-                },
-                "description": "Specifies shipping transaction output details"
             },
             "Alert": {
                 "type": "object",
@@ -5913,7 +5965,7 @@
                         "$ref": "#/components/schemas/OpenshipmentRequestedShipment"
                     },
                     "openShipmentAction": {
-                        "$ref": "#/components/schemas/OpenShipAction"
+                        "$ref": "#/components/schemas/OpenShipmentAction_1"
                     },
                     "accountNumber": {
                         "$ref": "#/components/schemas/PartyAccountNumber"
@@ -6001,12 +6053,20 @@
                     },
                     "accountNumber": {
                         "$ref": "#/components/schemas/PartyAccountNumber"
+                    },
+                    "openShipmentAction": {
+                        "type": "string",
+                        "description": "Indicates the optional actions that can be performed during the modification of packages in  Open Shipment.<p>Here are the value:<br/> <ul><li>PROVIDE_DOCUMENTS_INCREMENTALLY- Used in the Print as You Go (PASGO) flow to print labels incrementally as packages are added to an open shipment.</li></ul></p>",
+                        "example": "PROVIDE_DOCUMENTS_INCREMENTALLY",
+                        "enum": [
+                            "PROVIDE_DOCUMENTS_INCREMENTALLY"
+                        ]
                     }
                 }
             },
             "LABELRESPONSEOPTIONS": {
                 "type": "string",
-                "description": "Specify whether the encoded bytecode or the label URL to be returned in the response.<p>Valid values:<ul><li>LABEL &ndash; Indicates request is for encoded bytecode.</li><li>URL_ONLY &ndash; Indicates label URL request.</li></ul>Note: For asynchronous shipment (More than 40 packages) request only the value LABEL is suported.</p><br><br><i>Note: With URL_ONLY option, the URL once created will be active for 12 hours.</i>",
+                "description": "Specify whether the encoded bytecode or the label URL to be returned in the response.<p>Valid values:<ul><li>LABEL &ndash; Indicates request is for encoded bytecode.</li><li>URL_ONLY &ndash; Indicates label URL request.</li></ul><p>Note: <ul><li>For asynchronous shipment (More than 40 packages) request only the value LABEL is supported.</li><li>With URL_ONLY option, the URL once created will be active for 12 hours.</li><li>Label will be returned as Base64 ONLY when openShipmentAction is PROVIDE_DOCUMENTS_INCREMENTALLY</li></ul></p>",
                 "example": "LABEL",
                 "enum": [
                     "URL_ONLY",
@@ -6813,64 +6873,6 @@
                 },
                 "description": "The response elements received when a shipment is created."
             },
-            "TransactionShipmentOutputVO": {
-                "type": "object",
-                "properties": {
-                    "serviceType": {
-                        "type": "string",
-                        "description": "Indicate the FedEx serviceType used for this shipment. The results will be filtered by the serviceType value indicated.<br>Example: STANDARD_OVERNIGHT<br><a onclick='loadDocReference(\"servicetypes\")'>click here to see Service Types</a>",
-                        "example": "STANDARD_OVERNIGHT"
-                    },
-                    "shipDatestamp": {
-                        "type": "string",
-                        "description": "This is the shipment date. Default value is current date in case the date is not provided or a past date is provided.<br>Format [YYYY-MM-DD].<br>Example: 2019-10-14",
-                        "example": "2010-03-04"
-                    },
-                    "serviceCategory": {
-                        "type": "string",
-                        "description": "Indicates the Service Category.<br>Example: EXPRESS",
-                        "example": "EXPRESS"
-                    },
-                    "shipmentDocuments": {
-                        "type": "array",
-                        "description": "These are shipping document details.",
-                        "items": {
-                            "$ref": "#/components/schemas/LabelResponseVO"
-                        }
-                    },
-                    "pieceResponses": {
-                        "type": "array",
-                        "description": "These are pieces information received in the response.",
-                        "items": {
-                            "$ref": "#/components/schemas/PieceResponse"
-                        }
-                    },
-                    "serviceName": {
-                        "type": "string",
-                        "description": "This is the service name associated with the shipment.<br>Example: FedEx Ground",
-                        "example": "FedEx 2 Day Freight"
-                    },
-                    "alerts": {
-                        "type": "array",
-                        "description": "These are alert details received in the response.",
-                        "items": {
-                            "$ref": "#/components/schemas/Alert"
-                        }
-                    },
-                    "completedShipmentDetail": {
-                        "$ref": "#/components/schemas/CompletedShipmentDetail"
-                    },
-                    "shipmentAdvisoryDetails": {
-                        "$ref": "#/components/schemas/ShipmentAdvisoryDetails"
-                    },
-                    "masterTrackingNumber": {
-                        "type": "string",
-                        "description": "This is a master tracking number for the shipment (must be unique for stand-alone open shipments, or unique within consolidation if consolidation key is provided).<br>Example: 794953535000",
-                        "example": "794953535000"
-                    }
-                },
-                "description": "Specifies shipping transaction output details"
-            },
             "LabelResponseVO": {
                 "type": "object",
                 "properties": {
@@ -6938,129 +6940,6 @@
                 },
                 "description": "These are shipping document/label specific information."
             },
-            "PieceResponse": {
-                "type": "object",
-                "properties": {
-                    "netChargeAmount": {
-                        "type": "number",
-                        "description": "Indicates the net charges amount.<br>Example: 21.45",
-                        "format": "double",
-                        "example": 21.45
-                    },
-                    "transactionDetails": {
-                        "type": "array",
-                        "description": "Indicates data received that governs data payload language/translations. The TransactionDetail from the request is echoed back to the caller in the corresponding reply.",
-                        "items": {
-                            "$ref": "#/components/schemas/TransactionDetailVO"
-                        }
-                    },
-                    "packageDocuments": {
-                        "type": "array",
-                        "description": "These are package documents returned in the response.",
-                        "items": {
-                            "$ref": "#/components/schemas/LabelResponseVO"
-                        }
-                    },
-                    "acceptanceTrackingNumber": {
-                        "type": "string",
-                        "description": "Indicates the acceptance tracking number.<br>Example: 7949XXXXX5000",
-                        "example": "794953535000"
-                    },
-                    "serviceCategory": {
-                        "type": "string",
-                        "description": "Indicates the service category.",
-                        "example": "EXPRESS",
-                        "enum": [
-                            "EXPRESS",
-                            "GROUND",
-                            "EXPRESS_FREIGHT",
-                            "FREIGHT",
-                            "SMARTPOST",
-                            "EXPRESS_PARCEL",
-                            "NULL"
-                        ]
-                    },
-                    "listCustomerTotalCharge": {
-                        "type": "string",
-                        "description": "Indicates total charges applicable to the customer.<br>Example: listCustomerTotalCharge",
-                        "example": "listCustomerTotalCharge"
-                    },
-                    "deliveryTimestamp": {
-                        "type": "string",
-                        "description": "Indicates delivery date.<br>Example: 2012-09-23",
-                        "example": "2012-09-23"
-                    },
-                    "trackingIdType": {
-                        "type": "string",
-                        "description": "Indicates the type of the tracking identifier.",
-                        "example": "FEDEX"
-                    },
-                    "additionalChargesDiscount": {
-                        "type": "number",
-                        "description": "These are additional charges or discounts.<br>Example: 621.45",
-                        "format": "double",
-                        "example": 621.45
-                    },
-                    "netListRateAmount": {
-                        "type": "number",
-                        "description": "Indicates the net List rate amount.<br>Example: 1.45",
-                        "format": "double",
-                        "example": 1.45
-                    },
-                    "baseRateAmount": {
-                        "type": "number",
-                        "description": "Specifies the base rate amount.<br>Example: 321.45",
-                        "format": "double",
-                        "example": 321.45
-                    },
-                    "packageSequenceNumber": {
-                        "type": "integer",
-                        "description": "Indicates package sequence number.<br>Example: 215",
-                        "format": "int32",
-                        "example": 215
-                    },
-                    "netDiscountAmount": {
-                        "type": "number",
-                        "description": "Specifies the net discount amount.<br>Example: 121.45",
-                        "format": "double",
-                        "example": 121.45
-                    },
-                    "codcollectionAmount": {
-                        "type": "number",
-                        "description": "Specifies the Collect on Delivery collection amount.<br>Example: 231.45",
-                        "format": "double",
-                        "example": 231.45
-                    },
-                    "masterTrackingNumber": {
-                        "type": "string",
-                        "description": "This is a master tracking number for the shipment (must be unique for stand-alone open shipments, or unique within consolidation if consolidation key is provided).<br>Example: 794XXXXX5000",
-                        "example": "794953535000"
-                    },
-                    "acceptanceType": {
-                        "type": "string",
-                        "description": "Indicates acceptance type.",
-                        "example": "acceptanceType"
-                    },
-                    "trackingNumber": {
-                        "type": "string",
-                        "description": "This is a tracking number associated with this package. <br>Example: 49XXX0000XXX20032835",
-                        "example": "794953535000"
-                    },
-                    "successful": {
-                        "type": "boolean",
-                        "description": "Returns true if the responses are successful otherwise false.",
-                        "example": true
-                    },
-                    "customerReferences": {
-                        "type": "array",
-                        "description": "These are additional customer reference data.<br>Note: The groupPackageCount must be specified to retrieve customer references.",
-                        "items": {
-                            "$ref": "#/components/schemas/CustomerReference"
-                        }
-                    }
-                },
-                "description": "Piece Response information."
-            },
             "TransactionDetailVO": {
                 "type": "object",
                 "properties": {
@@ -7094,10 +6973,8 @@
                         "description": "This is a unique value assigned to the already created Open Shipment. If this isn\u2019t available then provide the master tracking number.<br>Example: Test1234",
                         "example": "Test1234"
                     },
-                    "shipAction": {
-                        "description": "Allowed values are STRONG_VALIDATION, PROVIDE_DOCUMENTS_INCREMENTALLY",
-                        "example": "STRONG_VALIDATION",
-                        "$ref": "#/components/schemas/OpenShipAction"
+                    "OpenShipAction": {
+                        "$ref": "#/components/schemas/OpenShipmentAction_1"
                     },
                     "accountNumber": {
                         "$ref": "#/components/schemas/PartyAccountNumber"
@@ -7169,10 +7046,8 @@
                         "description": "This is a unique value assigned to the already created Open Shipment. If this isn\u2019t available then provide the master tracking number.<br>Example: Test1234",
                         "example": "Test1234"
                     },
-                    "shipAction": {
-                        "description": "There are Ship actions as part of processing the shipment.",
-                        "example": "STRONG_VALIDATION",
-                        "$ref": "#/components/schemas/OpenShipmentAction"
+                    "OpenShipAction": {
+                        "$ref": "#/components/schemas/OpenShipmentAction_1"
                     },
                     "accountNumber": {
                         "$ref": "#/components/schemas/PartyAccountNumber"
@@ -8168,7 +8043,7 @@
                 "properties": {
                     "value": {
                         "type": "string",
-                        "description": "Conditional.<br> The account number value.<br> Max Length is 9.<br>Example: 12XXXXX89 <br> <br>NOTE:- FedEx Account number is required for FedEx International Connect Plus (FICP) service shipments from APAC to US or PR with duty & tax Bill-to recipient:<br>if any of the shipment commodities\u2019 Country of Manufacture is CN/HK"
+                        "description": "Conditional.<br> The account number value.<br> Max Length is 9.<br>Example: 12XXXXX89 <br> NOTE: A FedEx account number is required for FedEx International Connect Plus (FICP) service non-document shipments. This applies to shipments from APAC countries and territories to U.S. or PR with duty and tax bill-to recipient if any shipment commodities\u2019 country of manufacture is AU, CN, HK, ID, JP, KR, MO, MY, NZ, PH, SG, TH, TW, VN (APAC countries and territories)."
                     }
                 },
                 "description": "This is FedEx Account number details.",
@@ -8262,6 +8137,129 @@
                         "example": "3686"
                     }
                 }
+            },
+            "PieceResponse": {
+                "type": "object",
+                "properties": {
+                    "netChargeAmount": {
+                        "type": "number",
+                        "description": "Indicates the net charges amount.<br>Example: 21.45",
+                        "format": "double",
+                        "example": 21.45
+                    },
+                    "transactionDetails": {
+                        "type": "array",
+                        "description": "Indicates data received that governs data payload language/translations. The TransactionDetail from the request is echoed back to the caller in the corresponding reply.",
+                        "items": {
+                            "$ref": "#/components/schemas/TransactionDetailVO"
+                        }
+                    },
+                    "packageDocuments": {
+                        "type": "array",
+                        "description": "These are package documents returned in the response.",
+                        "items": {
+                            "$ref": "#/components/schemas/LabelResponseVO"
+                        }
+                    },
+                    "acceptanceTrackingNumber": {
+                        "type": "string",
+                        "description": "Indicates the acceptance tracking number.<br>Example: 7949XXXXX5000",
+                        "example": "794953535000"
+                    },
+                    "serviceCategory": {
+                        "type": "string",
+                        "description": "Indicates the service category.",
+                        "example": "EXPRESS",
+                        "enum": [
+                            "EXPRESS",
+                            "GROUND",
+                            "EXPRESS_FREIGHT",
+                            "FREIGHT",
+                            "SMARTPOST",
+                            "EXPRESS_PARCEL",
+                            "NULL"
+                        ]
+                    },
+                    "listCustomerTotalCharge": {
+                        "type": "string",
+                        "description": "Indicates total charges applicable to the customer.<br>Example: listCustomerTotalCharge",
+                        "example": "listCustomerTotalCharge"
+                    },
+                    "deliveryTimestamp": {
+                        "type": "string",
+                        "description": "Indicates delivery date.<br>Example: 2012-09-23",
+                        "example": "2012-09-23"
+                    },
+                    "trackingIdType": {
+                        "type": "string",
+                        "description": "Indicates the type of the tracking identifier.",
+                        "example": "FEDEX"
+                    },
+                    "additionalChargesDiscount": {
+                        "type": "number",
+                        "description": "These are additional charges or discounts.<br>Example: 621.45",
+                        "format": "double",
+                        "example": 621.45
+                    },
+                    "netListRateAmount": {
+                        "type": "number",
+                        "description": "Indicates the net List rate amount.<br>Example: 1.45",
+                        "format": "double",
+                        "example": 1.45
+                    },
+                    "baseRateAmount": {
+                        "type": "number",
+                        "description": "Specifies the base rate amount.<br>Example: 321.45",
+                        "format": "double",
+                        "example": 321.45
+                    },
+                    "packageSequenceNumber": {
+                        "type": "integer",
+                        "description": "Indicates package sequence number.<br>Example: 215",
+                        "format": "int32",
+                        "example": 215
+                    },
+                    "netDiscountAmount": {
+                        "type": "number",
+                        "description": "Specifies the net discount amount.<br>Example: 121.45",
+                        "format": "double",
+                        "example": 121.45
+                    },
+                    "codcollectionAmount": {
+                        "type": "number",
+                        "description": "Specifies the Collect on Delivery collection amount.<br>Example: 231.45",
+                        "format": "double",
+                        "example": 231.45
+                    },
+                    "masterTrackingNumber": {
+                        "type": "string",
+                        "description": "This is a master tracking number for the shipment (must be unique for stand-alone open shipments, or unique within consolidation if consolidation key is provided).<br>Example: 794XXXXX5000",
+                        "example": "794953535000"
+                    },
+                    "acceptanceType": {
+                        "type": "string",
+                        "description": "Indicates acceptance type.",
+                        "example": "acceptanceType"
+                    },
+                    "trackingNumber": {
+                        "type": "string",
+                        "description": "This is a tracking number associated with this package. <br>Example: 49XXX0000XXX20032835",
+                        "example": "794953535000"
+                    },
+                    "successful": {
+                        "type": "boolean",
+                        "description": "Returns true if the responses are successful otherwise false.",
+                        "example": true
+                    },
+                    "customerReferences": {
+                        "type": "array",
+                        "description": "These are additional customer reference data.<br>Note: The groupPackageCount must be specified to retrieve customer references.",
+                        "items": {
+                            "$ref": "#/components/schemas/CustomerReference"
+                        }
+                    }
+                },
+                "description": "Piece Response information."
             },
             "HazardousCommodityQuantityDetail": {
                 "required": [
@@ -8521,6 +8519,115 @@
                     }
                 }
             },
+            "TransactionOpenShipmentOutputVO": {
+                "type": "object",
+                "properties": {
+                    "serviceType": {
+                        "type": "string",
+                        "description": "Indicate the FedEx serviceType used for this shipment. The results will be filtered by the serviceType value indicated.<br>Example: STANDARD_OVERNIGHT<br><a onclick='loadDocReference(\"servicetypes\")'>click here to see Service Types</a>",
+                        "example": "FEDEX_2_DAY_FREIGHT"
+                    },
+                    "shipDatestamp": {
+                        "type": "string",
+                        "description": "This is the shipment date. Default value is current date in case the date is not provided or a past date is provided.<br>Format [YYYY-MM-DD].<br>Example: 2019-10-14",
+                        "example": "2010-03-04"
+                    },
+                    "serviceCategory": {
+                        "type": "string",
+                        "description": "Indicates service category.<br>Example: EXPRESS",
+                        "example": "EXPRESS"
+                    },
+                    "pieceResponses": {
+                        "type": "array",
+                        "description": "These are pieces information received in the response.",
+                        "items": {
+                            "$ref": "#/components/schemas/PieceResponse"
+                        }
+                    },
+                    "serviceName": {
+                        "type": "string",
+                        "description": "Describes the service name for the shipment. <br> Example: FedEx Ground",
+                        "example": "FedEx 2 Day Freight"
+                    },
+                    "alerts": {
+                        "type": "array",
+                        "description": "These are alert details received in the response.",
+                        "items": {
+                            "$ref": "#/components/schemas/Alert"
+                        }
+                    },
+                    "completedShipmentDetail": {
+                        "$ref": "#/components/schemas/CompletedShipmentDetail"
+                    },
+                    "shipmentAdvisoryDetails": {
+                        "$ref": "#/components/schemas/ShipmentAdvisoryDetails"
+                    },
+                    "masterTrackingNumber": {
+                        "type": "string",
+                        "description": "This is a master tracking number for the shipment (must be unique for stand-alone open shipments, or unique within consolidation if consolidation key is provided).<br>Example: 794953535000",
+                        "example": "794953535000"
+                    }
+                },
+                "description": "Specifies shipping transaction output details"
+            },
+            "TransactionShipmentOutputVO": {
+                "type": "object",
+                "properties": {
+                    "serviceType": {
+                        "type": "string",
+                        "description": "Indicate the FedEx serviceType used for this shipment. The results will be filtered by the serviceType value indicated.<br>Example: STANDARD_OVERNIGHT<br><a onclick='loadDocReference(\"servicetypes\")'>click here to see Service Types</a>",
+                        "example": "STANDARD_OVERNIGHT"
+                    },
+                    "shipDatestamp": {
+                        "type": "string",
+                        "description": "This is the shipment date. Default value is current date in case the date is not provided or a past date is provided.<br>Format [YYYY-MM-DD].<br>Example: 2019-10-14",
+                        "example": "2010-03-04"
+                    },
+                    "serviceCategory": {
+                        "type": "string",
+                        "description": "Indicates the Service Category.<br>Example: EXPRESS",
+                        "example": "EXPRESS"
+                    },
+                    "shipmentDocuments": {
+                        "type": "array",
+                        "description": "These are shipping document details.",
+                        "items": {
+                            "$ref": "#/components/schemas/LabelResponseVO"
+                        }
+                    },
+                    "pieceResponses": {
+                        "type": "array",
+                        "description": "These are pieces information received in the response.",
+                        "items": {
+                            "$ref": "#/components/schemas/PieceResponse"
+                        }
+                    },
+                    "serviceName": {
+                        "type": "string",
+                        "description": "This is the service name associated with the shipment.<br>Example: FedEx Ground",
+                        "example": "FedEx 2 Day Freight"
+                    },
+                    "alerts": {
+                        "type": "array",
+                        "description": "These are alert details received in the response.",
+                        "items": {
+                            "$ref": "#/components/schemas/Alert"
+                        }
+                    },
+                    "completedShipmentDetail": {
+                        "$ref": "#/components/schemas/CompletedShipmentDetail"
+                    },
+                    "shipmentAdvisoryDetails": {
+                        "$ref": "#/components/schemas/ShipmentAdvisoryDetails"
+                    },
+                    "masterTrackingNumber": {
+                        "type": "string",
+                        "description": "This is a master tracking number for the shipment (must be unique for stand-alone open shipments, or unique within consolidation if consolidation key is provided).<br>Example: 794953535000",
+                        "example": "794953535000"
+                    }
+                },
+                "description": "Specifies shipping transaction output details"
+            },
             "PartyAddress": {
                 "required": [
                     "city",
@@ -8532,7 +8639,7 @@
                 "properties": {
                     "streetLines": {
                         "type": "array",
-                        "description": "This is the combination of number, street name, etc. Maximum length per line is 35.<br>Example: 10 FedEx Parkway, Suite 302.<p><i>Note:<ul><li>At least one line is required.</li><li>Streetlines more than 3 will be ignored.</li><li>Empty lines should not be included</li><li>For SmartPost Shipments, only 30 characters from the individual street lines will be printed on the labels.</li></ul></i></p>",
+                        "description": "This is the Combination of number, street name, etc. At least one line is required for a valid physical address. Empty lines should not be included. Max Length is 35. <br> Note - For FedEx Ground Economy, a maximum of 30 characters will be printed on the label, excess characters will be truncated.",
                         "example": [
                             "1550 Union Blvd",
                             "Suite 302"
@@ -8954,7 +9061,7 @@
                         "$ref": "#/components/schemas/ResponsiblePartyParty"
                     }
                 },
-                "description": "Indicate the payer Information responsible for paying for the shipment. <br>Note: credit card payment is not applicable.<br>Payor is mandatory when the paymentType is RECIPIENT, THIRD_PARTY or COLLECT.",
+                "description": "Indicate the payer Information responsible for paying for the shipment. <br>Note: credit card payment is not applicable.<br>Payor is mandatory when the paymentType is RECIPIENT and THIRD_PARTY. ",
                 "example": {
                     "responsibleParty": {
                         "address": {

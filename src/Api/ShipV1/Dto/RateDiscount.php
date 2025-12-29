@@ -15,15 +15,14 @@ use ShipStream\FedEx\Dto;
 final class RateDiscount extends Dto
 {
     /**
-     * @param  ?float  $amount  Specifies the amount.<br>Example: 8.9
-     * @param  ?string  $rateDiscountType  The type of rate discount. <br/> Valid Values are BONUS, COUPON,EARNED,OTHER,VOLUME.<br>Example: COUPON
-     * @param  ?float  $percent  Specifies the percentage of Rate discount.<br>Example: 28.9
-     * @param  ?string  $description  Specifies the description of the discounted rate.<br>Example: description
+     * @param  ?string  $rateDiscountType  Indicates the type.
+     * @param  ?string  $description  Indicates the description for the rate discount.
+     * @param  ?Money2  $amount  This is commodity value used for Customs declaration.
      */
     public function __construct(
-        public ?float $amount = null,
         public ?string $rateDiscountType = null,
-        public ?float $percent = null,
         public ?string $description = null,
+        public ?Money2 $amount = null,
+        public ?float $percent = null,
     ) {}
 }

@@ -15,7 +15,7 @@ use ShipStream\FedEx\Dto;
 final class PartyAccountNumber extends Dto
 {
     /**
-     * @param  ?string  $value  Conditional.<br> The account number value.<br> Max Length is 9.<br>Example: 12XXXXX89 <br> <br>NOTE:- FedEx Account number is required for FedEx International Connect Plus (FICP) service shipments from APAC to US or PR with duty & tax Bill-to recipient:<br>if any of the shipment commodities’ Country of Manufacture is CN/HK
+     * @param  ?string  $value  Conditional.<br> The account number value.<br> Max Length is 9.<br>Example: 12XXXXX89 <br> NOTE: A FedEx account number is required for FedEx International Connect Plus (FICP) service non-document shipments. This applies to shipments from APAC countries and territories to U.S. or PR with duty and tax bill-to recipient if any shipment commodities’ country of manufacture is AU, CN, HK, ID, JP, KR, MO, MY, NZ, PH, SG, TH, TW, VN (APAC countries and territories).
      */
     public function __construct(
         public ?string $value = null,

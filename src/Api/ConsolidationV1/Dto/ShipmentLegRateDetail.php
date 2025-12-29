@@ -15,15 +15,15 @@ use ShipStream\FedEx\Dto;
 final class ShipmentLegRateDetail extends Dto
 {
     protected static array $complexArrayTypes = [
-        'taxes' => Tax::class,
+        'taxes' => Tax2::class,
         'surcharges' => Surcharge::class,
-        'freightDiscounts' => RateDiscount::class,
+        'freightDiscounts' => RateDiscount2::class,
     ];
 
     /**
      * @param  ?string  $rateZone  Indicates the rate zone used (based on origin and destination).
      * @param  ?string  $pricingCode  Specifies the Pricing Code.
-     * @param  Tax[]|null  $taxes  Specifies the taxes.
+     * @param  Tax2[]|null  $taxes  Specifies the taxes.
      * @param  ?Weight  $totalDimWeight  Indicate the shipment total weight in pounds.<br>Example: 10.6<br>Note: <ul><li>This only applies to International shipments and should be used on the first package of a multiple piece shipment.</li><li>This value contains 1 explicit decimal position.</li><li>For one Label at a time shipments, the unit of totalWeight is considered same as the unit of weight provided in requestedPackageLineItem field.</li></ul>
      * @param  ?float  $totalRebates  Specifies the total rebate.
      * @param  ?float  $fuelSurchargePercent  Specifies a fuel surcharge percentage.
@@ -43,7 +43,7 @@ final class ShipmentLegRateDetail extends Dto
      * @param  Surcharge[]|null  $surcharges  All surcharges that apply to this shipment.
      * @param  ?float  $totalSurcharges  The total of all surcharges.
      * @param  ?Weight  $totalBillingWeight  Indicate the shipment total weight in pounds.<br>Example: 10.6<br>Note: <ul><li>This only applies to International shipments and should be used on the first package of a multiple piece shipment.</li><li>This value contains 1 explicit decimal position.</li><li>For one Label at a time shipments, the unit of totalWeight is considered same as the unit of weight provided in requestedPackageLineItem field.</li></ul>
-     * @param  RateDiscount[]|null  $freightDiscounts
+     * @param  RateDiscount2[]|null  $freightDiscounts
      * @param  ?string  $rateScale  Indicates the rate scale used.
      * @param  ?float  $totalNetCharge  The net charge after applying all discounts and surcharges.
      * @param  ?float  $totalNetChargeWithDutiesAndTaxes  Sum of total net charge, total duties and taxes; only provided if estimated duties and taxes were calculated for this shipment and duties, taxes and transportation charges are all paid by the same sender account.

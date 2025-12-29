@@ -43,5 +43,6 @@ final class FullSchema extends Dto
         public ?bool $includeUrlReferences = null,
         public ?string $consolidationType = null,
         public ?string $consolidationRole = null,
+        public ?Version $version = null,
     ) {}
 }

@@ -28,5 +28,6 @@ final class FullSchemaFreightShipment extends Dto
         public string $labelResponseOptions,
         public ShipperAccountNumber $accountNumber,
         public ?bool $oneLabelAtAtime = null,
+        public ?Version $version = null,
     ) {}
 }

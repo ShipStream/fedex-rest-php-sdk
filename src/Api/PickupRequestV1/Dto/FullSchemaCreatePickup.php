@@ -29,6 +29,7 @@ final class FullSchemaCreatePickup extends Dto
      * @param  ?string  $commodityDescription  Description of the commodity being shipped. <br>Example:This field contains Commodity Description.<br><a onclick='loadDocReference("vaguecommoditydescriptions")'>Click here to see Vague commodity descriptions</a>
      * @param  ?ExpressFreightPickupDetail  $expressFreightDetail  Provides the Express Freight pickup detailed information.
      * @param  ?int  $oversizePackageCount  Specify the number of oversize packages that are tendered to FedEx Ground.
+     * @param  ?PickupChargesPayment  $pickupChargesPayment  Specifies how the pickup charges will be paid.
      */
     public function __construct(
         public AccountNumber $associatedAccountNumber,
@@ -46,5 +47,7 @@ final class FullSchemaCreatePickup extends Dto
         public ?ExpressFreightPickupDetail $expressFreightDetail = null,
         public ?int $oversizePackageCount = null,
         public ?PickupNotificationDetail $pickupNotificationDetail = null,
+        public ?PickupChargesPayment $pickupChargesPayment = null,
+        public ?Version $version = null,
     ) {}
 }

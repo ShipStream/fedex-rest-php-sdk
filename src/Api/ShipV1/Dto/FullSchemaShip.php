@@ -24,6 +24,7 @@ final class FullSchemaShip extends Dto
      * @param  ?string  $shipAction  Indicate shipment action for the Shipment. <ul><li>CONFIRM &ndash; used in case of shipment submission</li><li>TRANSFER &ndash; used in case of Email Label Shipment or Pending Shipment submission.
      * @param  ?string  $processingOptionType  Indicate the processing option for submitting a Single shot MPS shipment. The value indicates if the MPS to be processed synchronously or asynchronously.<br>Note: <ul><li>Default value is SYNCHRONOUS_ONLY.</li><li>Value or element is not needed when groupPackageCount is less than or equal to 40.</li><li>Must provide element with value ALLOW_ASYNCHRONOUS when groupPackageCount is greater than 40.</li></ul> <br>Example:ALLOW_ASYNCHRONUS
      * @param  ?bool  $oneLabelAtAtime  This flag is used to specify if the shipment is singleshot mps or one Label at a time, piece by piece shipment. Default is false. If true, one label at a time is processed.
+     * @param  ?string[]  $processingOptions  Array of processing options for the shipment.
      */
     public function __construct(
         public RequestedShipment $requestedShipment,
@@ -33,5 +34,7 @@ final class FullSchemaShip extends Dto
         public ?string $shipAction = null,
         public ?string $processingOptionType = null,
         public ?bool $oneLabelAtAtime = null,
+        public ?Version $version = null,
+        public ?array $processingOptions = null,
     ) {}
 }

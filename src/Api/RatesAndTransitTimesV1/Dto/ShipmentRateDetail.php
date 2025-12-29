@@ -15,9 +15,9 @@ use ShipStream\FedEx\Dto;
 final class ShipmentRateDetail extends Dto
 {
     protected static array $complexArrayTypes = [
-        'freightDiscount' => RateDiscount::class,
-        'surCharges' => Surcharge::class,
-        'taxes' => Tax::class,
+        'freightDiscount' => RateDiscount2::class,
+        'surCharges' => Surcharge2::class,
+        'taxes' => Tax2::class,
     ];
 
     /**
@@ -29,13 +29,13 @@ final class ShipmentRateDetail extends Dto
      * @param  ?float  $totalFreightDiscount  Indicates the total discounts used in the rate calculation. Example: 856.32
      * @param  ?string[]  $specialRatingApplied  Indicates which special rating cases applied to this shipment.
      * @param  ?float  $totalSurcharges  This is sum of all surcharges on the package. Example: 586.25
-     * @param  RateDiscount[]|null  $freightDiscount  This is total discount used in the rate calculation.<br><a onclick='loadDocReference("discounts")'>Click here to see Discounts</a>
+     * @param  RateDiscount2[]|null  $freightDiscount  This is total discount used in the rate calculation.<br><a onclick='loadDocReference("discounts")'>Click here to see Discounts</a>
      * @param  ?float  $fuelSurchargePercent  This is fuel surcharge percentage.
      * @param  ?Weight  $totalBillingWeight  These are the weight details.
      * @param  ?Weight  $totalDimWeight  These are the weight details.
      * @param  ?int  $dimDivisor  Identifies the type of divisor that was applied.<br> Example: 10
-     * @param  Surcharge[]|null  $surCharges  Indicates the surcharges applied to this shipment.
-     * @param  Tax[]|null  $taxes  List of taxes.
+     * @param  Surcharge2[]|null  $surCharges  Indicates the surcharges applied to this shipment.
+     * @param  Tax2[]|null  $taxes  List of taxes.
      */
     public function __construct(
         public ?CurrencyExchangeRate $currencyExchangeRate = null,

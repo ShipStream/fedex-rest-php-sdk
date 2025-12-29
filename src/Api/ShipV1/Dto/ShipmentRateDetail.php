@@ -17,7 +17,7 @@ final class ShipmentRateDetail extends Dto
     protected static array $complexArrayTypes = [
         'shipmentLegRateDetails' => ShipmentLegRateDetail::class,
         'surcharges' => Surcharge::class,
-        'freightDiscounts' => RateDiscount::class,
+        'freightDiscounts' => RateDiscount2::class,
     ];
 
     /**
@@ -41,7 +41,7 @@ final class ShipmentRateDetail extends Dto
      * @param  Surcharge[]|null  $surcharges  All surcharges that apply to this shipment.<br><a onclick='loadDocReference("surcharges")'>click here to see Surcharges</a>
      * @param  ?float  $totalSurcharges  The total amount of all surcharges applied to this shipment.<br>Example: 9.88
      * @param  ?Weight  $totalBillingWeight  These are the package weight details.<br>Note: Weight is not required for One rate shipments
-     * @param  RateDiscount[]|null  $freightDiscounts  Indicates the freight discounts.
+     * @param  RateDiscount2[]|null  $freightDiscounts  Indicates the freight discounts.
      * @param  ?string  $rateScale  Indicates the rate scale used.<br>Example: 00000
      * @param  ?float  $totalNetCharge  The net charge after applying all discounts and surcharges.<br>Example: 3.78
      * @param  ?float  $totalBaseCharge  The total Shipment charge that was calculated before surcharges, discounts and taxes.<br>Example: 234.56

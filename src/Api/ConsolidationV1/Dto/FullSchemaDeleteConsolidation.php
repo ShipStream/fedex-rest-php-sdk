@@ -23,5 +23,6 @@ final class FullSchemaDeleteConsolidation extends Dto
         public PartyAccountNumber $accountNumber,
         public ConsolidationKey $consolidationKey,
         public TrackingIds $trackingId,
+        public ?Version $version = null,
     ) {}
 }

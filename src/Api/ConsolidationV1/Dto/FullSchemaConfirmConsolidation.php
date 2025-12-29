@@ -31,5 +31,6 @@ final class FullSchemaConfirmConsolidation extends Dto
         public ?string $edtRequestType = null,
         public ?string $rateRequestType = null,
         public ?ConsolidationDocumentSpec $consolidationDocumentSpecification = null,
+        public ?Version $version = null,
     ) {}
 }

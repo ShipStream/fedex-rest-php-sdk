@@ -23,5 +23,6 @@ final class FullSchemaSpecialServiceOptions extends Dto
         public RequestedShipment $requestedShipment,
         public ?AccountNumber $accountNumber = null,
         public ?array $carrierCodes = null,
+        public ?Version $version = null,
     ) {}
 }

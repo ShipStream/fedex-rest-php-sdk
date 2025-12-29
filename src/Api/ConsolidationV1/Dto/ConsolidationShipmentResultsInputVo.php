@@ -21,5 +21,6 @@ final class ConsolidationShipmentResultsInputVo extends Dto
     public function __construct(
         public string $jobId,
         public PartyAccountNumber $accountNumber,
+        public ?Version $version = null,
     ) {}
 }

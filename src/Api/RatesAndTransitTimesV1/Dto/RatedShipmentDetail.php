@@ -23,11 +23,14 @@ final class RatedShipmentDetail extends Dto
 
     /**
      * @param  ?string  $rateType  Type used for this specific set of rate data.<br>Example: ACCOUNT
+     * @param  ?Money  $totalNetTransportationAndPickupCharge  Indicate the amount details. This is optional, but if indicated, amount and currency must be provided.
+     * @param  ?Money  $totalNetFedExTransportationAndPickupCharge  Indicate the amount details. This is optional, but if indicated, amount and currency must be provided.
+     * @param  ?PickupRateDetail  $pickupRateDetail  Charges associated with a scheduled shipment pickup
      * @param  ?string  $ratedWeightMethod  Indicates which weight was used for the rate.<br>Example: 'ACTUAL'
      * @param  ?float  $totalDutiesTaxesAndFees  The total amount of the duties and taxes plus the total ancillary fees and taxes.<br> Example: 445.54
      * @param  ?float  $totalDiscounts  This is the total discount.<br> Example: 445.54<br><a href='/api/en-us/reference-guide.html#discounts' target='_blank'>Click here to see FedEx Discounts</a>
      * @param  ?float  $totalDutiesAndTaxes  The sum of shipment/package Duties and taxes.<br> Example: 445.54
-     * @param  ?VariableHandlingCharges  $variableHandlingCharges  The variable handling charge amount calculated based on the requested variable handling charge detail.
+     * @param  ?VariableHandlingCharges2  $variableHandlingCharges  The variable handling charge amount calculated based on the requested variable handling charge detail.
      * @param  EdtCharge[]|null  $edtCharges  These are the estimation and duty  charges.
      * @param  ?float  $totalAncillaryFeesAndTaxes  Indicates the shipment-level fees and taxes that are not based on transportation charges or commodity-level estimated duties and taxes.
      * @param  RatedPackageDetail[]|null  $ratedPackages  These are the package-level data for this rate type.
@@ -35,7 +38,7 @@ final class RatedShipmentDetail extends Dto
      * @param  ?string  $quoteNumber  Indicates the unique identifier for a specific rate quotation.<br> Example: XX1123XX
      * @param  mixed[][]|null  $shipmentLegRateDetails  This is data for a single leg of a shipment's total/summary rates, as calculated per a specific rate type.
      * @param  ?string  $freightChargeBasis  This identifies the manner in which the chargeRate was applied, for Freight.<br> Valid values are: <ul><li>CWT - Charge rate applies per weight.</li><li>FLAT - Charge rate is a flat-rate amount.</li><li>MINIMUM</li></ul>
-     * @param  ?VariableHandlingCharges  $totalVariableHandlingCharges  The variable handling charge amount calculated based on the requested variable handling charge detail.
+     * @param  ?VariableHandlingCharges2  $totalVariableHandlingCharges  The variable handling charge amount calculated based on the requested variable handling charge detail.
      * @param  ?float  $totalVatCharge  This is total value added tax charges (VAT).
      * @param  AncillaryFeesAndTaxes[]|null  $ancillaryFeesAndTaxes  This is the total amount of the shipment-level fees and taxes that are not based on transportation charges of commodity-level estimated duties and taxes.
      * @param  EdtCharge[]|null  $preferredEdtCharges  Specifies the Edt charges.
@@ -46,11 +49,14 @@ final class RatedShipmentDetail extends Dto
      */
     public function __construct(
         public ?string $rateType = null,
+        public ?Money $totalNetTransportationAndPickupCharge = null,
+        public ?Money $totalNetFedExTransportationAndPickupCharge = null,
+        public ?PickupRateDetail $pickupRateDetail = null,
         public ?string $ratedWeightMethod = null,
         public ?float $totalDutiesTaxesAndFees = null,
         public ?float $totalDiscounts = null,
         public ?float $totalDutiesAndTaxes = null,
-        public ?VariableHandlingCharges $variableHandlingCharges = null,
+        public ?VariableHandlingCharges2 $variableHandlingCharges = null,
         public ?array $edtCharges = null,
         public ?float $totalAncillaryFeesAndTaxes = null,
         public ?array $ratedPackages = null,
@@ -58,7 +64,7 @@ final class RatedShipmentDetail extends Dto
         public ?string $quoteNumber = null,
         public ?array $shipmentLegRateDetails = null,
         public ?string $freightChargeBasis = null,
-        public ?VariableHandlingCharges $totalVariableHandlingCharges = null,
+        public ?VariableHandlingCharges2 $totalVariableHandlingCharges = null,
         public ?float $totalVatCharge = null,
         public ?array $ancillaryFeesAndTaxes = null,
         public ?array $preferredEdtCharges = null,

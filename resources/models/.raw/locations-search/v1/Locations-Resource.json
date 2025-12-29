@@ -434,6 +434,38 @@
                         "type": "boolean",
                         "description": "Get a call. <br>Valid values: True, False.",
                         "example": false
+                    },
+                    "packagingType": {
+                        "type": "string",
+                        "description": "The FedEx Package Type",
+                        "example": "FEDEX_PAK"
+                    },
+                    "totalDeclaredValue": {
+                        "description": "This is the total declared value of all of the packages for the shipment",
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/Amounts"
+                            }
+                        ]
+                    },
+                    "totalCustomsValue": {
+                        "description": "This is the total customs value of all of the packages for the shipment",
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/Amounts"
+                            }
+                        ]
+                    },
+                    "paymentType": {
+                        "type": "string",
+                        "description": "Duties and Taxes Payor Payment Type",
+                        "example": "SENDER",
+                        "enum": [
+                            "SENDER",
+                            "THIRD_PARTY",
+                            "RECIPIENT",
+                            "COLLECT"
+                        ]
                     }
                 }
             },
@@ -749,6 +781,16 @@
                                 "$ref": "#/components/schemas/Dimensions"
                             }
                         ]
+                    },
+                    "serviceOptions": {
+                        "type": "array",
+                        "description": "Provide all the service Options for this package",
+                        "example": [
+                            "DRY_ICE"
+                        ],
+                        "items": {
+                            "type": "string"
+                        }
                     }
                 },
                 "example": {
@@ -761,7 +803,10 @@
                         "width": 40,
                         "units": "IN",
                         "height": 70
-                    }
+                    },
+                    "serviceOptions": [
+                        "DRY_ICE"
+                    ]
                 }
             },
             "Weight": {
@@ -827,6 +872,20 @@
                     "height": 30,
                     "units": "CM"
                 }
+            },
+            "Amounts": {
+                "type": "object",
+                "properties": {
+                    "amount": {
+                        "type": "number",
+                        "example": 100
+                    },
+                    "currency": {
+                        "type": "string",
+                        "example": "USD"
+                    }
+                },
+                "description": "The package dimension limits supported at the location."
             },
             "Search_Location_for_Postal_Aware_Country": {
                 "example": {

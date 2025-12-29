@@ -176,6 +176,25 @@
     },
     "components": {
         "schemas": {
+            "GticResponseVO": {
+                "type": "object",
+                "properties": {
+                    "transactionId": {
+                        "type": "string",
+                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
+                        "example": "624deea6-b709-470c-8c39-4b5511281492"
+                    },
+                    "customerTransactionId": {
+                        "type": "string",
+                        "description": "This element allows you to assign a unique identifier to your transaction. This element is also returned in the reply and helps you match the request to the reply. <br>Example: AnyCo_order123456789",
+                        "example": "AnyCo_order123456789"
+                    },
+                    "output": {
+                        "$ref": "#/components/schemas/BaseProcessOutputVO"
+                    }
+                },
+                "description": "This is a wrapper class for outputVO."
+            },
             "FullSchema": {
                 "required": [
                     "carrierCode",
@@ -241,7 +260,7 @@
                     "includeURLReferences": {
                         "type": "boolean",
                         "description": "Specify if the url references to be included in the output. These are regulatory reference data urls specific to document, agency.",
-                        "example": "True"
+                        "example": true
                     },
                     "consolidationType": {
                         "type": "string",
@@ -252,6 +271,9 @@
                         "type": "string",
                         "description": "Specify the role this shipment plays within the consolidation.<br><br>Valid values are:<ul><li>CONSOLIDATION_DOCUMENTS_SHIPMENT &ndash; Shipment contains clearance documents for the corresponding consolidation.</li><li>CRN_SHIPMENT &ndash; Shipment is a Child Reference Number(individual shipment within consolidation).</li><li>MASTER_AIRWAYBILL_SHIPMENT &ndash; Shipment represents entire consolidation, moving as a unit.</li></ul>",
                         "example": "CONSOLIDATION_DOCUMENTS_SHIPMENT"
+                    },
+                    "version": {
+                        "$ref": "#/components/schemas/Version"
                     }
                 },
                 "description": "The request elements to retrieve Shipment Regulatory Details."
@@ -302,7 +324,6 @@
                         }
                     },
                     "insuranceCharges": {
-                        "description": "Specify Insurance charges if applicable.<br><i>Note: FedEx does not provide insurance of any kind</i>.",
                         "$ref": "#/components/schemas/Money"
                     },
                     "importerOfRecordAccountNumber": {
@@ -409,6 +430,31 @@
                     }
                 }
             },
+            "Measure": {
+                "required": [
+                    "quantity",
+                    "uom"
+                ],
+                "type": "object",
+                "properties": {
+                    "uom": {
+                        "type": "string",
+                        "description": "Unit of measure used to express the quantity of this commodity line item.",
+                        "xml": {
+                            "name": "Uom"
+                        }
+                    },
+                    "quantity": {
+                        "type": "number",
+                        "description": "Specify commodity quantity.",
+                        "format": "double",
+                        "xml": {
+                            "name": "Quantity"
+                        }
+                    }
+                },
+                "description": "This object contains additional quantitative information other than weight and quantity to calculate duties and taxes."
+            },
             "Weight": {
                 "required": [
                     "units",
@@ -438,76 +484,87 @@
                     "value": 68
                 }
             },
-            "Measure": {
-                "required": [
-                    "quantity",
-                    "uom"
-                ],
+            "Version": {
                 "type": "object",
-                "description": "This object contains additional quantitative information other than weight and quantity to calculate duties and taxes.",
                 "properties": {
-                    "uom": {
-                        "type": "string",
-                        "description": "Unit of measure used to express the quantity of this commodity line item.",
-                        "xml": {
-                            "name": "Uom"
-                        }
+                    "major": {
+                        "type": "integer",
+                        "description": "This version is incremented when significant changes are made to the API functionality. These could be breaking changes and might require code-adjustments from clients. Accepts only numbers",
+                        "example": 1
                     },
-                    "quantity": {
-                        "type": "number",
-                        "description": "Specify commodity quantity.",
-                        "format": "double",
-                        "xml": {
-                            "name": "Quantity"
+                    "minor": {
+                        "type": "integer",
+                        "description": "This represents a backward-compatible minor adjustment to an existing API functionality. This is the second number in API versioning scheme. Accepts only numbers",
+                        "example": 1
+                    },
+                    "patch": {
+                        "type": "integer",
+                        "description": "This represents a backward-compatible bug fix adjustment to an existing API functionality. This is the third number in API versioning scheme. Accepts only numbers",
+                        "example": 1
+                    }
+                }
+            },
+            "RegulatoryComplianceCountryDetail": {
+                "type": "object",
+                "properties": {
+                    "countryCode": {
+                        "type": "string",
+                        "description": "The ISO country code for the country.",
+                        "example": "US"
+                    },
+                    "category": {
+                        "type": "string",
+                        "description": "Describes the type of category",
+                        "example": "ProductType"
+                    },
+                    "regulatoryComplianceCommodityDetails": {
+                        "type": "array",
+                        "description": "This is an array of nonnegative-Integer identifying the associated commodities.",
+                        "items": {
+                            "$ref": "#/components/schemas/RegulatoryComplianceCommodityDetail"
                         }
                     }
                 }
             },
-            "GticResponseVO": {
+            "RegulatoryComplianceCommodityDetail": {
                 "type": "object",
                 "properties": {
-                    "transactionId": {
-                        "type": "string",
-                        "description": "The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492",
-                        "example": "624deea6-b709-470c-8c39-4b5511281492"
-                    },
-                    "customerTransactionId": {
-                        "type": "string",
-                        "description": "This element allows you to assign a unique identifier to your transaction. This element is also returned in the reply and helps you match the request to the reply. <br>Example: AnyCo_order123456789",
-                        "example": "AnyCo_order123456789"
-                    },
-                    "output": {
-                        "$ref": "#/components/schemas/ShipmentRegulatoryDetailsOutputVO"
+                    "commodityComplianceTypeDetail": {
+                        "$ref": "#/components/schemas/CommodityComplianceTypeDetail"
                     }
-                },
-                "description": "This is a wrapper class for outputVO."
+                }
             },
-            "ShipmentRegulatoryDetailsOutputVO": {
-                "required": [
-                    "countryDetails",
-                    "userMessages"
-                ],
+            "CommodityComplianceTypeDetail": {
                 "type": "object",
                 "properties": {
-                    "userMessages": {
+                    "commodityIndexes": {
                         "type": "array",
-                        "description": "Represents User Message",
+                        "description": "This is an array of nonnegative-Integer identifying the associated commodities.",
+                        "example": 1,
                         "items": {
-                            "$ref": "#/components/schemas/RegulatoryMessage"
+                            "minimum": 0,
+                            "type": "number"
                         }
                     },
-                    "countryDetails": {
-                        "description": "Represents Country Details",
-                        "$ref": "#/components/schemas/RegulatoryCountryDetails"
-                    },
-                    "cxsalerts": {
-                        "type": "array",
-                        "items": {
-                            "$ref": "#/components/schemas/CXSAlert"
-                        }
+                    "regulatoryComplianceTypeDetail": {
+                        "$ref": "#/components/schemas/RegulatoryComplianceTypeDetail"
                     }
-                },
-                "description": "ShipmentRegulatoryDetailsOutputVO Model"
+                }
+            },
+            "RegulatoryComplianceTypeDetail": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "description": "compliance type.",
+                        "example": "EEI"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "compliance description.",
+                        "example": "Shipments to your selected country require an EEI filing"
+                    }
+                }
             },
             "RegulatoryMessage": {
                 "type": "object",
@@ -677,39 +734,6 @@
                 },
                 "description": "Specifies the list of regulatory statements."
             },
-            "LocalizedAttributeDetail": {
-                "type": "object",
-                "properties": {
-                    "localization": {
-                        "$ref": "#/components/schemas/Localization"
-                    },
-                    "name": {
-                        "type": "string",
-                        "description": "Specifies the name of the product being shipped."
-                    },
-                    "description": {
-                        "type": "string",
-                        "description": "Specifies elabaorate material description and other technical details of the product beingshipped."
-                    }
-                },
-                "description": "Specifies the localized attribute details."
-            },
-            "Localization": {
-                "type": "object",
-                "properties": {
-                    "localization": {
-                        "type": "string",
-                        "description": "Two letter language code. <br> Example: EN<br><a onclick='loadDocReference(\"locales\")'>click here to see Locales</a>",
-                        "example": "EN"
-                    },
-                    "localeCode": {
-                        "type": "string",
-                        "description": "Two letter region code. <br> Example: us<br><a onclick='loadDocReference(\"locales\")'>click here to see Locales</a>",
-                        "example": "us"
-                    }
-                },
-                "description": "Specify locale details for composing email with the document."
-            },
             "RegulatoryDocument": {
                 "type": "object",
                 "properties": {
@@ -777,6 +801,39 @@
                 },
                 "description": "Specifies the types and parameters of Country's advisory regulations."
             },
+            "LocalizedAttributeDetail": {
+                "type": "object",
+                "properties": {
+                    "localization": {
+                        "$ref": "#/components/schemas/Localization"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Specifies the name of the product being shipped."
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "Specifies elabaorate material description and other technical details of the product beingshipped."
+                    }
+                },
+                "description": "Specifies the localized attribute details."
+            },
+            "Localization": {
+                "type": "object",
+                "properties": {
+                    "localization": {
+                        "type": "string",
+                        "description": "Two letter language code. <br> Example: EN<br><a onclick='loadDocReference(\"locales\")'>click here to see Locales</a>",
+                        "example": "EN"
+                    },
+                    "localeCode": {
+                        "type": "string",
+                        "description": "Two letter region code. <br> Example: us<br><a onclick='loadDocReference(\"locales\")'>click here to see Locales</a>",
+                        "example": "us"
+                    }
+                },
+                "description": "Specify locale details for composing email with the document."
+            },
             "Message": {
                 "type": "object",
                 "properties": {
@@ -814,6 +871,65 @@
                     }
                 }
             },
+            "Parameter": {
+                "type": "object",
+                "properties": {
+                    "value": {
+                        "type": "string",
+                        "description": "Identifies the error option to be applied.",
+                        "example": "packagingType can not be null"
+                    },
+                    "key": {
+                        "type": "string",
+                        "description": "Indicates the value associated with the key.",
+                        "example": "NotNull.specialServicesOptionsInputVO.requestedShipment.packagingType"
+                    }
+                },
+                "description": "List of parameters which indicates the properties of the alert message."
+            },
+            "Money": {
+                "type": "object",
+                "properties": {
+                    "amount": {
+                        "type": "number",
+                        "description": "This is the amount.<br>Example: 12.45",
+                        "format": "double",
+                        "example": 12.45,
+                        "xml": {
+                            "name": "Amount"
+                        }
+                    },
+                    "currency": {
+                        "type": "string",
+                        "description": "This is the currency code for the amount.<br>Example: USD<br><a onclick='loadDocReference(\"currencycodes\")'>click here to see Currency codes</a>",
+                        "example": "USD",
+                        "xml": {
+                            "name": "Currency"
+                        }
+                    }
+                },
+                "description": "Specify Insurance charges if applicable.<br><i>Note: FedEx does not provide insurance of any kind</i>."
+            },
+            "CXSError": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "string",
+                        "description": "Indicates the error code.<br>Example: INTERNAL.SERVER.ERROR"
+                    },
+                    "parameterList": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Parameter"
+                        }
+                    },
+                    "message": {
+                        "description": "Indicates the description of API error alert message.<br>Example: We encountered an unexpected error and are working to resolve the issue. We apologize for any inconvenience. Please check back at a later time.",
+                        "type": "string"
+                    }
+                },
+                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
+            },
             "CXSAlert": {
                 "type": "object",
                 "properties": {
@@ -841,62 +957,32 @@
                     }
                 }
             },
-            "Money": {
+            "BaseProcessOutputVO": {
+                "required": [
+                    "countryDetails",
+                    "userMessages"
+                ],
                 "type": "object",
-                "description": "Specify Insurance charges if applicable.<br><i>Note: FedEx does not provide insurance of any kind</i>.",
                 "properties": {
-                    "amount": {
-                        "type": "number",
-                        "description": "This is the amount.<br>Example: 12.45",
-                        "format": "double",
-                        "example": 12.45,
-                        "xml": {
-                            "name": "Amount"
+                    "userMessages": {
+                        "type": "array",
+                        "description": "Represents User Message",
+                        "items": {
+                            "$ref": "#/components/schemas/RegulatoryMessage"
                         }
                     },
-                    "currency": {
-                        "type": "string",
-                        "description": "This is the currency code for the amount.<br>Example: USD<br><a onclick='loadDocReference(\"currencycodes\")'>click here to see Currency codes</a>",
-                        "example": "USD",
-                        "xml": {
-                            "name": "Currency"
-                        }
-                    }
-                }
-            },
-            "Parameter": {
-                "type": "object",
-                "properties": {
-                    "value": {
-                        "type": "string",
-                        "description": "Identifies the error option to be applied."
+                    "countryDetails": {
+                        "description": "Represents Country Details",
+                        "$ref": "#/components/schemas/RegulatoryCountryDetails"
                     },
-                    "key": {
-                        "type": "string",
-                        "description": "Indicates the value associated with the key."
-                    }
-                },
-                "description": "List of parameters which indicates the properties of the alert message."
-            },
-            "CXSError": {
-                "type": "object",
-                "properties": {
-                    "code": {
-                        "type": "string",
-                        "description": "Indicates the error code.<br>Example: INTERNAL.SERVER.ERROR"
-                    },
-                    "parameterList": {
+                    "cxsalerts": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/components/schemas/Parameter"
+                            "$ref": "#/components/schemas/CXSAlert"
                         }
-                    },
-                    "message": {
-                        "description": "Indicates the description of API error alert message.<br>Example: We encountered an unexpected error and are working to resolve the issue. We apologize for any inconvenience. Please check back at a later time.",
-                        "type": "string"
                     }
                 },
-                "description": "Indicates error alert when suspicious files, potential exploits and viruses found while scanning files , directories and user accounts. This includes code, message and parameter"
+                "description": "ShipmentRegulatoryDetailsOutputVO Model"
             },
             "ErrorResponseVO": {
                 "type": "object",

@@ -24,5 +24,6 @@ final class FullSchemaPackageAndServiceOptions extends Dto
         public ?array $carrierCodes = null,
         public ?AccountNumber $accountNumber = null,
         public ?string $systemOfMeasureType = null,
+        public ?Version $version = null,
     ) {}
 }

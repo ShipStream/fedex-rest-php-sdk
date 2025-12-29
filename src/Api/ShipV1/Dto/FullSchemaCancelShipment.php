@@ -27,5 +27,6 @@ final class FullSchemaCancelShipment extends Dto
         public ?bool $emailShipment = null,
         public ?string $senderCountryCode = null,
         public ?string $deletionControl = null,
+        public ?Version $version = null,
     ) {}
 }

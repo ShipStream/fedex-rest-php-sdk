@@ -31,5 +31,6 @@ final class FullSchemaCancelPickup extends Dto
         public ?string $carrierCode = null,
         public ?Address $accountAddressOfRecord = null,
         public ?string $location = null,
+        public ?Version $version = null,
     ) {}
 }

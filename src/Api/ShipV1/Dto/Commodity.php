@@ -16,10 +16,14 @@ final class Commodity extends Dto
 {
     protected static array $attributeMap = ['cImarksAndNumbers' => 'cIMarksAndNumbers'];
 
-    protected static array $complexArrayTypes = ['additionalMeasures' => AdditionalMeasures::class];
+    protected static array $complexArrayTypes = [
+        'clearanceItemDetail' => ClearanceItemDetail::class,
+        'additionalMeasures' => AdditionalMeasures::class,
+    ];
 
     /**
      * @param  string  $description  Required<br>ScrewsMaximum allowed 450 characters.<br>Example: description
+     * @param  ClearanceItemDetail[]|null  $clearanceItemDetail  These are commodities clearance item detail
      * @param  ?Money  $unitPrice  This customs value is applicable for all items(or units) under the specified commodity
      * @param  AdditionalMeasures[]|null  $additionalMeasures  This object contains additional quantitative information other than weight and quantity to calculate duties and taxes.
      * @param  ?int  $numberOfPieces  Indicate the number of pieces associated with the commodity. The value can neither be negative nor exceed 9,999.<br>Example: 12
@@ -39,6 +43,7 @@ final class Commodity extends Dto
      */
     public function __construct(
         public string $description,
+        public ?array $clearanceItemDetail = null,
         public ?Money $unitPrice = null,
         public ?array $additionalMeasures = null,
         public ?int $numberOfPieces = null,

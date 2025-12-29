@@ -394,6 +394,30 @@
                         "type": "boolean",
                         "description": "Get a call. <br>Valid values: True, False.",
                         "example": false
+                    },
+                    "packagingType": {
+                        "type": "string",
+                        "description": "The FedEx Package Type",
+                        "example": "FEDEX_PAK"
+                    },
+                    "totalDeclaredValue": {
+                        "description": "This is the total declared value of all of the packages for the shipment",
+                        "$ref": "#/components/schemas/Amounts"
+                    },
+                    "totalCustomsValue": {
+                        "description": "This is the total customs value of all of the packages for the shipment",
+                        "$ref": "#/components/schemas/Amounts"
+                    },
+                    "paymentType": {
+                        "type": "string",
+                        "description": "Duties and Taxes Payor Payment Type",
+                        "example": "SENDER",
+                        "enum": [
+                            "SENDER",
+                            "THIRD_PARTY",
+                            "RECIPIENT",
+                            "COLLECT"
+                        ]
                     }
                 }
             },
@@ -697,6 +721,16 @@
                     "dimensions": {
                         "description": "Indicate the dimensions of the package.<br> Following conditions will apply: <ul><li>Dimensions are optional but when added, then all three dimensions must be indicated.</li><li>Dimensions are required with YOUR_PACKAGING package type.</li></ul><i>Note: The maximum/minimum dimension values varies based on the services and the packaging types.</i><br>Refer <a href=\"https://www.fedex.com/en-us/service-guide.html\" target=\"_blank\">FedEx Service Guide</a> for service details related to DIM Weighting for FedEx Express and oversize conditions for FedEx Express and FedEx Ground.",
                         "$ref": "#/components/schemas/Dimensions"
+                    },
+                    "serviceOptions": {
+                        "type": "array",
+                        "description": "Provide all the service Options for this package",
+                        "example": [
+                            "DRY_ICE"
+                        ],
+                        "items": {
+                            "type": "string"
+                        }
                     }
                 },
                 "example": {
@@ -709,7 +743,10 @@
                         "width": 40,
                         "units": "IN",
                         "height": 70
-                    }
+                    },
+                    "serviceOptions": [
+                        "DRY_ICE"
+                    ]
                 }
             },
             "Weight": {
@@ -775,6 +812,20 @@
                     "height": 30,
                     "units": "CM"
                 }
+            },
+            "Amounts": {
+                "type": "object",
+                "properties": {
+                    "amount": {
+                        "type": "number",
+                        "example": 100
+                    },
+                    "currency": {
+                        "type": "string",
+                        "example": "USD"
+                    }
+                },
+                "description": "The package dimension limits supported at the location."
             },
             "LoccResponseVO": {
                 "type": "object",

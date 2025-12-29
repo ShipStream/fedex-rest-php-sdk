@@ -19,9 +19,15 @@ final class ShipmentRating extends Dto
     /**
      * @param  ?string  $actualRateType  This rate type identifies which entry in the following array is considered as presenting the "actual" rates for the shipment.
      * @param  ShipmentRateDetail[]|null  $shipmentRateDetails  Each element of this field provides shipment-level rate totals for a specific rate type.
+     * @param  ?Money  $totalNetTransportationAndPickupCharge  This is commodity value used for Customs declaration.
+     * @param  ?Money  $totalNetFedExTransportationAndPickupCharge  This is commodity value used for Customs declaration.
+     * @param  ?PickupRateDetail  $pickupRateDetail  Charges associated with a scheduled shipment pickup
      */
     public function __construct(
         public ?string $actualRateType = null,
         public ?array $shipmentRateDetails = null,
+        public ?Money $totalNetTransportationAndPickupCharge = null,
+        public ?Money $totalNetFedExTransportationAndPickupCharge = null,
+        public ?PickupRateDetail $pickupRateDetail = null,
     ) {}
 }

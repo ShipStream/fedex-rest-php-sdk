@@ -14,22 +14,29 @@ use ShipStream\FedEx\Dto;
 
 final class EdtTaxDetail extends Dto
 {
+    protected static array $complexArrayTypes = ['taxRates' => TaxRates::class];
+
     /**
-     * @param  ?string  $edtTaxType  Specifies the Estimated duties and taxes type. <br> Example: TaxType
-     * @param  ?float  $amount  Specifies the amount for the estimated duties and taxes type.<br> Example: 785.12
-     * @param  ?float  $taxableValue  Specifies the Estimated duties and taxes taxable Value.<br> Example: 562.23
-     * @param  ?string  $name  Indicates the name for the Etd tax.
-     * @param  ?string  $description  Indicates the description for the Etd tax.
+     * @param  ?string  $taxType  Estimated taxes type
+     * @param  ?string  $effectiveDate  Estimated duties and taxes effective date. Format [YYYY-MM-DD].
+     * @param  ?string  $name  The localized name of the surcharge.
+     * @param  ?Money  $taxableValue  Indicate the amount details. This is optional, but if indicated, amount and currency must be provided.
+     * @param  ?string  $description  FedEx pays the Duty and Tax charges on your behalf to ensure we can deliver your shipment as quickly as possible
      * @param  ?string  $formula  Indicates the formula.
-     * @param  ?string  $effectiveDate  Specifies the Estimated duties and taxes effective date. Format [YYYY-MM-DD].<br>  Example: 2019-12-06
+     * @param  ?Money  $amount  Indicate the amount details. This is optional, but if indicated, amount and currency must be provided.
+     * @param  TaxRates[]|null  $taxRates  Estimated duties and taxes taxRates
+     * @param  ?AppliedPreferentialTradeAgreement  $appliedPreferentialTradeAgreement  provides details about PTA applied between countries for specific product.
      */
     public function __construct(
-        public ?string $edtTaxType = null,
-        public ?float $amount = null,
-        public ?float $taxableValue = null,
+        public ?string $taxType = null,
+        public ?string $taxcode = null,
+        public ?string $effectiveDate = null,
         public ?string $name = null,
+        public ?Money $taxableValue = null,
         public ?string $description = null,
         public ?string $formula = null,
-        public ?string $effectiveDate = null,
+        public ?Money $amount = null,
+        public ?array $taxRates = null,
+        public ?AppliedPreferentialTradeAgreement $appliedPreferentialTradeAgreement = null,
     ) {}
 }

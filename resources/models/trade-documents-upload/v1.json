@@ -252,7 +252,7 @@
                         "name": "x-customer-transaction-id",
                         "in": "header",
                         "description": "Identifies the transaction ID of the request.<br> Example: \"771407-1\"",
-                        "required": true,
+                        "required": false,
                         "schema": {
                             "type": "string",
                             "example": "771407-1"
@@ -1135,11 +1135,9 @@
                         "example": "090493e181586308"
                     },
                     "folderId": {
-                        "type": "array",
+                        "type": "string",
                         "description": "This is the reference server folder id, where the document is uploaded. ",
-                        "example": [
-                            "0b0493e1812f8921"
-                        ],
+                        "example": "0b0493e1812f8921",
                         "items": {
                             "type": "string"
                         }
@@ -1352,7 +1350,7 @@
                     },
                     "name": {
                         "type": "string",
-                        "description": "Specify file name to be uploaded.<br><br>Example: Signature.PNG",
+                        "description": "Specify file name to be uploaded.<br><br>Example: LH2.PNG",
                         "example": "FedExImages.PNG"
                     },
                     "contentType": {
@@ -1400,7 +1398,7 @@
                         "example": "D0l5gsn6inat9IiB"
                     },
                     "folderId": {
-                        "type": "array",
+                        "type": "string",
                         "description": "This is the reference server folder id, where the document is uploaded. Note that, this data is returned only for Post-Shipment Upload scenario",
                         "items": {
                             "type": "string",
@@ -1469,7 +1467,7 @@
                     "carrierCode",
                     "destinationCountryCode",
                     "metaData",
-                    "orginCountryCode",
+                    "originCountryCode",
                     "workflowName"
                 ],
                 "type": "object",
@@ -1492,7 +1490,7 @@
                             "FDXG"
                         ]
                     },
-                    "orginCountryCode": {
+                    "originCountryCode": {
                         "type": "string",
                         "description": "Provide origin country code for the shipment",
                         "example": "US"
@@ -1528,7 +1526,7 @@
                     "carrierCode",
                     "destinationCountryCode",
                     "metaData",
-                    "orginCountryCode",
+                    "originCountryCode",
                     "workflowName"
                 ],
                 "type": "object",
@@ -1551,7 +1549,7 @@
                             "FDXG"
                         ]
                     },
-                    "orginCountryCode": {
+                    "originCountryCode": {
                         "type": "string",
                         "description": "Origin country code for the shipment. <br><br> Example: US<br><a href=\"/developer-portal/en-us/reference-guide.html#countrycodes\" target=\"_blank\">Click here to see Country Codes</a>",
                         "example": "US"

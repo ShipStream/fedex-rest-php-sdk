@@ -942,6 +942,9 @@
                                 "FXSP"
                             ]
                         }
+                    },
+                    "version": {
+                        "$ref": "#/components/schemas/Version"
                     }
                 },
                 "description": "TransitTimeInputVO describes the details needed in order to get the transit times for a particular shipment.    "
@@ -1480,6 +1483,9 @@
                             "IMPERIAL",
                             "METRIC"
                         ]
+                    },
+                    "version": {
+                        "$ref": "#/components/schemas/Version"
                     }
                 },
                 "description": "These are the input elements for requesting package and service options."
@@ -3512,6 +3518,26 @@
                 },
                 "description": "Indicate the amount details. This is optional, but if indicated, amount and currency must be provided."
             },
+            "Version": {
+                "type": "object",
+                "properties": {
+                    "major": {
+                        "description": "This version is incremented when significant changes are made to the API functionality. These could be breaking changes and might require code-adjustments from clients. Accepts only numbers",
+                        "example": "1",
+                        "type": "integer"
+                    },
+                    "minor": {
+                        "description": "This represents a backward-compatible minor adjustment to an existing API functionality. This is the second number in API versioning scheme. Accepts only numbers",
+                        "example": "1",
+                        "type": "integer"
+                    },
+                    "patch": {
+                        "description": "This represents a backward-compatible bug fix to an existing API functionality. This is the third number in API versioning scheme. Accepts only numbers",
+                        "example": "1",
+                        "type": "integer"
+                    }
+                }
+            },
             "AvailabilitycxsResponseVO": {
                 "type": "object",
                 "properties": {
@@ -3860,6 +3886,9 @@
                                 "FXFR"
                             ]
                         }
+                    },
+                    "version": {
+                        "$ref": "#/components/schemas/Version"
                     }
                 },
                 "description": "The request elements for special service options availability."

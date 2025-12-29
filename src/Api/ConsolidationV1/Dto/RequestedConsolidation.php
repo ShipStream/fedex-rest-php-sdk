@@ -24,7 +24,7 @@ final class RequestedConsolidation extends Dto
      * @param  ShipperParty2  $shipper  The descriptive information for the customer shipping the package along with the physical location from where the shipment originates.
      * @param  InternationalDistributionDetail  $internationalDistributionDetail  Specifies the international distribution detail.
      * @param  CustomsClearanceDetail2  $customsClearanceDetail  Required for International and intra-country Shipments. Information about this package that only applies to an international (export) shipment or return.
-     * @param  ?string  $shipDate  This is the ship date for the outbound shipment associated with a return shipment. The format is YYYY-MM-DD.<br> Example: 2019-10-01
+     * @param  ?string  $shipDateStamp  This is the ship date for the outbound shipment associated with a return shipment. The format is YYYY-MM-DD.<br> Example: 2019-10-01
      * @param  ?Origin2  $origin  The descriptive information for the customer origin.
      * @param  ?SoldToParty2  $soldTo  Will indicate the party responsible for purchasing the goods shipped from the shipper to the recipient. The sold to party is not necessarily the recipient or the importer of record. The sold to party is relevant when the purchaser, rather than the recipient determines when certain customs regulations apply.
      * @param  ?string  $bookingNumber  Specifies the booking number.
@@ -45,7 +45,7 @@ final class RequestedConsolidation extends Dto
         public ShipperParty2 $shipper,
         public InternationalDistributionDetail $internationalDistributionDetail,
         public CustomsClearanceDetail2 $customsClearanceDetail,
-        public ?string $shipDate = null,
+        public ?string $shipDateStamp = null,
         public ?Origin2 $origin = null,
         public ?SoldToParty2 $soldTo = null,
         public ?string $bookingNumber = null,

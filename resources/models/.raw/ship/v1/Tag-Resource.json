@@ -13,7 +13,7 @@
         "/ship/v1/shipments/tag": {
             "post": {
                 "summary": "Create Tag",
-                "description": "FedEx creates and delivers a returnnn shipping label to your customer and collects the item for return. Your customer needs to have the package ready for pickup when the FedEx driver arrives. Use this endpoint to create tag requests for FedEx Express and FedEx Ground shipments.<br><i>Note: FedEx APIs do not support Cross-Origin Resource Sharing (CORS) mechanism.</i>",
+                "description": "FedEx creates and delivers a return shipping label to your customer and collects the item for return. Your customer needs to have the package ready for pickup when the FedEx driver arrives. Use this endpoint to create tag requests for FedEx Express and FedEx Ground shipments.<br><i>Note: FedEx APIs do not support Cross-Origin Resource Sharing (CORS) mechanism.</i>",
                 "operationId": "Create Tag",
                 "requestBody": {
                     "content": {
@@ -646,7 +646,7 @@
                     },
                     "totalWeight": {
                         "type": "number",
-                        "description": "Indicate the shipment total weight in pounds.<br>Example: 10.6<br>Note: <ul><li>This only applies to International shipments and should be used on the first package of a multiple piece shipment.</li><li>This value contains 1 explicit decimal position.</li><li>For one Label at a time shipments, the unit of totalWeight is considered same as the unit of weight provided in requestedPackageLineItem field.</li></ul>",
+                        "description": "Indicate the shipment total weight in Metric or US.<br>Example: 10.6<br>Note: <ul><li>This only applies to International shipments and should be used on the first package of a multiple piece shipment.</li><li>This value contains 1 explicit decimal position.</li><li>For one Label at a time shipments, the unit of totalWeight is considered same as the unit of weight provided in requestedPackageLineItem field.</li></ul>",
                         "format": "double",
                         "example": 20.6
                     },
@@ -852,7 +852,7 @@
                 "properties": {
                     "streetLines": {
                         "type": "array",
-                        "description": "Combination of number, street name, etc. At least one line is required for a valid physical address. Empty lines should not be included. Max Length is 35.<br>Example: [1550 Union Blvd,Suite 302]",
+                        "description": "This is the Combination of number, street name, etc. At least one line is required for a valid physical address. Empty lines should not be included. Max Length is 35. <br>Note - For FedEx Ground Economy, a maximum of 30 characters will be printed on the label, excess characters will be truncated.<br>Example: [1550 Union Blvd,Suite 302]",
                         "example": "1550 Union Blvd, Suite 302",
                         "items": {
                             "type": "string"
@@ -908,7 +908,7 @@
                 "properties": {
                     "streetLines": {
                         "type": "array",
-                        "description": "Combination of number, street name, etc. At least one line is required for a valid physical address. Empty lines should not be included. Max Length is 35.<br>Example: [1550 Union Blvd,Suite 302]",
+                        "description": "This is the Combination of number, street name, etc. At least one line is required for a valid physical address. Empty lines should not be included. Max Length is 35. <br>Note - For FedEx Ground Economy, a maximum of 30 characters will be printed on the label, excess characters will be truncated.<br>Example: [1550 Union Blvd,Suite 302]",
                         "example": "1550 Union Blvd, Suite 302",
                         "items": {
                             "type": "string"
@@ -977,7 +977,7 @@
                     },
                     "phoneNumber": {
                         "type": "string",
-                        "description": "The shipper's phone number. <br>Minimum length is 10 and supports maximum of 15 for certain countries using longer phone numbers.<br>Note: For US and CA, a phone number must have exactly 10 digits, plus an optional leading country code of '1' or '+1'.<br>Example: 918xxxxx890",
+                        "description": "The shipper's phone number. <br>Minimum length is 1 and supports maximum of 15 for certain countries using longer phone numbers.<br>Note: For US and CA, a phone number must have exactly 10 digits, plus an optional leading country code of '1' or '+1'.<br>Example: 918xxxxx890",
                         "example": "918xxxxx890"
                     },
                     "companyName": {
@@ -1152,7 +1152,7 @@
                     },
                     "phoneNumber": {
                         "type": "string",
-                        "description": "Specify contact phone number. <br>Minimum length is 10 and supports maximum of 15 for certain countries using longer phone numbers. <br>Note: Recommended Maximum length is 15 and there's no specific validation will be done for the phone number. <br> Example: 918xxxxx890",
+                        "description": "Specify contact phone number. <br>Minimum length is 1 and supports maximum of 15 for certain countries using longer phone numbers. <br>Note: Recommended Maximum length is 15 and there's no specific validation will be done for the phone number. <br> Example: 918xxxxx890",
                         "example": "1234567890"
                     },
                     "phoneExtension": {
@@ -1202,7 +1202,7 @@
                     },
                     "stateOrProvinceCode": {
                         "type": "string",
-                        "description": "This is a placeholder for State or Province code.State code is required for US, CA, PR and not required for other countries. Conditional. Max length is 2.<br>Example: CA<br><a onclick='loadDocReference(\"canadaprovincecodes\")'>click here to see State or Province Code</a>",
+                        "description": "This is a placeholder for State or Province code.State code is required for US, CA, PR and not required for other countries. Conditional.<br>Example: CA<br><a onclick='loadDocReference(\"canadaprovincecodes\")'>click here to see State or Province Code</a>",
                         "example": "CA"
                     },
                     "postalCode": {
@@ -1285,7 +1285,7 @@
                         "$ref": "#/components/schemas/ResponsiblePartyParty"
                     }
                 },
-                "description": "Payor is mandatory when the paymentType is RECIPIENT, THIRD_PARTY or COLLECT.",
+                "description": "Payor is mandatory when the paymentType is RECIPIENT, THIRD_PARTY.",
                 "example": {
                     "responsibleParty": {
                         "address": {
@@ -1976,7 +1976,7 @@
                     },
                     "phoneNumber": {
                         "type": "string",
-                        "description": "Contact person's phone number. <br>Minimum length is 10 and supports maximum of 15 for certain countries using longer phone numbers.<br>Note: For US and CA, a phone number must have exactly 10 digits, plus an optional leading country code of '1' or '+1'.<br>Example: 918xxxxx890",
+                        "description": "Contact person's phone number. <br>Minimum length is 1 and supports maximum of 15 for certain countries using longer phone numbers.<br>Note: For US and CA, a phone number must have exactly 10 digits, plus an optional leading country code of '1' or '+1'.<br>Example: 918xxxxx890",
                         "example": "918xxxxx890"
                     },
                     "phoneExtension": {
@@ -4241,7 +4241,7 @@
                     },
                     "stateOrProvinceCode": {
                         "type": "string",
-                        "description": "This is a placeholder for State or Province code.State code is required for US, CA, PR and not required for other countries. Conditional. Max length is 2.<br>Example: CA.<br><a onclick='loadDocReference(\"canadaprovincecodes\")'>click here to see State or Province Code</a>",
+                        "description": "This is a placeholder for State or Province code.State code is required for US, CA, PR and not required for other countries. Conditional.<br>Example: CA.<br><a onclick='loadDocReference(\"canadaprovincecodes\")'>click here to see State or Province Code</a>",
                         "example": "CA"
                     },
                     "postalCode": {
@@ -4615,7 +4615,7 @@
                 "properties": {
                     "specialServiceTypes": {
                         "type": "array",
-                        "description": "The list of all special services requested for the package.<br><a href=\"/developer-portal/en-us/reference-guide.html#packagespecialservicetypes\" target=\"_blank\">Click here to see Package Special Service Types</a><br>Example:ALCOHOL",
+                        "description": "The list of all special services requested for the package.<br><a onclick='loadDocReference(\"packagelevelspecialservicetypes\")'>Click here to see Package Special Service Types</a><br>Example:ALCOHOL",
                         "example": [
                             "ALCOHOL",
                             "NON_STANDARD_CONTAINER",

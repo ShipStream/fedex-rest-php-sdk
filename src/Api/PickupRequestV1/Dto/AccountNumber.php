@@ -15,9 +15,11 @@ use ShipStream\FedEx\Dto;
 final class AccountNumber extends Dto
 {
     /**
-     * @param  ?string  $value  This is the account number. Maximum Length is 9. <br>Example: Your account number
+     * @param  ?string  $value  Conditional.<br> The account number value. Max Length is 9.
+     * @param  ?string  $key  The account key associated with this account number.
      */
     public function __construct(
         public ?string $value = null,
+        public ?string $key = null,
     ) {}
 }

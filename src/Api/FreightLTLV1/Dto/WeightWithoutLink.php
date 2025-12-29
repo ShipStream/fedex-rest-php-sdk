@@ -15,7 +15,7 @@ use ShipStream\FedEx\Dto;
 final class WeightWithoutLink extends Dto
 {
     /**
-     * @param  string  $units  Specifies the package weight unit type.<br>Example:KG
+     * @param  string  $units  Specifies the shipment weight unit type.<br>Example:KG
      * @param  float  $value  Weight Value.<br> Example: 68.25
      */
     public function __construct(

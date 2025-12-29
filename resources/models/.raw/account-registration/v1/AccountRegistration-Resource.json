@@ -303,7 +303,7 @@
                     {
                         "name": "Authorization",
                         "in": "header",
-                        "description": "Bearer token from oauth/token",
+                        "description": "Bearer token generated with parent id and secret",
                         "required": true,
                         "style": "simple",
                         "explode": false,
@@ -501,7 +501,7 @@
                     {
                         "name": "authorization",
                         "in": "header",
-                        "description": "Bearer token from oauth/token",
+                        "description": "Bearer token generated with parent id and secret",
                         "required": true,
                         "style": "simple",
                         "explode": false,
@@ -693,7 +693,7 @@
                     {
                         "name": "Authorization",
                         "in": "header",
-                        "description": "Bearer token generated with child id and secret",
+                        "description": "Bearer token generated with parent id and secret",
                         "required": true,
                         "style": "simple",
                         "explode": false,

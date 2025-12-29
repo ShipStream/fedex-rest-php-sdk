@@ -14,17 +14,13 @@ use ShipStream\FedEx\Dto;
 
 final class PackageBarcodes extends Dto
 {
-    protected static array $complexArrayTypes = [
-        'binaryBarcodes' => BinaryBarcode::class,
-        'stringBarcodes' => StringBarcode::class,
-    ];
+    protected static array $complexArrayTypes = ['stringBarcodes' => StringBarcode::class];
 
     /**
-     * @param  BinaryBarcode[]|null  $binaryBarcodes
      * @param  StringBarcode[]|null  $stringBarcodes
      */
     public function __construct(
-        public ?array $binaryBarcodes = null,
+        public ?string $binaryBarcodes = null,
         public ?array $stringBarcodes = null,
     ) {}
 }

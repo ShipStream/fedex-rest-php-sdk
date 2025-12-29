@@ -16,7 +16,10 @@ final class Commodity extends Dto
 {
     protected static array $attributeMap = ['cImarksAndNumbers' => 'cIMarksAndNumbers'];
 
-    protected static array $complexArrayTypes = ['additionalMeasures' => AdditionalMeasures::class];
+    protected static array $complexArrayTypes = [
+        'additionalMeasures' => AdditionalMeasures::class,
+        'clearanceItemDetail' => ClearanceItemDetail::class,
+    ];
 
     /**
      * @param  string  $name  Required<br>Commodity name<br>Example: non-threaded rivets
@@ -36,6 +39,7 @@ final class Commodity extends Dto
      * @param  ?string  $partNumber  a part number for the item<br>Example: 167
      * @param  ?string  $purpose  This field is used for calculation of duties and taxes.<br><br> Valid values are : BUSINESS and CONSUMER
      * @param  ?UsmcaCommodityDetail  $usmcaDetail  Specifies the commodity details of usmca.
+     * @param  ClearanceItemDetail[]|null  $clearanceItemDetail  Array of clearance item details including manufacturer info for customs clearance.
      */
     public function __construct(
         public string $name,
@@ -55,5 +59,6 @@ final class Commodity extends Dto
         public ?string $partNumber = null,
         public ?string $purpose = null,
         public ?UsmcaCommodityDetail $usmcaDetail = null,
+        public ?array $clearanceItemDetail = null,
     ) {}
 }

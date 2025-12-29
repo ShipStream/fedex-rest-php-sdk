@@ -23,5 +23,6 @@ final class FullSchema extends Dto
         public LtlRootAccountNumber $accountNumber,
         public LtlRequestedShipment $freightRequestedShipment,
         public ?LtlRateRequestControlParameters $rateRequestControlParameters = null,
+        public ?Version $version = null,
     ) {}
 }

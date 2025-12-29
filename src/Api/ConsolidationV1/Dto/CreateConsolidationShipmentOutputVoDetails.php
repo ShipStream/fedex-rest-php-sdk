@@ -15,11 +15,11 @@ use ShipStream\FedEx\Dto;
 final class CreateConsolidationShipmentOutputVoDetails extends Dto
 {
     protected static array $complexArrayTypes = [
-        'transactionShipments' => TransactionConsolidationShipmentResultsOutputVo::class,
+        'transactionShipments' => TransactionCreateConsolidationShipmentResultsOutputVo::class,
     ];
 
     /**
-     * @param  TransactionConsolidationShipmentResultsOutputVo[]|null  $transactionShipments  a list of consolidation shipments within the open shipment
+     * @param  TransactionCreateConsolidationShipmentResultsOutputVo[]|null  $transactionShipments  a list of consolidation shipments within the open shipment
      */
     public function __construct(
         public ?array $transactionShipments = null,

@@ -15,8 +15,8 @@ use ShipStream\FedEx\Dto;
 final class PartyContact extends Dto
 {
     /**
-     * @param  string  $phoneNumber  The shipper's phone number. <br>Minimum length is 10 and supports maximum of 15 for certain countries using longer phone numbers.<br>Note: For US and CA, a phone number must have exactly 10 digits, plus an optional leading country code of '1' or '+1'.<br>Example: 918xxxxx890
-     * @param  ?string  $personName  Specify contact name. Maximum length is 70. <br>Note: Either the companyName or personName is mandatory.<br> Example: John Taylor
+     * @param  string  $phoneNumber  The shipper's phone number. <br>Minimum length is 1 and supports maximum of 15 for certain countries using longer phone numbers.<br>Note: For US and CA, a phone number must have exactly 10 digits, plus an optional leading country code of '1' or '+1'.<br>Example: 918xxxxx890
+     * @param  ?string  $personName  Specify contact name. First 35 chars will be printed on the label, excess characters will be truncated. <br>Note: Either the companyName or personName is mandatory.<br> Example: John Taylor
      * @param  ?string  $emailAddress  Specify contact email address. Maximum length is 80. <br> Example: sample@company.com
      * @param  ?string  $phoneExtension  The shipper's phone extension. Max length is 6.<br>Example: 91
      * @param  ?string  $companyName  Specify contact company name. Maximum length is 35. <br>Note: Either the companyName or personName is mandatory.
