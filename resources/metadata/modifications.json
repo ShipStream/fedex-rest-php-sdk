@@ -100,13 +100,18 @@
                     }
                 }
             }, {
-                " comment": "Remove required fields from PartyAddress",
+                "comment": "Remove required fields from PartyAddress",
                 "action": "delete",
                 "path": "components.schemas.PartyAddress.required"
             }, {
                 "comment": "Remove required fields from PartyContact",
                 "action": "delete",
                 "path": "components.schemas.PartyContact.required"
+            }, {
+                "comment": "Remove totalWeight from RequestedShipment required fields",
+                "action": "delete-array-values",
+                "path": "components.schemas.RequestedShipment.required",
+                "value": ["totalWeight"]
             }
         ]
     },
@@ -227,14 +232,9 @@
             },
             {
                 "comment": "Delete moved `FullSchema-ImageUploadServiceInputVO.properties.rules` from required properties.",
-                "action": "replace",
+                "action": "delete-array-values",
                 "path": "components.schemas.Document.required",
-                "value": [
-                    "contentType",
-                    "meta",
-                    "name",
-                    "referenceId"
-                ]
+                "value": ["rules"]
             }
         ]
     }

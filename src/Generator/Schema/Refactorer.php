@@ -182,6 +182,10 @@ class Refactorer
             $modified = match ($mod->action) {
                 'delete' => null,
                 'replace' => $mod->value,
+                'delete-array-values' => match (true) {
+                    is_array($original) => array_values(array_diff($original, is_array($mod->value) ? $mod->value : [$mod->value])),
+                    default => throw new InvalidArgumentException('Can only delete array values from an array'),
+                },
                 'merge' => match (true) {
                     is_array($original) => array_merge($original, $mod->value),
                     is_object($original) => (object) array_merge((array) $original, (array) $mod->value),

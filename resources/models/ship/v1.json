@@ -7318,8 +7318,7 @@
                     "requestedPackageLineItems",
                     "serviceType",
                     "shipper",
-                    "shippingChargesPayment",
-                    "totalWeight"
+                    "shippingChargesPayment"
                 ],
                 "type": "object",
                 "properties": {
