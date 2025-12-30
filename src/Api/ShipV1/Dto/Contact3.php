@@ -12,14 +12,12 @@ namespace ShipStream\FedEx\Api\ShipV1\Dto;
 
 use ShipStream\FedEx\Dto;
 
-final class ContactAndAddress extends Dto
+final class Contact3 extends Dto
 {
     /**
-     * @param  ?Contact  $contact  Indicate the contact details of the shipper.
-     * @param  ?Address  $address  Address of the manufacturer
+     * @param  ?string  $companyName  Legal name of the manufacturer of the commodity.
      */
     public function __construct(
-        public ?Contact $contact = null,
-        public ?Address $address = null,
+        public ?string $companyName = null,
     ) {}
 }

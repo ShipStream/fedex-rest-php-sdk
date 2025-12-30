@@ -22,7 +22,7 @@ final class ClearanceItemDetail extends Dto
     public function __construct(
         public ?string $role = null,
         public ?string $id = null,
-        public ?Contact $contact = null,
+        public ?Contact3 $contact = null,
         public ?Address $address = null,
     ) {}
 }
