@@ -112,6 +112,11 @@
                 "action": "delete-array-values",
                 "path": "components.schemas.RequestedShipment.required",
                 "value": ["totalWeight"]
+            }, {
+                "comment": "Remove accountNumber from ResponsibleParty required fields",
+                "action": "delete-array-values",
+                "path": "components.schemas.ResponsiblePartyParty.required",
+                "value": ["accountNumber"]
             }
         ]
     },

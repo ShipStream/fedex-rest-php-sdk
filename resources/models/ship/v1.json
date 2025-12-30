@@ -1661,9 +1661,7 @@
                 }
             },
             "ResponsiblePartyParty": {
-                "required": [
-                    "accountNumber"
-                ],
+                "required": [],
                 "type": "object",
                 "properties": {
                     "address": {
