@@ -9,6 +9,7 @@ use Crescat\SaloonSdkGenerator\Generators\RequestGenerator as SDKRequestGenerato
 use Crescat\SaloonSdkGenerator\Helpers\NameHelper;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
+use Nette\PhpGenerator\ClassType;
 use Nette\PhpGenerator\PhpFile;
 use Saloon\Contracts\Authenticator;
 use Saloon\Helpers\URLHelper;
@@ -102,6 +103,107 @@ class RequestGenerator extends SDKRequestGenerator
                 ->setType(PendingRequest::class);
         }
 
+        // Handle trade document upload endpoints with proper file handling
+        $this->handleTradeDocumentUploads($endpoint, $classFile);
+
         return $classFile;
+    }
+
+    /**
+     * Handle special multipart form data for trade document upload endpoints.
+     *
+     * These endpoints require:
+     * 1. File attachments with proper filenames in Content-Disposition header
+     * 2. Multi-file uploads to be handled as separate multipart entries instead of JSON
+     */
+    protected function handleTradeDocumentUploads(Endpoint $endpoint, PhpFile $classFile): void
+    {
+        $classes = $classFile->getClasses();
+        $class = reset($classes);
+
+        // Handle single document upload (ETD files)
+        if ($endpoint->name === 'Upload ETD files') {
+            $this->replaceDefaultBody($class, $this->generateSingleDocumentUploadBody(
+                'fullSchemaDocumentUploadInputVo',
+                'attachment',
+                'document',
+                'name',
+            ));
+        }
+
+        // Handle image upload
+        if ($endpoint->name === 'Image Upload Service Info') {
+            $this->replaceDefaultBody($class, $this->generateSingleDocumentUploadBody(
+                'fullSchemaImageUploadServiceInputVo',
+                'attachment',
+                'document',
+                'document->name',  // Nested: document.document.name
+            ));
+        }
+
+        // Handle multi-document upload
+        if ($endpoint->name === 'UploadMultiETDfiles') {
+            $this->replaceDefaultBody($class, $this->generateMultiDocumentUploadBody());
+        }
+    }
+
+    protected function replaceDefaultBody(ClassType $class, string $body): void
+    {
+        if ($class->hasMethod('defaultBody')) {
+            $class->removeMethod('defaultBody');
+        }
+        $class->addMethod('defaultBody')
+            ->setReturnType('array')
+            ->setBody($body);
+    }
+
+    protected function generateSingleDocumentUploadBody(
+        string $dtoProperty,
+        string $attachmentField,
+        string $documentField,
+        string $filenamePath,
+    ): string {
+        return <<<PHP
+            \$data = \$this->{$dtoProperty}->toArray();
+            \$multipart = [];
+            foreach (\$data as \$key => \$value) {
+                if (\$key === '{$attachmentField}') {
+                    // File attachment with filename from document metadata
+                    \$filename = \$this->{$dtoProperty}->{$documentField}->{$filenamePath};
+                    \$multipart[] = new MultipartValue(\$key, \$value, \$filename);
+                } elseif (is_string(\$value) || is_numeric(\$value)) {
+                    \$multipart[] = new MultipartValue(\$key, (string) \$value);
+                } else {
+                    \$multipart[] = new MultipartValue(\$key, json_encode(\$value));
+                }
+            }
+            return \$multipart;
+            PHP;
+    }
+
+    protected function generateMultiDocumentUploadBody(): string
+    {
+        return <<<'PHP'
+            $multipart = [];
+            
+            // Add document information as JSON
+            if ($this->fullSchemaMultiDocumentRequest->documentInformation !== null) {
+                $multipart[] = new MultipartValue(
+                    'documentInformation',
+                    json_encode($this->fullSchemaMultiDocumentRequest->documentInformation->toArray())
+                );
+            }
+            
+            // Add each file attachment with its filename from metadata
+            if ($this->fullSchemaMultiDocumentRequest->fileAttachments !== null) {
+                $metaData = $this->fullSchemaMultiDocumentRequest->documentInformation?->metaData ?? [];
+                foreach ($this->fullSchemaMultiDocumentRequest->fileAttachments as $index => $fileContent) {
+                    $filename = $metaData[$index]?->fileName ?? "file_{$index}";
+                    $multipart[] = new MultipartValue('fileAttachments', $fileContent, $filename);
+                }
+            }
+            
+            return $multipart;
+            PHP;
     }
 }

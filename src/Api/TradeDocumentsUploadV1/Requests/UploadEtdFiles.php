@@ -63,7 +63,11 @@ class UploadEtdFiles extends Request implements HasBody
         $data = $this->fullSchemaDocumentUploadInputVo->toArray();
         $multipart = [];
         foreach ($data as $key => $value) {
-            if (is_string($value) || is_numeric($value)) {
+            if ($key === 'attachment') {
+                // File attachment with filename from document metadata
+                $filename = $this->fullSchemaDocumentUploadInputVo->document->name;
+                $multipart[] = new MultipartValue($key, $value, $filename);
+            } elseif (is_string($value) || is_numeric($value)) {
                 $multipart[] = new MultipartValue($key, (string) $value);
             } else {
                 $multipart[] = new MultipartValue($key, json_encode($value));

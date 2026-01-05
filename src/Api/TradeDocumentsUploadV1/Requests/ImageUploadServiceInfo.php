@@ -63,7 +63,11 @@ class ImageUploadServiceInfo extends Request implements HasBody
         $data = $this->fullSchemaImageUploadServiceInputVo->toArray();
         $multipart = [];
         foreach ($data as $key => $value) {
-            if (is_string($value) || is_numeric($value)) {
+            if ($key === 'attachment') {
+                // File attachment with filename from document metadata
+                $filename = $this->fullSchemaImageUploadServiceInputVo->document->document->name;
+                $multipart[] = new MultipartValue($key, $value, $filename);
+            } elseif (is_string($value) || is_numeric($value)) {
                 $multipart[] = new MultipartValue($key, (string) $value);
             } else {
                 $multipart[] = new MultipartValue($key, json_encode($value));
