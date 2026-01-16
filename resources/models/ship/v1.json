@@ -1413,6 +1413,27 @@
                 },
                 "description": "The request elements required to create a shipment."
             },
+            "VariationOptions": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Specifies the name or the key for the shipment variation.\n",
+                        "example": "GLOBAL-SPOT-IDENTIFIER"
+                    },
+                    "values": {
+                        "type": "array",
+                        "description": "The values that are valid for the specified shipment variation in the context of the current shipment.\n",
+                        "example": [
+                            "21089052",
+                            "21089053"
+                        ],
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
             "PickupDetail": {
                 "type": "object",
                 "properties": {
@@ -1914,7 +1935,7 @@
                 "properties": {
                     "pendingShipmentType": {
                         "type": "string",
-                        "description": "Specifies the pending shipment type.  Must include the value: EMAIL for email return shipments. <br>Not applicable for other types of shipments<br>Example: EMAIL",
+                        "description": "Specifies the pending shipment type.  Must include the value: EMAIL for email return shipments. <br>Not applicable for other types of shipments.<br><br>Once the label is printed, the transaction is marked with the original print date. You can reprint the label and documents for up to 5 days from that original print date. Once the 5-day reprint window closes, the label is no longer accessible.<br><br>Example: EMAIL",
                         "example": "EMAIL",
                         "enum": [
                             "EMAIL"
@@ -1938,7 +1959,7 @@
                     },
                     "expirationTimeStamp": {
                         "type": "string",
-                        "description": "Specifies the Email Label expiration date. The maximum expiration date for an Email Return Label must be greater of equal to the day of the label request and not greater than 2 years in the future. Format[YYYY-MM-DD] <br>Example: 2020-01-01",
+                        "description": "Specifies the Email Label expiration date.<br>The expiration date must be:<br>- Greater than or equal to the label request date.<br>- Not more than 2 years in the future.<br>Once the label is printed, the transaction is marked with the original print date. You can reprint the label and documents for up to 5 days from that original print date. Once the 5-day reprint window closes, the label is no longer accessible.<br><br>Format: [YYYY-MM-DD]<br>Example: 2020-01-01",
                         "example": "2020-01-01"
                     }
                 },
@@ -2463,7 +2484,6 @@
             },
             "CustomsClearanceDetail": {
                 "required": [
-                    "commercialInvoice",
                     "commodities"
                 ],
                 "type": "object",
@@ -4188,7 +4208,7 @@
             },
             "LABELRESPONSEOPTIONS": {
                 "type": "string",
-                "description": "Note- Label will be returned as Base64 ONLY when openShipmentAction is PROVIDE_DOCUMENTS_INCREMENTALLY.<br>LabelResponseOptions specifies the label generation format.<br>Example:URL_ONLY",
+                "description": "LABEL \u2013 Indicates request is for encoded bytecode (Base64).<br>URL_ONLY \u2013 Indicates label URL request.<br>Note: <ul><li>For asynchronous shipment (more than 40 packages) requests only the value LABEL is supported.</li><li>With URL_ONLY option, the URL once created will be active for 12 hours.",
                 "example": "URL_ONLY",
                 "enum": [
                     "URL_ONLY",
@@ -8053,6 +8073,13 @@
                     "masterTrackingId": {
                         "$ref": "#/components/schemas/MasterTrackingId"
                     },
+                    "variationOptions": {
+                        "type": "array",
+                        "description": "The shipment variations for the current shipment expressed in key-value pairs",
+                        "items": {
+                            "$ref": "#/components/schemas/VariationOptions"
+                        }
+                    },
                     "requestedPackageLineItems": {
                         "type": "array",
                         "description": "These are one or more package-attribute descriptions, each of which describes an individual package, a group of identical packages, or (for the total-piece-total-weight case) common characteristics of all packages in the shipment.<ul><li>At least one instance containing the weight for at least one package is required for EXPRESS and GROUND shipments.</li><li>Single piece requests will have one RequestedPackageLineItem.</li><li>Multiple piece requests will have multiple RequestedPackageLineItems.</li><li>Maximum occurrences is 30.</li></ul>",
@@ -8611,7 +8638,7 @@
                 "properties": {
                     "personName": {
                         "type": "string",
-                        "description": "Specify contact name. Maximum length is 70. <br>Note: Either the companyName or personName is mandatory.<br> Example: John Taylor",
+                        "description": "Specify contact name. First 35 chars will be printed on the label, excess characters will be truncated. <br> Note: Either the companyName or personName is manadatory. <br> Example : John Taylor",
                         "example": "John Taylor"
                     },
                     "emailAddress": {

@@ -17,6 +17,7 @@ final class RequestedShipment extends Dto
     protected static array $complexArrayTypes = [
         'recipients' => RecipientsParty::class,
         'requestedPackageLineItems' => RequestedPackageLineItem::class,
+        'variationOptions' => VariationOptions::class,
     ];
 
     /**
@@ -46,6 +47,7 @@ final class RequestedShipment extends Dto
      * @param  ?string  $preferredCurrency  Indicate the currency the caller requests to have used in all returned monetary values. Should be Used in conjunction with the element RateRequestType.<br>Example: USD<br><a onclick='loadDocReference("currencycodes")'>click here to see available Currency codes</a><br>Note: Incorrect currency codes should not be supplied. The system ignores the incorrect currency code.
      * @param  ?int  $totalPackageCount  For an MPS, this is the total number of packages in the shipment.Applicable for parent shipment for one label at a time shipments. <br>Example: 25
      * @param  ?MasterTrackingId  $masterTrackingId  Indicates the tracking details of the package.Required for child shipments of an oneLabelAtATime shipments
+     * @param  VariationOptions[]|null  $variationOptions  The shipment variations for the current shipment expressed in key-value pairs
      */
     public function __construct(
         public ShipperParty $shipper,
@@ -75,5 +77,6 @@ final class RequestedShipment extends Dto
         public ?string $preferredCurrency = null,
         public ?int $totalPackageCount = null,
         public ?MasterTrackingId $masterTrackingId = null,
+        public ?array $variationOptions = null,
     ) {}
 }

@@ -17,12 +17,12 @@ final class PendingShipmentDetail extends Dto
     protected static array $complexArrayTypes = ['attachedDocuments' => UploadDocumentReferenceDetail::class];
 
     /**
-     * @param  string  $pendingShipmentType  Specifies the pending shipment type.  Must include the value: EMAIL for email return shipments. <br>Not applicable for other types of shipments<br>Example: EMAIL
+     * @param  string  $pendingShipmentType  Specifies the pending shipment type.  Must include the value: EMAIL for email return shipments. <br>Not applicable for other types of shipments.<br><br>Once the label is printed, the transaction is marked with the original print date. You can reprint the label and documents for up to 5 days from that original print date. Once the 5-day reprint window closes, the label is no longer accessible.<br><br>Example: EMAIL
      * @param  EmailLabelDetail  $emailLabelDetail  These are specific information about the pending email label.<br>Required when PendingShipmentType is EMAIL.<br>Not applicable for CreateTag.
      * @param  ?PendingShipmentProcessingOptionsRequested  $processingOptions  Use this object to allow the Email Label shipment originator,  specify if the Email label shipment completer can make modifications to editable shipment data.
      * @param  ?RecommendedDocumentSpecification  $recommendedDocumentSpecification  These are documents that are recommended to be included with the shipment.<br>Example:ANTIQUE_STATEMENT_EUROPEAN_UNION
      * @param  UploadDocumentReferenceDetail[]|null  $attachedDocuments  These are the reference document details with the shipment.
-     * @param  ?string  $expirationTimeStamp  Specifies the Email Label expiration date. The maximum expiration date for an Email Return Label must be greater of equal to the day of the label request and not greater than 2 years in the future. Format[YYYY-MM-DD] <br>Example: 2020-01-01
+     * @param  ?string  $expirationTimeStamp  Specifies the Email Label expiration date.<br>The expiration date must be:<br>- Greater than or equal to the label request date.<br>- Not more than 2 years in the future.<br>Once the label is printed, the transaction is marked with the original print date. You can reprint the label and documents for up to 5 days from that original print date. Once the 5-day reprint window closes, the label is no longer accessible.<br><br>Format: [YYYY-MM-DD]<br>Example: 2020-01-01
      */
     public function __construct(
         public string $pendingShipmentType,

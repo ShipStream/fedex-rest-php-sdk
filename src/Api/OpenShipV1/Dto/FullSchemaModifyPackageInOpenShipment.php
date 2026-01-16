@@ -29,5 +29,6 @@ final class FullSchemaModifyPackageInOpenShipment extends Dto
         public PartyAccountNumber $accountNumber,
         public TrackingId $trackingId,
         public ?string $openShipAction = null,
+        public ?Version $version = null,
     ) {}
 }

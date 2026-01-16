@@ -3061,7 +3061,7 @@
             "InternationalDistributionDetail": {
                 "required": [
                     "clearanceFacilityLocationId",
-                    "declaredCurrencies",
+                    "declarationCurrencies",
                     "totalDimensions"
                 ],
                 "type": "object",
@@ -3093,7 +3093,7 @@
                             "METRIC"
                         ]
                     },
-                    "declaredCurrencies": {
+                    "declarationCurrencies": {
                         "type": "array",
                         "items": {
                             "$ref": "#/components/schemas/Money_1"
@@ -5481,7 +5481,7 @@
             "InternationalDistributionDetail_1": {
                 "required": [
                     "clearanceFacilityLocationId",
-                    "declaredCurrencies",
+                    "declarationCurrencies",
                     "totalDimensions"
                 ],
                 "type": "object",
@@ -5513,7 +5513,7 @@
                             "METRIC"
                         ]
                     },
-                    "declaredCurrencies": {
+                    "declarationCurrencies": {
                         "type": "array",
                         "items": {
                             "$ref": "#/components/schemas/Money_1_1"
@@ -10337,6 +10337,9 @@
                     "pickupDetail": {
                         "$ref": "#/components/schemas/PickupDetail"
                     },
+                    "emailNotificationDetail": {
+                        "$ref": "#/components/schemas/EmailNotificationDetail"
+                    },
                     "shippingChargesPayment": {
                         "$ref": "#/components/schemas/Payment"
                     },
@@ -14056,6 +14059,109 @@
                     }
                 },
                 "description": "These special services are available at the shipment level for some or all service types.<br>If the shipper is requesting a special service which requires additional data (such as the COD amount), the shipment special service type must be present in the specialServiceTypes collection, and the supporting detail must be provided in the appropriate sub-object below.<br>RETURN_SHIPMENT is required for creating return shipments."
+            },
+            "EmailNotificationDetail": {
+                "type": "object",
+                "properties": {
+                    "aggregationType": {
+                        "type": "string",
+                        "description": "Consolidation Shipment Notification Aggregation Type.<br>Example:PER_PACKAGE",
+                        "example": "PER_PACKAGE",
+                        "enum": [
+                            "PER_PACKAGE",
+                            "PER_SHIPMENT"
+                        ]
+                    },
+                    "emailNotificationRecipients": {
+                        "type": "array",
+                        "description": "These are email notification recipient details.",
+                        "items": {
+                            "$ref": "#/components/schemas/EmailNotificationRecipient"
+                        }
+                    },
+                    "personalMessage": {
+                        "type": "string",
+                        "description": "This is your personal message for the email.<br>Note: The maximum personal message character limit depends on the element emailNotificationDetail\\emailNotificationRecipients\\notificationFormatType values:<ul><li>If notificationFormatType is TEXT, then only 120 characters printed on the email</li><li>If notificationFormatType is HTML, then 500 characters printed on the email</li></ul><br>Example: This is concerning the order 123456 of 26 Nov 2025 - art no 34324-23 Teddy Bear, brown",
+                        "example": "your personal message here"
+                    }
+                },
+                "description": "These are email details. Provides the type and email addresses of e-mail recipients."
+            },
+            "EmailNotificationRecipient": {
+                "required": [
+                    "emailNotificationRecipientType"
+                ],
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "Specify the recipient name.<br>Example: Dispatch",
+                        "example": "Dispatch"
+                    },
+                    "emailNotificationRecipientType": {
+                        "type": "string",
+                        "description": "This is the email notification recipient type.<br>Example: SHIPPER",
+                        "example": "SHIPPER",
+                        "enum": [
+                            "BROKER",
+                            "OTHER",
+                            "RECIPIENT",
+                            "SHIPPER",
+                            "THIRD_PARTY"
+                        ]
+                    },
+                    "emailAddress": {
+                        "type": "string",
+                        "description": "Specify the recipient email address.<br>Example: xyz@aol.com",
+                        "example": "jsmith3@aol.com"
+                    },
+                    "notificationFormatType": {
+                        "type": "string",
+                        "description": "This is the format for the email notification. Either HTML or plain text can be provided.",
+                        "example": "TEXT",
+                        "enum": [
+                            "HTML",
+                            "TEXT"
+                        ]
+                    },
+                    "notificationType": {
+                        "type": "string",
+                        "description": "Indicate the type of notification that will be sent as an email.",
+                        "example": "EMAIL",
+                        "enum": [
+                            "EMAIL"
+                        ]
+                    },
+                    "locale": {
+                        "type": "string",
+                        "description": "These are the locale details for email.<br><a onclick='loadDocReference(\"locales\")'>click here to see Locales</a><br>Note: If the locale is left blank or an invalid locale is entered, an error message is returned in response.",
+                        "example": "en_US"
+                    },
+                    "notificationEventType": {
+                        "type": "array",
+                        "description": "Specify notification event types.<br><a onclick='loadDocReference(\"notificationeventtypes\")'>Click here for more information on Notification Event Types.</a>",
+                        "example": [
+                            "ON_TENDER",
+                            "ON_DELIVERY"
+                        ],
+                        "items": {
+                            "type": "string",
+                            "enum": [
+                                "ON_DELIVERY",
+                                "ON_EXCEPTION",
+                                "ON_SHIPMENT",
+                                "ON_TENDER",
+                                "ON_ESTIMATED_DELIVERY",
+                                "ON_BILL_OF_LADING",
+                                "ON_PICKUP_DRIVER_ARRIVED",
+                                "ON_PICKUP_DRIVER_ASSIGNED",
+                                "ON_PICKUP_DRIVER_DEPARTED",
+                                "ON_PICKUP_DRIVER_EN_ROUTE"
+                            ]
+                        }
+                    }
+                },
+                "description": "These are recipient details for receiving email notification."
             },
             "RequestedConsolidationShipment_processingOption": {
                 "type": "object",

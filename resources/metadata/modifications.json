@@ -117,6 +117,11 @@
                 "action": "delete-array-values",
                 "path": "components.schemas.ResponsiblePartyParty.required",
                 "value": ["accountNumber"]
+            }, {
+                "comment": "Remove commercialInvoice from CustomsClearanceDetail required fields",
+                "action": "delete-array-values",
+                "path": "components.schemas.CustomsClearanceDetail.required",
+                "value": ["commercialInvoice"]
             }
         ]
     },

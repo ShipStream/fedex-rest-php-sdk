@@ -29,5 +29,6 @@ final class FullSchemaAddPackagesToOpenShipment extends Dto
         public PartyAccountNumber $accountNumber,
         public array $requestedPackageLineItems,
         public ?string $openShipAction = null,
+        public ?Version $version = null,
     ) {}
 }

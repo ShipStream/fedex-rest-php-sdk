@@ -2214,6 +2214,9 @@
                     "accountNumber": {
                         "$ref": "#/components/schemas/PartyAccountNumber"
                     },
+                    "version": {
+                        "$ref": "#/components/schemas/Version"
+                    },
                     "openShipmentAction": {
                         "$ref": "#/components/schemas/OpenShipAction"
                     },
@@ -5967,6 +5970,9 @@
                     "openShipmentAction": {
                         "$ref": "#/components/schemas/OpenShipmentAction_1"
                     },
+                    "version": {
+                        "$ref": "#/components/schemas/Version"
+                    },
                     "accountNumber": {
                         "$ref": "#/components/schemas/PartyAccountNumber"
                     }
@@ -6053,6 +6059,9 @@
                     },
                     "accountNumber": {
                         "$ref": "#/components/schemas/PartyAccountNumber"
+                    },
+                    "version": {
+                        "$ref": "#/components/schemas/Version"
                     },
                     "openShipmentAction": {
                         "type": "string",
@@ -6979,6 +6988,9 @@
                     "accountNumber": {
                         "$ref": "#/components/schemas/PartyAccountNumber"
                     },
+                    "version": {
+                        "$ref": "#/components/schemas/Version"
+                    },
                     "trackingId": {
                         "$ref": "#/components/schemas/TrackingId"
                     }
@@ -7052,6 +7064,9 @@
                     "accountNumber": {
                         "$ref": "#/components/schemas/PartyAccountNumber"
                     },
+                    "version": {
+                        "$ref": "#/components/schemas/Version"
+                    },
                     "requestedPackageLineItems": {
                         "type": "array",
                         "description": "These are package line item details in the shipment. ",
@@ -7117,6 +7132,9 @@
                     "accountNumber": {
                         "$ref": "#/components/schemas/PartyAccountNumber"
                     },
+                    "version": {
+                        "$ref": "#/components/schemas/Version"
+                    },
                     "trackingIds": {
                         "type": "array",
                         "description": "One or more tracking IDs, for which the packages to be removed from the shipment.",
@@ -7180,6 +7198,9 @@
                     },
                     "trackingId": {
                         "$ref": "#/components/schemas/TrackingId"
+                    },
+                    "version": {
+                        "$ref": "#/components/schemas/Version"
                     }
                 }
             },
@@ -7231,6 +7252,9 @@
                     },
                     "accountNumber": {
                         "$ref": "#/components/schemas/PartyAccountNumber"
+                    },
+                    "version": {
+                        "$ref": "#/components/schemas/Version"
                     }
                 }
             },
@@ -7285,6 +7309,9 @@
                     },
                     "accountNumber": {
                         "$ref": "#/components/schemas/PartyAccountNumber"
+                    },
+                    "version": {
+                        "$ref": "#/components/schemas/Version"
                     }
                 }
             },
@@ -7950,6 +7977,29 @@
                     },
                     "accountNumber": {
                         "$ref": "#/components/schemas/PartyAccountNumber"
+                    },
+                    "version": {
+                        "$ref": "#/components/schemas/Version"
+                    }
+                }
+            },
+            "Version": {
+                "type": "object",
+                "properties": {
+                    "major": {
+                        "description": "This version is incremented when significant changes are made to the API functionality. These could be breaking changes and might require code-adjustments from clients. Accepts only numbers",
+                        "example": "1",
+                        "type": "integer"
+                    },
+                    "minor": {
+                        "description": "This represents a backward-compatible bug fix or minor adjustment to an existing API functionality. This is the second number in API versioning scheme. Accepts only numbers",
+                        "example": "1",
+                        "type": "integer"
+                    },
+                    "patch": {
+                        "description": "This represents a backward-compatible bug fix or minor adjustment to an existing API functionality. This is the third number in API versioning scheme. Accepts only numbers",
+                        "example": "1",
+                        "type": "integer"
                     }
                 }
             },

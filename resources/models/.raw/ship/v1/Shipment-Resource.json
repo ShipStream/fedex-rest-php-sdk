@@ -36,6 +36,9 @@
                                         "$ref": "#/components/schemas/FDGSamplePayload-ShipShipment-intraEurope"
                                     },
                                     {
+                                        "$ref": "#/components/schemas/Domestic_Ground_Shipment"
+                                    },
+                                    {
                                         "$ref": "#/components/schemas/One_Rate_Shipment"
                                     },
                                     {
@@ -1293,6 +1296,13 @@
                     "masterTrackingId": {
                         "$ref": "#/components/schemas/MasterTrackingId"
                     },
+                    "variationOptions": {
+                        "type": "array",
+                        "description": "The shipment variations for the current shipment expressed in key-value pairs",
+                        "items": {
+                            "$ref": "#/components/schemas/VariationOptions"
+                        }
+                    },
                     "requestedPackageLineItems": {
                         "type": "array",
                         "description": "These are one or more package-attribute descriptions, each of which describes an individual package, a group of identical packages, or (for the total-piece-total-weight case) common characteristics of all packages in the shipment.<ul><li>At least one instance containing the weight for at least one package is required for EXPRESS and GROUND shipments.</li><li>Single piece requests will have one RequestedPackageLineItem.</li><li>Multiple piece requests will have multiple RequestedPackageLineItems.</li><li>Maximum occurrences is 30.</li></ul>",
@@ -1302,6 +1312,27 @@
                     }
                 },
                 "description": "The descriptive data of the requested shipment."
+            },
+            "VariationOptions": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Specifies the name or the key for the shipment variation.\n",
+                        "example": "GLOBAL-SPOT-IDENTIFIER"
+                    },
+                    "values": {
+                        "type": "array",
+                        "description": "The values that are valid for the specified shipment variation in the context of the current shipment.\n",
+                        "example": [
+                            "21089052",
+                            "21089053"
+                        ],
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                }
             },
             "PickupDetail": {
                 "type": "object",
@@ -1394,7 +1425,7 @@
                         "$ref": "#/components/schemas/PartyAddress_2"
                     },
                     "contact": {
-                        "$ref": "#/components/schemas/PartyContact"
+                        "$ref": "#/components/schemas/PartyContacts_2"
                     },
                     "tins": {
                         "type": "array",
@@ -1671,7 +1702,7 @@
                         "$ref": "#/components/schemas/PartyAddress_2"
                     },
                     "contact": {
-                        "$ref": "#/components/schemas/PartyContact"
+                        "$ref": "#/components/schemas/PartyContacts_2"
                     },
                     "tins": {
                         "type": "array",
@@ -1716,6 +1747,47 @@
                         }
                     ],
                     "deliveryInstructions": "Delivery Instructions"
+                }
+            },
+            "PartyContacts_2": {
+                "required": [
+                    "phoneNumber"
+                ],
+                "type": "object",
+                "properties": {
+                    "personName": {
+                        "type": "string",
+                        "description": "Specify contact name. First 35 chars will be printed on the label, excess characters will be truncated. <br> Note: Either the companyName or personName is manadatory. <br> Example : John Taylor",
+                        "example": "John Taylor"
+                    },
+                    "emailAddress": {
+                        "type": "string",
+                        "description": "Specify contact email address. Maximum length is 80. <br> Example: sample@company.com",
+                        "example": "sample@company.com"
+                    },
+                    "phoneExtension": {
+                        "type": "string",
+                        "description": "Specify contact phone extension. Maximum length is 6. <br> Example: 1234",
+                        "example": "91"
+                    },
+                    "phoneNumber": {
+                        "type": "string",
+                        "description": "The shipper's phone number. <br>Minimum length is 1 and supports maximum of 15 for certain countries using longer phone numbers.<br>Note: For US and CA, a phone number must have exactly 10 digits, plus an optional leading country code of '1' or '+1'.<br>Example: 918xxxxx890",
+                        "example": "918xxxxx890"
+                    },
+                    "companyName": {
+                        "type": "string",
+                        "description": "The shipper's company name. Max length is 35.<br>Example: FedEx",
+                        "example": "Fedex"
+                    }
+                },
+                "description": "Indicate the contact details for this shipment.",
+                "example": {
+                    "personName": "John Taylor",
+                    "emailAddress": "sample@company.com",
+                    "phoneExtension": "91",
+                    "phoneNumber": "1234567890",
+                    "companyName": "Fedex"
                 }
             },
             "ContactAndAddress_1": {
@@ -2306,7 +2378,7 @@
                 "properties": {
                     "pendingShipmentType": {
                         "type": "string",
-                        "description": "Specifies the pending shipment type.  Must include the value: EMAIL for email return shipments. <br>Not applicable for other types of shipments<br>Example: EMAIL",
+                        "description": "Specifies the pending shipment type.  Must include the value: EMAIL for email return shipments. <br>Not applicable for other types of shipments.<br><br>Once the label is printed, the transaction is marked with the original print date. You can reprint the label and documents for up to 5 days from that original print date. Once the 5-day reprint window closes, the label is no longer accessible.<br><br>Example: EMAIL",
                         "example": "EMAIL",
                         "enum": [
                             "EMAIL"
@@ -2330,7 +2402,7 @@
                     },
                     "expirationTimeStamp": {
                         "type": "string",
-                        "description": "Specifies the Email Label expiration date. The maximum expiration date for an Email Return Label must be greater of equal to the day of the label request and not greater than 2 years in the future. Format[YYYY-MM-DD] <br>Example: 2020-01-01",
+                        "description": "Specifies the Email Label expiration date.<br>The expiration date must be:<br>- Greater than or equal to the label request date.<br>- Not more than 2 years in the future.<br>Once the label is printed, the transaction is marked with the original print date. You can reprint the label and documents for up to 5 days from that original print date. Once the 5-day reprint window closes, the label is no longer accessible.<br><br>Format: [YYYY-MM-DD]<br>Example: 2020-01-01",
                         "example": "2020-01-01"
                     }
                 },
@@ -3943,7 +4015,8 @@
                         "description": "Indicate the weight unit type.",
                         "example": "KG",
                         "enum": [
-                            "KG"
+                            "KG",
+                            "LB"
                         ]
                     },
                     "value": {
@@ -5556,7 +5629,7 @@
             },
             "LABELRESPONSEOPTIONS": {
                 "type": "string",
-                "description": "Note- Label will be returned as Base64 ONLY when openShipmentAction is PROVIDE_DOCUMENTS_INCREMENTALLY.<br>LabelResponseOptions specifies the label generation format.<br>Example:URL_ONLY",
+                "description": "LABEL \u2013 Indicates request is for encoded bytecode (Base64).<br>URL_ONLY \u2013 Indicates label URL request.<br>Note: <ul><li>For asynchronous shipment (more than 40 packages) requests only the value LABEL is supported.</li><li>With URL_ONLY option, the URL once created will be active for 12 hours.",
                 "example": "URL_ONLY",
                 "enum": [
                     "URL_ONLY",
@@ -13386,6 +13459,156 @@
                     },
                     "accountNumber": {
                         "value": "XXXXX2842"
+                    }
+                }
+            },
+            "Domestic_Ground_Shipment": {
+                "example": {
+                    "accountNumber": {
+                        "value": 604007038
+                    },
+                    "labelResponseOptions": "URL_ONLY",
+                    "requestedShipment": {
+                        "shipper": {
+                            "contact": {
+                                "personName": "SENDER NAME",
+                                "phoneNumber": "9018328595"
+                            },
+                            "address": {
+                                "streetLines": [
+                                    "777 LENA DR"
+                                ],
+                                "city": "AURORA",
+                                "stateOrProvinceCode": "OH",
+                                "postalCode": "44202-8025",
+                                "countryCode": "US",
+                                "residential": false
+                            }
+                        },
+                        "recipients": [
+                            {
+                                "contact": {
+                                    "personName": "RECIPIENT NAME",
+                                    "phoneNumber": "1234567890"
+                                },
+                                "address": {
+                                    "streetLines": [
+                                        "2890 Market Loop"
+                                    ],
+                                    "city": "Southlake",
+                                    "stateOrProvinceCode": "TX",
+                                    "postalCode": "76092",
+                                    "countryCode": "US"
+                                }
+                            }
+                        ],
+                        "shipDatestamp": "2023-04-20",
+                        "serviceType": "FEDEX_GROUND",
+                        "packagingType": "YOUR_PACKAGING",
+                        "pickupType": "USE_SCHEDULED_PICKUP",
+                        "shippingChargesPayment": {
+                            "paymentType": "SENDER",
+                            "payor": {
+                                "responsibleParty": {
+                                    "accountNumber": {
+                                        "value": 604007038
+                                    }
+                                }
+                            }
+                        },
+                        "labelSpecification": {
+                            "labelFormatType": "COMMON2D",
+                            "imageType": "ZPLII",
+                            "labelStockType": "STOCK_4X675_LEADING_DOC_TAB",
+                            "labelPrintingOrientation": "TOP_EDGE_OF_TEXT_FIRST",
+                            "customerSpecifiedDetail": {
+                                "docTabContentType": "ZONE001",
+                                "zone001": {
+                                    "docTabZoneSpecifications": [
+                                        {
+                                            "zoneNumber": 1,
+                                            "header": "Date",
+                                            "justification": "RIGHT",
+                                            "dataField": "REQUEST/SHIPMENT/ShipTimestamp"
+                                        },
+                                        {
+                                            "zoneNumber": 2,
+                                            "header": "Del Date",
+                                            "justification": "RIGHT",
+                                            "dataField": "REPLY/SHIPMENT/OperationalDetail/DeliveryDate"
+                                        },
+                                        {
+                                            "zoneNumber": 3,
+                                            "header": "PO Num",
+                                            "justification": "RIGHT",
+                                            "literalValue": "DAVE-Test"
+                                        },
+                                        {
+                                            "zoneNumber": 4,
+                                            "header": "Inv Num",
+                                            "justification": "RIGHT",
+                                            "literalValue": "302229"
+                                        },
+                                        {
+                                            "zoneNumber": 5,
+                                            "header": "Weight",
+                                            "justification": "RIGHT",
+                                            "dataField": "REQUEST/PACKAGE/weight/Value"
+                                        },
+                                        {
+                                            "zoneNumber": 6,
+                                            "header": "Dim Wt",
+                                            "justification": "RIGHT",
+                                            "dataField": "REPLY/PACKAGE/RATES/ACTUAL/DimWeight/Value"
+                                        },
+                                        {
+                                            "zoneNumber": 7,
+                                            "header": "Pkg #",
+                                            "justification": "RIGHT",
+                                            "dataField": "REQUEST/PACKAGE/SequenceNumber"
+                                        },
+                                        {
+                                            "zoneNumber": 8,
+                                            "header": "Pkg Cnt",
+                                            "justification": "RIGHT",
+                                            "dataField": "REQUEST/SHIPMENT/PackageCount"
+                                        },
+                                        {
+                                            "zoneNumber": 9,
+                                            "header": "Dec Val",
+                                            "justification": "RIGHT",
+                                            "dataField": "REQUEST/PACKAGE/InsuredValue/Amount"
+                                        },
+                                        {
+                                            "zoneNumber": 11,
+                                            "header": "List",
+                                            "justification": "RIGHT",
+                                            "dataField": "REPLY/PACKAGE/RATE/LIST/NetCharge/Amount"
+                                        },
+                                        {
+                                            "zoneNumber": 12,
+                                            "header": "Net Chrg",
+                                            "justification": "RIGHT",
+                                            "dataField": "REPLY/SHIPMENT/RATES/ACTUAL/totalNetCharge/Amount"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        "requestedPackageLineItems": [
+                            {
+                                "weight": {
+                                    "units": "LB",
+                                    "value": 11
+                                },
+                                "dimensions": {
+                                    "units": "IN",
+                                    "length": 8,
+                                    "width": 6,
+                                    "height": 4
+                                }
+                            }
+                        ]
                     }
                 }
             },

@@ -962,7 +962,7 @@
                 "properties": {
                     "personName": {
                         "type": "string",
-                        "description": "Specify contact name. Maximum length is 70. <br>Note: Either the companyName or personName is mandatory.<br> Example: John Taylor",
+                        "description": "Specify contact name. First 35 chars will be printed on the label, excess characters will be truncated. <br> Note: Either the companyName or personName is manadatory. <br> Example : John Taylor",
                         "example": "John Taylor"
                     },
                     "emailAddress": {
@@ -1692,7 +1692,7 @@
                 "properties": {
                     "pendingShipmentType": {
                         "type": "string",
-                        "description": "Specifies the pending shipment type.  Must include the value: EMAIL for email return shipments. <br>Not applicable for other types of shipments<br>Example: EMAIL",
+                        "description": "Specifies the pending shipment type.  Must include the value: EMAIL for email return shipments. <br>Not applicable for other types of shipments.<br><br>Once the label is printed, the transaction is marked with the original print date. You can reprint the label and documents for up to 5 days from that original print date. Once the 5-day reprint window closes, the label is no longer accessible.<br><br>Example: EMAIL",
                         "example": "EMAIL",
                         "enum": [
                             "EMAIL"
@@ -1716,7 +1716,7 @@
                     },
                     "expirationTimeStamp": {
                         "type": "string",
-                        "description": "Specifies the Email Label expiration date. The maximum expiration date for an Email Return Label must be greater of equal to the day of the label request and not greater than 2 years in the future. Format[YYYY-MM-DD] <br>Example: 2020-01-01",
+                        "description": "Specifies the Email Label expiration date.<br>The expiration date must be:<br>- Greater than or equal to the label request date.<br>- Not more than 2 years in the future.<br>Once the label is printed, the transaction is marked with the original print date. You can reprint the label and documents for up to 5 days from that original print date. Once the 5-day reprint window closes, the label is no longer accessible.<br><br>Format: [YYYY-MM-DD]<br>Example: 2020-01-01",
                         "example": "2020-01-01"
                     }
                 },
@@ -3235,7 +3235,8 @@
                         "description": "Indicate the weight unit type. The package and commodity weight unit should be the same else the request will result in an error.",
                         "example": "KG",
                         "enum": [
-                            "KG"
+                            "KG",
+                            "LB"
                         ]
                     },
                     "value": {

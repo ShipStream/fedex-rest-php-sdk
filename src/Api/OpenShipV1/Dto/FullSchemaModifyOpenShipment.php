@@ -25,5 +25,6 @@ final class FullSchemaModifyOpenShipment extends Dto
         public OpenshipmentRequestedShipment $requestedShipment,
         public PartyAccountNumber $accountNumber,
         public ?string $openShipmentAction = null,
+        public ?Version $version = null,
     ) {}
 }

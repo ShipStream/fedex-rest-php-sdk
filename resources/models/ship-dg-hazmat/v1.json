@@ -4625,8 +4625,8 @@
                     },
                     "units": {
                         "type": "string",
-                        "description": "The weight unit of measure for the packaging. KG or LB",
-                        "example": "LB"
+                        "description": "Units in which the hazardous commodity is packaged.",
+                        "example": "HAZMATPACKAGE"
                     }
                 },
                 "description": "Indicates the Packaging details of dangerous goods."

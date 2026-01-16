@@ -21,5 +21,6 @@ final class FullSchemaRetrieveOpenShipment extends Dto
     public function __construct(
         public string $index,
         public PartyAccountNumber $accountNumber,
+        public ?Version $version = null,
     ) {}
 }

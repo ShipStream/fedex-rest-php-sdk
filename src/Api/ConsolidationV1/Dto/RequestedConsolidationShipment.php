@@ -31,6 +31,7 @@ final class RequestedConsolidationShipment extends Dto
      * @param  ?RequestedConsolidationShipmentSpecialServicesRequested  $specialServicesRequested  These special services are available at the shipment level for some or all service types.<br>If the shipper is requesting a special service which requires additional data (such as the COD amount), the shipment special service type must be present in the specialServiceTypes collection, and the supporting detail must be provided in the appropriate sub-object below.<br>RETURN_SHIPMENT is required for creating return shipments.
      * @param  ?Weight  $totalWeight  Indicate the shipment total weight in pounds.<br>Example: 10.6<br>Note: <ul><li>This only applies to International shipments and should be used on the first package of a multiple piece shipment.</li><li>This value contains 1 explicit decimal position.</li><li>For one Label at a time shipments, the unit of totalWeight is considered same as the unit of weight provided in requestedPackageLineItem field.</li></ul>
      * @param  RecipientParty[]|null  $recipients
+     * @param  ?EmailNotificationDetail  $emailNotificationDetail  These are email details. Provides the type and email addresses of e-mail recipients.
      * @param  ?CustomsClearanceDetail  $customsClearanceDetail  Required for International and intra-country Shipments. Information about this package that only applies to an international (export) shipment or return.
      */
     public function __construct(
@@ -48,6 +49,7 @@ final class RequestedConsolidationShipment extends Dto
         public ?Weight $totalWeight = null,
         public ?array $recipients = null,
         public ?PickupDetail $pickupDetail = null,
+        public ?EmailNotificationDetail $emailNotificationDetail = null,
         public ?RequestedConsolidationShipmentProcessingOption $processingOption = null,
         public ?CustomsClearanceDetail $customsClearanceDetail = null,
         public ?string $rateRequestTypes = null,

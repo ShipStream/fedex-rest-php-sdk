@@ -720,11 +720,6 @@
                         "description": "The confirmation number provided to the customer when a pickup is requested <br> Example : 3001",
                         "example": "3001"
                     },
-                    "message": {
-                        "type": "string",
-                        "description": "Human-readable text that explains pickup notification <br> Example: Courier on the way",
-                        "example": "Courier on the way"
-                    },
                     "location": {
                         "type": "string",
                         "description": "The location from where the package will be picked up. <br><br><i>Note: The location will only be returned for Express Pickup.<i><br><br>Example: COSA",
@@ -1617,9 +1612,6 @@
                             "FDXE",
                             "FDXG"
                         ]
-                    },
-                    "accountAddressOfRecord": {
-                        "$ref": "#/components/schemas/Address"
                     },
                     "scheduledDate": {
                         "type": "string",

@@ -23,6 +23,7 @@ final class FullSchemaCreateOpenShipment extends Dto
     public function __construct(
         public OpenshipmentRequestedShipment $requestedShipment,
         public PartyAccountNumber $accountNumber,
+        public ?Version $version = null,
         public ?string $openShipmentAction = null,
         public ?string $index = null,
     ) {}

@@ -30,6 +30,7 @@ final class FullSchemaConfirmOpenShipment extends Dto
         public PartyAccountNumber $accountNumber,
         public ?string $edtRequestType = null,
         public ?ShippingDocumentSpecification $shippingDocumentSpecification = null,
+        public ?Version $version = null,
         public ?string $openShipmentAction = null,
     ) {}
 }

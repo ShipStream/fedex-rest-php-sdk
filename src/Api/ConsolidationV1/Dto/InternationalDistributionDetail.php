@@ -14,11 +14,11 @@ use ShipStream\FedEx\Dto;
 
 final class InternationalDistributionDetail extends Dto
 {
-    protected static array $complexArrayTypes = ['declaredCurrencies' => Money::class];
+    protected static array $complexArrayTypes = ['declarationCurrencies' => Money::class];
 
     /**
      * @param  Dimensions  $totalDimensions  Conditional.<br>The dimensions of the package; length, width & height. All three dimensions must be indicated.<br>Note: Dimensions are required with YOUR_PACKAGING package type.
-     * @param  Money[]  $declaredCurrencies
+     * @param  Money[]  $declarationCurrencies
      * @param  string  $clearanceFacilityLocationId  Specifies the clearance facility location id.
      * @param  ?string  $dropOffType  Specifies drop off type.
      * @param  ?TotalInsuredMoney  $totalInsuredValue  This is commodity value used for Customs declaration.
@@ -26,7 +26,7 @@ final class InternationalDistributionDetail extends Dto
      */
     public function __construct(
         public Dimensions $totalDimensions,
-        public array $declaredCurrencies,
+        public array $declarationCurrencies,
         public string $clearanceFacilityLocationId,
         public ?string $dropOffType = null,
         public ?TotalInsuredMoney $totalInsuredValue = null,

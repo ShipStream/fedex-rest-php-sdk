@@ -23,5 +23,6 @@ final class FullSchemaGetOpenShipmentResults extends Dto
         public string $resultMethodType,
         public string $jobId,
         public PartyAccountNumber $accountNumber,
+        public ?Version $version = null,
     ) {}
 }

@@ -23,5 +23,6 @@ final class FullSchemaRetrievePackageInOpenShipment extends Dto
         public string $index,
         public PartyAccountNumber $accountNumber,
         public TrackingId $trackingId,
+        public ?Version $version = null,
     ) {}
 }
