@@ -6800,6 +6800,9 @@
                     },
                     "accountNumber": {
                         "$ref": "#/components/schemas/ShipperAccountNumber"
+                    },
+                    "version": {
+                        "$ref": "#/components/schemas/Version"
                     }
                 },
                 "description": "The request elements required to create a shipment."
@@ -7269,6 +7272,9 @@
                     "accountNumber": {
                         "description": "The specific FedEx customer account number (account value) associated with the shipment.",
                         "$ref": "#/components/schemas/PartyAccountNumber"
+                    },
+                    "version": {
+                        "$ref": "#/components/schemas/Version"
                     }
                 }
             },
@@ -7861,6 +7867,9 @@
                         "type": "string",
                         "description": "The tracking number for the Express or Ground Tag to the cancelled.<br>Example: 301025281523<br><a onclick='loadDocReference(\"mocktrackingnumbersforfedexexpressandfedexground\")'>Click here to see mock tracking numbers for FedEx Express and FedEx Ground.</a>",
                         "example": "301025281523"
+                    },
+                    "version": {
+                        "$ref": "#/components/schemas/Version"
                     },
                     "completedTagDetail": {
                         "description": "The details of the package for which shipping has been completed. The details include dispatch confirmation number, dispatch date, location, and the cxs alerts associated with the process.",

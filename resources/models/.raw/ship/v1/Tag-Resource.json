@@ -495,6 +495,9 @@
                                 "$ref": "#/components/schemas/AccountNumber"
                             }
                         ]
+                    },
+                    "version": {
+                        "$ref": "#/components/schemas/Version"
                     }
                 }
             },
@@ -5379,6 +5382,9 @@
                         "description": "The tracking number for the Express or Ground Tag to the cancelled.<br>Example: 301025281523<br><a onclick='loadDocReference(\"mocktrackingnumbersforfedexexpressandfedexground\")'>Click here to see mock tracking numbers for FedEx Express and FedEx Ground.</a>",
                         "example": "301025281523"
                     },
+                    "version": {
+                        "$ref": "#/components/schemas/Version"
+                    },
                     "completedTagDetail": {
                         "description": "The details of the package for which shipping has been completed. The details include dispatch confirmation number, dispatch date, location, and the cxs alerts associated with the process.",
                         "allOf": [
@@ -5392,6 +5398,26 @@
             },
             "ShipmentAccountNumber": {
                 "$ref": "#/components/schemas/PartyAccountNumber_2"
+            },
+            "Version": {
+                "type": "object",
+                "properties": {
+                    "major": {
+                        "description": "This version is incremented when significant changes are made to the API functionality. These could be breaking changes and might require code-adjustments from clients. Accepts only numbers",
+                        "example": "1",
+                        "type": "integer"
+                    },
+                    "minor": {
+                        "description": "This represents a backward-compatible bug fix or minor adjustment to an existing API functionality. This is the second number in API versioning scheme. Accepts only numbers",
+                        "example": "1",
+                        "type": "integer"
+                    },
+                    "patch": {
+                        "description": "This represents a backward-compatible bug fix or minor adjustment to an existing API functionality. This is the third number in API versioning scheme. Accepts only numbers",
+                        "example": "1",
+                        "type": "integer"
+                    }
+                }
             },
             "PartyAccountNumber_2": {
                 "type": "object",

@@ -24,5 +24,6 @@ final class FullSchemaCancelTag extends Dto
         public string $serviceType,
         public CompletedTagDetail $completedTagDetail,
         public ?string $trackingNumber = null,
+        public ?Version $version = null,
     ) {}
 }

@@ -12450,6 +12450,9 @@
                     },
                     "accountNumber": {
                         "$ref": "#/components/schemas/ShipperAccountNumber"
+                    },
+                    "version": {
+                        "$ref": "#/components/schemas/Version"
                     }
                 },
                 "description": "The request elements required to create a shipment."

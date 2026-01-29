@@ -21,5 +21,6 @@ final class FullSchemaVerifyShipment extends Dto
     public function __construct(
         public RequestedShipmentVerify $requestedShipment,
         public ?ShipperAccountNumber $accountNumber = null,
+        public ?Version $version = null,
     ) {}
 }

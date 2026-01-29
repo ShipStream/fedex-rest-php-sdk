@@ -1263,7 +1263,7 @@
                     },
                     "originLocationCode": {
                         "type": "string",
-                        "description": "Provide origin FedEx location code for the shipment. <br><br> Example: GVTKK",
+                        "description": "Provide origin FedEx location code for the shipment. This is only required for Post Shipment document upload. This value is present in Create Shipment response. If you don\u2019t include these values on your document post upload document transactions, your shipment could face customs delays and could be hold until CI/Documents are provided via alternative method upon request. We highly recommend they are passed on the upload transaction for the documents when doing ETD post upload. <br><br> Example: GVTKK",
                         "example": "GVTKK"
                     },
                     "originCountryCode": {
@@ -1273,7 +1273,7 @@
                     },
                     "destinationLocationCode": {
                         "type": "string",
-                        "description": "Provide destination FedEx location code for the shipment. <br><br> Example: JNUA",
+                        "description": "Provide destination FedEx location code for the shipment. This is only required for Post Shipment document upload. This value is present in Create Shipment response. If you don\u2019t include these values on your document post upload document transactions, your shipment could face customs delays and could be hold until CI/Documents are provided via alternative method upon request. We highly recommend they are passed on the upload transaction for the documents when doing ETD post upload. <br><br> Example: JNUA",
                         "example": "JNUA"
                     },
                     "destinationCountryCode": {
@@ -1351,11 +1351,11 @@
                     "name": {
                         "type": "string",
                         "description": "Specify file name to be uploaded.<br><br>Example: LH2.PNG",
-                        "example": "FedExImages.PNG"
+                        "example": "LH2.PNG"
                     },
                     "contentType": {
                         "type": "string",
-                        "description": "Specify the file type or image type of the to be uploaded.<br><br>Valid Values are: <ul><li>image/png</li><li>image/gif</li></ul>",
+                        "description": "Specify the file type or image type of the to be uploaded. <br> Example: image/png. <br><br>Valid Values are: <ul><li>image/png</li><li>image/gif</li></ul>",
                         "example": "image/png"
                     },
                     "meta": {
@@ -1885,12 +1885,12 @@
                     },
                     "originLocationCode": {
                         "type": "string",
-                        "description": "Provide origin FedEx location code for the shipment. This is only required for Post Shipment document upload. This value is present in Create Shipment response.",
+                        "description": "Provide origin FedEx location code for the shipment. This is only required for Post Shipment document upload. This value is present in Create Shipment response. If you don\u2019t include these values on your document post upload document transactions, your shipment could face customs delays and could be hold until CI/Documents are provided via alternative method upon request. We highly recommend they are passed on the upload transaction for the documents when doing ETD post upload.",
                         "example": "BSLA"
                     },
                     "destinationLocationCode": {
                         "type": "string",
-                        "description": "Provide destination FedEx location code for the shipment. This is only required for Post Shipment document upload. This value is present in Create Shipment response.",
+                        "description": "Provide destination FedEx location code for the shipment. This is only required for Post Shipment document upload. This value is present in Create Shipment response. If you don\u2019t include these values on your document post upload document transactions, your shipment could face customs delays and could be hold until CI/Documents are provided via alternative method upon request. We highly recommend they are passed on the upload transaction for the documents when doing ETD post upload.",
                         "example": "SFOA"
                     },
                     "shipDocumentType": {
@@ -1935,12 +1935,12 @@
                     },
                     "originLocationCode": {
                         "type": "string",
-                        "description": "Provide origin FedEx location code for the shipment. This is only required for Post Shipment document upload. This value is present in Create Shipment response.",
+                        "description": "Provide origin FedEx location code for the shipment. This is only required for Post Shipment document upload. This value is present in Create Shipment response. If you don\u2019t include these values on your document post upload document transactions, your shipment could face customs delays and could be hold until CI/Documents are provided via alternative method upon request. We highly recommend they are passed on the upload transaction for the documents when doing ETD post upload.",
                         "example": "BSLA"
                     },
                     "destinationLocationCode": {
                         "type": "string",
-                        "description": "Provide destination FedEx location code for the shipment. This is only required for Post Shipment document upload. This value is present in Create Shipment response.",
+                        "description": "Provide destination FedEx location code for the shipment. This is only required for Post Shipment document upload. This value is present in Create Shipment response. If you don\u2019t include these values on your document post upload document transactions, your shipment could face customs delays and could be hold until CI/Documents are provided via alternative method upon request. We highly recommend they are passed on the upload transaction for the documents when doing ETD post upload.",
                         "example": "SFOA"
                     },
                     "shipDocumentType": {
