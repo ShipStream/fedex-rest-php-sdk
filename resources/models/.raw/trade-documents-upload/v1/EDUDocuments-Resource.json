@@ -1537,8 +1537,8 @@
                 "properties": {
                     "attachment": {
                         "type": "string",
-                        "description": "Input the actual image file to be uploaded.",
-                        "format": "file"
+                        "description": "Input the actual image file to be uploaded.<br> Example:file.PNG",
+                        "format": "file.PNG"
                     },
                     "document": {
                         "$ref": "#/components/schemas/Document"
@@ -1558,7 +1558,7 @@
                 "properties": {
                     "referenceId": {
                         "type": "string",
-                        "description": "Specify reference ID for the image to be uploaded.<br><br> Example: SIGNA202103",
+                        "description": "Specify reference ID for the image to be uploaded. <br> <br> Example: 1234",
                         "example": "1234"
                     },
                     "name": {
@@ -2549,7 +2549,7 @@
                 "properties": {
                     "workflowName": {
                         "type": "string",
-                        "description": "Specify workflow name. To upload custom signature and letterhead images/company logo use value <i>LetterheadSignature</i>",
+                        "description": "Specify workflow name. To upload custom signature and letterhead images/company logo use value <br><br>Example:LetterheadSignature",
                         "example": "LetterheadSignature"
                     }
                 },
@@ -2564,12 +2564,12 @@
                 "properties": {
                     "imageType": {
                         "type": "string",
-                        "description": "Specify the type of image to be uploaded.<br><br>Valid Values are: <ul><li>SIGNATURE</li><li>LETTERHEAD</li></ul>",
+                        "description": "Specify the type of image to be uploaded.<br> Example:SIGNATURE <br><br>Valid Values are: <ul><li>SIGNATURE</li><li>LETTERHEAD</li></ul>",
                         "example": "SIGNATURE"
                     },
                     "imageIndex": {
                         "type": "string",
-                        "description": "Specify the index for the uploaded image.<br><br>Valid Values are:<ul><li>IMAGE_1</li><li>IMAGE_2</li><li>IMAGE_3</li><li>IMAGE_4</li><li>IMAGE_5</li></ul>",
+                        "description": "Specify the index for the uploaded image.<br> Example: IMAGE_1 <br><br>Valid Values are:<ul><li>IMAGE_1</li><li>IMAGE_2</li><li>IMAGE_3</li><li>IMAGE_4</li><li>IMAGE_5</li></ul>",
                         "example": "IMAGE_1"
                     }
                 },

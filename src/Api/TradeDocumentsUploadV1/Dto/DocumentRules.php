@@ -15,7 +15,7 @@ use ShipStream\FedEx\Dto;
 final class DocumentRules extends Dto
 {
     /**
-     * @param  string  $workflowName  Specify workflow name. To upload custom signature and letterhead images/company logo use value <i>LetterheadSignature</i>
+     * @param  string  $workflowName  Specify workflow name. To upload custom signature and letterhead images/company logo use value <br><br>Example:LetterheadSignature
      */
     public function __construct(
         public string $workflowName,
