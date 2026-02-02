@@ -1575,8 +1575,7 @@
             "TaxpayerIdentification": {
                 "type": "object",
                 "required": [
-                    "number",
-                    "tinType"
+                    "number"
                 ],
                 "properties": {
                     "number": {

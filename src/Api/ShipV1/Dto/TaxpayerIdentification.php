@@ -16,14 +16,14 @@ final class TaxpayerIdentification extends Dto
 {
     /**
      * @param  string  $number  Specify tax ID number. Maximum length is 18. <br>Example: 123567
-     * @param  string  $tinType  Identifies the type of Tax Identification Number in Shipment processing.<br>Example: FEDERAL
+     * @param  ?string  $tinType  Identifies the type of Tax Identification Number in Shipment processing.<br>Example: FEDERAL
      * @param  ?string  $usage  Identifies the usage of Tax Identification Number in Shipment processing.<br>Example: usage
      * @param  ?string  $effectiveDate  Effective Date. FORMAT[YYYY-MM-DD] <br>Example: 2024-06-13
      * @param  ?string  $expirationDate  Expiration Date. FORMAT[YYYY-MM-DD]<br>Example: 2024-06-13
      */
     public function __construct(
         public string $number,
-        public string $tinType,
+        public ?string $tinType = null,
         public ?string $usage = null,
         public ?string $effectiveDate = null,
         public ?string $expirationDate = null,

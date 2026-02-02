@@ -122,6 +122,11 @@
                 "action": "delete-array-values",
                 "path": "components.schemas.CustomsClearanceDetail.required",
                 "value": ["commercialInvoice"]
+            }, {
+                "comment": "Remove tinType from TaxpayerIdentification required fields",
+                "action": "delete-array-values",
+                "path": "components.schemas.TaxpayerIdentification.required",
+                "value": ["tinType"]
             }
         ]
     },
