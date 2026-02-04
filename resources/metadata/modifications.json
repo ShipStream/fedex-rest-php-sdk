@@ -85,6 +85,13 @@
                     "$ref": "#/components/schemas/Alert_3P"
                 }
             }, {
+                "comment": "The upstream items definition here is an anyOf with two different components with identical schemas, so we're just picking one",
+                "action": "replace",
+                "path": "components.schemas.TransactionCreateShipmentOutputVO.properties.alerts.items",
+                "value": {
+                    "$ref": "#/components/schemas/Alert_3P"
+                }
+            }, {
                 "comment": "Add missing alertType property to Alert_3P",
                 "action": "merge",
                 "path": "components.schemas.Alert_3P.properties",

@@ -4333,15 +4333,7 @@
                         "type": "array",
                         "description": "These are alert details received in the response.",
                         "items": {
-                            "anyOf": [
-                                {
-                                    "$ref": "#/components/schemas/Alert_3P"
-                                },
-                                {
-                                    "$ref": "#/components/schemas/Alert_3PP"
-                                }
-                            ],
-                            "type": "string"
+                            "$ref": "#/components/schemas/Alert_3P"
                         }
                     },
                     "completedShipmentDetail": {
@@ -4590,22 +4582,6 @@
                             "NOTE",
                             "WARNING"
                         ]
-                    }
-                },
-                "description": "Specifies the api alerts."
-            },
-            "Alert_3PP": {
-                "type": "object",
-                "properties": {
-                    "code": {
-                        "type": "string",
-                        "description": "Specifies the api alert code.<br>Example: RECIPIENTCONTACT.PHONENUMBER.NOTSUPPORTED",
-                        "example": "RECIPIENTCONTACT.PHONENUMBER.NOTSUPPORTED"
-                    },
-                    "message": {
-                        "type": "string",
-                        "description": "Convenient Delivery Options will not be provided with recipient\u2019s landline number. Moving forward, please provide valid mobile phone number.",
-                        "example": "Convenient Delivery Options will not be provided with recipient\u2019s landline number. Moving forward, please provide valid mobile phone number."
                     }
                 },
                 "description": "Specifies the api alerts."
