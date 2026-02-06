@@ -159,6 +159,11 @@
                     "example": "value"
                 }
             }, {
+                "comment": "The type of PackageBarcodes.binaryBarcodes is array, not string (same as ship/v1 schema)",
+                "action": "replace",
+                "path": "components.schemas.PackageBarcodes.properties.binaryBarcodes.type",
+                "value": "array"
+            }, {
                 "comment": "DangerousGoodsContainer.packingType is not actually required.",
                 "action": "delete",
                 "path": "components.schemas.DangerousGoodsContainer.required"

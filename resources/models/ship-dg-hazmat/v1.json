@@ -3130,7 +3130,7 @@
                 "type": "object",
                 "properties": {
                     "binaryBarcodes": {
-                        "type": "string",
+                        "type": "array",
                         "items": {
                             "$ref": "#/components/schemas/BinaryBarcode"
                         }
