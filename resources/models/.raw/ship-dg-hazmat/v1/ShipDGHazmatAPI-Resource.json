@@ -1485,7 +1485,7 @@
                         "$ref": "#/components/schemas/ResponsiblePartyParty"
                     }
                 },
-                "description": "Information about the person who is paying for the shipment. <br>Payor is mandatory when the paymentType is RECIPIENT, THIRD_PARTY or COLLECT.",
+                "description": "Information about the person who is paying for the shipment. <br>Payor is mandatory when the paymentType is RECIPIENT and THIRD_PARTY.",
                 "example": {
                     "responsibleParty": {
                         "address": {
@@ -3259,8 +3259,89 @@
                     },
                     "usmcaDetail": {
                         "$ref": "#/components/schemas/UsmcaCommodityDetail"
+                    },
+                    "clearanceItemDetail": {
+                        "type": "array",
+                        "description": "Array of clearance item details including manufacturer info for customs clearance.",
+                        "items": {
+                            "$ref": "#/components/schemas/ClearanceItemDetail"
+                        }
                     }
                 }
+            },
+            "ClearanceItemDetail": {
+                "type": "object",
+                "properties": {
+                    "role": {
+                        "type": "string",
+                        "description": "Role in producing or supplying the item/commodity",
+                        "example": "MANUFACTURER",
+                        "enum": [
+                            "MANUFACTURER"
+                        ]
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "Unique identifier of the manufacturer of the commodity.<br/> For shipments to United States, refer to U.S. Customs and Border Protection website.<br/>Example: USGRE98BIR",
+                        "example": "USGRE98BIR"
+                    },
+                    "contact": {
+                        "$ref": "#/components/schemas/ClearanceItemDetail_contact"
+                    },
+                    "address": {
+                        "$ref": "#/components/schemas/ClearanceItemDetail_address"
+                    }
+                }
+            },
+            "ClearanceItemDetail_contact": {
+                "type": "object",
+                "properties": {
+                    "companyName": {
+                        "type": "string",
+                        "description": "Legal name of the manufacturer of the commodity.<br/>Example: THE GREENHOUSE",
+                        "example": "THE GREENHOUSE"
+                    }
+                },
+                "description": "Contact details of the manufacturer."
+            },
+            "ClearanceItemDetail_address": {
+                "type": "object",
+                "properties": {
+                    "streetLines": {
+                        "type": "array",
+                        "description": "Combination of number, street name, etc. At least one line is required for a valid physical address. Empty lines should not be included.<br>Example: 98 Royal Crescent",
+                        "items": {
+                            "type": "string",
+                            "example": "[\"98 Royal Crescent\"]"
+                        }
+                    },
+                    "city": {
+                        "type": "string",
+                        "description": "The name of city, town of the recipient.<br> Example: Birmingham",
+                        "example": "Birmingham"
+                    },
+                    "stateOrProvinceCode": {
+                        "type": "string",
+                        "description": "It is used to identify the principal subdivisions (e.g., provinces or states) of countries. The Format and presence of this field may vary depending on the country. <br> Example: CA",
+                        "example": "CA"
+                    },
+                    "postalCode": {
+                        "type": "string",
+                        "description": "The US State and Canada Province codes. The Format and presence of this field may vary depending on the country. <br> Example: 35209",
+                        "example": "35209"
+                    },
+                    "countryCode": {
+                        "type": "string",
+                        "description": "The two-letter code used to identify a country.<br>Example: US",
+                        "example": "US"
+                    },
+                    "residential": {
+                        "type": "boolean",
+                        "description": "Indicate whether this address is Residential (as opposed to Commercial).<br>Valid Values: True or False.",
+                        "example": false
+                    }
+                },
+                "description": "Address of the manufacturer"
             },
             "AdditionalMeasures": {
                 "type": "object",
@@ -4452,7 +4533,7 @@
                 "type": "object",
                 "properties": {
                     "formId": {
-                        "type": "integer",
+                        "type": "string",
                         "description": "This is FedEx tracking Identifier associated with the package.<br>Example: 0201",
                         "example": 201
                     },
@@ -4462,7 +4543,7 @@
                         "example": "EXPRESS"
                     },
                     "uspsApplicationId": {
-                        "type": "integer",
+                        "type": "string",
                         "description": "Specify the USPS tracking Identifier associated with FedEx SmartPost shipment.<br>Example: 92",
                         "example": 92
                     },
@@ -7563,7 +7644,7 @@
                         "$ref": "#/components/schemas/ResponsiblePartyParty_1"
                     }
                 },
-                "description": "Information about the person who is paying for the shipment. <br>Payor is mandatory when the paymentType is RECIPIENT, THIRD_PARTY or COLLECT.",
+                "description": "Information about the person who is paying for the shipment. <br>Payor is mandatory when the paymentType is RECIPIENT and THIRD_PARTY.",
                 "example": {
                     "responsibleParty": {
                         "address": {
@@ -10690,7 +10771,7 @@
                 "type": "object",
                 "properties": {
                     "binaryBarcodes": {
-                        "type": "array",
+                        "type": "string",
                         "items": {
                             "$ref": "#/components/schemas/BinaryBarcode"
                         }
@@ -10907,12 +10988,10 @@
                 "type": "object",
                 "properties": {
                     "amount": {
-                        "description": "Specifies the Surcharge Amount.",
-                        "allOf": [
-                            {
-                                "$ref": "#/components/schemas/Money"
-                            }
-                        ]
+                        "type": "number",
+                        "description": "This is commodity value in amount used for Customs declaration.<br>Max limit: 7 digits before decimal.<br>Example: 12.45",
+                        "format": "double",
+                        "example": 12.45
                     },
                     "surchargeType": {
                         "type": "string",
@@ -12616,22 +12695,7 @@
                         "$ref": "#/components/schemas/DGHazShipmentGroundMPS-UN1888-UN3082"
                     },
                     {
-                        "$ref": "#/components/schemas/US_Domestic_Print_Return_Label_Shipment"
-                    },
-                    {
-                        "$ref": "#/components/schemas/US_Domestic_Email_Return_Label_Shipment"
-                    },
-                    {
                         "$ref": "#/components/schemas/International_Shipment"
-                    },
-                    {
-                        "$ref": "#/components/schemas/International_SingleShot_Multi_Piece_Shipment"
-                    },
-                    {
-                        "$ref": "#/components/schemas/Domestic_Express_Customer_Reference"
-                    },
-                    {
-                        "$ref": "#/components/schemas/International_Express_Email_notifications"
                     },
                     {
                         "$ref": "#/components/schemas/MinimumSamplePayload-Intra-EU"
@@ -12688,8 +12752,8 @@
                     },
                     "units": {
                         "type": "string",
-                        "description": "The weight unit of measure for the packaging. KG or LB",
-                        "example": "LB"
+                        "description": "Units in which the hazardous commodity is packaged.",
+                        "example": "HAZMATPACKAGE"
                     }
                 },
                 "description": "Indicates the Packaging details of dangerous goods."

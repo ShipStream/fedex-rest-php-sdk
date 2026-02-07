@@ -16,8 +16,10 @@ final class TransactionConsolidationOutputVoCompletedConsolidationDetail extends
 {
     /**
      * @param  ?ConsolidationShipments  $consolidationShipments  These are details when Confirm Consolidation is Synchronously Processed.
+     * @param  ?ConsolidationDocumentSpec  $consolidationDocumentTypes  Details of consolidation document specification
      */
     public function __construct(
         public ?ConsolidationShipments $consolidationShipments = null,
+        public ?ConsolidationDocumentSpec $consolidationDocumentTypes = null,
     ) {}
 }

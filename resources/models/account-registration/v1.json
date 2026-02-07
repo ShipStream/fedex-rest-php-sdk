@@ -276,7 +276,7 @@
                     {
                         "name": "Authorization",
                         "in": "header",
-                        "description": "Bearer token from oauth/token",
+                        "description": "Bearer token generated with parent id and secret",
                         "required": true,
                         "style": "simple",
                         "explode": false,
@@ -467,7 +467,7 @@
                     {
                         "name": "authorization",
                         "in": "header",
-                        "description": "Bearer token from oauth/token",
+                        "description": "Bearer token generated with parent id and secret",
                         "required": true,
                         "style": "simple",
                         "explode": false,
@@ -658,7 +658,7 @@
                     {
                         "name": "Authorization",
                         "in": "header",
-                        "description": "Bearer token generated with child id and secret",
+                        "description": "Bearer token generated with parent id and secret",
                         "required": true,
                         "style": "simple",
                         "explode": false,
@@ -853,18 +853,11 @@
                     "mfaOptions": {
                         "$ref": "#/components/schemas/MFAOptions"
                     },
-                    "child_Key": {
-                        "type": "string",
-                        "description": "Child Key is a JSON Web Token provided for each of your customers. You must use the Child Key along with the Client Key, Client Secret and Customer Secret to get oAuth token, which should be used as credentials with each API transaction.",
-                        "example": "e366a577-3708-47e5-9af8-98004a01c134"
-                    },
-                    "child_secret": {
-                        "type": "string",
-                        "description": "Child secret, also referred to as <i>Customer Secret</i>, is provided for each of your customers. You must use the Customer Secret along with the Client Key, Client Secret and Child Key to get the oAuth token, which should be used as credentials with each API transaction.",
-                        "example": "*******"
+                    "credentials": {
+                        "$ref": "#/components/schemas/Credentials"
                     }
                 },
-                "description": "This is the response object providing Customer Key and secret key as a output."
+                "description": "This is the response object providing as output MFA options or Customer Key and Secret Key if MFA bypass has been applied."
             },
             "Parameter": {
                 "type": "object",
@@ -949,7 +942,7 @@
                         "example": "TN"
                     }
                 },
-                "description": "Indicates the customer's address you are attempting to get the Customer Key and Customer Secret for. Note that address information needs to match the shipping or billing address as loaded in FedEx systems. Contact FedEx support team for any address-related issues or questions."
+                "description": "Indicates the customer's address you are attempting to get the Customer Key and Customer Secret for. Note that address information needs to match the  billing address as loaded in FedEx systems. Contact FedEx support team for any address-related issues or questions."
             },
             "AccountNumber": {
                 "required": [
@@ -1094,6 +1087,22 @@
                 "items": {
                     "$ref": "#/components/schemas/MFAOptions_inner",
                     "type": "string"
+                }
+            },
+            "Credentials": {
+                "type": "object",
+                "description": "It provide Child key and child secret to generate the token",
+                "properties": {
+                    "child_Key": {
+                        "type": "string",
+                        "description": "Child Key is a JSON Web Token provided for each of your customers. You must use the Child Key along with the Client Key, Client Secret and Customer Secret to get oAuth token, which should be used as credentials with each API transaction.",
+                        "example": "e366a577-3708-47e5-9af8-98004a01c134"
+                    },
+                    "child_secret": {
+                        "type": "string",
+                        "description": "Child secret, also referred to as <i>Customer Secret</i>, is provided for each of your customers. You must use the Customer Secret along with the Client Key, Client Secret and Child Key to get the oAuth token, which should be used as credentials with each API transaction.",
+                        "example": "*******"
+                    }
                 }
             },
             "Options": {

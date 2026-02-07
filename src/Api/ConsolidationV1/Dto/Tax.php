@@ -15,15 +15,13 @@ use ShipStream\FedEx\Dto;
 final class Tax extends Dto
 {
     /**
-     * @param  ?float  $amount  Indicates the amount of tax
-     * @param  ?string  $level  Indicates the Level of Tax.
-     * @param  ?string  $description  Placeholder for the tax description.<br>Example: descrption
-     * @param  ?string  $type  Specifies the type of the tax.
+     * @param  ?string  $taxType  Specifies the type of Surcharge/Tax.
+     * @param  ?string  $description  Specifies the description of the Surcharge/Tax.
+     * @param  ?Money  $amount  This is commodity value used for Customs declaration.
      */
     public function __construct(
-        public ?float $amount = null,
-        public ?string $level = null,
+        public ?string $taxType = null,
         public ?string $description = null,
-        public ?string $type = null,
+        public ?Money $amount = null,
     ) {}
 }

@@ -160,6 +160,7 @@ class Refactorer
             $schema->components->schemas->{$componentName} = $this->setSchemaTypes($component);
         }
 
+        $schema = $this->extractCollidingInlineObjects($schema);
         $schema = $this->cleanRefs($schema);
         $schema = $this->deduplicateComponents($schema);
 
@@ -182,6 +183,10 @@ class Refactorer
             $modified = match ($mod->action) {
                 'delete' => null,
                 'replace' => $mod->value,
+                'delete-array-values' => match (true) {
+                    is_array($original) => array_values(array_diff($original, is_array($mod->value) ? $mod->value : [$mod->value])),
+                    default => throw new InvalidArgumentException('Can only delete array values from an array'),
+                },
                 'merge' => match (true) {
                     is_array($original) => array_merge($original, $mod->value),
                     is_object($original) => (object) array_merge((array) $original, (array) $mod->value),
@@ -385,6 +390,91 @@ class Refactorer
             }
         } elseif (! isset($schema->type)) {
             $schema->type = $defaultType;
+        }
+
+        return $schema;
+    }
+
+    /**
+     * Extract inline object definitions that would collide with component schema names.
+     *
+     * The Saloon generator's OpenApiNormalizer extracts inline objects and adds them to the
+     * spec's components/schemas using the property name as the schema name. However, its
+     * collision detection only checks its internal cache, not the existing spec components.
+     * This causes inline objects to silently overwrite component schemas with the same name.
+     *
+     * For example, if ClearanceItemDetail has an inline `contact` property (with only
+     * `companyName`), it overwrites the actual `Contact` component schema (with all contact
+     * fields). Any $ref to Contact then incorrectly points to the inline object's schema.
+     *
+     * This method extracts colliding inline objects to separate components with similar names
+     * (e.g., Contact_2) before the generator runs. This also enables deduplication: multiple
+     * identical inline objects can be merged into a single component, whereas the generator
+     * would create separate DTOs for each since it only matches schemas by name, not structure.
+     */
+    protected function extractCollidingInlineObjects(stdClass $schema): stdClass
+    {
+        $componentNames = array_keys((array) $schema->components->schemas);
+        sort($componentNames); // Ensure deterministic ordering
+
+        $studlyComponentNames = array_map(fn ($name) => Str::studly($name), $componentNames);
+        $newComponents = [];
+
+        foreach ($componentNames as $componentName) {
+            $component = $schema->components->schemas->{$componentName};
+
+            if (! isset($component->properties)) {
+                continue;
+            }
+
+            $propertyNames = array_keys((array) $component->properties);
+            sort($propertyNames); // Ensure deterministic ordering
+
+            foreach ($propertyNames as $propName) {
+                $prop = $component->properties->{$propName};
+
+                $isInlineObject = isset($prop->type)
+                    && $prop->type === 'object'
+                    && isset($prop->properties)
+                    && ! isset($prop->{'$ref'});
+
+                if (! $isInlineObject) {
+                    continue;
+                }
+
+                $potentialClassName = Str::studly($propName);
+                $index = array_search($potentialClassName, $studlyComponentNames, true);
+
+                if ($index === false) {
+                    continue;
+                }
+
+                // Use the actual component name's casing as the base
+                $baseComponentName = $componentNames[$index];
+
+                // Find next available suffix
+                $suffix = 2;
+                do {
+                    $newComponentName = "{$baseComponentName}_{$suffix}";
+                    $suffix++;
+                } while (
+                    isset($schema->components->schemas->{$newComponentName})
+                    || isset($newComponents[$newComponentName])
+                );
+
+                $newComponents[$newComponentName] = clone $prop;
+
+                // Replace inline definition with $ref
+                $ref = new stdClass;
+                $ref->{'$ref'} = self::REF_BASE.$newComponentName;
+                $component->properties->{$propName} = $ref;
+            }
+
+            $schema->components->schemas->{$componentName} = $component;
+        }
+
+        foreach ($newComponents as $name => $definition) {
+            $schema->components->schemas->{$name} = $definition;
         }
 
         return $schema;

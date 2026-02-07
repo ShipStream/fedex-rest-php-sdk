@@ -15,15 +15,15 @@ use ShipStream\FedEx\Dto;
 final class TrackingId extends Dto
 {
     /**
-     * @param  ?int  $formId  This is FedEx tracking Identifier associated with the package.<br>Example: 0201
+     * @param  ?string  $formId  This is FedEx tracking Identifier associated with the package.<br>Example: 0201
      * @param  ?string  $trackingIdType  Specify the FedEx transportation type (EXPRESS, GROUND, FREIGHT). <br>Example: EXPRESS
-     * @param  ?int  $uspsApplicationId  Specify the USPS tracking Identifier associated with FedEx SmartPost shipment.<br>Example: 92
+     * @param  ?string  $uspsApplicationId  Specify the USPS tracking Identifier associated with FedEx SmartPost shipment.<br>Example: 92
      * @param  ?int  $trackingNumber  This is the number associated with the package that is used to track it.For child shipment of an oneLabelAtATime shipments,this should be same as the masterTrackingNumber of the parent shipment.
      */
     public function __construct(
-        public ?int $formId = null,
+        public ?string $formId = null,
         public ?string $trackingIdType = null,
-        public ?int $uspsApplicationId = null,
+        public ?string $uspsApplicationId = null,
         public ?int $trackingNumber = null,
     ) {}
 }

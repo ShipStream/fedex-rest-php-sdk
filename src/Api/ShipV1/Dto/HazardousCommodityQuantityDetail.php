@@ -18,10 +18,12 @@ final class HazardousCommodityQuantityDetail extends Dto
      * @param  string  $quantityType  Specifies which measure of quantity is to be validated.<br>Example:GROSS
      * @param  float  $amount  Indicate the amount of the commodity in alternate units.<br>Example: 24.56
      * @param  ?string  $units  Indicate the unit of measure.<br>Example: KG
+     * @param  ?float  $value  Weight Value.<br> Example: 68.25<br><a href='https://developer.fedex.com/api/en-us/guides/api-reference.html#packagetypes' target='_blank'>Click here to see Weight Values</a>.
      */
     public function __construct(
         public string $quantityType,
         public float $amount,
         public ?string $units = null,
+        public ?float $value = null,
     ) {}
 }

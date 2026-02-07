@@ -16,7 +16,7 @@ final class TransborderDistributionDetailSpecialServicesRequestedTransborderDist
 {
     /**
      * @param  ?string  $paymentType  Payment type for LTL transportation
-     * @param  ?TransborderDistributionDetailSpecialServicesRequestedTransborderDistributionLtlDetailPaymentPayor  $payor  Information about the person who is paying for the shipment. <br>Payor is mandatory when the paymentType is RECIPIENT, THIRD_PARTY or COLLECT.
+     * @param  ?TransborderDistributionDetailSpecialServicesRequestedTransborderDistributionLtlDetailPaymentPayor  $payor  Information about the person who is paying for the shipment. <br>Payor is mandatory when the paymentType is RECIPIENT and THIRD_PARTY.
      * @param  ?TransborderDistributionDetailSpecialServicesRequestedTransborderDistributionLtlDetailPaymentEPaymentDetail  $ePaymentDetail  e-payment detail
      * @param  ?TransborderDistributionDetailSpecialServicesRequestedTransborderDistributionLtlDetailPaymentCreditCard  $creditCard  Credit card details
      * @param  ?TransborderDistributionDetailSpecialServicesRequestedTransborderDistributionLtlDetailPaymentCreditCardTransactionDetail  $creditCardTransactionDetail  Details for the credit card transaction

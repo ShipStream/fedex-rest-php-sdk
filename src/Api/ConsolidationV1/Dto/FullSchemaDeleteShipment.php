@@ -25,5 +25,6 @@ final class FullSchemaDeleteShipment extends Dto
         public string $trackingNumber,
         public ?string $deletionControl = null,
         public ?string $resourceKey = null,
+        public ?Version $version = null,
     ) {}
 }

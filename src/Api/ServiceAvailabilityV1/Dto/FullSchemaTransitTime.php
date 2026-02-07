@@ -21,5 +21,6 @@ final class FullSchemaTransitTime extends Dto
     public function __construct(
         public ?TransitTimeRequestedShipment $requestedShipment = null,
         public ?array $carrierCodes = null,
+        public ?Version $version = null,
     ) {}
 }

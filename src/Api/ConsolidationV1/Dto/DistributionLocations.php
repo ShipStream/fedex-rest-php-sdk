@@ -19,7 +19,7 @@ final class DistributionLocations extends Dto
      * @param  ?int  $locationNumber  Specifies the location number.
      * @param  ?string  $id  This is a customer-specified or system-assigned identifier that uniquely identifies the specific distibution location within a collection of distribution locations. This is not the same as the FedEx locationId or locationNumber..<br> Example: 123
      * @param  ?string  $locationId  The unique location identifier <br> Example: YBZA
-     * @param  ?ContactAndAddress  $locationContactAndAddress  Idicates the contact and address details of a location.
+     * @param  ?ContactAndAddress  $locationContactAndAddress  Indicate the contact and address details of a location.
      * @param  ?string  $clearanceNumber  This specifies the clearance number associated with the distribution location.<br> Example: 123
      * @param  ?string[]  $inclusionSpecifications  Specifies which kinds of shipments will be processed by this distribution location.
      */

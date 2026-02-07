@@ -720,11 +720,6 @@
                         "description": "The confirmation number provided to the customer when a pickup is requested <br> Example : 3001",
                         "example": "3001"
                     },
-                    "message": {
-                        "type": "string",
-                        "description": "Human-readable text that explains pickup notification <br> Example: Courier on the way",
-                        "example": "Courier on the way"
-                    },
                     "location": {
                         "type": "string",
                         "description": "The location from where the package will be picked up. <br><br><i>Note: The location will only be returned for Express Pickup.<i><br><br>Example: COSA",
@@ -862,9 +857,80 @@
                     },
                     "pickupNotificationDetail": {
                         "$ref": "#/components/schemas/PickupNotificationDetail"
+                    },
+                    "pickupChargesPayment": {
+                        "$ref": "#/components/schemas/PickupChargesPayment"
+                    },
+                    "version": {
+                        "$ref": "#/components/schemas/Version"
                     }
                 },
                 "description": "Use this endpoint to create a pickup request."
+            },
+            "PickupChargesPayment": {
+                "type": "object",
+                "description": "Specifies how the pickup charges will be paid.",
+                "properties": {
+                    "paymentType": {
+                        "type": "string",
+                        "description": "Type of payment for the pickup charges.",
+                        "enum": [
+                            "ACCOUNT",
+                            "CASH",
+                            "COLLECT",
+                            "CHECK",
+                            "CREDIT_CARD",
+                            "RECIPIENT",
+                            "SENDER",
+                            "THIRD_PARTY"
+                        ],
+                        "example": "ACCOUNT"
+                    },
+                    "payor": {
+                        "$ref": "#/components/schemas/Payor"
+                    },
+                    "payorType": {
+                        "$ref": "#/components/schemas/PayorType"
+                    }
+                }
+            },
+            "Payor": {
+                "type": "object",
+                "description": "Details about the party responsible for payment.",
+                "properties": {
+                    "responsibleParty": {
+                        "type": "object",
+                        "description": "The entity paying for the pickup charges.",
+                        "properties": {
+                            "accountNumber": {
+                                "type": "object",
+                                "description": "The FedEx account number of the responsible party.",
+                                "properties": {
+                                    "value": {
+                                        "type": "string",
+                                        "description": "Conditional.<br> The account number value. Max Length is 9.",
+                                        "example": "XXXXXX789"
+                                    },
+                                    "key": {
+                                        "type": "string",
+                                        "description": "The account key associated with this account number.",
+                                        "example": "d53b8011d262ae762da1c9a5a71XXXXX"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "PayorType": {
+                "type": "string",
+                "description": "Identifies the role of the party paying for the pickup.",
+                "enum": [
+                    "RECIPIENT",
+                    "SENDER",
+                    "THIRD_PARTY"
+                ],
+                "example": "SENDER"
             },
             "AccountNumber": {
                 "type": "object",
@@ -1409,6 +1475,9 @@
                             "DOMESTIC",
                             "INTERNATIONAL"
                         ]
+                    },
+                    "version": {
+                        "$ref": "#/components/schemas/Version"
                     }
                 },
                 "description": "These are pickup availability request elements."
@@ -1544,9 +1613,6 @@
                             "FDXG"
                         ]
                     },
-                    "accountAddressOfRecord": {
-                        "$ref": "#/components/schemas/Address"
-                    },
                     "scheduledDate": {
                         "type": "string",
                         "description": "Indicates the date the pickup dispatch occurs.<br>Format YYYY-MM-DD <br> Example: 2019-10-15",
@@ -1556,9 +1622,32 @@
                         "type": "string",
                         "description": "The FedEx Express location identifier responsible for processing the pickup request. This is returned in the CreatePickup response and is required to cancel a FedEx Express dispatch.Required only for FedEx Express Pickups. Optional for FedEx Ground. Example: LOSA",
                         "example": "LOSA"
+                    },
+                    "version": {
+                        "$ref": "#/components/schemas/Version"
                     }
                 },
                 "description": "This is a placeholder for cancelled pickup request elements."
+            },
+            "Version": {
+                "type": "object",
+                "properties": {
+                    "major": {
+                        "description": "This version is incremented when significant changes are made to the API functionality. These could be breaking changes and might require code-adjustments from clients. Accepts only numbers",
+                        "example": "1",
+                        "type": "integer"
+                    },
+                    "minor": {
+                        "description": "This represents a backward-compatible minor adjustment to an existing API functionality. This is the second number in API versioning scheme. Accepts only numbers",
+                        "example": "1",
+                        "type": "integer"
+                    },
+                    "patch": {
+                        "description": "This represents a backward-compatible bug fix to an existing API functionality. This is the third number in API versioning scheme. Accepts only numbers",
+                        "example": "1",
+                        "type": "integer"
+                    }
+                }
             },
             "CXSError": {
                 "type": "object",
@@ -1661,9 +1750,11 @@
                 "properties": {
                     "streetLines": {
                         "type": "array",
-                        "description": "This is a combination of number, street name, etc. <br>Note: At least one line is required and streetlines more than 3 will be ignored. Empty lines should not be included.<br>Example: [\\\"10 FedEx Parkway\\\", \\\"Suite 302\\\"]",
+                        "description": "This is a combination of number, street name, etc. <br>Note: At least one line is required. Empty lines should not be included. Minimum length is 3 and maximum length is 35.<br>Example: [\\\"10 FedEx Parkway\\\", \\\"Suite 302\\\"]",
                         "items": {
                             "type": "string",
+                            "minLength": 3,
+                            "maxLength": 35,
                             "example": "[[\"123 Ship Street\"]]"
                         }
                     },
@@ -1728,9 +1819,11 @@
                 "properties": {
                     "streetLines": {
                         "type": "array",
-                        "description": "Specify Street line details for the given address <br> Example :[\\\"10 FedEx Parkway\\\", \\\"Suite 302\\\"]",
+                        "description": " This is a combination of number,  street name, etc. <br>Note: At least one line is required. Empty lines should not be included. Minimum length is 3 and maximum length is 35. <br> Example :[\\\"10 FedEx Parkway\\\", \\\"Suite 302\\\"]",
                         "items": {
                             "type": "string",
+                            "minLength": 3,
+                            "maxLength": 35,
                             "example": "[[\"123 Ship Street\"]]"
                         }
                     },

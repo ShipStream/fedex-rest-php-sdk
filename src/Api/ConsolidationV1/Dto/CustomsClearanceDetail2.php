@@ -14,7 +14,7 @@ use ShipStream\FedEx\Dto;
 
 final class CustomsClearanceDetail2 extends Dto
 {
-    protected static array $complexArrayTypes = ['commodities' => Commodity::class, 'brokers' => BrokerDetail2::class];
+    protected static array $complexArrayTypes = ['commodities' => Commodity2::class, 'brokers' => BrokerDetail2::class];
 
     /**
      * @param  ?CustomsOptionDetail  $customsOption  Customs Option Detail, type must be indicated for each occurrence
@@ -28,7 +28,7 @@ final class CustomsClearanceDetail2 extends Dto
      * @param  ?ConsolidationCustomsDeclarationStatementDetail  $declarationStatementDetail  This provides the information necessary to identify the different statements,declarations, acts, and/or certifications that apply to this shipment.
      * @param  ?CustomsClearanceDetail1CommercialInvoice  $commercialInvoice  Use this object to provide Commercial Invoice details.<br>This element is required if a FedEx generated Consolidated Commercial Invoice is requested.<br>To request a FedEx generated Consolidated Commercial Invoice include "CONSOLIDATED_COMMERCIAL_INVOICE" value in the "consolidationDocumentTypes" array, in the "consolidationDocumentSpecification" object.<br>Customers are responsible for printing the Consolidated Commercial Invoice.
      * @param  ?ExportDetail  $exportDetail  Conditional. Export Detail Used for US or CA exports.
-     * @param  Commodity[]|null  $commodities  Indicates the details about the dutiable packages. Maximum upto 999 commodities per shipment.
+     * @param  Commodity2[]|null  $commodities  Indicates the details about the dutiable packages. Maximum upto 999 commodities per shipment.
      * @param  BrokerDetail2[]|null  $brokers  Conditional.<br>Specify Broker information only if you are using Broker Select Option for your shipment.To be considered a valid, a country code must be specified in addition to one of the following address items: postal code, city, or location id.
      * @param  ?string  $clearanceBrokerage  Specifies the type of brokerage to be applied to a shipment.
      * @param  ?string  $freightOnValue  Identifies responsibilities with respect to loss, damage, etc.

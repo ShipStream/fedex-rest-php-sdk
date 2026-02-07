@@ -21,5 +21,6 @@ final class FullSchemaRetrieveConsolidation extends Dto
     public function __construct(
         public PartyAccountNumber $accountNumber,
         public ConsolidationKey $consolidationKey,
+        public ?Version $version = null,
     ) {}
 }

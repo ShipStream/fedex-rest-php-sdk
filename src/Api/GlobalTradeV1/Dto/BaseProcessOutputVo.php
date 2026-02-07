@@ -12,7 +12,7 @@ namespace ShipStream\FedEx\Api\GlobalTradeV1\Dto;
 
 use ShipStream\FedEx\Dto;
 
-final class ShipmentRegulatoryDetailsOutputVo extends Dto
+final class BaseProcessOutputVo extends Dto
 {
     protected static array $complexArrayTypes = ['userMessages' => RegulatoryMessage::class, 'cxsalerts' => CxsAlert::class];
 

@@ -17,7 +17,7 @@ final class IrcpResponseVo extends Response
 {
     /**
      * @param  ?string  $transactionId  The transaction ID is a special set of numbers that defines each transaction.<br>Example: 624deea6-b709-470c-8c39-4b5511281492
-     * @param  ?BaseProcessOutputVo  $output  This is the response object providing Customer Key and secret key as a output.
+     * @param  ?BaseProcessOutputVo  $output  This is the response object providing as output MFA options or Customer Key and Secret Key if MFA bypass has been applied.
      */
     public function __construct(
         public readonly ?string $transactionId = null,

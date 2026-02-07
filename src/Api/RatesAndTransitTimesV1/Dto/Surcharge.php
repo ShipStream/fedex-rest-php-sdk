@@ -15,17 +15,15 @@ use ShipStream\FedEx\Dto;
 final class Surcharge extends Dto
 {
     /**
-     * @param  ?float  $amount  Identifies the total amount of the shipment-level fees and taxes that are not based on transportation charges or commodity-level estimated duties and taxes. <br> Example: 87.5
-     * @param  ?string  $level  The level of surcharge. <br> Example: level
-     * @param  ?string  $name  The localized name of the surcharge. <br> Example: name
-     * @param  ?string  $description  The description of the surcharge. <br> Example: description
-     * @param  ?string  $type  The type of surcharge. <br> Example: type
+     * @param  ?string  $surchargeType  The type of surcharge.
+     * @param  ?string  $level  The level of surcharge.
+     * @param  ?string  $description  The description of the surcharge.
+     * @param  ?Money  $amount  Indicate the amount details. This is optional, but if indicated, amount and currency must be provided.
      */
     public function __construct(
-        public ?float $amount = null,
+        public ?string $surchargeType = null,
         public ?string $level = null,
-        public ?string $name = null,
         public ?string $description = null,
-        public ?string $type = null,
+        public ?Money $amount = null,
     ) {}
 }

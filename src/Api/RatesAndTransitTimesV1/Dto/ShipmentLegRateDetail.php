@@ -15,18 +15,18 @@ use ShipStream\FedEx\Dto;
 final class ShipmentLegRateDetail extends Dto
 {
     protected static array $complexArrayTypes = [
-        'discounts' => RateDiscount::class,
-        'surcharges' => Surcharge::class,
-        'taxes' => Tax::class,
+        'discounts' => RateDiscount2::class,
+        'surcharges' => Surcharge2::class,
+        'taxes' => Tax2::class,
     ];
 
     /**
-     * @param  RateDiscount[]|null  $discounts  Specifies the list of discounts. <br><a onclick='loadDocReference("discounts")'>Click here to see Discounts</a>
+     * @param  RateDiscount2[]|null  $discounts  Specifies the list of discounts. <br><a onclick='loadDocReference("discounts")'>Click here to see Discounts</a>
      * @param  ?string  $pricingCode  Identifies the type of pricing used for this shipment.<br> Example: ACTUAL
      * @param  ?string  $legDescription  Human-readable text describing the shipment leg.<br> Example: legDescription
-     * @param  Surcharge[]|null  $surcharges  Specifies the list of surcharges.<br>Valid value is:<li>PEAK</li><li>PEAK_ADDTIONAL_HANDLING</li><li>PEAK_OVERSIZE</li><li>PEAK_RESIDENTIAL_DELIVERY</li>
+     * @param  Surcharge2[]|null  $surcharges  Specifies the list of surcharges.<br>Valid value is:<li>PEAK</li><li>PEAK_ADDTIONAL_HANDLING</li><li>PEAK_OVERSIZE</li><li>PEAK_RESIDENTIAL_DELIVERY</li>
      * @param  ?string[]  $specialRatingApplied  Indicates which special rating cases applied to this shipment.
-     * @param  Tax[]|null  $taxes  Specifies the list of taxes.
+     * @param  Tax2[]|null  $taxes  Specifies the list of taxes.
      * @param  ?string  $rateScale  Indicates the rate scale used. <br> Example: *USER IMS20160104  LD067110
      * @param  ?float  $totalNetCharge  This shipment's totalNetCharge and totalDutiesTaxesAndFees. Some duties and taxes are only provided if estimated duties and taxes were calculated for this shipment AND duties, taxes and transportation charges are all paid by the same sender's account.<br> Example: 87.5
      * @param  ?float  $totalBaseCharge  Specifies the total base charge list.<br> Example: 87.5

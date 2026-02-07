@@ -20,5 +20,6 @@ final class FullSchemaCreateTag extends Dto
     public function __construct(
         public CreateTagRequestedShipment $requestedShipment,
         public PartyAccountNumber $accountNumber,
+        public ?Version $version = null,
     ) {}
 }

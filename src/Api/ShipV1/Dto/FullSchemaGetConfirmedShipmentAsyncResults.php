@@ -21,5 +21,6 @@ final class FullSchemaGetConfirmedShipmentAsyncResults extends Dto
     public function __construct(
         public PartyAccountNumber $accountNumber,
         public string $jobId,
+        public ?Version $version = null,
     ) {}
 }

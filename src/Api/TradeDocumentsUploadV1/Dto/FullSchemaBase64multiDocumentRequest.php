@@ -19,7 +19,7 @@ final class FullSchemaBase64multiDocumentRequest extends Dto
     /**
      * @param  string  $workflowName  Indicate if the documents are being uploaded before or after shipment creation process
      * @param  string  $carrierCode  Specify the four letter code of a FedEx operating company that meets your requirements<br>Examples of FedEx Operating Companies are:<ul><li>FDXE - FedEx Express</li><li>FDXG - FedEx Ground</li></ul>
-     * @param  string  $orginCountryCode  Origin country code for the shipment. <br><br> Example: US<br><a href="/developer-portal/en-us/reference-guide.html#countrycodes" target="_blank">Click here to see Country Codes</a>
+     * @param  string  $originCountryCode  Origin country code for the shipment. <br><br> Example: US<br><a href="/developer-portal/en-us/reference-guide.html#countrycodes" target="_blank">Click here to see Country Codes</a>
      * @param  string  $destinationCountryCode  Destination country code for the shipment. <br><br> Example: CA
      * @param  MultiMetaDataRequest2[]  $metaData  Indicate the shipment metadata associated with the document to be uploaded
      * @param  ?string  $shipmentDate  Specify the Shipment date. This is only required for Post Shipment document upload. This value is present in Create Shipment response & this should match the shipment date timestamp
@@ -28,7 +28,7 @@ final class FullSchemaBase64multiDocumentRequest extends Dto
     public function __construct(
         public string $workflowName,
         public string $carrierCode,
-        public string $orginCountryCode,
+        public string $originCountryCode,
         public string $destinationCountryCode,
         public array $metaData,
         public ?string $shipmentDate = null,

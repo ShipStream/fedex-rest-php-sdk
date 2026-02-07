@@ -31,5 +31,6 @@ final class FullSchemaValidatePostal extends Dto
         public string $shipDate,
         public ?string $routingCode = null,
         public ?bool $checkForMismatch = null,
+        public ?Version $version = null,
     ) {}
 }

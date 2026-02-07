@@ -23,5 +23,6 @@ final class FullSchemaCreateConsolidation extends Dto
         public RequestedConsolidation $requestedConsolidation,
         public PartyAccountNumber $accountNumber,
         public ?string $consolidationIndex = null,
+        public ?Version $version = null,
     ) {}
 }

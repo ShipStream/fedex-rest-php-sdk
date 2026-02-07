@@ -2548,7 +2548,10 @@
                             "ESTIMATED_PICKUP",
                             "ESTIMATED_RETURN_TO_STATION",
                             "SHIP",
-                            "SHIPMENT_DATA_RECEIVED"
+                            "SHIPMENT_DATA_RECEIVED",
+                            "TYPICAL",
+                            "PROJECTED",
+                            "PRE_DELIVERY"
                         ]
                     }
                 }

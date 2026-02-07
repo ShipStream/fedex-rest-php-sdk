@@ -17,7 +17,7 @@ final class LabelSpecification extends Dto
     protected static array $complexArrayTypes = ['dispositions' => ShippingDocumentDispositionDetail::class];
 
     /**
-     * @param  ContactAndAddress  $printedLabelOrigin  Idicates the contact and address details of a location.
+     * @param  ContactAndAddress  $printedLabelOrigin  Indicate the contact and address details of a location.
      * @param  ?string  $labelFormatType  Specify the label Format Type.<br><a onclick='loadDocReference("labelstocktypes")'>click here to see label format types</a>
      * @param  ?string  $labelStockType  Indicate the label stock type used. <br><a onclick='loadDocReference("labelstocktypes")'>click here to see label format types</a>
      * @param  ?string  $imageType  Specify the image format used for a shipping document.<br><a onclick='loadDocReference("labelstocktypes")'>click here to see label format types</a>

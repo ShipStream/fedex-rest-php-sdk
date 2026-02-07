@@ -25,5 +25,6 @@ final class FullSchemaDeletePackagesFromOpenShipment extends Dto
         public string $index,
         public PartyAccountNumber $accountNumber,
         public array $trackingIds,
+        public ?Version $version = null,
     ) {}
 }

@@ -13,7 +13,7 @@
         "/ship/v1/shipments/tag": {
             "post": {
                 "summary": "Create Tag",
-                "description": "FedEx creates and delivers a returnnn shipping label to your customer and collects the item for return. Your customer needs to have the package ready for pickup when the FedEx driver arrives. Use this endpoint to create tag requests for FedEx Express and FedEx Ground shipments.<br><i>Note: FedEx APIs do not support Cross-Origin Resource Sharing (CORS) mechanism.</i>",
+                "description": "FedEx creates and delivers a return shipping label to your customer and collects the item for return. Your customer needs to have the package ready for pickup when the FedEx driver arrives. Use this endpoint to create tag requests for FedEx Express and FedEx Ground shipments.<br><i>Note: FedEx APIs do not support Cross-Origin Resource Sharing (CORS) mechanism.</i>",
                 "operationId": "Create Tag",
                 "requestBody": {
                     "content": {
@@ -495,6 +495,9 @@
                                 "$ref": "#/components/schemas/AccountNumber"
                             }
                         ]
+                    },
+                    "version": {
+                        "$ref": "#/components/schemas/Version"
                     }
                 }
             },
@@ -646,7 +649,7 @@
                     },
                     "totalWeight": {
                         "type": "number",
-                        "description": "Indicate the shipment total weight in pounds.<br>Example: 10.6<br>Note: <ul><li>This only applies to International shipments and should be used on the first package of a multiple piece shipment.</li><li>This value contains 1 explicit decimal position.</li><li>For one Label at a time shipments, the unit of totalWeight is considered same as the unit of weight provided in requestedPackageLineItem field.</li></ul>",
+                        "description": "Indicate the shipment total weight in Metric or US.<br>Example: 10.6<br>Note: <ul><li>This only applies to International shipments and should be used on the first package of a multiple piece shipment.</li><li>This value contains 1 explicit decimal position.</li><li>For one Label at a time shipments, the unit of totalWeight is considered same as the unit of weight provided in requestedPackageLineItem field.</li></ul>",
                         "format": "double",
                         "example": 20.6
                     },
@@ -852,7 +855,7 @@
                 "properties": {
                     "streetLines": {
                         "type": "array",
-                        "description": "Combination of number, street name, etc. At least one line is required for a valid physical address. Empty lines should not be included. Max Length is 35.<br>Example: [1550 Union Blvd,Suite 302]",
+                        "description": "This is the Combination of number, street name, etc. At least one line is required for a valid physical address. Empty lines should not be included. Max Length is 35. <br>Note - For FedEx Ground Economy, a maximum of 30 characters will be printed on the label, excess characters will be truncated.<br>Example: [1550 Union Blvd,Suite 302]",
                         "example": "1550 Union Blvd, Suite 302",
                         "items": {
                             "type": "string"
@@ -908,7 +911,7 @@
                 "properties": {
                     "streetLines": {
                         "type": "array",
-                        "description": "Combination of number, street name, etc. At least one line is required for a valid physical address. Empty lines should not be included. Max Length is 35.<br>Example: [1550 Union Blvd,Suite 302]",
+                        "description": "This is the Combination of number, street name, etc. At least one line is required for a valid physical address. Empty lines should not be included. Max Length is 35. <br>Note - For FedEx Ground Economy, a maximum of 30 characters will be printed on the label, excess characters will be truncated.<br>Example: [1550 Union Blvd,Suite 302]",
                         "example": "1550 Union Blvd, Suite 302",
                         "items": {
                             "type": "string"
@@ -962,7 +965,7 @@
                 "properties": {
                     "personName": {
                         "type": "string",
-                        "description": "Specify contact name. Maximum length is 70. <br>Note: Either the companyName or personName is mandatory.<br> Example: John Taylor",
+                        "description": "Specify contact name. First 35 chars will be printed on the label, excess characters will be truncated. <br> Note: Either the companyName or personName is manadatory. <br> Example : John Taylor",
                         "example": "John Taylor"
                     },
                     "emailAddress": {
@@ -977,7 +980,7 @@
                     },
                     "phoneNumber": {
                         "type": "string",
-                        "description": "The shipper's phone number. <br>Minimum length is 10 and supports maximum of 15 for certain countries using longer phone numbers.<br>Note: For US and CA, a phone number must have exactly 10 digits, plus an optional leading country code of '1' or '+1'.<br>Example: 918xxxxx890",
+                        "description": "The shipper's phone number. <br>Minimum length is 1 and supports maximum of 15 for certain countries using longer phone numbers.<br>Note: For US and CA, a phone number must have exactly 10 digits, plus an optional leading country code of '1' or '+1'.<br>Example: 918xxxxx890",
                         "example": "918xxxxx890"
                     },
                     "companyName": {
@@ -1152,7 +1155,7 @@
                     },
                     "phoneNumber": {
                         "type": "string",
-                        "description": "Specify contact phone number. <br>Minimum length is 10 and supports maximum of 15 for certain countries using longer phone numbers. <br>Note: Recommended Maximum length is 15 and there's no specific validation will be done for the phone number. <br> Example: 918xxxxx890",
+                        "description": "Specify contact phone number. <br>Minimum length is 1 and supports maximum of 15 for certain countries using longer phone numbers. <br>Note: Recommended Maximum length is 15 and there's no specific validation will be done for the phone number. <br> Example: 918xxxxx890",
                         "example": "1234567890"
                     },
                     "phoneExtension": {
@@ -1202,7 +1205,7 @@
                     },
                     "stateOrProvinceCode": {
                         "type": "string",
-                        "description": "This is a placeholder for State or Province code.State code is required for US, CA, PR and not required for other countries. Conditional. Max length is 2.<br>Example: CA<br><a onclick='loadDocReference(\"canadaprovincecodes\")'>click here to see State or Province Code</a>",
+                        "description": "This is a placeholder for State or Province code.State code is required for US, CA, PR and not required for other countries. Conditional.<br>Example: CA<br><a onclick='loadDocReference(\"canadaprovincecodes\")'>click here to see State or Province Code</a>",
                         "example": "CA"
                     },
                     "postalCode": {
@@ -1285,7 +1288,7 @@
                         "$ref": "#/components/schemas/ResponsiblePartyParty"
                     }
                 },
-                "description": "Payor is mandatory when the paymentType is RECIPIENT, THIRD_PARTY or COLLECT.",
+                "description": "Payor is mandatory when the paymentType is RECIPIENT, THIRD_PARTY.",
                 "example": {
                     "responsibleParty": {
                         "address": {
@@ -1692,7 +1695,7 @@
                 "properties": {
                     "pendingShipmentType": {
                         "type": "string",
-                        "description": "Specifies the pending shipment type.  Must include the value: EMAIL for email return shipments. <br>Not applicable for other types of shipments<br>Example: EMAIL",
+                        "description": "Specifies the pending shipment type.  Must include the value: EMAIL for email return shipments. <br>Not applicable for other types of shipments.<br><br>Once the label is printed, the transaction is marked with the original print date. You can reprint the label and documents for up to 5 days from that original print date. Once the 5-day reprint window closes, the label is no longer accessible.<br><br>Example: EMAIL",
                         "example": "EMAIL",
                         "enum": [
                             "EMAIL"
@@ -1716,7 +1719,7 @@
                     },
                     "expirationTimeStamp": {
                         "type": "string",
-                        "description": "Specifies the Email Label expiration date. The maximum expiration date for an Email Return Label must be greater of equal to the day of the label request and not greater than 2 years in the future. Format[YYYY-MM-DD] <br>Example: 2020-01-01",
+                        "description": "Specifies the Email Label expiration date.<br>The expiration date must be:<br>- Greater than or equal to the label request date.<br>- Not more than 2 years in the future.<br>Once the label is printed, the transaction is marked with the original print date. You can reprint the label and documents for up to 5 days from that original print date. Once the 5-day reprint window closes, the label is no longer accessible.<br><br>Format: [YYYY-MM-DD]<br>Example: 2020-01-01",
                         "example": "2020-01-01"
                     }
                 },
@@ -1976,7 +1979,7 @@
                     },
                     "phoneNumber": {
                         "type": "string",
-                        "description": "Contact person's phone number. <br>Minimum length is 10 and supports maximum of 15 for certain countries using longer phone numbers.<br>Note: For US and CA, a phone number must have exactly 10 digits, plus an optional leading country code of '1' or '+1'.<br>Example: 918xxxxx890",
+                        "description": "Contact person's phone number. <br>Minimum length is 1 and supports maximum of 15 for certain countries using longer phone numbers.<br>Note: For US and CA, a phone number must have exactly 10 digits, plus an optional leading country code of '1' or '+1'.<br>Example: 918xxxxx890",
                         "example": "918xxxxx890"
                     },
                     "phoneExtension": {
@@ -3235,7 +3238,8 @@
                         "description": "Indicate the weight unit type. The package and commodity weight unit should be the same else the request will result in an error.",
                         "example": "KG",
                         "enum": [
-                            "KG"
+                            "KG",
+                            "LB"
                         ]
                     },
                     "value": {
@@ -4241,7 +4245,7 @@
                     },
                     "stateOrProvinceCode": {
                         "type": "string",
-                        "description": "This is a placeholder for State or Province code.State code is required for US, CA, PR and not required for other countries. Conditional. Max length is 2.<br>Example: CA.<br><a onclick='loadDocReference(\"canadaprovincecodes\")'>click here to see State or Province Code</a>",
+                        "description": "This is a placeholder for State or Province code.State code is required for US, CA, PR and not required for other countries. Conditional.<br>Example: CA.<br><a onclick='loadDocReference(\"canadaprovincecodes\")'>click here to see State or Province Code</a>",
                         "example": "CA"
                     },
                     "postalCode": {
@@ -4615,7 +4619,7 @@
                 "properties": {
                     "specialServiceTypes": {
                         "type": "array",
-                        "description": "The list of all special services requested for the package.<br><a href=\"/developer-portal/en-us/reference-guide.html#packagespecialservicetypes\" target=\"_blank\">Click here to see Package Special Service Types</a><br>Example:ALCOHOL",
+                        "description": "The list of all special services requested for the package.<br><a onclick='loadDocReference(\"packagelevelspecialservicetypes\")'>Click here to see Package Special Service Types</a><br>Example:ALCOHOL",
                         "example": [
                             "ALCOHOL",
                             "NON_STANDARD_CONTAINER",
@@ -5378,6 +5382,9 @@
                         "description": "The tracking number for the Express or Ground Tag to the cancelled.<br>Example: 301025281523<br><a onclick='loadDocReference(\"mocktrackingnumbersforfedexexpressandfedexground\")'>Click here to see mock tracking numbers for FedEx Express and FedEx Ground.</a>",
                         "example": "301025281523"
                     },
+                    "version": {
+                        "$ref": "#/components/schemas/Version"
+                    },
                     "completedTagDetail": {
                         "description": "The details of the package for which shipping has been completed. The details include dispatch confirmation number, dispatch date, location, and the cxs alerts associated with the process.",
                         "allOf": [
@@ -5391,6 +5398,26 @@
             },
             "ShipmentAccountNumber": {
                 "$ref": "#/components/schemas/PartyAccountNumber_2"
+            },
+            "Version": {
+                "type": "object",
+                "properties": {
+                    "major": {
+                        "description": "This version is incremented when significant changes are made to the API functionality. These could be breaking changes and might require code-adjustments from clients. Accepts only numbers",
+                        "example": "1",
+                        "type": "integer"
+                    },
+                    "minor": {
+                        "description": "This represents a backward-compatible bug fix or minor adjustment to an existing API functionality. This is the second number in API versioning scheme. Accepts only numbers",
+                        "example": "1",
+                        "type": "integer"
+                    },
+                    "patch": {
+                        "description": "This represents a backward-compatible bug fix or minor adjustment to an existing API functionality. This is the third number in API versioning scheme. Accepts only numbers",
+                        "example": "1",
+                        "type": "integer"
+                    }
+                }
             },
             "PartyAccountNumber_2": {
                 "type": "object",

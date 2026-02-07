@@ -17,7 +17,7 @@ final class ShipmentRateDetail extends Dto
     protected static array $complexArrayTypes = [
         'shipmentLegRateDetails' => ShipmentLegRateDetail::class,
         'surcharges' => Surcharge::class,
-        'freightDiscounts' => RateDiscount::class,
+        'freightDiscounts' => RateDiscount2::class,
     ];
 
     /**
@@ -41,7 +41,7 @@ final class ShipmentRateDetail extends Dto
      * @param  Surcharge[]|null  $surcharges  All surcharges that apply to this shipment.
      * @param  ?float  $totalSurcharges  The total amount of all surcharges applied to this shipment.
      * @param  ?Weight  $totalBillingWeight  Indicate the shipment total weight in pounds.<br>Example: 10.6<br>Note: <ul><li>This only applies to International shipments and should be used on the first package of a multiple piece shipment.</li><li>This value contains 1 explicit decimal position.</li><li>For one Label at a time shipments, the unit of totalWeight is considered same as the unit of weight provided in requestedPackageLineItem field.</li></ul>
-     * @param  RateDiscount[]|null  $freightDiscounts
+     * @param  RateDiscount2[]|null  $freightDiscounts
      * @param  ?string  $rateScale  Indicates the rate scale used.
      * @param  ?float  $totalNetCharge  The net charge after applying all discounts and surcharges.
      * @param  ?float  $totalBaseCharge  The total freight charge that was calculated before surcharges, discounts and taxes.

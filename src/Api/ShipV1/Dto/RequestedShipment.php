@@ -17,6 +17,7 @@ final class RequestedShipment extends Dto
     protected static array $complexArrayTypes = [
         'recipients' => RecipientsParty::class,
         'requestedPackageLineItems' => RequestedPackageLineItem::class,
+        'variationOptions' => VariationOptions::class,
     ];
 
     /**
@@ -25,7 +26,6 @@ final class RequestedShipment extends Dto
      * @param  string  $pickupType  Indicates if shipment is being dropped off at a FedEx location or being picked up by FedEx or if it's a regularly scheduled pickup for this shipment. Required for FedEx Express and Ground Shipment.<br>Example: USE_SCHEDULED_PICKUP
      * @param  string  $serviceType  Indicate the FedEx service type used for this shipment.<br>Example: STANDARD_OVERNIGHT<br><a onclick='loadDocReference("servicetypes")'>click here to see Service Types</a>
      * @param  string  $packagingType  Specify the packaging used.<br>Note: For Express Freight shipments, the packaging will default to YOUR_PACKAGING irrespective of the user provided package type in the request.<br>Example: FEDEX_PAK<br><a onclick='loadDocReference("packagetypes")'>click here to see Package Types</a>
-     * @param  float  $totalWeight  Indicate the shipment total weight in pounds.<br>Example: 10.6<br>Note: <ul><li>This only applies to International shipments and should be used on the first package of a multiple piece shipment.</li><li>This value contains 1 explicit decimal position.</li><li>For one Label at a time shipments, the unit of totalWeight is considered same as the unit of weight provided in requestedPackageLineItem field.</li></ul>
      * @param  Payment  $shippingChargesPayment  Specifies the payment details specifying the method and means of payment to FedEx for providing shipping services.
      * @param  LabelSpecification  $labelSpecification  These are label specification details includes the image type, printer format, and label stock for label. Can also specify specific details such as doc-tab content, regulatory labels, and masking data on the label.
      * @param  RequestedPackageLineItem[]  $requestedPackageLineItems  These are one or more package-attribute descriptions, each of which describes an individual package, a group of identical packages, or (for the total-piece-total-weight case) common characteristics of all packages in the shipment.<ul><li>At least one instance containing the weight for at least one package is required for EXPRESS and GROUND shipments.</li><li>Single piece requests will have one RequestedPackageLineItem.</li><li>Multiple piece requests will have multiple RequestedPackageLineItems.</li><li>Maximum occurrences is 30.</li></ul>
@@ -33,6 +33,7 @@ final class RequestedShipment extends Dto
      * @param  ?Money  $totalDeclaredValue  This customs value is applicable for all items(or units) under the specified commodity
      * @param  ?SoldToParty  $soldTo  Will indicate the party responsible for purchasing the goods shipped from the shipper to the recipient. The sold to party is not necessarily the recipient or the importer of record. The sold to party is relevant when the purchaser, rather than the recipient determines when certain customs regulations apply.
      * @param  ?string  $recipientLocationNumber  A unique identifier for a recipient location.<br>Example:1234567
+     * @param  ?float  $totalWeight  Indicate the shipment total weight in Metric or US.<br>Example: 10.6<br>Note: <ul><li>This only applies to International shipments and should be used on the first package of a multiple piece shipment.</li><li>This value contains 1 explicit decimal position.</li><li>For one Label at a time shipments, the unit of totalWeight is considered same as the unit of weight provided in requestedPackageLineItem field.</li></ul>
      * @param  ?ContactAndAddress  $origin  Specifies the contact and address details of a location.
      * @param  ?ShipmentSpecialServicesRequested  $shipmentSpecialServices  Specify the special services requested at the shipment level.<br>If the shipper is requesting a special service which requires additional data (such as the COD amount), the shipment special service type must be present in the specialServiceTypes collection, and the supporting detail must be provided in the appropriate sub-object below.<br>RETURN_SHIPMENT is required for creating return shipments.
      * @param  ?ShipShipmentEmailNotificationDetail  $emailNotificationDetail  This is used to provide eMail notification information..
@@ -46,6 +47,7 @@ final class RequestedShipment extends Dto
      * @param  ?string  $preferredCurrency  Indicate the currency the caller requests to have used in all returned monetary values. Should be Used in conjunction with the element RateRequestType.<br>Example: USD<br><a onclick='loadDocReference("currencycodes")'>click here to see available Currency codes</a><br>Note: Incorrect currency codes should not be supplied. The system ignores the incorrect currency code.
      * @param  ?int  $totalPackageCount  For an MPS, this is the total number of packages in the shipment.Applicable for parent shipment for one label at a time shipments. <br>Example: 25
      * @param  ?MasterTrackingId  $masterTrackingId  Indicates the tracking details of the package.Required for child shipments of an oneLabelAtATime shipments
+     * @param  VariationOptions[]|null  $variationOptions  The shipment variations for the current shipment expressed in key-value pairs
      */
     public function __construct(
         public ShipperParty $shipper,
@@ -53,14 +55,15 @@ final class RequestedShipment extends Dto
         public string $pickupType,
         public string $serviceType,
         public string $packagingType,
-        public float $totalWeight,
         public Payment $shippingChargesPayment,
         public LabelSpecification $labelSpecification,
         public array $requestedPackageLineItems,
         public ?string $shipDatestamp = null,
         public ?Money $totalDeclaredValue = null,
+        public ?PickupDetail $pickupDetail = null,
         public ?SoldToParty $soldTo = null,
         public ?string $recipientLocationNumber = null,
+        public ?float $totalWeight = null,
         public ?ContactAndAddress $origin = null,
         public ?ShipmentSpecialServicesRequested $shipmentSpecialServices = null,
         public ?ShipShipmentEmailNotificationDetail $emailNotificationDetail = null,
@@ -74,5 +77,6 @@ final class RequestedShipment extends Dto
         public ?string $preferredCurrency = null,
         public ?int $totalPackageCount = null,
         public ?MasterTrackingId $masterTrackingId = null,
+        public ?array $variationOptions = null,
     ) {}
 }

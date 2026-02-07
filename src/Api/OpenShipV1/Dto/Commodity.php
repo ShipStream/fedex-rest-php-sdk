@@ -16,7 +16,10 @@ final class Commodity extends Dto
 {
     protected static array $attributeMap = ['cImarksAndNumbers' => 'cIMarksAndNumbers'];
 
-    protected static array $complexArrayTypes = ['additionalMeasures' => AdditionalMeasures::class];
+    protected static array $complexArrayTypes = [
+        'additionalMeasures' => AdditionalMeasures::class,
+        'clearanceItemDetail' => ClearanceItemDetail::class,
+    ];
 
     /**
      * @param  string  $description  This is the commodity description. Maximum allowed 450 characters.<br><a onclick='loadDocReference("vaguecommoditydescriptions")'>click here to see Vague commodity descriptions</a>
@@ -36,6 +39,7 @@ final class Commodity extends Dto
      * @param  ?string  $partNumber  This is a part number.<br>Example: 167
      * @param  ?string  $purpose  This is the purpose of this shipment. This is used for calculation of duties and taxes.
      * @param  ?UsmcaDetail  $usmcaDetail  Indicates the USMCA detail
+     * @param  ClearanceItemDetail[]|null  $clearanceItemDetail  Array of clearance item details including manufacturer info for customs clearance.
      */
     public function __construct(
         public string $description,
@@ -55,5 +59,6 @@ final class Commodity extends Dto
         public ?string $partNumber = null,
         public ?string $purpose = null,
         public ?UsmcaDetail $usmcaDetail = null,
+        public ?array $clearanceItemDetail = null,
     ) {}
 }

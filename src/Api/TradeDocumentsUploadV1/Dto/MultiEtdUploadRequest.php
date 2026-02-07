@@ -19,7 +19,7 @@ final class MultiEtdUploadRequest extends Dto
     /**
      * @param  string  $workflowName  Indicate if this document is being uploaded for Pre-Shipment or Post-shipment process
      * @param  string  $carrierCode  Specify the four letter code of a FedEx operating company that meets your requirements<br>Examples of FedEx Operating Companies are:<ul><li>FDXE - FedEx Express</li><li>FDXG - FedEx Ground</li></ul>
-     * @param  string  $orginCountryCode  Provide origin country code for the shipment
+     * @param  string  $originCountryCode  Provide origin country code for the shipment
      * @param  string  $destinationCountryCode  Provide destination country code for the shipment
      * @param  MultiMetaDataRequest[]  $metaData  Indicate the shipment metadata associated with the document to be uploaded
      * @param  ?string  $shipmentDate  Specify the Shipment date. This is only required for Post Shipment document upload. This value is present in Create Shipment response & this should match the shipment date timestamp
@@ -28,7 +28,7 @@ final class MultiEtdUploadRequest extends Dto
     public function __construct(
         public string $workflowName,
         public string $carrierCode,
-        public string $orginCountryCode,
+        public string $originCountryCode,
         public string $destinationCountryCode,
         public array $metaData,
         public ?string $shipmentDate = null,

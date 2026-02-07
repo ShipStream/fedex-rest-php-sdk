@@ -27,6 +27,7 @@ final class OpenshipmentRequestedShipment extends Dto
      * @param  RecipientsParty[]  $recipients  Specify recipient information and/ the physical destination location for the package.
      * @param  Payment  $shippingChargesPayment  Specifies the payment details specifying the method and means of payment to FedEx for providing shipping services.
      * @param  RequestedPackageLineItem[]  $requestedPackageLineItems  These are one or more package-attribute descriptions, each of which describes an individual package, a group of identical packages, or (for the total-piece-total-weight case) common characteristics of all packages in the shipment.<ul><li>At least one instance containing the weight for at least one package is required for EXPRESS and GROUND shipments.</li><li>Single piece requests will have one RequestedPackageLineItem.</li><li>Multiple piece requests will have multiple RequestedPackageLineItems.</li><li>Maximum occurrences is 30.</li></ul>
+     * @param  LabelSpecification  $labelSpecification  These are label specification details includes the image type, printer format, and label stock for label. Can also specify specific details such as doc-tab content, regulatory labels, and masking data on the label.
      * @param  ?string  $shipDatestamp  This is the shipment date. Default value is current date in case the date is not provided or a past date is provided.<br>Format [YYYY-MM-DD].<br>Example: 2019-10-14
      * @param  ?float  $totalWeight  shipment total weight should be in Kg or in Lbs <br><br>Example: 20.6.
      * @param  ?SoldToParty  $soldTo  Will indicate the party responsible for purchasing the goods shipped from the shipper to the recipient. The sold to party is not necessarily the recipient or the importer of record. The sold to party is relevant when the purchaser, rather than the recipient determines when certain customs regulations apply.
@@ -49,6 +50,7 @@ final class OpenshipmentRequestedShipment extends Dto
         public array $recipients,
         public Payment $shippingChargesPayment,
         public array $requestedPackageLineItems,
+        public LabelSpecification $labelSpecification,
         public ?string $shipDatestamp = null,
         public ?float $totalWeight = null,
         public ?SoldToParty $soldTo = null,

@@ -15,7 +15,7 @@ use ShipStream\FedEx\Dto;
 final class CustomerKeyInputVo extends Dto
 {
     /**
-     * @param  AddressVo  $address  Indicates the customer's address you are attempting to get the Customer Key and Customer Secret for. Note that address information needs to match the shipping or billing address as loaded in FedEx systems. Contact FedEx support team for any address-related issues or questions.
+     * @param  AddressVo  $address  Indicates the customer's address you are attempting to get the Customer Key and Customer Secret for. Note that address information needs to match the  billing address as loaded in FedEx systems. Contact FedEx support team for any address-related issues or questions.
      * @param  AccountNumber  $accountNumber  This field indicates Account Number object with encoded key and value.
      * @param  string  $customerName  Name of the customer or company requesting authentication details. It accepts upto 50 characters of customerName.
      */

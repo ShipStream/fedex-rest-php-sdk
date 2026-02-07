@@ -249,7 +249,7 @@
                         "name": "x-customer-transaction-id",
                         "in": "header",
                         "description": "Identifies the transaction ID of the request.<br> Example: \"771407-1\"",
-                        "required": true,
+                        "required": false,
                         "schema": {
                             "type": "string",
                             "example": "771407-1"
@@ -1093,11 +1093,9 @@
                         "example": "090493e181586308"
                     },
                     "folderId": {
-                        "type": "array",
+                        "type": "string",
                         "description": "This is the reference server folder id, where the document is uploaded. ",
-                        "example": [
-                            "0b0493e1812f8921"
-                        ],
+                        "example": "0b0493e1812f8921",
                         "items": {
                             "type": "string"
                         }
@@ -1430,7 +1428,7 @@
                     },
                     "originLocationCode": {
                         "type": "string",
-                        "description": "Provide origin FedEx location code for the shipment. <br><br> Example: GVTKK",
+                        "description": "Provide origin FedEx location code for the shipment. This is only required for Post Shipment document upload. This value is present in Create Shipment response. If you don\u2019t include these values on your document post upload document transactions, your shipment could face customs delays and could be hold until CI/Documents are provided via alternative method upon request. We highly recommend they are passed on the upload transaction for the documents when doing ETD post upload. <br><br> Example: GVTKK",
                         "example": "GVTKK"
                     },
                     "originCountryCode": {
@@ -1440,7 +1438,7 @@
                     },
                     "destinationLocationCode": {
                         "type": "string",
-                        "description": "Provide destination FedEx location code for the shipment. <br><br> Example: JNUA",
+                        "description": "Provide destination FedEx location code for the shipment. This is only required for Post Shipment document upload. This value is present in Create Shipment response. If you don\u2019t include these values on your document post upload document transactions, your shipment could face customs delays and could be hold until CI/Documents are provided via alternative method upon request. We highly recommend they are passed on the upload transaction for the documents when doing ETD post upload. <br><br> Example: JNUA",
                         "example": "JNUA"
                     },
                     "destinationCountryCode": {
@@ -1539,8 +1537,8 @@
                 "properties": {
                     "attachment": {
                         "type": "string",
-                        "description": "Input the actual image file to be uploaded.",
-                        "format": "file"
+                        "description": "Input the actual image file to be uploaded.<br> Example:file.PNG",
+                        "format": "file.PNG"
                     },
                     "document": {
                         "$ref": "#/components/schemas/Document"
@@ -1560,17 +1558,17 @@
                 "properties": {
                     "referenceId": {
                         "type": "string",
-                        "description": "Specify reference ID for the image to be uploaded.<br><br> Example: SIGNA202103",
+                        "description": "Specify reference ID for the image to be uploaded. <br> <br> Example: 1234",
                         "example": "1234"
                     },
                     "name": {
                         "type": "string",
-                        "description": "Specify file name to be uploaded.<br><br>Example: Signature.PNG",
-                        "example": "FedExImages.PNG"
+                        "description": "Specify file name to be uploaded.<br><br>Example: LH2.PNG",
+                        "example": "LH2.PNG"
                     },
                     "contentType": {
                         "type": "string",
-                        "description": "Specify the file type or image type of the to be uploaded.<br><br>Valid Values are: <ul><li>image/png</li><li>image/gif</li></ul>",
+                        "description": "Specify the file type or image type of the to be uploaded. <br> Example: image/png. <br><br>Valid Values are: <ul><li>image/png</li><li>image/gif</li></ul>",
                         "example": "image/png"
                     },
                     "rules": {
@@ -1639,7 +1637,7 @@
                         "example": "D0l5gsn6inat9IiB"
                     },
                     "folderId": {
-                        "type": "array",
+                        "type": "string",
                         "description": "This is the reference server folder id, where the document is uploaded. Note that, this data is returned only for Post-Shipment Upload scenario",
                         "items": {
                             "type": "string",
@@ -1929,7 +1927,7 @@
                     "carrierCode",
                     "destinationCountryCode",
                     "metaData",
-                    "orginCountryCode",
+                    "originCountryCode",
                     "workflowName"
                 ],
                 "type": "object",
@@ -1952,7 +1950,7 @@
                             "FDXG"
                         ]
                     },
-                    "orginCountryCode": {
+                    "originCountryCode": {
                         "type": "string",
                         "description": "Provide origin country code for the shipment",
                         "example": "US"
@@ -2031,12 +2029,12 @@
                     },
                     "originLocationCode": {
                         "type": "string",
-                        "description": "Provide origin FedEx location code for the shipment. This is only required for Post Shipment document upload. This value is present in Create Shipment response.",
+                        "description": "Provide origin FedEx location code for the shipment. This is only required for Post Shipment document upload. This value is present in Create Shipment response. If you don\u2019t include these values on your document post upload document transactions, your shipment could face customs delays and could be hold until CI/Documents are provided via alternative method upon request. We highly recommend they are passed on the upload transaction for the documents when doing ETD post upload.",
                         "example": "BSLA"
                     },
                     "destinationLocationCode": {
                         "type": "string",
-                        "description": "Provide destination FedEx location code for the shipment. This is only required for Post Shipment document upload. This value is present in Create Shipment response.",
+                        "description": "Provide destination FedEx location code for the shipment. This is only required for Post Shipment document upload. This value is present in Create Shipment response. If you don\u2019t include these values on your document post upload document transactions, your shipment could face customs delays and could be hold until CI/Documents are provided via alternative method upon request. We highly recommend they are passed on the upload transaction for the documents when doing ETD post upload.",
                         "example": "SFOA"
                     },
                     "shipDocumentType": {
@@ -2313,7 +2311,7 @@
                     "carrierCode",
                     "destinationCountryCode",
                     "metaData",
-                    "orginCountryCode",
+                    "originCountryCode",
                     "workflowName"
                 ],
                 "type": "object",
@@ -2336,7 +2334,7 @@
                             "FDXG"
                         ]
                     },
-                    "orginCountryCode": {
+                    "originCountryCode": {
                         "type": "string",
                         "description": "Origin country code for the shipment. <br><br> Example: US<br><a href=\"/developer-portal/en-us/reference-guide.html#countrycodes\" target=\"_blank\">Click here to see Country Codes</a>",
                         "example": "US"
@@ -2412,7 +2410,7 @@
                     "carrierCode",
                     "destinationCountryCode",
                     "metaData",
-                    "orginCountryCode",
+                    "originCountryCode",
                     "workflowName"
                 ],
                 "type": "object",
@@ -2435,7 +2433,7 @@
                             "FDXG"
                         ]
                     },
-                    "orginCountryCode": {
+                    "originCountryCode": {
                         "type": "string",
                         "description": "Origin country code for the shipment. <br><br> Example: US<br><a href=\"/developer-portal/en-us/reference-guide.html#countrycodes\" target=\"_blank\">Click here to see Country Codes</a>",
                         "example": "US"
@@ -2491,12 +2489,12 @@
                     },
                     "originLocationCode": {
                         "type": "string",
-                        "description": "Provide origin FedEx location code for the shipment. This is only required for Post Shipment document upload. This value is present in Create Shipment response.",
+                        "description": "Provide origin FedEx location code for the shipment. This is only required for Post Shipment document upload. This value is present in Create Shipment response. If you don\u2019t include these values on your document post upload document transactions, your shipment could face customs delays and could be hold until CI/Documents are provided via alternative method upon request. We highly recommend they are passed on the upload transaction for the documents when doing ETD post upload.",
                         "example": "BSLA"
                     },
                     "destinationLocationCode": {
                         "type": "string",
-                        "description": "Provide destination FedEx location code for the shipment. This is only required for Post Shipment document upload. This value is present in Create Shipment response.",
+                        "description": "Provide destination FedEx location code for the shipment. This is only required for Post Shipment document upload. This value is present in Create Shipment response. If you don\u2019t include these values on your document post upload document transactions, your shipment could face customs delays and could be hold until CI/Documents are provided via alternative method upon request. We highly recommend they are passed on the upload transaction for the documents when doing ETD post upload.",
                         "example": "SFOA"
                     },
                     "shipDocumentType": {
@@ -2551,7 +2549,7 @@
                 "properties": {
                     "workflowName": {
                         "type": "string",
-                        "description": "Specify workflow name. To upload custom signature and letterhead images/company logo use value <i>LetterheadSignature</i>",
+                        "description": "Specify workflow name. To upload custom signature and letterhead images/company logo use value <br><br>Example:LetterheadSignature",
                         "example": "LetterheadSignature"
                     }
                 },
@@ -2566,12 +2564,12 @@
                 "properties": {
                     "imageType": {
                         "type": "string",
-                        "description": "Specify the type of image to be uploaded.<br><br>Valid Values are: <ul><li>SIGNATURE</li><li>LETTERHEAD</li></ul>",
+                        "description": "Specify the type of image to be uploaded.<br> Example:SIGNATURE <br><br>Valid Values are: <ul><li>SIGNATURE</li><li>LETTERHEAD</li></ul>",
                         "example": "SIGNATURE"
                     },
                     "imageIndex": {
                         "type": "string",
-                        "description": "Specify the index for the uploaded image.<br><br>Valid Values are:<ul><li>IMAGE_1</li><li>IMAGE_2</li><li>IMAGE_3</li><li>IMAGE_4</li><li>IMAGE_5</li></ul>",
+                        "description": "Specify the index for the uploaded image.<br> Example: IMAGE_1 <br><br>Valid Values are:<ul><li>IMAGE_1</li><li>IMAGE_2</li><li>IMAGE_3</li><li>IMAGE_4</li><li>IMAGE_5</li></ul>",
                         "example": "IMAGE_1"
                     }
                 },

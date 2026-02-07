@@ -18,13 +18,11 @@ final class CreatePickupOutputVo extends Dto
 
     /**
      * @param  ?string  $pickupConfirmationCode  The confirmation number provided to the customer when a pickup is requested <br> Example : 3001
-     * @param  ?string  $message  Human-readable text that explains pickup notification <br> Example: Courier on the way
      * @param  ?string  $location  The location from where the package will be picked up. <br><br><i>Note: The location will only be returned for Express Pickup.<i><br><br>Example: COSA
      * @param  Alert[]|null  $alerts  These are optional alerts received when a Create pickup is requested. This includes an alert code, type, and message.
      */
     public function __construct(
         public ?string $pickupConfirmationCode = null,
-        public ?string $message = null,
         public ?string $location = null,
         public ?array $alerts = null,
     ) {}

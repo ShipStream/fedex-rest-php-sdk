@@ -21,8 +21,8 @@ final class MetaObject extends Dto
      * @param  ?string  $formCode  Specify the form code. This value is required if US/CA/MX trade documents are to be uploaded.<br> Example: USMCA<br><br>Note: if <i>shipDocumentType</i> value provided is either USMCA_CERTIFICATION_OF_ORIGIN or USMCA_COMMERCIAL_INVOICE_CERTIFICATION_OF_ORIGIN, then it is  REQUIRED to pass value as <i>USMCA</i>.
      * @param  ?string  $trackingNumber  Specify the shipment tracking number. This is only required for Post Shipment document upload. <br><br> Example: 79XXX12XX805
      * @param  ?string  $shipmentDate  Specify the Shipment date. This is only required for Post Shipment document upload. <br><br> Example: 2021-02-17T00:00:00
-     * @param  ?string  $originLocationCode  Provide origin FedEx location code for the shipment. <br><br> Example: GVTKK
-     * @param  ?string  $destinationLocationCode  Provide destination FedEx location code for the shipment. <br><br> Example: JNUA
+     * @param  ?string  $originLocationCode  Provide origin FedEx location code for the shipment. This is only required for Post Shipment document upload. This value is present in Create Shipment response. If you don’t include these values on your document post upload document transactions, your shipment could face customs delays and could be hold until CI/Documents are provided via alternative method upon request. We highly recommend they are passed on the upload transaction for the documents when doing ETD post upload. <br><br> Example: GVTKK
+     * @param  ?string  $destinationLocationCode  Provide destination FedEx location code for the shipment. This is only required for Post Shipment document upload. This value is present in Create Shipment response. If you don’t include these values on your document post upload document transactions, your shipment could face customs delays and could be hold until CI/Documents are provided via alternative method upon request. We highly recommend they are passed on the upload transaction for the documents when doing ETD post upload. <br><br> Example: JNUA
      */
     public function __construct(
         public string $shipDocumentType,

@@ -61,13 +61,22 @@ class UploadMultiEtDfiles extends Request implements HasBody
 
     public function defaultBody(): array
     {
-        $data = $this->fullSchemaMultiDocumentRequest->toArray();
         $multipart = [];
-        foreach ($data as $key => $value) {
-            if (is_string($value) || is_numeric($value)) {
-                $multipart[] = new MultipartValue($key, (string) $value);
-            } else {
-                $multipart[] = new MultipartValue($key, json_encode($value));
+
+        // Add document information as JSON
+        if ($this->fullSchemaMultiDocumentRequest->documentInformation !== null) {
+            $multipart[] = new MultipartValue(
+                'documentInformation',
+                json_encode($this->fullSchemaMultiDocumentRequest->documentInformation->toArray())
+            );
+        }
+
+        // Add each file attachment with its filename from metadata
+        if ($this->fullSchemaMultiDocumentRequest->fileAttachments !== null) {
+            $metaData = $this->fullSchemaMultiDocumentRequest->documentInformation?->metaData ?? [];
+            foreach ($this->fullSchemaMultiDocumentRequest->fileAttachments as $index => $fileContent) {
+                $filename = $metaData[$index]?->fileName ?? "file_{$index}";
+                $multipart[] = new MultipartValue('fileAttachments', $fileContent, $filename);
             }
         }
 

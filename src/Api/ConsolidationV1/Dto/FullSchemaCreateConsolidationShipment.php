@@ -22,6 +22,7 @@ final class FullSchemaCreateConsolidationShipment extends Dto
      * @param  ?string  $index  This is a unique value for the shipment (must be unique for stand-alone open shipments, or unique within consolidation if consolidation key is provide).
      *                          'Note: If index is not provided while create Consolidation then the master tracking id of create Consolidation will act as index for the shipment.
      * @param  ?string  $shipAction  Indicates the optional actions that can be performed during create consolidation shipment
+     * @param  ?string[]  $processingOptions  Array of processing options for the shipment.
      * @param  ?string  $labelResponseOptions  This is to specify whether the encoded bytecode or  the Label URL to be returned in the response.<p>Valid values:<ul><li>LABEL &ndash; Indicates request is for encoded bytecode.</li><li>URL_ONLY &ndash; Indicates label URL request.</li></ul>Note: For asynchronous shipment (More than 40 packages) request only the value LABEL is suported.</p><br><i>Note: With URL_ONLY option, the URL once created will be active for 12 hours.</i>
      */
     public function __construct(
@@ -31,6 +32,8 @@ final class FullSchemaCreateConsolidationShipment extends Dto
         public ?string $processingOptionType = null,
         public ?string $index = null,
         public ?string $shipAction = null,
+        public ?array $processingOptions = null,
         public ?string $labelResponseOptions = null,
+        public ?Version $version = null,
     ) {}
 }

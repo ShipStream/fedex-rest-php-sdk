@@ -24,14 +24,13 @@ use ShipStream\FedEx\Request;
 /**
  * Find Location
  *
- * Use this endpoint to search for nearest FedEx locations by address, geographicccc coordinates, or
- * phone numberrrr. You can also narrow your search by type of location and services offered. It
- * returns up to 75 locations within a 50-mile radius for the address used in the search criteria.
- * Results are based on current date and time. Supports all FedEx operating companies and countries,
- * dependent upon being able to get a valid geolocation for a given set of criteria.<br><i>Note: You
- * must specify landline numbers only, when searching for the nearest FedEx locations using phone
- * number.</i><br><i>Note: FedEx APIs do not support Cross-Origin Resource Sharing (CORS)
- * mechanism.</i>
+ * Use this endpoint to search for FedEx locations by address, geographic coordinates, or phone number.
+ * You can also narrow your search by type of location and services offered. It returns up to 75
+ * locations within a 50-mile radius for the address used in the search criteria. Results are based on
+ * current date and time. Supports all FedEx operating companies and countries, dependent upon being
+ * able to get a valid geolocation for a given set of criteria.<br><i>Note: You must specify landline
+ * numbers only, when searching for the nearest FedEx locations using phone number.</i><br><i>Note:
+ * FedEx APIs do not support Cross-Origin Resource Sharing (CORS) mechanism.</i>
  */
 class FindLocation extends Request implements HasBody
 {

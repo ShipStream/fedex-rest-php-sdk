@@ -22,7 +22,7 @@ final class PackageSpecialServicesRequested extends Dto
     ];
 
     /**
-     * @param  ?string[]  $specialServiceTypes  The list of all special services requested for the package.<br><a href="/developer-portal/en-us/reference-guide.html#packagespecialservicetypes" target="_blank">Click here to see Package Special Service Types</a><br>Example:ALCOHOL
+     * @param  ?string[]  $specialServiceTypes  The list of all special services requested for the package.<br><a onclick='loadDocReference("packagelevelspecialservicetypes")'>Click here to see Package Special Service Types</a><br>Example:ALCOHOL
      * @param  ?string  $signatureOptionType  Signature Option Type<br/>ADULT - Adult signature required, at recipient''s address.<br/>DIRECT - Signature required, at recipient''s address.<br>INDIRECT - Signature required, alternate address is accepted.<br/>NO_SIGNATURE_REQUIRED - Signature is not required.<br/>SERVICE_DEFAULT - Signature handled as per current Service Guide.<br>Example:ADULT
      * @param  ?PriorityAlertDetail  $priorityAlertDetail  Specifies the Priority Alert Detail.
      * @param  ?SignatureOptionDetail  $signatureOptionDetail  This element specifies Signature option details.

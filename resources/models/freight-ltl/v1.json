@@ -1102,6 +1102,9 @@
                     },
                     "freightRequestedShipment": {
                         "$ref": "#/components/schemas/LTLRequestedShipment"
+                    },
+                    "version": {
+                        "$ref": "#/components/schemas/Version"
                     }
                 },
                 "description": "The request elements for requesting a freight rate quote."
@@ -2813,6 +2816,9 @@
                         "type": "boolean",
                         "description": "If the value is false, it uses single shot MPS shipments where in all the packages are processed in the same transaction and can generate number of labels for the handling units all at once. If the value is true, the MPS shipment processes packages and labels one at a time. Default value is false. \n <br>Example: true or false",
                         "example": true
+                    },
+                    "version": {
+                        "$ref": "#/components/schemas/Version"
                     }
                 },
                 "description": "The request elements required to create a Freight2020Shipment."
@@ -3640,7 +3646,7 @@
                 ],
                 "properties": {
                     "units": {
-                        "description": "Specifies the package weight unit type.<br>Example:KG",
+                        "description": "Specifies the shipment weight unit type.<br>Example:KG",
                         "type": "string",
                         "enum": [
                             "KG",
@@ -6925,7 +6931,7 @@
                                 "type": "number"
                             }
                         },
-                        "description": "The total weight of the packages for the pickup. Unit of measure is LB and KG.",
+                        "description": "The total shipment weight for pickup. Unit of measure is LB and KG.",
                         "items": {
                             "$ref": "#/components/schemas/Weight"
                         }
@@ -7641,6 +7647,26 @@
                     }
                 },
                 "description": "Specifies the freight guarantee detail."
+            },
+            "Version": {
+                "type": "object",
+                "properties": {
+                    "major": {
+                        "description": "This version is incremented when significant changes are made to the API functionality. These could be breaking changes and might require code-adjustments from clients. Accepts only numbers",
+                        "example": "1",
+                        "type": "integer"
+                    },
+                    "minor": {
+                        "description": "This represents a backward-compatible minor adjustment to an existing API functionality. This is the second number in API versioning scheme. Accepts only numbers",
+                        "example": "2",
+                        "type": "integer"
+                    },
+                    "patch": {
+                        "description": "This represents a backward-compatible bug fix to an existing API functionality. This is the third number in API versioning scheme. Accepts only numbers",
+                        "example": "1",
+                        "type": "integer"
+                    }
+                }
             },
             "ContentRecord": {
                 "type": "object",

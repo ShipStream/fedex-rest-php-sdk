@@ -20,7 +20,6 @@ final class FullSchemaCancelPickup extends Dto
      * @param  string  $scheduledDate  Indicates the date the pickup dispatch occurs.<br>Format YYYY-MM-DD <br> Example: 2019-10-15
      * @param  ?string  $remarks  Placeholder for any message to be passed to the FedEx pickup courier.<br>Note:Maximum length is 60 characters.<br> Example: Please ring bell at loading dock.
      * @param  ?string  $carrierCode  This is a placeholder to provide the FedEx operating company (transportation) code used for package delivery. Required for FedEx Ground.<br> Optional for FedEx Express.<br> The Default is FedEx Express i.e. FDXE.
-     * @param  ?Address  $accountAddressOfRecord  Descriptive data for a physical location. May be used as an actual physical address (place to which one could go), or as a container of "address parts" which should be handled as a unit (such as a city-state-ZIP combination within the US).
      * @param  ?string  $location  The FedEx Express location identifier responsible for processing the pickup request. This is returned in the CreatePickup response and is required to cancel a FedEx Express dispatch.Required only for FedEx Express Pickups. Optional for FedEx Ground. Example: LOSA
      */
     public function __construct(
@@ -29,7 +28,7 @@ final class FullSchemaCancelPickup extends Dto
         public string $scheduledDate,
         public ?string $remarks = null,
         public ?string $carrierCode = null,
-        public ?Address $accountAddressOfRecord = null,
         public ?string $location = null,
+        public ?Version $version = null,
     ) {}
 }

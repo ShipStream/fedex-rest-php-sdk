@@ -31,5 +31,6 @@ final class FullSchemaReprintPost extends Dto
         public ?string $trackingNumber = null,
         public ?string $reprintOption = null,
         public ?CloseDocumentSpecification $closeDocumentSpecification = null,
+        public ?Version $version = null,
     ) {}
 }

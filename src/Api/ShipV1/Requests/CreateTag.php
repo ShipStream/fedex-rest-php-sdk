@@ -24,7 +24,7 @@ use ShipStream\FedEx\Request;
 /**
  * Create Tag
  *
- * FedEx creates and delivers a returnnn shipping label to your customer and collects the item for
+ * FedEx creates and delivers a return shipping label to your customer and collects the item for
  * return. Your customer needs to have the package ready for pickup when the FedEx driver arrives. Use
  * this endpoint to create tag requests for FedEx Express and FedEx Ground shipments.<br><i>Note: FedEx
  * APIs do not support Cross-Origin Resource Sharing (CORS) mechanism.</i>

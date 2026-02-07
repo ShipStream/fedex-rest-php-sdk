@@ -39,6 +39,7 @@ final class RequestedShipment extends Dto
         public RateParty $recipient,
         public string $pickupType,
         public array $requestedPackageLineItems,
+        public ?PickupDetail $pickupDetail = null,
         public ?string $serviceType = null,
         public ?string $preferredCurrency = null,
         public ?array $rateRequestType = null,

@@ -15,12 +15,12 @@ use ShipStream\FedEx\Dto;
 final class ShipShipmentOutputVo extends Dto
 {
     protected static array $complexArrayTypes = [
-        'transactionShipments' => TransactionShipmentOutputVo::class,
+        'transactionShipments' => TransactionCreateShipmentOutputVo::class,
         'alerts' => Alert::class,
     ];
 
     /**
-     * @param  TransactionShipmentOutputVo[]|null  $transactionShipments  These are shipping transaction details, such as master tracking number, service type, and ship date and time.
+     * @param  TransactionCreateShipmentOutputVo[]|null  $transactionShipments  These are shipping transaction details, such as master tracking number, service type, and ship date and time.
      * @param  Alert[]|null  $alerts  The alerts received when processing a shipment request.
      * @param  ?string  $jobId  Unique identifier for a Job. Example: abc123456
      */

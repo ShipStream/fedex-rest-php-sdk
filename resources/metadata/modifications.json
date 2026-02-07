@@ -85,6 +85,13 @@
                     "$ref": "#/components/schemas/Alert_3P"
                 }
             }, {
+                "comment": "The upstream items definition here is an anyOf with two different components with identical schemas, so we're just picking one",
+                "action": "replace",
+                "path": "components.schemas.TransactionCreateShipmentOutputVO.properties.alerts.items",
+                "value": {
+                    "$ref": "#/components/schemas/Alert_3P"
+                }
+            }, {
                 "comment": "Add missing alertType property to Alert_3P",
                 "action": "merge",
                 "path": "components.schemas.Alert_3P.properties",
@@ -100,13 +107,33 @@
                     }
                 }
             }, {
-                " comment": "Remove required fields from PartyAddress",
+                "comment": "Remove required fields from PartyAddress",
                 "action": "delete",
                 "path": "components.schemas.PartyAddress.required"
             }, {
                 "comment": "Remove required fields from PartyContact",
                 "action": "delete",
                 "path": "components.schemas.PartyContact.required"
+            }, {
+                "comment": "Remove totalWeight from RequestedShipment required fields",
+                "action": "delete-array-values",
+                "path": "components.schemas.RequestedShipment.required",
+                "value": ["totalWeight"]
+            }, {
+                "comment": "Remove accountNumber from ResponsibleParty required fields",
+                "action": "delete-array-values",
+                "path": "components.schemas.ResponsiblePartyParty.required",
+                "value": ["accountNumber"]
+            }, {
+                "comment": "Remove commercialInvoice from CustomsClearanceDetail required fields",
+                "action": "delete-array-values",
+                "path": "components.schemas.CustomsClearanceDetail.required",
+                "value": ["commercialInvoice"]
+            }, {
+                "comment": "Remove tinType from TaxpayerIdentification required fields",
+                "action": "delete-array-values",
+                "path": "components.schemas.TaxpayerIdentification.required",
+                "value": ["tinType"]
             }
         ]
     },
@@ -131,6 +158,11 @@
                     "description": "The data content of this instance.<br> Example: \"value\"",
                     "example": "value"
                 }
+            }, {
+                "comment": "The type of PackageBarcodes.binaryBarcodes is array, not string (same as ship/v1 schema)",
+                "action": "replace",
+                "path": "components.schemas.PackageBarcodes.properties.binaryBarcodes.type",
+                "value": "array"
             }, {
                 "comment": "DangerousGoodsContainer.packingType is not actually required.",
                 "action": "delete",
@@ -227,14 +259,9 @@
             },
             {
                 "comment": "Delete moved `FullSchema-ImageUploadServiceInputVO.properties.rules` from required properties.",
-                "action": "replace",
+                "action": "delete-array-values",
                 "path": "components.schemas.Document.required",
-                "value": [
-                    "contentType",
-                    "meta",
-                    "name",
-                    "referenceId"
-                ]
+                "value": ["rules"]
             }
         ]
     }

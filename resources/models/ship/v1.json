@@ -889,7 +889,7 @@
         "/ship/v1/shipments/tag": {
             "post": {
                 "summary": "Create Tag",
-                "description": "FedEx creates and delivers a returnnn shipping label to your customer and collects the item for return. Your customer needs to have the package ready for pickup when the FedEx driver arrives. Use this endpoint to create tag requests for FedEx Express and FedEx Ground shipments.<br><i>Note: FedEx APIs do not support Cross-Origin Resource Sharing (CORS) mechanism.</i>",
+                "description": "FedEx creates and delivers a return shipping label to your customer and collects the item for return. Your customer needs to have the package ready for pickup when the FedEx driver arrives. Use this endpoint to create tag requests for FedEx Express and FedEx Ground shipments.<br><i>Note: FedEx APIs do not support Cross-Origin Resource Sharing (CORS) mechanism.</i>",
                 "operationId": "Create Tag",
                 "requestBody": {
                     "content": {
@@ -1395,26 +1395,90 @@
                         "type": "boolean",
                         "description": "This flag is used to specify if the shipment is singleshot mps or one Label at a time, piece by piece shipment. Default is false. If true, one label at a time is processed.",
                         "example": true
+                    },
+                    "version": {
+                        "$ref": "#/components/schemas/Version"
+                    },
+                    "processingOptions": {
+                        "type": "array",
+                        "description": "Array of processing options for the shipment.",
+                        "items": {
+                            "type": "string",
+                            "example": "INCLUDE_PICKUPRATES",
+                            "enum": [
+                                "INCLUDE_PICKUPRATES"
+                            ]
+                        }
                     }
                 },
                 "description": "The request elements required to create a shipment."
             },
-            "Money": {
+            "VariationOptions": {
                 "type": "object",
                 "properties": {
-                    "amount": {
-                        "type": "number",
-                        "description": "This is the amount. Maximum limit is 5 digits before decimal.<br>Example: 12.45",
-                        "format": "double",
-                        "example": 12.45
-                    },
-                    "currency": {
+                    "id": {
                         "type": "string",
-                        "description": "This is the currency code for the amount.<br>Example: USD<br><a onclick='loadDocReference(\"currencycodes\")'>Click here to see Currency codes</a>",
-                        "example": "USD"
+                        "description": "Specifies the name or the key for the shipment variation.\n",
+                        "example": "GLOBAL-SPOT-IDENTIFIER"
+                    },
+                    "values": {
+                        "type": "array",
+                        "description": "The values that are valid for the specified shipment variation in the context of the current shipment.\n",
+                        "example": [
+                            "21089052",
+                            "21089053"
+                        ],
+                        "items": {
+                            "type": "string"
+                        }
                     }
-                },
-                "description": "This customs value is applicable for all items(or units) under the specified commodity"
+                }
+            },
+            "PickupDetail": {
+                "type": "object",
+                "properties": {
+                    "readyDateTime": {
+                        "type": "string",
+                        "format": "date",
+                        "description": "Pickup ready date in YYYY-MM-DD format",
+                        "example": "2025-06-17"
+                    },
+                    "latestPickupDateTime": {
+                        "type": "string",
+                        "format": "date",
+                        "description": "Latest pickup date in YYYY-MM-DD format",
+                        "example": "2025-06-17"
+                    },
+                    "courierInstructions": {
+                        "type": "string",
+                        "description": "Special instructions for the courier",
+                        "example": "Leave package at reception"
+                    },
+                    "requestType": {
+                        "$ref": "#/components/schemas/PickupRequestType"
+                    },
+                    "requestSource": {
+                        "$ref": "#/components/schemas/PickupRequestSourceType"
+                    }
+                }
+            },
+            "PickupRequestType": {
+                "type": "string",
+                "description": "Type of pickup request",
+                "enum": [
+                    "FUTURE_DAY",
+                    "SAME_DAY"
+                ],
+                "example": "FUTURE_DAY"
+            },
+            "PickupRequestSourceType": {
+                "type": "string",
+                "description": "Source of the pickup request",
+                "enum": [
+                    "AUTOMATION",
+                    "CUSTOMER_SERVICE"
+                ],
+                "example": "AUTOMATION"
             },
             "Customs_Money": {
                 "type": "object",
@@ -1511,8 +1575,7 @@
             "TaxpayerIdentification": {
                 "type": "object",
                 "required": [
-                    "number",
-                    "tinType"
+                    "number"
                 ],
                 "properties": {
                     "number": {
@@ -1618,9 +1681,7 @@
                 }
             },
             "ResponsiblePartyParty": {
-                "required": [
-                    "accountNumber"
-                ],
+                "required": [],
                 "type": "object",
                 "properties": {
                     "address": {
@@ -1873,7 +1934,7 @@
                 "properties": {
                     "pendingShipmentType": {
                         "type": "string",
-                        "description": "Specifies the pending shipment type.  Must include the value: EMAIL for email return shipments. <br>Not applicable for other types of shipments<br>Example: EMAIL",
+                        "description": "Specifies the pending shipment type.  Must include the value: EMAIL for email return shipments. <br>Not applicable for other types of shipments.<br><br>Once the label is printed, the transaction is marked with the original print date. You can reprint the label and documents for up to 5 days from that original print date. Once the 5-day reprint window closes, the label is no longer accessible.<br><br>Example: EMAIL",
                         "example": "EMAIL",
                         "enum": [
                             "EMAIL"
@@ -1897,7 +1958,7 @@
                     },
                     "expirationTimeStamp": {
                         "type": "string",
-                        "description": "Specifies the Email Label expiration date. The maximum expiration date for an Email Return Label must be greater of equal to the day of the label request and not greater than 2 years in the future. Format[YYYY-MM-DD] <br>Example: 2020-01-01",
+                        "description": "Specifies the Email Label expiration date.<br>The expiration date must be:<br>- Greater than or equal to the label request date.<br>- Not more than 2 years in the future.<br>Once the label is printed, the transaction is marked with the original print date. You can reprint the label and documents for up to 5 days from that original print date. Once the 5-day reprint window closes, the label is no longer accessible.<br><br>Format: [YYYY-MM-DD]<br>Example: 2020-01-01",
                         "example": "2020-01-01"
                     }
                 },
@@ -2422,7 +2483,6 @@
             },
             "CustomsClearanceDetail": {
                 "required": [
-                    "commercialInvoice",
                     "commodities"
                 ],
                 "type": "object",
@@ -2719,6 +2779,47 @@
                     "accountNickname": "accountNickname",
                     "accountNumber": "Your account number",
                     "accountNumberCountryCode": "CA"
+                }
+            },
+            "ClearanceItemDetail": {
+                "type": "object",
+                "properties": {
+                    "role": {
+                        "type": "string",
+                        "description": "Role in producing or supplying the item/commodity",
+                        "example": "MANUFACTURER",
+                        "enum": [
+                            "MANUFACTURER"
+                        ]
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "Unique identifier of the manufacturer of the commodity.For shipments to United States, refer to U.S. Customs and Border Protection website.",
+                        "example": "USGRE98BIR"
+                    },
+                    "contact": {
+                        "$ref": "#/components/schemas/Contact_3"
+                    },
+                    "address": {
+                        "$ref": "#/components/schemas/Address"
+                    }
+                },
+                "example": {
+                    "type": "MANUFACTURER",
+                    "id": "USGRE98BIR",
+                    "contact": {
+                        "companyName": "THE GREENHOUSE"
+                    },
+                    "address": {
+                        "streetLines": [
+                            "98 Royal Crescent"
+                        ],
+                        "city": "Birmingham",
+                        "stateOrProvinceCode": "CA",
+                        "postalCode": "35209",
+                        "countryCode": "US",
+                        "residential": false
+                    }
                 }
             },
             "AdditionalMeasures": {
@@ -3878,7 +3979,7 @@
                 "properties": {
                     "specialServiceTypes": {
                         "type": "array",
-                        "description": "The list of all special services requested for the package.<br><a href=\"/developer-portal/en-us/reference-guide.html#packagespecialservicetypes\" target=\"_blank\">Click here to see Package Special Service Types</a><br>Example:ALCOHOL",
+                        "description": "The list of all special services requested for the package.<br><a onclick='loadDocReference(\"packagelevelspecialservicetypes\")'>Click here to see Package Special Service Types</a><br>Example:ALCOHOL",
                         "example": [
                             "ALCOHOL",
                             "NON_STANDARD_CONTAINER",
@@ -4106,7 +4207,7 @@
             },
             "LABELRESPONSEOPTIONS": {
                 "type": "string",
-                "description": "Note- Label will be returned as Base64 ONLY when openShipmentAction is PROVIDE_DOCUMENTS_INCREMENTALLY.<br>LabelResponseOptions specifies the label generation format.<br>Example:URL_ONLY",
+                "description": "LABEL \u2013 Indicates request is for encoded bytecode (Base64).<br>URL_ONLY \u2013 Indicates label URL request.<br>Note: <ul><li>For asynchronous shipment (more than 40 packages) requests only the value LABEL is supported.</li><li>With URL_ONLY option, the URL once created will be active for 12 hours.",
                 "example": "URL_ONLY",
                 "enum": [
                     "URL_ONLY",
@@ -4173,7 +4274,7 @@
                         "type": "array",
                         "description": "These are shipping transaction details, such as master tracking number, service type, and ship date and time.",
                         "items": {
-                            "$ref": "#/components/schemas/TransactionShipmentOutputVO"
+                            "$ref": "#/components/schemas/TransactionCreateShipmentOutputVO"
                         }
                     },
                     "alerts": {
@@ -4190,6 +4291,124 @@
                     }
                 },
                 "description": "This is the response received when a shipment is requested."
+            },
+            "TransactionCreateShipmentOutputVO": {
+                "type": "object",
+                "properties": {
+                    "serviceType": {
+                        "type": "string",
+                        "description": "Indicate the FedEx serviceType used for this shipment. The results will be filtered by the serviceType value indicated.<br>Example: STANDARD_OVERNIGHT<br><a onclick='loadDocReference(\"servicetypes\")'>click here to see Service Types</a>",
+                        "example": "STANDARD_OVERNIGHT"
+                    },
+                    "shipDatestamp": {
+                        "type": "string",
+                        "description": "This is the shipment date. Default value is current date in case the date is not provided or a past date is provided.<br>Format [YYYY-MM-DD].<br>Example: 2019-10-14",
+                        "example": "2010-03-04"
+                    },
+                    "serviceCategory": {
+                        "type": "string",
+                        "description": "Indicates the Service Category.<br>Example: EXPRESS",
+                        "example": "EXPRESS"
+                    },
+                    "shipmentDocuments": {
+                        "type": "array",
+                        "description": "These are shipping document details.",
+                        "items": {
+                            "$ref": "#/components/schemas/LabelResponseVO"
+                        }
+                    },
+                    "pieceResponses": {
+                        "type": "array",
+                        "description": "Specifies the information about the pieces, received in the response.",
+                        "items": {
+                            "$ref": "#/components/schemas/PieceResponse"
+                        }
+                    },
+                    "serviceName": {
+                        "type": "string",
+                        "description": "This is the service name associated with the shipment.<br>Example: FedEx Ground",
+                        "example": "FedEx 2 Day Freight"
+                    },
+                    "alerts": {
+                        "type": "array",
+                        "description": "These are alert details received in the response.",
+                        "items": {
+                            "$ref": "#/components/schemas/Alert_3P"
+                        }
+                    },
+                    "completedShipmentDetail": {
+                        "$ref": "#/components/schemas/CompletedCreateShipmentDetail"
+                    },
+                    "shipmentAdvisoryDetails": {
+                        "$ref": "#/components/schemas/ShipmentAdvisoryDetails"
+                    },
+                    "masterTrackingNumber": {
+                        "type": "string",
+                        "description": "This is a master tracking number for the shipment (must be unique for stand-alone open shipments, or unique within consolidation if consolidation key is provided).<br>Example: 794953535000",
+                        "example": "794953535000"
+                    }
+                },
+                "description": "Specifies shipping transaction output details"
+            },
+            "CompletedCreateShipmentDetail": {
+                "type": "object",
+                "properties": {
+                    "completedPackageDetails": {
+                        "type": "array",
+                        "description": "Indicates the completed package details.",
+                        "items": {
+                            "$ref": "#/components/schemas/CompletedPackageDetail"
+                        }
+                    },
+                    "operationalDetail": {
+                        "$ref": "#/components/schemas/ShipmentOperationalDetail"
+                    },
+                    "carrierCode": {
+                        "type": "string",
+                        "description": "Specify the four letter code of a FedEx operating company that meets your requirements<br>Examples of FedEx Operating Companies are:<ul><li>FDXE - FedEx Express</li><li>FDXG - FedEx Ground</li><li>FXSP - FedEx SmartPost</li><li>FXCC - FedEx Custom Critical.</li></ul>",
+                        "example": "FDXE"
+                    },
+                    "completedHoldAtLocationDetail": {
+                        "$ref": "#/components/schemas/CompletedHoldAtLocationDetail"
+                    },
+                    "completedEtdDetail": {
+                        "$ref": "#/components/schemas/CompletedEtdDetail"
+                    },
+                    "packagingDescription": {
+                        "type": "string",
+                        "description": "Specifies packaging description<br>Example: Customer Packaging",
+                        "example": "Customer Packaging"
+                    },
+                    "masterTrackingId": {
+                        "$ref": "#/components/schemas/TrackingId"
+                    },
+                    "serviceDescription": {
+                        "$ref": "#/components/schemas/ServiceDescription"
+                    },
+                    "usDomestic": {
+                        "type": "boolean",
+                        "description": "Indicates whether or not this is an intra-U.S. shipment.",
+                        "example": true
+                    },
+                    "hazardousShipmentDetail": {
+                        "$ref": "#/components/schemas/CompletedHazardousShipmentDetail"
+                    },
+                    "shipmentRating": {
+                        "$ref": "#/components/schemas/Create_ShipmentRating"
+                    },
+                    "documentRequirements": {
+                        "$ref": "#/components/schemas/DocumentRequirementsDetail"
+                    },
+                    "exportComplianceStatement": {
+                        "type": "string",
+                        "description": "For US export shipments requiring an EEI, enter the ITN number received from AES when you filed your shipment or the FTR (Foreign Trade Regulations) exemption number.The proper format for an ITN number is AES XYYYYMMDDNNNNNN where YYYYMMDD is date and NNNNNN are numbers generated by the AES.<br> Example: AESX20220714987654<br>Note: The ITN or FTR exemption number you submit in the ship request prints on the international shipping label.<br><br>For CA export shipments,it can be Proof of report number(15-32 alphanumeric) , Summary proof of report number(7-32 alphanumeric) or Exemption number(2 digit) based on the selected b13AFilingOption.<br>Example: 98765432107654321(POR number), 7654321(Summary POR number) and 02(Exemption number).<br>For FTR exemption number you need provide a predefined value as NO_EEI_30_37_A.",
+                        "example": "12345678901234567"
+                    },
+                    "accessDetail": {
+                        "$ref": "#/components/schemas/PendingShipmentAccessDetail"
+                    }
+                },
+                "description": "Returns the result of processing the desired package as a single-package shipment."
             },
             "TransactionShipmentOutputVO": {
                 "type": "object",
@@ -4808,33 +5027,6 @@
                 },
                 "description": "These are package rate details, as calculated per a specific rate type."
             },
-            "Surcharge": {
-                "type": "object",
-                "properties": {
-                    "amount": {
-                        "type": "number",
-                        "format": "double",
-                        "example": "56.22",
-                        "description": "This is the surcharge amount.<br>Example: 15.35"
-                    },
-                    "surchargeType": {
-                        "type": "string",
-                        "description": "This is the surcharge type.<br>Example: APPOINTMENT_DELIVERY",
-                        "example": "APPOINTMENT_DELIVERY"
-                    },
-                    "level": {
-                        "type": "string",
-                        "description": "Specifies if the surcharge applies to the entire shipment, or to an individual package.<br>Example: PACKAGE",
-                        "example": "PACKAGE, or SHIPMENT"
-                    },
-                    "description": {
-                        "type": "string",
-                        "description": "Specifies the description of the surcharge. Indicates delivery and returns information for FedEx Ground Economy services. <br>Example: Fuel Surcharge",
-                        "example": "description"
-                    }
-                },
-                "description": "These are surcharges details.<br><a onclick='loadDocReference(\"surcharges\")'>click here to see Surcharges</a>"
-            },
             "CompletedHazardousPackageDetail": {
                 "type": "object",
                 "properties": {
@@ -4949,6 +5141,12 @@
                         "type": "string",
                         "description": "Indicate the unit of measure.<br>Example: KG",
                         "example": "Kg"
+                    },
+                    "value": {
+                        "type": "number",
+                        "description": "Weight Value.<br> Example: 68.25<br><a href='https://developer.fedex.com/api/en-us/guides/api-reference.html#packagetypes' target='_blank'>Click here to see Weight Values</a>.",
+                        "format": "double",
+                        "example": 68.25
                     }
                 },
                 "description": "Specify the Hazardous commodity quantity details."
@@ -5168,7 +5366,7 @@
                     },
                     "stateOrProvinceCode": {
                         "type": "string",
-                        "description": "This is a placeholder for State or Province code.State code is required for US, CA, PR and not required for other countries. Conditional. Max length is 2.<br>Example: CA<br><a onclick='loadDocReference(\"canadaprovincecodes\")'>click here to see State or Province Code</a>",
+                        "description": "This is a placeholder for State or Province code.State code is required for US, CA, PR and not required for other countries. Conditional.<br>Example: CA<br><a onclick='loadDocReference(\"canadaprovincecodes\")'>click here to see State or Province Code</a>",
                         "example": "GA"
                     },
                     "destinationLocationNumber": {
@@ -5431,8 +5629,409 @@
                             "$ref": "#/components/schemas/ShipmentRateDetail"
                         }
                     }
+                }
+            },
+            "Create_ShipmentRating": {
+                "type": "object",
+                "properties": {
+                    "actualRateType": {
+                        "type": "string",
+                        "description": "This rate type identifies which entry in the following array is considered as presenting the \"actual\" rates for the shipment.<br>Example: PAYOR_LIST_SHIPMENT",
+                        "example": "PAYOR_LIST_SHIPMENT"
+                    },
+                    "shipmentRateDetails": {
+                        "type": "array",
+                        "description": "Each element of this field provides shipment-level rate totals for a specific rate type.",
+                        "items": {
+                            "$ref": "#/components/schemas/ShipmentRateDetail"
+                        }
+                    },
+                    "totalNetTransportationAndPickupCharge": {
+                        "description": "Sum of totalNetCharge from pickupRateDetail and shipmentRateDetail. This charge will be populated regardless of pickup.",
+                        "$ref": "#/components/schemas/Money_2"
+                    },
+                    "totalNetFedExTransportationAndPickupCharge": {
+                        "description": "Sum of totalNetFedExCharge from pickupRateDetail and shipmentRateDetail. This charge will be populated regardless of a pickup.",
+                        "$ref": "#/components/schemas/Money_2"
+                    },
+                    "pickupRateDetail": {
+                        "description": "Charges associated with a scheduled shipment pickup",
+                        "type": "object",
+                        "properties": {
+                            "rateType": {
+                                "description": "Type used for this specific set of rate data.",
+                                "type": "string",
+                                "enum": [
+                                    "INCENTIVE",
+                                    "NEGOTIATED",
+                                    "PAYOR_ACCOUNT_PACKAGE",
+                                    "PAYOR_ACCOUNT_SHIPMENT",
+                                    "PAYOR_CUSTOM_PACKAGE",
+                                    "PAYOR_CUSTOM_SHIPMENT",
+                                    "PAYOR_LIST_PACKAGE",
+                                    "PAYOR_LIST_SHIPMENT",
+                                    "PAYOR_RETAIL_PACKAGE",
+                                    "PAYOR_RETAIL_SHIPMENT",
+                                    "PREFERRED_ACCOUNT_PACKAGE",
+                                    "PREFERRED_ACCOUNT_SHIPMENT",
+                                    "PREFERRED_CUSTOM_PACKAGE",
+                                    "PREFERRED_CUSTOM_SHIPMENT",
+                                    "PREFERRED_INCENTIVE",
+                                    "PREFERRED_LIST_PACKAGE",
+                                    "PREFERRED_LIST_SHIPMENT",
+                                    "PREFERRED_NEGOTIATED",
+                                    "PREFERRED_RETAIL_PACKAGE",
+                                    "PREFERRED_RETAIL_SHIPMENT",
+                                    "RATED_ACCOUNT_PACKAGE",
+                                    "RATED_ACCOUNT_SHIPMENT",
+                                    "RATED_CUSTOM_PACKAGE",
+                                    "RATED_CUSTOM_SHIPMENT",
+                                    "RATED_LIST_PACKAGE",
+                                    "RATED_LIST_SHIPMENT",
+                                    "RATED_RETAIL_PACKAGE",
+                                    "RATED_RETAIL_SHIPMENT",
+                                    "UNKNOWN"
+                                ],
+                                "example": "PAYOR_ACCOUNT_PACKAGE"
+                            },
+                            "rateScale": {
+                                "type": "string",
+                                "description": "Indicates the rate scale used.",
+                                "example": "*USER IMS20160104  LD067110"
+                            },
+                            "rateZone": {
+                                "description": "Indicates the rate zone used (based on origin and destination).",
+                                "type": "string",
+                                "example": "CA003O"
+                            },
+                            "ratingBasis": {
+                                "description": "Allows clients to determine whether to add charges at the package level when Per Piece Rating details are returned.<br><ul><li>SHIPMENT_WEIGHT_BASED - Indicates shipment weight is used to calculate the rate.</li><br><li>FLAT_RATE_PER_PAK - Indicates shipment is rated based on number of packs, weight would be considered for overweight surcharge but not for calculating shipment rate.</li><br><li>PACK_WEIGHT_BASED - Indicates individual package weight would be rated and aggregated to get shipment rate weight.</li></ul>",
+                                "type": "string",
+                                "enum": [
+                                    "SHIPMENT_WEIGHT_BASED",
+                                    "FLAT_RATE_PER_PAK",
+                                    "PACK_WEIGHT_BASED",
+                                    "UNKNOWN"
+                                ],
+                                "example": "SHIPMENT_WEIGHT_BASED"
+                            },
+                            "pricingCode": {
+                                "description": "Identifies the type of pricing used for this shipment.",
+                                "type": "string",
+                                "enum": [
+                                    "ACTUAL",
+                                    "ALTERNATE",
+                                    "BASE",
+                                    "HUNDREDWEIGHT",
+                                    "HUNDREDWEIGHT_ALTERNATE",
+                                    "INTERNATIONAL_DISTRIBUTION",
+                                    "INTERNATIONAL_ECONOMY_SERVICE",
+                                    "LTL_FREIGHT",
+                                    "PACKAGE",
+                                    "SHIPMENT",
+                                    "SHIPMENT_FIVE_POUND_OPTIONAL",
+                                    "SHIPMENT_OPTIONAL",
+                                    "SPECIAL",
+                                    "UNKNOWN"
+                                ],
+                                "example": "ACTUAL"
+                            },
+                            "minimumChargeType": {
+                                "description": "provides the minimum charge type applicable to the rates.",
+                                "type": "string",
+                                "enum": [
+                                    "CUSTOMER",
+                                    "CUSTOMER_FREIGHT_WEIGHT",
+                                    "EARNED_DISCOUNT",
+                                    "MIXED",
+                                    "RATE_SCALE",
+                                    "UNKNOWN"
+                                ],
+                                "example": "EARNED_DISCOUNT"
+                            },
+                            "currencyExchangeRate": {
+                                "$ref": "#/components/schemas/CurrencyExchangeRate"
+                            },
+                            "specialRatingApplied": {
+                                "type": "array",
+                                "description": "Indicates which special rating cases applied to this shipment.",
+                                "items": {
+                                    "type": "string",
+                                    "enum": [
+                                        "FEDEX_ONE_RATE",
+                                        "FIXED_FUEL_SURCHARGE",
+                                        "IMPORT_PRICING"
+                                    ]
+                                },
+                                "example": "FEDEX_ONE_RATE"
+                            },
+                            "fuelSurchargePercent": {
+                                "description": "Specify a fuel surcharge percentage.",
+                                "format": "double",
+                                "type": "number",
+                                "example": 121
+                            },
+                            "pickupBaseChargeDescription": {
+                                "description": "Will indicate the pickup charge description of the on call pickup",
+                                "type": "string",
+                                "enum": [
+                                    "Regularly Scheduled Pickup Mon-Fri",
+                                    "Automated Pickup Mon-Fri",
+                                    "Same Day OC Pickup Mon-Fri (CS)",
+                                    "Same Day OC Pickup Mon-Fri (Online)",
+                                    "Fut. Day OC Pickup Mon-Fri (CS)",
+                                    "Fut. Day OC Pickup Mon-Fri (Online)",
+                                    "Regularly Scheduled Pickup Sat",
+                                    "Automated Pickup Sat",
+                                    "Same Day OC Pickup Sat (CS)",
+                                    "Same Day OC Pickup Sat (Online)",
+                                    "Fut. Day OC Pickup Sat (CS)",
+                                    "Fut. Day OC Pickup Sat (Online)",
+                                    "Regularly Scheduled Pickup Sun",
+                                    "Automated Pickup Sun",
+                                    "Same Day OC Pickup Sun (CS)",
+                                    "Same Day OC Pickup Sun (Online)",
+                                    "Fut. Day OC Pickup Sun (CS)",
+                                    "Fut. Day OC Pickup Sun (Online)",
+                                    "Residential On-Call Pickup Surcharge",
+                                    "Pickup Area Surcharge",
+                                    "Extended Pickup Area Surcharge",
+                                    "Remote Pickup Area Surcharge",
+                                    "Fuel Surcharge"
+                                ],
+                                "example": "Pickup Area Surcharge"
+                            },
+                            "totalBaseCharge": {
+                                "description": "Total base charges for the shipment.",
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/Money_2"
+                                    }
+                                ]
+                            },
+                            "totalFreightDiscounts": {
+                                "description": "The total discounts used in the rate calculation.<br> Example: 1257.26",
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/Money_2"
+                                    }
+                                ]
+                            },
+                            "totalNetFreight": {
+                                "description": "This shipment's totalNetFreight.",
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/Money_2"
+                                    }
+                                ]
+                            },
+                            "totalSurcharges": {
+                                "description": "The sum of all surcharges on the package.",
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/Money_2"
+                                    }
+                                ]
+                            },
+                            "totalNetFedExCharge": {
+                                "description": "This shipment's totalNetFedExCharge, which is totalNetFreight plus totalSurcharges (not including totalTaxes).",
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/Money_2"
+                                    }
+                                ]
+                            },
+                            "totalTaxes": {
+                                "description": "The sum of all taxes on this package.<br> Example: 1257.25",
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/Money_2"
+                                    }
+                                ]
+                            },
+                            "totalNetCharge": {
+                                "description": "Total net charges for the shipment.",
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/Money_2"
+                                    }
+                                ]
+                            },
+                            "totalRebates": {
+                                "description": "The total sum of all rebates applied to this package.",
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/Money_2"
+                                    }
+                                ]
+                            },
+                            "totalDutiesAndTaxes": {
+                                "description": "The sum of shipment/package Duties and taxes.",
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/Money_2"
+                                    }
+                                ]
+                            },
+                            "totalAncillaryFeesAndTaxes": {
+                                "description": "Identifies the shipment-level fees and taxes that are not based on transportation charges or commodity-level estimated duties and taxes.",
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/Money_2"
+                                    }
+                                ]
+                            },
+                            "totalDutiesTaxesAndFees": {
+                                "description": "The total amount of the duties and taxes plus the total ancillary fees and taxes.",
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/Money_2"
+                                    }
+                                ]
+                            },
+                            "totalNetChargeWithDutiesAndTaxes": {
+                                "description": "Total netChargesWithDutiesAndTaxes for the shipment.",
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/Money_2"
+                                    }
+                                ]
+                            },
+                            "freightDiscounts": {
+                                "description": "All rate discounts that apply to this shipment",
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/RateDiscount"
+                                }
+                            },
+                            "rebates": {
+                                "description": "The all rebates applied to this package.",
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/Rebate"
+                                }
+                            },
+                            "surcharges": {
+                                "description": "The amount of surcharges applied to this shipment.",
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/Surcharge_2"
+                                }
+                            },
+                            "taxes": {
+                                "description": "List of taxes.",
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/Tax"
+                                }
+                            },
+                            "dutiesAndTaxes": {
+                                "description": "List of The shipment/package Duties and taxes.",
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/EdtCommodityTax"
+                                }
+                            },
+                            "ancillaryFeesAndTaxes": {
+                                "description": "Identifies the total amount of the shipment-lvel fees and taxes that are not based on transportation charges of commodity-level estimated duties and taxes.",
+                                "type": "array",
+                                "items": {
+                                    "$ref": "#/components/schemas/AncillaryFeeAndTax"
+                                }
+                            },
+                            "variableHandlingCharges": {
+                                "description": "Optional. The variable handling charge amount calculated based on the requested variable handling charge detail.",
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/VariableHandlingCharges"
+                                    }
+                                ]
+                            },
+                            "totalVariableHandlingCharges": {
+                                "description": "Optional. The variable handling charge amount calculated based on the requested variable handling charge detail.",
+                                "allOf": [
+                                    {
+                                        "$ref": "#/components/schemas/VariableHandlingCharges"
+                                    }
+                                ]
+                            }
+                        }
+                    }
                 },
                 "description": "All shipment-level rating data for this shipment, which may include data for multiple rate types."
+            },
+            "EdtCommodityTax": {
+                "description": "The shipment/package Duties and taxes.",
+                "type": "object",
+                "properties": {
+                    "harmonizedCode": {
+                        "description": "Harmonized code is used by customer to classify the product being shipped and define the duties and taxes to be paid.",
+                        "type": "string",
+                        "example": "harmonizedCode"
+                    },
+                    "taxes": {
+                        "$ref": "#/components/schemas/EdtTaxDetail"
+                    },
+                    "total": {
+                        "description": "Total of Duties and taxes",
+                        "$ref": "#/components/schemas/Money_2"
+                    }
+                }
+            },
+            "AncillaryFeeAndTax": {
+                "description": "Identifies the total amount of the shipment-lvel fees and taxes that are not based on transportation charges of commodity-level estimated duties and taxes.",
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "description": "Identifies the total amount of the shipment-level fees and taxes that are not based on transportation charges or commodity-level estimated duties and taxes.",
+                        "type": "string",
+                        "enum": [
+                            "CLEARANCE_ENTRY_FEE",
+                            "GOODS_AND_SERVICES_TAX",
+                            "HARMONIZED_SALES_TAX",
+                            "OTHER"
+                        ],
+                        "example": "CLEARANCE_ENTRY_FEE"
+                    },
+                    "description": {
+                        "description": "Identifies the amount of the shipment-level fees and taxes that are not based on transportation charges or commodity-level estimated duties and taxes.",
+                        "type": "string",
+                        "example": "description"
+                    },
+                    "amount": {
+                        "description": "list of AncillaryFees And Taxes",
+                        "$ref": "#/components/schemas/Money_2"
+                    }
+                }
+            },
+            "Rebate": {
+                "type": "object",
+                "properties": {
+                    "rebateType": {
+                        "description": "The type of rebate.",
+                        "type": "string",
+                        "enum": [
+                            "BONUS",
+                            "EARNED",
+                            "OTHER"
+                        ],
+                        "example": "EARNED"
+                    },
+                    "description": {
+                        "description": "The description of the rebate",
+                        "type": "string",
+                        "example": "description"
+                    },
+                    "amount": {
+                        "description": "provides the calculated rebate amount based on customer details, transaction information, and applicable rules. ",
+                        "$ref": "#/components/schemas/Money_2"
+                    },
+                    "percent": {
+                        "format": "double",
+                        "type": "number",
+                        "example": 0
+                    }
+                }
             },
             "ShipmentRateDetail": {
                 "type": "object",
@@ -5488,7 +6087,7 @@
                         "items": {
                             "type": "object",
                             "schema": {
-                                "$ref": "#/components/schemas/Tax"
+                                "$ref": "#/components/schemas/Tax_2"
                             }
                         }
                     },
@@ -5558,7 +6157,7 @@
                         "type": "array",
                         "description": "Indicates the freight discounts.",
                         "items": {
-                            "$ref": "#/components/schemas/RateDiscount"
+                            "$ref": "#/components/schemas/RateDiscount_2"
                         }
                     },
                     "rateScale": {
@@ -5591,33 +6190,6 @@
                     }
                 },
                 "description": "This is a placeholder for shipment total/summary rates details, as calculated per a specific rate type. The totals may differ from the sum of corresponding package data for Multiweight or Express MPS."
-            },
-            "Tax": {
-                "type": "object",
-                "properties": {
-                    "amount": {
-                        "type": "number",
-                        "description": "Indicates the amount of tax.<br>Example: 10.0",
-                        "format": "double",
-                        "example": 10
-                    },
-                    "level": {
-                        "type": "string",
-                        "description": "Indicates the Level of Tax.<br>Example: level",
-                        "example": "level"
-                    },
-                    "description": {
-                        "type": "string",
-                        "description": "Placeholder for the tax description.<br>Example: descrption",
-                        "example": "description"
-                    },
-                    "type": {
-                        "type": "string",
-                        "description": "Placeholder for the Type of the Tax.<br>Example:type",
-                        "example": "type"
-                    }
-                },
-                "description": "Specifies the tax for the shipment."
             },
             "CurrencyExchangeRate": {
                 "type": "object",
@@ -5658,7 +6230,7 @@
                         "type": "array",
                         "description": "Specifies the taxes.",
                         "items": {
-                            "$ref": "#/components/schemas/Tax"
+                            "$ref": "#/components/schemas/Tax_2"
                         }
                     },
                     "totalDimWeight": {
@@ -5768,7 +6340,7 @@
                     "freightDiscounts": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/components/schemas/RateDiscount"
+                            "$ref": "#/components/schemas/RateDiscount_2"
                         }
                     },
                     "rateScale": {
@@ -5795,34 +6367,6 @@
                     }
                 },
                 "description": "This is a placeholder for single leg of a shipment rates details, as calculated per a specific rate type."
-            },
-            "RateDiscount": {
-                "type": "object",
-                "properties": {
-                    "amount": {
-                        "type": "number",
-                        "description": "Specifies the amount.<br>Example: 8.9",
-                        "format": "double",
-                        "example": 8.9
-                    },
-                    "rateDiscountType": {
-                        "type": "string",
-                        "description": "The type of rate discount. <br/> Valid Values are BONUS, COUPON,EARNED,OTHER,VOLUME.<br>Example: COUPON",
-                        "example": "COUPON"
-                    },
-                    "percent": {
-                        "type": "number",
-                        "description": "Specifies the percentage of Rate discount.<br>Example: 28.9",
-                        "format": "double",
-                        "example": 28.9
-                    },
-                    "description": {
-                        "type": "string",
-                        "description": "Specifies the description of the discounted rate.<br>Example: description",
-                        "example": "description"
-                    }
-                },
-                "description": "Specifies discount Rate for Shipment."
             },
             "DocumentRequirementsDetail": {
                 "type": "object",
@@ -6108,6 +6652,9 @@
                         "type": "string",
                         "description": "This is an unique number assigned by FedEx to the packages for tracking.<br>Example: \"794953555571\"",
                         "example": "794953555571"
+                    },
+                    "version": {
+                        "$ref": "#/components/schemas/Version"
                     }
                 },
                 "description": "The request elements required to cancel a shipment. "
@@ -6173,6 +6720,9 @@
                         "type": "string",
                         "description": "Indicates the job under which the deferred shipment artifacts must be identified in the subsequent retrieval request. <br> Example: 89sxxxxx233ae24ff31xxxxx",
                         "example": "89sxxxxx233ae24ff31xxxxx"
+                    },
+                    "version": {
+                        "$ref": "#/components/schemas/Version"
                     }
                 }
             },
@@ -6225,6 +6775,9 @@
                     },
                     "accountNumber": {
                         "$ref": "#/components/schemas/ShipperAccountNumber"
+                    },
+                    "version": {
+                        "$ref": "#/components/schemas/Version"
                     }
                 },
                 "description": "The request elements required to create a shipment."
@@ -6429,7 +6982,7 @@
                     },
                     "phoneNumber": {
                         "type": "string",
-                        "description": "Specify contact phone number. <br>Minimum length is 10 and supports maximum of 15 for certain countries using longer phone numbers. <br>Note: Recommended Maximum length is 15 and there's no specific validation will be done for the phone number. <br> Example: 918xxxxx890",
+                        "description": "Specify contact phone number. <br>Minimum length is 1 and supports maximum of 15 for certain countries using longer phone numbers. <br>Note: Recommended Maximum length is 15 and there's no specific validation will be done for the phone number. <br> Example: 918xxxxx890",
                         "example": "1234567890"
                     },
                     "phoneExtension": {
@@ -6660,6 +7213,26 @@
                     }
                 }
             },
+            "Version": {
+                "type": "object",
+                "properties": {
+                    "major": {
+                        "description": "This version is incremented when significant changes are made to the API functionality. These could be breaking changes and might require code-adjustments from clients. Accepts only numbers",
+                        "example": "1",
+                        "type": "integer"
+                    },
+                    "minor": {
+                        "description": "This represents a backward-compatible bug fix or minor adjustment to an existing API functionality. This is the second number in API versioning scheme. Accepts only numbers",
+                        "example": "1",
+                        "type": "integer"
+                    },
+                    "patch": {
+                        "description": "This represents a backward-compatible bug fix or minor adjustment to an existing API functionality. This is the third number in API versioning scheme. Accepts only numbers",
+                        "example": "1",
+                        "type": "integer"
+                    }
+                }
+            },
             "Full_Schema_Create_Tag": {
                 "required": [
                     "accountNumber",
@@ -6674,6 +7247,9 @@
                     "accountNumber": {
                         "description": "The specific FedEx customer account number (account value) associated with the shipment.",
                         "$ref": "#/components/schemas/PartyAccountNumber"
+                    },
+                    "version": {
+                        "$ref": "#/components/schemas/Version"
                     }
                 }
             },
@@ -6815,7 +7391,7 @@
                     },
                     "totalWeight": {
                         "type": "number",
-                        "description": "Indicate the shipment total weight in pounds.<br>Example: 10.6<br>Note: <ul><li>This only applies to International shipments and should be used on the first package of a multiple piece shipment.</li><li>This value contains 1 explicit decimal position.</li><li>For one Label at a time shipments, the unit of totalWeight is considered same as the unit of weight provided in requestedPackageLineItem field.</li></ul>",
+                        "description": "Indicate the shipment total weight in Metric or US.<br>Example: 10.6<br>Note: <ul><li>This only applies to International shipments and should be used on the first package of a multiple piece shipment.</li><li>This value contains 1 explicit decimal position.</li><li>For one Label at a time shipments, the unit of totalWeight is considered same as the unit of weight provided in requestedPackageLineItem field.</li></ul>",
                         "format": "double",
                         "example": 20.6
                     },
@@ -6962,7 +7538,7 @@
                         "type": "array",
                         "description": "Indicates the details about the dutiable packages. Maximum upto 999 commodities per shipment.",
                         "items": {
-                            "$ref": "#/components/schemas/Commodity"
+                            "$ref": "#/components/schemas/Commodity_2"
                         }
                     },
                     "isDocumentOnly": {
@@ -7267,6 +7843,9 @@
                         "description": "The tracking number for the Express or Ground Tag to the cancelled.<br>Example: 301025281523<br><a onclick='loadDocReference(\"mocktrackingnumbersforfedexexpressandfedexground\")'>Click here to see mock tracking numbers for FedEx Express and FedEx Ground.</a>",
                         "example": "301025281523"
                     },
+                    "version": {
+                        "$ref": "#/components/schemas/Version"
+                    },
                     "completedTagDetail": {
                         "description": "The details of the package for which shipping has been completed. The details include dispatch confirmation number, dispatch date, location, and the cxs alerts associated with the process.",
                         "$ref": "#/components/schemas/CompletedTagDetail"
@@ -7318,8 +7897,7 @@
                     "requestedPackageLineItems",
                     "serviceType",
                     "shipper",
-                    "shippingChargesPayment",
-                    "totalWeight"
+                    "shippingChargesPayment"
                 ],
                 "type": "object",
                 "properties": {
@@ -7372,6 +7950,9 @@
                             "$ref": "#/components/schemas/RecipientsParty"
                         }
                     },
+                    "pickupDetail": {
+                        "$ref": "#/components/schemas/PickupDetail"
+                    },
                     "soldTo": {
                         "description": "Will indicate the party responsible for purchasing the goods shipped from the shipper to the recipient. The sold to party is not necessarily the recipient or the importer of record. The sold to party is relevant when the purchaser, rather than the recipient determines when certain customs regulations apply.",
                         "$ref": "#/components/schemas/SoldToParty"
@@ -7403,7 +7984,7 @@
                     },
                     "totalWeight": {
                         "type": "number",
-                        "description": "Indicate the shipment total weight in pounds.<br>Example: 10.6<br>Note: <ul><li>This only applies to International shipments and should be used on the first package of a multiple piece shipment.</li><li>This value contains 1 explicit decimal position.</li><li>For one Label at a time shipments, the unit of totalWeight is considered same as the unit of weight provided in requestedPackageLineItem field.</li></ul>",
+                        "description": "Indicate the shipment total weight in Metric or US.<br>Example: 10.6<br>Note: <ul><li>This only applies to International shipments and should be used on the first package of a multiple piece shipment.</li><li>This value contains 1 explicit decimal position.</li><li>For one Label at a time shipments, the unit of totalWeight is considered same as the unit of weight provided in requestedPackageLineItem field.</li></ul>",
                         "format": "double",
                         "example": 20.6
                     },
@@ -7476,6 +8057,13 @@
                     "masterTrackingId": {
                         "$ref": "#/components/schemas/MasterTrackingId"
                     },
+                    "variationOptions": {
+                        "type": "array",
+                        "description": "The shipment variations for the current shipment expressed in key-value pairs",
+                        "items": {
+                            "$ref": "#/components/schemas/VariationOptions"
+                        }
+                    },
                     "requestedPackageLineItems": {
                         "type": "array",
                         "description": "These are one or more package-attribute descriptions, each of which describes an individual package, a group of identical packages, or (for the total-piece-total-weight case) common characteristics of all packages in the shipment.<ul><li>At least one instance containing the weight for at least one package is required for EXPRESS and GROUND shipments.</li><li>Single piece requests will have one RequestedPackageLineItem.</li><li>Multiple piece requests will have multiple RequestedPackageLineItems.</li><li>Maximum occurrences is 30.</li></ul>",
@@ -7488,46 +8076,43 @@
             },
             "Address": {
                 "type": "object",
+                "description": "Address of the manufacturer",
                 "properties": {
                     "streetLines": {
                         "type": "array",
-                        "description": "This is the combination of number, street name, etc. <br>Note: At least one line is required and streetlines more than 3 will be ignored. Empty lines should not be included. Maximum length per line is 35.<br>Example: [10 FedEx Parkway, Suite 302, .etc.]",
+                        "description": "Combination of number, street name, etc. At least one line is required for a valid physical address. Empty lines should not be included.98 Royal Crescent",
+                        "example": [
+                            "98 Royal Crescent"
+                        ],
                         "items": {
                             "type": "string"
                         }
                     },
                     "city": {
                         "type": "string",
-                        "description": "This is a placeholder for City Name.<br>Note: This is conditional and not required in all the requests.<br>Note: It is recommended for Express shipments for the most accurate ODA and OPA surcharges.<br>Example: Beverly Hills"
+                        "description": "The name of city, town of the recipient.Example: Birmingham",
+                        "example": "Birmingham"
                     },
                     "stateOrProvinceCode": {
                         "type": "string",
-                        "description": "This is a placeholder for State or Province code.State code is required for US, CA, PR and not required for other countries. Conditional. Max length is 2.<br>Example: CA<br><a onclick='loadDocReference(\"canadaprovincecodes\")'>click here to see State or Province Code</a>"
+                        "description": "It is used to identify the principal subdivisions (e.g., provinces or states) of countries. The Format and presence of this field may vary depending on the country. Example: CA.<a onclick='loadDocReference(\"canadaprovincecodes\")'>click here to see State or Province Code</a>",
+                        "example": "CA"
                     },
                     "postalCode": {
                         "type": "string",
-                        "description": "Indicate the Postal code. This is Optional for non postal-aware countries. Maximum length is 10.<br> Example: 65247<br><a onclick='loadDocReference(\"postalawarecountries\")'>click here to see Postal aware countries</a>"
+                        "description": "The US State and Canada Province codes. The Format and presence of this field may vary depending on the country. Example: 35209<a onclick='loadDocReference(\"postalawarecountries\")'>click here to see Postal aware countries</a>",
+                        "example": "35209"
                     },
                     "countryCode": {
                         "type": "string",
-                        "description": "This is the two-letter country code.<br>Maximum length is 2.<br>Example: US<br><a onclick='loadDocReference(\"countrycodes\")'>click here to see Country codes</a>"
+                        "description": "The two-letter code used to identify a country.Example: US<a onclick='loadDocReference(\"countrycodes\")'>click here to see Country codes</a>",
+                        "example": "US"
                     },
                     "residential": {
                         "type": "boolean",
-                        "description": "Indicate whether this address is residential (as opposed to commercial)."
+                        "description": "Indicate whether this address is residential (as opposed to commercial).Valid Values: True or False.",
+                        "example": false
                     }
-                },
-                "description": "Descriptive data for a physical location. May be used as an actual physical address (place to which one could go), or as a container of \"address parts\" which should be handled as a unit (such as a city-state-ZIP combination within the US).",
-                "example": {
-                    "streetLines": [
-                        "10 FedEx Parkway",
-                        "Suite 302"
-                    ],
-                    "city": "Beverly Hills",
-                    "stateOrProvinceCode": "CA",
-                    "postalCode": "38127",
-                    "countryCode": "US",
-                    "residential": false
                 }
             },
             "PartyAccountNumber": {
@@ -7663,101 +8248,6 @@
                     }
                 }
             },
-            "Commodity": {
-                "required": [
-                    "description"
-                ],
-                "type": "object",
-                "properties": {
-                    "unitPrice": {
-                        "description": "This is the unit price.",
-                        "$ref": "#/components/schemas/Money"
-                    },
-                    "additionalMeasures": {
-                        "type": "array",
-                        "description": "This object contains additional quantitative information other than weight and quantity to calculate duties and taxes.",
-                        "items": {
-                            "$ref": "#/components/schemas/AdditionalMeasures"
-                        }
-                    },
-                    "numberOfPieces": {
-                        "type": "integer",
-                        "description": "Indicate the number of pieces associated with the commodity. The value can neither be negative nor exceed 9,999.<br>Example: 12",
-                        "format": "int32",
-                        "example": 12
-                    },
-                    "quantity": {
-                        "type": "integer",
-                        "description": "This is the units quantity (using quantityUnits as the unit of measure) per commodity. This is used to estimate duties and taxes.<br> Example: 125",
-                        "format": "int32",
-                        "example": 125
-                    },
-                    "quantityUnits": {
-                        "type": "string",
-                        "description": "This is the unit of measure for the units quantity. This is used to estimate duties and taxes.<br>Example: EA<br><a onclick='loadDocReference(\"harmonizedsystemcodeunitofmeasure-table1\")'>click here to see Commodity Unit Measures</a>",
-                        "example": "Ea"
-                    },
-                    "customsValue": {
-                        "description": "This customs value is applicable for all items(or units) under the specified commodity.",
-                        "$ref": "#/components/schemas/Customs_Money"
-                    },
-                    "countryOfManufacture": {
-                        "type": "string",
-                        "description": "This is commodity country of manufacture. This is required for International shipments. Maximum allowed length is 4.<br>Example: US<br><a onclick='loadDocReference(\"countrycodes\")'>click here to see Country codes</a>",
-                        "example": "US"
-                    },
-                    "cIMarksAndNumbers": {
-                        "type": "string",
-                        "description": "This is an identifying mark or number used on the packaging of a shipment to help customers identify a particular shipment<br>Example: 87123",
-                        "example": "87123"
-                    },
-                    "harmonizedCode": {
-                        "type": "string",
-                        "description": "This is to specify the Harmonized Tariff System (HTS) code to meet U.S. and foreign governments' customs requirements. These are mainly used to estimate the duties and taxes.<br>Example: 0613<br>To research the classification for your commodity, use the FedEx Global Trade Manager online at <a href='http://www.fedex.com/gtm' target='_blank'>fedex.com/gtm</a>. You will find country-specific information to determine whether your commodity is considered to be a document or non-document for your destination.",
-                        "example": "0613"
-                    },
-                    "description": {
-                        "type": "string",
-                        "description": "Required<br>ScrewsMaximum allowed 450 characters.<br>Example: description",
-                        "example": "description"
-                    },
-                    "name": {
-                        "type": "string",
-                        "description": "This is Commodity name.<br>Example: Non-Threaded Rivets",
-                        "example": "non-threaded rivets"
-                    },
-                    "weight": {
-                        "$ref": "#/components/schemas/Weight"
-                    },
-                    "exportLicenseNumber": {
-                        "type": "string",
-                        "description": "This is the export license number for the shipment.<br>Example: 26456",
-                        "example": "26456"
-                    },
-                    "exportLicenseExpirationDate": {
-                        "type": "string",
-                        "description": "Specify the export license expiration date for the shipment.<br>Format YYYY-MM-DD<br>Example : 2009-04-12",
-                        "format": "date-time"
-                    },
-                    "partNumber": {
-                        "type": "string",
-                        "description": "This is a part number.<br>Example: 167",
-                        "example": "167"
-                    },
-                    "purpose": {
-                        "type": "string",
-                        "description": "This field is used for calculation of duties and taxes.<br><br> Valid values are : BUSINESS and CONSUMER. <br>Example:BUSINESS",
-                        "example": "BUSINESS",
-                        "enum": [
-                            "BUSINESS",
-                            "CONSUMER"
-                        ]
-                    },
-                    "usmcaDetail": {
-                        "$ref": "#/components/schemas/UsmcaDetail"
-                    }
-                }
-            },
             "DocTabContentZone": {
                 "type": "object",
                 "properties": {
@@ -7770,6 +8260,135 @@
                     }
                 },
                 "description": "Indicate the doc tab specification for different zones on the label. The specification includes zone number, header and data field to be displayed on the label."
+            },
+            "EdtTaxDetail": {
+                "description": "Estimated duties and taxes detail.",
+                "type": "object",
+                "properties": {
+                    "taxType": {
+                        "description": "Estimated taxes type",
+                        "type": "string",
+                        "enum": [
+                            "ADDITIONAL_TAXES",
+                            "CONSULAR_INVOICE_FEE",
+                            "CUSTOMS_SURCHARGES",
+                            "DUTY",
+                            "EXCISE_TAX",
+                            "FOREIGN_EXCHANGE_TAX",
+                            "GENERAL_SALES_TAX",
+                            "IMPORT_LICENSE_FEE",
+                            "INTERNAL_ADDITIONAL_TAXES",
+                            "INTERNAL_SENSITIVE_PRODUCTS_TAX",
+                            "OTHER",
+                            "SENSITIVE_PRODUCTS_TAX",
+                            "STAMP_TAX",
+                            "STATISTICAL_TAX",
+                            "TRANSPORT_FACILITIES_TAX"
+                        ],
+                        "example": "INCENTIVE"
+                    },
+                    "taxcode": {
+                        "type": "string",
+                        "example": "taxcode"
+                    },
+                    "effectiveDate": {
+                        "description": "Estimated duties and taxes effective date. Format [YYYY-MM-DD].",
+                        "type": "string",
+                        "example": "2019-12-06"
+                    },
+                    "name": {
+                        "description": "The localized name of the surcharge.",
+                        "type": "string",
+                        "example": "VAT"
+                    },
+                    "taxableValue": {
+                        "description": "Estimated duties and taxes taxable Value.",
+                        "$ref": "#/components/schemas/Money_2"
+                    },
+                    "description": {
+                        "description": "FedEx pays the Duty and Tax charges on your behalf to ensure we can deliver your shipment as quickly as possible",
+                        "type": "string",
+                        "example": "Christmas"
+                    },
+                    "formula": {
+                        "description": "Indicates the formula.",
+                        "type": "string",
+                        "example": "VAT Payable = Output VAT \u2013 Input VAT"
+                    },
+                    "amount": {
+                        "description": "Amount for the estimated duties and taxes type.",
+                        "$ref": "#/components/schemas/Money_2"
+                    },
+                    "taxRates": {
+                        "description": "Estimated duties and taxes taxRates",
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "value": {
+                                    "type": "string",
+                                    "example": null
+                                },
+                                "currency": {
+                                    "type": "string",
+                                    "example": null
+                                },
+                                "quantity": {
+                                    "format": "double",
+                                    "type": "number",
+                                    "example": null
+                                },
+                                "unitOfMeasure": {
+                                    "type": "string",
+                                    "example": null
+                                }
+                            }
+                        }
+                    },
+                    "appliedPreferentialTradeAgreement": {
+                        "description": "provides details about PTA applied between countries for specific product. ",
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "description": "",
+                                "type": "string",
+                                "example": "description"
+                            },
+                            "name": {
+                                "description": "",
+                                "type": "string",
+                                "example": "description"
+                            },
+                            "description": {
+                                "description": "",
+                                "type": "string",
+                                "example": "description"
+                            }
+                        }
+                    }
+                }
+            },
+            "VariableHandlingCharges": {
+                "description": "Optional. The variable handling charge amount calculated based on the requested variable handling charge detail.",
+                "type": "object",
+                "properties": {
+                    "variableHandlingCharge": {
+                        "description": "Optional. The variable handling charge amount calculated based on the requested variable handling charge detail",
+                        "$ref": "#/components/schemas/Money_2"
+                    },
+                    "fixedVariableHandlingCharge": {
+                        "description": "Optional. The variable handling charge amount calculated based on the requested variable handling charge detail.",
+                        "$ref": "#/components/schemas/Money_2"
+                    },
+                    "percentVariableHandlingCharge": {
+                        "description": "Optional. The variable handling charge amount calculated based on the requested variable handling charge detail",
+                        "$ref": "#/components/schemas/Money_2"
+                    },
+                    "totalCustomerCharge": {
+                        "description": "Specifies the total customer assessed handling charges.<br> Example: 445.54",
+                        "$ref": "#/components/schemas/Money_2"
+                    }
+                }
             },
             "CXSError": {
                 "type": "object",
@@ -7849,12 +8468,52 @@
                     }
                 }
             },
+            "Money": {
+                "type": "object",
+                "properties": {
+                    "amount": {
+                        "type": "number",
+                        "description": "This is the amount. Maximum limit is 5 digits before decimal.<br>Example: 12.45",
+                        "format": "double",
+                        "example": 12.45
+                    },
+                    "currency": {
+                        "type": "string",
+                        "description": "This is the currency code for the amount.<br>Example: USD<br><a onclick='loadDocReference(\"currencycodes\")'>Click here to see Currency codes</a>",
+                        "example": "USD"
+                    }
+                },
+                "description": "This customs value is applicable for all items(or units) under the specified commodity"
+            },
+            "Money_2": {
+                "required": [
+                    "value"
+                ],
+                "type": "object",
+                "properties": {
+                    "currency": {
+                        "type": "string",
+                        "description": "Three-character currency code (e.g. USD, CAD, EUR, JPY, etc.) <br><a href=\"/developer-portal/en-us/reference-guide.html#currencycodes\" target=\"_blank\">Click here to see Currency Codes</a>",
+                        "example": "USD"
+                    },
+                    "value": {
+                        "type": "string",
+                        "description": "Specify the value.",
+                        "example": "CUSTOMS_VALUE",
+                        "enum": [
+                            "CUSTOMS_VALUE",
+                            "INSURED_VALUE"
+                        ]
+                    }
+                },
+                "description": "This is commodity value used for Customs declaration."
+            },
             "PartyAddress": {
                 "type": "object",
                 "properties": {
                     "streetLines": {
                         "type": "array",
-                        "description": "Combination of number, street name, etc. At least one line is required for a valid physical address. Empty lines should not be included. Max Length is 35.<br>Example: [1550 Union Blvd,Suite 302]",
+                        "description": "This is the Combination of number, street name, etc. At least one line is required for a valid physical address. Empty lines should not be included. Max Length is 35. <br>Note - For FedEx Ground Economy, a maximum of 30 characters will be printed on the label, excess characters will be truncated.<br>Example: [1550 Union Blvd,Suite 302]",
                         "example": "1550 Union Blvd, Suite 302",
                         "items": {
                             "type": "string"
@@ -7921,7 +8580,7 @@
                     },
                     "stateOrProvinceCode": {
                         "type": "string",
-                        "description": "This is a placeholder for State or Province code.State code is required for US, CA, PR and not required for other countries. Conditional. Max length is 2.<br>Example: CA.<br><a onclick='loadDocReference(\"canadaprovincecodes\")'>click here to see State or Province Code</a>",
+                        "description": "This is a placeholder for State or Province code.State code is required for US, CA, PR and not required for other countries. Conditional.<br>Example: CA.<br><a onclick='loadDocReference(\"canadaprovincecodes\")'>click here to see State or Province Code</a>",
                         "example": "CA"
                     },
                     "postalCode": {
@@ -7963,7 +8622,7 @@
                 "properties": {
                     "personName": {
                         "type": "string",
-                        "description": "Specify contact name. Maximum length is 70. <br>Note: Either the companyName or personName is mandatory.<br> Example: John Taylor",
+                        "description": "Specify contact name. First 35 chars will be printed on the label, excess characters will be truncated. <br> Note: Either the companyName or personName is manadatory. <br> Example : John Taylor",
                         "example": "John Taylor"
                     },
                     "emailAddress": {
@@ -7978,7 +8637,7 @@
                     },
                     "phoneNumber": {
                         "type": "string",
-                        "description": "The shipper's phone number. <br>Minimum length is 10 and supports maximum of 15 for certain countries using longer phone numbers.<br>Note: For US and CA, a phone number must have exactly 10 digits, plus an optional leading country code of '1' or '+1'.<br>Example: 918xxxxx890",
+                        "description": "The shipper's phone number. <br>Minimum length is 1 and supports maximum of 15 for certain countries using longer phone numbers.<br>Note: For US and CA, a phone number must have exactly 10 digits, plus an optional leading country code of '1' or '+1'.<br>Example: 918xxxxx890",
                         "example": "918xxxxx890"
                     },
                     "companyName": {
@@ -8053,7 +8712,7 @@
                     },
                     "phoneNumber": {
                         "type": "string",
-                        "description": "Contact person's phone number. <br>Minimum length is 10 and supports maximum of 15 for certain countries using longer phone numbers.<br>Note: For US and CA, a phone number must have exactly 10 digits, plus an optional leading country code of '1' or '+1'.<br>Example: 918xxxxx890",
+                        "description": "Contact person's phone number. <br>Minimum length is 1 and supports maximum of 15 for certain countries using longer phone numbers.<br>Note: For US and CA, a phone number must have exactly 10 digits, plus an optional leading country code of '1' or '+1'.<br>Example: 918xxxxx890",
                         "example": "918xxxxx890"
                     },
                     "phoneExtension": {
@@ -8096,7 +8755,7 @@
                     },
                     "phoneNumber": {
                         "type": "string",
-                        "description": "The shippers phone number. <br>Minimum length is 10 and supports maximum of 15 for certain countries using longer phone numbers.<br>Note: For US and CA, a phone number must have exactly 10 digits, plus an optional leading country code of 1 or +1.<br>Example: 918xxxxx890"
+                        "description": "The shippers phone number. <br>Minimum length is 1 and supports maximum of 15 for certain countries using longer phone numbers.<br>Note: For US and CA, a phone number must have exactly 10 digits, plus an optional leading country code of 1 or +1.<br>Example: 918xxxxx890"
                     },
                     "phoneExtension": {
                         "type": "string",
@@ -8108,6 +8767,16 @@
                     }
                 },
                 "description": "Specify the contact information."
+            },
+            "Contact_3": {
+                "type": "object",
+                "properties": {
+                    "companyName": {
+                        "type": "string",
+                        "description": "Legal name of the manufacturer of the commodity.",
+                        "example": "THE GREENHOUSE"
+                    }
+                }
             },
             "Payment": {
                 "required": [
@@ -8247,7 +8916,7 @@
                         "$ref": "#/components/schemas/ResponsiblePartyParty"
                     }
                 },
-                "description": "Payor is mandatory when the paymentType is RECIPIENT, THIRD_PARTY or COLLECT.",
+                "description": "Payor is mandatory when the paymentType is RECIPIENT, THIRD_PARTY.",
                 "example": {
                     "responsibleParty": {
                         "address": {
@@ -8516,7 +9185,7 @@
                 "type": "object",
                 "properties": {
                     "totalWeight": {
-                        "description": "Specify total dry ice weight for the shipment.",
+                        "description": "This is the total dry ice weight in all packages of this shipment",
                         "$ref": "#/components/schemas/Weight"
                     },
                     "packageCount": {
@@ -8530,6 +9199,494 @@
                     }
                 },
                 "description": "Specifies the shipment level totals of dry ice data across all packages."
+            },
+            "Commodity": {
+                "required": [
+                    "description"
+                ],
+                "type": "object",
+                "properties": {
+                    "clearanceItemDetail": {
+                        "type": "array",
+                        "description": "These are commodities clearance item detail",
+                        "items": {
+                            "$ref": "#/components/schemas/ClearanceItemDetail"
+                        }
+                    },
+                    "unitPrice": {
+                        "description": "This is the unit price.",
+                        "$ref": "#/components/schemas/Money"
+                    },
+                    "additionalMeasures": {
+                        "type": "array",
+                        "description": "This object contains additional quantitative information other than weight and quantity to calculate duties and taxes.",
+                        "items": {
+                            "$ref": "#/components/schemas/AdditionalMeasures"
+                        }
+                    },
+                    "numberOfPieces": {
+                        "type": "integer",
+                        "description": "Indicate the number of pieces associated with the commodity. The value can neither be negative nor exceed 9,999.<br>Example: 12",
+                        "format": "int32",
+                        "example": 12
+                    },
+                    "quantity": {
+                        "type": "integer",
+                        "description": "This is the units quantity (using quantityUnits as the unit of measure) per commodity. This is used to estimate duties and taxes.<br> Example: 125",
+                        "format": "int32",
+                        "example": 125
+                    },
+                    "quantityUnits": {
+                        "type": "string",
+                        "description": "This is the unit of measure for the units quantity. This is used to estimate duties and taxes.<br>Example: EA<br><a onclick='loadDocReference(\"harmonizedsystemcodeunitofmeasure-table1\")'>click here to see Commodity Unit Measures</a>",
+                        "example": "Ea"
+                    },
+                    "customsValue": {
+                        "description": "This customs value is applicable for all items(or units) under the specified commodity.",
+                        "$ref": "#/components/schemas/Customs_Money"
+                    },
+                    "countryOfManufacture": {
+                        "type": "string",
+                        "description": "This is commodity country of manufacture. This is required for International shipments. Maximum allowed length is 4.<br>Example: US<br><a onclick='loadDocReference(\"countrycodes\")'>click here to see Country codes</a>",
+                        "example": "US"
+                    },
+                    "cIMarksAndNumbers": {
+                        "type": "string",
+                        "description": "This is an identifying mark or number used on the packaging of a shipment to help customers identify a particular shipment<br>Example: 87123",
+                        "example": "87123"
+                    },
+                    "harmonizedCode": {
+                        "type": "string",
+                        "description": "This is to specify the Harmonized Tariff System (HTS) code to meet U.S. and foreign governments' customs requirements. These are mainly used to estimate the duties and taxes.<br>Example: 0613<br>To research the classification for your commodity, use the FedEx Global Trade Manager online at <a href='http://www.fedex.com/gtm' target='_blank'>fedex.com/gtm</a>. You will find country-specific information to determine whether your commodity is considered to be a document or non-document for your destination.",
+                        "example": "0613"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "Required<br>ScrewsMaximum allowed 450 characters.<br>Example: description",
+                        "example": "description"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "This is Commodity name.<br>Example: Non-Threaded Rivets",
+                        "example": "non-threaded rivets"
+                    },
+                    "weight": {
+                        "$ref": "#/components/schemas/Weight"
+                    },
+                    "exportLicenseNumber": {
+                        "type": "string",
+                        "description": "This is the export license number for the shipment.<br>Example: 26456",
+                        "example": "26456"
+                    },
+                    "exportLicenseExpirationDate": {
+                        "type": "string",
+                        "description": "Specify the export license expiration date for the shipment.<br>Format YYYY-MM-DD<br>Example : 2009-04-12",
+                        "format": "date-time"
+                    },
+                    "partNumber": {
+                        "type": "string",
+                        "description": "This is a part number.<br>Example: 167",
+                        "example": "167"
+                    },
+                    "purpose": {
+                        "type": "string",
+                        "description": "This field is used for calculation of duties and taxes.<br><br> Valid values are : BUSINESS and CONSUMER. <br>Example:BUSINESS",
+                        "example": "BUSINESS",
+                        "enum": [
+                            "BUSINESS",
+                            "CONSUMER"
+                        ]
+                    },
+                    "usmcaDetail": {
+                        "$ref": "#/components/schemas/UsmcaDetail"
+                    }
+                }
+            },
+            "Commodity_2": {
+                "required": [
+                    "description"
+                ],
+                "type": "object",
+                "properties": {
+                    "unitPrice": {
+                        "description": "This is the unit price.",
+                        "$ref": "#/components/schemas/Money"
+                    },
+                    "additionalMeasures": {
+                        "type": "array",
+                        "description": "This object contains additional quantitative information other than weight and quantity to calculate duties and taxes.",
+                        "items": {
+                            "$ref": "#/components/schemas/AdditionalMeasures"
+                        }
+                    },
+                    "numberOfPieces": {
+                        "type": "integer",
+                        "description": "Indicate the number of pieces associated with the commodity. The value can neither be negative nor exceed 9,999.<br>Example: 12",
+                        "format": "int32",
+                        "example": 12
+                    },
+                    "quantity": {
+                        "type": "integer",
+                        "description": "This is the units quantity (using quantityUnits as the unit of measure) per commodity. This is used to estimate duties and taxes.<br> Example: 125",
+                        "format": "int32",
+                        "example": 125
+                    },
+                    "quantityUnits": {
+                        "type": "string",
+                        "description": "This is the unit of measure for the units quantity. This is used to estimate duties and taxes.<br>Example: EA<br><a onclick='loadDocReference(\"harmonizedsystemcodeunitofmeasure-table1\")'>click here to see Commodity Unit Measures</a>",
+                        "example": "Ea"
+                    },
+                    "customsValue": {
+                        "description": "This customs value is applicable for all items(or units) under the specified commodity.",
+                        "$ref": "#/components/schemas/Customs_Money"
+                    },
+                    "countryOfManufacture": {
+                        "type": "string",
+                        "description": "This is commodity country of manufacture. This is required for International shipments. Maximum allowed length is 4.<br>Example: US<br><a onclick='loadDocReference(\"countrycodes\")'>click here to see Country codes</a>",
+                        "example": "US"
+                    },
+                    "cIMarksAndNumbers": {
+                        "type": "string",
+                        "description": "This is an identifying mark or number used on the packaging of a shipment to help customers identify a particular shipment<br>Example: 87123",
+                        "example": "87123"
+                    },
+                    "harmonizedCode": {
+                        "type": "string",
+                        "description": "This is to specify the Harmonized Tariff System (HTS) code to meet U.S. and foreign governments' customs requirements. These are mainly used to estimate the duties and taxes.<br>Example: 0613<br>To research the classification for your commodity, use the FedEx Global Trade Manager online at <a href='http://www.fedex.com/gtm' target='_blank'>fedex.com/gtm</a>. You will find country-specific information to determine whether your commodity is considered to be a document or non-document for your destination.",
+                        "example": "0613"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "Required<br>ScrewsMaximum allowed 450 characters.<br>Example: description",
+                        "example": "description"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "This is Commodity name.<br>Example: Non-Threaded Rivets",
+                        "example": "non-threaded rivets"
+                    },
+                    "weight": {
+                        "$ref": "#/components/schemas/Weight"
+                    },
+                    "exportLicenseNumber": {
+                        "type": "string",
+                        "description": "This is the export license number for the shipment.<br>Example: 26456",
+                        "example": "26456"
+                    },
+                    "exportLicenseExpirationDate": {
+                        "type": "string",
+                        "description": "Specify the export license expiration date for the shipment.<br>Format YYYY-MM-DD<br>Example : 2009-04-12",
+                        "format": "date-time"
+                    },
+                    "partNumber": {
+                        "type": "string",
+                        "description": "This is a part number.<br>Example: 167",
+                        "example": "167"
+                    },
+                    "purpose": {
+                        "type": "string",
+                        "description": "This field is used for calculation of duties and taxes.<br><br> Valid values are : BUSINESS and CONSUMER. <br>Example:BUSINESS",
+                        "example": "BUSINESS",
+                        "enum": [
+                            "BUSINESS",
+                            "CONSUMER"
+                        ]
+                    },
+                    "usmcaDetail": {
+                        "$ref": "#/components/schemas/UsmcaDetail"
+                    }
+                }
+            },
+            "Surcharge": {
+                "type": "object",
+                "properties": {
+                    "amount": {
+                        "type": "number",
+                        "format": "double",
+                        "example": "56.22",
+                        "description": "This is the surcharge amount.<br>Example: 15.35"
+                    },
+                    "surchargeType": {
+                        "type": "string",
+                        "description": "This is the surcharge type.<br>Example: APPOINTMENT_DELIVERY",
+                        "example": "APPOINTMENT_DELIVERY"
+                    },
+                    "level": {
+                        "type": "string",
+                        "description": "Specifies if the surcharge applies to the entire shipment, or to an individual package.<br>Example: PACKAGE",
+                        "example": "PACKAGE, or SHIPMENT"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "Specifies the description of the surcharge. Indicates delivery and returns information for FedEx Ground Economy services. <br>Example: Fuel Surcharge",
+                        "example": "description"
+                    }
+                },
+                "description": "These are surcharges details.<br><a onclick='loadDocReference(\"surcharges\")'>click here to see Surcharges</a>"
+            },
+            "Surcharge_2": {
+                "type": "object",
+                "properties": {
+                    "surchargeType": {
+                        "description": "The type of surcharge.",
+                        "type": "string",
+                        "enum": [
+                            "ACCOUNT_NUMBER_PROCESSING_FEE",
+                            "ADDITIONAL_HANDLING",
+                            "ADDRESS_CORRECTION",
+                            "ANCILLARY_FEE",
+                            "APPOINTMENT_DELIVERY",
+                            "BLIND_SHIPMENT",
+                            "BROKER_SELECT_OPTION",
+                            "CANADIAN_DESTINATION",
+                            "CHARGEABLE_PALLET_WEIGHT",
+                            "COD",
+                            "CUT_FLOWERS",
+                            "DANGEROUS_GOODS",
+                            "DELIVERY_AREA",
+                            "DELIVERY_CONFIRMATION",
+                            "DELIVERY_ON_INVOICE_ACCEPTANCE",
+                            "DEMAND",
+                            "DEMAND_ADDITIONAL_HANDLING",
+                            "DEMAND_OVERSIZE",
+                            "DEMAND_RESIDENTIAL_DELIVERY",
+                            "DETENTION",
+                            "DOCUMENTATION_FEE",
+                            "DRY_ICE",
+                            "EMAIL_LABEL",
+                            "ENHANCED_SECURITY",
+                            "EUROPE_FIRST",
+                            "EXCESS_VALUE",
+                            "EXCLUSIVE_USE",
+                            "EXHIBITION",
+                            "EXPEDITED",
+                            "EXPORT",
+                            "EXTRA_LABOR",
+                            "EXTRA_SURFACE_HANDLING_CHARGE",
+                            "EXTREME_LENGTH",
+                            "FEDEX_INTRACOUNTRY_FEES",
+                            "FEDEX_TAG",
+                            "FICE",
+                            "FLATBED",
+                            "FREIGHT_DIRECT_BASIC_BY_APPOINTMENT_DELIVERY",
+                            "FREIGHT_DIRECT_BASIC_BY_APPOINTMENT_PICKUP",
+                            "FREIGHT_DIRECT_BASIC_DELIVERY",
+                            "FREIGHT_DIRECT_BASIC_PICKUP",
+                            "FREIGHT_DIRECT_PREMIUM_DELIVERY",
+                            "FREIGHT_DIRECT_PREMIUM_PICKUP",
+                            "FREIGHT_DIRECT_STANDARD_DELIVERY",
+                            "FREIGHT_DIRECT_STANDARD_PICKUP",
+                            "FREIGHT_GUARANTEE",
+                            "FREIGHT_ON_VALUE",
+                            "FREIGHT_TO_COLLECT",
+                            "FUEL",
+                            "HIGH_COST_SERVICE_AREA_DESTINATION",
+                            "HIGH_COST_SERVICE_AREA_ORIGIN",
+                            "HIGH_DENSITY",
+                            "HOLD_AT_LOCATION",
+                            "HOLIDAY_DELIVERY",
+                            "HOLIDAY_GUARANTEE",
+                            "HOME_DELIVERY_APPOINTMENT",
+                            "HOME_DELIVERY_DATE_CERTAIN",
+                            "HOME_DELIVERY_EVENING",
+                            "INSIDE_DELIVERY",
+                            "INSIDE_PICKUP",
+                            "INSURED_VALUE",
+                            "INTERHAWAII",
+                            "LIFTGATE_DELIVERY",
+                            "LIFTGATE_PICKUP",
+                            "LIMITED_ACCESS_DELIVERY",
+                            "LIMITED_ACCESS_PICKUP",
+                            "MARKING_OR_TAGGING",
+                            "METRO_DELIVERY",
+                            "METRO_PICKUP",
+                            "MONITORING_AND_INTERVENTION",
+                            "NON_BUSINESS_TIME",
+                            "NON_MACHINABLE",
+                            "OFFSHORE",
+                            "ON_CALL_PICKUP",
+                            "ON_DEMAND_CARE",
+                            "OTHER",
+                            "OUT_OF_DELIVERY_AREA",
+                            "OUT_OF_PICKUP_AREA",
+                            "OVER_DIMENSION",
+                            "OVER_LENGTH",
+                            "OVERSIZE",
+                            "OVERWEIGHT",
+                            "PALLET_SHRINKWRAP",
+                            "PALLETS_PROVIDED",
+                            "PEAK",
+                            "PEAK_ADDITIONAL_HANDLING",
+                            "PEAK_OVERSIZE",
+                            "PEAK_RESIDENTIAL_DELIVERY",
+                            "PERMIT",
+                            "PIECE_COUNT_VERIFICATION",
+                            "PORT",
+                            "PRE_DELIVERY_NOTIFICATION",
+                            "PRIORITY_ALERT",
+                            "PROTECTION_FROM_FREEZING",
+                            "REGIONAL_MALL_DELIVERY",
+                            "REGIONAL_MALL_PICKUP",
+                            "REROUTE",
+                            "RESCHEDULE",
+                            "RESIDENTIAL_DELIVERY",
+                            "RESIDENTIAL_PICKUP",
+                            "RETURN_LABEL",
+                            "SATURDAY_DELIVERY",
+                            "SATURDAY_PICKUP",
+                            "SHIPMENT_ASSEMBLY",
+                            "SIGNATURE_OPTION",
+                            "SINGLE_PIECE",
+                            "SORT_AND_SEGREGATE",
+                            "SPECIAL_DELIVERY",
+                            "SPECIAL_EQUIPMENT",
+                            "STORAGE",
+                            "SUNDAY_DELIVERY",
+                            "TARP",
+                            "THIRD_PARTY_BILLING",
+                            "THIRD_PARTY_CONSIGNEE",
+                            "TRANSMART_SERVICE_FEE",
+                            "USPS",
+                            "WEIGHING"
+                        ],
+                        "example": "COD"
+                    },
+                    "level": {
+                        "description": "The level of surcharge.",
+                        "type": "string",
+                        "enum": [
+                            "PACKAGE",
+                            "SHIPMENT"
+                        ],
+                        "example": "PACKAGE"
+                    },
+                    "description": {
+                        "description": "The description of the surcharge.",
+                        "type": "string",
+                        "example": "description"
+                    },
+                    "amount": {
+                        "description": "Identifies the total amount of the shipment-level fees and taxes that are not based on transportation charges or commodity-level estimated duties and taxes.",
+                        "$ref": "#/components/schemas/Money_2"
+                    }
+                }
+            },
+            "RateDiscount": {
+                "type": "object",
+                "properties": {
+                    "rateDiscountType": {
+                        "description": "Indicates the type.",
+                        "type": "string",
+                        "enum": [
+                            "BONUS",
+                            "COUPON",
+                            "EARNED",
+                            "INCENTIVE",
+                            "OTHER",
+                            "VOLUME"
+                        ],
+                        "example": "INCENTIVE"
+                    },
+                    "description": {
+                        "description": "Indicates the description for the rate discount.",
+                        "type": "string",
+                        "example": "description"
+                    },
+                    "amount": {
+                        "description": "Indicates the amount for the rate discount.",
+                        "$ref": "#/components/schemas/Money_2"
+                    },
+                    "percent": {
+                        "format": "double",
+                        "type": "number",
+                        "example": 0
+                    }
+                }
+            },
+            "RateDiscount_2": {
+                "type": "object",
+                "properties": {
+                    "amount": {
+                        "type": "number",
+                        "description": "Specifies the amount.<br>Example: 8.9",
+                        "format": "double",
+                        "example": 8.9
+                    },
+                    "rateDiscountType": {
+                        "type": "string",
+                        "description": "The type of rate discount. <br/> Valid Values are BONUS, COUPON,EARNED,OTHER,VOLUME.<br>Example: COUPON",
+                        "example": "COUPON"
+                    },
+                    "percent": {
+                        "type": "number",
+                        "description": "Specifies the percentage of Rate discount.<br>Example: 28.9",
+                        "format": "double",
+                        "example": 28.9
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "Specifies the description of the discounted rate.<br>Example: description",
+                        "example": "description"
+                    }
+                },
+                "description": "Specifies discount Rate for Shipment."
+            },
+            "Tax": {
+                "description": "Tax surcharge details",
+                "type": "object",
+                "properties": {
+                    "taxType": {
+                        "description": "Specifies the type of Surcharge/Tax.",
+                        "type": "string",
+                        "enum": [
+                            "EXPORT",
+                            "GST",
+                            "HST",
+                            "INTRACOUNTRY",
+                            "OTHER",
+                            "PST",
+                            "SST",
+                            "VAT"
+                        ],
+                        "example": "VAT"
+                    },
+                    "description": {
+                        "description": "Specifies the description of the Surcharge/Tax.",
+                        "type": "string",
+                        "example": "description"
+                    },
+                    "amount": {
+                        "description": "Specifies the list of tax amounts.",
+                        "$ref": "#/components/schemas/Money_2"
+                    }
+                }
+            },
+            "Tax_2": {
+                "type": "object",
+                "properties": {
+                    "amount": {
+                        "type": "number",
+                        "description": "Indicates the amount of tax.<br>Example: 10.0",
+                        "format": "double",
+                        "example": 10
+                    },
+                    "level": {
+                        "type": "string",
+                        "description": "Indicates the Level of Tax.<br>Example: level",
+                        "example": "level"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "Placeholder for the tax description.<br>Example: descrption",
+                        "example": "description"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "Placeholder for the Type of the Tax.<br>Example:type",
+                        "example": "type"
+                    }
+                },
+                "description": "Specifies the tax for the shipment."
             },
             "ErrorResponseVO": {
                 "type": "object",

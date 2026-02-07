@@ -284,6 +284,9 @@
                         "type": "boolean",
                         "description": "This element checks for mismatch between State/Province Code and Postal Code. <ul><li>When the checkForMismatch is set TRUE, for U.S. and Canada: The values in State/Province Code are checked with respect to Postal Code provided. If these entries are valid, the response provides respective State/Province Code and Postal Code. In case of mismatch of Postal Code and State/Province Code an error message is displayed.</li><li> When the checkForMismatch is set FALSE, for U.S. and Canada: The values in State/Province Code are not checked with respect to Postal Code provided. Instead the given data is reflected in the response.</li></ul> <br> For regions other than U.S and Canada regardless of the value of checkForMismatch the State/Province Code are checked with respect to the Postal Code and the response provides the respective State/Province Code and Postal Code.",
                         "example": true
+                    },
+                    "version": {
+                        "$ref": "#/components/schemas/Version"
                     }
                 },
                 "description": "The request elements for validating a postal code."
@@ -344,6 +347,26 @@
                     }
                 },
                 "description": "Indicates data returned in the postal validation reply."
+            },
+            "Version": {
+                "type": "object",
+                "properties": {
+                    "major": {
+                        "description": "This version is incremented when significant changes are made to the API functionality. These could be breaking changes and might require code-adjustments from clients. Accepts only numbers",
+                        "example": "1",
+                        "type": "integer"
+                    },
+                    "minor": {
+                        "description": "This represents a backward-compatible bug fix or minor adjustment to an existing API functionality. This is the second number in API versioning scheme. Accepts only numbers",
+                        "example": "1",
+                        "type": "integer"
+                    },
+                    "patch": {
+                        "description": "This represents a backward-compatible bug fix or minor adjustment to an existing API functionality. This is the third number in API versioning scheme. Accepts only numbers",
+                        "example": "1",
+                        "type": "integer"
+                    }
+                }
             },
             "Alert": {
                 "type": "object",

@@ -15,15 +15,13 @@ use ShipStream\FedEx\Dto;
 final class Tax extends Dto
 {
     /**
-     * @param  ?float  $amount  Tax amount. <br> Example: 408.97
-     * @param  ?string  $name  The localized name of the tax. <br> Example: Denmark VAT
-     * @param  ?string  $description  The description of the Surcharge/Tax. <br> Example: Denmark VAT
-     * @param  ?string  $type  The type of Surcharge/Tax. <br> Example: VAT
+     * @param  ?string  $taxType  Specifies the type of Surcharge/Tax.
+     * @param  ?string  $description  Specifies the description of the Surcharge/Tax.
+     * @param  ?Money  $amount  Indicate the amount details. This is optional, but if indicated, amount and currency must be provided.
      */
     public function __construct(
-        public ?float $amount = null,
-        public ?string $name = null,
+        public ?string $taxType = null,
         public ?string $description = null,
-        public ?string $type = null,
+        public ?Money $amount = null,
     ) {}
 }

@@ -14,12 +14,13 @@ use ShipStream\FedEx\Dto;
 
 final class TransactionOpenShipmentOutputVo extends Dto
 {
-    protected static array $complexArrayTypes = ['alerts' => Alert::class];
+    protected static array $complexArrayTypes = ['pieceResponses' => PieceResponse::class, 'alerts' => Alert::class];
 
     /**
      * @param  ?string  $serviceType  Indicate the FedEx serviceType used for this shipment. The results will be filtered by the serviceType value indicated.<br>Example: STANDARD_OVERNIGHT<br><a onclick='loadDocReference("servicetypes")'>click here to see Service Types</a>
      * @param  ?string  $shipDatestamp  This is the shipment date. Default value is current date in case the date is not provided or a past date is provided.<br>Format [YYYY-MM-DD].<br>Example: 2019-10-14
      * @param  ?string  $serviceCategory  Indicates service category.<br>Example: EXPRESS
+     * @param  PieceResponse[]|null  $pieceResponses  These are pieces information received in the response.
      * @param  ?string  $serviceName  Describes the service name for the shipment. <br> Example: FedEx Ground
      * @param  Alert[]|null  $alerts  These are alert details received in the response.
      * @param  ?CompletedShipmentDetail  $completedShipmentDetail  Returns the result of processing the desired package as a single-package shipment.
@@ -30,6 +31,7 @@ final class TransactionOpenShipmentOutputVo extends Dto
         public ?string $serviceType = null,
         public ?string $shipDatestamp = null,
         public ?string $serviceCategory = null,
+        public ?array $pieceResponses = null,
         public ?string $serviceName = null,
         public ?array $alerts = null,
         public ?CompletedShipmentDetail $completedShipmentDetail = null,

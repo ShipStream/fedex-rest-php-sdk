@@ -18,12 +18,15 @@ final class FullSchemaQuoteRate extends Dto
      * @param  AccountNumber  $accountNumber  This is the Account number details.<br><i>Note:<ul><li>If the paymentType is Sender, then the account number is optional in shippingChargesPayment.</li></ul>
      * @param  RequestedShipment  $requestedShipment  This is shipment data for which a rate quote (or rate-shipping comparison) is requested.
      * @param  ?RateRequestControlParameters  $rateRequestControlParameters  Specify the return transit times, services needed on rate failure, choice of variable option and order to sort rate options to filter and sort the expected response.
+     * @param  ?string[]  $processingOptions  Array of processing options for the shipment.
      * @param  ?string[]  $carrierCodes  Specify the four letter code of a FedEx operating company that meets your requirements.<br> Example: FDXE<br><ul><li>FDXE - FedEx Express</li><li>FDXG - FedEx Ground</li><li>FXSP - FedEx SmartPost</li><li>FXCC - FedEx Custom Critical.</li></ul>
      */
     public function __construct(
         public AccountNumber $accountNumber,
         public RequestedShipment $requestedShipment,
         public ?RateRequestControlParameters $rateRequestControlParameters = null,
+        public ?array $processingOptions = null,
         public ?array $carrierCodes = null,
+        public ?Version $version = null,
     ) {}
 }

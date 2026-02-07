@@ -21,7 +21,7 @@ final class RetrievedConsolidation extends Dto
 
     /**
      * @param  ?string  $consolidationType  Specifies the consolidation type.
-     * @param  ?string  $shipDate  This field indicates the shipping date of the LTL Shipment
+     * @param  ?string  $shipDateStamp  This field indicates the shipping date of the LTL Shipment
      * @param  TrackingIds[]|null  $trackingIds  The field is present to allow use of preassigned Master Airway Bill tracking number.
      * @param  ?ShipperParty  $shipper  The descriptive information for the customer shipping the package along with the physical location from where the shipment originates.
      * @param  ?Origin  $origin  The descriptive information for the customer origin.
@@ -40,7 +40,7 @@ final class RetrievedConsolidation extends Dto
      */
     public function __construct(
         public ?string $consolidationType = null,
-        public ?string $shipDate = null,
+        public ?string $shipDateStamp = null,
         public ?array $trackingIds = null,
         public ?ShipperParty $shipper = null,
         public ?Origin $origin = null,

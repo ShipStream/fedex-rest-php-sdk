@@ -45,5 +45,6 @@ final class FullSchemaPickupAvailability extends Dto
         public ?array $packageDetails = null,
         public ?string $associatedAccountNumber = null,
         public ?string $associatedAccountNumberType = null,
+        public ?Version $version = null,
     ) {}
 }

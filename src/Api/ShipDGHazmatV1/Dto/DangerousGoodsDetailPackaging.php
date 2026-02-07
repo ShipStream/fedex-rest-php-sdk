@@ -16,7 +16,7 @@ final class DangerousGoodsDetailPackaging extends Dto
 {
     /**
      * @param  ?int  $count  the count of the packaging
-     * @param  ?string  $units  The weight unit of measure for the packaging. KG or LB
+     * @param  ?string  $units  Units in which the hazardous commodity is packaged.
      */
     public function __construct(
         public ?int $count = null,

@@ -37,6 +37,10 @@ final class FullSchemaFindLocation extends Dto
      * @param  ?string  $dropOffServiceType  The drop-off service types supported by the specified location. If sort criteria is given as  LATEST_EXPRESS_DROPOFF_TIME and dropoffservicetype is GROUND then backend  will take the SORT_BY_LATEST_GROUND_TIME as sort criteria.<br>Example: FedEx Ground.
      * @param  ?string[]  $carrierCodes  Unique code to identify the transporter.
      * @param  ?bool  $getCall  Get a call. <br>Valid values: True, False.
+     * @param  ?string  $packagingType  The FedEx Package Type
+     * @param  ?Amounts  $totalDeclaredValue  The package dimension limits supported at the location.
+     * @param  ?Amounts  $totalCustomsValue  The package dimension limits supported at the location.
+     * @param  ?string  $paymentType  Duties and Taxes Payor Payment Type
      */
     public function __construct(
         public Location $location,
@@ -59,5 +63,9 @@ final class FullSchemaFindLocation extends Dto
         public ?string $dropOffServiceType = null,
         public ?array $carrierCodes = null,
         public ?bool $getCall = null,
+        public ?string $packagingType = null,
+        public ?Amounts $totalDeclaredValue = null,
+        public ?Amounts $totalCustomsValue = null,
+        public ?string $paymentType = null,
     ) {}
 }

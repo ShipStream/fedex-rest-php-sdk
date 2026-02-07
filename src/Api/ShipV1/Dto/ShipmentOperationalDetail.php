@@ -33,7 +33,7 @@ final class ShipmentOperationalDetail extends Dto
      * @param  ?string  $astraPlannedServiceLevel  Text describing planned delivery.<br>Example: TUE - 15 OCT 10:30A
      * @param  ?string  $destinationLocationId  Specifies the FedEx Destination Location Identifier.<br>Example: DALA
      * @param  ?string  $transitTime  Standard transit time per origin, destination, and service.<br>Example: TWO_DAYS
-     * @param  ?string  $stateOrProvinceCode  This is a placeholder for State or Province code.State code is required for US, CA, PR and not required for other countries. Conditional. Max length is 2.<br>Example: CA<br><a onclick='loadDocReference("canadaprovincecodes")'>click here to see State or Province Code</a>
+     * @param  ?string  $stateOrProvinceCode  This is a placeholder for State or Province code.State code is required for US, CA, PR and not required for other countries. Conditional.<br>Example: CA<br><a onclick='loadDocReference("canadaprovincecodes")'>click here to see State or Province Code</a>
      * @param  ?int  $destinationLocationNumber  Indicates destination location number.<br>Example: 876
      * @param  ?string  $packagingCode  Indicates packaging code.<br>Example: 03
      * @param  ?string  $commitDate  This is committed date of delivery.<br>Example: 2019-10-15

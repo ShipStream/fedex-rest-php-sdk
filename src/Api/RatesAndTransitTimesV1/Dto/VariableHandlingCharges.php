@@ -15,11 +15,15 @@ use ShipStream\FedEx\Dto;
 final class VariableHandlingCharges extends Dto
 {
     /**
-     * @param  ?float  $totalCustomerCharge  Specifies the total customer assessed handling charges.<br> Example: 445.54
-     * @param  ?float  $variableHandlingCharge  The variable handling charge amount calculated based on the requested variable handling charge detail. <br> Example: 403.2
+     * @param  ?Money  $variableHandlingCharge  Indicate the amount details. This is optional, but if indicated, amount and currency must be provided.
+     * @param  ?Money  $fixedVariableHandlingCharge  Indicate the amount details. This is optional, but if indicated, amount and currency must be provided.
+     * @param  ?Money  $percentVariableHandlingCharge  Indicate the amount details. This is optional, but if indicated, amount and currency must be provided.
+     * @param  ?Money  $totalCustomerCharge  Indicate the amount details. This is optional, but if indicated, amount and currency must be provided.
      */
     public function __construct(
-        public ?float $totalCustomerCharge = null,
-        public ?float $variableHandlingCharge = null,
+        public ?Money $variableHandlingCharge = null,
+        public ?Money $fixedVariableHandlingCharge = null,
+        public ?Money $percentVariableHandlingCharge = null,
+        public ?Money $totalCustomerCharge = null,
     ) {}
 }
