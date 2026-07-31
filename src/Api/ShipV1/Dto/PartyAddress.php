@@ -15,7 +15,7 @@ use ShipStream\FedEx\Dto;
 final class PartyAddress extends Dto
 {
     /**
-     * @param  ?string[]  $streetLines  This is the Combination of number, street name, etc. At least one line is required for a valid physical address. Empty lines should not be included. Max Length is 35. <br>Note - For FedEx Ground Economy, a maximum of 30 characters will be printed on the label, excess characters will be truncated.<br>Example: [1550 Union Blvd,Suite 302]
+     * @param  ?string[]  $streetLines  This is the Combination of number, street name, etc. At least one line is required for a valid physical address. Empty lines should not be included. Max Length is 35.<br> Note - For FedEx Ground Economy, a maximum of 30 characters will be printed on the label, excess characters will be truncated.
      * @param  ?string  $city  The name of city, town of the recipient.Max length is 35.<br>Example: Beverly Hills
      * @param  ?string  $stateOrProvinceCode  It is used to identify the principal subdivisions (e.g., provinces or states) of countries. The Format and presence of this field may vary depending on the country. Note: For specific countries, such as the United States and Canada, and Puerto Rico, there is a two-character state, province, codes limit . Example: TX
      * @param  ?string  $postalCode  This is the postal code.<br>Note: This is Optional for non postal-aware countries. Maximum length is 10.<br>Example: 65247<br><a onclick='loadDocReference("postalawarecountries")'>click here to see Postal aware countries</a>

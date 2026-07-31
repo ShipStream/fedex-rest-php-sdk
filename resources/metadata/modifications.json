@@ -134,6 +134,16 @@
                 "action": "delete-array-values",
                 "path": "components.schemas.TaxpayerIdentification.required",
                 "value": ["tinType"]
+            }, {
+                "comment": "Remove commercialInvoice from the validate flow's copy of CustomsClearanceDetail required fields",
+                "action": "delete-array-values",
+                "path": "components.schemas.CustomsClearanceDetail_2.required",
+                "value": ["commercialInvoice"]
+            }, {
+                "comment": "Restore the required flag upstream dropped from the shipmentid path parameter, which cannot be optional",
+                "action": "merge",
+                "path": "paths./ship/v1/shipments/tag/cancel/{shipmentid}.put.parameters.0",
+                "value": {"required": true}
             }
         ]
     },

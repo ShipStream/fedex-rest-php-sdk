@@ -34,8 +34,9 @@ final class RequestedShipmentVerify extends Dto
      * @param  ?RequestedShipmentVerifyShipmentSpecialServices  $shipmentSpecialServices  Indicate the shipment special service or handling required for this shipment. <br>Note: <ul><li>If the shipper is requesting a special service, the special service type must be indicated in the object specialServiceTypes, and all supporting detail must be provided in the appropriate sub-object below.</li><li>For returns it is required to provide value RETURN_SHIPMENT in the specialServiceTypes.</li></ul>
      * @param  ?EMailNotificationDetail  $emailNotificationDetail  These are email disposition details. Provides the type and email addresses of e-mail recipients. If returnedDispositionDetail in labelSpecification is set as true then email will be send with label and documents copy.
      * @param  ?VariableHandlingChargeDetail  $variableHandlingChargeDetail  Indicate the details about how to calculate variable handling charges at the shipment level. They can be based on a percentage of the shipping charges or a fixed amount. If indicated, element rateLevelType is required.
-     * @param  ?CustomsClearanceDetail  $customsClearanceDetail  These are customs clearance details. Required for International and intra-country Shipments.
+     * @param  ?CustomsClearanceDetail2  $customsClearanceDetail  These are customs clearance details. Required for International and intra-country Shipments.
      * @param  ?SmartPostInfoDetail  $smartPostInfoDetail  Use this object to specify the smartpost shipment details. <br>Required for SMARTPOST service. If SmartPostInfoDetail is indicated, the elements below it are also required.
+     * @param  ?ExpressFreightDetail  $expressFreightDetail  Indicates the advance booking number, shipper load /count and packing list details. This details must be provided by the user during freight shipment.
      * @param  ?bool  $blockInsightVisibility  Indicate if the shipment be available to be visible/tracked using FedEx InSight® tool. If value indicated as true, only the shipper/payer will have visibility of this shipment in the said tool.
      * @param  ?ShippingDocumentSpecification  $shippingDocumentSpecification  Use this object to provide all data required for additional (non-label) shipping documents to be produced.
      * @param  ?string[]  $rateRequestType  Indicate the type of rates to be returned.<br>Following are values:<ul><li>LIST - Returns published list rates will be returned in addition to account-specific rate (if applicable).</li><li>PREFERRED - It returns rates in currency as specified in the PreferredCurrency element.</li><li>ACCOUNT - Returns account specific rates. Note: The account specific rates are returned by default if the shipper account number is specified in the shipment.</li><li>INCENTIVE - This is one-time discount for incentivizing the customer.</li></ul>Examples: ["ACCOUNT", "PREFERRED"]
@@ -56,8 +57,9 @@ final class RequestedShipmentVerify extends Dto
         public ?RequestedShipmentVerifyShipmentSpecialServices $shipmentSpecialServices = null,
         public ?EMailNotificationDetail $emailNotificationDetail = null,
         public ?VariableHandlingChargeDetail $variableHandlingChargeDetail = null,
-        public ?CustomsClearanceDetail $customsClearanceDetail = null,
+        public ?CustomsClearanceDetail2 $customsClearanceDetail = null,
         public ?SmartPostInfoDetail $smartPostInfoDetail = null,
+        public ?ExpressFreightDetail $expressFreightDetail = null,
         public ?bool $blockInsightVisibility = null,
         public ?ShippingDocumentSpecification $shippingDocumentSpecification = null,
         public ?array $rateRequestType = null,

@@ -15,11 +15,11 @@ use ShipStream\FedEx\Dto;
 final class Contact2 extends Dto
 {
     /**
-     * @param  ?string  $personName  Specify person name.<br>Example: John Taylor
-     * @param  ?string  $emailAddress  Specify email address.<br>Example: sample@company.com
-     * @param  ?string  $phoneNumber  The shippers phone number. <br>Minimum length is 1 and supports maximum of 15 for certain countries using longer phone numbers.<br>Note: For US and CA, a phone number must have exactly 10 digits, plus an optional leading country code of 1 or +1.<br>Example: 918xxxxx890
-     * @param  ?string  $phoneExtension  The shipper's phone extension. Max length is 6.<br>Example: 91
-     * @param  ?string  $companyName  Specify company name.
+     * @param  ?string  $personName  Specify contact name.<br>Example: John Taylor
+     * @param  ?string  $emailAddress  Specify contact email address.<br>Example: sample@company.com
+     * @param  ?string  $phoneNumber  Specify contact phone number. <br>Minimum length is 1 and supports maximum of 15 for certain countries using longer phone numbers.<br>Note: For US and CA, a phone number must have exactly 10 digits, plus an optional leading country code of 1 or +1.<br>Example: 918xxxxx890
+     * @param  ?string  $phoneExtension  Specify contact phone extension. Max length is 6.<br>Example: 91
+     * @param  ?string  $companyName  Specify contact company name.
      */
     public function __construct(
         public ?string $personName = null,
