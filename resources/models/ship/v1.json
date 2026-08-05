@@ -1125,12 +1125,12 @@
                     {
                         "name": "shipmentid",
                         "in": "path",
-                        "required": true,
                         "style": "simple",
                         "explode": false,
                         "schema": {
                             "type": "string"
-                        }
+                        },
+                        "required": true
                     },
                     {
                         "in": "header",
@@ -1401,7 +1401,7 @@
                     },
                     "processingOptions": {
                         "type": "array",
-                        "description": "Array of processing options for the shipment.",
+                        "description": " <ul><li>For shipments within the US and Canada:</br>If you want the response to include pickup cost details (pickupRateDetail), make sure to:<ul><li>Set processingOptions to INCLUDE_PICKUPRATES</li><li>Provide the pickupDetail object in your request</li></ul></li></ul><ul><li>For all other countries:</br>Pickup charges are automatically included in the standard surcharge fields, so no extra setup is needed.</ul></li>",
                         "items": {
                             "type": "string",
                             "example": "INCLUDE_PICKUPRATES",
@@ -1436,17 +1436,18 @@
             },
             "PickupDetail": {
                 "type": "object",
+                "description": "<ul><li>For shipments within the US and Canada:</br>If you want the response to include pickup cost details (pickupRateDetail), make sure to:<ul><li>Set processingOptions to INCLUDE_PICKUPRATES</li><li>Provide the pickupDetail object in your request</li></ul></li></ul><ul><li>For all other countries:</br>Pickup charges are automatically included in the standard surcharge fields, so no extra setup is needed.</ul></li>",
                 "properties": {
-                    "readyDateTime": {
+                    "readyPickupDateTime": {
                         "type": "string",
                         "format": "date",
-                        "description": "Pickup ready date in YYYY-MM-DD format",
+                        "description": "Pickup ready date in YYYY-MM-DD format, Required when requestType is 'FUTURE_DAY'",
                         "example": "2025-06-17"
                     },
                     "latestPickupDateTime": {
                         "type": "string",
                         "format": "date",
-                        "description": "Latest pickup date in YYYY-MM-DD format",
+                        "description": "Latest pickup date in YYYY-MM-DD format,Required when requestType is 'FUTURE_DAY'",
                         "example": "2025-06-17"
                     },
                     "courierInstructions": {
@@ -1464,12 +1465,12 @@
             },
             "PickupRequestType": {
                 "type": "string",
-                "description": "Type of pickup request",
+                "description": "Type of pickup request <br> Example:FUTURE_DAY",
+                "example": "FUTURE_DAY",
                 "enum": [
                     "FUTURE_DAY",
                     "SAME_DAY"
-                ],
-                "example": "FUTURE_DAY"
+                ]
             },
             "PickupRequestSourceType": {
                 "type": "string",
@@ -2481,99 +2482,6 @@
                 },
                 "description": "Indicate the details about how to calculate variable handling charges at the shipment level. They can be based on a percentage of the shipping charges or a fixed amount. If indicated, element rateLevelType is required."
             },
-            "CustomsClearanceDetail": {
-                "required": [
-                    "commodities"
-                ],
-                "type": "object",
-                "properties": {
-                    "regulatoryControls": {
-                        "type": "array",
-                        "description": "These are the regulatory controls applicable to the shipment.<br> Example:[USMCA,FOOD_OR_PERISHABLE]",
-                        "example": [
-                            "NOT_IN_FREE_CIRCULATION",
-                            "USMCA"
-                        ],
-                        "items": {
-                            "type": "string",
-                            "enum": [
-                                "FOOD_OR_PERISHABLE",
-                                "USMCA",
-                                "NOT_APPLICABLE_FOR_LOW_VALUE_CUSTOMS_EXCEPTIONS",
-                                "NOT_IN_FREE_CIRCULATION"
-                            ]
-                        }
-                    },
-                    "brokers": {
-                        "type": "array",
-                        "description": "Specify broker information. Use this option only if you are using Broker Select Option for your shipment. A country code must be specified in addition to one of the following address items: postal code, city, or location id.",
-                        "items": {
-                            "$ref": "#/components/schemas/BrokerDetail"
-                        }
-                    },
-                    "commercialInvoice": {
-                        "$ref": "#/components/schemas/CommercialInvoice"
-                    },
-                    "freightOnValue": {
-                        "type": "string",
-                        "description": "Specify the risk owner for the Freight shipment.This element is only mandatory or valid for Intra India shipments.<br>Example: OWN_RISK",
-                        "example": "OWN_RISK",
-                        "enum": [
-                            "CARRIER_RISK",
-                            "OWN_RISK"
-                        ]
-                    },
-                    "dutiesPayment": {
-                        "$ref": "#/components/schemas/Payment_2"
-                    },
-                    "commodities": {
-                        "type": "array",
-                        "description": "Indicates the details about the dutiable packages. Maximum upto 999 commodities per shipment.",
-                        "items": {
-                            "$ref": "#/components/schemas/Commodity"
-                        }
-                    },
-                    "isDocumentOnly": {
-                        "type": "boolean",
-                        "description": "Defaults to false. Only used for international Express requests to indicate if just documents are being shipped or not. A valude of DERIVED will cause the value to be determined by PMIS based on the specified commodities information<br>Example: false",
-                        "example": true
-                    },
-                    "recipientCustomsId": {
-                        "$ref": "#/components/schemas/RecipientCustomsId"
-                    },
-                    "customsOption": {
-                        "$ref": "#/components/schemas/CustomsOptionDetail"
-                    },
-                    "importerOfRecord": {
-                        "description": "The descriptive data for the importer of Record for the shipment and their physical address, contact and account number information.",
-                        "$ref": "#/components/schemas/Party"
-                    },
-                    "generatedDocumentLocale": {
-                        "type": "string",
-                        "description": "This is the locale for generated document.<br>Example: en_US<br><a onclick='loadDocReference(\"locales\")'>click here to see Locales</a><br>Note: If the locale is left blank or an invalid locale is entered, an error message is returned in response.",
-                        "example": "en_US"
-                    },
-                    "exportDetail": {
-                        "$ref": "#/components/schemas/ExportDetail"
-                    },
-                    "totalCustomsValue": {
-                        "description": "This is the total customs value.",
-                        "$ref": "#/components/schemas/Money"
-                    },
-                    "partiesToTransactionAreRelated": {
-                        "type": "boolean",
-                        "description": "Specify if the transacting parties are related."
-                    },
-                    "declarationStatementDetail": {
-                        "$ref": "#/components/schemas/CustomsDeclarationStatementDetail"
-                    },
-                    "insuranceCharge": {
-                        "description": "Specify insurance charges if applicable. <br><i>Note: FedEx does not provide insurance of any kind.</i>",
-                        "$ref": "#/components/schemas/Money"
-                    }
-                },
-                "description": "These are customs clearance details. Required for International and intra-country Shipments."
-            },
             "BrokerDetail": {
                 "type": "object",
                 "properties": {
@@ -2690,7 +2598,7 @@
                     },
                     "declarationStatement": {
                         "type": "string",
-                        "description": "This is the declaration statement which will populate the Commercial Invoice (or Pro Forma).<br>Maximum length is 554.<br>Example: declarationStatement",
+                        "description": "For licensed/ECCN shipments, the Destination Control Statement is fixed and non-editable; shippers who need a different statement must supply their own commercial invoice.<br>Example: declarationStatement",
                         "example": "declarationStatement"
                     },
                     "termsOfSale": {
@@ -2779,6 +2687,131 @@
                     "accountNickname": "accountNickname",
                     "accountNumber": "Your account number",
                     "accountNumberCountryCode": "CA"
+                }
+            },
+            "RegulatoryDetail": {
+                "type": "object",
+                "required": [
+                    "productId",
+                    "productIdType",
+                    "regulationCode"
+                ],
+                "properties": {
+                    "regulationCode": {
+                        "type": "string",
+                        "description": "Regulatory authority governing the product compliance requirement.<br> Accepted values<br> 1) CPSC - U.S. Consumer Product Safety Commission<br> 2) EU_DE_MINIMIS - European Union Commission \u2014 de minimis removal <br> Example: CPSC",
+                        "example": "CPSC",
+                        "enum": [
+                            "CPSC",
+                            "EU_DE_MINIMIS"
+                        ]
+                    },
+                    "productId": {
+                        "maxLength": 70,
+                        "type": "string",
+                        "description": "Unique product identifier used in customs and compliance filings.</br>Maximum length is 70.<br> Example: AMZ-TOY-45821",
+                        "example": "AMZ-TOY-45821"
+                    },
+                    "productIdType": {
+                        "type": "string",
+                        "description": "Type of identifier used for the product.<br> Example: SKU",
+                        "example": "SKU",
+                        "enum": [
+                            "SKU",
+                            "PART_NUMBER",
+                            "REGISTERED_NUMBER",
+                            "GTIN",
+                            "UPC",
+                            "EAN",
+                            "MPN",
+                            "OTHER"
+                        ]
+                    },
+                    "details": {
+                        "$ref": "#/components/schemas/RegulatoryDetailInfo"
+                    }
+                }
+            },
+            "RegulatoryDetailInfo": {
+                "type": "object",
+                "description": "Container for regulation-specific filing information submitted to customs/CPSC.",
+                "properties": {
+                    "disclaimMessageSet": {
+                        "$ref": "#/components/schemas/DisclaimMessageSet"
+                    },
+                    "referenceMessageSet": {
+                        "$ref": "#/components/schemas/ReferenceMessageSet"
+                    },
+                    "standardManufacturerProductId": {
+                        "maxLength": 70,
+                        "type": "string",
+                        "description": "Manufacturer Standard Product Identifier per commodity - Assigned by a global industry standard body with a barcode when the manufacturer\u2019s product meets global standards from a governing body. The barcode is the same for every retailer selling the exact product.</br>Maximum length is 70.<br> Example: GTIN 00000006",
+                        "example": "GTIN 00000006"
+                    },
+                    "nonStandardManufacturerProductId": {
+                        "maxLength": 70,
+                        "type": "string",
+                        "description": "Manufacturer Non-Standard Product Identifier per commodity - A manufacturer or product supplier\u2019s unique product code, provided to sellers who must supply it for customs declaration.</br>Maximum length is 70.<br> Example: SH123456-L",
+                        "example": "SH123456-L"
+                    },
+                    "merchantProductId": {
+                        "maxLength": 70,
+                        "type": "string",
+                        "description": "Merchant Product Identifier (shipper SKU/item ID) per commodity - The merchant\u2019s unique code to identify goods, usually the SKU, item code or product code.</br>Maximum length is 70.<br> Example: 12345",
+                        "example": "12345"
+                    }
+                }
+            },
+            "DisclaimMessageSet": {
+                "type": "object",
+                "description": "Additional declaration information related to product use classification or exemption handling.",
+                "properties": {
+                    "disclaimCode": {
+                        "maxLength": 1,
+                        "type": "string",
+                        "description": "Code representing a specific declaration or filing condition.<br>Maximum length is 1.<br> Accepted values<br> 1. A - Product is not regulated by CPSC (meaning no rule, ban, standard, or regulation requiring a certificate applies.)<br> 2. B - Data is not required per CPSC guidance (enforcement discretion)<br>Example: A",
+                        "example": "A",
+                        "enum": [
+                            "A",
+                            "B"
+                        ]
+                    },
+                    "intendedUseCode": {
+                        "maxLength": 16,
+                        "type": "string",
+                        "description": "Standardized code describing the intended consumer use of the product.<br>Maximum length is 16.<br> Example: 245.001",
+                        "example": "245.001"
+                    },
+                    "intendedUseDescription": {
+                        "maxLength": 22,
+                        "type": "string",
+                        "description": "Plain-language description of the product\u2019s intended use.<br>Maximum length is 22.<br> Example: Children\u2019s plastic educational toy for ages 3+",
+                        "example": "Children\u2019s plastic educational toy for ages 3+"
+                    }
+                }
+            },
+            "ReferenceMessageSet": {
+                "type": "object",
+                "description": "Registry-based CPSC eFiling reference information for repeat shipments.",
+                "properties": {
+                    "productVersion": {
+                        "maxLength": 29,
+                        "type": "string",
+                        "description": "Version of the certified product record registered with CPSC.</br>Maximum length is 29.<br> Example: 2026.01",
+                        "example": "2026.01"
+                    },
+                    "certifierId": {
+                        "maxLength": 33,
+                        "type": "string",
+                        "description": "Identifier of the importer or manufacturer responsible for product certification.<br>Maximum length is 33.<br> Example: brightkids-imports-us",
+                        "example": "brightkids-imports-us"
+                    },
+                    "registryProductId": {
+                        "maxLength": 19,
+                        "type": "string",
+                        "description": "Certifier Id for the product registry.</br>Maximum length is 19.<br> Example: CPSC-2026-001234",
+                        "example": "CPSC-2026-001234"
+                    }
                 }
             },
             "ClearanceItemDetail": {
@@ -3291,7 +3324,7 @@
                     },
                     "dataField": {
                         "type": "string",
-                        "description": "Indicate the path request/reply element to be printed on doc tab.<br>Example: <ul><li> REQUEST/PACKAGE/weight/Value</li><li> REQUEST/PACKAGE/weight/Value</li><li> REQUEST/PACKAGE/InsuredValue/Amount</li><li> REQUEST/SHIPMENT/SpecialServicesRequested/CodDetail/CodCollectionAmount/Amount</li><li>REQUEST/SHIPMENT/Shipper/Address/StreetLines[1]CLIENT/MeterNumber</li><li> TRANSACTION/CustomerTransactionId</li><li> REQUEST/SHIPMENT/TotalWeight/Value</li><li> REQUEST/SHIPMENT/ShipTimestamp</li><li> REQUEST/SHIPMENT/Recipient/Contact/PersonName</li><li> REPLY/SHIPMENT/OperationalDetail/DeliveryDate</li><li>  REPLY/SHIPMENT/RATES/ACTUAL/totalBaseCharge/Amount</li><li> REPLY/SHIPMENT/RATES/ACTUAL/totalFreightDiscounts/Amount</li><li>  REPLY/SHIPMENT/RATES/ACTUAL/totalSurcharges/Amount</li><li> REPLY/SHIPMENT/RATES/ACTUAL/totalNetCharge/Amount</li><li> REPLY/SHIPMENT/RATES/PAYOR_ACCOUNT_PACKAGE/totalSurcharges/Amount</li></ul>"
+                        "description": "Indicate the path request/reply element to be printed on doc tab.<br>Example: <ul><li> REQUEST/PACKAGE/weight/Value</li><li> REQUEST/PACKAGE/InsuredValue/Amount</li><li> REQUEST/SHIPMENT/SpecialServicesRequested/CodDetail/CodCollectionAmount/Amount</li><li>REQUEST/SHIPMENT/Shipper/Address/StreetLines</li><li> TRANSACTION/CustomerTransactionId</li><li> REQUEST/SHIPMENT/TotalWeight/Value</li><li> REQUEST/SHIPMENT/ShipTimestamp</li><li> REQUEST/SHIPMENT/Recipient/Contact/PersonName</li><li> REPLY/SHIPMENT/OperationalDetail/DeliveryDate</li><li>  REPLY/SHIPMENT/RATES/ACTUAL/totalBaseCharge/Amount</li><li> REPLY/SHIPMENT/RATES/ACTUAL/totalFreightDiscounts/Amount</li><li>  REPLY/SHIPMENT/RATES/ACTUAL/totalSurcharges/Amount</li><li> REPLY/SHIPMENT/RATES/ACTUAL/totalNetCharge/Amount</li><li> REPLY/SHIPMENT/RATES/PAYOR_ACCOUNT_PACKAGE/totalSurcharges/Amount</li></ul>"
                     },
                     "literalValue": {
                         "type": "string",
@@ -6884,10 +6917,13 @@
                         "$ref": "#/components/schemas/VariableHandlingChargeDetail"
                     },
                     "customsClearanceDetail": {
-                        "$ref": "#/components/schemas/CustomsClearanceDetail"
+                        "$ref": "#/components/schemas/CustomsClearanceDetail_2"
                     },
                     "smartPostInfoDetail": {
                         "$ref": "#/components/schemas/SmartPostInfoDetail"
+                    },
+                    "expressFreightDetail": {
+                        "$ref": "#/components/schemas/ExpressFreightDetail"
                     },
                     "blockInsightVisibility": {
                         "type": "boolean",
@@ -8513,7 +8549,7 @@
                 "properties": {
                     "streetLines": {
                         "type": "array",
-                        "description": "This is the Combination of number, street name, etc. At least one line is required for a valid physical address. Empty lines should not be included. Max Length is 35. <br>Note - For FedEx Ground Economy, a maximum of 30 characters will be printed on the label, excess characters will be truncated.<br>Example: [1550 Union Blvd,Suite 302]",
+                        "description": "This is the Combination of number, street name, etc. At least one line is required for a valid physical address. Empty lines should not be included. Max Length is 35.<br> Note - For FedEx Ground Economy, a maximum of 30 characters will be printed on the label, excess characters will be truncated.",
                         "example": "1550 Union Blvd, Suite 302",
                         "items": {
                             "type": "string"
@@ -8637,12 +8673,12 @@
                     },
                     "phoneNumber": {
                         "type": "string",
-                        "description": "The shipper's phone number. <br>Minimum length is 1 and supports maximum of 15 for certain countries using longer phone numbers.<br>Note: For US and CA, a phone number must have exactly 10 digits, plus an optional leading country code of '1' or '+1'.<br>Example: 918xxxxx890",
+                        "description": "Specify contact phone number. <br>Minimum length is 1 and supports maximum of 15 for certain countries using longer phone numbers.<br>Note: For US and CA, a phone number must have exactly 10 digits, plus an optional leading country code of '1' or '+1'.<br>Example: 918xxxxx890",
                         "example": "918xxxxx890"
                     },
                     "companyName": {
                         "type": "string",
-                        "description": "The shipper's company name. Max length is 35.<br>Example: FedEx",
+                        "description": "Specify contact company name. Max length is 35.<br>Example: FedEx",
                         "example": "Fedex"
                     }
                 },
@@ -8675,7 +8711,7 @@
                     },
                     "phoneNumber": {
                         "type": "string",
-                        "description": "Specify contact phone number. <br>Minimum length is 10 and supports Maximum as 15 for certain countries using longer phone numbers. <br>Note: Recommended Maximum length is 15 and there's no specific validation will be done for the phone number. <br> Example: 918xxxxx890",
+                        "description": "Specify contact phone number. <br>Minimum length is 1 and supports Maximum as 15 for certain countries using longer phone numbers. <br>Note: Recommended Maximum length is 15 and there's no specific validation will be done for the phone number. <br> Example: 918xxxxx890",
                         "example": "1234567890"
                     },
                     "companyName": {
@@ -8685,7 +8721,7 @@
                     },
                     "faxNumber": {
                         "type": "string",
-                        "description": "Specify contact person's fax number. Maximum length is 15."
+                        "description": "Specify contact fax number. Maximum length is 15."
                     }
                 },
                 "description": "Indicate the contact details for this shipment.",
@@ -8712,7 +8748,7 @@
                     },
                     "phoneNumber": {
                         "type": "string",
-                        "description": "Contact person's phone number. <br>Minimum length is 1 and supports maximum of 15 for certain countries using longer phone numbers.<br>Note: For US and CA, a phone number must have exactly 10 digits, plus an optional leading country code of '1' or '+1'.<br>Example: 918xxxxx890",
+                        "description": "Specify contact phone number. <br>Minimum length is 1 and supports maximum of 15 for certain countries using longer phone numbers.<br>Note: For US and CA, a phone number must have exactly 10 digits, plus an optional leading country code of '1' or '+1'.<br>Example: 918xxxxx890",
                         "example": "918xxxxx890"
                     },
                     "phoneExtension": {
@@ -8727,7 +8763,7 @@
                     },
                     "companyName": {
                         "type": "string",
-                        "description": "Contact person's company name.<br>Note: Recommended Length is 35. There's no specific validation for the company name.<br>Example: FedEx",
+                        "description": "Specify contact company name.<br>Note: Recommended Length is 35. There's no specific validation for the company name.<br>Example: FedEx",
                         "example": "Fedex"
                     }
                 },
@@ -8746,24 +8782,24 @@
                 "properties": {
                     "personName": {
                         "type": "string",
-                        "description": "Specify person name.<br>Example: John Taylor",
+                        "description": "Specify contact name.<br>Example: John Taylor",
                         "example": "John"
                     },
                     "emailAddress": {
                         "type": "string",
-                        "description": "Specify email address.<br>Example: sample@company.com"
+                        "description": "Specify contact email address.<br>Example: sample@company.com"
                     },
                     "phoneNumber": {
                         "type": "string",
-                        "description": "The shippers phone number. <br>Minimum length is 1 and supports maximum of 15 for certain countries using longer phone numbers.<br>Note: For US and CA, a phone number must have exactly 10 digits, plus an optional leading country code of 1 or +1.<br>Example: 918xxxxx890"
+                        "description": "Specify contact phone number. <br>Minimum length is 1 and supports maximum of 15 for certain countries using longer phone numbers.<br>Note: For US and CA, a phone number must have exactly 10 digits, plus an optional leading country code of 1 or +1.<br>Example: 918xxxxx890"
                     },
                     "phoneExtension": {
                         "type": "string",
-                        "description": "The shipper's phone extension. Max length is 6.<br>Example: 91"
+                        "description": "Specify contact phone extension. Max length is 6.<br>Example: 91"
                     },
                     "companyName": {
                         "type": "string",
-                        "description": "Specify company name."
+                        "description": "Specify contact company name."
                     }
                 },
                 "description": "Specify the contact information."
@@ -9200,6 +9236,192 @@
                 },
                 "description": "Specifies the shipment level totals of dry ice data across all packages."
             },
+            "CustomsClearanceDetail": {
+                "required": [
+                    "commodities"
+                ],
+                "type": "object",
+                "properties": {
+                    "regulatoryControls": {
+                        "type": "array",
+                        "description": "These are the regulatory controls applicable to the shipment.<br> Example:[USMCA,FOOD_OR_PERISHABLE]",
+                        "example": [
+                            "NOT_IN_FREE_CIRCULATION",
+                            "USMCA"
+                        ],
+                        "items": {
+                            "type": "string",
+                            "enum": [
+                                "FOOD_OR_PERISHABLE",
+                                "USMCA",
+                                "NOT_APPLICABLE_FOR_LOW_VALUE_CUSTOMS_EXCEPTIONS",
+                                "NOT_IN_FREE_CIRCULATION"
+                            ]
+                        }
+                    },
+                    "brokers": {
+                        "type": "array",
+                        "description": "Specify broker information. Use this option only if you are using Broker Select Option for your shipment. A country code must be specified in addition to one of the following address items: postal code, city, or location id.",
+                        "items": {
+                            "$ref": "#/components/schemas/BrokerDetail"
+                        }
+                    },
+                    "commercialInvoice": {
+                        "$ref": "#/components/schemas/CommercialInvoice"
+                    },
+                    "freightOnValue": {
+                        "type": "string",
+                        "description": "Specify the risk owner for the Freight shipment.This element is only mandatory or valid for Intra India shipments.<br>Example: OWN_RISK",
+                        "example": "OWN_RISK",
+                        "enum": [
+                            "CARRIER_RISK",
+                            "OWN_RISK"
+                        ]
+                    },
+                    "dutiesPayment": {
+                        "$ref": "#/components/schemas/Payment_2"
+                    },
+                    "commodities": {
+                        "type": "array",
+                        "description": "Indicates the details about the dutiable packages. Maximum upto 999 commodities per shipment.",
+                        "items": {
+                            "$ref": "#/components/schemas/Commodity"
+                        }
+                    },
+                    "isDocumentOnly": {
+                        "type": "boolean",
+                        "description": "Defaults to false. Only used for international Express requests to indicate if just documents are being shipped or not. A valude of DERIVED will cause the value to be determined by PMIS based on the specified commodities information<br>Example: false",
+                        "example": true
+                    },
+                    "recipientCustomsId": {
+                        "$ref": "#/components/schemas/RecipientCustomsId"
+                    },
+                    "customsOption": {
+                        "$ref": "#/components/schemas/CustomsOptionDetail"
+                    },
+                    "importerOfRecord": {
+                        "description": "The descriptive data for the importer of Record for the shipment and their physical address, contact and account number information.",
+                        "$ref": "#/components/schemas/Party"
+                    },
+                    "generatedDocumentLocale": {
+                        "type": "string",
+                        "description": "This is the locale for generated document.<br>Example: en_US<br><a onclick='loadDocReference(\"locales\")'>click here to see Locales</a><br>Note: If the locale is left blank or an invalid locale is entered, an error message is returned in response.",
+                        "example": "en_US"
+                    },
+                    "exportDetail": {
+                        "$ref": "#/components/schemas/ExportDetail"
+                    },
+                    "totalCustomsValue": {
+                        "description": "This is the total customs value.",
+                        "$ref": "#/components/schemas/Money"
+                    },
+                    "partiesToTransactionAreRelated": {
+                        "type": "boolean",
+                        "description": "Specify if the transacting parties are related."
+                    },
+                    "declarationStatementDetail": {
+                        "$ref": "#/components/schemas/CustomsDeclarationStatementDetail"
+                    },
+                    "insuranceCharge": {
+                        "description": "Specify insurance charges if applicable. <br><i>Note: FedEx does not provide insurance of any kind.</i>",
+                        "$ref": "#/components/schemas/Money"
+                    }
+                },
+                "description": "These are customs clearance details. Required for International and intra-country Shipments."
+            },
+            "CustomsClearanceDetail_2": {
+                "required": [
+                    "commodities"
+                ],
+                "type": "object",
+                "properties": {
+                    "regulatoryControls": {
+                        "type": "array",
+                        "description": "These are the regulatory controls applicable to the shipment.<br> Example:[USMCA,FOOD_OR_PERISHABLE]",
+                        "example": [
+                            "NOT_IN_FREE_CIRCULATION",
+                            "USMCA"
+                        ],
+                        "items": {
+                            "type": "string",
+                            "enum": [
+                                "FOOD_OR_PERISHABLE",
+                                "USMCA",
+                                "NOT_APPLICABLE_FOR_LOW_VALUE_CUSTOMS_EXCEPTIONS",
+                                "NOT_IN_FREE_CIRCULATION"
+                            ]
+                        }
+                    },
+                    "brokers": {
+                        "type": "array",
+                        "description": "Specify broker information. Use this option only if you are using Broker Select Option for your shipment. A country code must be specified in addition to one of the following address items: postal code, city, or location id.",
+                        "items": {
+                            "$ref": "#/components/schemas/BrokerDetail"
+                        }
+                    },
+                    "commercialInvoice": {
+                        "$ref": "#/components/schemas/CommercialInvoice"
+                    },
+                    "freightOnValue": {
+                        "type": "string",
+                        "description": "Specify the risk owner for the Freight shipment.This element is only mandatory or valid for Intra India shipments.<br>Example: OWN_RISK",
+                        "example": "OWN_RISK",
+                        "enum": [
+                            "CARRIER_RISK",
+                            "OWN_RISK"
+                        ]
+                    },
+                    "dutiesPayment": {
+                        "$ref": "#/components/schemas/Payment_2"
+                    },
+                    "commodities": {
+                        "type": "array",
+                        "description": "Indicates the details about the dutiable packages. Maximum upto 999 commodities per shipment.",
+                        "items": {
+                            "$ref": "#/components/schemas/Commodity_2"
+                        }
+                    },
+                    "isDocumentOnly": {
+                        "type": "boolean",
+                        "description": "Defaults to false. Only used for international Express requests to indicate if just documents are being shipped or not. A valude of DERIVED will cause the value to be determined by PMIS based on the specified commodities information<br>Example: false",
+                        "example": true
+                    },
+                    "recipientCustomsId": {
+                        "$ref": "#/components/schemas/RecipientCustomsId"
+                    },
+                    "customsOption": {
+                        "$ref": "#/components/schemas/CustomsOptionDetail"
+                    },
+                    "importerOfRecord": {
+                        "description": "The descriptive data for the importer of Record for the shipment and their physical address, contact and account number information.",
+                        "$ref": "#/components/schemas/Party"
+                    },
+                    "generatedDocumentLocale": {
+                        "type": "string",
+                        "description": "This is the locale for generated document.<br>Example: en_US<br><a onclick='loadDocReference(\"locales\")'>click here to see Locales</a><br>Note: If the locale is left blank or an invalid locale is entered, an error message is returned in response.",
+                        "example": "en_US"
+                    },
+                    "exportDetail": {
+                        "$ref": "#/components/schemas/ExportDetail"
+                    },
+                    "totalCustomsValue": {
+                        "description": "This is the total customs value.",
+                        "$ref": "#/components/schemas/Money"
+                    },
+                    "partiesToTransactionAreRelated": {
+                        "type": "boolean",
+                        "description": "Specify if the transacting parties are related."
+                    },
+                    "declarationStatementDetail": {
+                        "$ref": "#/components/schemas/CustomsDeclarationStatementDetail"
+                    },
+                    "insuranceCharge": {
+                        "description": "Specify insurance charges if applicable. <br><i>Note: FedEx does not provide insurance of any kind.</i>",
+                        "$ref": "#/components/schemas/Money"
+                    }
+                },
+                "description": "These are customs clearance details. Required for International and intra-country Shipments."
+            },
             "Commodity": {
                 "required": [
                     "description"
@@ -9222,6 +9444,13 @@
                         "description": "This object contains additional quantitative information other than weight and quantity to calculate duties and taxes.",
                         "items": {
                             "$ref": "#/components/schemas/AdditionalMeasures"
+                        }
+                    },
+                    "regulatoryDetails": {
+                        "type": "array",
+                        "description": "List of regulatory compliance details associated with imported products.",
+                        "items": {
+                            "$ref": "#/components/schemas/RegulatoryDetail"
                         }
                     },
                     "numberOfPieces": {

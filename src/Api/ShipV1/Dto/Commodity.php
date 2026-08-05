@@ -19,6 +19,7 @@ final class Commodity extends Dto
     protected static array $complexArrayTypes = [
         'clearanceItemDetail' => ClearanceItemDetail::class,
         'additionalMeasures' => AdditionalMeasures::class,
+        'regulatoryDetails' => RegulatoryDetail::class,
     ];
 
     /**
@@ -26,6 +27,7 @@ final class Commodity extends Dto
      * @param  ClearanceItemDetail[]|null  $clearanceItemDetail  These are commodities clearance item detail
      * @param  ?Money  $unitPrice  This customs value is applicable for all items(or units) under the specified commodity
      * @param  AdditionalMeasures[]|null  $additionalMeasures  This object contains additional quantitative information other than weight and quantity to calculate duties and taxes.
+     * @param  RegulatoryDetail[]|null  $regulatoryDetails  List of regulatory compliance details associated with imported products.
      * @param  ?int  $numberOfPieces  Indicate the number of pieces associated with the commodity. The value can neither be negative nor exceed 9,999.<br>Example: 12
      * @param  ?int  $quantity  This is the units quantity (using quantityUnits as the unit of measure) per commodity. This is used to estimate duties and taxes.<br> Example: 125
      * @param  ?string  $quantityUnits  This is the unit of measure for the units quantity. This is used to estimate duties and taxes.<br>Example: EA<br><a onclick='loadDocReference("harmonizedsystemcodeunitofmeasure-table1")'>click here to see Commodity Unit Measures</a>
@@ -46,6 +48,7 @@ final class Commodity extends Dto
         public ?array $clearanceItemDetail = null,
         public ?Money $unitPrice = null,
         public ?array $additionalMeasures = null,
+        public ?array $regulatoryDetails = null,
         public ?int $numberOfPieces = null,
         public ?int $quantity = null,
         public ?string $quantityUnits = null,

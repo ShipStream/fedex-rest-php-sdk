@@ -246,7 +246,6 @@
                     {
                         "name": "shipmentid",
                         "in": "path",
-                        "required": true,
                         "style": "simple",
                         "explode": false,
                         "schema": {
@@ -846,16 +845,11 @@
                 }
             },
             "PartyAddress": {
-                "required": [
-                    "city",
-                    "countryCode",
-                    "streetLines"
-                ],
                 "type": "object",
                 "properties": {
                     "streetLines": {
                         "type": "array",
-                        "description": "This is the Combination of number, street name, etc. At least one line is required for a valid physical address. Empty lines should not be included. Max Length is 35. <br>Note - For FedEx Ground Economy, a maximum of 30 characters will be printed on the label, excess characters will be truncated.<br>Example: [1550 Union Blvd,Suite 302]",
+                        "description": "This is the Combination of number, street name, etc. At least one line is required for a valid physical address. Empty lines should not be included. Max Length is 35. <br>Example: [1550 Union Blvd,Suite 302]",
                         "example": "1550 Union Blvd, Suite 302",
                         "items": {
                             "type": "string"
@@ -911,7 +905,7 @@
                 "properties": {
                     "streetLines": {
                         "type": "array",
-                        "description": "This is the Combination of number, street name, etc. At least one line is required for a valid physical address. Empty lines should not be included. Max Length is 35. <br>Note - For FedEx Ground Economy, a maximum of 30 characters will be printed on the label, excess characters will be truncated.<br>Example: [1550 Union Blvd,Suite 302]",
+                        "description": "This is the Combination of number, street name, etc. At least one line is required for a valid physical address. Empty lines should not be included. Max Length is 35.<br> Note - For FedEx Ground Economy, a maximum of 30 characters will be printed on the label, excess characters will be truncated.",
                         "example": "1550 Union Blvd, Suite 302",
                         "items": {
                             "type": "string"
@@ -980,12 +974,12 @@
                     },
                     "phoneNumber": {
                         "type": "string",
-                        "description": "The shipper's phone number. <br>Minimum length is 1 and supports maximum of 15 for certain countries using longer phone numbers.<br>Note: For US and CA, a phone number must have exactly 10 digits, plus an optional leading country code of '1' or '+1'.<br>Example: 918xxxxx890",
+                        "description": "Specify contact phone number. <br>Minimum length is 1 and supports maximum of 15 for certain countries using longer phone numbers.<br>Note: For US and CA, a phone number must have exactly 10 digits, plus an optional leading country code of '1' or '+1'.<br>Example: 918xxxxx890",
                         "example": "918xxxxx890"
                     },
                     "companyName": {
                         "type": "string",
-                        "description": "The shipper's company name. Max length is 35.<br>Example: FedEx",
+                        "description": "Specify contact company name. Max length is 35.<br>Example: FedEx",
                         "example": "Fedex"
                     }
                 },
@@ -1979,7 +1973,7 @@
                     },
                     "phoneNumber": {
                         "type": "string",
-                        "description": "Contact person's phone number. <br>Minimum length is 1 and supports maximum of 15 for certain countries using longer phone numbers.<br>Note: For US and CA, a phone number must have exactly 10 digits, plus an optional leading country code of '1' or '+1'.<br>Example: 918xxxxx890",
+                        "description": "Specify contact phone number. <br>Minimum length is 1 and supports maximum of 15 for certain countries using longer phone numbers.<br>Note: For US and CA, a phone number must have exactly 10 digits, plus an optional leading country code of '1' or '+1'.<br>Example: 918xxxxx890",
                         "example": "918xxxxx890"
                     },
                     "phoneExtension": {
@@ -1994,7 +1988,7 @@
                     },
                     "companyName": {
                         "type": "string",
-                        "description": "Contact person's company name.<br>Note: Recommended Length is 35. There's no specific validation for the company name.<br>Example: FedEx",
+                        "description": "Specify contact company name.<br>Note: Recommended Length is 35. There's no specific validation for the company name.<br>Example: FedEx",
                         "example": "Fedex"
                     }
                 },
@@ -2775,7 +2769,7 @@
                     },
                     "declarationStatement": {
                         "type": "string",
-                        "description": "This is the declaration statement which will populate the Commercial Invoice (or Pro Forma).<br>Maximum length is 554.<br>Example: declarationStatement",
+                        "description": "For licensed/ECCN shipments, the Destination Control Statement is fixed and non-editable; shippers who need a different statement must supply their own commercial invoice.<br>Example: declarationStatement",
                         "example": "declarationStatement"
                     },
                     "termsOfSale": {
@@ -3750,7 +3744,7 @@
                     },
                     "dataField": {
                         "type": "string",
-                        "description": "Indicate the path request/reply element to be printed on doc tab.<br>Example: <ul><li> REQUEST/PACKAGE/weight/Value</li><li> REQUEST/PACKAGE/weight/Value</li><li> REQUEST/PACKAGE/InsuredValue/Amount</li><li> REQUEST/SHIPMENT/SpecialServicesRequested/CodDetail/CodCollectionAmount/Amount</li><li>REQUEST/SHIPMENT/Shipper/Address/StreetLines[1]CLIENT/MeterNumber</li><li> TRANSACTION/CustomerTransactionId</li><li> REQUEST/SHIPMENT/TotalWeight/Value</li><li> REQUEST/SHIPMENT/ShipTimestamp</li><li> REQUEST/SHIPMENT/Recipient/Contact/PersonName</li><li> REPLY/SHIPMENT/OperationalDetail/DeliveryDate</li><li>  REPLY/SHIPMENT/RATES/ACTUAL/totalBaseCharge/Amount</li><li> REPLY/SHIPMENT/RATES/ACTUAL/totalFreightDiscounts/Amount</li><li>  REPLY/SHIPMENT/RATES/ACTUAL/totalSurcharges/Amount</li><li> REPLY/SHIPMENT/RATES/ACTUAL/totalNetCharge/Amount</li><li> REPLY/SHIPMENT/RATES/PAYOR_ACCOUNT_PACKAGE/totalSurcharges/Amount</li></ul>"
+                        "description": "Indicate the path request/reply element to be printed on doc tab.<br>Example: <ul><li> REQUEST/PACKAGE/weight/Value</li><li> REQUEST/PACKAGE/InsuredValue/Amount</li><li> REQUEST/SHIPMENT/SpecialServicesRequested/CodDetail/CodCollectionAmount/Amount</li><li>REQUEST/SHIPMENT/Shipper/Address/StreetLines</li><li> TRANSACTION/CustomerTransactionId</li><li> REQUEST/SHIPMENT/TotalWeight/Value</li><li> REQUEST/SHIPMENT/ShipTimestamp</li><li> REQUEST/SHIPMENT/Recipient/Contact/PersonName</li><li> REPLY/SHIPMENT/OperationalDetail/DeliveryDate</li><li>  REPLY/SHIPMENT/RATES/ACTUAL/totalBaseCharge/Amount</li><li> REPLY/SHIPMENT/RATES/ACTUAL/totalFreightDiscounts/Amount</li><li>  REPLY/SHIPMENT/RATES/ACTUAL/totalSurcharges/Amount</li><li> REPLY/SHIPMENT/RATES/ACTUAL/totalNetCharge/Amount</li><li> REPLY/SHIPMENT/RATES/PAYOR_ACCOUNT_PACKAGE/totalSurcharges/Amount</li></ul>"
                     },
                     "literalValue": {
                         "type": "string",
@@ -4302,7 +4296,7 @@
                     },
                     "phoneNumber": {
                         "type": "string",
-                        "description": "Specify contact phone number. <br>Minimum length is 10 and supports Maximum as 15 for certain countries using longer phone numbers. <br>Note: Recommended Maximum length is 15 and there's no specific validation will be done for the phone number. <br> Example: 918xxxxx890",
+                        "description": "Specify contact phone number. <br>Minimum length is 1 and supports Maximum as 15 for certain countries using longer phone numbers. <br>Note: Recommended Maximum length is 15 and there's no specific validation will be done for the phone number. <br> Example: 918xxxxx890",
                         "example": "1234567890"
                     },
                     "companyName": {
@@ -4312,7 +4306,7 @@
                     },
                     "faxNumber": {
                         "type": "string",
-                        "description": "Specify contact person's fax number. Maximum length is 15."
+                        "description": "Specify contact fax number. Maximum length is 15."
                     }
                 },
                 "description": "Indicate the contact details for this shipment.",

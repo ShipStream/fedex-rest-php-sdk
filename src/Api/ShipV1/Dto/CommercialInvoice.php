@@ -26,7 +26,7 @@ final class CommercialInvoice extends Dto
      * @param  ?Money  $freightCharge  This customs value is applicable for all items(or units) under the specified commodity
      * @param  ?Money  $packingCosts  This customs value is applicable for all items(or units) under the specified commodity
      * @param  ?Money  $handlingCosts  This customs value is applicable for all items(or units) under the specified commodity
-     * @param  ?string  $declarationStatement  This is the declaration statement which will populate the Commercial Invoice (or Pro Forma).<br>Maximum length is 554.<br>Example: declarationStatement
+     * @param  ?string  $declarationStatement  For licensed/ECCN shipments, the Destination Control Statement is fixed and non-editable; shippers who need a different statement must supply their own commercial invoice.<br>Example: declarationStatement
      * @param  ?string  $termsOfSale  The termsOfSale that will populate the Commercial Invoice (or Pro Forma). Max length is 3<br>Example: FCA
      * @param  ?string  $specialInstructions  These are special instructions that will be populated on the Commercial Invoice (or Pro Forma).<br>Example: specialInstructions
      * @param  ?string  $shipmentPurpose  The reason for the shipment. Note: SOLD is not a valid purpose for a Proforma Invoice.<br>Example: REPAIR_AND_RETURN

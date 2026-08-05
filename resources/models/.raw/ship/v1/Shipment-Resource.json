@@ -24,6 +24,18 @@
                                         "$ref": "#/components/schemas/Full_Schema_Ship"
                                     },
                                     {
+                                        "$ref": "#/components/schemas/CPSC-Full_Message_Set"
+                                    },
+                                    {
+                                        "$ref": "#/components/schemas/CPSC-Disclaim_Message_Set"
+                                    },
+                                    {
+                                        "$ref": "#/components/schemas/CPSC-Reference_Message_Set"
+                                    },
+                                    {
+                                        "$ref": "#/components/schemas/EU_De_Minimis"
+                                    },
+                                    {
                                         "$ref": "#/components/schemas/MinimumSamplePayload-ShipShipment"
                                     },
                                     {
@@ -1023,7 +1035,7 @@
                     },
                     "processingOptions": {
                         "type": "array",
-                        "description": "Array of processing options for the shipment.",
+                        "description": " <ul><li>For shipments within the US and Canada:</br>If you want the response to include pickup cost details (pickupRateDetail), make sure to:<ul><li>Set processingOptions to INCLUDE_PICKUPRATES</li><li>Provide the pickupDetail object in your request</li></ul></li></ul><ul><li>For all other countries:</br>Pickup charges are automatically included in the standard surcharge fields, so no extra setup is needed.</ul></li>",
                         "items": {
                             "type": "string",
                             "example": "INCLUDE_PICKUPRATES",
@@ -1336,17 +1348,18 @@
             },
             "PickupDetail": {
                 "type": "object",
+                "description": "<ul><li>For shipments within the US and Canada:</br>If you want the response to include pickup cost details (pickupRateDetail), make sure to:<ul><li>Set processingOptions to INCLUDE_PICKUPRATES</li><li>Provide the pickupDetail object in your request</li></ul></li></ul><ul><li>For all other countries:</br>Pickup charges are automatically included in the standard surcharge fields, so no extra setup is needed.</ul></li>",
                 "properties": {
-                    "readyDateTime": {
+                    "readyPickupDateTime": {
                         "type": "string",
                         "format": "date",
-                        "description": "Pickup ready date in YYYY-MM-DD format",
+                        "description": "Pickup ready date in YYYY-MM-DD format, Required when requestType is 'FUTURE_DAY'",
                         "example": "2025-06-17"
                     },
                     "latestPickupDateTime": {
                         "type": "string",
                         "format": "date",
-                        "description": "Latest pickup date in YYYY-MM-DD format",
+                        "description": "Latest pickup date in YYYY-MM-DD format,Required when requestType is 'FUTURE_DAY'",
                         "example": "2025-06-17"
                     },
                     "courierInstructions": {
@@ -1364,12 +1377,12 @@
             },
             "PickupRequestType": {
                 "type": "string",
-                "description": "Type of pickup request",
+                "description": "Type of pickup request <br> Example:FUTURE_DAY",
+                "example": "FUTURE_DAY",
                 "enum": [
                     "FUTURE_DAY",
                     "SAME_DAY"
-                ],
-                "example": "FUTURE_DAY"
+                ]
             },
             "PickupRequestSourceType": {
                 "type": "string",
@@ -1490,17 +1503,14 @@
                 }
             },
             "PartyAddress": {
-                "required": [
-                    "city",
-                    "countryCode",
-                    "streetLines"
-                ],
                 "type": "object",
                 "properties": {
                     "streetLines": {
                         "type": "array",
-                        "description": "This is the Combination of number, street name, etc. At least one line is required for a valid physical address. Empty lines should not be included. Max Length is 35.Note - For FedEx Ground Economy, a maximum of 30 characters will be printed on the label, excess characters will be truncated.",
-                        "example": "1550 Union Blvd, Suite 302",
+                        "description": "This is the combination of number, street name, etc. Maximum length per line is 35.<br>Example: 10 FedEx Parkway, Suite 302.<p><i>Note:<ul><li>At least one line is required.</li><li>Streetlines more than 3 will be ignored.</li><li>Empty lines should not be included</li><li>For SmartPost Shipments, only 30 characters from the individual street lines will be printed on the labels.</li></ul></i></p>",
+                        "example": [
+                            "1550 Union Blvd, Suite 302"
+                        ],
                         "items": {
                             "type": "string"
                         }
@@ -1555,8 +1565,10 @@
                 "properties": {
                     "streetLines": {
                         "type": "array",
-                        "description": "This is the Combination of number, street name, etc. At least one line is required for a valid physical address. Empty lines should not be included. Max Length is 35. Note - For FedEx Ground Economy, a maximum of 30 characters will be printed on the label, excess characters will be truncated.",
-                        "example": "1550 Union Blvd, Suite 302",
+                        "description": "This is the Combination of number, street name, etc. At least one line is required for a valid physical address. Empty lines should not be included. Max Length is 35. <br> Note - For FedEx Ground Economy, a maximum of 30 characters will be printed on the label, excess characters will be truncated.",
+                        "example": [
+                            "1550 Union Blvd, Suite 302"
+                        ],
                         "items": {
                             "type": "string"
                         }
@@ -1624,12 +1636,12 @@
                     },
                     "phoneNumber": {
                         "type": "string",
-                        "description": "Contact person's phone number. <br>Minimum length is 1 and supports maximum of 15 for certain countries using longer phone numbers. <br>Note: For US and CA, a phone number must have exactly 10 digits, plus an optional leading country code of '1' or '+1'. <br>Example: 918xxxxx890",
+                        "description": "Specify contact phone number. <br>Minimum length is 1 and supports maximum of 15 for certain countries using longer phone numbers. <br>Note: For US and CA, a phone number must have exactly 10 digits, plus an optional leading country code of '1' or '+1'. <br>Example: 918xxxxx890",
                         "example": "1234567890"
                     },
                     "companyName": {
                         "type": "string",
-                        "description": "The shipper's company name. Max length is 35.<br>Example: FedEx",
+                        "description": "Specify contact company name. Max length is 35.<br>Example: FedEx",
                         "example": "Fedex"
                     }
                 },
@@ -1772,12 +1784,12 @@
                     },
                     "phoneNumber": {
                         "type": "string",
-                        "description": "The shipper's phone number. <br>Minimum length is 1 and supports maximum of 15 for certain countries using longer phone numbers.<br>Note: For US and CA, a phone number must have exactly 10 digits, plus an optional leading country code of '1' or '+1'.<br>Example: 918xxxxx890",
+                        "description": "Specify contact phone number. <br>Minimum length is 1 and supports maximum of 15 for certain countries using longer phone numbers.<br>Note: For US and CA, a phone number must have exactly 10 digits, plus an optional leading country code of '1' or '+1'.<br>Example: 918xxxxx890",
                         "example": "918xxxxx890"
                     },
                     "companyName": {
                         "type": "string",
-                        "description": "The shipper's company name. Max length is 35.<br>Example: FedEx",
+                        "description": "Specify contact company name. Max length is 35.<br>Example: FedEx",
                         "example": "Fedex"
                     }
                 },
@@ -2662,7 +2674,7 @@
                     },
                     "phoneNumber": {
                         "type": "string",
-                        "description": "Contact person's phone number. <br>Minimum length is 1 and supports maximum of 15 for certain countries using longer phone numbers. <br>Note: For US and CA, a phone number must have exactly 10 digits, plus an optional leading country code of '1' or '+1'.<br>Example: 918xxxxx890",
+                        "description": "Specify contact phone number. <br>Minimum length is 1 and supports maximum of 15 for certain countries using longer phone numbers. <br>Note: For US and CA, a phone number must have exactly 10 digits, plus an optional leading country code of '1' or '+1'.<br>Example: 918xxxxx890",
                         "example": "1234567890"
                     },
                     "phoneExtension": {
@@ -2677,11 +2689,11 @@
                     },
                     "companyName": {
                         "type": "string",
-                        "description": "Contact person's company name.<br>Note: Recommended Length is 35. There's no specific validation for the company name.<br>Example: FedEx",
+                        "description": "Specify contact company name.<br>Note: Recommended Length is 35. There's no specific validation for the company name.<br>Example: FedEx",
                         "example": "Fedex"
                     }
                 },
-                "description": "Indicate the contact details of the shipper.",
+                "description": "Indicate the contact details for this shipment.",
                 "example": {
                     "personName": "John Taylor",
                     "emailAddress": "sample@company.com",
@@ -3309,6 +3321,112 @@
                 },
                 "description": "These are customs clearance details. Required for International and intra-country Shipments."
             },
+            "CustomsClearanceDetail_1": {
+                "required": [
+                    "commercialInvoice",
+                    "commodities"
+                ],
+                "type": "object",
+                "properties": {
+                    "regulatoryControls": {
+                        "type": "array",
+                        "description": "These are the regulatory controls applicable to the shipment.<br> Example:[USMCA,FOOD_OR_PERISHABLE]",
+                        "example": [
+                            "NOT_IN_FREE_CIRCULATION",
+                            "USMCA"
+                        ],
+                        "items": {
+                            "type": "string",
+                            "enum": [
+                                "FOOD_OR_PERISHABLE",
+                                "USMCA",
+                                "NOT_APPLICABLE_FOR_LOW_VALUE_CUSTOMS_EXCEPTIONS",
+                                "NOT_IN_FREE_CIRCULATION"
+                            ]
+                        }
+                    },
+                    "brokers": {
+                        "type": "array",
+                        "description": "Specify broker information. Use this option only if you are using Broker Select Option for your shipment. A country code must be specified in addition to one of the following address items: postal code, city, or location id.",
+                        "items": {
+                            "$ref": "#/components/schemas/BrokerDetail"
+                        }
+                    },
+                    "commercialInvoice": {
+                        "$ref": "#/components/schemas/CommercialInvoice"
+                    },
+                    "freightOnValue": {
+                        "type": "string",
+                        "description": "Specify the risk owner for the Freight shipment.This element is only mandatory or valid for Intra India shipments.<br>Example: OWN_RISK",
+                        "example": "OWN_RISK",
+                        "enum": [
+                            "CARRIER_RISK",
+                            "OWN_RISK"
+                        ]
+                    },
+                    "dutiesPayment": {
+                        "$ref": "#/components/schemas/Payment_1"
+                    },
+                    "commodities": {
+                        "type": "array",
+                        "description": "Indicates the details about the dutiable packages. Maximum upto 999 commodities per shipment.",
+                        "items": {
+                            "$ref": "#/components/schemas/Commodity_1"
+                        }
+                    },
+                    "isDocumentOnly": {
+                        "type": "boolean",
+                        "description": "Defaults to false. Only used for international Express requests to indicate if just documents are being shipped or not. A valude of DERIVED will cause the value to be determined by PMIS based on the specified commodities information<br>Example: false",
+                        "example": true
+                    },
+                    "recipientCustomsId": {
+                        "$ref": "#/components/schemas/RecipientCustomsId"
+                    },
+                    "customsOption": {
+                        "$ref": "#/components/schemas/CustomsOptionDetail"
+                    },
+                    "importerOfRecord": {
+                        "description": "The descriptive data for the importer of Record for the shipment and their physical address, contact and account number information.",
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/Party_1"
+                            }
+                        ]
+                    },
+                    "generatedDocumentLocale": {
+                        "type": "string",
+                        "description": "This is the locale for generated document.<br>Example: en_US<br><a onclick='loadDocReference(\"locales\")'>click here to see Locales</a><br>Note: If the locale is left blank or an invalid locale is entered, an error message is returned in response.",
+                        "example": "en_US"
+                    },
+                    "exportDetail": {
+                        "$ref": "#/components/schemas/ExportDetail"
+                    },
+                    "totalCustomsValue": {
+                        "description": "This is the total customs value.",
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/Money"
+                            }
+                        ]
+                    },
+                    "partiesToTransactionAreRelated": {
+                        "type": "boolean",
+                        "description": "Specify if the transacting parties are related."
+                    },
+                    "declarationStatementDetail": {
+                        "$ref": "#/components/schemas/CustomsDeclarationStatementDetail"
+                    },
+                    "insuranceCharge": {
+                        "description": "Specify insurance charges if applicable. <br><i>Note: FedEx does not provide insurance of any kind.</i>",
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/Money"
+                            }
+                        ]
+                    }
+                },
+                "description": "These are customs clearance details. Required for International and intra-country Shipments."
+            },
             "BrokerDetail": {
                 "type": "object",
                 "properties": {
@@ -3459,7 +3577,7 @@
                     },
                     "declarationStatement": {
                         "type": "string",
-                        "description": "This is the declaration statement which will populate the Commercial Invoice (or Pro Forma).<br>Maximum length is 554.<br>Example: declarationStatement",
+                        "description": "For licensed/ECCN shipments, the Destination Control Statement is fixed and non-editable; shippers who need a different statement must supply their own commercial invoice.<br>Example: declarationStatement",
                         "example": "declarationStatement"
                     },
                     "termsOfSale": {
@@ -3790,6 +3908,13 @@
                             "$ref": "#/components/schemas/AdditionalMeasures"
                         }
                     },
+                    "regulatoryDetails": {
+                        "type": "array",
+                        "description": "List of regulatory compliance details associated with imported products.",
+                        "items": {
+                            "$ref": "#/components/schemas/RegulatoryDetail"
+                        }
+                    },
                     "numberOfPieces": {
                         "type": "integer",
                         "description": "Indicate the number of pieces associated with the commodity. The value can neither be negative nor exceed 9,999.<br>Example: 12",
@@ -3869,6 +3994,241 @@
                     },
                     "usmcaDetail": {
                         "$ref": "#/components/schemas/UsmcaDetail"
+                    }
+                }
+            },
+            "Commodity_1": {
+                "required": [
+                    "description"
+                ],
+                "type": "object",
+                "properties": {
+                    "clearanceItemDetail": {
+                        "type": "array",
+                        "description": "These are commodities clearance item detail",
+                        "items": {
+                            "$ref": "#/components/schemas/ClearanceItemDetail"
+                        }
+                    },
+                    "unitPrice": {
+                        "description": "This is the unit price.",
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/Money"
+                            }
+                        ]
+                    },
+                    "additionalMeasures": {
+                        "type": "array",
+                        "description": "This object contains additional quantitative information other than weight and quantity to calculate duties and taxes.",
+                        "items": {
+                            "$ref": "#/components/schemas/AdditionalMeasures"
+                        }
+                    },
+                    "numberOfPieces": {
+                        "type": "integer",
+                        "description": "Indicate the number of pieces associated with the commodity. The value can neither be negative nor exceed 9,999.<br>Example: 12",
+                        "format": "int32",
+                        "example": 12
+                    },
+                    "quantity": {
+                        "type": "integer",
+                        "description": "This is the units quantity (using quantityUnits as the unit of measure) per commodity. This is used to estimate duties and taxes.<br> Example: 125",
+                        "format": "int32",
+                        "example": 125
+                    },
+                    "quantityUnits": {
+                        "type": "string",
+                        "description": "This is the unit of measure for the units quantity. This is used to estimate duties and taxes.<br>Example: EA<br><a onclick='loadDocReference(\"harmonizedsystemcodeunitofmeasure-table1\")'>click here to see Commodity Unit Measures</a>",
+                        "example": "Ea"
+                    },
+                    "customsValue": {
+                        "description": "This customs value is applicable for all items(or units) under the specified commodity.",
+                        "allOf": [
+                            {
+                                "$ref": "#/components/schemas/Customs_Money"
+                            }
+                        ]
+                    },
+                    "countryOfManufacture": {
+                        "type": "string",
+                        "description": "This is commodity country of manufacture. This is required for International shipments. Maximum allowed length is 4.<br>Example: US<br><a onclick='loadDocReference(\"countrycodes\")'>click here to see Country codes</a>",
+                        "example": "US"
+                    },
+                    "cIMarksAndNumbers": {
+                        "type": "string",
+                        "description": "This is an identifying mark or number used on the packaging of a shipment to help customers identify a particular shipment<br>Example: 87123",
+                        "example": "87123"
+                    },
+                    "harmonizedCode": {
+                        "type": "string",
+                        "description": "This is to specify the Harmonized Tariff System (HTS) code to meet U.S. and foreign governments' customs requirements. These are mainly used to estimate the duties and taxes.<br>Example: 0613<br>To research the classification for your commodity, use the FedEx Global Trade Manager online at <a href='http://www.fedex.com/gtm' target='_blank'>fedex.com/gtm</a>. You will find country-specific information to determine whether your commodity is considered to be a document or non-document for your destination.",
+                        "example": "0613"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "Required<br>ScrewsMaximum allowed 450 characters.<br>Example: description",
+                        "example": "description"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "This is Commodity name.<br>Example: Non-Threaded Rivets",
+                        "example": "non-threaded rivets"
+                    },
+                    "weight": {
+                        "$ref": "#/components/schemas/Weight_4"
+                    },
+                    "exportLicenseNumber": {
+                        "type": "string",
+                        "description": "This is the export license number for the shipment.<br>Example: 26456",
+                        "example": "26456"
+                    },
+                    "exportLicenseExpirationDate": {
+                        "type": "string",
+                        "description": "Specify the export license expiration date for the shipment.<br>Format YYYY-MM-DD<br>Example : 2009-04-12",
+                        "format": "date-time"
+                    },
+                    "partNumber": {
+                        "type": "string",
+                        "description": "This is a part number.<br>Example: 167",
+                        "example": "167"
+                    },
+                    "purpose": {
+                        "type": "string",
+                        "description": "This field is used for calculation of duties and taxes.<br><br> Valid values are : BUSINESS and CONSUMER. <br>Example:BUSINESS",
+                        "example": "BUSINESS",
+                        "enum": [
+                            "BUSINESS",
+                            "CONSUMER"
+                        ]
+                    },
+                    "usmcaDetail": {
+                        "$ref": "#/components/schemas/UsmcaDetail"
+                    }
+                }
+            },
+            "RegulatoryDetail": {
+                "type": "object",
+                "required": [
+                    "productId",
+                    "productIdType",
+                    "regulationCode"
+                ],
+                "properties": {
+                    "regulationCode": {
+                        "type": "string",
+                        "description": "Regulatory authority governing the product compliance requirement.<br> Accepted values<br> 1) CPSC - U.S. Consumer Product Safety Commission<br> 2) EU_DE_MINIMIS - European Union Commission \u2014 de minimis removal <br> Example: CPSC",
+                        "example": "CPSC",
+                        "enum": [
+                            "CPSC",
+                            "EU_DE_MINIMIS"
+                        ]
+                    },
+                    "productId": {
+                        "maxLength": 70,
+                        "type": "string",
+                        "description": "Unique product identifier used in customs and compliance filings.</br>Maximum length is 70.<br> Example: AMZ-TOY-45821",
+                        "example": "AMZ-TOY-45821"
+                    },
+                    "productIdType": {
+                        "type": "string",
+                        "description": "Type of identifier used for the product.<br> Example: SKU",
+                        "example": "SKU",
+                        "enum": [
+                            "SKU",
+                            "PART_NUMBER",
+                            "REGISTERED_NUMBER",
+                            "GTIN",
+                            "UPC",
+                            "EAN",
+                            "MPN",
+                            "OTHER"
+                        ]
+                    },
+                    "details": {
+                        "$ref": "#/components/schemas/RegulatoryDetailInfo"
+                    }
+                }
+            },
+            "RegulatoryDetailInfo": {
+                "type": "object",
+                "description": "Container for regulation-specific filing information submitted to customs/CPSC.",
+                "properties": {
+                    "disclaimMessageSet": {
+                        "$ref": "#/components/schemas/DisclaimMessageSet"
+                    },
+                    "referenceMessageSet": {
+                        "$ref": "#/components/schemas/ReferenceMessageSet"
+                    },
+                    "standardManufacturerProductId": {
+                        "maxLength": 70,
+                        "type": "string",
+                        "description": "Manufacturer Standard Product Identifier per commodity - Assigned by a global industry standard body with a barcode when the manufacturer\u2019s product meets global standards from a governing body. The barcode is the same for every retailer selling the exact product.</br>Maximum length is 70.<br> Example: GTIN 00000006",
+                        "example": "GTIN 00000006"
+                    },
+                    "nonStandardManufacturerProductId": {
+                        "maxLength": 70,
+                        "type": "string",
+                        "description": "Manufacturer Non-Standard Product Identifier per commodity - A manufacturer or product supplier\u2019s unique product code, provided to sellers who must supply it for customs declaration.</br>Maximum length is 70.<br> Example: SH123456-L",
+                        "example": "SH123456-L"
+                    },
+                    "merchantProductId": {
+                        "maxLength": 70,
+                        "type": "string",
+                        "description": "Merchant Product Identifier (shipper SKU/item ID) per commodity - The merchant\u2019s unique code to identify goods, usually the SKU, item code or product code.</br>Maximum length is 70.<br> Example: 12345",
+                        "example": "12345"
+                    }
+                }
+            },
+            "DisclaimMessageSet": {
+                "type": "object",
+                "description": "Additional declaration information related to product use classification or exemption handling.",
+                "properties": {
+                    "disclaimCode": {
+                        "maxLength": 1,
+                        "type": "string",
+                        "description": "Code representing a specific declaration or filing condition.<br>Maximum length is 1.<br> Accepted values<br> 1. A - Product is not regulated by CPSC (meaning no rule, ban, standard, or regulation requiring a certificate applies.)<br> 2. B - Data is not required per CPSC guidance (enforcement discretion)<br>Example: A",
+                        "example": "A",
+                        "enum": [
+                            "A",
+                            "B"
+                        ]
+                    },
+                    "intendedUseCode": {
+                        "maxLength": 16,
+                        "type": "string",
+                        "description": "Standardized code describing the intended consumer use of the product.<br>Maximum length is 16.<br> Example: 245.001",
+                        "example": "245.001"
+                    },
+                    "intendedUseDescription": {
+                        "maxLength": 22,
+                        "type": "string",
+                        "description": "Plain-language description of the product\u2019s intended use.<br>Maximum length is 22.<br> Example: Children\u2019s plastic educational toy for ages 3+",
+                        "example": "Children\u2019s plastic educational toy for ages 3+"
+                    }
+                }
+            },
+            "ReferenceMessageSet": {
+                "type": "object",
+                "description": "Registry-based CPSC eFiling reference information for repeat shipments.",
+                "properties": {
+                    "productVersion": {
+                        "maxLength": 29,
+                        "type": "string",
+                        "description": "Version of the certified product record registered with CPSC.</br>Maximum length is 29.<br> Example: 2026.01",
+                        "example": "2026.01"
+                    },
+                    "certifierId": {
+                        "maxLength": 33,
+                        "type": "string",
+                        "description": "Identifier of the importer or manufacturer responsible for product certification.<br>Maximum length is 33.<br> Example: brightkids-imports-us",
+                        "example": "brightkids-imports-us"
+                    },
+                    "registryProductId": {
+                        "maxLength": 19,
+                        "type": "string",
+                        "description": "Certifier Id for the product registry.</br>Maximum length is 19.<br> Example: CPSC-2026-001234",
+                        "example": "CPSC-2026-001234"
                     }
                 }
             },
@@ -4527,7 +4887,7 @@
                     },
                     "dataField": {
                         "type": "string",
-                        "description": "Indicate the path request/reply element to be printed on doc tab.<br>Example: <ul><li> REQUEST/PACKAGE/weight/Value</li><li> REQUEST/PACKAGE/weight/Value</li><li> REQUEST/PACKAGE/InsuredValue/Amount</li><li> REQUEST/SHIPMENT/SpecialServicesRequested/CodDetail/CodCollectionAmount/Amount</li><li>REQUEST/SHIPMENT/Shipper/Address/StreetLines[1]CLIENT/MeterNumber</li><li> TRANSACTION/CustomerTransactionId</li><li> REQUEST/SHIPMENT/TotalWeight/Value</li><li> REQUEST/SHIPMENT/ShipTimestamp</li><li> REQUEST/SHIPMENT/Recipient/Contact/PersonName</li><li> REPLY/SHIPMENT/OperationalDetail/DeliveryDate</li><li>  REPLY/SHIPMENT/RATES/ACTUAL/totalBaseCharge/Amount</li><li> REPLY/SHIPMENT/RATES/ACTUAL/totalFreightDiscounts/Amount</li><li>  REPLY/SHIPMENT/RATES/ACTUAL/totalSurcharges/Amount</li><li> REPLY/SHIPMENT/RATES/ACTUAL/totalNetCharge/Amount</li><li> REPLY/SHIPMENT/RATES/PAYOR_ACCOUNT_PACKAGE/totalSurcharges/Amount</li></ul>"
+                        "description": "Indicate the path request/reply element to be printed on doc tab.<br>Example: <ul><li> REQUEST/PACKAGE/weight/Value</li><li> REQUEST/PACKAGE/InsuredValue/Amount</li><li> REQUEST/SHIPMENT/SpecialServicesRequested/CodDetail/CodCollectionAmount/Amount</li><li>REQUEST/SHIPMENT/Shipper/Address/StreetLines</li><li> TRANSACTION/CustomerTransactionId</li><li> REQUEST/SHIPMENT/TotalWeight/Value</li><li> REQUEST/SHIPMENT/ShipTimestamp</li><li> REQUEST/SHIPMENT/Recipient/Contact/PersonName</li><li> REPLY/SHIPMENT/OperationalDetail/DeliveryDate</li><li>  REPLY/SHIPMENT/RATES/ACTUAL/totalBaseCharge/Amount</li><li> REPLY/SHIPMENT/RATES/ACTUAL/totalFreightDiscounts/Amount</li><li>  REPLY/SHIPMENT/RATES/ACTUAL/totalSurcharges/Amount</li><li> REPLY/SHIPMENT/RATES/ACTUAL/totalNetCharge/Amount</li><li> REPLY/SHIPMENT/RATES/PAYOR_ACCOUNT_PACKAGE/totalSurcharges/Amount</li></ul>"
                     },
                     "literalValue": {
                         "type": "string",
@@ -5079,7 +5439,7 @@
                     },
                     "phoneNumber": {
                         "type": "string",
-                        "description": "Contact person's phone number. <br>Minimum length is 1 and supports maximum of 15 for certain countries using longer phone numbers. <br>Note: For US and CA, a phone number must have exactly 10 digits, plus an optional leading country code of '1' or '+1'. <br>Example: 918xxxxx890",
+                        "description": "Specify contact phone number. <br>Minimum length is 1 and supports maximum of 15 for certain countries using longer phone numbers. <br>Note: For US and CA, a phone number must have exactly 10 digits, plus an optional leading country code of '1' or '+1'. <br>Example: 918xxxxx890",
                         "example": "1234567890"
                     },
                     "companyName": {
@@ -10172,24 +10532,24 @@
                 "properties": {
                     "personName": {
                         "type": "string",
-                        "description": "Specify person name.<br>Example: John Taylor",
+                        "description": "Specify contact name.<br>Example: John Taylor",
                         "example": "John"
                     },
                     "emailAddress": {
                         "type": "string",
-                        "description": "Specify email address.<br>Example: sample@company.com"
+                        "description": "Specify contact email address.<br>Example: sample@company.com"
                     },
                     "phoneNumber": {
                         "type": "string",
-                        "description": "The shippers phone number. <br>Minimum length is 1 and supports maximum of 15 for certain countries using longer phone numbers.<br>Note: For US and CA, a phone number must have exactly 10 digits, plus an optional leading country code of 1 or +1.<br>Example: 918xxxxx890"
+                        "description": "Specify contact phone number. <br>Minimum length is 1 and supports maximum of 15 for certain countries using longer phone numbers.<br>Note: For US and CA, a phone number must have exactly 10 digits, plus an optional leading country code of 1 or +1.<br>Example: 918xxxxx890"
                     },
                     "phoneExtension": {
                         "type": "string",
-                        "description": "The shipper's phone extension. Max length is 6.<br>Example: 91"
+                        "description": "Specify contact phone extension. Max length is 6.<br>Example: 91"
                     },
                     "companyName": {
                         "type": "string",
-                        "description": "Specify company name."
+                        "description": "Specify contact company name."
                     }
                 },
                 "description": "Specify the contact information."
@@ -12567,10 +12927,13 @@
                         "$ref": "#/components/schemas/VariableHandlingChargeDetail"
                     },
                     "customsClearanceDetail": {
-                        "$ref": "#/components/schemas/CustomsClearanceDetail"
+                        "$ref": "#/components/schemas/CustomsClearanceDetail_1"
                     },
                     "smartPostInfoDetail": {
                         "$ref": "#/components/schemas/SmartPostInfoDetail"
+                    },
+                    "expressFreightDetail": {
+                        "$ref": "#/components/schemas/ExpressFreightDetail"
                     },
                     "blockInsightVisibility": {
                         "type": "boolean",
@@ -13387,6 +13750,508 @@
                     },
                     "accountNumber": {
                         "value": "XXXXX2842"
+                    }
+                }
+            },
+            "CPSC-Full_Message_Set": {
+                "example": {
+                    "labelResponseOptions": "LABEL",
+                    "requestedShipment": {
+                        "shipper": {
+                            "contact": {
+                                "personName": "SENDER NAME",
+                                "phoneNumber": "9018328595"
+                            },
+                            "address": {
+                                "city": "TORONTO",
+                                "stateOrProvinceCode": "ON",
+                                "postalCode": "m1m1m1",
+                                "countryCode": "CA",
+                                "residential": false,
+                                "streetLines": [
+                                    "SENDER ADDRESS 1",
+                                    "SENDER ADDRESS 2"
+                                ]
+                            }
+                        },
+                        "recipients": [
+                            {
+                                "contact": {
+                                    "personName": "RECIPIENT NAME",
+                                    "phoneNumber": "9018328595"
+                                },
+                                "address": {
+                                    "city": "MEMPHIS",
+                                    "stateOrProvinceCode": "TN",
+                                    "postalCode": "38116",
+                                    "countryCode": "US",
+                                    "residential": false,
+                                    "streetLines": [
+                                        "RECIPIENT ADDRESS 1",
+                                        "RECIPIENT ADDRESS 2"
+                                    ]
+                                }
+                            }
+                        ],
+                        "shipDatestamp": "2026-06-05",
+                        "pickupType": "DROPOFF_AT_FEDEX_LOCATION",
+                        "serviceType": "FEDEX_INTERNATIONAL_PRIORITY",
+                        "packagingType": "YOUR_PACKAGING",
+                        "blockInsightVisibility": false,
+                        "shippingChargesPayment": {
+                            "paymentType": "SENDER"
+                        },
+                        "customsClearanceDetail": {
+                            "totalCustomsValue": {
+                                "amount": "500",
+                                "currency": "USD"
+                            },
+                            "isDocumentOnly": "false",
+                            "dutiesPayment": {
+                                "paymentType": "SENDER"
+                            },
+                            "commodities": [
+                                {
+                                    "regulatoryDetails": [
+                                        {
+                                            "regulationCode": "CPSC",
+                                            "productId": "KIDUZ-PZ-001",
+                                            "productIdType": "SKU"
+                                        }
+                                    ],
+                                    "description": "Camera",
+                                    "countryOfManufacture": "CA",
+                                    "harmonizedCode": "92020202",
+                                    "numberOfPieces": "1",
+                                    "weight": {
+                                        "value": "25",
+                                        "units": "LB"
+                                    },
+                                    "quantity": "1",
+                                    "quantityUnits": "PCS",
+                                    "unitPrice": {
+                                        "amount": "500",
+                                        "currency": "USD"
+                                    },
+                                    "customsValue": {
+                                        "amount": "500",
+                                        "currency": "USD"
+                                    }
+                                }
+                            ]
+                        },
+                        "labelSpecification": {
+                            "imageType": "PDF",
+                            "labelStockType": "PAPER_4X6"
+                        },
+                        "shippingDocumentSpecification": {
+                            "shippingDocumentTypes": [
+                                "COMMERCIAL_INVOICE"
+                            ],
+                            "commercialInvoiceDetail": {
+                                "documentFormat": {
+                                    "docType": "PDF",
+                                    "stockType": "PAPER_LETTER"
+                                }
+                            }
+                        },
+                        "requestedPackageLineItems": [
+                            {
+                                "groupPackageCount": "1",
+                                "weight": {
+                                    "units": "LB",
+                                    "value": "25"
+                                },
+                                "declaredValue": {
+                                    "amount": "500",
+                                    "currency": "USD"
+                                }
+                            }
+                        ]
+                    },
+                    "accountNumber": {
+                        "value": "XXXXX7038"
+                    }
+                }
+            },
+            "CPSC-Disclaim_Message_Set": {
+                "example": {
+                    "labelResponseOptions": "LABEL",
+                    "requestedShipment": {
+                        "shipper": {
+                            "contact": {
+                                "personName": "SENDER NAME",
+                                "phoneNumber": "9018328595"
+                            },
+                            "address": {
+                                "city": "TORONTO",
+                                "stateOrProvinceCode": "ON",
+                                "postalCode": "m1m1m1",
+                                "countryCode": "CA",
+                                "residential": false,
+                                "streetLines": [
+                                    "SENDER ADDRESS 1",
+                                    "SENDER ADDRESS 2"
+                                ]
+                            }
+                        },
+                        "recipients": [
+                            {
+                                "contact": {
+                                    "personName": "RECIPIENT NAME",
+                                    "phoneNumber": "9018328595"
+                                },
+                                "address": {
+                                    "city": "MEMPHIS",
+                                    "stateOrProvinceCode": "TN",
+                                    "postalCode": "38116",
+                                    "countryCode": "US",
+                                    "residential": false,
+                                    "streetLines": [
+                                        "RECIPIENT ADDRESS 1",
+                                        "RECIPIENT ADDRESS 2"
+                                    ]
+                                }
+                            }
+                        ],
+                        "shipDatestamp": "2026-06-05",
+                        "pickupType": "DROPOFF_AT_FEDEX_LOCATION",
+                        "serviceType": "FEDEX_INTERNATIONAL_PRIORITY",
+                        "packagingType": "YOUR_PACKAGING",
+                        "blockInsightVisibility": false,
+                        "shippingChargesPayment": {
+                            "paymentType": "SENDER"
+                        },
+                        "customsClearanceDetail": {
+                            "totalCustomsValue": {
+                                "amount": "500",
+                                "currency": "USD"
+                            },
+                            "isDocumentOnly": "false",
+                            "dutiesPayment": {
+                                "paymentType": "SENDER"
+                            },
+                            "commodities": [
+                                {
+                                    "regulatoryDetails": [
+                                        {
+                                            "regulationCode": "CPSC",
+                                            "productId": "BOTTLE-SHELL-AL-001",
+                                            "productIdType": "SKU",
+                                            "details": {
+                                                "disclaimMessageSet": {
+                                                    "disclaimCode": "A",
+                                                    "intendedUseCode": "155.000",
+                                                    "intendedUseDescription": null
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "description": "Camera",
+                                    "countryOfManufacture": "CA",
+                                    "harmonizedCode": "92020202",
+                                    "numberOfPieces": "1",
+                                    "weight": {
+                                        "value": "25",
+                                        "units": "LB"
+                                    },
+                                    "quantity": "1",
+                                    "quantityUnits": "PCS",
+                                    "unitPrice": {
+                                        "amount": "500",
+                                        "currency": "USD"
+                                    },
+                                    "customsValue": {
+                                        "amount": "500",
+                                        "currency": "USD"
+                                    }
+                                }
+                            ]
+                        },
+                        "labelSpecification": {
+                            "imageType": "PDF",
+                            "labelStockType": "PAPER_4X6"
+                        },
+                        "shippingDocumentSpecification": {
+                            "shippingDocumentTypes": [
+                                "COMMERCIAL_INVOICE"
+                            ],
+                            "commercialInvoiceDetail": {
+                                "documentFormat": {
+                                    "docType": "PDF",
+                                    "stockType": "PAPER_LETTER"
+                                }
+                            }
+                        },
+                        "requestedPackageLineItems": [
+                            {
+                                "groupPackageCount": "1",
+                                "weight": {
+                                    "units": "LB",
+                                    "value": "25"
+                                },
+                                "declaredValue": {
+                                    "amount": "500",
+                                    "currency": "USD"
+                                }
+                            }
+                        ]
+                    },
+                    "accountNumber": {
+                        "value": "XXXXX7038"
+                    }
+                }
+            },
+            "CPSC-Reference_Message_Set": {
+                "example": {
+                    "labelResponseOptions": "LABEL",
+                    "requestedShipment": {
+                        "shipper": {
+                            "contact": {
+                                "personName": "SENDER NAME",
+                                "phoneNumber": "9018328595"
+                            },
+                            "address": {
+                                "city": "TORONTO",
+                                "stateOrProvinceCode": "ON",
+                                "postalCode": "m1m1m1",
+                                "countryCode": "CA",
+                                "residential": false,
+                                "streetLines": [
+                                    "SENDER ADDRESS 1",
+                                    "SENDER ADDRESS 2"
+                                ]
+                            }
+                        },
+                        "recipients": [
+                            {
+                                "contact": {
+                                    "personName": "RECIPIENT NAME",
+                                    "phoneNumber": "9018328595"
+                                },
+                                "address": {
+                                    "city": "MEMPHIS",
+                                    "stateOrProvinceCode": "TN",
+                                    "postalCode": "38116",
+                                    "countryCode": "US",
+                                    "residential": false,
+                                    "streetLines": [
+                                        "RECIPIENT ADDRESS 1",
+                                        "RECIPIENT ADDRESS 2"
+                                    ]
+                                }
+                            }
+                        ],
+                        "shipDatestamp": "2026-06-05",
+                        "pickupType": "DROPOFF_AT_FEDEX_LOCATION",
+                        "serviceType": "FEDEX_INTERNATIONAL_PRIORITY",
+                        "packagingType": "YOUR_PACKAGING",
+                        "blockInsightVisibility": false,
+                        "shippingChargesPayment": {
+                            "paymentType": "SENDER"
+                        },
+                        "customsClearanceDetail": {
+                            "totalCustomsValue": {
+                                "amount": "500",
+                                "currency": "USD"
+                            },
+                            "isDocumentOnly": "false",
+                            "dutiesPayment": {
+                                "paymentType": "SENDER"
+                            },
+                            "commodities": [
+                                {
+                                    "regulatoryDetails": [
+                                        {
+                                            "regulationCode": "CPSC",
+                                            "productId": "HELMET-YTH-001",
+                                            "productIdType": "SKU",
+                                            "details": {
+                                                "referenceMessageSet": {
+                                                    "productVersion": "PRIV-2026-Q1",
+                                                    "certifierId": "CERT-ACME-0007",
+                                                    "registryProductId": "CPSC-2026-001234"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "description": "Camera",
+                                    "countryOfManufacture": "CA",
+                                    "harmonizedCode": "92020202",
+                                    "numberOfPieces": "1",
+                                    "weight": {
+                                        "value": "25",
+                                        "units": "LB"
+                                    },
+                                    "quantity": "1",
+                                    "quantityUnits": "PCS",
+                                    "unitPrice": {
+                                        "amount": "500",
+                                        "currency": "USD"
+                                    },
+                                    "customsValue": {
+                                        "amount": "500",
+                                        "currency": "USD"
+                                    }
+                                }
+                            ]
+                        },
+                        "labelSpecification": {
+                            "imageType": "PDF",
+                            "labelStockType": "PAPER_4X6"
+                        },
+                        "shippingDocumentSpecification": {
+                            "shippingDocumentTypes": [
+                                "COMMERCIAL_INVOICE"
+                            ],
+                            "commercialInvoiceDetail": {
+                                "documentFormat": {
+                                    "docType": "PDF",
+                                    "stockType": "PAPER_LETTER"
+                                }
+                            }
+                        },
+                        "requestedPackageLineItems": [
+                            {
+                                "groupPackageCount": "1",
+                                "weight": {
+                                    "units": "LB",
+                                    "value": "25"
+                                },
+                                "declaredValue": {
+                                    "amount": "500",
+                                    "currency": "USD"
+                                }
+                            }
+                        ]
+                    },
+                    "accountNumber": {
+                        "value": "XXXXX7038"
+                    }
+                }
+            },
+            "EU_De_Minimis": {
+                "example": {
+                    "labelResponseOptions": "URL_ONLY",
+                    "accountNumber": {
+                        "value": "XXXXX7038"
+                    },
+                    "requestedShipment": {
+                        "serviceType": "FEDEX_INTERNATIONAL_PRIORITY",
+                        "shipper": {
+                            "address": {
+                                "residential": false,
+                                "city": "LIGHTHOUSE POINT",
+                                "countryCode": "US",
+                                "postalCode": "33064",
+                                "stateOrProvinceCode": "FL",
+                                "streetLines": [
+                                    "4040 NE 25TH AVE"
+                                ]
+                            },
+                            "contact": {
+                                "personName": "Test Shipper",
+                                "phoneNumber": "4944530395"
+                            }
+                        },
+                        "recipients": [
+                            {
+                                "address": {
+                                    "residential": false,
+                                    "city": "Schkeuditz",
+                                    "countryCode": "DE",
+                                    "postalCode": "04435",
+                                    "streetLines": [
+                                        "Paul-Thiersch-Str 16"
+                                    ]
+                                },
+                                "contact": {
+                                    "personName": "Test Recipient",
+                                    "phoneNumber": "1234345671"
+                                }
+                            }
+                        ],
+                        "shipDatestamp": "2026-06-05",
+                        "pickupType": "USE_SCHEDULED_PICKUP",
+                        "packagingType": "YOUR_PACKAGING",
+                        "blockInsightVisibility": false,
+                        "shippingChargesPayment": {
+                            "paymentType": "SENDER"
+                        },
+                        "labelSpecification": {
+                            "labelFormatType": "COMMON2D",
+                            "labelStockType": "PAPER_4X6",
+                            "imageType": "PNG"
+                        },
+                        "customsClearanceDetail": {
+                            "dutiesPayment": {
+                                "paymentType": "SENDER",
+                                "payor": {
+                                    "responsibleParty": {
+                                        "address": {
+                                            "countryCode": "DE"
+                                        },
+                                        "accountNumber": {
+                                            "value": "XXXXX7038"
+                                        }
+                                    }
+                                }
+                            },
+                            "totalCustomsValue": {
+                                "amount": "1200",
+                                "currency": "USD"
+                            },
+                            "isDocumentOnly": false,
+                            "commodities": [
+                                {
+                                    "description": "EU deminimis commodity",
+                                    "harmonizedCode": "610510002000",
+                                    "countryOfManufacture": "US",
+                                    "customsValue": {
+                                        "amount": "1200",
+                                        "currency": "USD"
+                                    },
+                                    "numberOfPieces": "1",
+                                    "quantity": "1",
+                                    "quantityUnits": "KGS",
+                                    "weight": {
+                                        "units": "KG",
+                                        "value": "10"
+                                    },
+                                    "unitPrice": {
+                                        "amount": "1200",
+                                        "currency": "USD"
+                                    },
+                                    "exportLicenseNumber": "EL-12345",
+                                    "partNumber": "PN-001",
+                                    "regulatoryDetails": [
+                                        {
+                                            "regulationCode": "EU_DE_MINIMIS",
+                                            "productId": "TSHIRT-L-001",
+                                            "productIdType": "SKU",
+                                            "details": {
+                                                "nonStandardManufacturerProductId": "SH123456-L",
+                                                "standardManufacturerProductId": "GTIN 00000006",
+                                                "merchantProductId": "12345"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "requestedPackageLineItems": [
+                            {
+                                "groupPackageCount": 1,
+                                "weight": {
+                                    "units": "KG",
+                                    "value": "10"
+                                },
+                                "declaredValue": {
+                                    "amount": "1200",
+                                    "currency": "USD"
+                                }
+                            }
+                        ]
                     }
                 }
             },
